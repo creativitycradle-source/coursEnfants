@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>ما هي الجغرافيا؟ بماذا تهتم؟ وما فائدتها بالنسبة لنا؟</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#173028; --ink-soft:#48594f;
+    --paper:#f5faf6; --panel:#ffffff; --line:#cfe0d5;
+    --teal:#1f7a63; --teal-soft:#dcf0e6;
+    --gold:#c08a2e; --gold-soft:#f6ecd4;
+    --sky:#2f6f9e; --sky-soft:#dfecf5;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#dde9e1;font-family:'Noto Naskh Arabic','Amiri',serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .sheet{max-width:880px;margin:24px auto;background:var(--paper);padding:38px 44px 50px;border:1px solid var(--line);box-shadow:0 4px 24px rgba(0,0,0,.12);}
+
+  .masthead{display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:3px solid var(--ink);padding-bottom:16px;margin-bottom:22px;}
+  .masthead-text h1{font-family:'Amiri',serif;font-weight:700;font-size:23px;margin:0 0 6px;color:var(--teal);line-height:1.4;}
+  .masthead-text .subtitle{font-size:15px;color:var(--ink-soft);margin:0;}
+  .globe-icon{width:56px;height:56px;flex-shrink:0;}
+
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+  .meta-chip{border:1px solid var(--line);background:var(--panel);border-radius:3px;padding:6px 12px;font-size:13.5px;color:var(--ink-soft);}
+  .meta-chip b{color:var(--ink);font-weight:600;}
+
+  section{margin-bottom:28px;}
+  h2.section-title{font-family:'Amiri',serif;font-size:21px;font-weight:700;color:var(--sky);border-bottom:2px solid var(--sky);padding-bottom:6px;margin:0 0 14px;display:flex;align-items:baseline;gap:8px;}
+  h3.sub-title{font-size:17px;font-weight:700;color:var(--gold);margin:20px 0 8px;}
+  p{line-height:2;font-size:15.5px;margin:0 0 10px;}
+
+  .objectif-box{background:var(--gold-soft);border-right:4px solid var(--gold);padding:14px 18px;border-radius:2px;font-size:15.5px;line-height:1.9;}
+
+  .rule-box{background:var(--panel);border:1px solid var(--line);border-right:4px solid var(--teal);padding:14px 18px;border-radius:2px;margin:10px 0 16px;}
+  .rule-box p:last-child{margin-bottom:0;}
+  .rule-box ul,.rule-box ol{margin:6px 0;padding-inline-start:22px;}
+  .rule-box li{margin-bottom:6px;line-height:1.85;}
+
+  .type-grid{display:flex;flex-wrap:wrap;gap:16px;margin:10px 0 16px;}
+  .type-card{flex:1 1 260px;border-radius:8px;padding:14px 16px;}
+  .type-card.nat{background:var(--teal-soft);border:1px solid var(--teal);}
+  .type-card.hum{background:var(--sky-soft);border:1px solid var(--sky);}
+  .type-card .head{font-weight:700;font-size:16px;margin-bottom:6px;}
+  .type-card.nat .head{color:var(--teal);}
+  .type-card.hum .head{color:var(--sky);}
+  .type-card p{margin:0;font-size:14.5px;line-height:1.85;}
+
+  .tool-grid{display:flex;flex-wrap:wrap;gap:12px;margin:10px 0 16px;}
+  .tool-card{flex:1 1 130px;text-align:center;border:1px solid var(--line);border-radius:8px;padding:10px;background:var(--panel);}
+  .tool-card svg{width:42px;height:42px;}
+  .tool-card .lbl{font-size:13px;font-weight:600;margin-top:4px;}
+
+  table.data-table{width:100%;border-collapse:collapse;margin:8px 0 18px;font-size:15px;}
+  table.data-table th{background:var(--sky);color:#fff;padding:8px 10px;font-weight:600;font-size:14px;}
+  table.data-table td{border:1px solid var(--line);padding:9px 10px;background:var(--panel);text-align:center;}
+  table.data-table tr:nth-child(even) td{background:#eef6f0;}
+
+  .activity-box{background:var(--panel);border:1.5px solid var(--gold);border-radius:3px;padding:16px 20px;}
+  .activity-box .task-label{display:inline-block;background:var(--gold);color:#fff;font-size:12.5px;padding:3px 10px;border-radius:2px;margin-bottom:8px;}
+
+  .exercise{border:1px solid var(--line);border-radius:3px;padding:16px 20px;margin-bottom:16px;background:var(--panel);}
+  .exercise-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:var(--ink);color:var(--paper);border-radius:50%;font-size:14px;font-weight:700;margin-inline-end:8px;}
+  .exercise h4{margin:0 0 10px;font-size:16.5px;display:flex;align-items:center;}
+  .fill-line{border-bottom:1px dotted var(--ink-soft);display:inline-block;min-width:120px;height:1.6em;}
+  .word-chip{display:inline-block;background:var(--paper);border:1px solid var(--line);border-radius:3px;padding:3px 12px;margin:3px 4px;font-size:16px;}
+  .qcm-item{margin-bottom:10px;}
+  .qcm-item p{margin-bottom:4px;font-weight:600;}
+  .qcm-options{display:flex;flex-wrap:wrap;gap:14px;font-size:14.5px;}
+  .qcm-options span{display:flex;align-items:center;gap:5px;}
+  .checkbox{width:13px;height:13px;border:1.4px solid var(--ink-soft);display:inline-block;border-radius:2px;}
+  .match-cols{display:flex;justify-content:space-between;gap:40px;margin-top:8px;}
+  .match-cols ul{list-style:none;padding:0;margin:0;}
+  .match-cols li{border:1px solid var(--line);background:var(--paper);padding:6px 14px;margin-bottom:10px;border-radius:3px;font-size:15px;}
+  .scenario-box{background:#eef6f0;border:1px solid var(--line);padding:12px 16px;font-size:15.5px;line-height:2.1;margin-bottom:10px;}
+
+  .corrige-wrapper{page-break-before:always;padding-top:6px;}
+  .corrige-flag{text-align:center;font-size:13px;color:var(--ink-soft);margin-bottom:10px;border-top:1px dashed var(--ink-soft);padding-top:14px;}
+  details.corrige{border:2px dashed var(--sky);border-radius:4px;background:#f4f9fc;padding:6px 20px 18px;}
+  details.corrige > summary{cursor:pointer;font-family:'Amiri',serif;font-weight:700;font-size:19px;color:var(--sky);padding:14px 0;list-style:none;}
+  details.corrige > summary::-webkit-details-marker{display:none;}
+  details.corrige > summary::before{content:"✂ ";}
+  details.corrige > summary::after{content:"— اضغط لإظهار الحل / إخفائه";font-family:'Noto Naskh Arabic',serif;font-weight:400;font-size:13px;color:var(--ink-soft);margin-inline-start:8px;}
+  .corrige h4{color:var(--sky);margin:16px 0 8px;font-size:16px;}
+  .corrige-item{margin-bottom:8px;font-size:15px;line-height:1.9;}
+  .corrige table.data-table th{background:var(--sky);}
+
+  .footer-note{margin-top:30px;text-align:center;font-size:12px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:10px;}
+
+  @media print{
+    body{background:#fff;}
+    .sheet{box-shadow:none;border:none;margin:0;max-width:100%;padding:14px 6px;}
+    details.corrige{border-color:#000;}
+  }
+  @page{size:A4;margin:14mm;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="masthead-text">
+      <h1>ما هي الجغرافيا؟ بماذا تهتمّ؟ وما فائدتها بالنسبة لنا؟</h1>
+      <p class="subtitle">الاجتماعيات — الجغرافيا: مدخل عام</p>
+    </div>
+    <svg class="globe-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="32" cy="32" r="24" fill="none" stroke="#1f7a63" stroke-width="3"/>
+      <ellipse cx="32" cy="32" rx="10" ry="24" fill="none" stroke="#2f6f9e" stroke-width="2"/>
+      <line x1="8" y1="32" x2="56" y2="32" stroke="#2f6f9e" stroke-width="2"/>
+      <path d="M11 20c10 6 32 6 42 0" stroke="#2f6f9e" stroke-width="1.5" fill="none"/>
+      <path d="M11 44c10-6 32-6 42 0" stroke="#2f6f9e" stroke-width="1.5" fill="none"/>
+    </svg>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta-chip">المستوى: <b>السادسة ابتدائي (6AEP)</b></div>
+    <div class="meta-chip">المادة: <b>الاجتماعيات — الجغرافيا</b></div>
+    <div class="meta-chip">مدة الحصة: <b>ساعة واحدة</b></div>
+    <div class="meta-chip">نوع الوثيقة: <b>فيشة تعلّم ذاتي (مدخل)</b></div>
+  </div>
+
+  <!-- ===================== OBJECTIF ===================== -->
+  <section>
+    <h2 class="section-title">🎯 الهدف من الدرس</h2>
+    <div class="objectif-box">
+      يتمكّن المتعلم(ة) في نهاية هذا الدرس من: تعريف علم الجغرافيا، وتحديد مجالات اهتمامها (الطبيعية والبشرية)، والتعرّف على أهم أدواتها، وإدراك فائدتها في فهم محيطه الطبيعي والبشري وحياته اليومية.
+    </div>
+  </section>
+
+  <!-- ===================== COURS ===================== -->
+  <section>
+    <h2 class="section-title">📘 الدرس</h2>
+
+    <h3 class="sub-title">1) ما هي الجغرافيا؟</h3>
+    <div class="rule-box">
+      <p><b>الجغرافيا</b> علم يدرس سطح الأرض بكل مكوناته: مكوناته <b>الطبيعية</b> (الجبال، السهول، الأنهار، المناخ)، ومكوناته <b>البشرية</b> (السكان، المدن، الأنشطة الاقتصادية)، والعلاقة القائمة بين الإنسان والوسط الذي يعيش فيه.</p>
+    </div>
+
+    <h3 class="sub-title">2) بماذا تهتمّ الجغرافيا؟</h3>
+    <div class="type-grid">
+      <div class="type-card nat">
+        <div class="head">🏔️ الجغرافيا الطبيعية</div>
+        <p>تهتمّ بدراسة عناصر الطبيعة: التضاريس (الجبال، السهول، الهضاب)، المناخ (الحرارة، الأمطار، الرياح)، المياه (الأنهار، البحار، المحيطات)، والغطاء النباتي.</p>
+      </div>
+      <div class="type-card hum">
+        <div class="head">🏙️ الجغرافيا البشرية</div>
+        <p>تهتمّ بدراسة الإنسان وأنشطته: توزيع السكان وعددهم، المدن والقرى، الأنشطة الاقتصادية كالفلاحة والصناعة والتجارة والسياحة.</p>
+      </div>
+    </div>
+    <p style="font-size:14px;color:var(--ink-soft);margin-top:-8px;">تدرس الجغرافيا أيضاً العلاقة بين الإنسان ومحيطه الطبيعي: كيف يتكيّف مع بيئته ويستغلّ مواردها، وكيف يؤثّر فيها.</p>
+
+    <h3 class="sub-title">3) أدوات الجغرافيا</h3>
+    <div class="tool-grid">
+      <div class="tool-card"><svg viewBox="0 0 48 48"><rect x="6" y="10" width="36" height="28" rx="3" fill="none" stroke="#1f7a63" stroke-width="3"/><path d="M14 14l8 20 8-14 6 12" stroke="#1f7a63" stroke-width="2" fill="none"/></svg><div class="lbl">الخريطة</div></div>
+      <div class="tool-card"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="18" fill="none" stroke="#2f6f9e" stroke-width="3"/><line x1="24" y1="24" x2="24" y2="10" stroke="#2f6f9e" stroke-width="2"/><line x1="24" y1="24" x2="33" y2="24" stroke="#2f6f9e" stroke-width="2"/></svg><div class="lbl">البوصلة</div></div>
+      <div class="tool-card"><svg viewBox="0 0 48 48"><rect x="18" y="6" width="10" height="26" rx="5" fill="none" stroke="#c08a2e" stroke-width="2.5"/><circle cx="23" cy="38" r="8" fill="none" stroke="#c08a2e" stroke-width="2.5"/></svg><div class="lbl">مقياس الحرارة</div></div>
+      <div class="tool-card"><svg viewBox="0 0 48 48"><rect x="8" y="14" width="32" height="20" rx="3" fill="none" stroke="#1f7a63" stroke-width="3"/><circle cx="24" cy="24" r="6" fill="none" stroke="#1f7a63" stroke-width="2"/></svg><div class="lbl">الصور الفضائية</div></div>
+      <div class="tool-card"><svg viewBox="0 0 48 48"><rect x="8" y="10" width="14" height="24" fill="none" stroke="#2f6f9e" stroke-width="2.5"/><rect x="26" y="18" width="14" height="16" fill="none" stroke="#2f6f9e" stroke-width="2.5"/></svg><div class="lbl">الرسوم البيانية والإحصائيات</div></div>
+    </div>
+
+    <h3 class="sub-title">4) ما فائدة الجغرافيا بالنسبة لنا؟</h3>
+    <div class="rule-box">
+      <ul>
+        <li>تساعدنا على <b>فهم محيطنا</b> الطبيعي والبشري الذي نعيش فيه.</li>
+        <li>تمكّننا من <b>قراءة الخرائط</b> ومعرفة مواقع الأماكن والتنقل بسهولة.</li>
+        <li>تساعدنا على <b>فهم الظواهر الطبيعية</b> (كالمناخ والفيضانات) وكيفية التعامل معها.</li>
+        <li>تعلّمنا كيفية <b>استغلال الموارد الطبيعية</b> بشكل عقلاني ومستدام.</li>
+        <li>تساعدنا على فهم العلاقات بين المناطق المختلفة (كالتجارة والهجرة).</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===================== ACTIVITE ===================== -->
+  <section>
+    <h2 class="section-title">✏️ نشاط تطبيقي</h2>
+    <div class="activity-box">
+      <span class="task-label">جولة استكشافية حول المدرسة</span>
+      <p>لاحظ محيط مدرستك (الشارع، الأحياء المجاورة، الطبيعة القريبة)، ثم أجب:</p>
+      <p>1) اذكر عنصرين من عناصر الجغرافيا الطبيعية لاحظتهما حول مدرستك (مثل: تلة، نهر، نوع المناخ...).</p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+      <p>2) اذكر عنصرين من عناصر الجغرافيا البشرية لاحظتهما حول مدرستك (مثل: أحياء سكنية، محلات تجارية، طرق...).</p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== EXERCICES ===================== -->
+  <section>
+    <h2 class="section-title">📝 تمارين للتدرّب</h2>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">1</span>صنّف العناصر التالية إلى (جغرافيا طبيعية / جغرافيا بشرية):</h4>
+      <p>
+        <span class="word-chip">الجبال</span>
+        <span class="word-chip">المدن</span>
+        <span class="word-chip">الأنهار</span>
+        <span class="word-chip">السكان</span>
+        <span class="word-chip">المناخ</span>
+        <span class="word-chip">الفلاحة</span>
+        <span class="word-chip">الغابات</span>
+        <span class="word-chip">الطرق</span>
+      </p>
+      <table class="data-table">
+        <tr><th>جغرافيا طبيعية</th><th>جغرافيا بشرية</th></tr>
+        <tr><td style="height:60px;"></td><td></td></tr>
+      </table>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">2</span>صل كل أداة جغرافية بوظيفتها:</h4>
+      <div class="match-cols">
+        <ul>
+          <li>أ) الخريطة</li>
+          <li>ب) البوصلة</li>
+          <li>ج) مقياس الحرارة</li>
+          <li>د) الصورة الفضائية</li>
+        </ul>
+        <ul>
+          <li>1) تحديد الاتجاهات</li>
+          <li>2) مراقبة سطح الأرض من الأعلى</li>
+          <li>3) تحديد المواقع والمسافات</li>
+          <li>4) قياس درجة الحرارة</li>
+        </ul>
+      </div>
+      <p style="margin-top:10px;">الإجابة: أ - .......... &nbsp; ب - .......... &nbsp; ج - .......... &nbsp; د - ..........</p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">3</span>اختر الإجابة الصحيحة:</h4>
+      <div class="qcm-item">
+        <p>1) الجغرافيا علم يدرس:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>سطح الأرض ومكوناته</span><span><span class="checkbox"></span>تاريخ الأمم</span><span><span class="checkbox"></span>اللغة العربية</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>2) دراسة الجبال والأنهار والمناخ تدخل ضمن:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>الجغرافيا الطبيعية</span><span><span class="checkbox"></span>الجغرافيا البشرية</span><span><span class="checkbox"></span>التاريخ</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>3) دراسة السكان والمدن والأنشطة الاقتصادية تدخل ضمن:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>الجغرافيا الطبيعية</span><span><span class="checkbox"></span>الجغرافيا البشرية</span><span><span class="checkbox"></span>الرياضيات</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>4) من أهمّ أدوات الجغرافيا:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>الخريطة</span><span><span class="checkbox"></span>الآلة الحاسبة فقط</span><span><span class="checkbox"></span>القلم فقط</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>5) من فوائد دراسة الجغرافيا:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>فهم محيطنا الطبيعي والبشري</span><span><span class="checkbox"></span>حفظ الأناشيد</span><span><span class="checkbox"></span>تعلّم الرسم فقط</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">4</span>أكمل الجمل التالية بالمعطى المناسب:</h4>
+      <p>1) تهتمّ الجغرافيا .......... بدراسة التضاريس والمناخ والمياه.</p>
+      <p>2) تهتمّ الجغرافيا .......... بدراسة السكان والمدن والأنشطة الاقتصادية.</p>
+      <p>3) تساعدنا .......... على تحديد مواقع الأماكن والمسافات بينها.</p>
+      <p>4) من فوائد الجغرافيا أنها تساعدنا على فهم .......... الذي نعيش فيه.</p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">5</span>سؤال تحليلي:</h4>
+      <div class="scenario-box">
+        يخطّط والد أسرة لرحلة عائلية إلى مدينة بعيدة، ويريد معرفة المسافة والطريق المناسب وحالة الطقس المتوقعة هناك.
+      </div>
+      <p>كيف يمكن للجغرافيا أن تساعد هذا الأب في التخطيط لرحلته؟ اذكر مثالين ملموسين.</p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== CORRIGE ===================== -->
+  <div class="corrige-wrapper">
+    <p class="corrige-flag">✂ يمكن طي هذه الصفحة أو إخفاؤها (اضغط على العنوان أدناه) قبل إنجاز التمارين ✂</p>
+    <details class="corrige">
+      <summary>التصحيح الكامل</summary>
+
+      <h4>تصحيح النشاط التطبيقي</h4>
+      <div class="corrige-item">يتحقق الأستاذ(ة) من أن الأمثلة المقترحة من المتعلم(ة) صحيحة ومناسبة (مثال طبيعي: تضاريس المنطقة أو نوع مناخها؛ مثال بشري: الأحياء السكنية أو المحلات التجارية القريبة من المدرسة).</div>
+
+      <h4>تصحيح التمرين 1 (التصنيف)</h4>
+      <div class="corrige-item"><b>جغرافيا طبيعية:</b> الجبال، الأنهار، المناخ، الغابات</div>
+      <div class="corrige-item"><b>جغرافيا بشرية:</b> المدن، السكان، الفلاحة، الطرق</div>
+
+      <h4>تصحيح التمرين 2 (الربط)</h4>
+      <div class="corrige-item">أ - 3 (الخريطة ← المواقع والمسافات) &nbsp;|&nbsp; ب - 1 (البوصلة ← الاتجاهات) &nbsp;|&nbsp; ج - 4 (مقياس الحرارة ← درجة الحرارة) &nbsp;|&nbsp; د - 2 (الصورة الفضائية ← مراقبة سطح الأرض)</div>
+
+      <h4>تصحيح التمرين 3 (الاختيار من متعدد)</h4>
+      <div class="corrige-item">1) سطح الأرض ومكوناته &nbsp;|&nbsp; 2) الجغرافيا الطبيعية &nbsp;|&nbsp; 3) الجغرافيا البشرية &nbsp;|&nbsp; 4) الخريطة &nbsp;|&nbsp; 5) فهم محيطنا الطبيعي والبشري</div>
+
+      <h4>تصحيح التمرين 4 (إكمال الجمل)</h4>
+      <div class="corrige-item">1) الطبيعية &nbsp;|&nbsp; 2) البشرية &nbsp;|&nbsp; 3) الخريطة &nbsp;|&nbsp; 4) المحيط (الطبيعي والبشري)</div>
+
+      <h4>تصحيح التمرين 5 (السؤال التحليلي)</h4>
+      <div class="corrige-item">1) يمكنه استعمال خريطة لمعرفة المسافة بين مدينته والمدينة المقصودة، وتحديد أفضل طريق للوصول إليها.</div>
+      <div class="corrige-item">2) يمكنه الاطّلاع على معطيات المناخ الخاصة بتلك المدينة للتنبّؤ بحالة الطقس المتوقعة أثناء الرحلة، والاستعداد لها بشكل مناسب.</div>
+    </details>
+  </div>
+
+  <p class="footer-note">فيشة تعلّم ذاتي — الاجتماعيات (الجغرافيا) — السادسة ابتدائي — ما هي الجغرافيا؟ بماذا تهتمّ؟ وما فائدتها بالنسبة لنا؟</p>
+</div>
+</body>
+</html>
