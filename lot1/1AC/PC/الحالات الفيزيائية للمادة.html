@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>الحالات الفيزيائية للمادة</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1f2438; --ink-soft:#4b4f66;
+    --paper:#f8f8fc; --panel:#ffffff; --line:#d8d9ea;
+    --solid:#5b4b9e; --solid-soft:#ece7f8;
+    --liquid:#1c7fa0; --liquid-soft:#dcf0f7;
+    --gas:#2f9e7d; --gas-soft:#dff5ee;
+    --amber:#c98a2e;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#e4e4ee;font-family:'Noto Naskh Arabic','Amiri',serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .sheet{max-width:880px;margin:24px auto;background:var(--paper);padding:38px 44px 50px;border:1px solid var(--line);box-shadow:0 4px 24px rgba(0,0,0,.12);}
+
+  .masthead{display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:3px solid var(--ink);padding-bottom:16px;margin-bottom:22px;}
+  .masthead-text h1{font-family:'Amiri',serif;font-weight:700;font-size:28px;margin:0 0 6px;color:var(--liquid);}
+  .masthead-text .subtitle{font-size:15px;color:var(--ink-soft);margin:0;}
+  .matter-icon{width:60px;height:60px;flex-shrink:0;}
+
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+  .meta-chip{border:1px solid var(--line);background:var(--panel);border-radius:3px;padding:6px 12px;font-size:13.5px;color:var(--ink-soft);}
+  .meta-chip b{color:var(--ink);font-weight:600;}
+
+  section{margin-bottom:28px;}
+  h2.section-title{font-family:'Amiri',serif;font-size:21px;font-weight:700;color:var(--liquid);border-bottom:2px solid var(--liquid);padding-bottom:6px;margin:0 0 14px;display:flex;align-items:baseline;gap:8px;}
+  h3.sub-title{font-size:17px;font-weight:700;color:var(--amber);margin:20px 0 8px;}
+  p{line-height:2;font-size:15.5px;margin:0 0 10px;}
+
+  .objectif-box{background:#f6ecd7;border-right:4px solid var(--amber);padding:14px 18px;border-radius:2px;font-size:15.5px;line-height:1.9;}
+
+  .rule-box{background:var(--panel);border:1px solid var(--line);border-right:4px solid var(--liquid);padding:14px 18px;border-radius:2px;margin:10px 0 16px;}
+  .rule-box p:last-child{margin-bottom:0;}
+  .rule-box ul,.rule-box ol{margin:6px 0;padding-inline-start:22px;}
+  .rule-box li{margin-bottom:6px;line-height:1.85;}
+
+  .state-grid{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;margin:10px 0 16px;}
+  .state-card{flex:1 1 220px;border-radius:8px;padding:12px;text-align:center;}
+  .state-card.solid{background:var(--solid-soft);border:1px solid var(--solid);}
+  .state-card.liquid{background:var(--liquid-soft);border:1px solid var(--liquid);}
+  .state-card.gas{background:var(--gas-soft);border:1px solid var(--gas);}
+  .state-card svg{width:100%;max-width:150px;height:auto;}
+  .state-card .name{font-weight:700;font-size:15.5px;margin-top:4px;}
+  .state-card.solid .name{color:var(--solid);}
+  .state-card.liquid .name{color:var(--liquid);}
+  .state-card.gas .name{color:var(--gas);}
+  .state-card .ex{font-size:13px;color:var(--ink-soft);}
+
+  table.data-table{width:100%;border-collapse:collapse;margin:8px 0 18px;font-size:15px;}
+  table.data-table th{background:var(--liquid);color:#fff;padding:8px 10px;font-weight:600;font-size:14px;}
+  table.data-table td{border:1px solid var(--line);padding:9px 10px;background:var(--panel);text-align:center;}
+  table.data-table tr:nth-child(even) td{background:#eef0f8;}
+
+  .activity-box{background:var(--panel);border:1.5px solid var(--amber);border-radius:3px;padding:16px 20px;}
+  .activity-box .task-label{display:inline-block;background:var(--amber);color:#fff;font-size:12.5px;padding:3px 10px;border-radius:2px;margin-bottom:8px;}
+
+  .exercise{border:1px solid var(--line);border-radius:3px;padding:16px 20px;margin-bottom:16px;background:var(--panel);}
+  .exercise-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:var(--ink);color:var(--paper);border-radius:50%;font-size:14px;font-weight:700;margin-inline-end:8px;}
+  .exercise h4{margin:0 0 10px;font-size:16.5px;display:flex;align-items:center;}
+  .fill-line{border-bottom:1px dotted var(--ink-soft);display:inline-block;min-width:120px;height:1.6em;}
+  .word-chip{display:inline-block;background:var(--paper);border:1px solid var(--line);border-radius:3px;padding:3px 12px;margin:3px 4px;font-size:16px;}
+  .qcm-item{margin-bottom:10px;}
+  .qcm-item p{margin-bottom:4px;font-weight:600;}
+  .qcm-options{display:flex;flex-wrap:wrap;gap:14px;font-size:14.5px;}
+  .qcm-options span{display:flex;align-items:center;gap:5px;}
+  .checkbox{width:13px;height:13px;border:1.4px solid var(--ink-soft);display:inline-block;border-radius:2px;}
+  .match-cols{display:flex;justify-content:space-between;gap:30px;margin-top:8px;flex-wrap:wrap;}
+  .match-cols .diagram-item{text-align:center;flex:1 1 140px;}
+  .match-cols .diagram-item svg{width:100px;height:80px;}
+  .scenario-box{background:#eef0f8;border:1px solid var(--line);padding:12px 16px;font-size:15.5px;line-height:2.1;margin-bottom:10px;}
+
+  .corrige-wrapper{page-break-before:always;padding-top:6px;}
+  .corrige-flag{text-align:center;font-size:13px;color:var(--ink-soft);margin-bottom:10px;border-top:1px dashed var(--ink-soft);padding-top:14px;}
+  details.corrige{border:2px dashed var(--gas);border-radius:4px;background:#f5fbf8;padding:6px 20px 18px;}
+  details.corrige > summary{cursor:pointer;font-family:'Amiri',serif;font-weight:700;font-size:19px;color:var(--gas);padding:14px 0;list-style:none;}
+  details.corrige > summary::-webkit-details-marker{display:none;}
+  details.corrige > summary::before{content:"✂ ";}
+  details.corrige > summary::after{content:"— اضغط لإظهار الحل / إخفائه";font-family:'Noto Naskh Arabic',serif;font-weight:400;font-size:13px;color:var(--ink-soft);margin-inline-start:8px;}
+  .corrige h4{color:var(--gas);margin:16px 0 8px;font-size:16px;}
+  .corrige-item{margin-bottom:8px;font-size:15px;line-height:1.9;}
+  .corrige table.data-table th{background:var(--gas);}
+
+  .footer-note{margin-top:30px;text-align:center;font-size:12px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:10px;}
+
+  @media print{
+    body{background:#fff;}
+    .sheet{box-shadow:none;border:none;margin:0;max-width:100%;padding:14px 6px;}
+    details.corrige{border-color:#000;}
+  }
+  @page{size:A4;margin:14mm;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="masthead-text">
+      <h1>الحالاتُ الفيزيائيةُ للمادةِ</h1>
+      <p class="subtitle">الفيزياء والكيمياء — عالم المادة</p>
+    </div>
+    <svg class="matter-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="6" y="38" width="14" height="14" fill="#5b4b9e"/>
+      <path d="M26 40c0-6 4-10 8-10s8 4 8 10v10a8 8 0 0 1-16 0z" fill="#1c7fa0"/>
+      <circle cx="50" cy="20" r="3" fill="#2f9e7d"/><circle cx="56" cy="30" r="2.5" fill="#2f9e7d"/><circle cx="46" cy="32" r="2" fill="#2f9e7d"/>
+    </svg>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta-chip">المستوى: <b>الأولى إعدادي (1AC)</b></div>
+    <div class="meta-chip">المادة: <b>الفيزياء والكيمياء</b></div>
+    <div class="meta-chip">مدة الحصة: <b>ساعة واحدة</b></div>
+    <div class="meta-chip">نوع الوثيقة: <b>فيشة تعلّم ذاتي</b></div>
+  </div>
+
+  <!-- ===================== OBJECTIF ===================== -->
+  <section>
+    <h2 class="section-title">🎯 الهدف من الدرس</h2>
+    <div class="objectif-box">
+      يتمكّن المتعلم(ة) في نهاية هذا الدرس من: تعريف المادة، والتمييز بين الحالات الفيزيائية الثلاث للمادة (الصلبة والسائلة والغازية) من حيث الشكل والحجم، وتفسير خصائص كل حالة باستعمال النموذج الجسيمي المبسط، وتحديد تغيرات الحالة الفيزيائية لمواد مختلفة.
+    </div>
+  </section>
+
+  <!-- ===================== COURS ===================== -->
+  <section>
+    <h2 class="section-title">📘 الدرس</h2>
+
+    <h3 class="sub-title">1) ما هي المادة؟</h3>
+    <div class="rule-box">
+      <p><b>المادة</b> هي كل ما له <b>كتلة</b> (تُقاس بالميزان) ويحتل <b>حيزاً من الفراغ</b> (له حجم). أمثلة: الخشب، الماء، الهواء، الحديد، الزجاج... كل هذه أمثلة على المادة، مهما كانت حالتها.</p>
+    </div>
+
+    <h3 class="sub-title">2) الحالات الفيزيائية الثلاث للمادة</h3>
+    <div class="rule-box">
+      <p>يمكن أن توجد المادة في إحدى ثلاث حالات فيزيائية، تختلف فيما بينها من حيث الشكل والحجم:</p>
+    </div>
+    <div class="state-grid">
+      <div class="state-card solid">
+        <svg viewBox="0 0 100 100"><circle cx="25" cy="25" r="9" fill="#5b4b9e"/><circle cx="50" cy="25" r="9" fill="#5b4b9e"/><circle cx="75" cy="25" r="9" fill="#5b4b9e"/><circle cx="25" cy="50" r="9" fill="#5b4b9e"/><circle cx="50" cy="50" r="9" fill="#5b4b9e"/><circle cx="75" cy="50" r="9" fill="#5b4b9e"/><circle cx="25" cy="75" r="9" fill="#5b4b9e"/><circle cx="50" cy="75" r="9" fill="#5b4b9e"/><circle cx="75" cy="75" r="9" fill="#5b4b9e"/></svg>
+        <div class="name">الحالة الصلبة</div>
+        <div class="ex">شكل محدد وحجم محدد. مثال: الحديد، الخشب، الثلج</div>
+      </div>
+      <div class="state-card liquid">
+        <svg viewBox="0 0 100 100"><circle cx="22" cy="30" r="8" fill="#1c7fa0"/><circle cx="45" cy="22" r="8" fill="#1c7fa0"/><circle cx="68" cy="32" r="8" fill="#1c7fa0"/><circle cx="30" cy="55" r="8" fill="#1c7fa0"/><circle cx="55" cy="50" r="8" fill="#1c7fa0"/><circle cx="78" cy="58" r="8" fill="#1c7fa0"/><circle cx="20" cy="78" r="8" fill="#1c7fa0"/><circle cx="48" cy="80" r="8" fill="#1c7fa0"/></svg>
+        <div class="name">الحالة السائلة</div>
+        <div class="ex">شكل غير محدد (يأخذ شكل الإناء) وحجم محدد. مثال: الزيت، الماء، الكحول</div>
+      </div>
+      <div class="state-card gas">
+        <svg viewBox="0 0 100 100"><circle cx="15" cy="15" r="5" fill="#2f9e7d"/><circle cx="55" cy="10" r="5" fill="#2f9e7d"/><circle cx="85" cy="30" r="5" fill="#2f9e7d"/><circle cx="30" cy="50" r="5" fill="#2f9e7d"/><circle cx="70" cy="60" r="5" fill="#2f9e7d"/><circle cx="10" cy="80" r="5" fill="#2f9e7d"/><circle cx="50" cy="85" r="5" fill="#2f9e7d"/><circle cx="90" cy="80" r="5" fill="#2f9e7d"/></svg>
+        <div class="name">الحالة الغازية</div>
+        <div class="ex">لا شكل محدد ولا حجم محدد. مثال: الهواء، الأكسجين، ثاني أكسيد الكربون</div>
+      </div>
+    </div>
+
+    <h3 class="sub-title">3) جدول مقارن للخصائص</h3>
+    <table class="data-table">
+      <tr><th>الحالة</th><th>الشكل</th><th>الحجم</th></tr>
+      <tr><td>الصلبة</td><td>محدد (ثابت)</td><td>محدد (ثابت)</td></tr>
+      <tr><td>السائلة</td><td>غير محدد (يأخذ شكل الإناء)</td><td>محدد (ثابت)</td></tr>
+      <tr><td>الغازية</td><td>غير محدد</td><td>غير محدد (يملأ كل الحيز المتاح)</td></tr>
+    </table>
+
+    <h3 class="sub-title">4) النموذج الجسيمي المبسط</h3>
+    <div class="rule-box">
+      <p>تتكوّن كل مادة من جسيمات صغيرة جداً لا تُرى بالعين المجردة. يختلف ترتيب هذه الجسيمات وحركتها حسب الحالة الفيزيائية:</p>
+      <ul>
+        <li><b>الحالة الصلبة:</b> الجسيمات متراصة ومرتّبة بشكل منتظم ومتلاصقة، ولا تتحرك إلا باهتزاز بسيط في مكانها.</li>
+        <li><b>الحالة السائلة:</b> الجسيمات متقاربة لكن غير مرتّبة بانتظام، ويمكنها التحرك والانزلاق فوق بعضها البعض.</li>
+        <li><b>الحالة الغازية:</b> الجسيمات متباعدة جداً عن بعضها، وتتحرك بحرية كبيرة وبسرعة في جميع الاتجاهات.</li>
+      </ul>
+    </div>
+
+    <h3 class="sub-title">5) تغيرات الحالة الفيزيائية</h3>
+    <div class="rule-box">
+      <p>يمكن لأي مادة أن تنتقل من حالة إلى أخرى بفعل تغيّر درجة الحرارة، ولكل انتقال اسم خاص: <b>الانصهار</b> (صلبة←سائلة)، <b>التجمّد</b> (سائلة←صلبة)، <b>التبخّر</b> (سائلة←غازية)، <b>التكاثف</b> (غازية←سائلة)، <b>التصعيد</b> (صلبة←غازية مباشرة)، <b>الإماهة</b> (غازية←صلبة مباشرة).</p>
+      <p>أمثلة متنوعة (غير الماء): يذوب <b>الشمع</b> بالتسخين (انصهار)؛ ينصهر <b>الحديد</b> عند درجة حرارة عالية جداً (حوالي 1538°C)؛ يتصعّد <b>اليود الصلب</b> مباشرة إلى بخار عند تسخينه بلطف.</p>
+    </div>
+
+    <h3 class="sub-title">6) أمثلة على حالة بعض المواد في الظروف العادية</h3>
+    <table class="data-table">
+      <tr><th>المادة</th><th>الحالة في الظروف العادية</th></tr>
+      <tr><td>الحديد</td><td>صلبة</td></tr>
+      <tr><td>الزيت</td><td>سائلة</td></tr>
+      <tr><td>الأكسجين</td><td>غازية</td></tr>
+      <tr><td>الذهب</td><td>صلبة</td></tr>
+      <tr><td>الكحول</td><td>سائلة</td></tr>
+    </table>
+  </section>
+
+  <!-- ===================== ACTIVITE ===================== -->
+  <section>
+    <h2 class="section-title">🔬 نشاط تطبيقي</h2>
+    <div class="activity-box">
+      <span class="task-label">تصنيف وتمثيل جسيمي</span>
+      <p>1) صنّف المواد التالية حسب حالتها الفيزيائية في الظروف العادية: العسل، الخشب، ثاني أكسيد الكربون، الذهب، الكحول، الهيليوم.</p>
+      <table class="data-table">
+        <tr><th>صلبة</th><th>سائلة</th><th>غازية</th></tr>
+        <tr><td style="height:50px;"></td><td></td><td></td></tr>
+      </table>
+      <p>2) ارسم في الإطار التالي نموذجاً جسيمياً مبسطاً (دوائر صغيرة) يمثّل ترتيب الجسيمات في <b>الحالة السائلة</b>:</p>
+      <div style="border:1px dashed var(--ink-soft);border-radius:6px;height:100px;max-width:200px;margin:8px auto;"></div>
+    </div>
+  </section>
+
+  <!-- ===================== EXERCICES ===================== -->
+  <section>
+    <h2 class="section-title">📝 تمارين للتدرّب</h2>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">1</span>صنّف المواد التالية حسب حالتها الفيزيائية في الظروف العادية:</h4>
+      <p>
+        <span class="word-chip">الحديد</span>
+        <span class="word-chip">الزيت</span>
+        <span class="word-chip">الأكسجين</span>
+        <span class="word-chip">الخشب</span>
+        <span class="word-chip">الكحول</span>
+        <span class="word-chip">ثاني أكسيد الكربون</span>
+        <span class="word-chip">الذهب</span>
+        <span class="word-chip">العسل</span>
+      </p>
+      <table class="data-table">
+        <tr><th>صلبة</th><th>سائلة</th><th>غازية</th></tr>
+        <tr><td style="height:60px;"></td><td></td><td></td></tr>
+      </table>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">2</span>اختر الإجابة الصحيحة:</h4>
+      <div class="qcm-item">
+        <p>1) المادة التي لها شكل محدد وحجم محدد توجد في الحالة:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>الصلبة</span><span><span class="checkbox"></span>السائلة</span><span><span class="checkbox"></span>الغازية</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>2) في الحالة الغازية، تكون الجسيمات:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>متراصة ومنتظمة</span><span><span class="checkbox"></span>متباعدة جداً ومتحركة بحرية</span><span><span class="checkbox"></span>ثابتة تماماً</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>3) السائل يأخذ شكل الإناء الذي يوضع فيه، لكن حجمه:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>يتغيّر باستمرار</span><span><span class="checkbox"></span>يبقى ثابتاً</span><span><span class="checkbox"></span>يساوي صفراً</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>4) المادة هي كل ما:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>له لون فقط</span><span><span class="checkbox"></span>له كتلة ويحتل حيزاً من الفراغ</span><span><span class="checkbox"></span>يمكن رؤيته بالعين فقط</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>5) الأكسجين في الظروف العادية يوجد في الحالة:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>الصلبة</span><span><span class="checkbox"></span>السائلة</span><span><span class="checkbox"></span>الغازية</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">3</span>أكمل الجدول بخصائص كل حالة (محدد / غير محدد):</h4>
+      <table class="data-table">
+        <tr><th>الحالة</th><th>الشكل</th><th>الحجم</th></tr>
+        <tr><td>الصلبة</td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+        <tr><td>السائلة</td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+        <tr><td>الغازية</td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+      </table>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">4</span>اربط كل نموذج جسيمي باسم الحالة الفيزيائية التي يمثّلها:</h4>
+      <div class="match-cols">
+        <div class="diagram-item">
+          <svg viewBox="0 0 100 80"><circle cx="20" cy="20" r="7" fill="#5b4b9e"/><circle cx="45" cy="20" r="7" fill="#5b4b9e"/><circle cx="70" cy="20" r="7" fill="#5b4b9e"/><circle cx="20" cy="45" r="7" fill="#5b4b9e"/><circle cx="45" cy="45" r="7" fill="#5b4b9e"/><circle cx="70" cy="45" r="7" fill="#5b4b9e"/></svg>
+          <span class="fill-line"></span>
+        </div>
+        <div class="diagram-item">
+          <svg viewBox="0 0 100 80"><circle cx="15" cy="15" r="5" fill="#2f9e7d"/><circle cx="60" cy="10" r="5" fill="#2f9e7d"/><circle cx="85" cy="35" r="5" fill="#2f9e7d"/><circle cx="30" cy="50" r="5" fill="#2f9e7d"/><circle cx="70" cy="65" r="5" fill="#2f9e7d"/></svg>
+          <span class="fill-line"></span>
+        </div>
+        <div class="diagram-item">
+          <svg viewBox="0 0 100 80"><circle cx="20" cy="25" r="7" fill="#1c7fa0"/><circle cx="42" cy="18" r="7" fill="#1c7fa0"/><circle cx="65" cy="28" r="7" fill="#1c7fa0"/><circle cx="28" cy="50" r="7" fill="#1c7fa0"/><circle cx="55" cy="48" r="7" fill="#1c7fa0"/></svg>
+          <span class="fill-line"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">5</span>وضعية-مشكلة:</h4>
+      <div class="scenario-box">
+        لاحظت سارة أن الماء الذي سكبته في كأس يأخذ شكل الكأس تماماً، بينما مكعّب الثلج الذي وضعته بجانبه يحافظ على شكله المكعّب دون أن يتغيّر.
+      </div>
+      <p>1) فسّري هذا الاختلاف بالاعتماد على خصائص الحالتين الصلبة والسائلة.</p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+      <p>2) فسّري هذا الاختلاف بالاعتماد على النموذج الجسيمي (ترتيب وحركة الجسيمات) في كل حالة.</p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== CORRIGE ===================== -->
+  <div class="corrige-wrapper">
+    <p class="corrige-flag">✂ يمكن طي هذه الصفحة أو إخفاؤها (اضغط على العنوان أدناه) قبل إنجاز التمارين ✂</p>
+    <details class="corrige">
+      <summary>التصحيح الكامل</summary>
+
+      <h4>تصحيح النشاط التطبيقي</h4>
+      <div class="corrige-item"><b>صلبة:</b> الخشب، الذهب &nbsp;|&nbsp; <b>سائلة:</b> العسل، الكحول &nbsp;|&nbsp; <b>غازية:</b> ثاني أكسيد الكربون، الهيليوم</div>
+      <div class="corrige-item">يتحقق الأستاذ(ة) من أن الرسم يُظهر جسيمات متقاربة لكن غير مرتّبة بانتظام (تمثيل الحالة السائلة).</div>
+
+      <h4>تصحيح التمرين 1 (التصنيف)</h4>
+      <div class="corrige-item"><b>صلبة:</b> الحديد، الخشب، الذهب</div>
+      <div class="corrige-item"><b>سائلة:</b> الزيت، الكحول، العسل</div>
+      <div class="corrige-item"><b>غازية:</b> الأكسجين، ثاني أكسيد الكربون</div>
+
+      <h4>تصحيح التمرين 2 (الاختيار من متعدد)</h4>
+      <div class="corrige-item">1) الصلبة &nbsp;|&nbsp; 2) متباعدة جداً ومتحركة بحرية &nbsp;|&nbsp; 3) يبقى ثابتاً &nbsp;|&nbsp; 4) له كتلة ويحتل حيزاً من الفراغ &nbsp;|&nbsp; 5) الغازية</div>
+
+      <h4>تصحيح التمرين 3 (الجدول)</h4>
+      <table class="data-table">
+        <tr><th>الحالة</th><th>الشكل</th><th>الحجم</th></tr>
+        <tr><td>الصلبة</td><td>محدد</td><td>محدد</td></tr>
+        <tr><td>السائلة</td><td>غير محدد</td><td>محدد</td></tr>
+        <tr><td>الغازية</td><td>غير محدد</td><td>غير محدد</td></tr>
+      </table>
+
+      <h4>تصحيح التمرين 4 (النماذج الجسيمية)</h4>
+      <div class="corrige-item">النموذج الأول (جسيمات متراصة ومنتظمة): <b>الحالة الصلبة</b></div>
+      <div class="corrige-item">النموذج الثاني (جسيمات متباعدة جداً): <b>الحالة الغازية</b></div>
+      <div class="corrige-item">النموذج الثالث (جسيمات متقاربة وغير منتظمة): <b>الحالة السائلة</b></div>
+
+      <h4>تصحيح التمرين 5 (وضعية-مشكلة)</h4>
+      <div class="corrige-item">1) الماء سائل، وخاصية الحالة السائلة أن شكلها غير محدد فتأخذ شكل الإناء الذي توضع فيه، أما مكعب الثلج فهو مادة صلبة، وخاصية الحالة الصلبة أن شكلها محدد وثابت لا يتغيّر بتغيّر الإناء.</div>
+      <div class="corrige-item">2) في الحالة الصلبة (الثلج)، الجسيمات متراصة ومرتّبة بانتظام وشبه ثابتة، مما يجعل شكل المادة ثابتاً. أما في الحالة السائلة (الماء)، فالجسيمات متقاربة لكنها غير منتظمة ويمكنها الانزلاق فوق بعضها بحرية، مما يسمح للسائل بالتشكّل حسب الإناء الذي يوضع فيه.</div>
+    </details>
+  </div>
+
+  <p class="footer-note">فيشة تعلّم ذاتي — الفيزياء والكيمياء — الأولى إعدادي — الحالات الفيزيائية للمادة</p>
+</div>
+</body>
+</html>

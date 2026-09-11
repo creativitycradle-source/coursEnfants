@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>الميزان الصرفي: المجرد والمزيد</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#20261f;
+    --ink-soft:#4a4238;
+    --paper:#faf8f1;
+    --panel:#ffffff;
+    --line:#d8d0bd;
+    --gold:#a1731f;
+    --gold-soft:#f1e6c9;
+    --teal:#2f6a5d;
+    --teal-soft:#e5efe9;
+    --root:#a83a2c;
+    --root-soft:#fbe7e2;
+    --added:#2f6a5d;
+    --added-soft:#e2eee8;
+  }
+
+  *{box-sizing:border-box;}
+
+  body{
+    margin:0;
+    background:#e9e4d6;
+    font-family:'Noto Naskh Arabic','Amiri',serif;
+    color:var(--ink);
+    -webkit-print-color-adjust:exact;
+    print-color-adjust:exact;
+  }
+
+  .sheet{
+    max-width:860px;
+    margin:24px auto;
+    background:var(--paper);
+    padding:38px 44px 50px;
+    border:1px solid var(--line);
+    box-shadow:0 4px 24px rgba(0,0,0,.12);
+  }
+
+  /* ===== Header ===== */
+  .masthead{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:18px;
+    border-bottom:3px solid var(--ink);
+    padding-bottom:16px;
+    margin-bottom:22px;
+  }
+  .masthead-text h1{
+    font-family:'Amiri',serif;
+    font-weight:700;
+    font-size:30px;
+    margin:0 0 6px;
+    line-height:1.3;
+  }
+  .masthead-text .subtitle{
+    font-size:15px;
+    color:var(--ink-soft);
+    margin:0;
+  }
+  .balance-icon{
+    width:64px;height:64px;flex-shrink:0;
+  }
+  .meta-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-bottom:26px;
+  }
+  .meta-chip{
+    border:1px solid var(--line);
+    background:var(--panel);
+    border-radius:3px;
+    padding:6px 12px;
+    font-size:13.5px;
+    color:var(--ink-soft);
+  }
+  .meta-chip b{color:var(--ink);font-weight:600;}
+
+  /* ===== Section framing ===== */
+  section{margin-bottom:28px;}
+  h2.section-title{
+    font-family:'Amiri',serif;
+    font-size:21px;
+    font-weight:700;
+    color:var(--teal);
+    border-bottom:2px solid var(--teal);
+    padding-bottom:6px;
+    margin:0 0 14px;
+    display:flex;
+    align-items:baseline;
+    gap:8px;
+  }
+  h3.sub-title{
+    font-size:17px;
+    font-weight:700;
+    color:var(--gold);
+    margin:20px 0 8px;
+  }
+  p{line-height:2;font-size:15.5px;margin:0 0 10px;}
+
+  .objectif-box{
+    background:var(--gold-soft);
+    border-right:4px solid var(--gold);
+    padding:14px 18px;
+    border-radius:2px;
+    font-size:15.5px;
+    line-height:1.9;
+  }
+
+  .rule-box{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-right:4px solid var(--teal);
+    padding:14px 18px;
+    border-radius:2px;
+    margin:10px 0 16px;
+  }
+  .rule-box p:last-child{margin-bottom:0;}
+
+  .example-line{
+    font-size:16px;
+    margin:4px 0;
+  }
+  .example-line .wazn{
+    color:var(--gold);
+    font-weight:700;
+  }
+
+  /* ===== color legend for root / added letters ===== */
+  .legend{
+    display:flex;
+    gap:22px;
+    align-items:center;
+    font-size:13.5px;
+    color:var(--ink-soft);
+    margin:8px 0 14px;
+  }
+  .legend span.swatch{
+    display:inline-block;width:12px;height:12px;border-radius:2px;margin-inline-end:5px;vertical-align:-1px;
+  }
+  .swatch.root-sw{background:var(--root);}
+  .swatch.added-sw{background:var(--added);}
+
+  .root-letter{color:var(--root);font-weight:700;}
+  .added-letter{color:var(--added);font-weight:700;}
+
+  /* ===== mizan demonstration table ===== */
+  .mizan-demo{
+    width:100%;
+    border-collapse:collapse;
+    margin:10px 0 18px;
+    font-size:22px;
+    text-align:center;
+  }
+  .mizan-demo th{
+    font-size:13px;
+    font-weight:600;
+    color:var(--ink-soft);
+    padding:4px 6px 8px;
+  }
+  .mizan-demo td{
+    border:1px solid var(--line);
+    padding:10px 6px;
+    background:var(--panel);
+  }
+  .mizan-demo .label-col{
+    font-size:12.5px;
+    color:var(--ink-soft);
+    background:transparent;
+    border:none;
+    text-align:start;
+    padding-inline-end:10px;
+    white-space:nowrap;
+  }
+
+  table.data-table{
+    width:100%;
+    border-collapse:collapse;
+    margin:8px 0 18px;
+    font-size:15px;
+  }
+  table.data-table th{
+    background:var(--teal);
+    color:#fff;
+    padding:8px 10px;
+    font-weight:600;
+    font-size:14px;
+  }
+  table.data-table td{
+    border:1px solid var(--line);
+    padding:9px 10px;
+    background:var(--panel);
+  }
+  table.data-table tr:nth-child(even) td{background:#f4f1e7;}
+
+  .wazn-tag{
+    font-family:'Amiri',serif;
+    font-weight:700;
+    color:var(--gold);
+  }
+
+  .highlight-box{
+    background:var(--teal-soft);
+    border:1px dashed var(--teal);
+    padding:14px 18px;
+    border-radius:2px;
+    margin:14px 0;
+    font-size:15px;
+    line-height:1.9;
+  }
+  .highlight-box .letters-row{
+    font-size:22px;
+    font-weight:700;
+    color:var(--teal);
+    letter-spacing:2px;
+    margin-top:6px;
+  }
+
+  .summary-table th, .summary-table td{text-align:center;}
+  .summary-table td.exemple-cell{font-size:16px;}
+
+  /* ===== activity ===== */
+  .activity-box{
+    background:var(--panel);
+    border:1.5px solid var(--gold);
+    border-radius:3px;
+    padding:16px 20px;
+  }
+  .activity-box .task-label{
+    display:inline-block;
+    background:var(--gold);
+    color:#fff;
+    font-size:12.5px;
+    padding:3px 10px;
+    border-radius:2px;
+    margin-bottom:8px;
+  }
+
+  /* ===== exercises ===== */
+  .exercise{
+    border:1px solid var(--line);
+    border-radius:3px;
+    padding:16px 20px;
+    margin-bottom:16px;
+    background:var(--panel);
+  }
+  .exercise-num{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:26px;height:26px;
+    background:var(--ink);
+    color:var(--paper);
+    border-radius:50%;
+    font-size:14px;
+    font-weight:700;
+    margin-inline-end:8px;
+  }
+  .exercise h4{
+    margin:0 0 10px;
+    font-size:16.5px;
+    display:flex;
+    align-items:center;
+  }
+  .fill-line{
+    border-bottom:1px dotted var(--ink-soft);
+    display:inline-block;
+    min-width:120px;
+    height:1.6em;
+  }
+  .word-chip{
+    display:inline-block;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:3px;
+    padding:3px 12px;
+    margin:3px 4px;
+    font-size:16px;
+  }
+  .qcm-item{margin-bottom:10px;}
+  .qcm-item p{margin-bottom:4px;font-weight:600;}
+  .qcm-options{display:flex;flex-wrap:wrap;gap:14px;font-size:14.5px;}
+  .qcm-options span{display:flex;align-items:center;gap:5px;}
+  .checkbox{
+    width:13px;height:13px;border:1.4px solid var(--ink-soft);display:inline-block;border-radius:2px;
+  }
+  .passage-box{
+    background:#f4f1e7;
+    border:1px solid var(--line);
+    padding:12px 16px;
+    font-size:15.5px;
+    line-height:2.1;
+    margin-bottom:10px;
+  }
+
+  /* ===== corrigé ===== */
+  .corrige-wrapper{page-break-before:always;padding-top:6px;}
+  .corrige-flag{
+    text-align:center;
+    font-size:13px;
+    color:var(--ink-soft);
+    margin-bottom:10px;
+    border-top:1px dashed var(--ink-soft);
+    padding-top:14px;
+  }
+  details.corrige{
+    border:2px dashed var(--root);
+    border-radius:4px;
+    background:#fffaf8;
+    padding:6px 20px 18px;
+  }
+  details.corrige > summary{
+    cursor:pointer;
+    font-family:'Amiri',serif;
+    font-weight:700;
+    font-size:19px;
+    color:var(--root);
+    padding:14px 0;
+    list-style:none;
+  }
+  details.corrige > summary::-webkit-details-marker{display:none;}
+  details.corrige > summary::before{
+    content:"✂ ";
+  }
+  details.corrige > summary::after{
+    content:"— اضغط لإظهار الحل / إخفائه";
+    font-family:'Noto Naskh Arabic',serif;
+    font-weight:400;
+    font-size:13px;
+    color:var(--ink-soft);
+    margin-inline-start:8px;
+  }
+  .corrige h4{color:var(--root);margin:16px 0 8px;font-size:16px;}
+  .corrige-item{margin-bottom:8px;font-size:15px;line-height:1.9;}
+  .corrige table.data-table th{background:var(--root);}
+
+  .footer-note{
+    margin-top:30px;
+    text-align:center;
+    font-size:12px;
+    color:var(--ink-soft);
+    border-top:1px solid var(--line);
+    padding-top:10px;
+  }
+
+  @media print{
+    body{background:#fff;}
+    .sheet{box-shadow:none;border:none;margin:0;max-width:100%;padding:14px 6px;}
+    details.corrige{border-color:#000;}
+  }
+  @page{size:A4;margin:14mm;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="masthead-text">
+      <h1>الميزانُ الصرفيُّ: الفعلُ المجرَّدُ والفعلُ المزيدُ</h1>
+      <p class="subtitle">مادة اللغة العربية — قواعد الصرف</p>
+    </div>
+    <svg class="balance-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="32" y1="6" x2="32" y2="46" stroke="#a1731f" stroke-width="2.5"/>
+      <line x1="10" y1="16" x2="54" y2="16" stroke="#20261f" stroke-width="2.5"/>
+      <path d="M10 16 L4 30 A9 9 0 0 0 16 30 Z" stroke="#2f6a5d" stroke-width="2" fill="none"/>
+      <path d="M54 16 L48 30 A9 9 0 0 0 60 30 Z" stroke="#2f6a5d" stroke-width="2" fill="none"/>
+      <circle cx="32" cy="14" r="3" fill="#a1731f"/>
+      <line x1="20" y1="52" x2="44" y2="52" stroke="#20261f" stroke-width="3" stroke-linecap="round"/>
+      <line x1="32" y1="46" x2="32" y2="52" stroke="#20261f" stroke-width="2.5"/>
+    </svg>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta-chip">المستوى: <b>الأولى إعدادي (1AC)</b></div>
+    <div class="meta-chip">المادة: <b>اللغة العربية — الصرف والتحويل</b></div>
+    <div class="meta-chip">مدة الحصة: <b>ساعة واحدة</b></div>
+    <div class="meta-chip">نوع الوثيقة: <b>فيشة تعلّم ذاتي</b></div>
+  </div>
+
+  <!-- ===================== OBJECTIF ===================== -->
+  <section>
+    <h2 class="section-title">🎯 الهدف من الدرس</h2>
+    <div class="objectif-box">
+      يتمكّن المتعلم(ة) في نهاية هذا الدرس من: التعرّف على الميزان الصرفي وكيفية صياغته، والتمييز بين الفعل المجرَّد والفعل المزيد، وتحديد نوع الزيادة (بحرف، بحرفين، بثلاثة أحرف)، ووزن أي فعل وارد في نص أو جملة بشكل سليم.
+    </div>
+  </section>
+
+  <!-- ===================== COURS ===================== -->
+  <section>
+    <h2 class="section-title">📘 الدرس</h2>
+
+    <h3 class="sub-title">1) ما هو الميزان الصرفي؟</h3>
+    <div class="rule-box">
+      <p>
+        <b>الميزانُ الصرفيُّ</b> أداةٌ يستعملها علماء اللغة لمعرفة "وَزْنِ" أيّ كلمةٍ عربية، أي بِنْيَتِها الداخلية وترتيبِ حروفها وحركاتها. ويُبنى الميزان من ثلاثة أحرف أصلية هي: <b>ف - ع - ل</b>، بحيث:
+      </p>
+      <ul>
+        <li>الحرف الأول من الكلمة يقابله حرف <b>الفاء</b> ويسمى «فاء الكلمة».</li>
+        <li>الحرف الثاني يقابله حرف <b>العين</b> ويسمى «عين الكلمة».</li>
+        <li>الحرف الثالث يقابله حرف <b>اللام</b> ويسمى «لام الكلمة».</li>
+      </ul>
+      <p>وتُنقل حركةُ كل حرف من الكلمة إلى الحرف المقابل له في الميزان تماماً.</p>
+    </div>
+
+    <div class="legend">
+      <span><span class="swatch root-sw"></span>حروف أصلية (تقابل ف ع ل)</span>
+      <span><span class="swatch added-sw"></span>حروف زائدة (تُكتب كما هي في الميزان)</span>
+    </div>
+
+    <table class="mizan-demo">
+      <tr>
+        <td class="label-col">الكلمة</td>
+        <td><span class="root-letter">كَ</span></td>
+        <td><span class="root-letter">تَ</span></td>
+        <td><span class="root-letter">بَ</span></td>
+      </tr>
+      <tr>
+        <td class="label-col">الميزان</td>
+        <td>فَ</td><td>عَ</td><td>لَ</td>
+      </tr>
+    </table>
+    <p style="text-align:center;margin-top:-8px;">فكلمة <b>كَتَبَ</b> على وزن <span class="wazn-tag">فَعَلَ</span> لأن حروفها الثلاثة كلّها أصلية، بلا أي زيادة.</p>
+
+    <h3 class="sub-title">2) الفعل المجرَّد</h3>
+    <div class="rule-box">
+      <p><b>الفعل المجرَّد</b> هو الفعل الذي جميع حروفه أصلية، أي لم تُزَد عليه أيّ حروف. وهو نوعان:</p>
+    </div>
+
+    <table class="data-table summary-table">
+      <tr><th>النوع</th><th>الأوزان</th><th>مثال</th><th>الميزان</th></tr>
+      <tr>
+        <td rowspan="3">مجرَّد ثلاثي<br><span style="font-size:12.5px;color:var(--ink-soft);">(3 أحرف أصلية)</span></td>
+        <td>فَعَلَ</td><td class="exemple-cell">كَتَبَ</td><td class="exemple-cell"><span class="wazn-tag">فَعَلَ</span></td>
+      </tr>
+      <tr>
+        <td>فَعِلَ</td><td class="exemple-cell">عَلِمَ</td><td class="exemple-cell"><span class="wazn-tag">فَعِلَ</span></td>
+      </tr>
+      <tr>
+        <td>فَعُلَ</td><td class="exemple-cell">كَرُمَ</td><td class="exemple-cell"><span class="wazn-tag">فَعُلَ</span></td>
+      </tr>
+      <tr>
+        <td>مجرَّد رباعي<br><span style="font-size:12.5px;color:var(--ink-soft);">(4 أحرف أصلية)</span></td>
+        <td>فَعْلَلَ</td><td class="exemple-cell">دَحْرَجَ</td><td class="exemple-cell"><span class="wazn-tag">فَعْلَلَ</span></td>
+      </tr>
+    </table>
+    <p style="font-size:14px;color:var(--ink-soft);margin-top:-8px;">ملاحظة: في الفعل الرباعي المجرد نضيف لاماً ثانية إلى الميزان (فَعْلَلَ) لأن حروفَه الأصلية أربعة لا ثلاثة.</p>
+
+    <h3 class="sub-title">3) الفعل المزيد</h3>
+    <div class="rule-box">
+      <p><b>الفعل المزيد</b> هو الفعل الذي زِيدَ على حروفه الأصلية حرفٌ واحد أو أكثر. وتبقى هذه الحروف الزائدة مكتوبة في الميزان كما هي، بينما تُنقَل الحروف الأصلية فقط إلى ف ع ل.</p>
+    </div>
+
+    <div class="highlight-box">
+      حروف الزيادة العشرة يجمعها المتعلمون في عبارة سهلة الحفظ:
+      <div class="letters-row">سَأَلْتُمُونِيها</div>
+      <span style="font-size:14px;">(س - أ - ل - ت - م - و - ن - ي - ه - ا) — وأشهرها استعمالاً في زيادة الأفعال: الهمزة، والتاء، والنون، والألف، والسين، والميم.</span>
+    </div>
+
+    <h4 style="margin:16px 0 6px;font-size:15px;">أ) مزيد بحرف واحد</h4>
+    <table class="data-table summary-table">
+      <tr><th>الوزن</th><th>مثال</th><th>الحرف الزائد</th></tr>
+      <tr><td>أَفْعَلَ</td><td class="exemple-cell">أَكْرَمَ</td><td>الهمزة في البداية</td></tr>
+      <tr><td>فَعَّلَ</td><td class="exemple-cell">عَلَّمَ</td><td>تضعيف عين الفعل (شدّة)</td></tr>
+      <tr><td>فاعَلَ</td><td class="exemple-cell">قاتَلَ</td><td>الألف بعد الفاء</td></tr>
+    </table>
+
+    <h4 style="margin:16px 0 6px;font-size:15px;">ب) مزيد بحرفين</h4>
+    <table class="data-table summary-table">
+      <tr><th>الوزن</th><th>مثال</th><th>الحروف الزائدة</th></tr>
+      <tr><td>تَفَعَّلَ</td><td class="exemple-cell">تَعَلَّمَ</td><td>التاء + تضعيف العين</td></tr>
+      <tr><td>تَفاعَلَ</td><td class="exemple-cell">تَقاتَلَ</td><td>التاء + الألف</td></tr>
+      <tr><td>انْفَعَلَ</td><td class="exemple-cell">انْكَسَرَ</td><td>الهمزة + النون</td></tr>
+      <tr><td>افْتَعَلَ</td><td class="exemple-cell">اجْتَهَدَ</td><td>الهمزة + التاء بعد الفاء</td></tr>
+      <tr><td>افْعَلَّ</td><td class="exemple-cell">احْمَرَّ</td><td>الهمزة + تضعيف اللام</td></tr>
+    </table>
+
+    <h4 style="margin:16px 0 6px;font-size:15px;">ج) مزيد بثلاثة أحرف</h4>
+    <table class="data-table summary-table">
+      <tr><th>الوزن</th><th>مثال</th><th>الحروف الزائدة</th></tr>
+      <tr><td>اسْتَفْعَلَ</td><td class="exemple-cell">اسْتَخْرَجَ</td><td>الهمزة + السين + التاء</td></tr>
+    </table>
+    <p style="font-size:14px;color:var(--ink-soft);">هذا الوزن هو الأكثر شيوعاً في هذا القسم، وهناك أوزان أخرى نادرة الاستعمال سنتعرف عليها لاحقاً.</p>
+
+    <h3 class="sub-title">4) خلاصة مبسّطة</h3>
+    <div class="rule-box">
+      <p>لمعرفة نوع أي فعل، اتّبع الخطوات التالية:</p>
+      <ul>
+        <li>حدّد الحروف الأصلية للفعل (ارجع إلى معناه الأساسي إن لزم الأمر).</li>
+        <li>قابِل كل حرف أصلي بحرف من ف ع ل (ولام ثانية إن كان الفعل رباعياً).</li>
+        <li>إن بقيت حروف أخرى في الكلمة لم تقابلها في ف ع ل، فهي حروف زائدة، وتُكتب كما هي في الميزان.</li>
+        <li>عدد الحروف الزائدة يحدد نوع الفعل: بلا زيادة → مجرَّد / بزيادة حرف أو حرفين أو ثلاثة → مزيد.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===================== ACTIVITE ===================== -->
+  <section>
+    <h2 class="section-title">✏️ نشاط تطبيقي</h2>
+    <div class="activity-box">
+      <span class="task-label">عمل جماعي مع الأستاذ(ة)</span>
+      <p>لاحظ الفعل الأول المُنجَز كمثال، ثم أكمل الجدول بنفس الطريقة معتمداً على الخطوات المذكورة أعلاه:</p>
+      <table class="data-table">
+        <tr><th>الفعل</th><th>الحروف الأصلية</th><th>الحروف الزائدة</th><th>الميزان الصرفي</th><th>مجرَّد أم مزيد؟</th></tr>
+        <tr>
+          <td>اسْتَغْفَرَ</td><td>غ ف ر</td><td>ا س ت</td><td class="wazn-tag">اسْتَفْعَلَ</td><td>مزيد بثلاثة أحرف</td>
+        </tr>
+        <tr><td>جَلَسَ</td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+        <tr><td>سَافَرَ</td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+        <tr><td>تَدَحْرَجَ</td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+        <tr><td>انْطَلَقَ</td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===================== EXERCICES ===================== -->
+  <section>
+    <h2 class="section-title">📝 تمارين للتدرّب</h2>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">1</span>صنّف الأفعال الآتية في الجدول المناسب:</h4>
+      <p>
+        <span class="word-chip">فَهِمَ</span>
+        <span class="word-chip">اسْتَعْمَلَ</span>
+        <span class="word-chip">تَقَدَّمَ</span>
+        <span class="word-chip">حَسُنَ</span>
+        <span class="word-chip">أَخْرَجَ</span>
+        <span class="word-chip">زَلْزَلَ</span>
+        <span class="word-chip">اجْتَمَعَ</span>
+        <span class="word-chip">شارَكَ</span>
+      </p>
+      <table class="data-table">
+        <tr><th>مجرَّد ثلاثي</th><th>مجرَّد رباعي</th><th>مزيد بحرف</th><th>مزيد بحرفين</th><th>مزيد بثلاثة أحرف</th></tr>
+        <tr><td style="height:60px;"></td><td></td><td></td><td></td><td></td></tr>
+      </table>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">2</span>اكتب الميزان الصرفي للكلمات التالية:</h4>
+      <table class="data-table">
+        <tr><th>الكلمة</th><th>الميزان الصرفي</th></tr>
+        <tr><td>ذَهَبَ</td><td><span class="fill-line" style="min-width:200px;"></span></td></tr>
+        <tr><td>اسْتَخْدَمَ</td><td><span class="fill-line" style="min-width:200px;"></span></td></tr>
+        <tr><td>تَعَاوَنَ</td><td><span class="fill-line" style="min-width:200px;"></span></td></tr>
+        <tr><td>انْكَسَرَ</td><td><span class="fill-line" style="min-width:200px;"></span></td></tr>
+        <tr><td>فَرِحَ</td><td><span class="fill-line" style="min-width:200px;"></span></td></tr>
+      </table>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">3</span>اقرأ النص، ثم استخرج منه ثلاثة أفعال مجرَّدة وثلاثة أفعال مزيدة، وحدّد وزن كل واحد منها:</h4>
+      <div class="passage-box">
+        "خَرَجَ الفلّاحُ إلى حقله في الصباح الباكر، فاسْتَقْبَلَتْهُ نسمةٌ عليلة. جَلَسَ قليلاً تحت شجرة، ثم بَدَأَ يَجْتَهِدُ في سقي النباتات. وعندما اشتدَّ الحرّ، تَذَكَّرَ نصيحةَ والده، فاسْتَظَلَّ بظل الشجرة حتى انْكَسَرَتْ حِدّةُ الشمس."
+      </div>
+      <table class="data-table">
+        <tr><th></th><th>الفعل</th><th>الوزن</th></tr>
+        <tr><td>مجرَّد 1</td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+        <tr><td>مجرَّد 2</td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+        <tr><td>مجرَّد 3</td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+        <tr><td>مزيد 1</td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+        <tr><td>مزيد 2</td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+        <tr><td>مزيد 3</td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+      </table>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">4</span>اختر الإجابة الصحيحة:</h4>
+      <div class="qcm-item">
+        <p>1) فعل "اسْتَغْفَرَ" هو فعل:</p>
+        <div class="qcm-options">
+          <span><span class="checkbox"></span>مجرَّد ثلاثي</span>
+          <span><span class="checkbox"></span>مزيد بحرفين</span>
+          <span><span class="checkbox"></span>مزيد بثلاثة أحرف</span>
+        </div>
+      </div>
+      <div class="qcm-item">
+        <p>2) الحروف الزائدة تُجمَع في عبارة:</p>
+        <div class="qcm-options">
+          <span><span class="checkbox"></span>سألتمونيها</span>
+          <span><span class="checkbox"></span>سبحان الله</span>
+          <span><span class="checkbox"></span>لا إله إلا الله</span>
+        </div>
+      </div>
+      <div class="qcm-item">
+        <p>3) وزن الفعل "دَحْرَجَ" هو:</p>
+        <div class="qcm-options">
+          <span><span class="checkbox"></span>فَعَلَ</span>
+          <span><span class="checkbox"></span>فَعْلَلَ</span>
+          <span><span class="checkbox"></span>أَفْعَلَ</span>
+        </div>
+      </div>
+      <div class="qcm-item">
+        <p>4) في فعل "تَقَاتَلَ"، عدد الحروف الزائدة هو:</p>
+        <div class="qcm-options">
+          <span><span class="checkbox"></span>حرف واحد</span>
+          <span><span class="checkbox"></span>حرفان</span>
+          <span><span class="checkbox"></span>ثلاثة أحرف</span>
+        </div>
+      </div>
+      <div class="qcm-item">
+        <p>5) الفعل الذي جميع حروفه أصلية يسمى:</p>
+        <div class="qcm-options">
+          <span><span class="checkbox"></span>فعلاً مزيداً</span>
+          <span><span class="checkbox"></span>فعلاً مجرَّداً</span>
+          <span><span class="checkbox"></span>فعلاً ناقصاً</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">5</span>أعِد كل فعل مزيد إلى أصله المجرَّد، ثم بيّن الحرف أو الحروف التي زِيدَت عليه:</h4>
+      <table class="data-table">
+        <tr><th>الفعل المزيد</th><th>الفعل المجرَّد</th><th>الحرف/الحروف الزائدة</th></tr>
+        <tr><td>أَجْلَسَ</td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+        <tr><td>تَعَلَّمَ</td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+        <tr><td>اجْتَهَدَ</td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+        <tr><td>احْمَرَّ</td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+        <tr><td>اسْتَعْمَلَ</td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===================== CORRIGE ===================== -->
+  <div class="corrige-wrapper">
+    <p class="corrige-flag">✂ يمكن طي هذه الصفحة أو إخفاؤها (اضغط على العنوان أدناه) قبل إنجاز التمارين ✂</p>
+    <details class="corrige">
+      <summary>التصحيح الكامل</summary>
+
+      <h4>تصحيح النشاط التطبيقي</h4>
+      <table class="data-table">
+        <tr><th>الفعل</th><th>الحروف الأصلية</th><th>الحروف الزائدة</th><th>الميزان</th><th>النوع</th></tr>
+        <tr><td>جَلَسَ</td><td>ج ل س</td><td>—</td><td class="wazn-tag">فَعَلَ</td><td>مجرَّد ثلاثي</td></tr>
+        <tr><td>سَافَرَ</td><td>س ف ر</td><td>ا (بعد الفاء)</td><td class="wazn-tag">فاعَلَ</td><td>مزيد بحرف</td></tr>
+        <tr><td>تَدَحْرَجَ</td><td>د ح ر ج</td><td>ت</td><td class="wazn-tag">تَفَعْلَلَ</td><td>مزيد رباعي بحرف</td></tr>
+        <tr><td>انْطَلَقَ</td><td>ط ل ق</td><td>ا ن</td><td class="wazn-tag">انْفَعَلَ</td><td>مزيد بحرفين</td></tr>
+      </table>
+
+      <h4>تصحيح التمرين 1 (التصنيف)</h4>
+      <div class="corrige-item"><b>مجرَّد ثلاثي:</b> فَهِمَ (فَعِلَ) — حَسُنَ (فَعُلَ)</div>
+      <div class="corrige-item"><b>مجرَّد رباعي:</b> زَلْزَلَ (فَعْلَلَ)</div>
+      <div class="corrige-item"><b>مزيد بحرف:</b> أَخْرَجَ (أَفْعَلَ) — شارَكَ (فاعَلَ)</div>
+      <div class="corrige-item"><b>مزيد بحرفين:</b> تَقَدَّمَ (تَفَعَّلَ) — اجْتَمَعَ (افْتَعَلَ)</div>
+      <div class="corrige-item"><b>مزيد بثلاثة أحرف:</b> اسْتَعْمَلَ (اسْتَفْعَلَ)</div>
+
+      <h4>تصحيح التمرين 2 (الأوزان)</h4>
+      <table class="data-table">
+        <tr><th>الكلمة</th><th>الميزان الصرفي</th></tr>
+        <tr><td>ذَهَبَ</td><td class="wazn-tag">فَعَلَ</td></tr>
+        <tr><td>اسْتَخْدَمَ</td><td class="wazn-tag">اسْتَفْعَلَ</td></tr>
+        <tr><td>تَعَاوَنَ</td><td class="wazn-tag">تَفاعَلَ</td></tr>
+        <tr><td>انْكَسَرَ</td><td class="wazn-tag">انْفَعَلَ</td></tr>
+        <tr><td>فَرِحَ</td><td class="wazn-tag">فَعِلَ</td></tr>
+      </table>
+
+      <h4>تصحيح التمرين 3 (النص)</h4>
+      <table class="data-table">
+        <tr><th></th><th>الفعل</th><th>الوزن</th></tr>
+        <tr><td>مجرَّد</td><td>خَرَجَ</td><td class="wazn-tag">فَعَلَ</td></tr>
+        <tr><td>مجرَّد</td><td>جَلَسَ</td><td class="wazn-tag">فَعَلَ</td></tr>
+        <tr><td>مجرَّد</td><td>بَدَأَ</td><td class="wazn-tag">فَعَلَ</td></tr>
+        <tr><td>مزيد</td><td>اسْتَقْبَلَتْ</td><td class="wazn-tag">اسْتَفْعَلَتْ</td></tr>
+        <tr><td>مزيد</td><td>يَجْتَهِدُ</td><td class="wazn-tag">يَفْتَعِلُ</td></tr>
+        <tr><td>مزيد</td><td>تَذَكَّرَ</td><td class="wazn-tag">تَفَعَّلَ</td></tr>
+      </table>
+      <p style="font-size:13.5px;color:var(--ink-soft);">(يقبل أيضاً: اسْتَظَلَّ ← اسْتَفْعَلَّ / انْكَسَرَتْ ← انْفَعَلَتْ، إذا اختارهما المتعلم بدل الأمثلة أعلاه)</p>
+
+      <h4>تصحيح التمرين 4 (الاختيار من متعدد)</h4>
+      <div class="corrige-item">1) مزيد بثلاثة أحرف &nbsp; | &nbsp; 2) سألتمونيها &nbsp; | &nbsp; 3) فَعْلَلَ &nbsp; | &nbsp; 4) حرفان &nbsp; | &nbsp; 5) فعلاً مجرَّداً</div>
+
+      <h4>تصحيح التمرين 5 (الرد إلى المجرَّد)</h4>
+      <table class="data-table">
+        <tr><th>الفعل المزيد</th><th>الفعل المجرَّد</th><th>الحرف/الحروف الزائدة</th></tr>
+        <tr><td>أَجْلَسَ</td><td>جَلَسَ</td><td>الهمزة</td></tr>
+        <tr><td>تَعَلَّمَ</td><td>عَلِمَ</td><td>التاء + تضعيف العين</td></tr>
+        <tr><td>اجْتَهَدَ</td><td>جَهَدَ</td><td>الهمزة + التاء</td></tr>
+        <tr><td>احْمَرَّ</td><td>حَمِرَ</td><td>الهمزة + تضعيف اللام</td></tr>
+        <tr><td>اسْتَعْمَلَ</td><td>عَمِلَ</td><td>الهمزة + السين + التاء</td></tr>
+      </table>
+    </details>
+  </div>
+
+  <p class="footer-note">فيشة تعلّم ذاتي — اللغة العربية — الأولى إعدادي — الميزان الصرفي: المجرَّد والمزيد</p>
+</div>
+</body>
+</html>

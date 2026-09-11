@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>مجموع قياسات زوايا مثلث ومثلثات خاصة</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1c2b3a; --ink-soft:#4d5f70;
+    --paper:#f7f9fb; --panel:#ffffff; --line:#c9d6e0;
+    --blue:#2f5f8a; --blue-soft:#e2ecf3;
+    --orange:#e07b39; --orange-soft:#fbe8d8;
+    --green:#3a8f6b; --green-soft:#e1f2ea;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#dde6ec;color:var(--ink);font-family:'Noto Naskh Arabic','Amiri',serif;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .sheet{
+    max-width:900px;margin:24px auto;background:
+      repeating-linear-gradient(0deg, transparent 0 27px, rgba(47,95,138,.06) 27px 28px),
+      repeating-linear-gradient(90deg, transparent 0 27px, rgba(47,95,138,.06) 27px 28px),
+      var(--paper);
+    padding:38px 44px 50px;border:1px solid var(--line);box-shadow:0 4px 24px rgba(0,0,0,.12);
+  }
+
+  .masthead{display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:3px solid var(--ink);padding-bottom:16px;margin-bottom:22px;}
+  .masthead-text h1{font-family:'Amiri',serif;font-weight:700;font-size:24px;margin:0 0 6px;color:var(--blue);line-height:1.4;}
+  .masthead-text .subtitle{font-size:15px;color:var(--ink-soft);margin:0;}
+  .tri-icon{width:60px;height:56px;flex-shrink:0;}
+
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+  .meta-chip{border:1px solid var(--line);background:var(--panel);border-radius:3px;padding:6px 12px;font-size:13.5px;color:var(--ink-soft);}
+  .meta-chip b{color:var(--ink);font-weight:600;}
+
+  section{margin-bottom:28px;}
+  h2.section-title{font-family:'Amiri',serif;font-size:21px;font-weight:700;color:var(--blue);border-bottom:2px solid var(--blue);padding-bottom:6px;margin:0 0 14px;display:flex;align-items:baseline;gap:8px;}
+  h3.sub-title{font-size:17px;font-weight:700;color:var(--orange);margin:20px 0 8px;}
+  p{line-height:2;font-size:15.5px;margin:0 0 10px;}
+
+  .objectif-box{background:var(--orange-soft);border-right:4px solid var(--orange);padding:14px 18px;border-radius:2px;font-size:15.5px;line-height:1.9;}
+
+  .rule-box{background:var(--panel);border:1px solid var(--line);border-right:4px solid var(--blue);padding:14px 18px;border-radius:2px;margin:10px 0 16px;}
+  .rule-box p:last-child{margin-bottom:0;}
+  .rule-box ul,.rule-box ol{margin:6px 0;padding-inline-start:22px;}
+  .rule-box li{margin-bottom:6px;line-height:1.85;}
+
+  .formula-box{background:var(--blue);color:#fff;text-align:center;padding:14px;border-radius:6px;font-size:20px;font-weight:700;margin:10px 0 16px;}
+
+  .tri-grid{display:flex;flex-wrap:wrap;gap:14px;margin:10px 0 16px;}
+  .tri-card{flex:1 1 200px;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:10px;text-align:center;}
+  .tri-card svg{width:100%;max-width:160px;height:auto;}
+  .tri-card .name{font-weight:700;color:var(--blue);font-size:14.5px;margin-top:4px;}
+  .tri-card p{font-size:12.5px;color:var(--ink-soft);margin:2px 0 0;}
+
+  table.data-table{width:100%;border-collapse:collapse;margin:8px 0 18px;font-size:15px;}
+  table.data-table th{background:var(--blue);color:#fff;padding:8px 10px;font-weight:600;font-size:14px;}
+  table.data-table td{border:1px solid var(--line);padding:9px 10px;background:var(--panel);text-align:center;}
+  table.data-table tr:nth-child(even) td{background:#eef3f7;}
+
+  .activity-box{background:var(--panel);border:1.5px solid var(--orange);border-radius:3px;padding:16px 20px;}
+  .activity-box .task-label{display:inline-block;background:var(--orange);color:#fff;font-size:12.5px;padding:3px 10px;border-radius:2px;margin-bottom:8px;}
+  .step{display:flex;gap:10px;margin-bottom:8px;align-items:flex-start;}
+  .step-num{flex-shrink:0;width:22px;height:22px;border-radius:50%;background:var(--orange);color:#fff;font-size:12.5px;display:flex;align-items:center;justify-content:center;font-weight:700;}
+
+  .exercise{border:1px solid var(--line);border-radius:3px;padding:16px 20px;margin-bottom:16px;background:var(--panel);}
+  .exercise-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:var(--ink);color:var(--paper);border-radius:50%;font-size:14px;font-weight:700;margin-inline-end:8px;}
+  .exercise h4{margin:0 0 10px;font-size:16.5px;display:flex;align-items:center;}
+  .fill-line{border-bottom:1px dotted var(--ink-soft);display:inline-block;min-width:100px;height:1.6em;}
+  .op-grid{display:flex;flex-wrap:wrap;gap:16px;}
+  .op-item{display:flex;align-items:center;gap:6px;font-size:15.5px;}
+  .qcm-item{margin-bottom:10px;}
+  .qcm-item p{margin-bottom:4px;font-weight:600;}
+  .qcm-options{display:flex;flex-wrap:wrap;gap:14px;font-size:14.5px;}
+  .qcm-options span{display:flex;align-items:center;gap:5px;}
+  .checkbox{width:13px;height:13px;border:1.4px solid var(--ink-soft);display:inline-block;border-radius:2px;}
+  .scenario-box{background:#eef3f7;border:1px solid var(--line);padding:12px 16px;font-size:15.5px;line-height:2.1;margin-bottom:10px;}
+  .tf-item{display:flex;justify-content:space-between;align-items:center;border:1px solid var(--line);border-radius:6px;padding:8px 12px;margin-bottom:8px;background:var(--paper);}
+  .tf-boxes{display:flex;gap:10px;}
+  .tf-box{width:24px;height:24px;border:1.5px solid var(--ink-soft);border-radius:3px;display:inline-flex;align-items:center;justify-content:center;font-size:11px;}
+
+  .corrige-wrapper{page-break-before:always;padding-top:6px;}
+  .corrige-flag{text-align:center;font-size:13px;color:var(--ink-soft);margin-bottom:10px;border-top:1px dashed var(--ink-soft);padding-top:14px;}
+  details.corrige{border:2px dashed var(--green);border-radius:4px;background:#f7fcfa;padding:6px 20px 18px;}
+  details.corrige > summary{cursor:pointer;font-family:'Amiri',serif;font-weight:700;font-size:19px;color:var(--green);padding:14px 0;list-style:none;}
+  details.corrige > summary::-webkit-details-marker{display:none;}
+  details.corrige > summary::before{content:"✂ ";}
+  details.corrige > summary::after{content:"— اضغط لإظهار الحل / إخفائه";font-family:'Noto Naskh Arabic',serif;font-weight:400;font-size:13px;color:var(--ink-soft);margin-inline-start:8px;}
+  .corrige h4{color:var(--green);margin:16px 0 8px;font-size:16px;}
+  .corrige-item{margin-bottom:8px;font-size:15px;line-height:1.9;}
+  .corrige table.data-table th{background:var(--green);}
+
+  .footer-note{margin-top:30px;text-align:center;font-size:12px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:10px;}
+
+  @media print{
+    body{background:#fff;}
+    .sheet{box-shadow:none;border:none;margin:0;max-width:100%;padding:14px 6px;background:var(--paper);}
+    details.corrige{border-color:#000;}
+  }
+  @page{size:A4;margin:14mm;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="masthead-text">
+      <h1>مجموعُ قياساتِ زوايا مثلثٍ ومثلثاتٌ خاصةٌ</h1>
+      <p class="subtitle">الرياضيات — الهندسة</p>
+    </div>
+    <svg class="tri-icon" viewBox="0 0 64 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M32 6 L58 50 L6 50 Z" fill="none" stroke="#2f5f8a" stroke-width="2.5"/>
+      <path d="M32 12 A8 8 0 0 1 26 24" stroke="#e07b39" stroke-width="2" fill="none"/>
+      <path d="M14 46 A8 8 0 0 1 22 38" stroke="#e07b39" stroke-width="2" fill="none"/>
+      <path d="M50 46 A8 8 0 0 1 44 36" stroke="#e07b39" stroke-width="2" fill="none"/>
+    </svg>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta-chip">المستوى: <b>الأولى إعدادي (1AC)</b></div>
+    <div class="meta-chip">المادة: <b>الرياضيات — الهندسة</b></div>
+    <div class="meta-chip">مدة الحصة: <b>ساعة إلى ساعة ونصف</b></div>
+    <div class="meta-chip">نوع الوثيقة: <b>فيشة تعلّم ذاتي</b></div>
+  </div>
+
+  <!-- ===================== OBJECTIF ===================== -->
+  <section>
+    <h2 class="section-title">🎯 الهدف من الدرس</h2>
+    <div class="objectif-box">
+      يتمكّن المتعلم(ة) في نهاية هذا الدرس من: توظيف خاصية مجموع قياسات زوايا المثلث (180°) لحساب زاوية مجهولة، والتعرّف على المثلثات الخاصة حسب الأضلاع (متساوي الأضلاع، متساوي الساقين) وحسب الزوايا (قائم، حاد، منفرج)، وحساب زوايا مثلث خاص.
+    </div>
+  </section>
+
+  <!-- ===================== COURS ===================== -->
+  <section>
+    <h2 class="section-title">📘 الدرس</h2>
+
+    <h3 class="sub-title">1) مجموع قياسات زوايا المثلث</h3>
+    <div class="rule-box">
+      <p><b>خاصية:</b> مجموع قياسات الزوايا الثلاث لأي مثلث يساوي دائماً <b>180 درجة</b>، مهما كان شكل المثلث.</p>
+    </div>
+    <div class="formula-box">الزاوية 1 + الزاوية 2 + الزاوية 3 = 180°</div>
+    <p style="font-size:14px;color:var(--ink-soft);margin-top:-8px;">مثال: مثلث ABC زاويتاه A=50° وB=70°. الزاوية الثالثة C = 180 − 50 − 70 = 60°.</p>
+
+    <h3 class="sub-title">2) المثلثات الخاصة حسب الأضلاع</h3>
+    <div class="tri-grid">
+      <div class="tri-card">
+        <svg viewBox="0 0 160 130"><path d="M80 15 L145 115 L15 115 Z" fill="none" stroke="#2f5f8a" stroke-width="2.5"/></svg>
+        <div class="name">متساوي الأضلاع</div>
+        <p>أضلاعه الثلاثة متساوية، وكل زاوية فيه = 60°</p>
+      </div>
+      <div class="tri-card">
+        <svg viewBox="0 0 160 130"><path d="M80 15 L130 115 L30 115 Z" fill="none" stroke="#e07b39" stroke-width="2.5"/></svg>
+        <div class="name">متساوي الساقين</div>
+        <p>له ضلعان متساويان (الساقان)، وزاويتا القاعدة متساويتان</p>
+      </div>
+      <div class="tri-card">
+        <svg viewBox="0 0 160 130"><path d="M40 15 L145 90 L15 115 Z" fill="none" stroke="#3a8f6b" stroke-width="2.5"/></svg>
+        <div class="name">مختلف الأضلاع</div>
+        <p>جميع أضلاعه الثلاثة مختلفة الأطوال</p>
+      </div>
+    </div>
+
+    <h3 class="sub-title">3) المثلثات الخاصة حسب الزوايا</h3>
+    <div class="tri-grid">
+      <div class="tri-card">
+        <svg viewBox="0 0 160 130"><path d="M20 20 L20 115 L145 115 Z" fill="none" stroke="#2f5f8a" stroke-width="2.5"/><rect x="20" y="100" width="15" height="15" fill="none" stroke="#2f5f8a" stroke-width="1.5"/></svg>
+        <div class="name">قائم الزاوية</div>
+        <p>له زاوية قائمة تساوي 90°</p>
+      </div>
+      <div class="tri-card">
+        <svg viewBox="0 0 160 130"><path d="M80 15 L140 110 L20 110 Z" fill="none" stroke="#e07b39" stroke-width="2.5"/></svg>
+        <div class="name">حاد الزوايا</div>
+        <p>جميع زواياه أصغر من 90°</p>
+      </div>
+      <div class="tri-card">
+        <svg viewBox="0 0 160 130"><path d="M30 100 L145 115 L20 30 Z" fill="none" stroke="#3a8f6b" stroke-width="2.5"/></svg>
+        <div class="name">منفرج الزاوية</div>
+        <p>له زاوية واحدة أكبر من 90°</p>
+      </div>
+    </div>
+
+    <h3 class="sub-title">4) أمثلة محسوبة على المثلثات الخاصة</h3>
+    <div class="rule-box">
+      <p><b>المثلث المتساوي الأضلاع:</b> بما أن زواياه الثلاث متساوية ومجموعها 180°، فإن كل زاوية تساوي: 180 ÷ 3 = <b>60°</b>.</p>
+      <p><b>المثلث المتساوي الساقين:</b> إذا علمنا زاوية الرأس، يمكن حساب زاويتَي القاعدة (المتساويتين) بالعلاقة: (180° − زاوية الرأس) ÷ 2.</p>
+      <p style="font-size:14px;color:var(--ink-soft);">مثال: مثلث متساوي الساقين زاوية رأسه 40°. زاويتا القاعدة = (180−40)÷2 = 70° لكل واحدة.</p>
+    </div>
+  </section>
+
+  <!-- ===================== ACTIVITE ===================== -->
+  <section>
+    <h2 class="section-title">✏️ نشاط تطبيقي</h2>
+    <div class="activity-box">
+      <span class="task-label">التحقق التجريبي من خاصية 180°</span>
+      <div class="step"><span class="step-num">1</span><span>ارسم مثلثاً ABC بأي شكل تختاره، ثم قِسْ زواياه الثلاث بالمنقلة.</span></div>
+      <div class="step"><span class="step-num">2</span><span>اجمع قياسات الزوايا الثلاث التي حصلت عليها.</span></div>
+      <div class="step"><span class="step-num">3</span><span>قارن المجموع الذي وجدته بـ 180°. هل هما متساويان تقريباً؟</span></div>
+      <p>القياسات: الزاوية A = <span class="fill-line"></span> — الزاوية B = <span class="fill-line"></span> — الزاوية C = <span class="fill-line"></span></p>
+      <p>المجموع: <span class="fill-line" style="min-width:200px;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== EXERCICES ===================== -->
+  <section>
+    <h2 class="section-title">📝 تمارين للتدرّب</h2>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">1</span>احسب قياس الزاوية الثالثة لكل مثلث، علماً بقياسَي زاويتين منه:</h4>
+      <div class="op-grid">
+        <div class="op-item">50° و70° → <span class="fill-line"></span></div>
+        <div class="op-item">90° و35° → <span class="fill-line"></span></div>
+        <div class="op-item">45° و45° → <span class="fill-line"></span></div>
+        <div class="op-item">100° و30° → <span class="fill-line"></span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">2</span>صنّف المثلثات التالية حسب أضلاعها بالاعتماد على أطوالها المعطاة:</h4>
+      <table class="data-table">
+        <tr><th>أطوال الأضلاع</th><th>نوع المثلث</th></tr>
+        <tr><td>5 سم، 5 سم، 5 سم</td><td><span class="fill-line"></span></td></tr>
+        <tr><td>6 سم، 6 سم، 4 سم</td><td><span class="fill-line"></span></td></tr>
+        <tr><td>3 سم، 4 سم، 5 سم</td><td><span class="fill-line"></span></td></tr>
+      </table>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">3</span>صنّف المثلثات التالية حسب زواياها بالاعتماد على قياساتها المعطاة:</h4>
+      <table class="data-table">
+        <tr><th>قياسات الزوايا</th><th>نوع المثلث</th></tr>
+        <tr><td>90°، 45°، 45°</td><td><span class="fill-line"></span></td></tr>
+        <tr><td>60°، 60°، 60°</td><td><span class="fill-line"></span></td></tr>
+        <tr><td>120°، 40°، 20°</td><td><span class="fill-line"></span></td></tr>
+        <tr><td>70°، 60°، 50°</td><td><span class="fill-line"></span></td></tr>
+      </table>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">4</span>فسّر لماذا تساوي كل زاوية من زوايا المثلث المتساوي الأضلاع 60°، بالاعتماد على خاصية مجموع الزوايا.</h4>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">5</span>اختر الإجابة الصحيحة:</h4>
+      <div class="qcm-item">
+        <p>1) مجموع قياسات زوايا أي مثلث يساوي:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>90°</span><span><span class="checkbox"></span>180°</span><span><span class="checkbox"></span>360°</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>2) المثلث الذي له ثلاثة أضلاع متساوية يسمى:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>متساوي الساقين</span><span><span class="checkbox"></span>متساوي الأضلاع</span><span><span class="checkbox"></span>مختلف الأضلاع</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>3) كل زاوية في المثلث المتساوي الأضلاع تساوي:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>45°</span><span><span class="checkbox"></span>60°</span><span><span class="checkbox"></span>90°</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>4) المثلث الذي له زاوية أكبر من 90° يسمى:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>قائم الزاوية</span><span><span class="checkbox"></span>حاد الزوايا</span><span><span class="checkbox"></span>منفرج الزاوية</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>5) في المثلث المتساوي الساقين:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>زاويتا القاعدة متساويتان</span><span><span class="checkbox"></span>جميع الزوايا مختلفة</span><span><span class="checkbox"></span>ليس له زوايا متساوية أبداً</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">6</span>مثلث متساوي الساقين، زاوية رأسه معطاة في كل حالة. احسب زاويتَي القاعدة (المتساويتين):</h4>
+      <div class="op-grid">
+        <div class="op-item">زاوية الرأس = 40° → <span class="fill-line"></span></div>
+        <div class="op-item">زاوية الرأس = 100° → <span class="fill-line"></span></div>
+        <div class="op-item">زاوية الرأس = 20° → <span class="fill-line"></span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">7</span>حدّد هل يمكن أن يوجد مثلث بالزوايا التالية (صحيح/خطأ)، مع التعليل:</h4>
+      <div class="tf-item"><span>60°، 70°، 50°</span><div class="tf-boxes"><span class="tf-box">✓</span><span class="tf-box">✗</span></div></div>
+      <div class="tf-item"><span>90°، 60°، 40°</span><div class="tf-boxes"><span class="tf-box">✓</span><span class="tf-box">✗</span></div></div>
+      <div class="tf-item"><span>100°، 50°، 30°</span><div class="tf-boxes"><span class="tf-box">✓</span><span class="tf-box">✗</span></div></div>
+      <div class="tf-item"><span>45°، 45°، 45°</span><div class="tf-boxes"><span class="tf-box">✓</span><span class="tf-box">✗</span></div></div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">8</span>مسألة تطبيقية:</h4>
+      <div class="scenario-box">
+        1) مثلث ABC متساوي الساقين في A (أي AB=AC)، وقائم الزاوية في A (الزاوية A تساوي 90°). احسب زاويتَي B وC.
+      </div>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+      <div class="scenario-box">
+        2) مثلث آخر زواياه الثلاث هي: x، 2x، 3x (حيث x عدد مجهول). احسب قيمة x، ثم استنتج قياس كل زاوية من زوايا هذا المثلث.
+      </div>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== CORRIGE ===================== -->
+  <div class="corrige-wrapper">
+    <p class="corrige-flag">✂ يمكن طي هذه الصفحة أو إخفاؤها (اضغط على العنوان أدناه) قبل إنجاز التمارين ✂</p>
+    <details class="corrige">
+      <summary>التصحيح الكامل</summary>
+
+      <h4>تصحيح النشاط التطبيقي</h4>
+      <div class="corrige-item">يتحقق الأستاذ(ة) من أن مجموع القياسات الثلاث التي حصل عليها المتعلم(ة) بالقياس يقترب من 180° (قد يظهر فارق بسيط جداً بسبب دقة القياس اليدوي).</div>
+
+      <h4>تصحيح التمرين 1 (حساب الزاوية الثالثة)</h4>
+      <div class="corrige-item">180−50−70=60° &nbsp;|&nbsp; 180−90−35=55° &nbsp;|&nbsp; 180−45−45=90° &nbsp;|&nbsp; 180−100−30=50°</div>
+
+      <h4>تصحيح التمرين 2 (التصنيف حسب الأضلاع)</h4>
+      <div class="corrige-item">5،5،5 ← متساوي الأضلاع &nbsp;|&nbsp; 6،6،4 ← متساوي الساقين &nbsp;|&nbsp; 3،4،5 ← مختلف الأضلاع</div>
+
+      <h4>تصحيح التمرين 3 (التصنيف حسب الزوايا)</h4>
+      <div class="corrige-item">90،45،45 ← قائم الزاوية &nbsp;|&nbsp; 60،60،60 ← حاد الزوايا &nbsp;|&nbsp; 120،40،20 ← منفرج الزاوية &nbsp;|&nbsp; 70،60،50 ← حاد الزوايا</div>
+
+      <h4>تصحيح التمرين 4 (التفسير)</h4>
+      <div class="corrige-item">بما أن زوايا المثلث المتساوي الأضلاع الثلاث متساوية فيما بينها، ومجموعها = 180°، فإن كل زاوية = 180 ÷ 3 = 60°.</div>
+
+      <h4>تصحيح التمرين 5 (الاختيار من متعدد)</h4>
+      <div class="corrige-item">1) 180° &nbsp;|&nbsp; 2) متساوي الأضلاع &nbsp;|&nbsp; 3) 60° &nbsp;|&nbsp; 4) منفرج الزاوية &nbsp;|&nbsp; 5) زاويتا القاعدة متساويتان</div>
+
+      <h4>تصحيح التمرين 6 (المتساوي الساقين)</h4>
+      <div class="corrige-item">(180−40)÷2=70° &nbsp;|&nbsp; (180−100)÷2=40° &nbsp;|&nbsp; (180−20)÷2=80°</div>
+
+      <h4>تصحيح التمرين 7 (وجود المثلث)</h4>
+      <div class="corrige-item">60+70+50=180 ✓ صحيح، يمكن أن يوجد.</div>
+      <div class="corrige-item">90+60+40=190 ✗ خطأ، لا يمكن (المجموع يتجاوز 180).</div>
+      <div class="corrige-item">100+50+30=180 ✓ صحيح، يمكن أن يوجد.</div>
+      <div class="corrige-item">45+45+45=135 ✗ خطأ، لا يمكن (المجموع أقل من 180).</div>
+
+      <h4>تصحيح التمرين 8 (المسألة التطبيقية)</h4>
+      <div class="corrige-item">1) بما أن المثلث متساوي الساقين وقائم في A، فزاويتا B وC متساويتان ومجموعهما = 180−90=90°، إذن كل واحدة = 90÷2 = 45°.</div>
+      <div class="corrige-item">2) x+2x+3x=180 ⟹ 6x=180 ⟹ x=30°. إذن الزوايا هي: 30°، 60°، و90° (وهذا مثلث قائم الزاوية).</div>
+    </details>
+  </div>
+
+  <p class="footer-note">فيشة تعلّم ذاتي — الرياضيات — الأولى إعدادي — مجموع قياسات زوايا مثلث ومثلثات خاصة</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>الأعداد العشرية النسبية</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1c2b3a; --ink-soft:#4d5f70;
+    --paper:#f7f9fb; --panel:#ffffff; --line:#c9d6e0;
+    --blue:#2f5f8a; --blue-soft:#e2ecf3;
+    --orange:#e07b39; --orange-soft:#fbe8d8;
+    --green:#3a8f6b; --green-soft:#e1f2ea;
+    --red:#c1493a;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#dde6ec;color:var(--ink);font-family:'Noto Naskh Arabic','Amiri',serif;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .sheet{
+    max-width:900px;margin:24px auto;background:
+      repeating-linear-gradient(0deg, transparent 0 27px, rgba(47,95,138,.06) 27px 28px),
+      repeating-linear-gradient(90deg, transparent 0 27px, rgba(47,95,138,.06) 27px 28px),
+      var(--paper);
+    padding:38px 44px 50px;border:1px solid var(--line);box-shadow:0 4px 24px rgba(0,0,0,.12);
+  }
+
+  .masthead{display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:3px solid var(--ink);padding-bottom:16px;margin-bottom:22px;}
+  .masthead-text h1{font-family:'Amiri',serif;font-weight:700;font-size:26px;margin:0 0 6px;color:var(--blue);}
+  .masthead-text .subtitle{font-size:15px;color:var(--ink-soft);margin:0;}
+  .num-icon{width:60px;height:56px;flex-shrink:0;}
+
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+  .meta-chip{border:1px solid var(--line);background:var(--panel);border-radius:3px;padding:6px 12px;font-size:13.5px;color:var(--ink-soft);}
+  .meta-chip b{color:var(--ink);font-weight:600;}
+
+  section{margin-bottom:28px;}
+  h2.section-title{font-family:'Amiri',serif;font-size:21px;font-weight:700;color:var(--blue);border-bottom:2px solid var(--blue);padding-bottom:6px;margin:0 0 14px;display:flex;align-items:baseline;gap:8px;}
+  h3.sub-title{font-size:17px;font-weight:700;color:var(--orange);margin:20px 0 8px;}
+  p{line-height:2;font-size:15.5px;margin:0 0 10px;}
+
+  .objectif-box{background:var(--orange-soft);border-right:4px solid var(--orange);padding:14px 18px;border-radius:2px;font-size:15.5px;line-height:1.9;}
+
+  .rule-box{background:var(--panel);border:1px solid var(--line);border-right:4px solid var(--blue);padding:14px 18px;border-radius:2px;margin:10px 0 16px;}
+  .rule-box p:last-child{margin-bottom:0;}
+  .rule-box ul,.rule-box ol{margin:6px 0;padding-inline-start:22px;}
+  .rule-box li{margin-bottom:6px;line-height:1.85;}
+
+  .line-wrap{display:flex;justify-content:center;margin:14px 0;overflow-x:auto;}
+
+  .type-grid{display:flex;flex-wrap:wrap;gap:14px;margin:10px 0 16px;}
+  .type-card{flex:1 1 200px;border-radius:8px;padding:12px 16px;text-align:center;}
+  .type-card.pos{background:var(--green-soft);border:1px solid var(--green);}
+  .type-card.neg{background:#fbe4de;border:1px solid var(--red);}
+  .type-card.zero{background:var(--blue-soft);border:1px solid var(--blue);}
+  .type-card .head{font-weight:700;font-size:16px;margin-bottom:4px;}
+  .type-card.pos .head{color:var(--green);}
+  .type-card.neg .head{color:var(--red);}
+  .type-card.zero .head{color:var(--blue);}
+  .type-card p{margin:0;font-size:14px;color:var(--ink-soft);}
+
+  table.data-table{width:100%;border-collapse:collapse;margin:8px 0 18px;font-size:15px;}
+  table.data-table th{background:var(--blue);color:#fff;padding:8px 10px;font-weight:600;font-size:14px;}
+  table.data-table td{border:1px solid var(--line);padding:9px 10px;background:var(--panel);text-align:center;}
+  table.data-table tr:nth-child(even) td{background:#eef3f7;}
+
+  .activity-box{background:var(--panel);border:1.5px solid var(--orange);border-radius:3px;padding:16px 20px;}
+  .activity-box .task-label{display:inline-block;background:var(--orange);color:#fff;font-size:12.5px;padding:3px 10px;border-radius:2px;margin-bottom:8px;}
+
+  .exercise{border:1px solid var(--line);border-radius:3px;padding:16px 20px;margin-bottom:16px;background:var(--panel);}
+  .exercise-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:var(--ink);color:var(--paper);border-radius:50%;font-size:14px;font-weight:700;margin-inline-end:8px;}
+  .exercise h4{margin:0 0 10px;font-size:16.5px;display:flex;align-items:center;}
+  .fill-line{border-bottom:1px dotted var(--ink-soft);display:inline-block;min-width:100px;height:1.6em;}
+  .op-grid{display:flex;flex-wrap:wrap;gap:16px;}
+  .op-item{display:flex;align-items:center;gap:6px;font-size:15.5px;}
+  .word-chip{display:inline-block;background:var(--paper);border:1px solid var(--line);border-radius:3px;padding:3px 12px;margin:3px 4px;font-size:16px;}
+  .qcm-item{margin-bottom:10px;}
+  .qcm-item p{margin-bottom:4px;font-weight:600;}
+  .qcm-options{display:flex;flex-wrap:wrap;gap:14px;font-size:14.5px;}
+  .qcm-options span{display:flex;align-items:center;gap:5px;}
+  .checkbox{width:13px;height:13px;border:1.4px solid var(--ink-soft);display:inline-block;border-radius:2px;}
+  .scenario-box{background:#eef3f7;border:1px solid var(--line);padding:12px 16px;font-size:15.5px;line-height:2.1;margin-bottom:10px;}
+
+  .corrige-wrapper{page-break-before:always;padding-top:6px;}
+  .corrige-flag{text-align:center;font-size:13px;color:var(--ink-soft);margin-bottom:10px;border-top:1px dashed var(--ink-soft);padding-top:14px;}
+  details.corrige{border:2px dashed var(--green);border-radius:4px;background:#f7fcfa;padding:6px 20px 18px;}
+  details.corrige > summary{cursor:pointer;font-family:'Amiri',serif;font-weight:700;font-size:19px;color:var(--green);padding:14px 0;list-style:none;}
+  details.corrige > summary::-webkit-details-marker{display:none;}
+  details.corrige > summary::before{content:"✂ ";}
+  details.corrige > summary::after{content:"— اضغط لإظهار الحل / إخفائه";font-family:'Noto Naskh Arabic',serif;font-weight:400;font-size:13px;color:var(--ink-soft);margin-inline-start:8px;}
+  .corrige h4{color:var(--green);margin:16px 0 8px;font-size:16px;}
+  .corrige-item{margin-bottom:8px;font-size:15px;line-height:1.9;}
+  .corrige table.data-table th{background:var(--green);}
+
+  .footer-note{margin-top:30px;text-align:center;font-size:12px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:10px;}
+
+  @media print{
+    body{background:#fff;}
+    .sheet{box-shadow:none;border:none;margin:0;max-width:100%;padding:14px 6px;background:var(--paper);}
+    details.corrige{border-color:#000;}
+  }
+  @page{size:A4;margin:14mm;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="masthead-text">
+      <h1>الأعدادُ العشريةُ النسبيةُ</h1>
+      <p class="subtitle">الرياضيات — الأعداد والحساب</p>
+    </div>
+    <svg class="num-icon" viewBox="0 0 64 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="6" y1="28" x2="58" y2="28" stroke="#1c2b3a" stroke-width="2.5" marker-end="url(#ah)" marker-start="url(#ah2)"/>
+      <circle cx="32" cy="28" r="4" fill="#2f5f8a"/>
+      <text x="20" y="18" font-size="14" font-weight="700" fill="#c1493a">−</text>
+      <text x="44" y="18" font-size="14" font-weight="700" fill="#3a8f6b">+</text>
+      <defs>
+        <marker id="ah" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#3a8f6b"/></marker>
+        <marker id="ah2" markerWidth="8" markerHeight="8" refX="2" refY="3" orient="auto-start-reverse"><path d="M0,0 L6,3 L0,6 Z" fill="#c1493a"/></marker>
+      </defs>
+    </svg>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta-chip">المستوى: <b>الأولى إعدادي (1AC)</b></div>
+    <div class="meta-chip">المادة: <b>الرياضيات — الأعداد والحساب</b></div>
+    <div class="meta-chip">مدة الحصة: <b>ساعة إلى ساعة ونصف</b></div>
+    <div class="meta-chip">نوع الوثيقة: <b>فيشة تعلّم ذاتي</b></div>
+  </div>
+
+  <!-- ===================== OBJECTIF ===================== -->
+  <section>
+    <h2 class="section-title">🎯 الهدف من الدرس</h2>
+    <div class="objectif-box">
+      يتمكّن المتعلم(ة) في نهاية هذا الدرس من: تعريف الأعداد العشرية النسبية ومكوناتها (الإشارة والقيمة المطلقة)، وتمثيلها على مستقيم مدرَّج، وتحديد العددين المتقابلين، ومقارنة الأعداد النسبية وترتيبها.
+    </div>
+  </section>
+
+  <!-- ===================== COURS ===================== -->
+  <section>
+    <h2 class="section-title">📘 الدرس</h2>
+
+    <h3 class="sub-title">1) تعريف العدد النسبي</h3>
+    <div class="rule-box">
+      <p><b>العدد النسبي</b> عدد مكوَّن من <b>إشارة</b> (+ أو −) و<b>قيمة مطلقة</b>. تشمل الأعداد النسبية: الأعداد <b>الموجبة</b> (بإشارة +)، والأعداد <b>السالبة</b> (بإشارة −)، والعدد <b>صفر</b> (لا يحمل إشارة، وهو حدّ فاصل بينهما).</p>
+    </div>
+    <div class="type-grid">
+      <div class="type-card neg"><div class="head">أعداد سالبة</div><p>−7 ، −2.8 ، −0.5</p></div>
+      <div class="type-card zero"><div class="head">صفر</div><p>0</p></div>
+      <div class="type-card pos"><div class="head">أعداد موجبة</div><p>+3.5 ، +10 ، +6.2</p></div>
+    </div>
+
+    <h3 class="sub-title">2) التمثيل على المستقيم المدرَّج</h3>
+    <div class="rule-box">
+      <p>يمكن تمثيل الأعداد النسبية بنقط على <b>مستقيم مدرَّج</b>: يوضع الصفر في الوسط، وتوضع الأعداد الموجبة على يمينه، والأعداد السالبة على يساره، بحيث تكون المسافات بين المدرَّجات المتتالية متساوية.</p>
+    </div>
+    <div class="line-wrap">
+      <svg width="440" height="80" viewBox="0 0 440 80">
+        <line x1="20" y1="40" x2="420" y2="40" stroke="#1c2b3a" stroke-width="2" marker-end="url(#arend)"/>
+        <g font-size="12" font-family="Noto Naskh Arabic, serif">
+          <line x1="40" y1="34" x2="40" y2="46" stroke="#1c2b3a"/><text x="40" y="60" text-anchor="middle">−4</text>
+          <line x1="100" y1="34" x2="100" y2="46" stroke="#1c2b3a"/><text x="100" y="60" text-anchor="middle">−3</text>
+          <line x1="160" y1="34" x2="160" y2="46" stroke="#1c2b3a"/><text x="160" y="60" text-anchor="middle">−2</text>
+          <line x1="220" y1="34" x2="220" y2="46" stroke="#1c2b3a"/><text x="220" y="60" text-anchor="middle">−1</text>
+          <line x1="280" y1="34" x2="280" y2="46" stroke="#1c2b3a" stroke-width="2.5"/><text x="280" y="60" text-anchor="middle" font-weight="700">0</text>
+          <line x1="340" y1="34" x2="340" y2="46" stroke="#1c2b3a"/><text x="340" y="60" text-anchor="middle">1</text>
+          <line x1="400" y1="34" x2="400" y2="46" stroke="#1c2b3a"/><text x="400" y="60" text-anchor="middle">2</text>
+        </g>
+        <defs><marker id="arend" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#1c2b3a"/></marker></defs>
+      </svg>
+    </div>
+
+    <h3 class="sub-title">3) القيمة المطلقة</h3>
+    <div class="rule-box">
+      <p><b>القيمة المطلقة</b> لعدد نسبي هي المسافة الفاصلة بينه وبين الصفر على المستقيم المدرَّج، وهي دائماً <b>موجبة أو معدومة</b>. تُكتب بين خطين: |x|.</p>
+      <p style="text-align:center;font-weight:700;color:var(--blue);">|+5| = 5 &nbsp;&nbsp;&nbsp; |−5| = 5 &nbsp;&nbsp;&nbsp; |0| = 0</p>
+    </div>
+
+    <h3 class="sub-title">4) الأعداد المتقابلة</h3>
+    <div class="rule-box">
+      <p>عددان نسبيان يُقال عنهما <b>متقابلان</b> إذا كان لهما <b>نفس القيمة المطلقة</b> لكن <b>إشارتين مختلفتين</b>. مثال: +5 و−5 عددان متقابلان.</p>
+    </div>
+
+    <h3 class="sub-title">5) مقارنة الأعداد النسبية وترتيبها</h3>
+    <div class="rule-box">
+      <ul>
+        <li>أي عدد <b>موجب</b> أكبر من أي عدد <b>سالب</b>.</li>
+        <li>بين عددين <b>موجبين</b>: الأكبر هو الذي له <b>قيمة مطلقة أكبر</b>.</li>
+        <li>بين عددين <b>سالبين</b>: الأكبر هو الذي له <b>قيمة مطلقة أصغر</b>.</li>
+      </ul>
+      <p style="text-align:center;">مثال: −2 &gt; −7 (لأن |−2|=2 أصغر من |−7|=7)</p>
+    </div>
+  </section>
+
+  <!-- ===================== ACTIVITE ===================== -->
+  <section>
+    <h2 class="section-title">✏️ نشاط تطبيقي</h2>
+    <div class="activity-box">
+      <span class="task-label">درجات الحرارة</span>
+      <p>سُجّلت درجات الحرارة التالية في إحدى المدن الجبلية خلال يوم شتوي: في الصباح −4°، في الظهيرة +2°، في المساء −1°.</p>
+      <p>1) مثّل هذه الدرجات الثلاث على مستقيم مدرَّج.</p>
+      <p>2) رتّب هذه الدرجات ترتيباً تصاعدياً: <span class="fill-line" style="min-width:100%;"></span></p>
+      <p>3) ما هي أبرد لحظة من اليوم؟ <span class="fill-line" style="min-width:60%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== EXERCICES ===================== -->
+  <section>
+    <h2 class="section-title">📝 تمارين للتدرّب</h2>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">1</span>صنّف الأعداد التالية إلى (موجب / سالب / صفر):</h4>
+      <p>
+        <span class="word-chip">+3.5</span>
+        <span class="word-chip">−7</span>
+        <span class="word-chip">0</span>
+        <span class="word-chip">−2.8</span>
+        <span class="word-chip">+10</span>
+        <span class="word-chip">−0.5</span>
+      </p>
+      <table class="data-table">
+        <tr><th>موجب</th><th>سالب</th><th>صفر</th></tr>
+        <tr><td style="height:60px;"></td><td></td><td></td></tr>
+      </table>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">2</span>مثّل الأعداد التالية على المستقيم المدرَّج أدناه: −3 ، +2 ، −1.5 ، +4</h4>
+      <svg width="420" height="80" viewBox="0 0 420 80">
+        <line x1="20" y1="40" x2="400" y2="40" stroke="#1c2b3a" stroke-width="2" marker-end="url(#arend2)"/>
+        <g font-size="12" font-family="Noto Naskh Arabic, serif">
+          <line x1="40" y1="34" x2="40" y2="46" stroke="#1c2b3a"/><text x="40" y="60" text-anchor="middle">−5</text>
+          <line x1="100" y1="34" x2="100" y2="46" stroke="#1c2b3a"/><text x="100" y="60" text-anchor="middle">−4</text>
+          <line x1="160" y1="34" x2="160" y2="46" stroke="#1c2b3a"/><text x="160" y="60" text-anchor="middle">−3</text>
+          <line x1="220" y1="34" x2="220" y2="46" stroke="#1c2b3a" stroke-width="2.5"/><text x="220" y="60" text-anchor="middle" font-weight="700">0</text>
+          <line x1="280" y1="34" x2="280" y2="46" stroke="#1c2b3a"/><text x="280" y="60" text-anchor="middle">1</text>
+          <line x1="340" y1="34" x2="340" y2="46" stroke="#1c2b3a"/><text x="340" y="60" text-anchor="middle">2</text>
+          <line x1="370" y1="34" x2="370" y2="46" stroke="#1c2b3a"/><text x="370" y="60" text-anchor="middle">3</text>
+        </g>
+        <defs><marker id="arend2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#1c2b3a"/></marker></defs>
+      </svg>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">3</span>احسب القيمة المطلقة للأعداد التالية:</h4>
+      <div class="op-grid">
+        <div class="op-item">|+5| = <span class="fill-line"></span></div>
+        <div class="op-item">|−8| = <span class="fill-line"></span></div>
+        <div class="op-item">|−3.5| = <span class="fill-line"></span></div>
+        <div class="op-item">|0| = <span class="fill-line"></span></div>
+        <div class="op-item">|+12| = <span class="fill-line"></span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">4</span>أوجد متقابل كل عدد من الأعداد التالية:</h4>
+      <div class="op-grid">
+        <div class="op-item">+7 → <span class="fill-line"></span></div>
+        <div class="op-item">−4.5 → <span class="fill-line"></span></div>
+        <div class="op-item">−12 → <span class="fill-line"></span></div>
+        <div class="op-item">+0.8 → <span class="fill-line"></span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">5</span>اختر الإجابة الصحيحة:</h4>
+      <div class="qcm-item">
+        <p>1) العدد النسبي هو عدد له:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>إشارة وقيمة مطلقة</span><span><span class="checkbox"></span>قيمة مطلقة فقط</span><span><span class="checkbox"></span>إشارة فقط</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>2) القيمة المطلقة لأي عدد نسبي تكون دائماً:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>سالبة</span><span><span class="checkbox"></span>موجبة أو معدومة</span><span><span class="checkbox"></span>معدومة فقط</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>3) أي عدد موجب مقارنة بأي عدد سالب يكون:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>أصغر منه</span><span><span class="checkbox"></span>أكبر منه</span><span><span class="checkbox"></span>يساويه</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>4) متقابل العدد −6 هو:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>6</span><span><span class="checkbox"></span>−6</span><span><span class="checkbox"></span>0</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>5) بين عددين سالبين، الأكبر هو الذي له:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>قيمة مطلقة أكبر</span><span><span class="checkbox"></span>قيمة مطلقة أصغر</span><span><span class="checkbox"></span>نفس القيمة المطلقة</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">6</span>قارن بين الأعداد النسبية التالية باستعمال الرموز &lt; أو &gt; أو =:</h4>
+      <div class="op-grid">
+        <div class="op-item">−5 <span class="fill-line" style="min-width:40px;"></span> +2</div>
+        <div class="op-item">−3 <span class="fill-line" style="min-width:40px;"></span> −7</div>
+        <div class="op-item">+4.5 <span class="fill-line" style="min-width:40px;"></span> +4.2</div>
+        <div class="op-item">−2.5 <span class="fill-line" style="min-width:40px;"></span> −2.5</div>
+        <div class="op-item">0 <span class="fill-line" style="min-width:40px;"></span> −1</div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">7</span>رتّب الأعداد التالية ترتيباً تصاعدياً: −8 ، +3 ، −1 ، 0 ، +5 ، −4.5</h4>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">8</span>مسألة تطبيقية:</h4>
+      <div class="scenario-box">
+        سُجّلت درجات الحرارة التالية في مدينة خلال أسبوع: الاثنين −2°، الثلاثاء +5°، الأربعاء −6°، الخميس 0°، الجمعة +3°.
+      </div>
+      <p>1) رتّب هذه الدرجات ترتيباً تصاعدياً.</p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+      <p>2) ما هو اليوم الأبرد؟ وما هو اليوم الأدفأ؟</p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+      <p>3) احسب الفرق بين درجة حرارة أبرد يوم وأدفأ يوم (بالقيمة المطلقة للفرق).</p>
+      <p><span class="fill-line" style="min-width:60%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== CORRIGE ===================== -->
+  <div class="corrige-wrapper">
+    <p class="corrige-flag">✂ يمكن طي هذه الصفحة أو إخفاؤها (اضغط على العنوان أدناه) قبل إنجاز التمارين ✂</p>
+    <details class="corrige">
+      <summary>التصحيح الكامل</summary>
+
+      <h4>تصحيح النشاط التطبيقي</h4>
+      <div class="corrige-item">1) يتحقق الأستاذ(ة) من وضع النقط الثلاث بشكل صحيح على المستقيم المدرَّج.</div>
+      <div class="corrige-item">2) الترتيب التصاعدي: −4° &lt; −1° &lt; +2°</div>
+      <div class="corrige-item">3) أبرد لحظة: الصباح (−4°)</div>
+
+      <h4>تصحيح التمرين 1 (التصنيف)</h4>
+      <div class="corrige-item"><b>موجب:</b> +3.5، +10 &nbsp;|&nbsp; <b>سالب:</b> −7، −2.8، −0.5 &nbsp;|&nbsp; <b>صفر:</b> 0</div>
+
+      <h4>تصحيح التمرين 2 (التمثيل)</h4>
+      <div class="corrige-item">يتحقق الأستاذ(ة) من وضع النقط الأربع في مواضعها الصحيحة: −3، −1.5 (بين −2 و−1)، +2، +4.</div>
+
+      <h4>تصحيح التمرين 3 (القيمة المطلقة)</h4>
+      <div class="corrige-item">|+5|=5 &nbsp;|&nbsp; |−8|=8 &nbsp;|&nbsp; |−3.5|=3.5 &nbsp;|&nbsp; |0|=0 &nbsp;|&nbsp; |+12|=12</div>
+
+      <h4>تصحيح التمرين 4 (الأعداد المتقابلة)</h4>
+      <div class="corrige-item">+7 → −7 &nbsp;|&nbsp; −4.5 → +4.5 &nbsp;|&nbsp; −12 → +12 &nbsp;|&nbsp; +0.8 → −0.8</div>
+
+      <h4>تصحيح التمرين 5 (الاختيار من متعدد)</h4>
+      <div class="corrige-item">1) إشارة وقيمة مطلقة &nbsp;|&nbsp; 2) موجبة أو معدومة &nbsp;|&nbsp; 3) أكبر منه &nbsp;|&nbsp; 4) 6 &nbsp;|&nbsp; 5) قيمة مطلقة أصغر</div>
+
+      <h4>تصحيح التمرين 6 (المقارنة)</h4>
+      <div class="corrige-item">−5 &lt; +2 &nbsp;|&nbsp; −3 &gt; −7 &nbsp;|&nbsp; +4.5 &gt; +4.2 &nbsp;|&nbsp; −2.5 = −2.5 &nbsp;|&nbsp; 0 &gt; −1</div>
+
+      <h4>تصحيح التمرين 7 (الترتيب)</h4>
+      <div class="corrige-item">−8 &lt; −4.5 &lt; −1 &lt; 0 &lt; +3 &lt; +5</div>
+
+      <h4>تصحيح التمرين 8 (المسألة التطبيقية)</h4>
+      <div class="corrige-item">1) −6° &lt; −2° &lt; 0° &lt; +3° &lt; +5°</div>
+      <div class="corrige-item">2) اليوم الأبرد: الأربعاء (−6°) — اليوم الأدفأ: الثلاثاء (+5°)</div>
+      <div class="corrige-item">3) الفرق = 5 − (−6) = 11°</div>
+    </details>
+  </div>
+
+  <p class="footer-note">فيشة تعلّم ذاتي — الرياضيات — الأولى إعدادي — الأعداد العشرية النسبية</p>
+</div>
+</body>
+</html>

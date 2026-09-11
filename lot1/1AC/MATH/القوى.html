@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>القوى</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1c2b3a; --ink-soft:#4d5f70;
+    --paper:#f7f9fb; --panel:#ffffff; --line:#c9d6e0;
+    --blue:#2f5f8a; --blue-soft:#e2ecf3;
+    --orange:#e07b39; --orange-soft:#fbe8d8;
+    --green:#3a8f6b; --green-soft:#e1f2ea;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#dde6ec;color:var(--ink);font-family:'Noto Naskh Arabic','Amiri',serif;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .sheet{
+    max-width:900px;margin:24px auto;background:
+      repeating-linear-gradient(0deg, transparent 0 27px, rgba(47,95,138,.06) 27px 28px),
+      repeating-linear-gradient(90deg, transparent 0 27px, rgba(47,95,138,.06) 27px 28px),
+      var(--paper);
+    padding:38px 44px 50px;border:1px solid var(--line);box-shadow:0 4px 24px rgba(0,0,0,.12);
+  }
+
+  .masthead{display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:3px solid var(--ink);padding-bottom:16px;margin-bottom:22px;}
+  .masthead-text h1{font-family:'Amiri',serif;font-weight:700;font-size:32px;margin:0 0 6px;color:var(--blue);}
+  .masthead-text .subtitle{font-size:15px;color:var(--ink-soft);margin:0;}
+  .pow-icon{width:60px;height:60px;flex-shrink:0;}
+
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+  .meta-chip{border:1px solid var(--line);background:var(--panel);border-radius:3px;padding:6px 12px;font-size:13.5px;color:var(--ink-soft);}
+  .meta-chip b{color:var(--ink);font-weight:600;}
+
+  section{margin-bottom:28px;}
+  h2.section-title{font-family:'Amiri',serif;font-size:21px;font-weight:700;color:var(--blue);border-bottom:2px solid var(--blue);padding-bottom:6px;margin:0 0 14px;display:flex;align-items:baseline;gap:8px;}
+  h3.sub-title{font-size:17px;font-weight:700;color:var(--orange);margin:20px 0 8px;}
+  p{line-height:2;font-size:15.5px;margin:0 0 10px;}
+
+  .objectif-box{background:var(--orange-soft);border-right:4px solid var(--orange);padding:14px 18px;border-radius:2px;font-size:15.5px;line-height:1.9;}
+
+  .rule-box{background:var(--panel);border:1px solid var(--line);border-right:4px solid var(--blue);padding:14px 18px;border-radius:2px;margin:10px 0 16px;}
+  .rule-box p:last-child{margin-bottom:0;}
+  .rule-box ul,.rule-box ol{margin:6px 0;padding-inline-start:22px;}
+  .rule-box li{margin-bottom:6px;line-height:1.85;}
+
+  .formula-box{background:var(--blue);color:#fff;text-align:center;padding:14px;border-radius:6px;font-size:20px;font-weight:700;margin:10px 0 16px;}
+  .formula-box .sub{font-size:12.5px;font-weight:400;opacity:0.85;display:block;margin-top:6px;}
+
+  .power-diagram{display:flex;justify-content:center;margin:12px 0;}
+
+  table.data-table{width:100%;border-collapse:collapse;margin:8px 0 18px;font-size:15px;}
+  table.data-table th{background:var(--blue);color:#fff;padding:8px 10px;font-weight:600;font-size:14px;}
+  table.data-table td{border:1px solid var(--line);padding:9px 10px;background:var(--panel);text-align:center;}
+  table.data-table tr:nth-child(even) td{background:#eef3f7;}
+
+  .prop-grid{display:flex;flex-wrap:wrap;gap:14px;margin:10px 0 16px;}
+  .prop-card{flex:1 1 240px;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:12px 16px;text-align:center;}
+  .prop-card .rule{font-weight:700;color:var(--orange);font-size:16px;margin-bottom:4px;}
+  .prop-card p{margin:0;font-size:13px;color:var(--ink-soft);}
+
+  .activity-box{background:var(--panel);border:1.5px solid var(--orange);border-radius:3px;padding:16px 20px;}
+  .activity-box .task-label{display:inline-block;background:var(--orange);color:#fff;font-size:12.5px;padding:3px 10px;border-radius:2px;margin-bottom:8px;}
+
+  .exercise{border:1px solid var(--line);border-radius:3px;padding:16px 20px;margin-bottom:16px;background:var(--panel);}
+  .exercise-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:var(--ink);color:var(--paper);border-radius:50%;font-size:14px;font-weight:700;margin-inline-end:8px;}
+  .exercise h4{margin:0 0 10px;font-size:16.5px;display:flex;align-items:center;}
+  .fill-line{border-bottom:1px dotted var(--ink-soft);display:inline-block;min-width:100px;height:1.6em;}
+  .op-grid{display:flex;flex-wrap:wrap;gap:18px;}
+  .op-item{display:flex;align-items:center;gap:6px;font-size:15.5px;}
+  .qcm-item{margin-bottom:10px;}
+  .qcm-item p{margin-bottom:4px;font-weight:600;}
+  .qcm-options{display:flex;flex-wrap:wrap;gap:14px;font-size:14.5px;}
+  .qcm-options span{display:flex;align-items:center;gap:5px;}
+  .checkbox{width:13px;height:13px;border:1.4px solid var(--ink-soft);display:inline-block;border-radius:2px;}
+  .scenario-box{background:#eef3f7;border:1px solid var(--line);padding:12px 16px;font-size:15.5px;line-height:2.1;margin-bottom:10px;}
+
+  .corrige-wrapper{page-break-before:always;padding-top:6px;}
+  .corrige-flag{text-align:center;font-size:13px;color:var(--ink-soft);margin-bottom:10px;border-top:1px dashed var(--ink-soft);padding-top:14px;}
+  details.corrige{border:2px dashed var(--green);border-radius:4px;background:#f7fcfa;padding:6px 20px 18px;}
+  details.corrige > summary{cursor:pointer;font-family:'Amiri',serif;font-weight:700;font-size:19px;color:var(--green);padding:14px 0;list-style:none;}
+  details.corrige > summary::-webkit-details-marker{display:none;}
+  details.corrige > summary::before{content:"✂ ";}
+  details.corrige > summary::after{content:"— اضغط لإظهار الحل / إخفائه";font-family:'Noto Naskh Arabic',serif;font-weight:400;font-size:13px;color:var(--ink-soft);margin-inline-start:8px;}
+  .corrige h4{color:var(--green);margin:16px 0 8px;font-size:16px;}
+  .corrige-item{margin-bottom:8px;font-size:15px;line-height:1.9;}
+  .corrige table.data-table th{background:var(--green);}
+
+  .footer-note{margin-top:30px;text-align:center;font-size:12px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:10px;}
+
+  @media print{
+    body{background:#fff;}
+    .sheet{box-shadow:none;border:none;margin:0;max-width:100%;padding:14px 6px;background:var(--paper);}
+    details.corrige{border-color:#000;}
+  }
+  @page{size:A4;margin:14mm;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="masthead-text">
+      <h1>القوى</h1>
+      <p class="subtitle">الرياضيات — الأعداد والحساب</p>
+    </div>
+    <svg class="pow-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <text x="10" y="46" font-family="Amiri, serif" font-size="34" font-weight="700" fill="#2f5f8a">a</text>
+      <text x="38" y="26" font-family="Amiri, serif" font-size="20" font-weight="700" fill="#e07b39">n</text>
+    </svg>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta-chip">المستوى: <b>الأولى إعدادي (1AC)</b></div>
+    <div class="meta-chip">المادة: <b>الرياضيات — الأعداد والحساب</b></div>
+    <div class="meta-chip">مدة الحصة: <b>ساعة إلى ساعة ونصف</b></div>
+    <div class="meta-chip">نوع الوثيقة: <b>فيشة تعلّم ذاتي</b></div>
+  </div>
+
+  <!-- ===================== OBJECTIF ===================== -->
+  <section>
+    <h2 class="section-title">🎯 الهدف من الدرس</h2>
+    <div class="objectif-box">
+      يتمكّن المتعلم(ة) في نهاية هذا الدرس من: تعريف القوة ذات الأس الطبيعي ومكوناتها، وحساب قوى الأعداد (خصوصاً قوى العدد 10)، وتوظيف الخصائص الأساسية للعمليات على القوى، واحترام أولوية القوى عند حساب تعبير عددي.
+    </div>
+  </section>
+
+  <!-- ===================== COURS ===================== -->
+  <section>
+    <h2 class="section-title">📘 الدرس</h2>
+
+    <h3 class="sub-title">1) تعريف القوة</h3>
+    <div class="rule-box">
+      <p><b>القوة ذات الأس الطبيعي</b> كتابة مختصرة لضرب عدد في نفسه عدة مرات متتالية.</p>
+    </div>
+    <div class="formula-box">
+      a<sup>n</sup> = a × a × ... × a &nbsp;(n مرة)
+      <span class="sub">a: الأساس — n: الأس</span>
+    </div>
+    <p style="font-size:14px;color:var(--ink-soft);">مثال: 3<sup>4</sup> = 3×3×3×3 = 81 (الأساس 3، الأس 4)</p>
+
+    <h3 class="sub-title">2) حالات خاصة</h3>
+    <table class="data-table">
+      <tr><th>الحالة</th><th>القاعدة</th><th>مثال</th></tr>
+      <tr><td>الأس 1</td><td>a<sup>1</sup> = a</td><td>7<sup>1</sup> = 7</td></tr>
+      <tr><td>الأس 0 (a≠0)</td><td>a<sup>0</sup> = 1</td><td>5<sup>0</sup> = 1</td></tr>
+      <tr><td>الأس 2</td><td>a<sup>2</sup> = "مربع a"</td><td>6<sup>2</sup> = 36</td></tr>
+      <tr><td>الأس 3</td><td>a<sup>3</sup> = "مكعب a"</td><td>4<sup>3</sup> = 64</td></tr>
+    </table>
+
+    <h3 class="sub-title">3) قوى العدد 10</h3>
+    <div class="rule-box">
+      <p>لحساب قوة العدد 10، نكتب <b>1</b> متبوعاً بعدد من <b>الأصفار</b> يساوي الأس.</p>
+    </div>
+    <table class="data-table">
+      <tr><th>10<sup>1</sup></th><th>10<sup>2</sup></th><th>10<sup>3</sup></th><th>10<sup>4</sup></th><th>10<sup>5</sup></th></tr>
+      <tr><td>10</td><td>100</td><td>1 000</td><td>10 000</td><td>100 000</td></tr>
+    </table>
+    <p style="font-size:14px;color:var(--ink-soft);margin-top:-8px;">تُستعمل قوى 10 لكتابة الأعداد الكبيرة بشكل مختصر: 5000 = 5 × 10<sup>3</sup></p>
+
+    <h3 class="sub-title">4) خصائص العمليات على القوى</h3>
+    <div class="prop-grid">
+      <div class="prop-card">
+        <div class="rule">a<sup>n</sup> × a<sup>m</sup> = a<sup>n+m</sup></div>
+        <p>جداء قوتين لهما نفس الأساس: نجمع الأسّين</p>
+      </div>
+      <div class="prop-card">
+        <div class="rule">(a<sup>n</sup>)<sup>m</sup> = a<sup>n×m</sup></div>
+        <p>قوة قوة: نضرب الأسّين</p>
+      </div>
+      <div class="prop-card">
+        <div class="rule">(a × b)<sup>n</sup> = a<sup>n</sup> × b<sup>n</sup></div>
+        <p>قوة جداء: توزَّع على العاملين</p>
+      </div>
+    </div>
+    <p style="font-size:14px;color:var(--ink-soft);">مثال: 2<sup>3</sup> × 2<sup>4</sup> = 2<sup>3+4</sup> = 2<sup>7</sup> = 128</p>
+
+    <h3 class="sub-title">5) أولويات العمليات مع القوى</h3>
+    <div class="rule-box">
+      <p>في تعبير عددي يحتوي على قوى، تُحسب <b>القوى أولاً</b> (بعد الأقواس)، ثم الضرب والقسمة، ثم الجمع والطرح.</p>
+    </div>
+    <p style="font-size:14px;color:var(--ink-soft);">مثال: 3 + 2<sup>3</sup> = 3 + 8 = 11 (نحسب 2<sup>3</sup> أولاً)</p>
+  </section>
+
+  <!-- ===================== ACTIVITE ===================== -->
+  <section>
+    <h2 class="section-title">✏️ نشاط تطبيقي</h2>
+    <div class="activity-box">
+      <span class="task-label">جدول قوى الأعداد من 2 إلى 5</span>
+      <p>أكمل الجدول التالي بحساب مربع ومكعب كل عدد من 2 إلى 5:</p>
+      <table class="data-table">
+        <tr><th>العدد a</th><th>a<sup>2</sup></th><th>a<sup>3</sup></th></tr>
+        <tr><td>2</td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+        <tr><td>3</td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+        <tr><td>4</td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+        <tr><td>5</td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===================== EXERCICES ===================== -->
+  <section>
+    <h2 class="section-title">📝 تمارين للتدرّب</h2>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">1</span>اكتب كل جداء على شكل قوة، ثم احسب قيمتها:</h4>
+      <div class="op-grid">
+        <div class="op-item">3×3×3 = <span class="fill-line"></span></div>
+        <div class="op-item">5×5 = <span class="fill-line"></span></div>
+        <div class="op-item">2×2×2×2 = <span class="fill-line"></span></div>
+        <div class="op-item">7×7×7 = <span class="fill-line"></span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">2</span>احسب القوى التالية:</h4>
+      <div class="op-grid">
+        <div class="op-item">2<sup>5</sup> = <span class="fill-line"></span></div>
+        <div class="op-item">4<sup>3</sup> = <span class="fill-line"></span></div>
+        <div class="op-item">6<sup>2</sup> = <span class="fill-line"></span></div>
+        <div class="op-item">1<sup>10</sup> = <span class="fill-line"></span></div>
+        <div class="op-item">0<sup>5</sup> = <span class="fill-line"></span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">3</span>احسب قوى العدد 10 التالية:</h4>
+      <div class="op-grid">
+        <div class="op-item">10<sup>1</sup> = <span class="fill-line"></span></div>
+        <div class="op-item">10<sup>2</sup> = <span class="fill-line"></span></div>
+        <div class="op-item">10<sup>3</sup> = <span class="fill-line"></span></div>
+        <div class="op-item">10<sup>5</sup> = <span class="fill-line"></span></div>
+        <div class="op-item">10<sup>0</sup> = <span class="fill-line"></span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">4</span>طبّق خاصية جداء قوتين لهما نفس الأساس، ثم احسب الناتج:</h4>
+      <div class="op-grid">
+        <div class="op-item">2<sup>3</sup> × 2<sup>4</sup> = <span class="fill-line"></span></div>
+        <div class="op-item">5<sup>2</sup> × 5<sup>3</sup> = <span class="fill-line"></span></div>
+        <div class="op-item">3<sup>1</sup> × 3<sup>5</sup> = <span class="fill-line"></span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">5</span>اختر الإجابة الصحيحة:</h4>
+      <div class="qcm-item">
+        <p>1) في الكتابة a<sup>n</sup>، يُسمّى الحرف a:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>الأس</span><span><span class="checkbox"></span>الأساس</span><span><span class="checkbox"></span>القوة</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>2) أي عدد (باستثناء الصفر) مرفوع للأس 0 يساوي:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>صفر</span><span><span class="checkbox"></span>1</span><span><span class="checkbox"></span>العدد نفسه</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>3) 10<sup>4</sup> يساوي:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>40</span><span><span class="checkbox"></span>10 000</span><span><span class="checkbox"></span>1 000</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>4) a<sup>3</sup> × a<sup>2</sup> يساوي:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>a<sup>5</sup></span><span><span class="checkbox"></span>a<sup>6</sup></span><span><span class="checkbox"></span>a<sup>1</sup></span></div>
+      </div>
+      <div class="qcm-item">
+        <p>5) في تعبير عددي، القوى تُحسب:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>قبل الضرب والجمع</span><span><span class="checkbox"></span>بعد الضرب والجمع</span><span><span class="checkbox"></span>في نفس وقت الجمع</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">6</span>احسب التعابير التالية باحترام أولويات العمليات:</h4>
+      <p>1) 3 + 2<sup>3</sup> = <span class="fill-line" style="min-width:60%;"></span></p>
+      <p>2) 2<sup>2</sup> × 3 + 1 = <span class="fill-line" style="min-width:60%;"></span></p>
+      <p>3) 5 × 2<sup>2</sup> − 4 = <span class="fill-line" style="min-width:60%;"></span></p>
+      <p>4) (1 + 2)<sup>2</sup> = <span class="fill-line" style="min-width:60%;"></span></p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">7</span>اكتب الأعداد التالية باستعمال قوى العدد 10:</h4>
+      <div class="op-grid">
+        <div class="op-item">5000 = <span class="fill-line"></span></div>
+        <div class="op-item">300 = <span class="fill-line"></span></div>
+        <div class="op-item">70000 = <span class="fill-line"></span></div>
+        <div class="op-item">2000000 = <span class="fill-line"></span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">8</span>مسألة تطبيقية:</h4>
+      <div class="scenario-box">
+        لديك مربع طول ضلعه 6 سم، ومكعب طول حرفه 4 سم.
+      </div>
+      <p>1) احسب مساحة المربع باستعمال كتابة القوى (المساحة = ضلع²).</p>
+      <p><span class="fill-line" style="min-width:60%;"></span></p>
+      <p>2) احسب حجم المكعب باستعمال كتابة القوى (الحجم = حرف³).</p>
+      <p><span class="fill-line" style="min-width:60%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== CORRIGE ===================== -->
+  <div class="corrige-wrapper">
+    <p class="corrige-flag">✂ يمكن طي هذه الصفحة أو إخفاؤها (اضغط على العنوان أدناه) قبل إنجاز التمارين ✂</p>
+    <details class="corrige">
+      <summary>التصحيح الكامل</summary>
+
+      <h4>تصحيح النشاط التطبيقي</h4>
+      <table class="data-table">
+        <tr><th>العدد a</th><th>a<sup>2</sup></th><th>a<sup>3</sup></th></tr>
+        <tr><td>2</td><td>4</td><td>8</td></tr>
+        <tr><td>3</td><td>9</td><td>27</td></tr>
+        <tr><td>4</td><td>16</td><td>64</td></tr>
+        <tr><td>5</td><td>25</td><td>125</td></tr>
+      </table>
+
+      <h4>تصحيح التمرين 1 (الكتابة على شكل قوة)</h4>
+      <div class="corrige-item">3×3×3=3<sup>3</sup>=27 &nbsp;|&nbsp; 5×5=5<sup>2</sup>=25 &nbsp;|&nbsp; 2×2×2×2=2<sup>4</sup>=16 &nbsp;|&nbsp; 7×7×7=7<sup>3</sup>=343</div>
+
+      <h4>تصحيح التمرين 2 (حساب القوى)</h4>
+      <div class="corrige-item">2<sup>5</sup>=32 &nbsp;|&nbsp; 4<sup>3</sup>=64 &nbsp;|&nbsp; 6<sup>2</sup>=36 &nbsp;|&nbsp; 1<sup>10</sup>=1 &nbsp;|&nbsp; 0<sup>5</sup>=0</div>
+
+      <h4>تصحيح التمرين 3 (قوى 10)</h4>
+      <div class="corrige-item">10<sup>1</sup>=10 &nbsp;|&nbsp; 10<sup>2</sup>=100 &nbsp;|&nbsp; 10<sup>3</sup>=1000 &nbsp;|&nbsp; 10<sup>5</sup>=100000 &nbsp;|&nbsp; 10<sup>0</sup>=1</div>
+
+      <h4>تصحيح التمرين 4 (جداء قوتين)</h4>
+      <div class="corrige-item">2<sup>3</sup>×2<sup>4</sup>=2<sup>7</sup>=128 &nbsp;|&nbsp; 5<sup>2</sup>×5<sup>3</sup>=5<sup>5</sup>=3125 &nbsp;|&nbsp; 3<sup>1</sup>×3<sup>5</sup>=3<sup>6</sup>=729</div>
+
+      <h4>تصحيح التمرين 5 (الاختيار من متعدد)</h4>
+      <div class="corrige-item">1) الأساس &nbsp;|&nbsp; 2) 1 &nbsp;|&nbsp; 3) 10 000 &nbsp;|&nbsp; 4) a<sup>5</sup> &nbsp;|&nbsp; 5) قبل الضرب والجمع</div>
+
+      <h4>تصحيح التمرين 6 (أولويات العمليات)</h4>
+      <div class="corrige-item">1) 3+8=11 &nbsp;|&nbsp; 2) 4×3+1=13 &nbsp;|&nbsp; 3) 5×4−4=16 &nbsp;|&nbsp; 4) 3<sup>2</sup>=9</div>
+
+      <h4>تصحيح التمرين 7 (الكتابة بقوى 10)</h4>
+      <div class="corrige-item">5000=5×10<sup>3</sup> &nbsp;|&nbsp; 300=3×10<sup>2</sup> &nbsp;|&nbsp; 70000=7×10<sup>4</sup> &nbsp;|&nbsp; 2000000=2×10<sup>6</sup></div>
+
+      <h4>تصحيح التمرين 8 (المسألة التطبيقية)</h4>
+      <div class="corrige-item">1) المساحة = 6<sup>2</sup> = 36 سم²</div>
+      <div class="corrige-item">2) الحجم = 4<sup>3</sup> = 64 سم³</div>
+    </details>
+  </div>
+
+  <p class="footer-note">فيشة تعلّم ذاتي — الرياضيات — الأولى إعدادي — القوى</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>وصول الرومان ومقاومة الممالك الأمازيغية - الآثار الرومانية بالمغرب</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#2e2013; --ink-soft:#5c4c3a;
+    --paper:#f8f1e2; --panel:#fffdf7; --line:#ddc9a3;
+    --clay:#b5652f; --clay-soft:#f3e0cc;
+    --bronze:#8a6a1e; --bronze-soft:#f0e6c4;
+    --lapis:#2c5c78; --lapis-soft:#dfeaf0;
+    --leaf:#3f7d3a; --leaf-soft:#e3f0df;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#e3d8bd;font-family:'Noto Naskh Arabic','Amiri',serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .sheet{max-width:880px;margin:24px auto;background:var(--paper);padding:38px 44px 50px;border:1px solid var(--line);box-shadow:0 4px 24px rgba(0,0,0,.12);}
+
+  .masthead{display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:3px solid var(--ink);padding-bottom:16px;margin-bottom:22px;}
+  .masthead-text h1{font-family:'Amiri',serif;font-weight:700;font-size:22px;margin:0 0 6px;color:var(--clay);line-height:1.4;}
+  .masthead-text .subtitle{font-size:15px;color:var(--ink-soft);margin:0;}
+  .column-icon{width:54px;height:60px;flex-shrink:0;}
+
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+  .meta-chip{border:1px solid var(--line);background:var(--panel);border-radius:3px;padding:6px 12px;font-size:13.5px;color:var(--ink-soft);}
+  .meta-chip b{color:var(--ink);font-weight:600;}
+
+  section{margin-bottom:28px;}
+  h2.section-title{font-family:'Amiri',serif;font-size:21px;font-weight:700;color:var(--lapis);border-bottom:2px solid var(--lapis);padding-bottom:6px;margin:0 0 14px;display:flex;align-items:baseline;gap:8px;}
+  h3.sub-title{font-size:17px;font-weight:700;color:var(--clay);margin:20px 0 8px;}
+  p{line-height:2;font-size:15.5px;margin:0 0 10px;}
+
+  .objectif-box{background:var(--bronze-soft);border-right:4px solid var(--bronze);padding:14px 18px;border-radius:2px;font-size:15.5px;line-height:1.9;}
+
+  .rule-box{background:var(--panel);border:1px solid var(--line);border-right:4px solid var(--lapis);padding:14px 18px;border-radius:2px;margin:10px 0 16px;}
+  .rule-box p:last-child{margin-bottom:0;}
+  .rule-box ul,.rule-box ol{margin:6px 0;padding-inline-start:22px;}
+  .rule-box li{margin-bottom:6px;line-height:1.85;}
+
+  .map-wrap{display:flex;justify-content:center;margin:14px 0;}
+
+  .site-grid{display:flex;flex-wrap:wrap;gap:14px;margin:10px 0 16px;}
+  .site-card{flex:1 1 220px;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:12px 16px;}
+  .site-card .head{font-weight:700;color:var(--clay);font-size:15.5px;margin-bottom:4px;}
+  .site-card p{margin:2px 0 0;font-size:14px;color:var(--ink-soft);line-height:1.85;}
+
+  table.data-table{width:100%;border-collapse:collapse;margin:8px 0 18px;font-size:15px;}
+  table.data-table th{background:var(--lapis);color:#fff;padding:8px 10px;font-weight:600;font-size:14px;}
+  table.data-table td{border:1px solid var(--line);padding:9px 10px;background:var(--panel);}
+  table.data-table tr:nth-child(even) td{background:#f2e9d3;}
+
+  .activity-box{background:var(--panel);border:1.5px solid var(--bronze);border-radius:3px;padding:16px 20px;}
+  .activity-box .task-label{display:inline-block;background:var(--bronze);color:#fff;font-size:12.5px;padding:3px 10px;border-radius:2px;margin-bottom:8px;}
+  .id-card{background:var(--lapis-soft);border:1px dashed var(--lapis);border-radius:6px;padding:14px 18px;margin-top:10px;}
+  .id-row{display:flex;gap:10px;margin-bottom:8px;font-size:14.5px;}
+  .id-row b{white-space:nowrap;}
+
+  .exercise{border:1px solid var(--line);border-radius:3px;padding:16px 20px;margin-bottom:16px;background:var(--panel);}
+  .exercise-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:var(--ink);color:var(--paper);border-radius:50%;font-size:14px;font-weight:700;margin-inline-end:8px;}
+  .exercise h4{margin:0 0 10px;font-size:16.5px;display:flex;align-items:center;}
+  .fill-line{border-bottom:1px dotted var(--ink-soft);display:inline-block;min-width:120px;height:1.6em;}
+  .qcm-item{margin-bottom:10px;}
+  .qcm-item p{margin-bottom:4px;font-weight:600;}
+  .qcm-options{display:flex;flex-wrap:wrap;gap:14px;font-size:14.5px;}
+  .qcm-options span{display:flex;align-items:center;gap:5px;}
+  .checkbox{width:13px;height:13px;border:1.4px solid var(--ink-soft);display:inline-block;border-radius:2px;}
+  .match-cols{display:flex;justify-content:space-between;gap:40px;margin-top:8px;}
+  .match-cols ul{list-style:none;padding:0;margin:0;}
+  .match-cols li{border:1px solid var(--line);background:var(--paper);padding:6px 14px;margin-bottom:10px;border-radius:3px;font-size:15px;}
+  .order-list{display:flex;flex-direction:column;gap:8px;}
+  .order-item{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:6px;padding:8px 12px;background:var(--paper);}
+  .order-item .num-box{width:32px;height:32px;border:2px dashed var(--ink-soft);border-radius:6px;flex-shrink:0;}
+  .scenario-box{background:#f2e9d3;border:1px solid var(--line);padding:12px 16px;font-size:15.5px;line-height:2.1;margin-bottom:10px;}
+
+  .corrige-wrapper{page-break-before:always;padding-top:6px;}
+  .corrige-flag{text-align:center;font-size:13px;color:var(--ink-soft);margin-bottom:10px;border-top:1px dashed var(--ink-soft);padding-top:14px;}
+  details.corrige{border:2px dashed var(--clay);border-radius:4px;background:#fdf6ef;padding:6px 20px 18px;}
+  details.corrige > summary{cursor:pointer;font-family:'Amiri',serif;font-weight:700;font-size:19px;color:var(--clay);padding:14px 0;list-style:none;}
+  details.corrige > summary::-webkit-details-marker{display:none;}
+  details.corrige > summary::before{content:"✂ ";}
+  details.corrige > summary::after{content:"— اضغط لإظهار الحل / إخفائه";font-family:'Noto Naskh Arabic',serif;font-weight:400;font-size:13px;color:var(--ink-soft);margin-inline-start:8px;}
+  .corrige h4{color:var(--clay);margin:16px 0 8px;font-size:16px;}
+  .corrige-item{margin-bottom:8px;font-size:15px;line-height:1.9;}
+  .corrige table.data-table th{background:var(--clay);}
+
+  .footer-note{margin-top:30px;text-align:center;font-size:12px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:10px;}
+
+  @media print{
+    body{background:#fff;}
+    .sheet{box-shadow:none;border:none;margin:0;max-width:100%;padding:14px 6px;}
+    details.corrige{border-color:#000;}
+  }
+  @page{size:A4;margin:14mm;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="masthead-text">
+      <h1>وصولُ الرومانِ ومقاومةُ الممالكِ الأمازيغيةِ — الآثارُ الرومانيةُ بالمغربِ</h1>
+      <p class="subtitle">الاجتماعيات — التاريخ: العصور القديمة</p>
+    </div>
+    <svg class="column-icon" viewBox="0 0 48 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="6" y="4" width="36" height="8" fill="#8a6a1e"/>
+      <rect x="12" y="12" width="6" height="34" fill="#b5652f"/>
+      <rect x="21" y="12" width="6" height="34" fill="#b5652f"/>
+      <rect x="30" y="12" width="6" height="34" fill="#b5652f"/>
+      <rect x="4" y="46" width="40" height="6" fill="#8a6a1e"/>
+    </svg>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta-chip">المستوى: <b>السادسة ابتدائي (6AEP)</b></div>
+    <div class="meta-chip">المادة: <b>الاجتماعيات — التاريخ</b></div>
+    <div class="meta-chip">مدة الحصة: <b>ساعة واحدة</b></div>
+    <div class="meta-chip">نوع الوثيقة: <b>فيشة تعلّم ذاتي</b></div>
+  </div>
+
+  <!-- ===================== OBJECTIF ===================== -->
+  <section>
+    <h2 class="section-title">🎯 الهدف من الدرس</h2>
+    <div class="objectif-box">
+      يتمكّن المتعلم(ة) في نهاية هذا الدرس من: التعرّف على الممالك الأمازيغية القديمة بالمغرب، وتفسير ظروف وصول الرومان واستقرارهم، وتحديد مظاهر مقاومة القبائل الأمازيغية للوجود الروماني، والتعرّف على أهم الآثار الرومانية بالمغرب وأهميتها التاريخية.
+    </div>
+  </section>
+
+  <!-- ===================== COURS ===================== -->
+  <section>
+    <h2 class="section-title">📘 الدرس</h2>
+
+    <h3 class="sub-title">1) الممالك الأمازيغية القديمة بالمغرب</h3>
+    <div class="rule-box">
+      <p>سكن الأمازيغ شمال إفريقيا منذ القدم، وأسّسوا ممالك مستقلة قبل وصول الرومان، أشهرها بشمال المغرب مملكة <b>موريطانيا الطنجية</b>، التي حكمها ملوك أمازيغ لفترات طويلة، وكانت لها حضارة وتنظيم خاص بها.</p>
+    </div>
+
+    <h3 class="sub-title">2) وصول الرومان إلى المغرب</h3>
+    <div class="rule-box">
+      <p>توسّعت الإمبراطورية الرومانية في حوض البحر الأبيض المتوسط، ووصلت إلى شمال إفريقيا. حوالي سنة <b>42 ميلادية</b>، ضمّ الرومان مملكة موريطانيا الطنجية إلى إمبراطوريتهم، وأصبحت تُدار كولاية رومانية تخضع لحاكم يُعيَّن من روما.</p>
+    </div>
+
+    <h3 class="sub-title">3) مقاومة القبائل الأمازيغية</h3>
+    <div class="rule-box">
+      <p>رغم سيطرة الرومان على المناطق الساحلية والسهلية، لم يتمكنوا من إخضاع كل أراضي المغرب. فقد بقيت قبائل أمازيغية عديدة في المناطق الجبلية (جبال الأطلس والريف) خارج النفوذ الروماني، وقاومت محاولات التوسّع نحو الداخل، محافظة بذلك على استقلالها وثقافتها.</p>
+    </div>
+
+    <h3 class="sub-title">4) الآثار الرومانية بالمغرب</h3>
+    <div class="site-grid">
+      <div class="site-card">
+        <div class="head">🏛️ وليلي (بالقرب من مكناس)</div>
+        <p>أشهر موقع أثري روماني بالمغرب، يضمّ بقايا معابد، وقوس النصر، ولوحات فسيفساء (موزاييك) ملوّنة، ومنازل فخمة كانت لأثرياء العصر الروماني.</p>
+      </div>
+      <div class="site-card">
+        <div class="head">🏛️ ليكسوس (بالقرب من العرائش)</div>
+        <p>مدينة أثرية قديمة تقع على ساحل المحيط الأطلسي، تعود إلى عصور سابقة للرومان واستمر استعمالها في العهد الروماني.</p>
+      </div>
+      <div class="site-card">
+        <div class="head">🏛️ تمودة (بالقرب من تطوان)</div>
+        <p>موقع أثري روماني آخر بشمال المغرب، يحمل آثار الوجود الروماني في المنطقة.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-title">5) أهمية هذه الآثار اليوم</h3>
+    <div class="rule-box">
+      <p>تساعدنا هذه الآثار على فهم طريقة عيش سكان المغرب في العصور القديمة، والتعرّف على مظاهر التمازج الحضاري بين الأمازيغ والرومان، وهي اليوم شاهدة على عمق تاريخ المغرب وتنوّع حضاراته.</p>
+    </div>
+  </section>
+
+  <!-- ===================== ACTIVITE ===================== -->
+  <section>
+    <h2 class="section-title">🗂️ نشاط تطبيقي</h2>
+    <div class="activity-box">
+      <span class="task-label">بطاقة تعريف موقع أثري</span>
+      <p>أكمل بطاقة التعريف التالية بموقع وليلي الأثري، بالاعتماد على معطيات الدرس:</p>
+      <div class="id-card">
+        <div class="id-row"><b>اسم الموقع:</b> <span class="fill-line" style="min-width:250px;"></span></div>
+        <div class="id-row"><b>موقعه الجغرافي بالمغرب:</b> <span class="fill-line" style="min-width:250px;"></span></div>
+        <div class="id-row"><b>الحضارة التي بنته:</b> <span class="fill-line" style="min-width:250px;"></span></div>
+        <div class="id-row"><b>أهم معالمه:</b> <span class="fill-line" style="min-width:100%;"></span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== EXERCICES ===================== -->
+  <section>
+    <h2 class="section-title">📝 تمارين للتدرّب</h2>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">1</span>أكمل الجمل التالية بالمعطى المناسب:</h4>
+      <p>1) أشهر مملكة أمازيغية قديمة بشمال المغرب هي مملكة .......... </p>
+      <p>2) ضمّ الرومان موريطانيا الطنجية إلى إمبراطوريتهم حوالي سنة .......... ميلادية.</p>
+      <p>3) أشهر موقع أثري روماني بالمغرب هو .......... الواقع قرب مدينة .......... </p>
+      <p>4) بقيت قبائل أمازيغية في .......... خارج السيطرة الرومانية.</p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">2</span>صل كل موقع أثري بالمدينة المغربية القريبة منه:</h4>
+      <div class="match-cols">
+        <ul>
+          <li>أ) وليلي</li>
+          <li>ب) ليكسوس</li>
+          <li>ج) تمودة</li>
+        </ul>
+        <ul>
+          <li>1) تطوان</li>
+          <li>2) مكناس</li>
+          <li>3) العرائش</li>
+        </ul>
+      </div>
+      <p style="margin-top:10px;">الإجابة: أ - .......... &nbsp; ب - .......... &nbsp; ج - ..........</p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">3</span>اختر الإجابة الصحيحة:</h4>
+      <div class="qcm-item">
+        <p>1) مملكة موريطانيا الطنجية كانت مملكة:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>رومانية</span><span><span class="checkbox"></span>أمازيغية</span><span><span class="checkbox"></span>فرعونية</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>2) ضمّ الرومان موريطانيا الطنجية إلى إمبراطوريتهم في:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>القرن الأول الميلادي</span><span><span class="checkbox"></span>القرن العاشر الميلادي</span><span><span class="checkbox"></span>القرن الخامس قبل الميلاد</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>3) أشهر موقع أثري روماني بالمغرب هو:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>شالة</span><span><span class="checkbox"></span>وليلي</span><span><span class="checkbox"></span>الأوداية</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>4) لم يستطع الرومان السيطرة الكاملة على المغرب بسبب:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>مقاومة القبائل الأمازيغية في الجبال</span><span><span class="checkbox"></span>عدم رغبتهم في ذلك</span><span><span class="checkbox"></span>ضعف جيشهم</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>5) من معالم موقع وليلي الأثري:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>الفسيفساء وقوس النصر</span><span><span class="checkbox"></span>الأهرامات</span><span><span class="checkbox"></span>البرج المائل</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">4</span>رتّب الأحداث التالية حسب تسلسلها الزمني (من 1 إلى 4):</h4>
+      <div class="order-list">
+        <div class="order-item"><div class="num-box"></div><span>ضمّ الرومان لمملكة موريطانيا الطنجية</span></div>
+        <div class="order-item"><div class="num-box"></div><span>وجود ممالك أمازيغية مستقلة بشمال المغرب</span></div>
+        <div class="order-item"><div class="num-box"></div><span>استمرار مقاومة القبائل الأمازيغية في المناطق الجبلية</span></div>
+        <div class="order-item"><div class="num-box"></div><span>توسّع الإمبراطورية الرومانية نحو شمال إفريقيا</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">5</span>سؤال تحليلي:</h4>
+      <p>لماذا لم يتمكن الرومان من السيطرة الكاملة على كل مناطق المغرب رغم قوة إمبراطوريتهم؟ اذكر سببين اثنين بالاعتماد على معطيات الدرس.</p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== CORRIGE ===================== -->
+  <div class="corrige-wrapper">
+    <p class="corrige-flag">✂ يمكن طي هذه الصفحة أو إخفاؤها (اضغط على العنوان أدناه) قبل إنجاز التمارين ✂</p>
+    <details class="corrige">
+      <summary>التصحيح الكامل</summary>
+
+      <h4>تصحيح النشاط التطبيقي (بطاقة التعريف)</h4>
+      <div class="corrige-item"><b>اسم الموقع:</b> وليلي</div>
+      <div class="corrige-item"><b>موقعه:</b> بالقرب من مدينة مكناس</div>
+      <div class="corrige-item"><b>الحضارة التي بنته:</b> الحضارة الرومانية</div>
+      <div class="corrige-item"><b>أهم معالمه:</b> المعابد، قوس النصر، لوحات الفسيفساء، منازل الأثرياء</div>
+
+      <h4>تصحيح التمرين 1 (إكمال الجمل)</h4>
+      <div class="corrige-item">1) موريطانيا الطنجية &nbsp;|&nbsp; 2) 42 &nbsp;|&nbsp; 3) وليلي / مكناس &nbsp;|&nbsp; 4) الجبال (الأطلس والريف)</div>
+
+      <h4>تصحيح التمرين 2 (الربط)</h4>
+      <div class="corrige-item">أ - 2 (وليلي ← مكناس) &nbsp;|&nbsp; ب - 3 (ليكسوس ← العرائش) &nbsp;|&nbsp; ج - 1 (تمودة ← تطوان)</div>
+
+      <h4>تصحيح التمرين 3 (الاختيار من متعدد)</h4>
+      <div class="corrige-item">1) أمازيغية &nbsp;|&nbsp; 2) القرن الأول الميلادي &nbsp;|&nbsp; 3) وليلي &nbsp;|&nbsp; 4) مقاومة القبائل الأمازيغية في الجبال &nbsp;|&nbsp; 5) الفسيفساء وقوس النصر</div>
+
+      <h4>تصحيح التمرين 4 (الترتيب الزمني)</h4>
+      <div class="corrige-item">1) وجود ممالك أمازيغية مستقلة &nbsp;→&nbsp; 2) توسّع الإمبراطورية الرومانية &nbsp;→&nbsp; 3) ضمّ موريطانيا الطنجية &nbsp;→&nbsp; 4) استمرار المقاومة في الجبال</div>
+
+      <h4>تصحيح التمرين 5 (السؤال التحليلي)</h4>
+      <div class="corrige-item">1) وعورة تضاريس المناطق الجبلية (الأطلس والريف) جعلت من الصعب على الجيوش الرومانية التوغّل فيها والسيطرة عليها.</div>
+      <div class="corrige-item">2) تمسّك القبائل الأمازيغية بثقافتها واستقلالها، ومقاومتها المستمرة لأي محاولة للتوسّع الروماني نحو مناطقها.</div>
+    </details>
+  </div>
+
+  <p class="footer-note">فيشة تعلّم ذاتي — الاجتماعيات (التاريخ) — السادسة ابتدائي — وصول الرومان ومقاومة الممالك الأمازيغية</p>
+</div>
+</body>
+</html>

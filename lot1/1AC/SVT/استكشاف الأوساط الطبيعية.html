@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>استكشاف الأوساط الطبيعية</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#20301f; --ink-soft:#4c5a48;
+    --paper:#f8faf4; --panel:#ffffff; --line:#d7e0cd;
+    --leaf:#3f7d3a; --leaf-soft:#e3f0df;
+    --earth:#8a5a34; --earth-soft:#f2e6d8;
+    --sky:#2f7ea8; --sky-soft:#deeef6;
+    --sun:#d99a2b;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#e4e9dc;font-family:'Noto Naskh Arabic','Amiri',serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .sheet{max-width:880px;margin:24px auto;background:var(--paper);padding:38px 44px 50px;border:1px solid var(--line);box-shadow:0 4px 24px rgba(0,0,0,.12);}
+
+  .masthead{display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:3px solid var(--ink);padding-bottom:16px;margin-bottom:22px;}
+  .masthead-text h1{font-family:'Amiri',serif;font-weight:700;font-size:28px;margin:0 0 6px;color:var(--leaf);line-height:1.3;}
+  .masthead-text .subtitle{font-size:15px;color:var(--ink-soft);margin:0;}
+  .nature-icon{width:60px;height:60px;flex-shrink:0;}
+
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+  .meta-chip{border:1px solid var(--line);background:var(--panel);border-radius:3px;padding:6px 12px;font-size:13.5px;color:var(--ink-soft);}
+  .meta-chip b{color:var(--ink);font-weight:600;}
+
+  section{margin-bottom:28px;}
+  h2.section-title{font-family:'Amiri',serif;font-size:21px;font-weight:700;color:var(--sky);border-bottom:2px solid var(--sky);padding-bottom:6px;margin:0 0 14px;display:flex;align-items:baseline;gap:8px;}
+  h3.sub-title{font-size:17px;font-weight:700;color:var(--leaf);margin:20px 0 8px;}
+  p{line-height:2;font-size:15.5px;margin:0 0 10px;}
+
+  .objectif-box{background:var(--sky-soft);border-right:4px solid var(--sky);padding:14px 18px;border-radius:2px;font-size:15.5px;line-height:1.9;}
+
+  .rule-box{background:var(--panel);border:1px solid var(--line);border-right:4px solid var(--leaf);padding:14px 18px;border-radius:2px;margin:10px 0 16px;}
+  .rule-box p:last-child{margin-bottom:0;}
+  .rule-box ul,.rule-box ol{margin:6px 0;padding-inline-start:22px;}
+  .rule-box li{margin-bottom:6px;line-height:1.85;}
+
+  .two-col{display:flex;gap:16px;flex-wrap:wrap;margin:10px 0 16px;}
+  .comp-card{flex:1 1 240px;border-radius:8px;padding:14px 16px;}
+  .comp-card.abiotic{background:var(--earth-soft);border:1px solid var(--earth);}
+  .comp-card.biotic{background:var(--leaf-soft);border:1px solid var(--leaf);}
+  .comp-card .head{font-weight:700;font-size:15.5px;margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+  .comp-card.abiotic .head{color:var(--earth);}
+  .comp-card.biotic .head{color:var(--leaf);}
+  .comp-card p{margin:0;font-size:14.5px;line-height:1.85;}
+
+  table.data-table{width:100%;border-collapse:collapse;margin:8px 0 18px;font-size:15px;}
+  table.data-table th{background:var(--sky);color:#fff;padding:8px 10px;font-weight:600;font-size:14px;}
+  table.data-table td{border:1px solid var(--line);padding:9px 10px;background:var(--panel);}
+  table.data-table tr:nth-child(even) td{background:#eef3e8;}
+
+  .tool-grid{display:flex;flex-wrap:wrap;gap:12px;margin:10px 0 16px;}
+  .tool-card{flex:1 1 130px;text-align:center;border:1px solid var(--line);border-radius:8px;padding:10px;background:var(--panel);}
+  .tool-card svg{width:42px;height:42px;}
+  .tool-card .lbl{font-size:13px;font-weight:600;margin-top:4px;}
+
+  .activity-box{background:var(--panel);border:1.5px solid var(--sun);border-radius:3px;padding:16px 20px;}
+  .activity-box .task-label{display:inline-block;background:var(--sun);color:#fff;font-size:12.5px;padding:3px 10px;border-radius:2px;margin-bottom:8px;}
+  .field-card{background:var(--paper);border:1px dashed var(--ink-soft);border-radius:6px;padding:12px 16px;margin-top:10px;}
+  .field-row{display:flex;gap:10px;margin-bottom:8px;font-size:14.5px;}
+  .field-row b{white-space:nowrap;}
+
+  .exercise{border:1px solid var(--line);border-radius:3px;padding:16px 20px;margin-bottom:16px;background:var(--panel);}
+  .exercise-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:var(--ink);color:var(--paper);border-radius:50%;font-size:14px;font-weight:700;margin-inline-end:8px;}
+  .exercise h4{margin:0 0 10px;font-size:16.5px;display:flex;align-items:center;}
+  .fill-line{border-bottom:1px dotted var(--ink-soft);display:inline-block;min-width:120px;height:1.6em;}
+  .word-chip{display:inline-block;background:var(--paper);border:1px solid var(--line);border-radius:3px;padding:3px 12px;margin:3px 4px;font-size:16px;}
+  .qcm-item{margin-bottom:10px;}
+  .qcm-item p{margin-bottom:4px;font-weight:600;}
+  .qcm-options{display:flex;flex-wrap:wrap;gap:14px;font-size:14.5px;}
+  .qcm-options span{display:flex;align-items:center;gap:5px;}
+  .checkbox{width:13px;height:13px;border:1.4px solid var(--ink-soft);display:inline-block;border-radius:2px;}
+  .match-cols{display:flex;justify-content:space-between;gap:40px;margin-top:8px;}
+  .match-cols ul{list-style:none;padding:0;margin:0;}
+  .match-cols li{border:1px solid var(--line);background:var(--paper);padding:6px 14px;margin-bottom:10px;border-radius:3px;font-size:15px;}
+  .scenario-box{background:#eef3e8;border:1px solid var(--line);padding:12px 16px;font-size:15.5px;line-height:2.1;margin-bottom:10px;}
+
+  .corrige-wrapper{page-break-before:always;padding-top:6px;}
+  .corrige-flag{text-align:center;font-size:13px;color:var(--ink-soft);margin-bottom:10px;border-top:1px dashed var(--ink-soft);padding-top:14px;}
+  details.corrige{border:2px dashed var(--earth);border-radius:4px;background:#fdf9f4;padding:6px 20px 18px;}
+  details.corrige > summary{cursor:pointer;font-family:'Amiri',serif;font-weight:700;font-size:19px;color:var(--earth);padding:14px 0;list-style:none;}
+  details.corrige > summary::-webkit-details-marker{display:none;}
+  details.corrige > summary::before{content:"✂ ";}
+  details.corrige > summary::after{content:"— اضغط لإظهار الحل / إخفائه";font-family:'Noto Naskh Arabic',serif;font-weight:400;font-size:13px;color:var(--ink-soft);margin-inline-start:8px;}
+  .corrige h4{color:var(--earth);margin:16px 0 8px;font-size:16px;}
+  .corrige-item{margin-bottom:8px;font-size:15px;line-height:1.9;}
+  .corrige table.data-table th{background:var(--earth);}
+
+  .footer-note{margin-top:30px;text-align:center;font-size:12px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:10px;}
+
+  @media print{
+    body{background:#fff;}
+    .sheet{box-shadow:none;border:none;margin:0;max-width:100%;padding:14px 6px;}
+    details.corrige{border-color:#000;}
+  }
+  @page{size:A4;margin:14mm;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="masthead-text">
+      <h1>استكشافُ الأوساطِ الطبيعيةِ</h1>
+      <p class="subtitle">علوم الحياة والأرض — الوسط الطبيعي</p>
+    </div>
+    <svg class="nature-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="26" cy="26" r="16" fill="none" stroke="#2f7ea8" stroke-width="3"/>
+      <line x1="37" y1="37" x2="54" y2="54" stroke="#20301f" stroke-width="4" stroke-linecap="round"/>
+      <path d="M18 30c2-8 6-12 8-14" stroke="#3f7d3a" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <path d="M22 22c3 1 6 4 6 8" stroke="#3f7d3a" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    </svg>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta-chip">المستوى: <b>الأولى إعدادي (1AC)</b></div>
+    <div class="meta-chip">المادة: <b>علوم الحياة والأرض (SVT)</b></div>
+    <div class="meta-chip">مدة الحصة: <b>ساعة واحدة</b></div>
+    <div class="meta-chip">نوع الوثيقة: <b>فيشة تعلّم ذاتي</b></div>
+  </div>
+
+  <!-- ===================== OBJECTIF ===================== -->
+  <section>
+    <h2 class="section-title">🎯 الهدف من الدرس</h2>
+    <div class="objectif-box">
+      يتمكّن المتعلم(ة) في نهاية هذا الدرس من: تعريف الوسط الطبيعي، والتمييز بين مكوناته الحية وغير الحية، والتعرّف على أنواع الأوساط الطبيعية (الأرضية والمائية) مع أمثلة من المغرب، وتوظيف منهجية وأدوات الاستكشاف الميداني لدراسة وسط طبيعي.
+    </div>
+  </section>
+
+  <!-- ===================== COURS ===================== -->
+  <section>
+    <h2 class="section-title">📘 الدرس</h2>
+
+    <h3 class="sub-title">1) ما هو الوسط الطبيعي؟</h3>
+    <div class="rule-box">
+      <p>
+        <b>الوسط الطبيعي</b> هو حيّز جغرافي محدد له خصائص معينة (مناخ، تضاريس...) يعيش فيه عدد من الكائنات الحية (نباتات وحيوانات) وترتبط فيما بينها وبعناصر البيئة المحيطة بها. من أمثلة الأوساط الطبيعية: الغابة، الصحراء، البحر، الحديقة، الجبل...
+      </p>
+    </div>
+
+    <h3 class="sub-title">2) مكونات الوسط الطبيعي</h3>
+    <div class="rule-box">
+      <p>يتكوّن كل وسط طبيعي من نوعين من العناصر يتفاعلان فيما بينهما:</p>
+    </div>
+    <div class="two-col">
+      <div class="comp-card abiotic">
+        <div class="head">🪨 المكونات غير الحية (اللاحيوية)</div>
+        <p>الماء، الهواء، الضوء، الحرارة، التربة، الصخور، الرطوبة... وهي عناصر البيئة التي لا تنمو ولا تتكاثر.</p>
+      </div>
+      <div class="comp-card biotic">
+        <div class="head">🌿 المكونات الحية (الحيوية)</div>
+        <p>النباتات والحيوانات التي تعيش في الوسط، وتتغذى وتتنفس وتتكاثر وتتفاعل مع محيطها ومع بعضها البعض.</p>
+      </div>
+    </div>
+    <p style="font-size:14px;color:var(--ink-soft);margin-top:-8px;">مثال على التفاعل: يحتاج النباتُ إلى الماء والضوء (مكونات لاحيوية) لينمو، ويتغذى الأرنبُ على النبات (تفاعل بين مكونين حيّين).</p>
+
+    <h3 class="sub-title">3) أنواع الأوساط الطبيعية</h3>
+    <table class="data-table">
+      <tr><th>النوع</th><th>أمثلة عالمية</th><th>أمثلة من المغرب</th></tr>
+      <tr><td>أوساط أرضية</td><td>الغابة، الصحراء، الجبل، الحقل الفلاحي</td><td>غابة الأرز (أزيلال)، صحراء مرزوكة، جبال الأطلس</td></tr>
+      <tr><td>أوساط مائية</td><td>البحر، النهر، البحيرة، الواحة</td><td>المحيط الأطلسي، واد أم الربيع، واحة سكورة</td></tr>
+    </table>
+
+    <h3 class="sub-title">4) كيف نستكشف وسطاً طبيعياً؟</h3>
+    <div class="rule-box">
+      <p>يعتمد استكشاف الوسط الطبيعي على منهجية علمية دقيقة، تمرّ عبر ثلاث مراحل:</p>
+      <ol>
+        <li><b>قبل الخرجة الميدانية:</b> تحديد هدف الاستكشاف، وتحضير الأدوات اللازمة.</li>
+        <li><b>أثناء الخرجة الميدانية:</b> الملاحظة الدقيقة (الشكل، اللون، العدد، المكان)، القياس (مثل درجة الحرارة)، تدوين المعطيات في دفتر الملاحظة، وأخذ صور أو عينات مع احترام البيئة.</li>
+        <li><b>بعد الخرجة الميدانية:</b> تصنيف المعطيات المجمَّعة، رسم تخطيطي للوسط، وكتابة تقرير أو استنتاج.</li>
+      </ol>
+    </div>
+
+    <h3 class="sub-title">5) أدوات الاستكشاف الميداني</h3>
+    <div class="tool-grid">
+      <div class="tool-card"><svg viewBox="0 0 48 48"><circle cx="20" cy="20" r="13" fill="none" stroke="#2f7ea8" stroke-width="3"/><line x1="29" y1="29" x2="42" y2="42" stroke="#20301f" stroke-width="3" stroke-linecap="round"/></svg><div class="lbl">العدسة المكبِّرة</div></div>
+      <div class="tool-card"><svg viewBox="0 0 48 48"><rect x="4" y="14" width="40" height="26" rx="4" fill="none" stroke="#3f7d3a" stroke-width="3"/><circle cx="24" cy="27" r="8" fill="none" stroke="#3f7d3a" stroke-width="3"/><rect x="17" y="8" width="10" height="7" rx="2" fill="none" stroke="#3f7d3a" stroke-width="3"/></svg><div class="lbl">آلة التصوير</div></div>
+      <div class="tool-card"><svg viewBox="0 0 48 48"><rect x="10" y="6" width="28" height="36" rx="3" fill="none" stroke="#8a5a34" stroke-width="3"/><line x1="16" y1="16" x2="32" y2="16" stroke="#8a5a34" stroke-width="2"/><line x1="16" y1="24" x2="32" y2="24" stroke="#8a5a34" stroke-width="2"/><line x1="16" y1="32" x2="26" y2="32" stroke="#8a5a34" stroke-width="2"/></svg><div class="lbl">دفتر الملاحظة</div></div>
+      <div class="tool-card"><svg viewBox="0 0 48 48"><rect x="20" y="4" width="8" height="26" rx="4" fill="none" stroke="#d99a2b" stroke-width="3"/><circle cx="24" cy="36" r="8" fill="none" stroke="#d99a2b" stroke-width="3"/><line x1="24" y1="12" x2="24" y2="30" stroke="#d99a2b" stroke-width="2"/></svg><div class="lbl">مقياس الحرارة</div></div>
+      <div class="tool-card"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="18" fill="none" stroke="#20301f" stroke-width="3"/><line x1="24" y1="10" x2="24" y2="24" stroke="#20301f" stroke-width="2"/><line x1="24" y1="24" x2="33" y2="24" stroke="#20301f" stroke-width="2"/><circle cx="24" cy="24" r="2" fill="#20301f"/></svg><div class="lbl">البوصلة</div></div>
+      <div class="tool-card"><svg viewBox="0 0 48 48"><path d="M14 8h20l4 8v24a3 3 0 0 1-3 3H13a3 3 0 0 1-3-3V16z" fill="none" stroke="#2f7ea8" stroke-width="3"/><line x1="10" y1="16" x2="38" y2="16" stroke="#2f7ea8" stroke-width="2"/></svg><div class="lbl">كيس جمع العيّنات</div></div>
+    </div>
+  </section>
+
+  <!-- ===================== ACTIVITE ===================== -->
+  <section>
+    <h2 class="section-title">🔎 نشاط تطبيقي</h2>
+    <div class="activity-box">
+      <span class="task-label">محاكاة خرجة استكشافية</span>
+      <p>تخيّل أنك قمتَ بخرجة استكشافية إلى حديقة المدرسة، ولاحظتَ ما يلي: أشجار الصنوبر، فراشات ملوّنة، صخور صغيرة، تربة رطبة، عصافير تُغرِّد، ضوء الشمس، نملٌ يتحرك بين الأعشاب. املأ بطاقة الملاحظة الميدانية التالية:</p>
+      <div class="field-card">
+        <div class="field-row"><b>اسم الوسط الطبيعي:</b> <span class="fill-line" style="min-width:250px;"></span></div>
+        <div class="field-row"><b>المكونات اللاحيوية الملاحَظة:</b> <span class="fill-line" style="min-width:100%;"></span></div>
+        <div class="field-row"><b>المكونات الحيوية الملاحَظة:</b> <span class="fill-line" style="min-width:100%;"></span></div>
+        <div class="field-row"><b>ملاحظة إضافية (تفاعل لاحظته):</b> <span class="fill-line" style="min-width:100%;"></span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== EXERCICES ===================== -->
+  <section>
+    <h2 class="section-title">📝 تمارين للتدرّب</h2>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">1</span>صنّف العناصر التالية إلى مكونات حية ومكونات غير حية:</h4>
+      <p>
+        <span class="word-chip">ماء</span>
+        <span class="word-chip">فراشة</span>
+        <span class="word-chip">صخرة</span>
+        <span class="word-chip">شجرة</span>
+        <span class="word-chip">هواء</span>
+        <span class="word-chip">أرنب</span>
+        <span class="word-chip">ضوء الشمس</span>
+        <span class="word-chip">تربة</span>
+      </p>
+      <table class="data-table">
+        <tr><th>مكونات حية (حيوية)</th><th>مكونات غير حية (لاحيوية)</th></tr>
+        <tr><td style="height:60px;"></td><td></td></tr>
+      </table>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">2</span>اختر الإجابة الصحيحة:</h4>
+      <div class="qcm-item">
+        <p>1) الوسط الطبيعي هو:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>أداة لقياس الحرارة</span><span><span class="checkbox"></span>حيّز جغرافي يأوي كائنات حية</span><span><span class="checkbox"></span>نوع من الحيوانات</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>2) من الأمثلة على الأوساط المائية:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>الغابة</span><span><span class="checkbox"></span>البحر</span><span><span class="checkbox"></span>الجبل</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>3) الأداة المناسبة لمراقبة حشرة صغيرة عن قرب هي:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>البوصلة</span><span><span class="checkbox"></span>العدسة المكبِّرة</span><span><span class="checkbox"></span>مقياس الحرارة</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>4) غابة الأرز مثال على وسط طبيعي موجود في:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>أزيلال (المغرب)</span><span><span class="checkbox"></span>فرنسا</span><span><span class="checkbox"></span>مصر</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>5) المرحلة التي تأتي بعد الخرجة الميدانية مباشرة هي:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>تحضير الأدوات</span><span><span class="checkbox"></span>تصنيف المعطيات وكتابة الاستنتاج</span><span><span class="checkbox"></span>تحديد هدف الخرجة</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">3</span>صل كل وسط طبيعي بمثال له من المغرب:</h4>
+      <div class="match-cols">
+        <ul>
+          <li>أ) الغابة</li>
+          <li>ب) الصحراء</li>
+          <li>ج) الجبل</li>
+          <li>د) النهر</li>
+        </ul>
+        <ul>
+          <li>1) واد أم الربيع</li>
+          <li>2) جبال الأطلس</li>
+          <li>3) صحراء مرزوكة</li>
+          <li>4) غابة الأرز بأزيلال</li>
+        </ul>
+      </div>
+      <p style="margin-top:10px;">الإجابة: أ - .......... &nbsp; ب - .......... &nbsp; ج - .......... &nbsp; د - ..........</p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">4</span>اربط كل أداة استكشاف بالمهمة المناسبة لها:</h4>
+      <table class="data-table">
+        <tr><th>الأداة</th><th>المهمة</th></tr>
+        <tr><td>العدسة المكبِّرة</td><td><span class="fill-line" style="min-width:100%;"></span></td></tr>
+        <tr><td>آلة التصوير</td><td><span class="fill-line" style="min-width:100%;"></span></td></tr>
+        <tr><td>دفتر الملاحظة</td><td><span class="fill-line" style="min-width:100%;"></span></td></tr>
+        <tr><td>مقياس الحرارة</td><td><span class="fill-line" style="min-width:100%;"></span></td></tr>
+      </table>
+      <p style="font-size:13.5px;color:var(--ink-soft);">اختر من بين: توثيق منظر عام للوسط — قياس درجة حرارة الهواء أو الماء — تدوين المعطيات والملاحظات — مراقبة كائن صغير عن قرب.</p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">5</span>وضعية-مشكلة:</h4>
+      <div class="scenario-box">
+        تُخطِّط مع زملائك لخرجة استكشافية إلى الغابة المجاورة لمدرستك، بهدف دراسة مكونات هذا الوسط الطبيعي.
+      </div>
+      <p>1) اذكر ثلاث أدوات ستحتاجها في هذه الخرجة، مع تعليل اختيارك لكل أداة.</p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+      <p>2) صف خطوتين من خطوات الاستكشاف الميداني ستقوم بهما أثناء الخرجة.</p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== CORRIGE ===================== -->
+  <div class="corrige-wrapper">
+    <p class="corrige-flag">✂ يمكن طي هذه الصفحة أو إخفاؤها (اضغط على العنوان أدناه) قبل إنجاز التمارين ✂</p>
+    <details class="corrige">
+      <summary>التصحيح الكامل</summary>
+
+      <h4>تصحيح النشاط التطبيقي</h4>
+      <div class="corrige-item"><b>اسم الوسط:</b> حديقة المدرسة (وسط طبيعي أرضي)</div>
+      <div class="corrige-item"><b>المكونات اللاحيوية:</b> صخور صغيرة، تربة رطبة، ضوء الشمس.</div>
+      <div class="corrige-item"><b>المكونات الحيوية:</b> أشجار الصنوبر، فراشات، عصافير، نمل.</div>
+      <div class="corrige-item"><b>مثال على تفاعل:</b> تتغذى الفراشات والنمل من النباتات الموجودة في الحديقة، وتحتاج الأشجار إلى ضوء الشمس والتربة الرطبة لتنمو.</div>
+
+      <h4>تصحيح التمرين 1 (التصنيف)</h4>
+      <div class="corrige-item"><b>مكونات حية:</b> فراشة، شجرة، أرنب</div>
+      <div class="corrige-item"><b>مكونات غير حية:</b> ماء، صخرة، هواء، ضوء الشمس، تربة</div>
+
+      <h4>تصحيح التمرين 2 (الاختيار من متعدد)</h4>
+      <div class="corrige-item">1) حيّز جغرافي يأوي كائنات حية &nbsp;|&nbsp; 2) البحر &nbsp;|&nbsp; 3) العدسة المكبِّرة &nbsp;|&nbsp; 4) أزيلال (المغرب) &nbsp;|&nbsp; 5) تصنيف المعطيات وكتابة الاستنتاج</div>
+
+      <h4>تصحيح التمرين 3 (الربط)</h4>
+      <div class="corrige-item">أ - 4 (الغابة ← غابة الأرز بأزيلال) &nbsp;|&nbsp; ب - 3 (الصحراء ← صحراء مرزوكة) &nbsp;|&nbsp; ج - 2 (الجبل ← جبال الأطلس) &nbsp;|&nbsp; د - 1 (النهر ← واد أم الربيع)</div>
+
+      <h4>تصحيح التمرين 4 (أدوات الاستكشاف)</h4>
+      <table class="data-table">
+        <tr><th>الأداة</th><th>المهمة</th></tr>
+        <tr><td>العدسة المكبِّرة</td><td>مراقبة كائن صغير عن قرب</td></tr>
+        <tr><td>آلة التصوير</td><td>توثيق منظر عام للوسط</td></tr>
+        <tr><td>دفتر الملاحظة</td><td>تدوين المعطيات والملاحظات</td></tr>
+        <tr><td>مقياس الحرارة</td><td>قياس درجة حرارة الهواء أو الماء</td></tr>
+      </table>
+
+      <h4>تصحيح التمرين 5 (وضعية-مشكلة)</h4>
+      <div class="corrige-item">1) مثال: دفتر الملاحظة (لتدوين ما نلاحظه) — العدسة المكبِّرة (لمراقبة الحشرات والنباتات الصغيرة عن قرب) — آلة التصوير (لتوثيق مناظر الغابة والكائنات الملاحَظة).</div>
+      <div class="corrige-item">2) مثال: الخطوة الأولى: ملاحظة أنواع الأشجار والحيوانات الموجودة في الغابة وتدوينها في دفتر الملاحظة. الخطوة الثانية: قياس درجة حرارة الهواء داخل الغابة وتسجيلها للمقارنة لاحقاً.</div>
+    </details>
+  </div>
+
+  <p class="footer-note">فيشة تعلّم ذاتي — علوم الحياة والأرض — الأولى إعدادي — استكشاف الأوساط الطبيعية</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>الجهاز الدوراني</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#2a201d; --ink-soft:#5a4c47;
+    --paper:#faf7f4; --panel:#ffffff; --line:#e3d3cc;
+    --coral:#c1493a; --coral-soft:#f6ddd8;
+    --sky:#2f7ea8; --sky-soft:#deeef6;
+    --leaf:#3f7d3a; --leaf-soft:#e3f0df;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#e9dfd9;font-family:'Noto Naskh Arabic','Amiri',serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .sheet{max-width:880px;margin:24px auto;background:var(--paper);padding:38px 44px 50px;border:1px solid var(--line);box-shadow:0 4px 24px rgba(0,0,0,.12);}
+
+  .masthead{display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:3px solid var(--ink);padding-bottom:16px;margin-bottom:22px;}
+  .masthead-text h1{font-family:'Amiri',serif;font-weight:700;font-size:30px;margin:0 0 6px;color:var(--coral);}
+  .masthead-text .subtitle{font-size:15px;color:var(--ink-soft);margin:0;}
+  .heart-icon{width:56px;height:56px;flex-shrink:0;}
+
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+  .meta-chip{border:1px solid var(--line);background:var(--panel);border-radius:3px;padding:6px 12px;font-size:13.5px;color:var(--ink-soft);}
+  .meta-chip b{color:var(--ink);font-weight:600;}
+
+  section{margin-bottom:28px;}
+  h2.section-title{font-family:'Amiri',serif;font-size:21px;font-weight:700;color:var(--sky);border-bottom:2px solid var(--sky);padding-bottom:6px;margin:0 0 14px;display:flex;align-items:baseline;gap:8px;}
+  h3.sub-title{font-size:17px;font-weight:700;color:var(--coral);margin:20px 0 8px;}
+  p{line-height:2;font-size:15.5px;margin:0 0 10px;}
+
+  .objectif-box{background:var(--sky-soft);border-right:4px solid var(--sky);padding:14px 18px;border-radius:2px;font-size:15.5px;line-height:1.9;}
+
+  .rule-box{background:var(--panel);border:1px solid var(--line);border-right:4px solid var(--coral);padding:14px 18px;border-radius:2px;margin:10px 0 16px;}
+  .rule-box p:last-child{margin-bottom:0;}
+  .rule-box ul,.rule-box ol{margin:6px 0;padding-inline-start:22px;}
+  .rule-box li{margin-bottom:6px;line-height:1.85;}
+
+  .vessel-grid{display:flex;flex-wrap:wrap;gap:14px;margin:10px 0 16px;}
+  .vessel-card{flex:1 1 200px;border-radius:8px;padding:12px 16px;}
+  .vessel-card.artere{background:var(--coral-soft);border:1px solid var(--coral);}
+  .vessel-card.veine{background:var(--sky-soft);border:1px solid var(--sky);}
+  .vessel-card.capillaire{background:var(--leaf-soft);border:1px solid var(--leaf);}
+  .vessel-card .head{font-weight:700;font-size:15px;margin-bottom:4px;}
+  .vessel-card.artere .head{color:var(--coral);}
+  .vessel-card.veine .head{color:var(--sky);}
+  .vessel-card.capillaire .head{color:var(--leaf);}
+  .vessel-card p{margin:2px 0 0;font-size:13.5px;color:var(--ink-soft);line-height:1.8;}
+
+  table.data-table{width:100%;border-collapse:collapse;margin:8px 0 18px;font-size:15px;}
+  table.data-table th{background:var(--coral);color:#fff;padding:8px 10px;font-weight:600;font-size:14px;}
+  table.data-table td{border:1px solid var(--line);padding:9px 10px;background:var(--panel);}
+  table.data-table tr:nth-child(even) td{background:#f4ede9;}
+
+  .cycle-diagram{display:flex;justify-content:center;margin:14px 0;}
+
+  .activity-box{background:var(--panel);border:1.5px solid var(--sky);border-radius:3px;padding:16px 20px;}
+  .activity-box .task-label{display:inline-block;background:var(--sky);color:#fff;font-size:12.5px;padding:3px 10px;border-radius:2px;margin-bottom:8px;}
+  .step{display:flex;gap:10px;margin-bottom:8px;align-items:flex-start;}
+  .step-num{flex-shrink:0;width:22px;height:22px;border-radius:50%;background:var(--sky);color:#fff;font-size:12.5px;display:flex;align-items:center;justify-content:center;font-weight:700;}
+
+  .exercise{border:1px solid var(--line);border-radius:3px;padding:16px 20px;margin-bottom:16px;background:var(--panel);}
+  .exercise-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:var(--ink);color:var(--paper);border-radius:50%;font-size:14px;font-weight:700;margin-inline-end:8px;}
+  .exercise h4{margin:0 0 10px;font-size:16.5px;display:flex;align-items:center;}
+  .fill-line{border-bottom:1px dotted var(--ink-soft);display:inline-block;min-width:120px;height:1.6em;}
+  .qcm-item{margin-bottom:10px;}
+  .qcm-item p{margin-bottom:4px;font-weight:600;}
+  .qcm-options{display:flex;flex-wrap:wrap;gap:14px;font-size:14.5px;}
+  .qcm-options span{display:flex;align-items:center;gap:5px;}
+  .checkbox{width:13px;height:13px;border:1.4px solid var(--ink-soft);display:inline-block;border-radius:2px;}
+  .match-cols{display:flex;justify-content:space-between;gap:40px;margin-top:8px;}
+  .match-cols ul{list-style:none;padding:0;margin:0;}
+  .match-cols li{border:1px solid var(--line);background:var(--paper);padding:6px 14px;margin-bottom:10px;border-radius:3px;font-size:15px;}
+  .order-list{display:flex;flex-direction:column;gap:8px;}
+  .order-item{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:6px;padding:8px 12px;background:var(--paper);}
+  .order-item .num-box{width:32px;height:32px;border:2px dashed var(--ink-soft);border-radius:6px;flex-shrink:0;}
+  .scenario-box{background:#f4ede9;border:1px solid var(--line);padding:12px 16px;font-size:15.5px;line-height:2.1;margin-bottom:10px;}
+
+  .corrige-wrapper{page-break-before:always;padding-top:6px;}
+  .corrige-flag{text-align:center;font-size:13px;color:var(--ink-soft);margin-bottom:10px;border-top:1px dashed var(--ink-soft);padding-top:14px;}
+  details.corrige{border:2px dashed var(--leaf);border-radius:4px;background:#f5faf3;padding:6px 20px 18px;}
+  details.corrige > summary{cursor:pointer;font-family:'Amiri',serif;font-weight:700;font-size:19px;color:var(--leaf);padding:14px 0;list-style:none;}
+  details.corrige > summary::-webkit-details-marker{display:none;}
+  details.corrige > summary::before{content:"✂ ";}
+  details.corrige > summary::after{content:"— اضغط لإظهار الحل / إخفائه";font-family:'Noto Naskh Arabic',serif;font-weight:400;font-size:13px;color:var(--ink-soft);margin-inline-start:8px;}
+  .corrige h4{color:var(--leaf);margin:16px 0 8px;font-size:16px;}
+  .corrige-item{margin-bottom:8px;font-size:15px;line-height:1.9;}
+  .corrige table.data-table th{background:var(--leaf);}
+
+  .footer-note{margin-top:30px;text-align:center;font-size:12px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:10px;}
+
+  @media print{
+    body{background:#fff;}
+    .sheet{box-shadow:none;border:none;margin:0;max-width:100%;padding:14px 6px;}
+    details.corrige{border-color:#000;}
+  }
+  @page{size:A4;margin:14mm;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="masthead-text">
+      <h1>الجهازُ الدورانيُّ</h1>
+      <p class="subtitle">النشاط العلمي — جسم الإنسان</p>
+    </div>
+    <svg class="heart-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M32 54C10 40 6 24 16 16c7-6 16-2 16 6 0-8 9-12 16-6 10 8 6 24-16 38z" fill="#c1493a"/>
+      <path d="M18 30h8l4-8 4 12 4-6h8" stroke="#faf7f4" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta-chip">المستوى: <b>الخامسة ابتدائي (5AEP)</b></div>
+    <div class="meta-chip">المادة: <b>النشاط العلمي</b></div>
+    <div class="meta-chip">مدة الحصة: <b>ساعة واحدة</b></div>
+    <div class="meta-chip">نوع الوثيقة: <b>فيشة تعلّم ذاتي</b></div>
+  </div>
+
+  <!-- ===================== OBJECTIF ===================== -->
+  <section>
+    <h2 class="section-title">🎯 الهدف من الدرس</h2>
+    <div class="objectif-box">
+      يتمكّن المتعلم(ة) في نهاية هذا الدرس من: تحديد مكونات الجهاز الدوراني (القلب، الأوعية الدموية، الدم) ووظيفة كل عنصر، وتفسير مسار الدورة الدموية المبسّطة في الجسم، والتعرّف على قواعد الحفاظ على صحة القلب والأوعية الدموية.
+    </div>
+  </section>
+
+  <!-- ===================== COURS ===================== -->
+  <section>
+    <h2 class="section-title">📘 الدرس</h2>
+
+    <h3 class="sub-title">1) أهمية الجهاز الدوراني</h3>
+    <div class="rule-box">
+      <p>الجهاز الدوراني مسؤول عن نقل <b>الدم</b> إلى جميع أعضاء الجسم، حاملاً معه الأكسجين والمغذيات اللازمة لعمل الخلايا، وناقلاً ثاني أكسيد الكربون والفضلات للتخلّص منها.</p>
+    </div>
+
+    <h3 class="sub-title">2) القلب</h3>
+    <div class="rule-box">
+      <p><b>القلب</b> عضو عضلي بحجم قبضة اليد تقريباً، يقع في الجهة اليسرى من الصدر. ينبض بانتظام (حوالي 70 إلى 100 نبضة في الدقيقة عند الراحة) ليضخّ الدم باستمرار في كل أنحاء الجسم.</p>
+    </div>
+
+    <h3 class="sub-title">3) الأوعية الدموية</h3>
+    <div class="vessel-grid">
+      <div class="vessel-card artere">
+        <div class="head">الشرايين</div>
+        <p>تنقل الدم من القلب نحو أعضاء الجسم.</p>
+      </div>
+      <div class="vessel-card veine">
+        <div class="head">الأوردة</div>
+        <p>تعيد الدم من أعضاء الجسم إلى القلب.</p>
+      </div>
+      <div class="vessel-card capillaire">
+        <div class="head">الشعيرات الدموية</div>
+        <p>أوعية دقيقة جداً تصل بين الشرايين والأوردة، وفيها يتم التبادل مع خلايا الجسم.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-title">4) الدم ومكوناته</h3>
+    <table class="data-table">
+      <tr><th>المكوّن</th><th>الوظيفة</th></tr>
+      <tr><td>كريات الدم الحمراء</td><td>تحمل الأكسجين إلى جميع أعضاء الجسم، وتعطي الدم لونه الأحمر.</td></tr>
+      <tr><td>كريات الدم البيضاء</td><td>تدافع عن الجسم ضد الميكروبات والأمراض.</td></tr>
+      <tr><td>الصفائح الدموية</td><td>تساعد على تخثّر الدم عند حدوث جرح، لوقف النزيف.</td></tr>
+      <tr><td>البلازما</td><td>السائل الذي يحمل جميع مكونات الدم والمغذيات.</td></tr>
+    </table>
+
+    <h3 class="sub-title">5) الدورة الدموية المبسّطة</h3>
+    <div class="cycle-diagram">
+      <svg width="300" height="220" viewBox="0 0 300 220" xmlns="http://www.w3.org/2000/svg">
+        <path d="M120 30C112 20 96 24 96 38c0-14-16-18-24-8-6 8-2 22 24 34 26-12 30-26 24-34z" fill="#c1493a"/>
+        <text x="110" y="42" font-size="11" font-family="Noto Naskh Arabic, serif" fill="#fff" font-weight="700">القلب</text>
+        <path d="M110 65 C 60 90, 40 130, 60 170" stroke="#c1493a" stroke-width="4" fill="none" marker-end="url(#a3)"/>
+        <text x="20" y="140" font-size="12" font-family="Noto Naskh Arabic, serif" fill="#c1493a">شرايين</text>
+        <ellipse cx="60" cy="190" rx="30" ry="18" fill="#e3f0df" stroke="#3f7d3a" stroke-width="2"/>
+        <text x="60" y="195" text-anchor="middle" font-size="11" font-family="Noto Naskh Arabic, serif" fill="#20301f">أعضاء الجسم</text>
+        <path d="M90 185 C 140 200, 160 160, 140 90" stroke="#2f7ea8" stroke-width="4" fill="none" marker-end="url(#a4)"/>
+        <text x="150" y="150" font-size="12" font-family="Noto Naskh Arabic, serif" fill="#2f7ea8">أوردة</text>
+        <path d="M130 55 C 190 40, 220 60, 220 90" stroke="#2f7ea8" stroke-width="4" fill="none" marker-end="url(#a4b)"/>
+        <ellipse cx="235" cy="110" rx="26" ry="34" fill="#deeef6" stroke="#2f7ea8" stroke-width="2"/>
+        <text x="235" y="114" text-anchor="middle" font-size="11" font-family="Noto Naskh Arabic, serif" fill="#1f3b52">الرئتان</text>
+        <path d="M235 145 C 230 165, 170 175, 140 100" stroke="#c1493a" stroke-width="4" fill="none" marker-end="url(#a3b)"/>
+        <defs>
+          <marker id="a3" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#c1493a"/></marker>
+          <marker id="a4" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2f7ea8"/></marker>
+          <marker id="a4b" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2f7ea8"/></marker>
+          <marker id="a3b" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#c1493a"/></marker>
+        </defs>
+      </svg>
+    </div>
+    <div class="rule-box">
+      <ol>
+        <li>يضخّ القلب الدم عبر <b>الشرايين</b> نحو جميع أعضاء الجسم.</li>
+        <li>توصل <b>الشعيرات الدموية</b> الأكسجين والمغذيات إلى الخلايا، وتأخذ منها ثاني أكسيد الكربون والفضلات.</li>
+        <li>يعود الدم عبر <b>الأوردة</b> إلى القلب.</li>
+        <li>يرسل القلب هذا الدم إلى <b>الرئتين</b> ليتخلّص من ثاني أكسيد الكربون ويتزوّد بالأكسجين من جديد.</li>
+        <li>يعود الدم المشبع بالأكسجين إلى القلب، ليُضخّ مجدداً إلى الجسم، وتتكرر الدورة باستمرار.</li>
+      </ol>
+    </div>
+
+    <h3 class="sub-title">6) النبض</h3>
+    <div class="rule-box">
+      <p>يمكننا الإحساس بنبض القلب عند وضع أصابعنا برفق على <b>الرسغ</b> (المعصم) أو جانب <b>الرقبة</b>، حيث نشعر بحركة منتظمة ناتجة عن ضخّ القلب للدم عبر الشرايين. يزداد عدد النبضات في الدقيقة أثناء المجهود البدني.</p>
+    </div>
+
+    <h3 class="sub-title">7) قواعد الحفاظ على صحة الجهاز الدوراني</h3>
+    <div class="rule-box">
+      <ul>
+        <li>ممارسة الرياضة بانتظام لتقوية عضلة القلب.</li>
+        <li>تناول غذاء متوازن، وتقليل الدهون والملح.</li>
+        <li>تجنّب التدخين، لأنه يضرّ بالقلب والأوعية الدموية.</li>
+        <li>الحصول على قسط كافٍ من الراحة والنوم.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===================== ACTIVITE ===================== -->
+  <section>
+    <h2 class="section-title">🔬 نشاط تطبيقي</h2>
+    <div class="activity-box">
+      <span class="task-label">قياس النبض</span>
+      <div class="step"><span class="step-num">1</span><span>وأنت جالس(ة) بهدوء، ضع أصابعك برفق على رسغك، واحسب عدد النبضات خلال دقيقة واحدة.</span></div>
+      <div class="step"><span class="step-num">2</span><span>قم بنشاط بدني بسيط لمدة دقيقة (الجري في المكان مثلاً).</span></div>
+      <div class="step"><span class="step-num">3</span><span>أعد قياس عدد النبضات خلال دقيقة واحدة مباشرة بعد المجهود.</span></div>
+      <table class="data-table">
+        <tr><th>الحالة</th><th>عدد النبضات في الدقيقة</th></tr>
+        <tr><td>حالة الراحة</td><td><span class="fill-line" style="min-width:100%;"></span></td></tr>
+        <tr><td>بعد المجهود البدني</td><td><span class="fill-line" style="min-width:100%;"></span></td></tr>
+      </table>
+      <p><b>سؤال الاستنتاج:</b> لماذا يزداد عدد نبضات القلب بعد المجهود البدني؟ <span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== EXERCICES ===================== -->
+  <section>
+    <h2 class="section-title">📝 تمارين للتدرّب</h2>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">1</span>صل كل عنصر من عناصر الجهاز الدوراني بوظيفته:</h4>
+      <div class="match-cols">
+        <ul>
+          <li>أ) القلب</li>
+          <li>ب) الشرايين</li>
+          <li>ج) الأوردة</li>
+          <li>د) الشعيرات الدموية</li>
+        </ul>
+        <ul>
+          <li>1) تعيد الدم إلى القلب</li>
+          <li>2) تتم فيها عملية التبادل مع الخلايا</li>
+          <li>3) يضخّ الدم في كل أنحاء الجسم</li>
+          <li>4) تنقل الدم من القلب إلى الأعضاء</li>
+        </ul>
+      </div>
+      <p style="margin-top:10px;">الإجابة: أ - .......... &nbsp; ب - .......... &nbsp; ج - .......... &nbsp; د - ..........</p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">2</span>اذكر وظيفة كل مكوّن من مكونات الدم التالية:</h4>
+      <table class="data-table">
+        <tr><th>المكوّن</th><th>الوظيفة</th></tr>
+        <tr><td>كريات الدم الحمراء</td><td><span class="fill-line" style="min-width:100%;"></span></td></tr>
+        <tr><td>كريات الدم البيضاء</td><td><span class="fill-line" style="min-width:100%;"></span></td></tr>
+        <tr><td>الصفائح الدموية</td><td><span class="fill-line" style="min-width:100%;"></span></td></tr>
+      </table>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">3</span>اختر الإجابة الصحيحة:</h4>
+      <div class="qcm-item">
+        <p>1) العضو المسؤول عن ضخّ الدم في الجسم هو:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>الرئتان</span><span><span class="checkbox"></span>القلب</span><span><span class="checkbox"></span>المعدة</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>2) الأوعية التي تنقل الدم من القلب إلى الأعضاء تسمى:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>الشرايين</span><span><span class="checkbox"></span>الأوردة</span><span><span class="checkbox"></span>الشعيرات</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>3) مكوّن الدم الذي يحمل الأكسجين هو:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>الكريات البيضاء</span><span><span class="checkbox"></span>الكريات الحمراء</span><span><span class="checkbox"></span>الصفائح الدموية</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>4) مكوّن الدم المسؤول عن الدفاع ضد الأمراض هو:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>الكريات الحمراء</span><span><span class="checkbox"></span>الكريات البيضاء</span><span><span class="checkbox"></span>البلازما</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>5) لمعرفة نبضات القلب، يمكن وضع أصابعنا على:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>الرأس</span><span><span class="checkbox"></span>الرسغ أو الرقبة</span><span><span class="checkbox"></span>القدم</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">4</span>رتّب مراحل الدورة الدموية المبسّطة التالية (من 1 إلى 5):</h4>
+      <div class="order-list">
+        <div class="order-item"><div class="num-box"></div><span>الأوردة تعيد الدم إلى القلب</span></div>
+        <div class="order-item"><div class="num-box"></div><span>القلب يضخّ الدم عبر الشرايين</span></div>
+        <div class="order-item"><div class="num-box"></div><span>القلب يرسل الدم إلى الرئتين ليتزوّد بالأكسجين</span></div>
+        <div class="order-item"><div class="num-box"></div><span>الشعيرات الدموية تبادل الأكسجين والفضلات مع الخلايا</span></div>
+        <div class="order-item"><div class="num-box"></div><span>الدم يعود إلى القلب مشبعاً بالأكسجين ليُضخّ من جديد</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">5</span>وضعية-مشكلة:</h4>
+      <div class="scenario-box">
+        لاحظ تلميذ أن نبضات قلبه ازدادت بشكل ملحوظ بعد الجري خلال حصة التربية البدنية.
+      </div>
+      <p>1) فسّر سبب ازدياد نبضات القلب بعد المجهود البدني.</p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+      <p>2) اذكر فائدتين لممارسة الرياضة بانتظام على صحة القلب.</p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== CORRIGE ===================== -->
+  <div class="corrige-wrapper">
+    <p class="corrige-flag">✂ يمكن طي هذه الصفحة أو إخفاؤها (اضغط على العنوان أدناه) قبل إنجاز التمارين ✂</p>
+    <details class="corrige">
+      <summary>التصحيح الكامل</summary>
+
+      <h4>تصحيح النشاط التطبيقي</h4>
+      <div class="corrige-item">يلاحظ المتعلم(ة) عادة أن عدد النبضات في حالة الراحة يكون أقل (حوالي 70 إلى 90 نبضة في الدقيقة)، بينما يرتفع بشكل واضح بعد المجهود البدني.</div>
+      <div class="corrige-item"><b>الاستنتاج:</b> يزداد عدد النبضات بعد المجهود لأن العضلات تحتاج إلى كمية أكبر من الأكسجين والمغذيات لإنتاج الطاقة، فيسرّع القلب من نبضه لضخّ كمية أكبر من الدم في زمن أقل.</div>
+
+      <h4>تصحيح التمرين 1 (الربط)</h4>
+      <div class="corrige-item">أ - 3 (القلب ← يضخّ الدم) &nbsp;|&nbsp; ب - 4 (الشرايين ← تنقل الدم من القلب) &nbsp;|&nbsp; ج - 1 (الأوردة ← تعيد الدم إلى القلب) &nbsp;|&nbsp; د - 2 (الشعيرات الدموية ← التبادل مع الخلايا)</div>
+
+      <h4>تصحيح التمرين 2 (وظائف مكونات الدم)</h4>
+      <div class="corrige-item">كريات الدم الحمراء: تحمل الأكسجين إلى جميع أعضاء الجسم.</div>
+      <div class="corrige-item">كريات الدم البيضاء: تدافع عن الجسم ضد الميكروبات والأمراض.</div>
+      <div class="corrige-item">الصفائح الدموية: تساعد على تخثّر الدم عند الجرح.</div>
+
+      <h4>تصحيح التمرين 3 (الاختيار من متعدد)</h4>
+      <div class="corrige-item">1) القلب &nbsp;|&nbsp; 2) الشرايين &nbsp;|&nbsp; 3) الكريات الحمراء &nbsp;|&nbsp; 4) الكريات البيضاء &nbsp;|&nbsp; 5) الرسغ أو الرقبة</div>
+
+      <h4>تصحيح التمرين 4 (الترتيب)</h4>
+      <div class="corrige-item">1) القلب يضخّ الدم عبر الشرايين &nbsp;→&nbsp; 2) الشعيرات الدموية تبادل الأكسجين والفضلات &nbsp;→&nbsp; 3) الأوردة تعيد الدم إلى القلب &nbsp;→&nbsp; 4) القلب يرسل الدم إلى الرئتين &nbsp;→&nbsp; 5) الدم يعود إلى القلب مشبعاً بالأكسجين</div>
+
+      <h4>تصحيح التمرين 5 (وضعية-مشكلة)</h4>
+      <div class="corrige-item">1) تحتاج العضلات أثناء الجري إلى كمية أكبر من الأكسجين لإنتاج الطاقة اللازمة للحركة، فيسرّع القلب نبضه لضخّ كمية أكبر من الدم المحمّل بالأكسجين إلى العضلات في وقت أقصر.</div>
+      <div class="corrige-item">2) فوائد الرياضة على صحة القلب: تقوية عضلة القلب، وتحسين تدفّق الدم، والوقاية من أمراض القلب والأوعية الدموية.</div>
+    </details>
+  </div>
+
+  <p class="footer-note">فيشة تعلّم ذاتي — النشاط العلمي — الخامسة ابتدائي — الجهاز الدوراني</p>
+</div>
+</body>
+</html>

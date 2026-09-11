@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>المستقيم وأجزاؤه</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1c2b3a; --ink-soft:#4d5f70;
+    --paper:#f7f9fb; --panel:#ffffff; --line:#c9d6e0;
+    --blue:#2f5f8a; --blue-soft:#e2ecf3;
+    --orange:#e07b39; --orange-soft:#fbe8d8;
+    --green:#3a8f6b; --green-soft:#e1f2ea;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#dde6ec;color:var(--ink);font-family:'Noto Naskh Arabic','Amiri',serif;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .sheet{
+    max-width:900px;margin:24px auto;background:
+      repeating-linear-gradient(0deg, transparent 0 27px, rgba(47,95,138,.06) 27px 28px),
+      repeating-linear-gradient(90deg, transparent 0 27px, rgba(47,95,138,.06) 27px 28px),
+      var(--paper);
+    padding:38px 44px 50px;border:1px solid var(--line);box-shadow:0 4px 24px rgba(0,0,0,.12);
+  }
+
+  .masthead{display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:3px solid var(--ink);padding-bottom:16px;margin-bottom:22px;}
+  .masthead-text h1{font-family:'Amiri',serif;font-weight:700;font-size:28px;margin:0 0 6px;color:var(--blue);}
+  .masthead-text .subtitle{font-size:15px;color:var(--ink-soft);margin:0;}
+  .geo-icon{width:62px;height:62px;flex-shrink:0;}
+
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+  .meta-chip{border:1px solid var(--line);background:var(--panel);border-radius:3px;padding:6px 12px;font-size:13.5px;color:var(--ink-soft);}
+  .meta-chip b{color:var(--ink);font-weight:600;}
+
+  section{margin-bottom:28px;}
+  h2.section-title{font-family:'Amiri',serif;font-size:21px;font-weight:700;color:var(--blue);border-bottom:2px solid var(--blue);padding-bottom:6px;margin:0 0 14px;display:flex;align-items:baseline;gap:8px;}
+  h3.sub-title{font-size:17px;font-weight:700;color:var(--orange);margin:20px 0 8px;}
+  p{line-height:2;font-size:15.5px;margin:0 0 10px;}
+
+  .objectif-box{background:var(--orange-soft);border-right:4px solid var(--orange);padding:14px 18px;border-radius:2px;font-size:15.5px;line-height:1.9;}
+
+  .rule-box{background:var(--panel);border:1px solid var(--line);border-right:4px solid var(--blue);padding:14px 18px;border-radius:2px;margin:10px 0 16px;}
+  .rule-box p:last-child{margin-bottom:0;}
+  .rule-box ul,.rule-box ol{margin:6px 0;padding-inline-start:22px;}
+  .rule-box li{margin-bottom:6px;line-height:1.85;}
+
+  .concept-grid{display:flex;flex-wrap:wrap;gap:14px;margin:10px 0 16px;}
+  .concept-card{flex:1 1 200px;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:10px;text-align:center;}
+  .concept-card svg{width:100%;max-width:180px;height:auto;}
+  .concept-card .name{font-weight:700;color:var(--blue);font-size:15px;margin-top:4px;}
+  .concept-card .sym{font-size:14px;color:var(--orange);font-weight:700;}
+
+  .figure-wrap{display:flex;justify-content:center;margin:12px 0;}
+
+  table.data-table{width:100%;border-collapse:collapse;margin:8px 0 18px;font-size:15px;}
+  table.data-table th{background:var(--blue);color:#fff;padding:8px 10px;font-weight:600;font-size:14px;}
+  table.data-table td{border:1px solid var(--line);padding:9px 10px;background:var(--panel);text-align:center;}
+  table.data-table tr:nth-child(even) td{background:#eef3f7;}
+
+  .activity-box{background:var(--panel);border:1.5px solid var(--orange);border-radius:3px;padding:16px 20px;}
+  .activity-box .task-label{display:inline-block;background:var(--orange);color:#fff;font-size:12.5px;padding:3px 10px;border-radius:2px;margin-bottom:8px;}
+
+  .exercise{border:1px solid var(--line);border-radius:3px;padding:16px 20px;margin-bottom:16px;background:var(--panel);}
+  .exercise-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:var(--ink);color:var(--paper);border-radius:50%;font-size:14px;font-weight:700;margin-inline-end:8px;}
+  .exercise h4{margin:0 0 10px;font-size:16.5px;display:flex;align-items:center;}
+  .fill-line{border-bottom:1px dotted var(--ink-soft);display:inline-block;min-width:100px;height:1.6em;}
+  .qcm-item{margin-bottom:10px;}
+  .qcm-item p{margin-bottom:4px;font-weight:600;}
+  .qcm-options{display:flex;flex-wrap:wrap;gap:14px;font-size:14.5px;}
+  .qcm-options span{display:flex;align-items:center;gap:5px;}
+  .checkbox{width:13px;height:13px;border:1.4px solid var(--ink-soft);display:inline-block;border-radius:2px;}
+  .construct-box{background:var(--paper);border:1px dashed var(--ink-soft);border-radius:6px;padding:14px;text-align:center;}
+  .scenario-box{background:#eef3f7;border:1px solid var(--line);padding:12px 16px;font-size:15.5px;line-height:2.1;margin-bottom:10px;}
+
+  .corrige-wrapper{page-break-before:always;padding-top:6px;}
+  .corrige-flag{text-align:center;font-size:13px;color:var(--ink-soft);margin-bottom:10px;border-top:1px dashed var(--ink-soft);padding-top:14px;}
+  details.corrige{border:2px dashed var(--green);border-radius:4px;background:#f7fcfa;padding:6px 20px 18px;}
+  details.corrige > summary{cursor:pointer;font-family:'Amiri',serif;font-weight:700;font-size:19px;color:var(--green);padding:14px 0;list-style:none;}
+  details.corrige > summary::-webkit-details-marker{display:none;}
+  details.corrige > summary::before{content:"✂ ";}
+  details.corrige > summary::after{content:"— اضغط لإظهار الحل / إخفائه";font-family:'Noto Naskh Arabic',serif;font-weight:400;font-size:13px;color:var(--ink-soft);margin-inline-start:8px;}
+  .corrige h4{color:var(--green);margin:16px 0 8px;font-size:16px;}
+  .corrige-item{margin-bottom:8px;font-size:15px;line-height:1.9;}
+  .corrige table.data-table th{background:var(--green);}
+
+  .footer-note{margin-top:30px;text-align:center;font-size:12px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:10px;}
+
+  @media print{
+    body{background:#fff;}
+    .sheet{box-shadow:none;border:none;margin:0;max-width:100%;padding:14px 6px;background:var(--paper);}
+    details.corrige{border-color:#000;}
+  }
+  @page{size:A4;margin:14mm;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="masthead-text">
+      <h1>المستقيمُ وأجزاؤُه</h1>
+      <p class="subtitle">الرياضيات — الهندسة</p>
+    </div>
+    <svg class="geo-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="6" y1="18" x2="58" y2="18" stroke="#1c2b3a" stroke-width="2"/>
+      <line x1="6" y1="34" x2="58" y2="34" stroke="#2f5f8a" stroke-width="2.5" marker-end="url(#arT)"/>
+      <line x1="10" y1="50" x2="54" y2="50" stroke="#3a8f6b" stroke-width="3"/>
+      <line x1="10" y1="44" x2="10" y2="56" stroke="#3a8f6b" stroke-width="2"/>
+      <line x1="54" y1="44" x2="54" y2="56" stroke="#3a8f6b" stroke-width="2"/>
+      <defs><marker id="arT" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2f5f8a"/></marker></defs>
+    </svg>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta-chip">المستوى: <b>الأولى إعدادي (1AC)</b></div>
+    <div class="meta-chip">المادة: <b>الرياضيات — الهندسة</b></div>
+    <div class="meta-chip">مدة الحصة: <b>ساعة إلى ساعة ونصف</b></div>
+    <div class="meta-chip">نوع الوثيقة: <b>فيشة تعلّم ذاتي</b></div>
+  </div>
+
+  <!-- ===================== OBJECTIF ===================== -->
+  <section>
+    <h2 class="section-title">🎯 الهدف من الدرس</h2>
+    <div class="objectif-box">
+      يتمكّن المتعلم(ة) في نهاية هذا الدرس من: التعرّف على المستقيم وأجزائه (نصف المستقيم والقطعة)، واستعمال الرموز المناسبة لكل عنصر، وتحديد منتصف قطعة، ومقارنة أطوال القطع ونقل طول بالفرجار، وتوظيف العلاقة بين أطوال قطع نقطة تقع بين طرفيها.
+    </div>
+  </section>
+
+  <!-- ===================== COURS ===================== -->
+  <section>
+    <h2 class="section-title">📘 الدرس</h2>
+
+    <h3 class="sub-title">1) المستقيم</h3>
+    <div class="rule-box">
+      <p><b>المستقيم</b> مجموعة من النقط تمتد بلا نهاية في اتجاهين متعاكسين. يُرمز له بحرفين يمثّلان نقطتين عليه بين قوسين، مثل <b>(AB)</b>، أو بحرف صغير بين قوسين مثل <b>(d)</b>.</p>
+    </div>
+
+    <h3 class="sub-title">2) نصف المستقيم</h3>
+    <div class="rule-box">
+      <p><b>نصف المستقيم</b> جزء من المستقيم ينطلق من نقطة تسمى <b>الأصل</b> ويمتد بلا نهاية في اتجاه واحد فقط. إذا كان أصله A ويمر من النقطة B، نرمز له بـ <b>[AB)</b>.</p>
+      <p>كل نقطة تقع على مستقيم تقسمه إلى <b>نصفَي مستقيم متقابلين</b>، لهما نفس الأصل لكن في اتجاهين متعاكسين.</p>
+    </div>
+    <div class="figure-wrap">
+      <svg width="320" height="100" viewBox="0 0 320 100">
+        <line x1="20" y1="50" x2="150" y2="50" stroke="#e07b39" stroke-width="3" marker-end="url(#al)"/>
+        <line x1="300" y1="50" x2="170" y2="50" stroke="#3a8f6b" stroke-width="3" marker-end="url(#al2)"/>
+        <circle cx="160" cy="50" r="4" fill="#1c2b3a"/><text x="160" y="35" text-anchor="middle" font-size="14" font-weight="700">A</text>
+        <circle cx="60" cy="50" r="3" fill="#e07b39"/><text x="60" y="70" text-anchor="middle" font-size="13">B</text>
+        <circle cx="250" cy="50" r="3" fill="#3a8f6b"/><text x="250" y="70" text-anchor="middle" font-size="13">C</text>
+        <defs>
+          <marker id="al" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#e07b39"/></marker>
+          <marker id="al2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#3a8f6b"/></marker>
+        </defs>
+      </svg>
+    </div>
+    <p style="text-align:center;font-size:14px;color:var(--ink-soft);margin-top:-8px;">النقطة A تقسم المستقيم إلى نصفَي مستقيم متقابلين: [AB) و[AC)</p>
+
+    <h3 class="sub-title">3) القطعة</h3>
+    <div class="rule-box">
+      <p><b>القطعة</b> جزء من المستقيم محصور بين نقطتين تسمَّيان <b>طرفَي القطعة</b>، ولها <b>طول محدد</b> يمكن قياسه بالمسطرة المدرَّجة. إذا كان طرفاها A وB، نرمز لها بـ <b>[AB]</b>، وطولها يُكتب AB.</p>
+    </div>
+
+    <h3 class="sub-title">4) منتصف قطعة</h3>
+    <div class="rule-box">
+      <p><b>منتصف القطعة [AB]</b> هي النقطة I التي تنتمي إلى القطعة وتُقسِّمها إلى قطعتين متساويتين في الطول: <b>IA = IB = AB ÷ 2</b>.</p>
+    </div>
+
+    <h3 class="sub-title">5) مقارنة أطوال القطع ونقل طول بالفرجار</h3>
+    <div class="rule-box">
+      <p>لمقارنة طولَي قطعتين، يمكن قياسهما بالمسطرة المدرَّجة ومقارنة الطولين، أو استعمال <b>الفرجار (البيكار)</b>: نفتح الفرجار بحيث تنطبق إبرتاه على طرفَي القطعة الأولى، ثم نُقارن هذا الفتح بالقطعة الثانية دون تغييره.</p>
+    </div>
+
+    <h3 class="sub-title">6) العلاقة بين أطوال ثلاث نقط محاذية</h3>
+    <div class="rule-box">
+      <p>إذا كانت النقطة B تقع بين النقطتين A وC على نفس المستقيم، فإن:</p>
+      <p style="text-align:center;font-weight:700;font-size:17px;color:var(--blue);">AB + BC = AC</p>
+    </div>
+    <div class="figure-wrap">
+      <svg width="300" height="80" viewBox="0 0 300 80">
+        <line x1="20" y1="40" x2="280" y2="40" stroke="#1c2b3a" stroke-width="2.5"/>
+        <circle cx="30" cy="40" r="4" fill="#2f5f8a"/><text x="30" y="25" text-anchor="middle" font-size="14" font-weight="700">A</text>
+        <circle cx="150" cy="40" r="4" fill="#e07b39"/><text x="150" y="25" text-anchor="middle" font-size="14" font-weight="700">B</text>
+        <circle cx="270" cy="40" r="4" fill="#3a8f6b"/><text x="270" y="25" text-anchor="middle" font-size="14" font-weight="700">C</text>
+        <text x="90" y="60" text-anchor="middle" font-size="12" fill="#2f5f8a">AB</text>
+        <text x="210" y="60" text-anchor="middle" font-size="12" fill="#3a8f6b">BC</text>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ===================== ACTIVITE ===================== -->
+  <section>
+    <h2 class="section-title">✏️ نشاط تطبيقي</h2>
+    <div class="activity-box">
+      <span class="task-label">رسم وتسمية</span>
+      <p>1) ارسم مستقيماً (d)، وحدّد عليه نقطة A. سمِّ نصفَي المستقيم الناتجين عن هذه النقطة (باختيار نقطة أخرى على كل جهة).</p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+      <p>2) ارسم قطعة [AB] طولها 8 سم، ثم حدّد منتصفها I باستعمال المسطرة المدرَّجة، واكتب المساواة بين طولَي القطعتين الناتجتين.</p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== EXERCICES ===================== -->
+  <section>
+    <h2 class="section-title">📝 تمارين للتدرّب</h2>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">1</span>لاحظ الشكل التالي، ثم سمِّ نصفَي المستقيم الناتجين عن النقطة M:</h4>
+      <div class="figure-wrap">
+        <svg width="300" height="90" viewBox="0 0 300 90">
+          <line x1="20" y1="45" x2="280" y2="45" stroke="#1c2b3a" stroke-width="2.5"/>
+          <circle cx="150" cy="45" r="4" fill="#1c2b3a"/><text x="150" y="30" text-anchor="middle" font-size="14" font-weight="700">M</text>
+          <circle cx="60" cy="45" r="3" fill="#2f5f8a"/><text x="60" y="65" text-anchor="middle" font-size="13">N</text>
+          <circle cx="240" cy="45" r="3" fill="#2f5f8a"/><text x="240" y="65" text-anchor="middle" font-size="13">P</text>
+        </svg>
+      </div>
+      <p>نصف المستقيم الأول: <span class="fill-line"></span> &nbsp; نصف المستقيم الثاني: <span class="fill-line"></span></p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">2</span>اربط كل رمز بوصفه اللفظي المناسب (أو العكس):</h4>
+      <table class="data-table">
+        <tr><th>الرمز</th><th>الوصف اللفظي</th></tr>
+        <tr><td>[AB)</td><td><span class="fill-line" style="min-width:100%;"></span></td></tr>
+        <tr><td>[CD]</td><td><span class="fill-line" style="min-width:100%;"></span></td></tr>
+        <tr><td><span class="fill-line"></span></td><td>مستقيم يمرّ بـ E وF</td></tr>
+        <tr><td><span class="fill-line"></span></td><td>نصف مستقيم أصله M يمرّ بـN</td></tr>
+      </table>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">3</span>ارسم قطعة [AB] طولها 6 سم، ثم حدّد منتصفها I، واكتب طولَي IA وIB.</h4>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">4</span>ارسم قطعة [CD] بطول اختياري، ثم باستعمال الفرجار، انقل طولها إلى نصف مستقيم أصله E، لتحصل على نقطة F بحيث EF = CD.</h4>
+      <div class="construct-box">
+        <p style="margin:0;">(ارسم إنجازك في المساحة المخصصة بدفترك)</p>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">5</span>اختر الإجابة الصحيحة:</h4>
+      <div class="qcm-item">
+        <p>1) المستقيم يمتدّ:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>في اتجاه واحد فقط</span><span><span class="checkbox"></span>في اتجاهين بلا نهاية</span><span><span class="checkbox"></span>بين نقطتين فقط</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>2) نصف المستقيم له:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>أصل واحد فقط</span><span><span class="checkbox"></span>طرفان</span><span><span class="checkbox"></span>لا نقطة أصل</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>3) القطعة لها:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>امتداد لا نهائي</span><span><span class="checkbox"></span>طرفان وطول محدد</span><span><span class="checkbox"></span>أصل واحد فقط</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>4) إذا كانت B بين A وC، فإن:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>AB + BC = AC</span><span><span class="checkbox"></span>AB = BC دائماً</span><span><span class="checkbox"></span>AC = AB − BC</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>5) منتصف القطعة [AB] هي النقطة التي:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>IA = IB</span><span><span class="checkbox"></span>IA &gt; IB</span><span><span class="checkbox"></span>IA = 2×IB</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">6</span>في كل حالة، النقطة B تقع بين A وC على نفس المستقيم. احسب الطول المطلوب:</h4>
+      <p>1) AB = 5 سم، BC = 3 سم. احسب AC. <span class="fill-line"></span></p>
+      <p>2) AC = 10 سم، AB = 4 سم. احسب BC. <span class="fill-line"></span></p>
+      <p>3) AC = 15 سم، BC = 9 سم. احسب AB. <span class="fill-line"></span></p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">7</span>لاحظ القطع الثلاث التالية دون قياسها، ورتّبها من الأقصر إلى الأطول، ثم تحقق من ترتيبك باستعمال مسطرتك:</h4>
+      <div class="figure-wrap">
+        <svg width="320" height="100" viewBox="0 0 320 100">
+          <line x1="20" y1="25" x2="90" y2="25" stroke="#2f5f8a" stroke-width="3"/><text x="55" y="18" text-anchor="middle" font-size="12">[AB]</text>
+          <line x1="20" y1="55" x2="220" y2="55" stroke="#e07b39" stroke-width="3"/><text x="120" y="48" text-anchor="middle" font-size="12">[CD]</text>
+          <line x1="20" y1="85" x2="150" y2="85" stroke="#3a8f6b" stroke-width="3"/><text x="85" y="78" text-anchor="middle" font-size="12">[EF]</text>
+        </svg>
+      </div>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">8</span>مسألة تطبيقية:</h4>
+      <div class="scenario-box">
+        النقطة B تقع بين النقطتين A وC على نفس المستقيم. نعلم أن AC = 18 سم، وأن طول BC يساوي ضعف طول AB.
+      </div>
+      <p>احسب طولَي AB وBC.</p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== CORRIGE ===================== -->
+  <div class="corrige-wrapper">
+    <p class="corrige-flag">✂ يمكن طي هذه الصفحة أو إخفاؤها (اضغط على العنوان أدناه) قبل إنجاز التمارين ✂</p>
+    <details class="corrige">
+      <summary>التصحيح الكامل</summary>
+
+      <h4>تصحيح النشاط التطبيقي</h4>
+      <div class="corrige-item">1) يتحقق الأستاذ(ة) من تسمية صحيحة لنصفَي المستقيم (مثلاً [AN) و[AP))، بحيث يكون لهما نفس الأصل A واتجاهان متعاكسان.</div>
+      <div class="corrige-item">2) يتحقق الأستاذ(ة) من رسم [AB] بطول 8 سم بالضبط، وتحديد I بحيث IA = IB = 4 سم.</div>
+
+      <h4>تصحيح التمرين 1 (تسمية نصفَي المستقيم)</h4>
+      <div class="corrige-item">نصف المستقيم الأول: [MN) &nbsp;|&nbsp; نصف المستقيم الثاني: [MP)</div>
+
+      <h4>تصحيح التمرين 2 (الرموز والأوصاف)</h4>
+      <table class="data-table">
+        <tr><th>الرمز</th><th>الوصف اللفظي</th></tr>
+        <tr><td>[AB)</td><td>نصف مستقيم أصله A يمرّ بـB</td></tr>
+        <tr><td>[CD]</td><td>قطعة طرفاها C وD</td></tr>
+        <tr><td>(EF)</td><td>مستقيم يمرّ بـE وF</td></tr>
+        <tr><td>[MN)</td><td>نصف مستقيم أصله M يمرّ بـN</td></tr>
+      </table>
+
+      <h4>تصحيح التمرين 3 (منتصف القطعة)</h4>
+      <div class="corrige-item">IA = IB = 3 سم (نصف طول [AB] الذي هو 6 سم).</div>
+
+      <h4>تصحيح التمرين 4 (نقل الطول بالفرجار)</h4>
+      <div class="corrige-item">يتحقق الأستاذ(ة) من أن المتعلم(ة) استعمل الفرجار بشكل صحيح لنقل طول [CD] إلى نصف المستقيم، بحيث EF = CD بالضبط.</div>
+
+      <h4>تصحيح التمرين 5 (الاختيار من متعدد)</h4>
+      <div class="corrige-item">1) في اتجاهين بلا نهاية &nbsp;|&nbsp; 2) أصل واحد فقط &nbsp;|&nbsp; 3) طرفان وطول محدد &nbsp;|&nbsp; 4) AB + BC = AC &nbsp;|&nbsp; 5) IA = IB</div>
+
+      <h4>تصحيح التمرين 6 (العلاقة AB+BC=AC)</h4>
+      <div class="corrige-item">1) AC = 5+3 = 8 سم &nbsp;|&nbsp; 2) BC = 10−4 = 6 سم &nbsp;|&nbsp; 3) AB = 15−9 = 6 سم</div>
+
+      <h4>تصحيح التمرين 7 (الترتيب والقياس)</h4>
+      <div class="corrige-item">الترتيب من الأقصر إلى الأطول: [AB] &lt; [EF] &lt; [CD]</div>
+
+      <h4>تصحيح التمرين 8 (المسألة التطبيقية)</h4>
+      <div class="corrige-item">بما أن BC = 2×AB، فإن: AB + BC = AC ⟹ AB + 2AB = 18 ⟹ 3AB = 18 ⟹ AB = 6 سم، وبالتالي BC = 2×6 = 12 سم.</div>
+    </details>
+  </div>
+
+  <p class="footer-note">فيشة تعلّم ذاتي — الرياضيات — الأولى إعدادي — المستقيم وأجزاؤه</p>
+</div>
+</body>
+</html>

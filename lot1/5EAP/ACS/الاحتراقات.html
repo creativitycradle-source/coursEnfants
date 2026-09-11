@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>الاحتراقات</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#2a2320;
+    --ink-soft:#5a4f47;
+    --paper:#faf7f2;
+    --panel:#ffffff;
+    --line:#ddd2c4;
+    --flame:#c1541c;
+    --flame-soft:#fbe6d8;
+    --ember:#9c2b1f;
+    --ember-soft:#f9e2de;
+    --smoke:#3f5058;
+    --smoke-soft:#e6ecee;
+    --safety:#e3a72e;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:#e7e2d6;
+    font-family:'Noto Naskh Arabic','Amiri',serif;
+    color:var(--ink);
+    -webkit-print-color-adjust:exact;
+    print-color-adjust:exact;
+  }
+  .sheet{
+    max-width:860px;
+    margin:24px auto;
+    background:var(--paper);
+    padding:0 0 50px;
+    border:1px solid var(--line);
+    box-shadow:0 4px 24px rgba(0,0,0,.12);
+    overflow:hidden;
+  }
+
+  /* hazard stripe bar */
+  .hazard-bar{
+    height:10px;
+    background:repeating-linear-gradient(135deg, var(--safety) 0 16px, var(--ink) 16px 32px);
+  }
+
+  .masthead{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:18px;
+    padding:22px 44px 16px;
+    border-bottom:3px solid var(--ink);
+    margin:0 44px 22px;
+  }
+  .masthead-text h1{
+    font-family:'Amiri',serif;
+    font-weight:700;
+    font-size:30px;
+    margin:0 0 6px;
+    line-height:1.3;
+    color:var(--ember);
+  }
+  .masthead-text .subtitle{font-size:15px;color:var(--ink-soft);margin:0;}
+  .flame-icon{width:58px;height:58px;flex-shrink:0;}
+
+  .content{padding:0 44px;}
+
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+  .meta-chip{border:1px solid var(--line);background:var(--panel);border-radius:3px;padding:6px 12px;font-size:13.5px;color:var(--ink-soft);}
+  .meta-chip b{color:var(--ink);font-weight:600;}
+
+  section{margin-bottom:28px;}
+  h2.section-title{
+    font-family:'Amiri',serif;font-size:21px;font-weight:700;color:var(--smoke);
+    border-bottom:2px solid var(--smoke);padding-bottom:6px;margin:0 0 14px;
+    display:flex;align-items:baseline;gap:8px;
+  }
+  h3.sub-title{font-size:17px;font-weight:700;color:var(--flame);margin:20px 0 8px;}
+  p{line-height:2;font-size:15.5px;margin:0 0 10px;}
+
+  .objectif-box{background:var(--flame-soft);border-right:4px solid var(--flame);padding:14px 18px;border-radius:2px;font-size:15.5px;line-height:1.9;}
+
+  .rule-box{background:var(--panel);border:1px solid var(--line);border-right:4px solid var(--smoke);padding:14px 18px;border-radius:2px;margin:10px 0 16px;}
+  .rule-box p:last-child{margin-bottom:0;}
+  .rule-box ul{margin:6px 0;padding-inline-start:22px;}
+  .rule-box li{margin-bottom:6px;line-height:1.85;}
+
+  table.data-table{width:100%;border-collapse:collapse;margin:8px 0 18px;font-size:15px;}
+  table.data-table th{background:var(--smoke);color:#fff;padding:8px 10px;font-weight:600;font-size:14px;}
+  table.data-table td{border:1px solid var(--line);padding:9px 10px;background:var(--panel);}
+  table.data-table tr:nth-child(even) td{background:#f4efe6;}
+
+  .highlight-box{background:var(--smoke-soft);border:1px dashed var(--smoke);padding:14px 18px;border-radius:2px;margin:14px 0;font-size:15px;line-height:1.9;}
+
+  /* fire triangle diagram */
+  .triangle-wrap{display:flex;justify-content:center;margin:18px 0;}
+
+  .activity-box{background:var(--panel);border:1.5px solid var(--flame);border-radius:3px;padding:16px 20px;}
+  .activity-box .task-label{display:inline-block;background:var(--flame);color:#fff;font-size:12.5px;padding:3px 10px;border-radius:2px;margin-bottom:8px;}
+  .step{display:flex;gap:10px;margin-bottom:8px;align-items:flex-start;}
+  .step-num{flex-shrink:0;width:22px;height:22px;border-radius:50%;background:var(--flame);color:#fff;font-size:12.5px;display:flex;align-items:center;justify-content:center;font-weight:700;}
+
+  .exercise{border:1px solid var(--line);border-radius:3px;padding:16px 20px;margin-bottom:16px;background:var(--panel);}
+  .exercise-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:var(--ink);color:var(--paper);border-radius:50%;font-size:14px;font-weight:700;margin-inline-end:8px;}
+  .exercise h4{margin:0 0 10px;font-size:16.5px;display:flex;align-items:center;}
+  .fill-line{border-bottom:1px dotted var(--ink-soft);display:inline-block;min-width:120px;height:1.6em;}
+  .word-chip{display:inline-block;background:var(--paper);border:1px solid var(--line);border-radius:3px;padding:3px 12px;margin:3px 4px;font-size:16px;}
+  .qcm-item{margin-bottom:10px;}
+  .qcm-item p{margin-bottom:4px;font-weight:600;}
+  .qcm-options{display:flex;flex-wrap:wrap;gap:14px;font-size:14.5px;}
+  .qcm-options span{display:flex;align-items:center;gap:5px;}
+  .checkbox{width:13px;height:13px;border:1.4px solid var(--ink-soft);display:inline-block;border-radius:2px;}
+  .scenario-box{background:#f4efe6;border:1px solid var(--line);padding:12px 16px;font-size:15.5px;line-height:2.1;margin-bottom:10px;}
+  .match-cols{display:flex;justify-content:space-between;gap:40px;margin-top:8px;}
+  .match-cols ul{list-style:none;padding:0;margin:0;}
+  .match-cols li{border:1px solid var(--line);background:var(--paper);padding:6px 14px;margin-bottom:10px;border-radius:3px;font-size:15px;}
+
+  .corrige-wrapper{page-break-before:always;padding-top:6px;}
+  .corrige-flag{text-align:center;font-size:13px;color:var(--ink-soft);margin-bottom:10px;border-top:1px dashed var(--ink-soft);padding-top:14px;}
+  details.corrige{border:2px dashed var(--ember);border-radius:4px;background:#fffaf8;padding:6px 20px 18px;}
+  details.corrige > summary{cursor:pointer;font-family:'Amiri',serif;font-weight:700;font-size:19px;color:var(--ember);padding:14px 0;list-style:none;}
+  details.corrige > summary::-webkit-details-marker{display:none;}
+  details.corrige > summary::before{content:"✂ ";}
+  details.corrige > summary::after{content:"— اضغط لإظهار الحل / إخفائه";font-family:'Noto Naskh Arabic',serif;font-weight:400;font-size:13px;color:var(--ink-soft);margin-inline-start:8px;}
+  .corrige h4{color:var(--ember);margin:16px 0 8px;font-size:16px;}
+  .corrige-item{margin-bottom:8px;font-size:15px;line-height:1.9;}
+  .corrige table.data-table th{background:var(--ember);}
+
+  .footer-note{margin-top:30px;text-align:center;font-size:12px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:10px;}
+
+  @media print{
+    body{background:#fff;}
+    .sheet{box-shadow:none;border:none;margin:0;max-width:100%;}
+    details.corrige{border-color:#000;}
+  }
+  @page{size:A4;margin:14mm;}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <div class="hazard-bar"></div>
+
+  <div class="masthead">
+    <div class="masthead-text">
+      <h1>الاحتراقاتُ</h1>
+      <p class="subtitle">النشاط العلمي — عالم المادة</p>
+    </div>
+    <svg class="flame-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M32 6c4 8-4 10-4 18 0 5 4 8 4 8s10-4 10-14c6 6 8 14 8 20 0 11-9 20-20 20S10 49 10 38c0-9 5-14 8-20 1 8 6 10 6 6 0-6-4-10-4-16 4 2 8 6 12 8z" fill="#c1541c" opacity="0.9"/>
+      <path d="M32 24c2 4-2 6-2 10 0 3 2 5 2 5s6-2 6-8c3 3 4 8 4 11 0 6-5 11-10 11s-10-5-10-11c0-5 3-8 4-11 1 4 3 5 3 3 0-3-2-6-2-9 2 1 4 3 5 5z" fill="#e3a72e"/>
+    </svg>
+  </div>
+
+  <div class="content">
+  <div class="meta-row">
+    <div class="meta-chip">المستوى: <b>السادسة ابتدائي (6AEP)</b></div>
+    <div class="meta-chip">المادة: <b>النشاط العلمي</b></div>
+    <div class="meta-chip">مدة الحصة: <b>ساعة واحدة</b></div>
+    <div class="meta-chip">نوع الوثيقة: <b>فيشة تعلّم ذاتي</b></div>
+  </div>
+
+  <!-- ===================== OBJECTIF ===================== -->
+  <section>
+    <h2 class="section-title">🎯 الهدف من الدرس</h2>
+    <div class="objectif-box">
+      يتمكّن المتعلم(ة) في نهاية هذا الدرس من: تعريف ظاهرة الاحتراق، وتحديد الشروط الثلاثة اللازمة لحدوثه (مثلث الاحتراق)، والتمييز بين الاحتراق الكامل والاحتراق غير الكامل من خلال مميزات كل منهما، والتعرّف على طرق الوقاية من الحرائق وإخمادها اعتماداً على مبدأ مثلث الاحتراق.
+    </div>
+  </section>
+
+  <!-- ===================== COURS ===================== -->
+  <section>
+    <h2 class="section-title">📘 الدرس</h2>
+
+    <h3 class="sub-title">1) ما هو الاحتراق؟</h3>
+    <div class="rule-box">
+      <p>
+        <b>الاحتراقُ</b> ظاهرة كيميائية تحدث عندما تتفاعل مادة قابلة للاشتعال (تسمى <b>الوقود</b>، مثل: الخشب، الورق، الشمع، الغاز...) مع غاز <b>الأكسجين</b> الموجود في الهواء، فينتج عن هذا التفاعل <b>حرارة</b> و<b>ضوء</b> (لهب) وأحياناً <b>دخان</b>.
+      </p>
+      <p>أمثلة من الحياة اليومية: احتراق الحطب في الموقد، احتراق الشمعة، احتراق الغاز في موقد الطبخ، احتراق البنزين في محرك السيارة.</p>
+    </div>
+
+    <h3 class="sub-title">2) الشروط اللازمة لحدوث الاحتراق: مثلث الاحتراق</h3>
+    <div class="rule-box">
+      <p>لكي يحدث الاحتراق ويستمر، لا بد من توفر ثلاثة عناصر معاً في نفس الوقت، وتُسمى مجتمعةً <b>"مثلث الاحتراق"</b>:</p>
+    </div>
+
+    <div class="triangle-wrap">
+      <svg width="320" height="290" viewBox="0 0 320 290" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="160,20 300,260 20,260" fill="none" stroke="#3f5058" stroke-width="4" stroke-linejoin="round"/>
+        <circle cx="160" cy="20" r="34" fill="#f9e2de" stroke="#9c2b1f" stroke-width="2.5"/>
+        <text x="160" y="26" text-anchor="middle" font-family="Noto Naskh Arabic, serif" font-size="14" font-weight="700" fill="#9c2b1f">حرارة</text>
+        <circle cx="300" cy="260" r="40" fill="#fbe6d8" stroke="#c1541c" stroke-width="2.5"/>
+        <text x="300" y="256" text-anchor="middle" font-family="Noto Naskh Arabic, serif" font-size="14" font-weight="700" fill="#c1541c">وقود</text>
+        <text x="300" y="274" text-anchor="middle" font-family="Noto Naskh Arabic, serif" font-size="11" fill="#c1541c">(مادة قابلة للاحتراق)</text>
+        <circle cx="20" cy="260" r="40" fill="#e6ecee" stroke="#3f5058" stroke-width="2.5"/>
+        <text x="20" y="256" text-anchor="middle" font-family="Noto Naskh Arabic, serif" font-size="14" font-weight="700" fill="#3f5058">أكسجين</text>
+        <text x="20" y="274" text-anchor="middle" font-family="Noto Naskh Arabic, serif" font-size="11" fill="#3f5058">(الهواء)</text>
+      </svg>
+    </div>
+    <div class="highlight-box">
+      <b>قاعدة مهمة:</b> إذا غاب عنصر واحد فقط من هذه العناصر الثلاثة، فإن الاحتراق لا يحدث أو يتوقف إن كان مشتعلاً. هذا المبدأ هو الذي تعتمد عليه كل طرق إخماد الحرائق.
+    </div>
+
+    <h3 class="sub-title">3) أنواع الاحتراق: كامل وغير كامل</h3>
+    <div class="rule-box">
+      <p>تختلف نتائج الاحتراق باختلاف كمية الأكسجين المتوفرة أثناء التفاعل:</p>
+    </div>
+    <table class="data-table">
+      <tr><th></th><th>الاحتراق الكامل (التام)</th><th>الاحتراق غير الكامل (الناقص)</th></tr>
+      <tr><td>كمية الأكسجين</td><td>كافية</td><td>غير كافية (ناقصة)</td></tr>
+      <tr><td>لون اللهب</td><td>أزرق صافٍ</td><td>أصفر برتقالي</td></tr>
+      <tr><td>الدخان والسخام</td><td>قليل جداً أو منعدم</td><td>كثير (سخام أسود)</td></tr>
+      <tr><td>الغاز الناتج</td><td>ثاني أكسيد الكربون CO₂</td><td>أول أكسيد الكربون CO (غاز سام وخطير)</td></tr>
+    </table>
+
+    <h3 class="sub-title">4) الكشف عن غاز ثاني أكسيد الكربون</h3>
+    <div class="rule-box">
+      <p>من نواتج الاحتراق أيضاً <b>بخار الماء</b> وغاز <b>ثاني أكسيد الكربون (CO₂)</b>. للكشف عن وجود هذا الغاز، نستعمل <b>ماء الجير</b>: عند تمرير غازات الاحتراق داخل ماء الجير الصافي، يتعكّر ماء الجير ويصبح لونه حليبياً، مما يثبت وجود ثاني أكسيد الكربون.</p>
+    </div>
+
+    <h3 class="sub-title">5) الوقاية من الحرائق وإخمادها</h3>
+    <div class="rule-box">
+      <p>اعتماداً على مبدأ مثلث الاحتراق، يمكن إيقاف أي حريق بإزالة عنصر واحد فقط من عناصره الثلاثة:</p>
+      <ul>
+        <li><b>إبعاد الوقود:</b> إزالة المواد القابلة للاشتعال عن منطقة الحريق.</li>
+        <li><b>حجب الأكسجين:</b> تغطية النار (ببطانية أو غطاء) لمنع وصول الهواء إليها.</li>
+        <li><b>خفض الحرارة:</b> استعمال الماء أو الرمل أو مسحوق طفاية الحريق لتبريد المادة المشتعلة.</li>
+      </ul>
+      <p><b>احتياطات السلامة:</b> عدم اللعب بأعواد الثقاب أو النار، إبعاد المواد القابلة للاشتعال عن مصادر الحرارة، معرفة مكان طفاية الحريق ورقم الطوارئ.</p>
+    </div>
+  </section>
+
+  <!-- ===================== ACTIVITE ===================== -->
+  <section>
+    <h2 class="section-title">🔬 نشاط تطبيقي: تجربة "الشمعة تحت الكأس"</h2>
+    <div class="activity-box">
+      <span class="task-label">تجربة يقودها الأستاذ(ة) مع مراقبة التلاميذ</span>
+      <div class="step"><span class="step-num">1</span><span>نُثبّت شمعة صغيرة في صحن، ونضيف حولها القليل من الماء الملوّن.</span></div>
+      <div class="step"><span class="step-num">2</span><span>نُشعل الشمعة، ثم نُغطّيها بكأس زجاجي مقلوب فوقها مباشرة.</span></div>
+      <div class="step"><span class="step-num">3</span><span>نراقب بعناية ما يحدث للهب الشمعة، وما يحدث لمستوى الماء داخل الكأس.</span></div>
+
+      <table class="data-table">
+        <tr><th>الملاحظة</th><th>ما لاحظته</th></tr>
+        <tr><td>حالة اللهب بعد التغطية</td><td><span class="fill-line" style="min-width:260px;"></span></td></tr>
+        <tr><td>مستوى الماء داخل الكأس</td><td><span class="fill-line" style="min-width:260px;"></span></td></tr>
+      </table>
+      <p><b>سؤال الاستنتاج:</b> لماذا انطفأت الشمعة بعد مدة قصيرة رغم توفر الوقود (الشمع والفتيلة) والحرارة؟ <span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== EXERCICES ===================== -->
+  <section>
+    <h2 class="section-title">📝 تمارين للتدرّب</h2>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">1</span>صل كل عنصر من عناصر مثلث الاحتراق بتعريفه المناسب:</h4>
+      <div class="match-cols">
+        <ul>
+          <li>أ) الوقود</li>
+          <li>ب) الأكسجين</li>
+          <li>ج) الحرارة</li>
+        </ul>
+        <ul>
+          <li>1) غاز موجود في الهواء وضروري لاستمرار الاحتراق</li>
+          <li>2) الطاقة اللازمة لبدء اشتعال المادة</li>
+          <li>3) المادة القابلة للاشتعال مثل الخشب أو الغاز</li>
+        </ul>
+      </div>
+      <p style="margin-top:10px;">الإجابة: أ - .......... &nbsp;&nbsp; ب - .......... &nbsp;&nbsp; ج - ..........</p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">2</span>اختر الإجابة الصحيحة:</h4>
+      <div class="qcm-item">
+        <p>1) الاحتراق غير الكامل ينتج عنه غاز:</p>
+        <div class="qcm-options">
+          <span><span class="checkbox"></span>الأكسجين O₂</span>
+          <span><span class="checkbox"></span>ثاني أكسيد الكربون CO₂</span>
+          <span><span class="checkbox"></span>أول أكسيد الكربون CO</span>
+        </div>
+      </div>
+      <div class="qcm-item">
+        <p>2) للكشف عن غاز ثاني أكسيد الكربون نستعمل:</p>
+        <div class="qcm-options">
+          <span><span class="checkbox"></span>ماء الجير</span>
+          <span><span class="checkbox"></span>الماء العادي</span>
+          <span><span class="checkbox"></span>الزيت</span>
+        </div>
+      </div>
+      <div class="qcm-item">
+        <p>3) عند تغطية شمعة مشتعلة بكأس مقلوب، تنطفئ الشمعة بسبب:</p>
+        <div class="qcm-options">
+          <span><span class="checkbox"></span>نقص الوقود</span>
+          <span><span class="checkbox"></span>نقص الأكسجين</span>
+          <span><span class="checkbox"></span>نقص الحرارة</span>
+        </div>
+      </div>
+      <div class="qcm-item">
+        <p>4) الاحتراق الكامل يتميز بلهب لونه:</p>
+        <div class="qcm-options">
+          <span><span class="checkbox"></span>أصفر برتقالي</span>
+          <span><span class="checkbox"></span>أزرق صافٍ</span>
+          <span><span class="checkbox"></span>أخضر</span>
+        </div>
+      </div>
+      <div class="qcm-item">
+        <p>5) لإخماد حريق ناتج عن زيت مشتعل، الأنسب هو:</p>
+        <div class="qcm-options">
+          <span><span class="checkbox"></span>صب الماء عليه</span>
+          <span><span class="checkbox"></span>تغطيته بغطاء لحجب الهواء</span>
+          <span><span class="checkbox"></span>إضافة المزيد من الزيت</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">3</span>أكمل الجدول المقارن بين نوعي الاحتراق:</h4>
+      <table class="data-table">
+        <tr><th></th><th>الاحتراق الكامل</th><th>الاحتراق غير الكامل</th></tr>
+        <tr><td>كمية الأكسجين</td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+        <tr><td>لون اللهب</td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+        <tr><td>الغاز الناتج</td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+      </table>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">4</span>أنجز رسم مثلث الاحتراق التالي بكتابة العنصر المناسب في كل خانة، ثم أجب:</h4>
+      <div class="triangle-wrap" style="margin:10px 0;">
+        <svg width="260" height="230" viewBox="0 0 260 230" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="130,15 245,210 15,210" fill="none" stroke="#3f5058" stroke-width="3" stroke-linejoin="round"/>
+          <circle cx="130" cy="15" r="28" fill="#faf7f2" stroke="#9c2b1f" stroke-width="2"/>
+          <circle cx="245" cy="210" r="32" fill="#faf7f2" stroke="#c1541c" stroke-width="2"/>
+          <circle cx="15" cy="210" r="32" fill="#faf7f2" stroke="#3f5058" stroke-width="2"/>
+        </svg>
+      </div>
+      <p>إذا أبعدنا التلميذ(ة) عنصرَ "الوقود" فقط من هذا المثلث، ماذا سيحدث للاحتراق؟ ولماذا؟</p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">5</span>وضعية-مشكلة:</h4>
+      <div class="scenario-box">
+        أثناء إعداد وجبة الغداء، اشتعلت النار فجأة في مقلاة تحتوي على زيت ساخن فوق موقد المطبخ.
+      </div>
+      <p>1) هل يجوز إطفاء هذا الحريق بصب الماء عليه؟ علّل جوابك بالاعتماد على ما درسته.</p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+      <p>2) اقترح طريقة مناسبة لإخماد هذا الحريق، مع ذكر العنصر من مثلث الاحتراق الذي ستعمل على إزالته.</p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== CORRIGE ===================== -->
+  <div class="corrige-wrapper">
+    <p class="corrige-flag">✂ يمكن طي هذه الصفحة أو إخفاؤها (اضغط على العنوان أدناه) قبل إنجاز التمارين ✂</p>
+    <details class="corrige">
+      <summary>التصحيح الكامل</summary>
+
+      <h4>تصحيح النشاط التطبيقي (تجربة الشمعة تحت الكأس)</h4>
+      <div class="corrige-item"><b>حالة اللهب:</b> يضعف تدريجياً ثم ينطفئ بعد ثوانٍ معدودة.</div>
+      <div class="corrige-item"><b>مستوى الماء:</b> يرتفع الماء داخل الكأس ليأخذ مكان الأكسجين المُستهلَك.</div>
+      <div class="corrige-item"><b>الاستنتاج:</b> انطفأت الشمعة لأن كمية الأكسجين المحصورة داخل الكأس استُهلكت بالكامل أثناء الاحتراق، ولم يعد هناك أكسجين كافٍ لاستمراره، رغم توفر الوقود والحرارة. هذا يؤكد أن الأكسجين عنصر ضروري لا غنى عنه في مثلث الاحتراق.</div>
+
+      <h4>تصحيح التمرين 1 (الربط)</h4>
+      <div class="corrige-item">أ - 3 (الوقود ← المادة القابلة للاشتعال) &nbsp; | &nbsp; ب - 1 (الأكسجين ← غاز في الهواء) &nbsp; | &nbsp; ج - 2 (الحرارة ← طاقة الاشتعال)</div>
+
+      <h4>تصحيح التمرين 2 (الاختيار من متعدد)</h4>
+      <div class="corrige-item">1) أول أكسيد الكربون CO &nbsp; | &nbsp; 2) ماء الجير &nbsp; | &nbsp; 3) نقص الأكسجين &nbsp; | &nbsp; 4) أزرق صافٍ &nbsp; | &nbsp; 5) تغطيته بغطاء لحجب الهواء</div>
+
+      <h4>تصحيح التمرين 3 (الجدول المقارن)</h4>
+      <table class="data-table">
+        <tr><th></th><th>الاحتراق الكامل</th><th>الاحتراق غير الكامل</th></tr>
+        <tr><td>كمية الأكسجين</td><td>كافية</td><td>غير كافية</td></tr>
+        <tr><td>لون اللهب</td><td>أزرق صافٍ</td><td>أصفر برتقالي</td></tr>
+        <tr><td>الغاز الناتج</td><td>ثاني أكسيد الكربون CO₂</td><td>أول أكسيد الكربون CO</td></tr>
+      </table>
+
+      <h4>تصحيح التمرين 4 (رسم مثلث الاحتراق)</h4>
+      <div class="corrige-item">الخانات الثلاث: <b>حرارة</b> (الأعلى) — <b>وقود</b> و<b>أكسجين</b> (الأسفل)، حسب النموذج المدروس في الدرس.</div>
+      <div class="corrige-item">إذا أبعدنا الوقود: يتوقف الاحتراق فوراً، لأنه لا يمكن أن يحدث تفاعل احتراق بدون مادة قابلة للاشتعال، حتى لو توفر الأكسجين والحرارة.</div>
+
+      <h4>تصحيح التمرين 5 (وضعية-مشكلة)</h4>
+      <div class="corrige-item">1) لا، لا يجوز صب الماء على حريق الزيت، لأن الماء أثقل من الزيت فينزل تحته ويتحول فجأة إلى بخار، مما يجعل الزيت المشتعل يتطاير وينتشر الحريق بشكل أخطر.</div>
+      <div class="corrige-item">2) الطريقة المناسبة: تغطية المقلاة بغطاء معدني أو قماش مبلل لحجب وصول الأكسجين (الهواء) عن اللهب، أو استعمال طفاية حريق مخصصة، مع إطفاء الموقد فوراً لإبعاد مصدر الحرارة.</div>
+    </details>
+  </div>
+
+  <p class="footer-note">فيشة تعلّم ذاتي — النشاط العلمي — السادسة ابتدائي — الاحتراقات</p>
+  </div>
+</div>
+</body>
+</html>

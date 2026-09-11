@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>حضارة بلاد الرافدين</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#2e2013; --ink-soft:#5c4c3a;
+    --paper:#f8f1e2; --panel:#fffdf7; --line:#ddc9a3;
+    --clay:#b5652f; --clay-soft:#f3e0cc;
+    --bronze:#8a6a1e; --bronze-soft:#f0e6c4;
+    --lapis:#2c5c78; --lapis-soft:#dfeaf0;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#e3d8bd;font-family:'Noto Naskh Arabic','Amiri',serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .sheet{max-width:880px;margin:24px auto;background:var(--paper);padding:38px 44px 50px;border:1px solid var(--line);box-shadow:0 4px 24px rgba(0,0,0,.12);}
+
+  .masthead{display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:3px solid var(--ink);padding-bottom:16px;margin-bottom:22px;}
+  .masthead-text h1{font-family:'Amiri',serif;font-weight:700;font-size:30px;margin:0 0 6px;color:var(--clay);}
+  .masthead-text .subtitle{font-size:15px;color:var(--ink-soft);margin:0;}
+  .zig-icon{width:60px;height:60px;flex-shrink:0;}
+
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+  .meta-chip{border:1px solid var(--line);background:var(--panel);border-radius:3px;padding:6px 12px;font-size:13.5px;color:var(--ink-soft);}
+  .meta-chip b{color:var(--ink);font-weight:600;}
+
+  section{margin-bottom:28px;}
+  h2.section-title{font-family:'Amiri',serif;font-size:21px;font-weight:700;color:var(--lapis);border-bottom:2px solid var(--lapis);padding-bottom:6px;margin:0 0 14px;display:flex;align-items:baseline;gap:8px;}
+  h3.sub-title{font-size:17px;font-weight:700;color:var(--clay);margin:20px 0 8px;}
+  p{line-height:2;font-size:15.5px;margin:0 0 10px;}
+
+  .objectif-box{background:var(--bronze-soft);border-right:4px solid var(--bronze);padding:14px 18px;border-radius:2px;font-size:15.5px;line-height:1.9;}
+
+  .rule-box{background:var(--panel);border:1px solid var(--line);border-right:4px solid var(--lapis);padding:14px 18px;border-radius:2px;margin:10px 0 16px;}
+  .rule-box p:last-child{margin-bottom:0;}
+  .rule-box ul,.rule-box ol{margin:6px 0;padding-inline-start:22px;}
+  .rule-box li{margin-bottom:6px;line-height:1.85;}
+
+  .map-wrap, .diagram-wrap{display:flex;justify-content:center;margin:14px 0;}
+
+  .civ-grid{display:flex;flex-wrap:wrap;gap:14px;margin:10px 0 16px;}
+  .civ-card{flex:1 1 190px;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:12px 14px;}
+  .civ-card .head{font-weight:700;color:var(--clay);font-size:15.5px;margin-bottom:4px;}
+  .civ-card p{margin:0;font-size:14px;color:var(--ink-soft);line-height:1.85;}
+
+  table.data-table{width:100%;border-collapse:collapse;margin:8px 0 18px;font-size:15px;}
+  table.data-table th{background:var(--lapis);color:#fff;padding:8px 10px;font-weight:600;font-size:14px;}
+  table.data-table td{border:1px solid var(--line);padding:9px 10px;background:var(--panel);}
+  table.data-table tr:nth-child(even) td{background:#f2e9d3;}
+
+  .activity-box{background:var(--panel);border:1.5px solid var(--bronze);border-radius:3px;padding:16px 20px;}
+  .activity-box .task-label{display:inline-block;background:var(--bronze);color:#fff;font-size:12.5px;padding:3px 10px;border-radius:2px;margin-bottom:8px;}
+  .doc-box{background:var(--clay-soft);border:1px dashed var(--clay);padding:12px 16px;border-radius:4px;font-size:15px;line-height:2;margin:10px 0;}
+
+  .exercise{border:1px solid var(--line);border-radius:3px;padding:16px 20px;margin-bottom:16px;background:var(--panel);}
+  .exercise-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:var(--ink);color:var(--paper);border-radius:50%;font-size:14px;font-weight:700;margin-inline-end:8px;}
+  .exercise h4{margin:0 0 10px;font-size:16.5px;display:flex;align-items:center;}
+  .fill-line{border-bottom:1px dotted var(--ink-soft);display:inline-block;min-width:120px;height:1.6em;}
+  .qcm-item{margin-bottom:10px;}
+  .qcm-item p{margin-bottom:4px;font-weight:600;}
+  .qcm-options{display:flex;flex-wrap:wrap;gap:14px;font-size:14.5px;}
+  .qcm-options span{display:flex;align-items:center;gap:5px;}
+  .checkbox{width:13px;height:13px;border:1.4px solid var(--ink-soft);display:inline-block;border-radius:2px;}
+  .match-cols{display:flex;justify-content:space-between;gap:40px;margin-top:8px;}
+  .match-cols ul{list-style:none;padding:0;margin:0;}
+  .match-cols li{border:1px solid var(--line);background:var(--paper);padding:6px 14px;margin-bottom:10px;border-radius:3px;font-size:15px;}
+  .order-list{display:flex;flex-direction:column;gap:8px;}
+  .order-item{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:6px;padding:8px 12px;background:var(--paper);}
+  .order-item .num-box{width:32px;height:32px;border:2px dashed var(--ink-soft);border-radius:6px;flex-shrink:0;}
+
+  .corrige-wrapper{page-break-before:always;padding-top:6px;}
+  .corrige-flag{text-align:center;font-size:13px;color:var(--ink-soft);margin-bottom:10px;border-top:1px dashed var(--ink-soft);padding-top:14px;}
+  details.corrige{border:2px dashed var(--clay);border-radius:4px;background:#fdf6ef;padding:6px 20px 18px;}
+  details.corrige > summary{cursor:pointer;font-family:'Amiri',serif;font-weight:700;font-size:19px;color:var(--clay);padding:14px 0;list-style:none;}
+  details.corrige > summary::-webkit-details-marker{display:none;}
+  details.corrige > summary::before{content:"✂ ";}
+  details.corrige > summary::after{content:"— اضغط لإظهار الحل / إخفائه";font-family:'Noto Naskh Arabic',serif;font-weight:400;font-size:13px;color:var(--ink-soft);margin-inline-start:8px;}
+  .corrige h4{color:var(--clay);margin:16px 0 8px;font-size:16px;}
+  .corrige-item{margin-bottom:8px;font-size:15px;line-height:1.9;}
+  .corrige table.data-table th{background:var(--clay);}
+
+  .footer-note{margin-top:30px;text-align:center;font-size:12px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:10px;}
+
+  @media print{
+    body{background:#fff;}
+    .sheet{box-shadow:none;border:none;margin:0;max-width:100%;padding:14px 6px;}
+    details.corrige{border-color:#000;}
+  }
+  @page{size:A4;margin:14mm;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="masthead-text">
+      <h1>حضارةُ بلادِ الرافدين</h1>
+      <p class="subtitle">الاجتماعيات — التاريخ: الحضارات الشرقية القديمة</p>
+    </div>
+    <svg class="zig-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="8" y="46" width="48" height="8" fill="#b5652f"/>
+      <rect x="13" y="36" width="38" height="8" fill="#c17840"/>
+      <rect x="18" y="26" width="28" height="8" fill="#cd8c56"/>
+      <rect x="23" y="16" width="18" height="8" fill="#d9a06e"/>
+    </svg>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta-chip">المستوى: <b>الأولى إعدادي (1AC)</b></div>
+    <div class="meta-chip">المادة: <b>الاجتماعيات — التاريخ</b></div>
+    <div class="meta-chip">مدة الحصة: <b>ساعة واحدة</b></div>
+    <div class="meta-chip">نوع الوثيقة: <b>فيشة تعلّم ذاتي</b></div>
+  </div>
+
+  <!-- ===================== OBJECTIF ===================== -->
+  <section>
+    <h2 class="section-title">🎯 الهدف من الدرس</h2>
+    <div class="objectif-box">
+      يتمكّن المتعلم(ة) في نهاية هذا الدرس من: تحديد الإطار المكاني والزمني لحضارة بلاد الرافدين، وترتيب أهم الشعوب التي تعاقبت عليها (السومريون، الأكاديون، البابليون، الآشوريون)، واستخراج أبرز مظاهر ازدهارها الحضاري (الكتابة، القانون، العمارة، العلوم)، ووصف التنظيم الاجتماعي لهذه الحضارة.
+    </div>
+  </section>
+
+  <!-- ===================== COURS ===================== -->
+  <section>
+    <h2 class="section-title">📘 الدرس</h2>
+
+    <h3 class="sub-title">1) الإطار المكاني لحضارة بلاد الرافدين</h3>
+    <div class="rule-box">
+      <p>
+        <b>بلاد الرافدين</b> (تعني "بلاد النهرين") منطقة تقع بين نهرَي <b>دجلة</b> و<b>الفرات</b>، في موقع العراق الحالي تقريباً. وقد ساعدت خصوبة تربتها ووفرة مياهها على قيام حضارة زراعية مزدهرة منذ العصور القديمة.
+      </p>
+    </div>
+    <div class="map-wrap">
+      <svg width="320" height="230" viewBox="0 0 320 230" xmlns="http://www.w3.org/2000/svg">
+        <rect x="10" y="10" width="300" height="210" rx="10" fill="#f3e0cc" stroke="#ddc9a3" stroke-width="2"/>
+        <path d="M120 20 C 100 60, 160 100, 140 150 C 125 185, 150 205, 170 215" stroke="#2c5c78" stroke-width="5" fill="none" stroke-linecap="round"/>
+        <path d="M200 20 C 220 70, 170 110, 190 150 C 205 180, 180 200, 170 215" stroke="#2c5c78" stroke-width="5" fill="none" stroke-linecap="round"/>
+        <text x="105" y="15" font-family="Noto Naskh Arabic, serif" font-size="13" font-weight="700" fill="#2c5c78">الفرات</text>
+        <text x="215" y="15" font-family="Noto Naskh Arabic, serif" font-size="13" font-weight="700" fill="#2c5c78">دجلة</text>
+        <circle cx="152" cy="140" r="5" fill="#b5652f"/>
+        <text x="160" y="138" font-family="Noto Naskh Arabic, serif" font-size="12" font-weight="700" fill="#b5652f">بابل</text>
+        <circle cx="175" cy="205" r="5" fill="#b5652f"/>
+        <text x="182" y="203" font-family="Noto Naskh Arabic, serif" font-size="12" font-weight="700" fill="#b5652f">أور</text>
+      </svg>
+    </div>
+
+    <h3 class="sub-title">2) الإطار الزمني: الشعوب المتعاقبة</h3>
+    <div class="rule-box">
+      <p>عرفت بلاد الرافدين توالي عدة شعوب وحضارات على مدى آلاف السنين، أبرزها:</p>
+    </div>
+    <div class="civ-grid">
+      <div class="civ-card"><div class="head">السومريون</div><p>حوالي 3500 - 2334 ق.م. أقدم حضارة في بلاد الرافدين، اخترعوا الكتابة المسمارية.</p></div>
+      <div class="civ-card"><div class="head">الأكاديون</div><p>حوالي 2334 - 2154 ق.م. أسّس ملكهم سرجون الأكدي أول امبراطورية موحّدة في المنطقة.</p></div>
+      <div class="civ-card"><div class="head">البابليون</div><p>ازدهروا في عهد الملك حمورابي (حوالي 1792 - 1750 ق.م.)، صاحب أول قانون مكتوب.</p></div>
+      <div class="civ-card"><div class="head">الآشوريون</div><p>بنَوا امبراطورية عسكرية قوية امتدت حتى حوالي 612 ق.م.</p></div>
+    </div>
+
+    <h3 class="sub-title">3) مظاهر الازدهار الحضاري</h3>
+    <div class="rule-box">
+      <ul>
+        <li><b>الكتابة المسمارية:</b> اخترعها السومريون، وتتكوّن من رموز على شكل مسامير تُنقش بقلم من القصب على ألواح من الطين الرطب.</li>
+        <li><b>الزراعة ونظام الري:</b> استغل سكان بلاد الرافدين مياه دجلة والفرات بحفر القنوات والسدود لريّ حقولهم، مما جعل الزراعة مصدر ثروتهم الأساسي.</li>
+        <li><b>قانون حمورابي:</b> أول مجموعة قوانين مكتوبة في التاريخ، نقشها الملك حمورابي على مسلة حجرية، وتقوم على مبدأ "العين بالعين والسن بالسن".</li>
+        <li><b>العمارة والزقورات:</b> شيّدوا معابد ضخمة على شكل أبراج مدرَّجة تسمى "الزقورات"، مخصصة للعبادة.</li>
+        <li><b>العلوم:</b> برعوا في الفلك والرياضيات، واعتمدوا النظام الستيني في العد (ومنه أصل تقسيم الساعة إلى 60 دقيقة والدائرة إلى 360 درجة)، كما وضعوا تقويماً قمرياً.</li>
+      </ul>
+    </div>
+
+    <h3 class="sub-title">4) التنظيم الاجتماعي</h3>
+    <div class="rule-box">
+      <p>كان المجتمع في بلاد الرافدين منظَّماً في هرم اجتماعي، من الأعلى إلى الأسفل:</p>
+    </div>
+    <div class="diagram-wrap">
+      <svg width="360" height="220" viewBox="0 0 360 220" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="180,15 220,65 140,65" fill="#8a6a1e"/>
+        <text x="180" y="48" text-anchor="middle" font-family="Noto Naskh Arabic, serif" font-size="13" font-weight="700" fill="#fff">الملك</text>
+        <polygon points="140,65 220,65 250,110 110,110" fill="#b5652f"/>
+        <text x="180" y="93" text-anchor="middle" font-family="Noto Naskh Arabic, serif" font-size="13" font-weight="700" fill="#fff">الكهنة والكتّاب والنبلاء</text>
+        <polygon points="110,110 250,110 280,160 80,160" fill="#cd8c56"/>
+        <text x="180" y="140" text-anchor="middle" font-family="Noto Naskh Arabic, serif" font-size="13" font-weight="700" fill="#2e2013">الحرفيون والتجار والفلاحون</text>
+        <polygon points="80,160 280,160 310,205 50,205" fill="#e3c69a"/>
+        <text x="180" y="188" text-anchor="middle" font-family="Noto Naskh Arabic, serif" font-size="13" font-weight="700" fill="#2e2013">العبيد</text>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ===================== ACTIVITE ===================== -->
+  <section>
+    <h2 class="section-title">📜 نشاط تطبيقي: قراءة وثيقة تاريخية</h2>
+    <div class="activity-box">
+      <span class="task-label">تحليل نص تاريخي</span>
+      <div class="doc-box">
+        "سنّ الملكُ البابليُّ حمورابي حوالي سنة 1750 ق.م. مجموعة من القوانين المكتوبة على مسلّة (عمود) من الحجر الأسود، تضمّ 282 مادة قانونية تنظّم حياة الناس في التجارة والزراعة والأسرة والعقوبات، وتقوم على مبدأ الجزاء من جنس العمل: "العين بالعين والسنّ بالسنّ"."
+      </div>
+      <p>بعد قراءة النص، أجب عن الأسئلة التالية:</p>
+      <p>1) من هو واضع هذا القانون؟ ومن أي حضارة؟ <span class="fill-line" style="min-width:60%;"></span></p>
+      <p>2) في أي سنة تقريباً وُضع هذا القانون؟ <span class="fill-line" style="min-width:40%;"></span></p>
+      <p>3) على أي مادة كُتب القانون؟ <span class="fill-line" style="min-width:50%;"></span></p>
+      <p>4) كم عدد مواد هذا القانون؟ <span class="fill-line" style="min-width:30%;"></span></p>
+      <p>5) ما المبدأ الذي يقوم عليه هذا القانون؟ <span class="fill-line" style="min-width:70%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== EXERCICES ===================== -->
+  <section>
+    <h2 class="section-title">📝 تمارين للتدرّب</h2>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">1</span>رتّب الحضارات التالية حسب توالي ظهورها الزمني في بلاد الرافدين (من 1 إلى 4):</h4>
+      <div class="order-list">
+        <div class="order-item"><div class="num-box"></div><span>البابليون</span></div>
+        <div class="order-item"><div class="num-box"></div><span>السومريون</span></div>
+        <div class="order-item"><div class="num-box"></div><span>الآشوريون</span></div>
+        <div class="order-item"><div class="num-box"></div><span>الأكاديون</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">2</span>اختر الإجابة الصحيحة:</h4>
+      <div class="qcm-item">
+        <p>1) بلاد الرافدين تقع بين نهرَي:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>النيل والفرات</span><span><span class="checkbox"></span>دجلة والفرات</span><span><span class="checkbox"></span>دجلة والنيل</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>2) أول من اخترع الكتابة المسمارية هم:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>السومريون</span><span><span class="checkbox"></span>المصريون القدماء</span><span><span class="checkbox"></span>الآشوريون</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>3) الملك البابلي صاحب أول قانون مكتوب هو:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>سرجون الأكدي</span><span><span class="checkbox"></span>حمورابي</span><span><span class="checkbox"></span>نبوخذ نصر</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>4) الزقورة هي:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>نوع من الكتابة</span><span><span class="checkbox"></span>معبد ديني على شكل برج مدرَّج</span><span><span class="checkbox"></span>مجموعة قوانين</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>5) اعتمد اقتصاد بلاد الرافدين أساساً على:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>التجارة البحرية فقط</span><span><span class="checkbox"></span>الزراعة بفضل نهري دجلة والفرات</span><span><span class="checkbox"></span>الصيد البحري</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">3</span>صل كل إنجاز حضاري بتعريفه المناسب:</h4>
+      <div class="match-cols">
+        <ul>
+          <li>أ) الكتابة المسمارية</li>
+          <li>ب) قانون حمورابي</li>
+          <li>ج) الزقورة</li>
+          <li>د) النظام الستيني</li>
+        </ul>
+        <ul>
+          <li>1) معبد ديني على شكل برج مدرَّج</li>
+          <li>2) نظام عدّ بالستين، ما زلنا نستعمله في قياس الوقت والزوايا</li>
+          <li>3) اخترعها السومريون على ألواح من الطين</li>
+          <li>4) أول تشريع مكتوب يقوم على مبدأ العين بالعين</li>
+        </ul>
+      </div>
+      <p style="margin-top:10px;">الإجابة: أ - .......... &nbsp; ب - .......... &nbsp; ج - .......... &nbsp; د - ..........</p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">4</span>أجب بصحيح أو خطأ، وصحّح الجملة الخاطئة:</h4>
+      <p>1) نشأت حضارة بلاد الرافدين في مصر. <span class="fill-line"></span></p>
+      <p>2) السومريون هم أقدم شعوب بلاد الرافدين. <span class="fill-line"></span></p>
+      <p>3) قانون حمورابي كُتب على ورق البردي. <span class="fill-line"></span></p>
+      <p>4) الملك كان في قمة الهرم الاجتماعي ببلاد الرافدين. <span class="fill-line"></span></p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">5</span>أكمل الهرم الاجتماعي التالي بكتابة الفئة الاجتماعية المناسبة في كل مستوى (الملك، العبيد، الحرفيون والتجار والفلاحون، الكهنة والكتّاب والنبلاء):</h4>
+      <div class="diagram-wrap">
+        <svg width="320" height="200" viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="160,12 195,55 125,55" fill="none" stroke="#8a6a1e" stroke-width="2.5"/>
+          <polygon points="125,55 195,55 222,95 98,95" fill="none" stroke="#b5652f" stroke-width="2.5"/>
+          <polygon points="98,95 222,95 248,140 72,140" fill="none" stroke="#cd8c56" stroke-width="2.5"/>
+          <polygon points="72,140 248,140 275,185 45,185" fill="none" stroke="#8a6a1e" stroke-width="2.5"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CORRIGE ===================== -->
+  <div class="corrige-wrapper">
+    <p class="corrige-flag">✂ يمكن طي هذه الصفحة أو إخفاؤها (اضغط على العنوان أدناه) قبل إنجاز التمارين ✂</p>
+    <details class="corrige">
+      <summary>التصحيح الكامل</summary>
+
+      <h4>تصحيح النشاط التطبيقي (تحليل الوثيقة)</h4>
+      <div class="corrige-item">1) واضع القانون: الملك حمورابي، من الحضارة البابلية.</div>
+      <div class="corrige-item">2) السنة: حوالي 1750 ق.م.</div>
+      <div class="corrige-item">3) كُتب على مسلّة (عمود) من الحجر الأسود.</div>
+      <div class="corrige-item">4) عدد المواد: 282 مادة قانونية.</div>
+      <div class="corrige-item">5) المبدأ: الجزاء من جنس العمل، أي "العين بالعين والسنّ بالسنّ".</div>
+
+      <h4>تصحيح التمرين 1 (الترتيب الزمني)</h4>
+      <div class="corrige-item">1) السومريون &nbsp;→&nbsp; 2) الأكاديون &nbsp;→&nbsp; 3) البابليون &nbsp;→&nbsp; 4) الآشوريون</div>
+
+      <h4>تصحيح التمرين 2 (الاختيار من متعدد)</h4>
+      <div class="corrige-item">1) دجلة والفرات &nbsp;|&nbsp; 2) السومريون &nbsp;|&nbsp; 3) حمورابي &nbsp;|&nbsp; 4) معبد ديني على شكل برج مدرَّج &nbsp;|&nbsp; 5) الزراعة بفضل نهري دجلة والفرات</div>
+
+      <h4>تصحيح التمرين 3 (الربط)</h4>
+      <div class="corrige-item">أ - 3 (الكتابة المسمارية) &nbsp;|&nbsp; ب - 4 (قانون حمورابي) &nbsp;|&nbsp; ج - 1 (الزقورة) &nbsp;|&nbsp; د - 2 (النظام الستيني)</div>
+
+      <h4>تصحيح التمرين 4 (صحيح / خطأ)</h4>
+      <div class="corrige-item">1) خطأ: نشأت حضارة بلاد الرافدين في العراق الحالي (بين دجلة والفرات)، وليس في مصر.</div>
+      <div class="corrige-item">2) صحيح.</div>
+      <div class="corrige-item">3) خطأ: كُتب قانون حمورابي على مسلّة من الحجر، وليس على ورق البردي.</div>
+      <div class="corrige-item">4) صحيح.</div>
+
+      <h4>تصحيح التمرين 5 (الهرم الاجتماعي)</h4>
+      <div class="corrige-item">من الأعلى إلى الأسفل: <b>الملك</b> ← <b>الكهنة والكتّاب والنبلاء</b> ← <b>الحرفيون والتجار والفلاحون</b> ← <b>العبيد</b>.</div>
+    </details>
+  </div>
+
+  <p class="footer-note">فيشة تعلّم ذاتي — الاجتماعيات (التاريخ) — الأولى إعدادي — حضارة بلاد الرافدين</p>
+</div>
+</body>
+</html>

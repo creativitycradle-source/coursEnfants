@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>الضغط والضغط الجوي</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#122430; --ink-soft:#3f5866;
+    --paper:#f6fafb; --panel:#ffffff; --line:#cfe1e6;
+    --cyan:#1c7fa0; --cyan-soft:#dcf0f7;
+    --navy:#1f3b52; --navy-soft:#dfe7ee;
+    --amber:#d99a2b; --amber-soft:#faf0da;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#dbe8ec;font-family:'Noto Naskh Arabic','Amiri',serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .sheet{max-width:880px;margin:24px auto;background:var(--paper);padding:38px 44px 50px;border:1px solid var(--line);box-shadow:0 4px 24px rgba(0,0,0,.12);}
+
+  .masthead{display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:3px solid var(--ink);padding-bottom:16px;margin-bottom:22px;}
+  .masthead-text h1{font-family:'Amiri',serif;font-weight:700;font-size:28px;margin:0 0 6px;color:var(--navy);}
+  .masthead-text .subtitle{font-size:15px;color:var(--ink-soft);margin:0;}
+  .gauge-icon{width:58px;height:58px;flex-shrink:0;}
+
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+  .meta-chip{border:1px solid var(--line);background:var(--panel);border-radius:3px;padding:6px 12px;font-size:13.5px;color:var(--ink-soft);}
+  .meta-chip b{color:var(--ink);font-weight:600;}
+
+  section{margin-bottom:28px;}
+  h2.section-title{font-family:'Amiri',serif;font-size:21px;font-weight:700;color:var(--cyan);border-bottom:2px solid var(--cyan);padding-bottom:6px;margin:0 0 14px;display:flex;align-items:baseline;gap:8px;}
+  h3.sub-title{font-size:17px;font-weight:700;color:var(--amber);margin:20px 0 8px;}
+  p{line-height:2;font-size:15.5px;margin:0 0 10px;}
+
+  .objectif-box{background:var(--amber-soft);border-right:4px solid var(--amber);padding:14px 18px;border-radius:2px;font-size:15.5px;line-height:1.9;}
+
+  .rule-box{background:var(--panel);border:1px solid var(--line);border-right:4px solid var(--cyan);padding:14px 18px;border-radius:2px;margin:10px 0 16px;}
+  .rule-box p:last-child{margin-bottom:0;}
+  .rule-box ul,.rule-box ol{margin:6px 0;padding-inline-start:22px;}
+  .rule-box li{margin-bottom:8px;line-height:1.9;}
+
+  .formula-box{background:var(--navy);color:#fff;text-align:center;padding:16px;border-radius:6px;font-size:22px;font-weight:700;margin:10px 0 16px;}
+  .formula-box .sub{font-size:13px;font-weight:400;opacity:0.85;display:block;margin-top:6px;}
+
+  table.data-table{width:100%;border-collapse:collapse;margin:8px 0 18px;font-size:15px;}
+  table.data-table th{background:var(--cyan);color:#fff;padding:8px 10px;font-weight:600;font-size:14px;}
+  table.data-table td{border:1px solid var(--line);padding:9px 10px;background:var(--panel);text-align:center;}
+  table.data-table tr:nth-child(even) td{background:#eaf4f8;}
+
+  .compare-wrap{display:flex;justify-content:center;gap:30px;margin:14px 0;flex-wrap:wrap;}
+  .compare-item{text-align:center;}
+  .compare-item .lbl{font-size:13px;color:var(--ink-soft);margin-top:4px;}
+
+  .activity-box{background:var(--panel);border:1.5px solid var(--amber);border-radius:3px;padding:16px 20px;}
+  .activity-box .task-label{display:inline-block;background:var(--amber);color:#fff;font-size:12.5px;padding:3px 10px;border-radius:2px;margin-bottom:8px;}
+  .step{display:flex;gap:10px;margin-bottom:8px;align-items:flex-start;}
+  .step-num{flex-shrink:0;width:22px;height:22px;border-radius:50%;background:var(--amber);color:#fff;font-size:12.5px;display:flex;align-items:center;justify-content:center;font-weight:700;}
+
+  .exercise{border:1px solid var(--line);border-radius:3px;padding:16px 20px;margin-bottom:16px;background:var(--panel);}
+  .exercise-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:var(--ink);color:var(--paper);border-radius:50%;font-size:14px;font-weight:700;margin-inline-end:8px;}
+  .exercise h4{margin:0 0 10px;font-size:16.5px;display:flex;align-items:center;}
+  .fill-line{border-bottom:1px dotted var(--ink-soft);display:inline-block;min-width:100px;height:1.6em;}
+  .op-grid{display:flex;flex-wrap:wrap;gap:20px;}
+  .op-item{display:flex;align-items:center;gap:6px;font-size:15.5px;}
+  .qcm-item{margin-bottom:10px;}
+  .qcm-item p{margin-bottom:4px;font-weight:600;}
+  .qcm-options{display:flex;flex-wrap:wrap;gap:14px;font-size:14.5px;}
+  .qcm-options span{display:flex;align-items:center;gap:5px;}
+  .checkbox{width:13px;height:13px;border:1.4px solid var(--ink-soft);display:inline-block;border-radius:2px;}
+  .scenario-box{background:#eaf4f8;border:1px solid var(--line);padding:12px 16px;font-size:15.5px;line-height:2.1;margin-bottom:10px;}
+  .order-list{display:flex;flex-direction:column;gap:8px;}
+  .order-item{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:6px;padding:8px 12px;background:var(--paper);}
+  .order-item .num-box{width:32px;height:32px;border:2px dashed var(--ink-soft);border-radius:6px;flex-shrink:0;}
+
+  .corrige-wrapper{page-break-before:always;padding-top:6px;}
+  .corrige-flag{text-align:center;font-size:13px;color:var(--ink-soft);margin-bottom:10px;border-top:1px dashed var(--ink-soft);padding-top:14px;}
+  details.corrige{border:2px dashed var(--navy);border-radius:4px;background:#f4f7f9;padding:6px 20px 18px;}
+  details.corrige > summary{cursor:pointer;font-family:'Amiri',serif;font-weight:700;font-size:19px;color:var(--navy);padding:14px 0;list-style:none;}
+  details.corrige > summary::-webkit-details-marker{display:none;}
+  details.corrige > summary::before{content:"✂ ";}
+  details.corrige > summary::after{content:"— اضغط لإظهار الحل / إخفائه";font-family:'Noto Naskh Arabic',serif;font-weight:400;font-size:13px;color:var(--ink-soft);margin-inline-start:8px;}
+  .corrige h4{color:var(--navy);margin:16px 0 8px;font-size:16px;}
+  .corrige-item{margin-bottom:8px;font-size:15px;line-height:1.9;}
+  .corrige table.data-table th{background:var(--navy);}
+
+  .footer-note{margin-top:30px;text-align:center;font-size:12px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:10px;}
+
+  @media print{
+    body{background:#fff;}
+    .sheet{box-shadow:none;border:none;margin:0;max-width:100%;padding:14px 6px;}
+    details.corrige{border-color:#000;}
+  }
+  @page{size:A4;margin:14mm;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="masthead-text">
+      <h1>الضغطُ والضغطُ الجويُّ</h1>
+      <p class="subtitle">الفيزياء والكيمياء — الميكانيك</p>
+    </div>
+    <svg class="gauge-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="32" cy="34" r="24" fill="none" stroke="#1f3b52" stroke-width="3"/>
+      <line x1="32" y1="34" x2="32" y2="18" stroke="#1c7fa0" stroke-width="2.5"/>
+      <line x1="32" y1="34" x2="43" y2="40" stroke="#d99a2b" stroke-width="2.5"/>
+      <circle cx="32" cy="34" r="3" fill="#1f3b52"/>
+      <line x1="20" y1="10" x2="24" y2="14" stroke="#1f3b52" stroke-width="2"/>
+      <line x1="44" y1="10" x2="40" y2="14" stroke="#1f3b52" stroke-width="2"/>
+    </svg>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta-chip">المستوى: <b>الأولى إعدادي (1AC)</b></div>
+    <div class="meta-chip">المادة: <b>الفيزياء والكيمياء</b></div>
+    <div class="meta-chip">مدة الحصة: <b>ساعة واحدة</b></div>
+    <div class="meta-chip">نوع الوثيقة: <b>فيشة تعلّم ذاتي</b></div>
+  </div>
+
+  <!-- ===================== OBJECTIF ===================== -->
+  <section>
+    <h2 class="section-title">🎯 الهدف من الدرس</h2>
+    <div class="objectif-box">
+      يتمكّن المتعلم(ة) في نهاية هذا الدرس من: تعريف الضغط وتحديد العلاقة الرياضية بين الضغط والقوة والمساحة، وحساب الضغط في حالات بسيطة، وتفسير تأثير القوة والمساحة على شدة الضغط، والتعرّف على الضغط الجوي وكيفية قياسه، وتفسير ظواهر يومية مرتبطة به.
+    </div>
+  </section>
+
+  <!-- ===================== COURS ===================== -->
+  <section>
+    <h2 class="section-title">📘 الدرس</h2>
+
+    <h3 class="sub-title">1) تعريف الضغط</h3>
+    <div class="rule-box">
+      <p><b>الضغط</b> مقدار فيزيائي يمثّل أثر قوة مطبَّقة عمودياً على مساحة معينة. كلما طُبِّقت نفس القوة على مساحة أصغر، كان أثرها (الضغط) أكبر.</p>
+    </div>
+    <div class="formula-box">
+      P = F ÷ S
+      <span class="sub">الضغط = القوة ÷ المساحة</span>
+    </div>
+
+    <h3 class="sub-title">2) وحدات الضغط</h3>
+    <div class="rule-box">
+      <p>الوحدة الدولية للضغط هي <b>الباسكال (Pa)</b>. تُستعمل أيضاً وحدات أخرى مثل <b>الهكتوباسكال (hPa)</b> و<b>البار (bar)</b>، خاصة في قياس الضغط الجوي.</p>
+      <p style="text-align:center;font-weight:700;color:var(--navy);">1 hPa = 100 Pa</p>
+    </div>
+
+    <h3 class="sub-title">3) العوامل المؤثرة في الضغط</h3>
+    <div class="rule-box">
+      <ul>
+        <li>بنفس المساحة، كلما زادت <b>القوة</b>، زاد الضغط.</li>
+        <li>بنفس القوة، كلما زادت <b>المساحة</b>، قلّ الضغط، والعكس صحيح.</li>
+      </ul>
+    </div>
+    <div class="compare-wrap">
+      <div class="compare-item">
+        <svg width="90" height="90" viewBox="0 0 90 90"><line x1="45" y1="10" x2="45" y2="55" stroke="#c15a45" stroke-width="4" marker-end="url(#a1)"/><rect x="15" y="60" width="60" height="8" fill="#1f3b52"/><defs><marker id="a1" markerWidth="8" markerHeight="8" refX="4" refY="7" orient="auto"><path d="M0,0 L8,0 L4,7 Z" fill="#c15a45"/></marker></defs></svg>
+        <div class="lbl">مساحة كبيرة ← ضغط أصغر</div>
+      </div>
+      <div class="compare-item">
+        <svg width="90" height="90" viewBox="0 0 90 90"><line x1="45" y1="10" x2="45" y2="55" stroke="#c15a45" stroke-width="4" marker-end="url(#a2)"/><rect x="35" y="60" width="20" height="8" fill="#1f3b52"/><defs><marker id="a2" markerWidth="8" markerHeight="8" refX="4" refY="7" orient="auto"><path d="M0,0 L8,0 L4,7 Z" fill="#c15a45"/></marker></defs></svg>
+        <div class="lbl">مساحة صغيرة ← ضغط أكبر</div>
+      </div>
+    </div>
+    <p style="font-size:14px;color:var(--ink-soft);margin-top:-8px;">أمثلة: تُحدث شفرة سكين حادة (مساحة صغيرة جداً) ضغطاً كبيراً يسهّل القطع؛ بينما توزّع الزلاجات الثلجية وزن الشخص على مساحة كبيرة فيقلّ الضغط ولا يغوص في الثلج.</p>
+
+    <h3 class="sub-title">4) الضغط الجوي</h3>
+    <div class="rule-box">
+      <p><b>الضغط الجوي</b> هو الضغط الذي يُحدثه الهواء المحيط بنا نتيجة وزن طبقة الغلاف الجوي الموجودة فوق سطح الأرض. يُقاس الضغط الجوي بجهاز يسمى <b>البارومتر</b>.</p>
+      <p>القيمة العادية للضغط الجوي عند مستوى سطح البحر تساوي تقريباً: <b>1013 hPa</b>.</p>
+    </div>
+
+    <h3 class="sub-title">5) تجربة تثبت وجود الضغط الجوي</h3>
+    <div class="rule-box">
+      <p><b>تجربة الكأس المقلوب:</b> نملأ كأساً بالماء حتى الحافة، نغطيه بورقة مقواة صلبة، ثم نقلبه بسرعة مع الضغط على الورقة باليد. عند رفع اليد، تبقى الورقة ملتصقة بالكأس ولا يسقط الماء، لأن <b>الضغط الجوي</b> المؤثر من الأسفل على الورقة أكبر من ضغط عمود الماء المؤثر من الداخل، فيُبقي الورقة في مكانها.</p>
+    </div>
+
+    <h3 class="sub-title">6) تغيّر الضغط الجوي مع الارتفاع</h3>
+    <div class="rule-box">
+      <p>يقلّ الضغط الجوي كلما ارتفعنا عن سطح البحر (كأعلى الجبال)، لأن كمية الهواء الموجودة فوقنا تقلّ تدريجياً، فيقلّ وزنها المؤثر علينا.</p>
+    </div>
+  </section>
+
+  <!-- ===================== ACTIVITE ===================== -->
+  <section>
+    <h2 class="section-title">🔬 نشاط تطبيقي</h2>
+    <div class="activity-box">
+      <span class="task-label">إنجاز تجربة الكأس المقلوب</span>
+      <div class="step"><span class="step-num">1</span><span>املأ كأساً زجاجياً بالماء حتى الحافة تماماً.</span></div>
+      <div class="step"><span class="step-num">2</span><span>غطِّ فوهة الكأس بورقة مقوّاة صلبة، واضغط عليها براحة يدك.</span></div>
+      <div class="step"><span class="step-num">3</span><span>اقلب الكأس بسرعة فوق حوض أو مغسلة، ثم ارفع يدك عن الورقة بحذر.</span></div>
+      <p><b>الملاحظة:</b> <span class="fill-line" style="min-width:100%;"></span></p>
+      <p><b>التفسير:</b> <span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== EXERCICES ===================== -->
+  <section>
+    <h2 class="section-title">📝 تمارين للتدرّب</h2>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">1</span>احسب الضغط في كل حالة باستعمال العلاقة P = F ÷ S:</h4>
+      <div class="op-grid">
+        <div class="op-item">F = 50 N, S = 2 m² → P = <span class="fill-line"></span></div>
+        <div class="op-item">F = 120 N, S = 0.5 m² → P = <span class="fill-line"></span></div>
+        <div class="op-item">F = 300 N, S = 1.5 m² → P = <span class="fill-line"></span></div>
+        <div class="op-item">F = 80 N, S = 4 m² → P = <span class="fill-line"></span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">2</span>اختر الإجابة الصحيحة:</h4>
+      <div class="qcm-item">
+        <p>1) صيغة حساب الضغط هي:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>P = F × S</span><span><span class="checkbox"></span>P = F ÷ S</span><span><span class="checkbox"></span>P = S ÷ F</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>2) وحدة قياس الضغط في النظام الدولي هي:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>نيوتن</span><span><span class="checkbox"></span>باسكال</span><span><span class="checkbox"></span>متر</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>3) الجهاز المستعمل لقياس الضغط الجوي هو:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>الترمومتر</span><span><span class="checkbox"></span>البارومتر</span><span><span class="checkbox"></span>الميزان</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>4) كلما زادت المساحة (بنفس القوة)، فإن الضغط:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>يزداد</span><span><span class="checkbox"></span>ينقص</span><span><span class="checkbox"></span>يبقى ثابتاً</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>5) الضغط الجوي عند سطح البحر يساوي تقريباً:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>1013 hPa</span><span><span class="checkbox"></span>10 hPa</span><span><span class="checkbox"></span>100000 hPa</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">3</span>قارن بين الوضعيتين التاليتين:</h4>
+      <div class="scenario-box">
+        يقف شخصان لهما نفس الوزن (نفس القوة) على أرض رملية. الشخص الأول يرتدي حذاءً بكعب رفيع جداً (مساحة صغيرة)، والثاني يرتدي حذاءً بنعل عريض ومسطح (مساحة كبيرة).
+      </div>
+      <p>أيّ الشخصين يُحدث ضغطاً أكبر على الرمل؟ علّل جوابك بالاعتماد على العلاقة بين الضغط والمساحة.</p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">4</span>رتّب الأدوات التالية من الأكبر ضغطاً إلى الأصغر ضغطاً (بافتراض تطبيق نفس القوة على كل واحدة): إبرة خياطة، سكين حاد، لوح خشب مسطح، سكين غير حاد.</h4>
+      <div class="order-list">
+        <div class="order-item"><div class="num-box"></div><span>سكين حاد</span></div>
+        <div class="order-item"><div class="num-box"></div><span>لوح خشب مسطح</span></div>
+        <div class="order-item"><div class="num-box"></div><span>إبرة خياطة</span></div>
+        <div class="order-item"><div class="num-box"></div><span>سكين غير حاد</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">5</span>وضعية-مشكلة:</h4>
+      <div class="scenario-box">
+        لاحظ متسلّق جبال أن الضغط الجوي يقلّ كلما صعد إلى ارتفاعات أعلى، وأنه يشعر بصعوبة في التنفس في القمم الشاهقة.
+      </div>
+      <p>فسّر سبب انخفاض الضغط الجوي كلما ارتفعنا عن سطح البحر.</p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== CORRIGE ===================== -->
+  <div class="corrige-wrapper">
+    <p class="corrige-flag">✂ يمكن طي هذه الصفحة أو إخفاؤها (اضغط على العنوان أدناه) قبل إنجاز التمارين ✂</p>
+    <details class="corrige">
+      <summary>التصحيح الكامل</summary>
+
+      <h4>تصحيح النشاط التطبيقي</h4>
+      <div class="corrige-item"><b>الملاحظة:</b> تبقى الورقة ملتصقة بالكأس ولا يسقط الماء عند قلب الكأس ورفع اليد.</div>
+      <div class="corrige-item"><b>التفسير:</b> يضغط الهواء الجوي من الأسفل على الورقة بقوة أكبر من الضغط الذي يُحدثه عمود الماء من الداخل نحو الأسفل، فيُبقي الضغطُ الجوي الورقةَ ملتصقة بالكأس ويمنع سقوط الماء.</div>
+
+      <h4>تصحيح التمرين 1 (حساب الضغط)</h4>
+      <div class="corrige-item">50÷2=25 Pa &nbsp;|&nbsp; 120÷0.5=240 Pa &nbsp;|&nbsp; 300÷1.5=200 Pa &nbsp;|&nbsp; 80÷4=20 Pa</div>
+
+      <h4>تصحيح التمرين 2 (الاختيار من متعدد)</h4>
+      <div class="corrige-item">1) P = F ÷ S &nbsp;|&nbsp; 2) باسكال &nbsp;|&nbsp; 3) البارومتر &nbsp;|&nbsp; 4) ينقص &nbsp;|&nbsp; 5) 1013 hPa</div>
+
+      <h4>تصحيح التمرين 3 (المقارنة)</h4>
+      <div class="corrige-item">الشخص صاحب الكعب الرفيع يُحدث ضغطاً أكبر، لأنه بنفس القوة (الوزن)، كانت مساحة تلامسه مع الأرض أصغر بكثير، والضغط يتناسب عكسياً مع المساحة (كلما صغرت المساحة، كبر الضغط).</div>
+
+      <h4>تصحيح التمرين 4 (الترتيب)</h4>
+      <div class="corrige-item">من الأكبر ضغطاً إلى الأصغر: 1) إبرة خياطة (أصغر مساحة) &nbsp;→&nbsp; 2) سكين حاد &nbsp;→&nbsp; 3) سكين غير حاد &nbsp;→&nbsp; 4) لوح خشب مسطح (أكبر مساحة)</div>
+
+      <h4>تصحيح التمرين 5 (وضعية-مشكلة)</h4>
+      <div class="corrige-item">يقلّ الضغط الجوي مع الارتفاع لأن كمية الهواء الموجودة فوق الشخص المرتفع تكون أقل من كمية الهواء فوق شخص عند سطح البحر، وبما أن الضغط الجوي ناتج عن وزن عمود الهواء الذي يعلونا، فكلما قلّت كمية هذا الهواء (بالارتفاع)، قلّ وزنه وبالتالي قلّ الضغط الجوي.</div>
+    </details>
+  </div>
+
+  <p class="footer-note">فيشة تعلّم ذاتي — الفيزياء والكيمياء — الأولى إعدادي — الضغط والضغط الجوي</p>
+</div>
+</body>
+</html>

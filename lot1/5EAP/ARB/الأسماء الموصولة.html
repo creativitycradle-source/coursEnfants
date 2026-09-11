@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>الأسماء الموصولة</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#241f33; --ink-soft:#54506a;
+    --paper:#faf8f5; --panel:#ffffff; --line:#ddd4e6;
+    --indigo:#4b3f8f; --indigo-soft:#e9e5f7;
+    --rose:#b1553f; --rose-soft:#f7e3dc;
+    --gold:#af8a2e; --gold-soft:#f4ecd2;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#e8e3ee;font-family:'Noto Naskh Arabic','Amiri',serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .sheet{max-width:860px;margin:24px auto;background:var(--paper);padding:38px 44px 50px;border:1px solid var(--line);box-shadow:0 4px 24px rgba(0,0,0,.12);}
+
+  .masthead{display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:3px solid var(--ink);padding-bottom:16px;margin-bottom:22px;}
+  .masthead-text h1{font-family:'Amiri',serif;font-weight:700;font-size:30px;margin:0 0 6px;color:var(--indigo);}
+  .masthead-text .subtitle{font-size:15px;color:var(--ink-soft);margin:0;}
+  .link-icon{width:58px;height:58px;flex-shrink:0;}
+
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+  .meta-chip{border:1px solid var(--line);background:var(--panel);border-radius:3px;padding:6px 12px;font-size:13.5px;color:var(--ink-soft);}
+  .meta-chip b{color:var(--ink);font-weight:600;}
+
+  section{margin-bottom:28px;}
+  h2.section-title{font-family:'Amiri',serif;font-size:21px;font-weight:700;color:var(--indigo);border-bottom:2px solid var(--indigo);padding-bottom:6px;margin:0 0 14px;display:flex;align-items:baseline;gap:8px;}
+  h3.sub-title{font-size:17px;font-weight:700;color:var(--rose);margin:20px 0 8px;}
+  p{line-height:2;font-size:15.5px;margin:0 0 10px;}
+
+  .objectif-box{background:var(--gold-soft);border-right:4px solid var(--gold);padding:14px 18px;border-radius:2px;font-size:15.5px;line-height:1.9;}
+
+  .rule-box{background:var(--panel);border:1px solid var(--line);border-right:4px solid var(--indigo);padding:14px 18px;border-radius:2px;margin:10px 0 16px;}
+  .rule-box p:last-child{margin-bottom:0;}
+  .rule-box ul{margin:6px 0;padding-inline-start:22px;}
+  .rule-box li{margin-bottom:6px;line-height:1.85;}
+
+  table.data-table{width:100%;border-collapse:collapse;margin:8px 0 18px;font-size:15px;}
+  table.data-table th{background:var(--indigo);color:#fff;padding:8px 10px;font-weight:600;font-size:14px;}
+  table.data-table td{border:1px solid var(--line);padding:9px 10px;background:var(--panel);text-align:center;}
+  table.data-table tr:nth-child(even) td{background:#f2effa;}
+  .mawsoul-tag{font-family:'Amiri',serif;font-weight:700;color:var(--rose);font-size:17px;}
+
+  .example-box{background:var(--indigo-soft);border:1px dashed var(--indigo);padding:12px 18px;border-radius:2px;margin:10px 0;font-size:15.5px;line-height:1.95;}
+  .example-box .mawsoul{color:var(--rose);font-weight:700;}
+  .example-box .sila{text-decoration:underline;text-decoration-color:var(--gold);text-decoration-thickness:2px;}
+  .example-box .aaid{color:var(--indigo);font-weight:700;}
+
+  .legend{display:flex;gap:22px;flex-wrap:wrap;font-size:13.5px;color:var(--ink-soft);margin:8px 0 14px;}
+  .legend span.swatch{display:inline-block;width:12px;height:12px;border-radius:2px;margin-inline-end:5px;vertical-align:-1px;}
+  .swatch.mawsoul-sw{background:var(--rose);}
+  .swatch.sila-sw{background:var(--gold);}
+  .swatch.aaid-sw{background:var(--indigo);}
+
+  .activity-box{background:var(--panel);border:1.5px solid var(--gold);border-radius:3px;padding:16px 20px;}
+  .activity-box .task-label{display:inline-block;background:var(--gold);color:#fff;font-size:12.5px;padding:3px 10px;border-radius:2px;margin-bottom:8px;}
+
+  .exercise{border:1px solid var(--line);border-radius:3px;padding:16px 20px;margin-bottom:16px;background:var(--panel);}
+  .exercise-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:var(--ink);color:var(--paper);border-radius:50%;font-size:14px;font-weight:700;margin-inline-end:8px;}
+  .exercise h4{margin:0 0 10px;font-size:16.5px;display:flex;align-items:center;}
+  .fill-line{border-bottom:1px dotted var(--ink-soft);display:inline-block;min-width:120px;height:1.6em;}
+  .qcm-item{margin-bottom:10px;}
+  .qcm-item p{margin-bottom:4px;font-weight:600;}
+  .qcm-options{display:flex;flex-wrap:wrap;gap:14px;font-size:14.5px;}
+  .qcm-options span{display:flex;align-items:center;gap:5px;}
+  .checkbox{width:13px;height:13px;border:1.4px solid var(--ink-soft);display:inline-block;border-radius:2px;}
+  .match-cols{display:flex;justify-content:space-between;gap:40px;margin-top:8px;}
+  .match-cols ul{list-style:none;padding:0;margin:0;}
+  .match-cols li{border:1px solid var(--line);background:var(--paper);padding:6px 14px;margin-bottom:10px;border-radius:3px;font-size:15px;}
+  .choice-parens{color:var(--rose);font-weight:600;}
+
+  .corrige-wrapper{page-break-before:always;padding-top:6px;}
+  .corrige-flag{text-align:center;font-size:13px;color:var(--ink-soft);margin-bottom:10px;border-top:1px dashed var(--ink-soft);padding-top:14px;}
+  details.corrige{border:2px dashed var(--rose);border-radius:4px;background:#fdf7f5;padding:6px 20px 18px;}
+  details.corrige > summary{cursor:pointer;font-family:'Amiri',serif;font-weight:700;font-size:19px;color:var(--rose);padding:14px 0;list-style:none;}
+  details.corrige > summary::-webkit-details-marker{display:none;}
+  details.corrige > summary::before{content:"✂ ";}
+  details.corrige > summary::after{content:"— اضغط لإظهار الحل / إخفائه";font-family:'Noto Naskh Arabic',serif;font-weight:400;font-size:13px;color:var(--ink-soft);margin-inline-start:8px;}
+  .corrige h4{color:var(--rose);margin:16px 0 8px;font-size:16px;}
+  .corrige-item{margin-bottom:8px;font-size:15px;line-height:1.9;}
+  .corrige table.data-table th{background:var(--rose);}
+
+  .footer-note{margin-top:30px;text-align:center;font-size:12px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:10px;}
+
+  @media print{
+    body{background:#fff;}
+    .sheet{box-shadow:none;border:none;margin:0;max-width:100%;padding:14px 6px;}
+    details.corrige{border-color:#000;}
+  }
+  @page{size:A4;margin:14mm;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="masthead-text">
+      <h1>الأسماءُ الموصولةُ</h1>
+      <p class="subtitle">مادة اللغة العربية — القواعد</p>
+    </div>
+    <svg class="link-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="6" y="26" width="22" height="14" rx="7" fill="none" stroke="#4b3f8f" stroke-width="3"/>
+      <rect x="36" y="26" width="22" height="14" rx="7" fill="none" stroke="#b1553f" stroke-width="3"/>
+      <line x1="24" y1="33" x2="40" y2="33" stroke="#af8a2e" stroke-width="3"/>
+    </svg>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta-chip">المستوى: <b>الخامسة ابتدائي (5AEP)</b></div>
+    <div class="meta-chip">المادة: <b>اللغة العربية — القواعد</b></div>
+    <div class="meta-chip">مدة الحصة: <b>ساعة واحدة</b></div>
+    <div class="meta-chip">نوع الوثيقة: <b>فيشة تعلّم ذاتي</b></div>
+  </div>
+
+  <!-- ===================== OBJECTIF ===================== -->
+  <section>
+    <h2 class="section-title">🎯 الهدف من الدرس</h2>
+    <div class="objectif-box">
+      يتمكّن المتعلم(ة) في نهاية هذا الدرس من: التعرّف على الأسماء الموصولة وتصنيفها حسب العدد (مفرد، مثنى، جمع) والنوع (مذكر، مؤنث)، وتحديد جملة الصلة والعائد في جملة تتضمن اسماً موصولاً، وتوظيف الأسماء الموصولة توظيفاً سليماً في جمل من إنشائه.
+    </div>
+  </section>
+
+  <!-- ===================== COURS ===================== -->
+  <section>
+    <h2 class="section-title">📘 الدرس</h2>
+
+    <h3 class="sub-title">1) ما هو الاسم الموصول؟</h3>
+    <div class="rule-box">
+      <p>
+        <b>الاسمُ الموصولُ</b> اسمٌ لا يتّضح معناه ولا يكتمل إلا بجملة تأتي بعده مباشرة، تسمى <b>جملة الصلة</b>. وتحتوي جملة الصلة دائماً على ضمير يعود على الاسم الموصول يسمى <b>العائد</b>.
+      </p>
+      <p>مثال: "نجحَ الطالبُ <span class="mawsoul-tag">الذي</span> اجتهدَ." — فكلمة "الذي" وحدها لا تعطي معنى كاملاً، ولا نفهم من هو "الذي" إلا بعد جملة "اجتهدَ" (جملة الصلة).</p>
+    </div>
+
+    <h3 class="sub-title">2) أنواع الأسماء الموصولة</h3>
+    <div class="rule-box">
+      <p>تختلف الأسماء الموصولة حسب عدد ونوع الاسم الذي تعود عليه:</p>
+    </div>
+    <table class="data-table">
+      <tr><th></th><th>المفرد</th><th>المثنى</th><th>الجمع</th></tr>
+      <tr><td><b>المذكر</b></td><td class="mawsoul-tag">الذي</td><td class="mawsoul-tag">اللذان / اللذين</td><td class="mawsoul-tag">الذين</td></tr>
+      <tr><td><b>المؤنث</b></td><td class="mawsoul-tag">التي</td><td class="mawsoul-tag">اللتان / اللتين</td><td class="mawsoul-tag">اللاتي / اللواتي</td></tr>
+    </table>
+    <p style="font-size:14px;color:var(--ink-soft);margin-top:-8px;">ملاحظة: "اللذان" و"اللتان" تُستعملان في حالة الرفع، أما "اللذين" و"اللتين" فتُستعملان في حالتَي النصب والجر.</p>
+
+    <div class="rule-box">
+      <p>وهناك أيضاً اسمان موصولان مشتركان يُستعملان لكل الأعداد والأنواع:</p>
+      <ul>
+        <li><span class="mawsoul-tag">مَنْ</span>: يُستعمل للعاقل (الإنسان). مثال: "أُحِبُّ مَنْ يصدقُ القول."</li>
+        <li><span class="mawsoul-tag">ما</span>: يُستعمل لغير العاقل. مثال: "أعجبني ما قرأتُ من قصص."</li>
+      </ul>
+    </div>
+
+    <h3 class="sub-title">3) جملة الصلة والعائد</h3>
+    <div class="rule-box">
+      <p>جملة الصلة هي الجملة (الفعلية أو الاسمية) التي تأتي بعد الاسم الموصول مباشرة وتُبيّن معناه. ولا بد أن تحتوي على ضمير (ظاهر أو مستتر) يعود على الاسم الموصول، يسمى <b>العائد</b>.</p>
+    </div>
+    <div class="legend">
+      <span><span class="swatch mawsoul-sw"></span>الاسم الموصول</span>
+      <span><span class="swatch sila-sw"></span>جملة الصلة</span>
+      <span><span class="swatch aaid-sw"></span>العائد</span>
+    </div>
+    <div class="example-box">
+      نجحَ الطالبُ <span class="mawsoul">الذي</span> <span class="sila">اجتهدَ</span> — العائد هنا ضمير مستتر تقديره "هو" في الفعل "اجتهدَ"، يعود على "الذي".
+    </div>
+    <div class="example-box">
+      قرأتُ القصةَ <span class="mawsoul">التي</span> <span class="sila">أحداثُ<span class="aaid">ها</span> مثيرةٌ</span> — جملة الصلة هنا جملة اسمية، والعائد هو الضمير "ها" المتصل بكلمة "أحداث".
+    </div>
+
+    <h3 class="sub-title">4) أمثلة تطبيقية</h3>
+    <table class="data-table" style="text-align:right;">
+      <tr><th>الاسم الموصول</th><th>مثال في جملة</th></tr>
+      <tr><td class="mawsoul-tag">الذي</td><td>كافأ المديرُ التلميذَ الذي حصل على الرتبة الأولى.</td></tr>
+      <tr><td class="mawsoul-tag">التي</td><td>أحببتُ القصةَ التي اشتريتُها أمس.</td></tr>
+      <tr><td class="mawsoul-tag">اللذان</td><td>الولدان اللذان ساعدا جارَنا كريمان.</td></tr>
+      <tr><td class="mawsoul-tag">اللتان</td><td>الأختان اللتان ذاكرتا جيداً نجحتا.</td></tr>
+      <tr><td class="mawsoul-tag">الذين</td><td>احترمَ الجميعُ المعلمين الذين ضحّوا من أجل التلاميذ.</td></tr>
+      <tr><td class="mawsoul-tag">اللاتي</td><td>ساعدتُ الفتياتِ اللاتي احتَجْنَ للمساعدة.</td></tr>
+      <tr><td class="mawsoul-tag">مَنْ</td><td>مَنْ جَدَّ وجَدَ.</td></tr>
+      <tr><td class="mawsoul-tag">ما</td><td>أعجبني ما شاهدتُه في الرحلة.</td></tr>
+    </table>
+  </section>
+
+  <!-- ===================== ACTIVITE ===================== -->
+  <section>
+    <h2 class="section-title">✏️ نشاط تطبيقي</h2>
+    <div class="activity-box">
+      <span class="task-label">عمل جماعي مع الأستاذ(ة)</span>
+      <p>أكمل كل جملة بالاسم الموصول المناسب حسب نوع وعدد الاسم الذي قبله. لاحظ المثال الأول المُنجَز:</p>
+      <table class="data-table" style="text-align:right;">
+        <tr><th>الجملة</th><th>الاسم الموصول المناسب</th></tr>
+        <tr><td>هذه هي البنتُ ..... فازت بالمسابقة.</td><td class="mawsoul-tag">التي</td></tr>
+        <tr><td>هؤلاء هم التلاميذُ ..... تفوّقوا هذه السنة.</td><td><span class="fill-line"></span></td></tr>
+        <tr><td>كافأتُ الولدَ ..... ساعد رفيقَه.</td><td><span class="fill-line"></span></td></tr>
+        <tr><td>المعلمتان ..... درّستاني كانتا لطيفتين.</td><td><span class="fill-line"></span></td></tr>
+        <tr><td>قرأتُ الكتابَ ..... اشتراه أبي.</td><td><span class="fill-line"></span></td></tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===================== EXERCICES ===================== -->
+  <section>
+    <h2 class="section-title">📝 تمارين للتدرّب</h2>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">1</span>اختر الاسم الموصول المناسب من بين القوسين:</h4>
+      <p>1) كافأ المديرُ التلميذَ <span class="choice-parens">(الذي / التي)</span> حصل على الرتبة الأولى. <span class="fill-line"></span></p>
+      <p>2) أحبّ قراءةَ القصةِ <span class="choice-parens">(الذي / التي)</span> اشتريتُها أمس. <span class="fill-line"></span></p>
+      <p>3) هذان الولدان هما <span class="choice-parens">(اللذان / اللتان)</span> ساعدا جارَنا المسنّ. <span class="fill-line"></span></p>
+      <p>4) صافحتُ المعلمتين <span class="choice-parens">(اللذين / اللتين)</span> درّستاني في الابتدائي. <span class="fill-line"></span></p>
+      <p>5) كافأتِ المعلمةُ التلاميذَ <span class="choice-parens">(الذين / اللاتي)</span> اجتهدوا. <span class="fill-line"></span></p>
+      <p>6) زرتُ الجدّاتِ <span class="choice-parens">(الذين / اللاتي)</span> يسكنّ قرب منزلنا. <span class="fill-line"></span></p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">2</span>اختر الإجابة الصحيحة:</h4>
+      <div class="qcm-item">
+        <p>1) الاسم الموصول الذي يُستعمل للمفرد المؤنث هو:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>الذي</span><span><span class="checkbox"></span>التي</span><span><span class="checkbox"></span>الذين</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>2) "اللذان" اسم موصول يدل على:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>مثنى مذكر</span><span><span class="checkbox"></span>مثنى مؤنث</span><span><span class="checkbox"></span>جمع مذكر</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>3) جملة الصلة في "نجح الطالبُ الذي اجتهدَ" هي:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>نجح الطالبُ</span><span><span class="checkbox"></span>الذي</span><span><span class="checkbox"></span>اجتهدَ</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>4) الاسم الموصول المستعمل لغير العاقل هو:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>مَنْ</span><span><span class="checkbox"></span>ما</span><span><span class="checkbox"></span>الذي</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>5) "الذين" يُستعمل لـ:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>جمع المذكر العاقل</span><span><span class="checkbox"></span>جمع المؤنث</span><span><span class="checkbox"></span>المثنى المذكر</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">3</span>صل كل اسم بالاسم الموصول المناسب له:</h4>
+      <div class="match-cols">
+        <ul>
+          <li>أ) الولدُ</li>
+          <li>ب) البنتان</li>
+          <li>ج) المعلماتُ</li>
+          <li>د) الرجالُ</li>
+          <li>هـ) البنتُ</li>
+        </ul>
+        <ul>
+          <li>1) الذي</li>
+          <li>2) اللتان</li>
+          <li>3) اللاتي</li>
+          <li>4) الذين</li>
+          <li>5) التي</li>
+        </ul>
+      </div>
+      <p style="margin-top:10px;">الإجابة: أ - .......... &nbsp; ب - .......... &nbsp; ج - .......... &nbsp; د - .......... &nbsp; هـ - ..........</p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">4</span>استخرج من الجمل الآتية: الاسمَ الموصول، وجملةَ الصلة، والعائد:</h4>
+      <p>1) أحترمُ الرجلَ الذي يحترمُ الناسَ.</p>
+      <p>الاسم الموصول: <span class="fill-line"></span> &nbsp; جملة الصلة: <span class="fill-line"></span> &nbsp; العائد: <span class="fill-line"></span></p>
+      <p>2) شاهدتُ الفيلمَ الذي أحداثُهُ مشوّقةٌ.</p>
+      <p>الاسم الموصول: <span class="fill-line"></span> &nbsp; جملة الصلة: <span class="fill-line"></span> &nbsp; العائد: <span class="fill-line"></span></p>
+      <p>3) ساعدتُ الأطفالَ الذين ضاعوا في السوق.</p>
+      <p>الاسم الموصول: <span class="fill-line"></span> &nbsp; جملة الصلة: <span class="fill-line"></span> &nbsp; العائد: <span class="fill-line"></span></p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">5</span>اكتب ثلاث جمل من إنشائك، توظّف في كل جملة اسماً موصولاً مختلفاً (مثل: الذي، التي، الذين)، وحدِّد جملة الصلة في كل جملة:</h4>
+      <p>1) <span class="fill-line" style="min-width:100%;"></span></p>
+      <p>2) <span class="fill-line" style="min-width:100%;"></span></p>
+      <p>3) <span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== CORRIGE ===================== -->
+  <div class="corrige-wrapper">
+    <p class="corrige-flag">✂ يمكن طي هذه الصفحة أو إخفاؤها (اضغط على العنوان أدناه) قبل إنجاز التمارين ✂</p>
+    <details class="corrige">
+      <summary>التصحيح الكامل</summary>
+
+      <h4>تصحيح النشاط التطبيقي</h4>
+      <table class="data-table" style="text-align:right;">
+        <tr><th>الجملة</th><th>الاسم الموصول</th></tr>
+        <tr><td>هؤلاء هم التلاميذُ ..... تفوّقوا هذه السنة.</td><td>الذين</td></tr>
+        <tr><td>كافأتُ الولدَ ..... ساعد رفيقَه.</td><td>الذي</td></tr>
+        <tr><td>المعلمتان ..... درّستاني كانتا لطيفتين.</td><td>اللتان</td></tr>
+        <tr><td>قرأتُ الكتابَ ..... اشتراه أبي.</td><td>الذي</td></tr>
+      </table>
+
+      <h4>تصحيح التمرين 1 (الاختيار من القوسين)</h4>
+      <div class="corrige-item">1) الذي &nbsp;|&nbsp; 2) التي &nbsp;|&nbsp; 3) اللذان &nbsp;|&nbsp; 4) اللتين &nbsp;|&nbsp; 5) الذين &nbsp;|&nbsp; 6) اللاتي</div>
+
+      <h4>تصحيح التمرين 2 (الاختيار من متعدد)</h4>
+      <div class="corrige-item">1) التي &nbsp;|&nbsp; 2) مثنى مذكر &nbsp;|&nbsp; 3) اجتهدَ &nbsp;|&nbsp; 4) ما &nbsp;|&nbsp; 5) جمع المذكر العاقل</div>
+
+      <h4>تصحيح التمرين 3 (الربط)</h4>
+      <div class="corrige-item">أ - 1 (الولد ← الذي) &nbsp;|&nbsp; ب - 2 (البنتان ← اللتان) &nbsp;|&nbsp; ج - 3 (المعلمات ← اللاتي) &nbsp;|&nbsp; د - 4 (الرجال ← الذين) &nbsp;|&nbsp; هـ - 5 (البنت ← التي)</div>
+
+      <h4>تصحيح التمرين 4 (الاستخراج)</h4>
+      <div class="corrige-item">1) الاسم الموصول: الذي — جملة الصلة: يحترمُ الناسَ — العائد: ضمير مستتر تقديره "هو".</div>
+      <div class="corrige-item">2) الاسم الموصول: الذي — جملة الصلة: أحداثُهُ مشوّقةٌ — العائد: الهاء المتصلة بكلمة "أحداثه".</div>
+      <div class="corrige-item">3) الاسم الموصول: الذين — جملة الصلة: ضاعوا في السوق — العائد: واو الجماعة في "ضاعوا".</div>
+
+      <h4>تصحيح التمرين 5 (إنشاء نموذجي)</h4>
+      <div class="corrige-item">1) أُحبُّ الصديقَ الذي يصدقُني القولَ. (جملة الصلة: يصدقُني القولَ)</div>
+      <div class="corrige-item">2) شكرتُ المعلمةَ التي ساعدتني في الفهم. (جملة الصلة: ساعدتني في الفهم)</div>
+      <div class="corrige-item">3) أُقدِّرُ التلاميذَ الذين يحترمون أساتذتهم. (جملة الصلة: يحترمون أساتذتهم)</div>
+      <p style="font-size:13.5px;color:var(--ink-soft);">(هذه أمثلة للاسترشاد فقط، ويُقبل كل جواب سليم لغوياً يوظّف اسماً موصولاً مناسباً مع جملة صلة صحيحة)</p>
+    </details>
+  </div>
+
+  <p class="footer-note">فيشة تعلّم ذاتي — اللغة العربية — الخامسة ابتدائي — الأسماء الموصولة</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>العمليات على الأعداد الصحيحة الطبيعية والعشرية</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1c2b3a; --ink-soft:#4d5f70;
+    --paper:#f7f9fb; --panel:#ffffff; --line:#c9d6e0;
+    --blue:#2f5f8a; --blue-soft:#e2ecf3;
+    --orange:#e07b39; --orange-soft:#fbe8d8;
+    --green:#3a8f6b; --green-soft:#e1f2ea;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#dde6ec;color:var(--ink);font-family:'Noto Naskh Arabic','Amiri',serif;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .sheet{
+    max-width:900px;margin:24px auto;background:
+      repeating-linear-gradient(0deg, transparent 0 27px, rgba(47,95,138,.06) 27px 28px),
+      repeating-linear-gradient(90deg, transparent 0 27px, rgba(47,95,138,.06) 27px 28px),
+      var(--paper);
+    padding:38px 44px 50px;border:1px solid var(--line);box-shadow:0 4px 24px rgba(0,0,0,.12);
+  }
+
+  .masthead{display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:3px solid var(--ink);padding-bottom:16px;margin-bottom:22px;}
+  .masthead-text h1{font-family:'Amiri',serif;font-weight:700;font-size:24px;margin:0 0 6px;color:var(--blue);line-height:1.4;}
+  .masthead-text .subtitle{font-size:15px;color:var(--ink-soft);margin:0;}
+  .op-icon{width:60px;height:60px;flex-shrink:0;}
+
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+  .meta-chip{border:1px solid var(--line);background:var(--panel);border-radius:3px;padding:6px 12px;font-size:13.5px;color:var(--ink-soft);}
+  .meta-chip b{color:var(--ink);font-weight:600;}
+
+  section{margin-bottom:28px;}
+  h2.section-title{font-family:'Amiri',serif;font-size:21px;font-weight:700;color:var(--blue);border-bottom:2px solid var(--blue);padding-bottom:6px;margin:0 0 14px;display:flex;align-items:baseline;gap:8px;}
+  h3.sub-title{font-size:17px;font-weight:700;color:var(--orange);margin:20px 0 8px;}
+  p{line-height:2;font-size:15.5px;margin:0 0 10px;}
+
+  .objectif-box{background:var(--orange-soft);border-right:4px solid var(--orange);padding:14px 18px;border-radius:2px;font-size:15.5px;line-height:1.9;}
+
+  .rule-box{background:var(--panel);border:1px solid var(--line);border-right:4px solid var(--blue);padding:14px 18px;border-radius:2px;margin:10px 0 16px;}
+  .rule-box p:last-child{margin-bottom:0;}
+  .rule-box ul,.rule-box ol{margin:6px 0;padding-inline-start:22px;}
+  .rule-box li{margin-bottom:6px;line-height:1.85;}
+
+  .column-op{font-family:'Amiri',serif;font-size:19px;text-align:left;direction:ltr;background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:10px 18px;display:inline-block;margin:8px 10px 8px 0;line-height:1.6;}
+  .column-op .line{border-top:2px solid var(--ink);margin-top:2px;padding-top:2px;}
+
+  .priority-grid{display:flex;flex-wrap:wrap;gap:10px;margin:10px 0 16px;}
+  .priority-step{flex:1 1 140px;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:10px;text-align:center;}
+  .priority-step .num{width:26px;height:26px;border-radius:50%;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;margin:0 auto 6px;font-size:14px;}
+  .priority-step p{margin:0;font-size:13.5px;color:var(--ink-soft);}
+
+  table.data-table{width:100%;border-collapse:collapse;margin:8px 0 18px;font-size:15px;}
+  table.data-table th{background:var(--blue);color:#fff;padding:8px 10px;font-weight:600;font-size:14px;}
+  table.data-table td{border:1px solid var(--line);padding:9px 10px;background:var(--panel);text-align:center;}
+  table.data-table tr:nth-child(even) td{background:#eef3f7;}
+
+  .activity-box{background:var(--panel);border:1.5px solid var(--orange);border-radius:3px;padding:16px 20px;}
+  .activity-box .task-label{display:inline-block;background:var(--orange);color:#fff;font-size:12.5px;padding:3px 10px;border-radius:2px;margin-bottom:8px;}
+
+  .exercise{border:1px solid var(--line);border-radius:3px;padding:16px 20px;margin-bottom:16px;background:var(--panel);}
+  .exercise-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:var(--ink);color:var(--paper);border-radius:50%;font-size:14px;font-weight:700;margin-inline-end:8px;}
+  .exercise h4{margin:0 0 10px;font-size:16.5px;display:flex;align-items:center;}
+  .fill-line{border-bottom:1px dotted var(--ink-soft);display:inline-block;min-width:100px;height:1.6em;}
+  .op-grid{display:flex;flex-wrap:wrap;gap:16px;}
+  .op-item{display:flex;align-items:center;gap:6px;font-size:15.5px;}
+  .qcm-item{margin-bottom:10px;}
+  .qcm-item p{margin-bottom:4px;font-weight:600;}
+  .qcm-options{display:flex;flex-wrap:wrap;gap:14px;font-size:14.5px;}
+  .qcm-options span{display:flex;align-items:center;gap:5px;}
+  .checkbox{width:13px;height:13px;border:1.4px solid var(--ink-soft);display:inline-block;border-radius:2px;}
+  .scenario-box{background:#eef3f7;border:1px solid var(--line);padding:12px 16px;font-size:15.5px;line-height:2.1;margin-bottom:10px;}
+
+  .corrige-wrapper{page-break-before:always;padding-top:6px;}
+  .corrige-flag{text-align:center;font-size:13px;color:var(--ink-soft);margin-bottom:10px;border-top:1px dashed var(--ink-soft);padding-top:14px;}
+  details.corrige{border:2px dashed var(--green);border-radius:4px;background:#f7fcfa;padding:6px 20px 18px;}
+  details.corrige > summary{cursor:pointer;font-family:'Amiri',serif;font-weight:700;font-size:19px;color:var(--green);padding:14px 0;list-style:none;}
+  details.corrige > summary::-webkit-details-marker{display:none;}
+  details.corrige > summary::before{content:"✂ ";}
+  details.corrige > summary::after{content:"— اضغط لإظهار الحل / إخفائه";font-family:'Noto Naskh Arabic',serif;font-weight:400;font-size:13px;color:var(--ink-soft);margin-inline-start:8px;}
+  .corrige h4{color:var(--green);margin:16px 0 8px;font-size:16px;}
+  .corrige-item{margin-bottom:8px;font-size:15px;line-height:1.9;}
+  .corrige table.data-table th{background:var(--green);}
+
+  .footer-note{margin-top:30px;text-align:center;font-size:12px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:10px;}
+
+  @media print{
+    body{background:#fff;}
+    .sheet{box-shadow:none;border:none;margin:0;max-width:100%;padding:14px 6px;background:var(--paper);}
+    details.corrige{border-color:#000;}
+  }
+  @page{size:A4;margin:14mm;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="masthead-text">
+      <h1>العملياتُ على الأعدادِ الصحيحةِ الطبيعيةِ والعشريةِ</h1>
+      <p class="subtitle">الرياضيات — الأعداد والحساب</p>
+    </div>
+    <svg class="op-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="10" y1="16" x2="22" y2="16" stroke="#3a8f6b" stroke-width="3"/><line x1="16" y1="10" x2="16" y2="22" stroke="#3a8f6b" stroke-width="3"/>
+      <line x1="28" y1="32" x2="40" y2="32" stroke="#e07b39" stroke-width="3"/>
+      <line x1="44" y1="10" x2="54" y2="20" stroke="#2f5f8a" stroke-width="3"/><line x1="54" y1="10" x2="44" y2="20" stroke="#2f5f8a" stroke-width="3"/>
+      <circle cx="16" cy="48" r="3" fill="#1c2b3a"/><circle cx="30" cy="48" r="3" fill="#1c2b3a"/><circle cx="44" cy="48" r="3" fill="#1c2b3a"/>
+    </svg>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta-chip">المستوى: <b>الأولى إعدادي (1AC)</b></div>
+    <div class="meta-chip">المادة: <b>الرياضيات — الأعداد والحساب</b></div>
+    <div class="meta-chip">مدة الحصة: <b>ساعة إلى ساعة ونصف</b></div>
+    <div class="meta-chip">نوع الوثيقة: <b>فيشة تعلّم ذاتي</b></div>
+  </div>
+
+  <!-- ===================== OBJECTIF ===================== -->
+  <section>
+    <h2 class="section-title">🎯 الهدف من الدرس</h2>
+    <div class="objectif-box">
+      يتمكّن المتعلم(ة) في نهاية هذا الدرس من: إجراء عمليات الجمع والطرح والضرب والقسمة على الأعداد الصحيحة الطبيعية والأعداد العشرية، وضرب وقسمة عدد عشري في 10 أو 100 أو 1000، وتوظيف قاعدة أولويات العمليات الحسابية لحساب تعبير عددي مركب.
+    </div>
+  </section>
+
+  <!-- ===================== COURS ===================== -->
+  <section>
+    <h2 class="section-title">📘 الدرس</h2>
+
+    <h3 class="sub-title">1) تذكير: الأعداد العشرية</h3>
+    <div class="rule-box">
+      <p><b>العدد العشري</b> عدد يتكوّن من <b>جزء صحيح</b> و<b>جزء عشري</b> مفصولَين بفاصلة، مثل: 12<b>,</b>45. تُسمّى منازل الجزء العشري: الأعشار، الأجزاء من مئة، الأجزاء من ألف...</p>
+    </div>
+
+    <h3 class="sub-title">2) الجمع والطرح على الأعداد العشرية</h3>
+    <div class="rule-box">
+      <p>لجمع أو طرح عددين عشريين بالعمود، يجب <b>محاذاة الفاصلة العشرية</b> (نضع الفاصلة تحت الفاصلة، والمنازل المتناظرة فوق بعضها)، ثم نجمع أو نطرح كما في الأعداد الصحيحة.</p>
+    </div>
+    <div class="column-op">
+      &nbsp;&nbsp;12.50<br>
+      +&nbsp;3.75<br>
+      <span class="line">16.25</span>
+    </div>
+
+    <h3 class="sub-title">3) الضرب على الأعداد العشرية</h3>
+    <div class="rule-box">
+      <p>لضرب عددين عشريين، نضرب الرقمين وكأنّهما عددان صحيحان (دون الاهتمام بالفاصلة)، ثم نضع الفاصلة في الناتج بحيث يكون عدد الأرقام بعد الفاصلة في الجداء مساوياً لـ<b>مجموع</b> عدد الأرقام بعد الفاصلة في العاملين.</p>
+    </div>
+    <p style="font-size:14px;color:var(--ink-soft);">مثال: 2.4 × 1.5 → نضرب 24×15=360 → في العاملين معاً رقم واحد بعد الفاصلة في كل منهما (مجموعهما 2)، إذن الناتج: 3.60 = 3.6</p>
+    <div class="rule-box">
+      <p><b>الضرب في 10، 100، 1000:</b> نُزحلق الفاصلة العشرية نحو اليمين بعدد الأصفار (خانة واحدة لـ10، خانتين لـ100، ثلاث خانات لـ1000).</p>
+      <p style="text-align:center;font-weight:700;color:var(--blue);">4.5 × 100 = 450 &nbsp;&nbsp;&nbsp; 0.36 × 10 = 3.6</p>
+    </div>
+
+    <h3 class="sub-title">4) القسمة على الأعداد العشرية</h3>
+    <div class="rule-box">
+      <p>عند قسمة عدد صحيح لا يقبل القسمة تماماً، يمكن أن نكمل القسمة للحصول على <b>حاصل قسمة عشري</b>، بإضافة فاصلة وأصفار إلى المقسوم.</p>
+      <p>مثال: 15 ÷ 4 → 15.00 ÷ 4 = 3.75</p>
+      <p>عندما يكون <b>المقسوم عليه عشرياً</b>، نضرب المقسوم والمقسوم عليه معاً في 10 أو 100 (حسب عدد الأرقام بعد الفاصلة في المقسوم عليه) حتى يصبح المقسوم عليه <b>عدداً صحيحاً</b>، ثم نُجري القسمة العادية.</p>
+    </div>
+
+    <h3 class="sub-title">5) أولويات العمليات الحسابية</h3>
+    <div class="rule-box">
+      <p>عند حساب تعبير عددي يحتوي على عدة عمليات، يجب احترام الترتيب التالي:</p>
+    </div>
+    <div class="priority-grid">
+      <div class="priority-step"><div class="num">1</div><p>الأقواس أولاً</p></div>
+      <div class="priority-step"><div class="num">2</div><p>الضرب والقسمة (من اليسار إلى اليمين)</p></div>
+      <div class="priority-step"><div class="num">3</div><p>الجمع والطرح (من اليسار إلى اليمين)</p></div>
+    </div>
+    <p style="font-size:14px;color:var(--ink-soft);">مثال: 5 + 3 × 2 = 5 + 6 = 11 (وليس 16، لأن الضرب يُحسب أولاً).</p>
+  </section>
+
+  <!-- ===================== ACTIVITE ===================== -->
+  <section>
+    <h2 class="section-title">✏️ نشاط تطبيقي</h2>
+    <div class="activity-box">
+      <span class="task-label">فاتورة تسوّق</span>
+      <p>اشترى أحمد من المتجر: 2.5 كيلوغرام من التفاح بثمن 8 دراهم للكيلوغرام، و1.5 كيلوغرام من الموز بثمن 6 دراهم للكيلوغرام. دفع أحمد بورقة نقدية من 50 درهماً.</p>
+      <p>1) احسب ثمن التفاح: <span class="fill-line" style="min-width:200px;"></span></p>
+      <p>2) احسب ثمن الموز: <span class="fill-line" style="min-width:200px;"></span></p>
+      <p>3) احسب المجموع الكلي للمشتريات: <span class="fill-line" style="min-width:200px;"></span></p>
+      <p>4) احسب المبلغ الذي استرجعه أحمد: <span class="fill-line" style="min-width:200px;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== EXERCICES ===================== -->
+  <section>
+    <h2 class="section-title">📝 تمارين للتدرّب</h2>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">1</span>احسب المجاميع التالية:</h4>
+      <div class="op-grid">
+        <div class="op-item">12.5 + 3.75 = <span class="fill-line"></span></div>
+        <div class="op-item">45.08 + 7.6 = <span class="fill-line"></span></div>
+        <div class="op-item">100.4 + 25.75 = <span class="fill-line"></span></div>
+        <div class="op-item">8.05 + 12.2 = <span class="fill-line"></span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">2</span>احسب الفروق التالية:</h4>
+      <div class="op-grid">
+        <div class="op-item">25.6 − 8.75 = <span class="fill-line"></span></div>
+        <div class="op-item">50 − 12.35 = <span class="fill-line"></span></div>
+        <div class="op-item">100.2 − 45.08 = <span class="fill-line"></span></div>
+        <div class="op-item">18.4 − 9.75 = <span class="fill-line"></span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">3</span>احسب الجداءات التالية:</h4>
+      <div class="op-grid">
+        <div class="op-item">3.5 × 4 = <span class="fill-line"></span></div>
+        <div class="op-item">2.4 × 1.5 = <span class="fill-line"></span></div>
+        <div class="op-item">0.6 × 0.3 = <span class="fill-line"></span></div>
+        <div class="op-item">12.5 × 2.2 = <span class="fill-line"></span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">4</span>اضرب الأعداد التالية في 10 أو 100 أو 1000 حسب المطلوب:</h4>
+      <div class="op-grid">
+        <div class="op-item">4.5 × 10 = <span class="fill-line"></span></div>
+        <div class="op-item">4.5 × 100 = <span class="fill-line"></span></div>
+        <div class="op-item">0.36 × 100 = <span class="fill-line"></span></div>
+        <div class="op-item">7.2 × 1000 = <span class="fill-line"></span></div>
+        <div class="op-item">0.05 × 1000 = <span class="fill-line"></span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">5</span>احسب حاصل القسمة التالية (أكمل القسمة حتى تحصل على عدد عشري):</h4>
+      <div class="op-grid">
+        <div class="op-item">15 ÷ 4 = <span class="fill-line"></span></div>
+        <div class="op-item">9 ÷ 2 = <span class="fill-line"></span></div>
+        <div class="op-item">7.5 ÷ 3 = <span class="fill-line"></span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">6</span>اختر الإجابة الصحيحة:</h4>
+      <div class="qcm-item">
+        <p>1) عند جمع أو طرح عددين عشريين بالعمود، يجب محاذاة:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>الأرقام الأولى فقط</span><span><span class="checkbox"></span>الفاصلة العشرية</span><span><span class="checkbox"></span>الأرقام الأخيرة</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>2) عدد أرقام الجزء العشري في جداء عددين عشريين يساوي:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>مجموع عدد أرقام الجزأين العشريين للعاملين</span><span><span class="checkbox"></span>عدد أرقام العامل الأول فقط</span><span><span class="checkbox"></span>صفراً دائماً</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>3) لضرب عدد عشري في 100، نُزحلق الفاصلة:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>خانتين نحو اليمين</span><span><span class="checkbox"></span>خانتين نحو اليسار</span><span><span class="checkbox"></span>خانة واحدة</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>4) في التعبير 5 + 3 × 2، نبدأ أولاً بحساب:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>الجمع</span><span><span class="checkbox"></span>الضرب</span><span><span class="checkbox"></span>لا فرق بينهما</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>5) لقسمة عدد على عدد عشري، نحوّل القسمة بضرب الحدّين في نفس العدد (10 أو 100...) حتى يصبح:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>المقسوم عليه عدداً صحيحاً</span><span><span class="checkbox"></span>المقسوم عدداً عشرياً</span><span><span class="checkbox"></span>الناتج صفراً</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">7</span>احسب التعابير التالية باحترام قاعدة أولويات العمليات:</h4>
+      <p>1) 5 + 3 × 2 = <span class="fill-line" style="min-width:60%;"></span></p>
+      <p>2) (5 + 3) × 2 = <span class="fill-line" style="min-width:60%;"></span></p>
+      <p>3) 20 − 4 × 3 + 2 = <span class="fill-line" style="min-width:60%;"></span></p>
+      <p>4) (10 − 4) × (3 + 2) = <span class="fill-line" style="min-width:60%;"></span></p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">8</span>مسألة تطبيقية:</h4>
+      <div class="scenario-box">
+        اشترى سعيد 3.5 متر من القماش بثمن 22 درهماً للمتر، ثم دفع إضافة 15.5 درهماً ثمن الخياطة.
+      </div>
+      <p>1) احسب ثمن القماش وحده.</p>
+      <p><span class="fill-line" style="min-width:60%;"></span></p>
+      <p>2) احسب المبلغ الإجمالي الذي دفعه سعيد (ثمن القماش + الخياطة).</p>
+      <p><span class="fill-line" style="min-width:60%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== CORRIGE ===================== -->
+  <div class="corrige-wrapper">
+    <p class="corrige-flag">✂ يمكن طي هذه الصفحة أو إخفاؤها (اضغط على العنوان أدناه) قبل إنجاز التمارين ✂</p>
+    <details class="corrige">
+      <summary>التصحيح الكامل</summary>
+
+      <h4>تصحيح النشاط التطبيقي</h4>
+      <div class="corrige-item">1) ثمن التفاح = 2.5 × 8 = 20 درهماً</div>
+      <div class="corrige-item">2) ثمن الموز = 1.5 × 6 = 9 دراهم</div>
+      <div class="corrige-item">3) المجموع الكلي = 20 + 9 = 29 درهماً</div>
+      <div class="corrige-item">4) الباقي المسترجَع = 50 − 29 = 21 درهماً</div>
+
+      <h4>تصحيح التمرين 1 (الجمع)</h4>
+      <div class="corrige-item">12.5+3.75=16.25 &nbsp;|&nbsp; 45.08+7.6=52.68 &nbsp;|&nbsp; 100.4+25.75=126.15 &nbsp;|&nbsp; 8.05+12.2=20.25</div>
+
+      <h4>تصحيح التمرين 2 (الطرح)</h4>
+      <div class="corrige-item">25.6−8.75=16.85 &nbsp;|&nbsp; 50−12.35=37.65 &nbsp;|&nbsp; 100.2−45.08=55.12 &nbsp;|&nbsp; 18.4−9.75=8.65</div>
+
+      <h4>تصحيح التمرين 3 (الضرب)</h4>
+      <div class="corrige-item">3.5×4=14 &nbsp;|&nbsp; 2.4×1.5=3.6 &nbsp;|&nbsp; 0.6×0.3=0.18 &nbsp;|&nbsp; 12.5×2.2=27.5</div>
+
+      <h4>تصحيح التمرين 4 (الضرب في 10/100/1000)</h4>
+      <div class="corrige-item">4.5×10=45 &nbsp;|&nbsp; 4.5×100=450 &nbsp;|&nbsp; 0.36×100=36 &nbsp;|&nbsp; 7.2×1000=7200 &nbsp;|&nbsp; 0.05×1000=50</div>
+
+      <h4>تصحيح التمرين 5 (القسمة)</h4>
+      <div class="corrige-item">15÷4=3.75 &nbsp;|&nbsp; 9÷2=4.5 &nbsp;|&nbsp; 7.5÷3=2.5</div>
+
+      <h4>تصحيح التمرين 6 (الاختيار من متعدد)</h4>
+      <div class="corrige-item">1) الفاصلة العشرية &nbsp;|&nbsp; 2) مجموع عدد أرقام الجزأين العشريين &nbsp;|&nbsp; 3) خانتين نحو اليمين &nbsp;|&nbsp; 4) الضرب &nbsp;|&nbsp; 5) المقسوم عليه عدداً صحيحاً</div>
+
+      <h4>تصحيح التمرين 7 (أولويات العمليات)</h4>
+      <div class="corrige-item">1) 5+3×2 = 5+6 = 11 &nbsp;|&nbsp; 2) (5+3)×2 = 8×2 = 16 &nbsp;|&nbsp; 3) 20−4×3+2 = 20−12+2 = 10 &nbsp;|&nbsp; 4) (10−4)×(3+2) = 6×5 = 30</div>
+
+      <h4>تصحيح التمرين 8 (المسألة التطبيقية)</h4>
+      <div class="corrige-item">1) ثمن القماش = 3.5 × 22 = 77 درهماً</div>
+      <div class="corrige-item">2) المبلغ الإجمالي = 77 + 15.5 = 92.5 درهماً</div>
+    </details>
+  </div>
+
+  <p class="footer-note">فيشة تعلّم ذاتي — الرياضيات — الأولى إعدادي — العمليات على الأعداد الصحيحة الطبيعية والعشرية</p>
+</div>
+</body>
+</html>

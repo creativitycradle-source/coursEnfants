@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>الفتح الإسلامي</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#2e2013; --ink-soft:#5c4c3a;
+    --paper:#f8f1e2; --panel:#fffdf7; --line:#ddc9a3;
+    --clay:#b5652f; --clay-soft:#f3e0cc;
+    --bronze:#8a6a1e; --bronze-soft:#f0e6c4;
+    --lapis:#2c5c78; --lapis-soft:#dfeaf0;
+    --leaf:#3f7d3a; --leaf-soft:#e3f0df;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#e3d8bd;font-family:'Noto Naskh Arabic','Amiri',serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .sheet{max-width:880px;margin:24px auto;background:var(--paper);padding:38px 44px 50px;border:1px solid var(--line);box-shadow:0 4px 24px rgba(0,0,0,.12);}
+
+  .masthead{display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:3px solid var(--ink);padding-bottom:16px;margin-bottom:22px;}
+  .masthead-text h1{font-family:'Amiri',serif;font-weight:700;font-size:30px;margin:0 0 6px;color:var(--clay);}
+  .masthead-text .subtitle{font-size:15px;color:var(--ink-soft);margin:0;}
+  .crescent-icon{width:52px;height:52px;flex-shrink:0;}
+
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+  .meta-chip{border:1px solid var(--line);background:var(--panel);border-radius:3px;padding:6px 12px;font-size:13.5px;color:var(--ink-soft);}
+  .meta-chip b{color:var(--ink);font-weight:600;}
+
+  section{margin-bottom:28px;}
+  h2.section-title{font-family:'Amiri',serif;font-size:21px;font-weight:700;color:var(--lapis);border-bottom:2px solid var(--lapis);padding-bottom:6px;margin:0 0 14px;display:flex;align-items:baseline;gap:8px;}
+  h3.sub-title{font-size:17px;font-weight:700;color:var(--clay);margin:20px 0 8px;}
+  p{line-height:2;font-size:15.5px;margin:0 0 10px;}
+
+  .objectif-box{background:var(--bronze-soft);border-right:4px solid var(--bronze);padding:14px 18px;border-radius:2px;font-size:15.5px;line-height:1.9;}
+
+  .rule-box{background:var(--panel);border:1px solid var(--line);border-right:4px solid var(--lapis);padding:14px 18px;border-radius:2px;margin:10px 0 16px;}
+  .rule-box p:last-child{margin-bottom:0;}
+  .rule-box ul,.rule-box ol{margin:6px 0;padding-inline-start:22px;}
+  .rule-box li{margin-bottom:6px;line-height:1.85;}
+
+  .leader-grid{display:flex;flex-wrap:wrap;gap:14px;margin:10px 0 16px;}
+  .leader-card{flex:1 1 220px;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:12px 16px;}
+  .leader-card .head{font-weight:700;color:var(--clay);font-size:15.5px;margin-bottom:4px;}
+  .leader-card p{margin:2px 0 0;font-size:14px;color:var(--ink-soft);line-height:1.85;}
+
+  table.data-table{width:100%;border-collapse:collapse;margin:8px 0 18px;font-size:15px;}
+  table.data-table th{background:var(--lapis);color:#fff;padding:8px 10px;font-weight:600;font-size:14px;}
+  table.data-table td{border:1px solid var(--line);padding:9px 10px;background:var(--panel);}
+  table.data-table tr:nth-child(even) td{background:#f2e9d3;}
+
+  .timeline-wrap{display:flex;justify-content:center;margin:14px 0;}
+
+  .activity-box{background:var(--panel);border:1.5px solid var(--bronze);border-radius:3px;padding:16px 20px;}
+  .activity-box .task-label{display:inline-block;background:var(--bronze);color:#fff;font-size:12.5px;padding:3px 10px;border-radius:2px;margin-bottom:8px;}
+
+  .exercise{border:1px solid var(--line);border-radius:3px;padding:16px 20px;margin-bottom:16px;background:var(--panel);}
+  .exercise-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:var(--ink);color:var(--paper);border-radius:50%;font-size:14px;font-weight:700;margin-inline-end:8px;}
+  .exercise h4{margin:0 0 10px;font-size:16.5px;display:flex;align-items:center;}
+  .fill-line{border-bottom:1px dotted var(--ink-soft);display:inline-block;min-width:120px;height:1.6em;}
+  .qcm-item{margin-bottom:10px;}
+  .qcm-item p{margin-bottom:4px;font-weight:600;}
+  .qcm-options{display:flex;flex-wrap:wrap;gap:14px;font-size:14.5px;}
+  .qcm-options span{display:flex;align-items:center;gap:5px;}
+  .checkbox{width:13px;height:13px;border:1.4px solid var(--ink-soft);display:inline-block;border-radius:2px;}
+  .match-cols{display:flex;justify-content:space-between;gap:40px;margin-top:8px;}
+  .match-cols ul{list-style:none;padding:0;margin:0;}
+  .match-cols li{border:1px solid var(--line);background:var(--paper);padding:6px 14px;margin-bottom:10px;border-radius:3px;font-size:15px;}
+  .order-list{display:flex;flex-direction:column;gap:8px;}
+  .order-item{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:6px;padding:8px 12px;background:var(--paper);}
+  .order-item .num-box{width:32px;height:32px;border:2px dashed var(--ink-soft);border-radius:6px;flex-shrink:0;}
+
+  .corrige-wrapper{page-break-before:always;padding-top:6px;}
+  .corrige-flag{text-align:center;font-size:13px;color:var(--ink-soft);margin-bottom:10px;border-top:1px dashed var(--ink-soft);padding-top:14px;}
+  details.corrige{border:2px dashed var(--clay);border-radius:4px;background:#fdf6ef;padding:6px 20px 18px;}
+  details.corrige > summary{cursor:pointer;font-family:'Amiri',serif;font-weight:700;font-size:19px;color:var(--clay);padding:14px 0;list-style:none;}
+  details.corrige > summary::-webkit-details-marker{display:none;}
+  details.corrige > summary::before{content:"✂ ";}
+  details.corrige > summary::after{content:"— اضغط لإظهار الحل / إخفائه";font-family:'Noto Naskh Arabic',serif;font-weight:400;font-size:13px;color:var(--ink-soft);margin-inline-start:8px;}
+  .corrige h4{color:var(--clay);margin:16px 0 8px;font-size:16px;}
+  .corrige-item{margin-bottom:8px;font-size:15px;line-height:1.9;}
+  .corrige table.data-table th{background:var(--clay);}
+
+  .footer-note{margin-top:30px;text-align:center;font-size:12px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:10px;}
+
+  @media print{
+    body{background:#fff;}
+    .sheet{box-shadow:none;border:none;margin:0;max-width:100%;padding:14px 6px;}
+    details.corrige{border-color:#000;}
+  }
+  @page{size:A4;margin:14mm;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="masthead-text">
+      <h1>الفتحُ الإسلاميُّ</h1>
+      <p class="subtitle">الاجتماعيات — التاريخ: بلاد المغرب في العصر الوسيط</p>
+    </div>
+    <svg class="crescent-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M40 12a22 22 0 1 0 0 40 26 26 0 0 1 0-40z" fill="#8a6a1e"/>
+      <path d="M44 16l2 6 6 2-6 2-2 6-2-6-6-2 6-2z" fill="#b5652f"/>
+    </svg>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta-chip">المستوى: <b>السادسة ابتدائي (6AEP)</b></div>
+    <div class="meta-chip">المادة: <b>الاجتماعيات — التاريخ</b></div>
+    <div class="meta-chip">مدة الحصة: <b>ساعة واحدة</b></div>
+    <div class="meta-chip">نوع الوثيقة: <b>فيشة تعلّم ذاتي</b></div>
+  </div>
+
+  <!-- ===================== OBJECTIF ===================== -->
+  <section>
+    <h2 class="section-title">🎯 الهدف من الدرس</h2>
+    <div class="objectif-box">
+      يتمكّن المتعلم(ة) في نهاية هذا الدرس من: تحديد الإطار الزمني والمكاني للفتح الإسلامي لبلاد المغرب، والتعرّف على أبرز القادة الذين قادوا هذا الفتح ومراحله، وتفسير أثر اعتناق الأمازيغ للإسلام على تاريخ المغرب وهويته.
+    </div>
+  </section>
+
+  <!-- ===================== COURS ===================== -->
+  <section>
+    <h2 class="section-title">📘 الدرس</h2>
+
+    <h3 class="sub-title">1) الإطار الزمني والمكاني للفتح الإسلامي</h3>
+    <div class="rule-box">
+      <p>امتدّت حملات الفتح الإسلامي لبلاد المغرب على عدة مراحل، بين نهاية القرن السابع الميلادي وبداية القرن الثامن الميلادي، انطلاقاً من المشرق العربي نحو شمال إفريقيا، ثم وصولاً إلى الأندلس (إسبانيا الحالية).</p>
+    </div>
+
+    <h3 class="sub-title">2) أبرز قادة الفتح الإسلامي ومراحله</h3>
+    <div class="leader-grid">
+      <div class="leader-card">
+        <div class="head">عقبة بن نافع</div>
+        <p>قاد أولى حملات الفتح الإسلامي نحو بلاد المغرب، وأسّس مدينة <b>القيروان</b> (بتونس حالياً) لتكون قاعدة لانطلاق الفتوحات، ووصل بجيشه إلى ساحل المحيط الأطلسي.</p>
+      </div>
+      <div class="leader-card">
+        <div class="head">موسى بن نصير</div>
+        <p>أكمل فتح بلاد المغرب، ونظّم إدارتها، ومهّد لاحقاً لفتح الأندلس.</p>
+      </div>
+      <div class="leader-card">
+        <div class="head">طارق بن زياد</div>
+        <p>قاد فتح الأندلس سنة <b>711م</b> انطلاقاً من المغرب، بعد عبوره المضيق الذي سُمّي لاحقاً "جبل طارق" نسبةً إليه.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-title">3) اعتناق الأمازيغ للإسلام</h3>
+    <div class="rule-box">
+      <p>اعتنق سكان المغرب الأصليون (الأمازيغ) الدين الإسلامي تدريجياً، وشاركوا بفعالية في نشره، سواء ببلاد المغرب أو خارجها. ومن الأمثلة على ذلك أن القائد طارق بن زياد، الذي قاد فتح الأندلس، كان من أصل أمازيغي.</p>
+    </div>
+
+    <h3 class="sub-title">4) الآثار المترتبة عن الفتح الإسلامي</h3>
+    <div class="rule-box">
+      <ul>
+        <li>انتشار الدين الإسلامي واللغة العربية بالمغرب.</li>
+        <li>تأسيس مدن وحواضر جديدة، ودخول المغرب في إطار حضاري إسلامي واسع.</li>
+        <li>الحفاظ في الوقت نفسه على الهوية واللغة الأمازيغية كجزء أساسي من مكونات المغرب.</li>
+        <li>مشاركة المغرب لاحقاً في نشر الإسلام والحضارة الإسلامية نحو الأندلس.</li>
+      </ul>
+    </div>
+
+    <h3 class="sub-title">5) خط زمني للفتح الإسلامي</h3>
+    <div class="timeline-wrap">
+      <svg width="500" height="110" viewBox="0 0 500 110">
+        <line x1="30" y1="55" x2="470" y2="55" stroke="#2e2013" stroke-width="3" marker-end="url(#arrf)"/>
+        <circle cx="420" cy="55" r="7" fill="#b5652f"/>
+        <text x="420" y="78" text-anchor="middle" font-family="Noto Naskh Arabic, serif" font-size="12" font-weight="700" fill="#b5652f">بداية الفتح</text>
+        <text x="420" y="38" text-anchor="middle" font-family="Noto Naskh Arabic, serif" font-size="11" fill="#5c4c3a">عقبة بن نافع</text>
+        <circle cx="250" cy="55" r="7" fill="#8a6a1e"/>
+        <text x="250" y="78" text-anchor="middle" font-family="Noto Naskh Arabic, serif" font-size="12" font-weight="700" fill="#8a6a1e">تنظيم الإدارة</text>
+        <text x="250" y="38" text-anchor="middle" font-family="Noto Naskh Arabic, serif" font-size="11" fill="#5c4c3a">موسى بن نصير</text>
+        <circle cx="80" cy="55" r="7" fill="#2c5c78"/>
+        <text x="80" y="78" text-anchor="middle" font-family="Noto Naskh Arabic, serif" font-size="12" font-weight="700" fill="#2c5c78">فتح الأندلس (711م)</text>
+        <text x="80" y="38" text-anchor="middle" font-family="Noto Naskh Arabic, serif" font-size="11" fill="#5c4c3a">طارق بن زياد</text>
+        <defs><marker id="arrf" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2e2013"/></marker></defs>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ===================== ACTIVITE ===================== -->
+  <section>
+    <h2 class="section-title">✏️ نشاط تطبيقي</h2>
+    <div class="activity-box">
+      <span class="task-label">ربط القادة بإنجازاتهم</span>
+      <p>أكمل الجدول التالي بربط كل قائد من قادة الفتح الإسلامي بإنجازه الرئيسي:</p>
+      <table class="data-table">
+        <tr><th>القائد</th><th>الإنجاز</th></tr>
+        <tr><td>عقبة بن نافع</td><td><span class="fill-line" style="min-width:100%;"></span></td></tr>
+        <tr><td>موسى بن نصير</td><td><span class="fill-line" style="min-width:100%;"></span></td></tr>
+        <tr><td>طارق بن زياد</td><td><span class="fill-line" style="min-width:100%;"></span></td></tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===================== EXERCICES ===================== -->
+  <section>
+    <h2 class="section-title">📝 تمارين للتدرّب</h2>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">1</span>صل كل قائد بإنجازه:</h4>
+      <div class="match-cols">
+        <ul>
+          <li>أ) عقبة بن نافع</li>
+          <li>ب) موسى بن نصير</li>
+          <li>ج) طارق بن زياد</li>
+        </ul>
+        <ul>
+          <li>1) فتح الأندلس</li>
+          <li>2) تأسيس القيروان</li>
+          <li>3) تنظيم إدارة المغرب</li>
+        </ul>
+      </div>
+      <p style="margin-top:10px;">الإجابة: أ - .......... &nbsp; ب - .......... &nbsp; ج - ..........</p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">2</span>رتّب الأحداث التالية حسب تسلسلها الزمني (من 1 إلى 3):</h4>
+      <div class="order-list">
+        <div class="order-item"><div class="num-box"></div><span>فتح الأندلس بقيادة طارق بن زياد (711م)</span></div>
+        <div class="order-item"><div class="num-box"></div><span>بداية حملات الفتح الإسلامي لبلاد المغرب بقيادة عقبة بن نافع</span></div>
+        <div class="order-item"><div class="num-box"></div><span>استكمال فتح المغرب وتنظيم إدارته بقيادة موسى بن نصير</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">3</span>اختر الإجابة الصحيحة:</h4>
+      <div class="qcm-item">
+        <p>1) القائد الذي أسّس مدينة القيروان هو:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>عقبة بن نافع</span><span><span class="checkbox"></span>طارق بن زياد</span><span><span class="checkbox"></span>موسى بن نصير</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>2) تمّ فتح الأندلس سنة:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>622م</span><span><span class="checkbox"></span>711م</span><span><span class="checkbox"></span>1492م</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>3) القائد الذي قاد فتح الأندلس هو:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>عقبة بن نافع</span><span><span class="checkbox"></span>طارق بن زياد</span><span><span class="checkbox"></span>موسى بن نصير</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>4) اعتنق سكان المغرب الأصليون (الأمازيغ) بعد الفتح الإسلامي الدين:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>المسيحي</span><span><span class="checkbox"></span>الإسلامي</span><span><span class="checkbox"></span>اليهودي</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>5) من نتائج الفتح الإسلامي بالمغرب:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>انتشار اللغة العربية والدين الإسلامي</span><span><span class="checkbox"></span>زوال الهوية الأمازيغية بالكامل</span><span><span class="checkbox"></span>عزلة المغرب عن العالم</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">4</span>أكمل الجمل التالية بالمعطى المناسب:</h4>
+      <p>1) قاد .......... أولى حملات الفتح الإسلامي لبلاد المغرب.</p>
+      <p>2) أسّس عقبة بن نافع مدينة .......... كقاعدة لانطلاق الفتوحات.</p>
+      <p>3) عبر طارق بن زياد المضيق الذي سُمّي لاحقاً باسمه سنة .......... لفتح .......... </p>
+      <p>4) شارك .......... بفعالية في نشر الإسلام، سواء ببلاد المغرب أو في الأندلس.</p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">5</span>سؤال تحليلي:</h4>
+      <p>ما الأثر الذي تركه الفتح الإسلامي على هوية المغرب من الناحيتين الدينية واللغوية؟ وما العنصر من الهوية الأصلية الذي حافظ عليه المغرب رغم ذلك؟</p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== CORRIGE ===================== -->
+  <div class="corrige-wrapper">
+    <p class="corrige-flag">✂ يمكن طي هذه الصفحة أو إخفاؤها (اضغط على العنوان أدناه) قبل إنجاز التمارين ✂</p>
+    <details class="corrige">
+      <summary>التصحيح الكامل</summary>
+
+      <h4>تصحيح النشاط التطبيقي</h4>
+      <table class="data-table">
+        <tr><th>القائد</th><th>الإنجاز</th></tr>
+        <tr><td>عقبة بن نافع</td><td>قاد أولى حملات الفتح وأسّس مدينة القيروان</td></tr>
+        <tr><td>موسى بن نصير</td><td>أكمل فتح المغرب ونظّم إدارته</td></tr>
+        <tr><td>طارق بن زياد</td><td>قاد فتح الأندلس سنة 711م</td></tr>
+      </table>
+
+      <h4>تصحيح التمرين 1 (الربط)</h4>
+      <div class="corrige-item">أ - 2 (عقبة بن نافع ← تأسيس القيروان) &nbsp;|&nbsp; ب - 3 (موسى بن نصير ← تنظيم إدارة المغرب) &nbsp;|&nbsp; ج - 1 (طارق بن زياد ← فتح الأندلس)</div>
+
+      <h4>تصحيح التمرين 2 (الترتيب الزمني)</h4>
+      <div class="corrige-item">1) بداية حملات الفتح بقيادة عقبة بن نافع &nbsp;→&nbsp; 2) استكمال الفتح وتنظيم الإدارة بقيادة موسى بن نصير &nbsp;→&nbsp; 3) فتح الأندلس بقيادة طارق بن زياد (711م)</div>
+
+      <h4>تصحيح التمرين 3 (الاختيار من متعدد)</h4>
+      <div class="corrige-item">1) عقبة بن نافع &nbsp;|&nbsp; 2) 711م &nbsp;|&nbsp; 3) طارق بن زياد &nbsp;|&nbsp; 4) الإسلامي &nbsp;|&nbsp; 5) انتشار اللغة العربية والدين الإسلامي</div>
+
+      <h4>تصحيح التمرين 4 (إكمال الجمل)</h4>
+      <div class="corrige-item">1) عقبة بن نافع &nbsp;|&nbsp; 2) القيروان &nbsp;|&nbsp; 3) 711م / الأندلس &nbsp;|&nbsp; 4) الأمازيغ</div>
+
+      <h4>تصحيح التمرين 5 (السؤال التحليلي)</h4>
+      <div class="corrige-item">1) أدّى الفتح الإسلامي إلى انتشار الدين الإسلامي واللغة العربية بالمغرب، وأصبحا من المكونات الأساسية لهوية البلاد.</div>
+      <div class="corrige-item">2) رغم ذلك، حافظ المغرب على هويته الأمازيغية ولغته، إذ ظلّت اللغة واللهجات الأمازيغية حاضرة إلى جانب اللغة العربية إلى اليوم.</div>
+    </details>
+  </div>
+
+  <p class="footer-note">فيشة تعلّم ذاتي — الاجتماعيات (التاريخ) — السادسة ابتدائي — الفتح الإسلامي</p>
+</div>
+</body>
+</html>

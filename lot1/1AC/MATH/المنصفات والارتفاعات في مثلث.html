@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>المنصفات والارتفاعات في مثلث</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1c2b3a; --ink-soft:#4d5f70;
+    --paper:#f7f9fb; --panel:#ffffff; --line:#c9d6e0;
+    --blue:#2f5f8a; --blue-soft:#e2ecf3;
+    --orange:#e07b39; --orange-soft:#fbe8d8;
+    --green:#3a8f6b; --green-soft:#e1f2ea;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#dde6ec;color:var(--ink);font-family:'Noto Naskh Arabic','Amiri',serif;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .sheet{
+    max-width:900px;margin:24px auto;background:
+      repeating-linear-gradient(0deg, transparent 0 27px, rgba(47,95,138,.06) 27px 28px),
+      repeating-linear-gradient(90deg, transparent 0 27px, rgba(47,95,138,.06) 27px 28px),
+      var(--paper);
+    padding:38px 44px 50px;border:1px solid var(--line);box-shadow:0 4px 24px rgba(0,0,0,.12);
+  }
+
+  .masthead{display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:3px solid var(--ink);padding-bottom:16px;margin-bottom:22px;}
+  .masthead-text h1{font-family:'Amiri',serif;font-weight:700;font-size:26px;margin:0 0 6px;color:var(--blue);}
+  .masthead-text .subtitle{font-size:15px;color:var(--ink-soft);margin:0;}
+  .geo-icon{width:60px;height:58px;flex-shrink:0;}
+
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+  .meta-chip{border:1px solid var(--line);background:var(--panel);border-radius:3px;padding:6px 12px;font-size:13.5px;color:var(--ink-soft);}
+  .meta-chip b{color:var(--ink);font-weight:600;}
+
+  section{margin-bottom:28px;}
+  h2.section-title{font-family:'Amiri',serif;font-size:21px;font-weight:700;color:var(--blue);border-bottom:2px solid var(--blue);padding-bottom:6px;margin:0 0 14px;display:flex;align-items:baseline;gap:8px;}
+  h3.sub-title{font-size:17px;font-weight:700;color:var(--orange);margin:20px 0 8px;}
+  p{line-height:2;font-size:15.5px;margin:0 0 10px;}
+
+  .objectif-box{background:var(--orange-soft);border-right:4px solid var(--orange);padding:14px 18px;border-radius:2px;font-size:15.5px;line-height:1.9;}
+
+  .rule-box{background:var(--panel);border:1px solid var(--line);border-right:4px solid var(--blue);padding:14px 18px;border-radius:2px;margin:10px 0 16px;}
+  .rule-box p:last-child{margin-bottom:0;}
+  .rule-box ul,.rule-box ol{margin:6px 0;padding-inline-start:22px;}
+  .rule-box li{margin-bottom:6px;line-height:1.85;}
+
+  .figure-wrap{display:flex;justify-content:center;gap:24px;margin:14px 0;flex-wrap:wrap;}
+  .figure-item{text-align:center;}
+  .figure-item p{font-size:13px;color:var(--ink-soft);margin-top:4px;}
+
+  .tri-grid{display:flex;flex-wrap:wrap;gap:14px;margin:10px 0 16px;}
+  .tri-card{flex:1 1 200px;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:10px;text-align:center;}
+  .tri-card svg{width:100%;max-width:150px;height:auto;}
+  .tri-card .name{font-weight:700;color:var(--blue);font-size:14px;margin-top:4px;}
+  .tri-card p{font-size:12px;color:var(--ink-soft);margin:2px 0 0;}
+
+  table.data-table{width:100%;border-collapse:collapse;margin:8px 0 18px;font-size:15px;}
+  table.data-table th{background:var(--blue);color:#fff;padding:8px 10px;font-weight:600;font-size:14px;}
+  table.data-table td{border:1px solid var(--line);padding:9px 10px;background:var(--panel);text-align:center;}
+  table.data-table tr:nth-child(even) td{background:#eef3f7;}
+
+  .activity-box{background:var(--panel);border:1.5px solid var(--orange);border-radius:3px;padding:16px 20px;}
+  .activity-box .task-label{display:inline-block;background:var(--orange);color:#fff;font-size:12.5px;padding:3px 10px;border-radius:2px;margin-bottom:8px;}
+
+  .exercise{border:1px solid var(--line);border-radius:3px;padding:16px 20px;margin-bottom:16px;background:var(--panel);}
+  .exercise-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:var(--ink);color:var(--paper);border-radius:50%;font-size:14px;font-weight:700;margin-inline-end:8px;}
+  .exercise h4{margin:0 0 10px;font-size:16.5px;display:flex;align-items:center;}
+  .fill-line{border-bottom:1px dotted var(--ink-soft);display:inline-block;min-width:100px;height:1.6em;}
+  .qcm-item{margin-bottom:10px;}
+  .qcm-item p{margin-bottom:4px;font-weight:600;}
+  .qcm-options{display:flex;flex-wrap:wrap;gap:14px;font-size:14.5px;}
+  .qcm-options span{display:flex;align-items:center;gap:5px;}
+  .checkbox{width:13px;height:13px;border:1.4px solid var(--ink-soft);display:inline-block;border-radius:2px;}
+  .match-cols{display:flex;justify-content:space-between;gap:40px;margin-top:8px;}
+  .match-cols ul{list-style:none;padding:0;margin:0;}
+  .match-cols li{border:1px solid var(--line);background:var(--paper);padding:6px 14px;margin-bottom:10px;border-radius:3px;font-size:14.5px;}
+  .scenario-box{background:#eef3f7;border:1px solid var(--line);padding:12px 16px;font-size:15.5px;line-height:2.1;margin-bottom:10px;}
+  .construct-box{background:var(--paper);border:1px dashed var(--ink-soft);border-radius:6px;padding:14px;text-align:center;}
+  .tf-item{display:flex;justify-content:space-between;align-items:center;border:1px solid var(--line);border-radius:6px;padding:8px 12px;margin-bottom:8px;background:var(--paper);}
+  .tf-boxes{display:flex;gap:10px;}
+  .tf-box{width:24px;height:24px;border:1.5px solid var(--ink-soft);border-radius:3px;display:inline-flex;align-items:center;justify-content:center;font-size:11px;}
+
+  .corrige-wrapper{page-break-before:always;padding-top:6px;}
+  .corrige-flag{text-align:center;font-size:13px;color:var(--ink-soft);margin-bottom:10px;border-top:1px dashed var(--ink-soft);padding-top:14px;}
+  details.corrige{border:2px dashed var(--green);border-radius:4px;background:#f7fcfa;padding:6px 20px 18px;}
+  details.corrige > summary{cursor:pointer;font-family:'Amiri',serif;font-weight:700;font-size:19px;color:var(--green);padding:14px 0;list-style:none;}
+  details.corrige > summary::-webkit-details-marker{display:none;}
+  details.corrige > summary::before{content:"✂ ";}
+  details.corrige > summary::after{content:"— اضغط لإظهار الحل / إخفائه";font-family:'Noto Naskh Arabic',serif;font-weight:400;font-size:13px;color:var(--ink-soft);margin-inline-start:8px;}
+  .corrige h4{color:var(--green);margin:16px 0 8px;font-size:16px;}
+  .corrige-item{margin-bottom:8px;font-size:15px;line-height:1.9;}
+  .corrige table.data-table th{background:var(--green);}
+
+  .footer-note{margin-top:30px;text-align:center;font-size:12px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:10px;}
+
+  @media print{
+    body{background:#fff;}
+    .sheet{box-shadow:none;border:none;margin:0;max-width:100%;padding:14px 6px;background:var(--paper);}
+    details.corrige{border-color:#000;}
+  }
+  @page{size:A4;margin:14mm;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="masthead-text">
+      <h1>المنصفاتُ والارتفاعاتُ في مثلثٍ</h1>
+      <p class="subtitle">الرياضيات — الهندسة</p>
+    </div>
+    <svg class="geo-icon" viewBox="0 0 64 58" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M32 8 L56 50 L8 50 Z" fill="none" stroke="#2f5f8a" stroke-width="2.5"/>
+      <line x1="32" y1="8" x2="32" y2="50" stroke="#e07b39" stroke-width="2" stroke-dasharray="3 2"/>
+      <line x1="8" y1="50" x2="44" y2="20" stroke="#3a8f6b" stroke-width="1.5" stroke-dasharray="2 2"/>
+    </svg>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta-chip">المستوى: <b>الأولى إعدادي (1AC)</b></div>
+    <div class="meta-chip">المادة: <b>الرياضيات — الهندسة</b></div>
+    <div class="meta-chip">مدة الحصة: <b>ساعة إلى ساعة ونصف</b></div>
+    <div class="meta-chip">نوع الوثيقة: <b>فيشة تعلّم ذاتي</b></div>
+  </div>
+
+  <!-- ===================== OBJECTIF ===================== -->
+  <section>
+    <h2 class="section-title">🎯 الهدف من الدرس</h2>
+    <div class="objectif-box">
+      يتمكّن المتعلم(ة) في نهاية هذا الدرس من: تعريف منصف زاوية وارتفاع مثلث، وإنشاء منصفات وارتفاعات مثلث بالأدوات الهندسية المناسبة (الفرجار والكوس)، وتحديد موقع نقطة تقاطع كل منها حسب نوع المثلث.
+    </div>
+  </section>
+
+  <!-- ===================== COURS ===================== -->
+  <section>
+    <h2 class="section-title">📘 الدرس</h2>
+
+    <h3 class="sub-title">1) تذكير: منصف زاوية</h3>
+    <div class="rule-box">
+      <p><b>منصف زاوية</b> نصف مستقيم ينطلق من رأس الزاوية، ويقسمها إلى زاويتين متساويتين في القياس.</p>
+    </div>
+
+    <h3 class="sub-title">2) منصفات مثلث</h3>
+    <div class="rule-box">
+      <p>لكل مثلث ثلاث زوايا، ولكل زاوية منصف خاص بها. تتميّز <b>منصفات زوايا المثلث الثلاث</b> بأنها تتقاطع دائماً في <b>نقطة واحدة</b>، تقع دائماً <b>داخل المثلث</b>.</p>
+    </div>
+
+    <h3 class="sub-title">3) الارتفاع في مثلث</h3>
+    <div class="rule-box">
+      <p><b>ارتفاع مثلث</b> ينطلق من أحد رؤوس المثلث، وهو المستقيم <b>العمودي</b> على الضلع المقابل لهذا الرأس (أو على امتداده).</p>
+    </div>
+    <div class="figure-wrap">
+      <div class="figure-item">
+        <svg width="220" height="160" viewBox="0 0 220 160">
+          <path d="M60 130 L170 130 L100 20 Z" fill="none" stroke="#2f5f8a" stroke-width="2.5"/>
+          <text x="100" y="14" text-anchor="middle" font-size="14" font-weight="700">A</text>
+          <text x="52" y="145" text-anchor="middle" font-size="14" font-weight="700">B</text>
+          <text x="178" y="145" text-anchor="middle" font-size="14" font-weight="700">C</text>
+          <line x1="100" y1="20" x2="100" y2="130" stroke="#e07b39" stroke-width="2" stroke-dasharray="4 3"/>
+          <rect x="93" y="123" width="14" height="7" fill="none" stroke="#e07b39" stroke-width="1.5"/>
+          <text x="112" y="80" font-size="12" fill="#e07b39">الارتفاع من A</text>
+        </svg>
+        <p>الارتفاع من A عمودي على [BC]</p>
+      </div>
+    </div>
+
+    <h3 class="sub-title">4) ارتفاعات مثلث</h3>
+    <div class="rule-box">
+      <p>لكل مثلث ثلاثة ارتفاعات (واحد من كل رأس). تتقاطع <b>ارتفاعات المثلث الثلاثة</b> دائماً في نقطة واحدة، لكن موقع هذه النقطة يختلف حسب نوع المثلث.</p>
+    </div>
+
+    <h3 class="sub-title">5) موقع نقطة تقاطع الارتفاعات حسب نوع المثلث</h3>
+    <div class="tri-grid">
+      <div class="tri-card">
+        <svg viewBox="0 0 150 120"><path d="M75 15 L135 105 L15 105 Z" fill="none" stroke="#2f5f8a" stroke-width="2"/><circle cx="75" cy="75" r="3" fill="#e07b39"/></svg>
+        <div class="name">حاد الزوايا</div>
+        <p>نقطة التقاطع داخل المثلث</p>
+      </div>
+      <div class="tri-card">
+        <svg viewBox="0 0 150 120"><path d="M20 15 L20 105 L135 105 Z" fill="none" stroke="#2f5f8a" stroke-width="2"/><circle cx="20" cy="15" r="3" fill="#e07b39"/></svg>
+        <div class="name">قائم الزاوية</div>
+        <p>نقطة التقاطع عند رأس الزاوية القائمة</p>
+      </div>
+      <div class="tri-card">
+        <svg viewBox="0 0 150 120"><path d="M25 95 L135 108 L15 25 Z" fill="none" stroke="#2f5f8a" stroke-width="2"/><circle cx="145" cy="55" r="3" fill="#e07b39"/></svg>
+        <div class="name">منفرج الزاوية</div>
+        <p>نقطة التقاطع خارج المثلث</p>
+      </div>
+    </div>
+
+    <h3 class="sub-title">6) طرق الإنشاء</h3>
+    <div class="rule-box">
+      <p><b>إنشاء منصف زاوية بالفرجار:</b></p>
+      <ol>
+        <li>نضع إبرة الفرجار على رأس الزاوية، ونرسم قوساً يقطع ضلعَي الزاوية في نقطتين.</li>
+        <li>من كل نقطة من النقطتين، نرسم قوساً بنفس الفتحة، بحيث يتقاطع القوسان في نقطة داخل الزاوية.</li>
+        <li>نصل رأس الزاوية بنقطة التقاطع: نحصل على منصف الزاوية.</li>
+      </ol>
+      <p><b>إنشاء ارتفاع مثلث بالكوس:</b></p>
+      <ol>
+        <li>نضع أحد ضلعَي الكوس على الضلع المقابل للرأس المطلوب.</li>
+        <li>نُزحلق الكوس (بمحاذاة مسطرة) حتى يمرّ ضلعه العمودي بالرأس المطلوب.</li>
+        <li>نرسم المستقيم العمودي على طول هذا الضلع، مروراً بالرأس.</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ===================== ACTIVITE ===================== -->
+  <section>
+    <h2 class="section-title">✏️ نشاط تطبيقي</h2>
+    <div class="activity-box">
+      <span class="task-label">إنشاء منصف وارتفاع</span>
+      <p>ارسم مثلثاً ABC (اختر شكلاً حاد الزوايا)، ثم:</p>
+      <p>1) أنشئ منصف الزاوية A بالفرجار.</p>
+      <p>2) أنشئ الارتفاع النازل من الرأس B بالكوس.</p>
+      <p>3) لاحظ: هل يمر منصف الزاوية A والارتفاع من B من نفس النقطة؟ ماذا تستنتج؟</p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== EXERCICES ===================== -->
+  <section>
+    <h2 class="section-title">📝 تمارين للتدرّب</h2>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">1</span>عرّف بجملة واحدة كلاً من:</h4>
+      <p>1) منصف زاوية: <span class="fill-line" style="min-width:100%;"></span></p>
+      <p>2) ارتفاع مثلث: <span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">2</span>صل كل عنصر بخاصيته المناسبة:</h4>
+      <div class="match-cols">
+        <ul>
+          <li>أ) منصفات المثلث الثلاث</li>
+          <li>ب) ارتفاعات المثلث الثلاث</li>
+          <li>ج) منصف زاوية</li>
+          <li>د) ارتفاع من رأس</li>
+        </ul>
+        <ul>
+          <li>1) عمودي على الضلع المقابل لهذا الرأس</li>
+          <li>2) يقسم الزاوية إلى زاويتين متساويتين</li>
+          <li>3) تتقاطع في نقطة واحدة داخل المثلث دائماً</li>
+          <li>4) تتقاطع في نقطة واحدة (موقعها يختلف حسب نوع المثلث)</li>
+        </ul>
+      </div>
+      <p style="margin-top:10px;">الإجابة: أ - .......... &nbsp; ب - .......... &nbsp; ج - .......... &nbsp; د - ..........</p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">3</span>اختر الإجابة الصحيحة:</h4>
+      <div class="qcm-item">
+        <p>1) منصف زاوية هو نصف مستقيم:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>يقسم الزاوية إلى زاويتين متساويتين</span><span><span class="checkbox"></span>يوازي أحد ضلعَي الزاوية</span><span><span class="checkbox"></span>يمرّ من منتصف ضلع</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>2) تتقاطع منصفات زوايا أي مثلث في:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>نقطة واحدة داخل المثلث دائماً</span><span><span class="checkbox"></span>نقطتين</span><span><span class="checkbox"></span>لا تتقاطع أبداً</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>3) ارتفاع مثلث من رأس معيّن هو مستقيم:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>عمودي على الضلع المقابل لهذا الرأس</span><span><span class="checkbox"></span>موازٍ للضلع المقابل</span><span><span class="checkbox"></span>يمرّ من منتصف الضلع المقابل فقط</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>4) في مثلث قائم الزاوية، يتطابق ارتفاعان مع:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>منصفَي زاويتين</span><span><span class="checkbox"></span>ضلعَي الزاوية القائمة</span><span><span class="checkbox"></span>الضلع الأكبر فقط</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>5) في مثلث منفرج الزاوية، نقطة تقاطع الارتفاعات تقع:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>داخل المثلث</span><span><span class="checkbox"></span>على أحد أضلاعه</span><span><span class="checkbox"></span>خارج المثلث</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">4</span>ارسم مثلثاً ABC، ثم أنشئ منصف الزاوية A بالفرجار، متّبعاً خطوات الإنشاء المذكورة في الدرس.</h4>
+      <div class="construct-box"><p style="margin:0;">(أنجز الإنشاء في المساحة المخصصة بدفترك)</p></div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">5</span>في نفس المثلث ABC، أنشئ الارتفاع النازل من الرأس A بالكوس والمسطرة.</h4>
+      <div class="construct-box"><p style="margin:0;">(أنجز الإنشاء في المساحة المخصصة بدفترك)</p></div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">6</span>حدّد نوع المثلث بالاعتماد على موقع نقطة تقاطع ارتفاعاته:</h4>
+      <table class="data-table">
+        <tr><th>موقع نقطة التقاطع</th><th>نوع المثلث</th></tr>
+        <tr><td>داخل المثلث</td><td><span class="fill-line"></span></td></tr>
+        <tr><td>عند رأس إحدى الزوايا</td><td><span class="fill-line"></span></td></tr>
+        <tr><td>خارج المثلث</td><td><span class="fill-line"></span></td></tr>
+      </table>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">7</span>حدّد صحيح أو خطأ لكل عبارة:</h4>
+      <div class="tf-item"><span>منصف الزاوية يقسمها إلى زاويتين متساويتين.</span><div class="tf-boxes"><span class="tf-box">✓</span><span class="tf-box">✗</span></div></div>
+      <div class="tf-item"><span>الارتفاع من رأس مثلث يمرّ دائماً من منتصف الضلع المقابل.</span><div class="tf-boxes"><span class="tf-box">✓</span><span class="tf-box">✗</span></div></div>
+      <div class="tf-item"><span>ارتفاعات المثلث تتقاطع دائماً داخل المثلث.</span><div class="tf-boxes"><span class="tf-box">✓</span><span class="tf-box">✗</span></div></div>
+      <div class="tf-item"><span>في المثلث المتساوي الساقين، الارتفاع النازل من رأس القمة ينصف زاوية القمة أيضاً.</span><div class="tf-boxes"><span class="tf-box">✓</span><span class="tf-box">✗</span></div></div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">8</span>مسألة تطبيقية:</h4>
+      <div class="scenario-box">
+        مثلث ABC قائم الزاوية في A (الزاوية A = 90°).
+      </div>
+      <p>1) ما هما الارتفاعان اللذان يتطابقان مع ضلعَي هذا المثلث؟ ولماذا؟</p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+      <p>2) أنشئ الارتفاع الثالث (النازل من الرأس A نحو الضلع [BC]) بالكوس.</p>
+      <div class="construct-box"><p style="margin:0;">(أنجز الإنشاء في المساحة المخصصة بدفترك)</p></div>
+    </div>
+  </section>
+
+  <!-- ===================== CORRIGE ===================== -->
+  <div class="corrige-wrapper">
+    <p class="corrige-flag">✂ يمكن طي هذه الصفحة أو إخفاؤها (اضغط على العنوان أدناه) قبل إنجاز التمارين ✂</p>
+    <details class="corrige">
+      <summary>التصحيح الكامل</summary>
+
+      <h4>تصحيح النشاط التطبيقي</h4>
+      <div class="corrige-item">في هذا المثلث، منصف الزاوية A والارتفاع من B عموماً لا يمرّان من نفس النقطة (إلا في حالات خاصة كالمثلث المتساوي الساقين أو المتساوي الأضلاع). يتحقق الأستاذ(ة) من صحة الإنشازين.</div>
+
+      <h4>تصحيح التمرين 1 (التعريف)</h4>
+      <div class="corrige-item">1) منصف زاوية: نصف مستقيم ينطلق من رأس الزاوية ويقسمها إلى زاويتين متساويتين.</div>
+      <div class="corrige-item">2) ارتفاع مثلث: مستقيم ينطلق من رأس المثلث ويكون عمودياً على الضلع المقابل لهذا الرأس (أو امتداده).</div>
+
+      <h4>تصحيح التمرين 2 (الربط)</h4>
+      <div class="corrige-item">أ - 3 (منصفات المثلث ← تتقاطع داخل المثلث دائماً) &nbsp;|&nbsp; ب - 4 (ارتفاعات المثلث ← موقعها يختلف) &nbsp;|&nbsp; ج - 2 (منصف زاوية ← يقسمها لزاويتين متساويتين) &nbsp;|&nbsp; د - 1 (ارتفاع من رأس ← عمودي على الضلع المقابل)</div>
+
+      <h4>تصحيح التمرين 3 (الاختيار من متعدد)</h4>
+      <div class="corrige-item">1) يقسم الزاوية إلى زاويتين متساويتين &nbsp;|&nbsp; 2) نقطة واحدة داخل المثلث دائماً &nbsp;|&nbsp; 3) عمودي على الضلع المقابل لهذا الرأس &nbsp;|&nbsp; 4) ضلعَي الزاوية القائمة &nbsp;|&nbsp; 5) خارج المثلث</div>
+
+      <h4>تصحيح التمرين 4 (إنشاء المنصف)</h4>
+      <div class="corrige-item">يتحقق الأستاذ(ة) من صحة إنشاء منصف الزاوية A بالفرجار وفق الخطوات المذكورة في الدرس.</div>
+
+      <h4>تصحيح التمرين 5 (إنشاء الارتفاع)</h4>
+      <div class="corrige-item">يتحقق الأستاذ(ة) من أن الارتفاع المرسوم من A عمودي فعلاً على [BC] (أو امتداده).</div>
+
+      <h4>تصحيح التمرين 6 (نوع المثلث حسب نقطة التقاطع)</h4>
+      <div class="corrige-item">داخل المثلث ← حاد الزوايا &nbsp;|&nbsp; عند رأس إحدى الزوايا ← قائم الزاوية &nbsp;|&nbsp; خارج المثلث ← منفرج الزاوية</div>
+
+      <h4>تصحيح التمرين 7 (صحيح/خطأ)</h4>
+      <div class="corrige-item">1) صحيح &nbsp;|&nbsp; 2) خطأ (هذا وصف المتوسط وليس بالضرورة الارتفاع) &nbsp;|&nbsp; 3) خطأ (فقط في المثلث حاد الزوايا) &nbsp;|&nbsp; 4) صحيح</div>
+
+      <h4>تصحيح التمرين 8 (المسألة التطبيقية)</h4>
+      <div class="corrige-item">1) الارتفاعان المتطابقان مع الضلعين [AB] و[AC]، لأن هذين الضلعين متعامدان أصلاً في الزاوية القائمة A، فكل واحد منهما عمودي على الآخر (وهو ما يوافق تعريف الارتفاع).</div>
+      <div class="corrige-item">2) يتحقق الأستاذ(ة) من صحة إنشاء الارتفاع الثالث من A نحو الوتر [BC] باستعمال الكوس.</div>
+    </details>
+  </div>
+
+  <p class="footer-note">فيشة تعلّم ذاتي — الرياضيات — الأولى إعدادي — المنصفات والارتفاعات في مثلث</p>
+</div>
+</body>
+</html>

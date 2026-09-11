@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>أدرس آثارا تاريخية: صومعتا حسان والكتبية</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#2e2013; --ink-soft:#5c4c3a;
+    --paper:#f8f1e2; --panel:#fffdf7; --line:#ddc9a3;
+    --clay:#b5652f; --clay-soft:#f3e0cc;
+    --bronze:#8a6a1e; --bronze-soft:#f0e6c4;
+    --lapis:#2c5c78; --lapis-soft:#dfeaf0;
+    --leaf:#3f7d3a; --leaf-soft:#e3f0df;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#e3d8bd;font-family:'Noto Naskh Arabic','Amiri',serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .sheet{max-width:880px;margin:24px auto;background:var(--paper);padding:38px 44px 50px;border:1px solid var(--line);box-shadow:0 4px 24px rgba(0,0,0,.12);}
+
+  .masthead{display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:3px solid var(--ink);padding-bottom:16px;margin-bottom:22px;}
+  .masthead-text h1{font-family:'Amiri',serif;font-weight:700;font-size:25px;margin:0 0 6px;color:var(--clay);line-height:1.35;}
+  .masthead-text .subtitle{font-size:15px;color:var(--ink-soft);margin:0;}
+  .tower-icon{width:52px;height:60px;flex-shrink:0;}
+
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+  .meta-chip{border:1px solid var(--line);background:var(--panel);border-radius:3px;padding:6px 12px;font-size:13.5px;color:var(--ink-soft);}
+  .meta-chip b{color:var(--ink);font-weight:600;}
+
+  section{margin-bottom:28px;}
+  h2.section-title{font-family:'Amiri',serif;font-size:21px;font-weight:700;color:var(--lapis);border-bottom:2px solid var(--lapis);padding-bottom:6px;margin:0 0 14px;display:flex;align-items:baseline;gap:8px;}
+  h3.sub-title{font-size:17px;font-weight:700;color:var(--clay);margin:20px 0 8px;}
+  p{line-height:2;font-size:15.5px;margin:0 0 10px;}
+
+  .objectif-box{background:var(--bronze-soft);border-right:4px solid var(--bronze);padding:14px 18px;border-radius:2px;font-size:15.5px;line-height:1.9;}
+
+  .rule-box{background:var(--panel);border:1px solid var(--line);border-right:4px solid var(--lapis);padding:14px 18px;border-radius:2px;margin:10px 0 16px;}
+  .rule-box p:last-child{margin-bottom:0;}
+  .rule-box ul,.rule-box ol{margin:6px 0;padding-inline-start:22px;}
+  .rule-box li{margin-bottom:6px;line-height:1.85;}
+
+  .towers-wrap{display:flex;justify-content:center;gap:30px;margin:14px 0;flex-wrap:wrap;}
+  .tower-card{text-align:center;}
+  .tower-card .lbl{font-size:13px;font-weight:700;margin-top:6px;color:var(--clay);}
+
+  table.data-table{width:100%;border-collapse:collapse;margin:8px 0 18px;font-size:15px;}
+  table.data-table th{background:var(--lapis);color:#fff;padding:8px 10px;font-weight:600;font-size:14px;}
+  table.data-table td{border:1px solid var(--line);padding:9px 10px;background:var(--panel);text-align:center;}
+  table.data-table tr:nth-child(even) td{background:#f2e9d3;}
+
+  .activity-box{background:var(--panel);border:1.5px solid var(--bronze);border-radius:3px;padding:16px 20px;}
+  .activity-box .task-label{display:inline-block;background:var(--bronze);color:#fff;font-size:12.5px;padding:3px 10px;border-radius:2px;margin-bottom:8px;}
+  .id-card{background:var(--lapis-soft);border:1px dashed var(--lapis);border-radius:6px;padding:14px 18px;margin-top:10px;}
+  .id-row{display:flex;gap:10px;margin-bottom:8px;font-size:14.5px;}
+  .id-row b{white-space:nowrap;}
+
+  .exercise{border:1px solid var(--line);border-radius:3px;padding:16px 20px;margin-bottom:16px;background:var(--panel);}
+  .exercise-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:var(--ink);color:var(--paper);border-radius:50%;font-size:14px;font-weight:700;margin-inline-end:8px;}
+  .exercise h4{margin:0 0 10px;font-size:16.5px;display:flex;align-items:center;}
+  .fill-line{border-bottom:1px dotted var(--ink-soft);display:inline-block;min-width:120px;height:1.6em;}
+  .word-chip{display:inline-block;background:var(--paper);border:1px solid var(--line);border-radius:3px;padding:3px 12px;margin:3px 4px;font-size:15px;}
+  .qcm-item{margin-bottom:10px;}
+  .qcm-item p{margin-bottom:4px;font-weight:600;}
+  .qcm-options{display:flex;flex-wrap:wrap;gap:14px;font-size:14.5px;}
+  .qcm-options span{display:flex;align-items:center;gap:5px;}
+  .checkbox{width:13px;height:13px;border:1.4px solid var(--ink-soft);display:inline-block;border-radius:2px;}
+  .match-cols{display:flex;justify-content:space-between;gap:40px;margin-top:8px;}
+  .match-cols ul{list-style:none;padding:0;margin:0;}
+  .match-cols li{border:1px solid var(--line);background:var(--paper);padding:6px 14px;margin-bottom:10px;border-radius:3px;font-size:15px;}
+
+  .corrige-wrapper{page-break-before:always;padding-top:6px;}
+  .corrige-flag{text-align:center;font-size:13px;color:var(--ink-soft);margin-bottom:10px;border-top:1px dashed var(--ink-soft);padding-top:14px;}
+  details.corrige{border:2px dashed var(--clay);border-radius:4px;background:#fdf6ef;padding:6px 20px 18px;}
+  details.corrige > summary{cursor:pointer;font-family:'Amiri',serif;font-weight:700;font-size:19px;color:var(--clay);padding:14px 0;list-style:none;}
+  details.corrige > summary::-webkit-details-marker{display:none;}
+  details.corrige > summary::before{content:"✂ ";}
+  details.corrige > summary::after{content:"— اضغط لإظهار الحل / إخفائه";font-family:'Noto Naskh Arabic',serif;font-weight:400;font-size:13px;color:var(--ink-soft);margin-inline-start:8px;}
+  .corrige h4{color:var(--clay);margin:16px 0 8px;font-size:16px;}
+  .corrige-item{margin-bottom:8px;font-size:15px;line-height:1.9;}
+  .corrige table.data-table th{background:var(--clay);}
+
+  .footer-note{margin-top:30px;text-align:center;font-size:12px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:10px;}
+
+  @media print{
+    body{background:#fff;}
+    .sheet{box-shadow:none;border:none;margin:0;max-width:100%;padding:14px 6px;}
+    details.corrige{border-color:#000;}
+  }
+  @page{size:A4;margin:14mm;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="masthead-text">
+      <h1>أدرسُ آثاراً تاريخيةً: صومعتا حسان والكتبية</h1>
+      <p class="subtitle">الاجتماعيات — التاريخ: المغرب في العصر الوسيط (الدولة الموحدية)</p>
+    </div>
+    <svg class="tower-icon" viewBox="0 0 48 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="16" y="4" width="16" height="40" fill="none" stroke="#b5652f" stroke-width="2.5"/>
+      <line x1="16" y1="14" x2="32" y2="14" stroke="#8a6a1e" stroke-width="1.5"/>
+      <line x1="16" y1="24" x2="32" y2="24" stroke="#8a6a1e" stroke-width="1.5"/>
+      <line x1="16" y1="34" x2="32" y2="34" stroke="#8a6a1e" stroke-width="1.5"/>
+      <rect x="10" y="44" width="28" height="8" fill="#8a6a1e"/>
+    </svg>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta-chip">المستوى: <b>السادسة ابتدائي (6AEP)</b></div>
+    <div class="meta-chip">المادة: <b>الاجتماعيات — التاريخ</b></div>
+    <div class="meta-chip">مدة الحصة: <b>ساعة واحدة</b></div>
+    <div class="meta-chip">نوع الوثيقة: <b>فيشة تعلّم ذاتي</b></div>
+  </div>
+
+  <!-- ===================== OBJECTIF ===================== -->
+  <section>
+    <h2 class="section-title">🎯 الهدف من الدرس</h2>
+    <div class="objectif-box">
+      يتمكّن المتعلم(ة) في نهاية هذا الدرس من: التعرّف على صومعتَي حسان والكتبية كمعلمتين تاريخيتين بارزتين من العصر الموحدي، وتحديد خصائص كل واحدة منهما، والمقارنة بينهما، وإدراك أهميتهما التاريخية والحضارية.
+    </div>
+  </section>
+
+  <!-- ===================== COURS ===================== -->
+  <section>
+    <h2 class="section-title">📘 الدرس</h2>
+
+    <h3 class="sub-title">1) الإطار التاريخي: العصر الموحدي</h3>
+    <div class="rule-box">
+      <p>شهد المغرب في القرن الثاني عشر الميلادي قيام <b>الدولة الموحدية</b>، التي عرفت ازدهاراً كبيراً في مجال العمارة والفنون. من أبرز شواهد هذا العصر <b>صومعة حسان</b> بالرباط و<b>صومعة الكتبية</b> بمراكش.</p>
+    </div>
+
+    <h3 class="sub-title">2) صومعة حسان (بالرباط)</h3>
+    <div class="rule-box">
+      <p>بدأ السلطان الموحدي <b>يعقوب المنصور</b> بناء مسجد حسان وصومعته بمدينة الرباط في أواخر القرن الثاني عشر الميلادي، بهدف أن يكون من أكبر المساجد آنذاك. لكن البناء توقّف قبل الاكتمال (بسبب وفاة السلطان)، فلم يتجاوز ارتفاع الصومعة <b>44 متراً</b> فقط من الارتفاع المخطَّط له. لا تزال أعمدة المسجد غير المكتمل قائمة إلى اليوم حول الصومعة.</p>
+    </div>
+
+    <h3 class="sub-title">3) صومعة الكتبية (بمراكش)</h3>
+    <div class="rule-box">
+      <p>بُنيت صومعة الكتبية أيضاً في العصر الموحدي، وهي مئذنة مسجد الكتبية بمدينة مراكش. سُمّيت بهذا الاسم نسبة إلى سوق الكتبيين (باعة الكتب) الذي كان قريباً منها. يبلغ ارتفاعها حوالي <b>77 متراً</b>، وهي مكتملة البناء، وتُعتبر من أجمل نماذج العمارة الموحدية، وقد أثّر تصميمها في أبراج أخرى شُيّدت لاحقاً.</p>
+    </div>
+
+    <h3 class="sub-title">4) مقارنة بين الصومعتين</h3>
+    <table class="data-table">
+      <tr><th>المعيار</th><th>صومعة حسان</th><th>صومعة الكتبية</th></tr>
+      <tr><td>المدينة</td><td>الرباط</td><td>مراكش</td></tr>
+      <tr><td>العصر</td><td>الموحدي</td><td>الموحدي</td></tr>
+      <tr><td>حالة البناء</td><td>غير مكتملة</td><td>مكتملة</td></tr>
+      <tr><td>الارتفاع التقريبي</td><td>44 متراً</td><td>77 متراً</td></tr>
+    </table>
+
+    <h3 class="sub-title">5) أهمية هاتين المعلمتين</h3>
+    <div class="rule-box">
+      <p>تُعتبر صومعتا حسان والكتبية رمزين بارزين للعمارة الإسلامية المغربية في العصر الوسيط، وشاهدتين على براعة الحرفيين المغاربة في تلك الحقبة، ولا يزالان اليوم من أهم المعالم التاريخية التي يقصدها الزوار من داخل المغرب وخارجه.</p>
+    </div>
+  </section>
+
+  <!-- ===================== ACTIVITE ===================== -->
+  <section>
+    <h2 class="section-title">🗂️ نشاط تطبيقي</h2>
+    <div class="activity-box">
+      <span class="task-label">بطاقتا تعريف الصومعتين</span>
+      <p>أكمل بطاقتَي التعريف التاليتين بالاعتماد على معطيات الدرس:</p>
+      <div class="id-card">
+        <div class="id-row"><b>اسم المعلمة:</b> صومعة حسان</div>
+        <div class="id-row"><b>المدينة:</b> <span class="fill-line" style="min-width:200px;"></span></div>
+        <div class="id-row"><b>العصر:</b> <span class="fill-line" style="min-width:200px;"></span></div>
+        <div class="id-row"><b>خاصية مميِّزة:</b> <span class="fill-line" style="min-width:100%;"></span></div>
+      </div>
+      <div class="id-card">
+        <div class="id-row"><b>اسم المعلمة:</b> صومعة الكتبية</div>
+        <div class="id-row"><b>المدينة:</b> <span class="fill-line" style="min-width:200px;"></span></div>
+        <div class="id-row"><b>العصر:</b> <span class="fill-line" style="min-width:200px;"></span></div>
+        <div class="id-row"><b>خاصية مميِّزة:</b> <span class="fill-line" style="min-width:100%;"></span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== EXERCICES ===================== -->
+  <section>
+    <h2 class="section-title">📝 تمارين للتدرّب</h2>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">1</span>حدّد إن كانت كل عبارة تتعلق بصومعة حسان أو صومعة الكتبية:</h4>
+      <p>1) تقع بمدينة مراكش. <span class="fill-line"></span></p>
+      <p>2) لم يكتمل بناؤها. <span class="fill-line"></span></p>
+      <p>3) سُمّيت نسبة إلى سوق الكتب. <span class="fill-line"></span></p>
+      <p>4) لا تزال أعمدة مسجدها غير المكتمل قائمة حولها. <span class="fill-line"></span></p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">2</span>صل كل معطى بالصومعة المناسبة:</h4>
+      <div class="match-cols">
+        <ul>
+          <li>أ) تقع بمدينة الرباط</li>
+          <li>ب) ارتفاعها حوالي 77 متراً</li>
+          <li>ج) مكتملة البناء</li>
+          <li>د) غير مكتملة البناء</li>
+        </ul>
+        <ul>
+          <li>1) صومعة الكتبية</li>
+          <li>2) صومعة حسان</li>
+          <li>3) صومعة الكتبية</li>
+          <li>4) صومعة حسان</li>
+        </ul>
+      </div>
+      <p style="margin-top:10px;">الإجابة: أ - .......... &nbsp; ب - .......... &nbsp; ج - .......... &nbsp; د - ..........</p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">3</span>اختر الإجابة الصحيحة:</h4>
+      <div class="qcm-item">
+        <p>1) بُنيت صومعتا حسان والكتبية في العصر:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>الموحدي</span><span><span class="checkbox"></span>المرابطي</span><span><span class="checkbox"></span>العلوي</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>2) تقع صومعة حسان بمدينة:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>مراكش</span><span><span class="checkbox"></span>الرباط</span><span><span class="checkbox"></span>فاس</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>3) توقّف بناء صومعة حسان ومسجدها بسبب:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>نقص الحجارة</span><span><span class="checkbox"></span>وفاة السلطان الباني</span><span><span class="checkbox"></span>زلزال</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>4) سُمّيت صومعة الكتبية بهذا الاسم نسبة إلى:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>سوق الكتب القريب منها</span><span><span class="checkbox"></span>اسم بانيها</span><span><span class="checkbox"></span>شكلها الهندسي</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>5) أيّ الصومعتين أعلى ارتفاعاً؟</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>صومعة حسان</span><span><span class="checkbox"></span>صومعة الكتبية</span><span><span class="checkbox"></span>متساويتان</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">4</span>صنّف العبارات التالية إلى (أوجه تشابه / أوجه اختلاف) بين الصومعتين:</h4>
+      <p>
+        <span class="word-chip">كلتاهما بُنيتا في العصر الموحدي</span>
+        <span class="word-chip">كلتاهما تتميزان بزخارف هندسية جميلة</span>
+        <span class="word-chip">إحداهما مكتملة والأخرى غير مكتملة</span>
+        <span class="word-chip">ارتفاعاهما مختلفان</span>
+      </p>
+      <table class="data-table">
+        <tr><th>أوجه تشابه</th><th>أوجه اختلاف</th></tr>
+        <tr><td style="height:60px;"></td><td></td></tr>
+      </table>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">5</span>سؤال تحليلي:</h4>
+      <p>لماذا تُعتبر صومعتا حسان والكتبية شاهدتين على براعة الحضارة المغربية في العصر الوسيط؟ اذكر سببين اثنين.</p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== CORRIGE ===================== -->
+  <div class="corrige-wrapper">
+    <p class="corrige-flag">✂ يمكن طي هذه الصفحة أو إخفاؤها (اضغط على العنوان أدناه) قبل إنجاز التمارين ✂</p>
+    <details class="corrige">
+      <summary>التصحيح الكامل</summary>
+
+      <h4>تصحيح النشاط التطبيقي</h4>
+      <div class="corrige-item"><b>صومعة حسان:</b> المدينة: الرباط — العصر: الموحدي — خاصية مميِّزة: غير مكتملة البناء، ولا تزال أعمدة مسجدها قائمة حولها.</div>
+      <div class="corrige-item"><b>صومعة الكتبية:</b> المدينة: مراكش — العصر: الموحدي — خاصية مميِّزة: مكتملة البناء، وارتفاعها حوالي 77 متراً.</div>
+
+      <h4>تصحيح التمرين 1 (التحديد)</h4>
+      <div class="corrige-item">1) الكتبية &nbsp;|&nbsp; 2) حسان &nbsp;|&nbsp; 3) الكتبية &nbsp;|&nbsp; 4) حسان</div>
+
+      <h4>تصحيح التمرين 2 (الربط)</h4>
+      <div class="corrige-item">أ - 2 (الرباط ← صومعة حسان) &nbsp;|&nbsp; ب - 1 (77 متراً ← الكتبية) &nbsp;|&nbsp; ج - 3 (مكتملة ← الكتبية) &nbsp;|&nbsp; د - 4 (غير مكتملة ← حسان)</div>
+
+      <h4>تصحيح التمرين 3 (الاختيار من متعدد)</h4>
+      <div class="corrige-item">1) الموحدي &nbsp;|&nbsp; 2) الرباط &nbsp;|&nbsp; 3) وفاة السلطان الباني &nbsp;|&nbsp; 4) سوق الكتب القريب منها &nbsp;|&nbsp; 5) صومعة الكتبية</div>
+
+      <h4>تصحيح التمرين 4 (التصنيف)</h4>
+      <div class="corrige-item"><b>أوجه تشابه:</b> كلتاهما بُنيتا في العصر الموحدي، كلتاهما تتميزان بزخارف هندسية جميلة</div>
+      <div class="corrige-item"><b>أوجه اختلاف:</b> إحداهما مكتملة والأخرى غير مكتملة، ارتفاعاهما مختلفان</div>
+
+      <h4>تصحيح التمرين 5 (السؤال التحليلي)</h4>
+      <div class="corrige-item">1) تُظهر الصومعتان مهارة الحرفيين المغاربة في العصر الموحدي في النحت والزخرفة الهندسية الدقيقة.</div>
+      <div class="corrige-item">2) لا تزالان صامدتين إلى اليوم بعد قرون طويلة، مما يدلّ على جودة تقنيات البناء المستعملة آنذاك، وتأثيرهما الواسع على العمارة الإسلامية في مناطق أخرى.</div>
+    </details>
+  </div>
+
+  <p class="footer-note">فيشة تعلّم ذاتي — الاجتماعيات (التاريخ) — السادسة ابتدائي — أدرس آثاراً تاريخية: صومعتا حسان والكتبية</p>
+</div>
+</body>
+</html>

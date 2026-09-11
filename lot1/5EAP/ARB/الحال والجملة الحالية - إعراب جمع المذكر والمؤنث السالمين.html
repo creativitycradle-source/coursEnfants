@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>الحال والجملة الحالية - إعراب جمع المذكر والمؤنث السالمين</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#241f33; --ink-soft:#54506a;
+    --paper:#faf8f5; --panel:#ffffff; --line:#ddd4e6;
+    --indigo:#4b3f8f; --indigo-soft:#e9e5f7;
+    --rose:#b1553f; --rose-soft:#f7e3dc;
+    --gold:#af8a2e; --gold-soft:#f4ecd2;
+    --teal:#2f6a5d; --teal-soft:#e5efe9;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#e8e3ee;font-family:'Noto Naskh Arabic','Amiri',serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .sheet{max-width:880px;margin:24px auto;background:var(--paper);padding:38px 44px 50px;border:1px solid var(--line);box-shadow:0 4px 24px rgba(0,0,0,.12);}
+
+  .masthead{display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:3px solid var(--ink);padding-bottom:16px;margin-bottom:22px;}
+  .masthead-text h1{font-family:'Amiri',serif;font-weight:700;font-size:24px;margin:0 0 6px;color:var(--indigo);line-height:1.35;}
+  .masthead-text .subtitle{font-size:15px;color:var(--ink-soft);margin:0;}
+  .link-icon{width:58px;height:58px;flex-shrink:0;}
+
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+  .meta-chip{border:1px solid var(--line);background:var(--panel);border-radius:3px;padding:6px 12px;font-size:13.5px;color:var(--ink-soft);}
+  .meta-chip b{color:var(--ink);font-weight:600;}
+
+  section{margin-bottom:28px;}
+  h2.section-title{font-family:'Amiri',serif;font-size:21px;font-weight:700;color:var(--indigo);border-bottom:2px solid var(--indigo);padding-bottom:6px;margin:0 0 14px;display:flex;align-items:baseline;gap:8px;}
+  h3.sub-title{font-size:17px;font-weight:700;color:var(--rose);margin:20px 0 8px;}
+  p{line-height:2;font-size:15.5px;margin:0 0 10px;}
+
+  .objectif-box{background:var(--gold-soft);border-right:4px solid var(--gold);padding:14px 18px;border-radius:2px;font-size:15.5px;line-height:1.9;}
+
+  .rule-box{background:var(--panel);border:1px solid var(--line);border-right:4px solid var(--indigo);padding:14px 18px;border-radius:2px;margin:10px 0 16px;}
+  .rule-box p:last-child{margin-bottom:0;}
+  .rule-box ul,.rule-box ol{margin:6px 0;padding-inline-start:22px;}
+  .rule-box li{margin-bottom:6px;line-height:1.85;}
+
+  .type-grid{display:flex;flex-wrap:wrap;gap:14px;margin:10px 0 16px;}
+  .type-card{flex:1 1 220px;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:12px 16px;}
+  .type-card .head{font-weight:700;color:var(--indigo);font-size:15.5px;margin-bottom:4px;}
+  .type-card p{margin:2px 0 0;font-size:14px;color:var(--ink-soft);line-height:1.85;}
+  .tag{font-weight:700;color:var(--rose);text-decoration:underline;text-decoration-color:var(--gold);}
+
+  table.data-table{width:100%;border-collapse:collapse;margin:8px 0 18px;font-size:15px;}
+  table.data-table th{background:var(--indigo);color:#fff;padding:8px 10px;font-weight:600;font-size:14px;}
+  table.data-table td{border:1px solid var(--line);padding:9px 10px;background:var(--panel);text-align:center;}
+  table.data-table tr:nth-child(even) td{background:#f2effa;}
+
+  .plural-grid{display:flex;flex-wrap:wrap;gap:16px;margin:10px 0 16px;}
+  .plural-card{flex:1 1 260px;border-radius:8px;padding:14px 16px;}
+  .plural-card.masc{background:var(--teal-soft);border:1px solid var(--teal);}
+  .plural-card.fem{background:var(--rose-soft);border:1px solid var(--rose);}
+  .plural-card .head{font-weight:700;font-size:16px;margin-bottom:6px;}
+  .plural-card.masc .head{color:var(--teal);}
+  .plural-card.fem .head{color:var(--rose);}
+  .plural-card p{margin:2px 0 0;font-size:14.5px;line-height:1.85;}
+
+  .activity-box{background:var(--panel);border:1.5px solid var(--gold);border-radius:3px;padding:16px 20px;}
+  .activity-box .task-label{display:inline-block;background:var(--gold);color:#fff;font-size:12.5px;padding:3px 10px;border-radius:2px;margin-bottom:8px;}
+
+  .exercise{border:1px solid var(--line);border-radius:3px;padding:16px 20px;margin-bottom:16px;background:var(--panel);}
+  .exercise-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:var(--ink);color:var(--paper);border-radius:50%;font-size:14px;font-weight:700;margin-inline-end:8px;}
+  .exercise h4{margin:0 0 10px;font-size:16.5px;display:flex;align-items:center;}
+  .fill-line{border-bottom:1px dotted var(--ink-soft);display:inline-block;min-width:110px;height:1.6em;}
+  .word-chip{display:inline-block;background:var(--paper);border:1px solid var(--line);border-radius:3px;padding:3px 12px;margin:3px 4px;font-size:16px;}
+  .qcm-item{margin-bottom:10px;}
+  .qcm-item p{margin-bottom:4px;font-weight:600;}
+  .qcm-options{display:flex;flex-wrap:wrap;gap:14px;font-size:14.5px;}
+  .qcm-options span{display:flex;align-items:center;gap:5px;}
+  .checkbox{width:13px;height:13px;border:1.4px solid var(--ink-soft);display:inline-block;border-radius:2px;}
+
+  .corrige-wrapper{page-break-before:always;padding-top:6px;}
+  .corrige-flag{text-align:center;font-size:13px;color:var(--ink-soft);margin-bottom:10px;border-top:1px dashed var(--ink-soft);padding-top:14px;}
+  details.corrige{border:2px dashed var(--rose);border-radius:4px;background:#fdf7f5;padding:6px 20px 18px;}
+  details.corrige > summary{cursor:pointer;font-family:'Amiri',serif;font-weight:700;font-size:19px;color:var(--rose);padding:14px 0;list-style:none;}
+  details.corrige > summary::-webkit-details-marker{display:none;}
+  details.corrige > summary::before{content:"✂ ";}
+  details.corrige > summary::after{content:"— اضغط لإظهار الحل / إخفائه";font-family:'Noto Naskh Arabic',serif;font-weight:400;font-size:13px;color:var(--ink-soft);margin-inline-start:8px;}
+  .corrige h4{color:var(--rose);margin:16px 0 8px;font-size:16px;}
+  .corrige-item{margin-bottom:8px;font-size:15px;line-height:1.9;}
+  .corrige table.data-table th{background:var(--rose);}
+
+  .footer-note{margin-top:30px;text-align:center;font-size:12px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:10px;}
+
+  @media print{
+    body{background:#fff;}
+    .sheet{box-shadow:none;border:none;margin:0;max-width:100%;padding:14px 6px;}
+    details.corrige{border-color:#000;}
+  }
+  @page{size:A4;margin:14mm;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="masthead-text">
+      <h1>الحالُ والجملةُ الحاليةُ — إعرابُ جمعِ المذكرِ والمؤنثِ السالمَين</h1>
+      <p class="subtitle">مادة اللغة العربية — القواعد (النحو)</p>
+    </div>
+    <svg class="link-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="6" y="26" width="22" height="14" rx="7" fill="none" stroke="#4b3f8f" stroke-width="3"/>
+      <rect x="36" y="26" width="22" height="14" rx="7" fill="none" stroke="#b1553f" stroke-width="3"/>
+      <line x1="24" y1="33" x2="40" y2="33" stroke="#af8a2e" stroke-width="3"/>
+    </svg>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta-chip">المستوى: <b>الخامسة ابتدائي (5AEP)</b></div>
+    <div class="meta-chip">المادة: <b>اللغة العربية — القواعد</b></div>
+    <div class="meta-chip">مدة الحصة: <b>ساعة واحدة</b></div>
+    <div class="meta-chip">نوع الوثيقة: <b>فيشة تعلّم ذاتي</b></div>
+  </div>
+
+  <!-- ===================== OBJECTIF ===================== -->
+  <section>
+    <h2 class="section-title">🎯 الهدف من الدرس</h2>
+    <div class="objectif-box">
+      يتمكّن المتعلم(ة) في نهاية هذا الدرس من: تعريف الحال وتمييز أنواعه (المفرد والجملة الفعلية والجملة الاسمية)، والتعرّف على علامات إعراب جمع المذكر السالم وجمع المؤنث السالم، وتوظيف ذلك في جمل صحيحة.
+    </div>
+  </section>
+
+  <!-- ===================== COURS ===================== -->
+  <section>
+    <h2 class="section-title">📘 الدرس</h2>
+
+    <h3 class="sub-title">القسم الأول: الحال والجملة الحالية</h3>
+    <div class="rule-box">
+      <p><b>الحال</b> اسم نكرة منصوب يبيّن هيئة صاحبه (الفاعل غالباً) وقت وقوع الفعل، ويجيب عن سؤال "كيف؟". مثال: عاد الجنديُّ <span class="tag">منتصراً</span>. (كيف عاد الجندي؟ منتصراً)</p>
+    </div>
+    <div class="type-grid">
+      <div class="type-card">
+        <div class="head">1) الحال المفرد</div>
+        <p>كلمة واحدة منصوبة.</p>
+        <p style="margin-top:4px;">مثال: ركب الفارسُ الحصانَ <span class="tag">مسرعاً</span>.</p>
+      </div>
+      <div class="type-card">
+        <div class="head">2) الجملة الحالية الفعلية</div>
+        <p>جملة تبدأ بفعل مضارع، وتقع موقع الحال.</p>
+        <p style="margin-top:4px;">مثال: جاء الطفلُ <span class="tag">يبكي</span>.</p>
+      </div>
+      <div class="type-card">
+        <div class="head">3) الجملة الحالية الاسمية</div>
+        <p>جملة تبدأ باسم، وتُربَط غالباً بـ"واو الحال".</p>
+        <p style="margin-top:4px;">مثال: خرج التلميذُ <span class="tag">وهو مسرورٌ</span>.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-title">القسم الثاني: إعراب جمع المذكر السالم وجمع المؤنث السالم</h3>
+    <div class="plural-grid">
+      <div class="plural-card masc">
+        <div class="head">جمع المذكر السالم</div>
+        <p>يُصاغ بزيادة <b>واو ونون</b> (في حالة الرفع)، أو <b>ياء ونون</b> (في حالتي النصب والجر) على المفرد.</p>
+        <ul style="margin:6px 0 0;padding-inline-start:20px;font-size:14px;">
+          <li>الرفع: بالواو — مثال: حضر <span class="tag">المعلمونَ</span>.</li>
+          <li>النصب: بالياء — مثال: رأيتُ <span class="tag">المعلمينَ</span>.</li>
+          <li>الجر: بالياء — مثال: سلّمتُ على <span class="tag">المعلمينَ</span>.</li>
+        </ul>
+      </div>
+      <div class="plural-card fem">
+        <div class="head">جمع المؤنث السالم</div>
+        <p>يُصاغ بزيادة <b>ألف وتاء</b> (ـات) على المفرد.</p>
+        <ul style="margin:6px 0 0;padding-inline-start:20px;font-size:14px;">
+          <li>الرفع: بالضمة — مثال: نجحت <span class="tag">المعلماتُ</span>.</li>
+          <li>النصب: بالكسرة (بدل الفتحة) — مثال: كافأتُ <span class="tag">المعلماتِ</span>.</li>
+          <li>الجر: بالكسرة — مثال: سلّمتُ على <span class="tag">المعلماتِ</span>.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="sub-title">جدول تلخيصي</h3>
+    <table class="data-table" style="text-align:right;">
+      <tr><th>النوع</th><th>علامة الرفع</th><th>علامة النصب</th><th>علامة الجر</th></tr>
+      <tr><td>جمع المذكر السالم</td><td>الواو</td><td>الياء</td><td>الياء</td></tr>
+      <tr><td>جمع المؤنث السالم</td><td>الضمة</td><td>الكسرة</td><td>الكسرة</td></tr>
+    </table>
+  </section>
+
+  <!-- ===================== ACTIVITE ===================== -->
+  <section>
+    <h2 class="section-title">✏️ نشاط تطبيقي</h2>
+    <div class="activity-box">
+      <span class="task-label">عمل جماعي مع الأستاذ(ة)</span>
+      <p>حلّل كل جملة من الجمل التالية (حدّد الحال ونوعها، أو الجمع وعلامة إعرابه):</p>
+      <table class="data-table" style="text-align:right;">
+        <tr><th>الجملة</th><th>التحليل</th></tr>
+        <tr><td>عاد الجنديُّ منتصراً.</td><td>حال مفرد: منتصراً</td></tr>
+        <tr><td>خرج التلميذُ وهو مسرورٌ.</td><td><span class="fill-line"></span></td></tr>
+        <tr><td>حضر الفلاحونَ باكراً.</td><td><span class="fill-line"></span></td></tr>
+        <tr><td>كافأتُ الممرضاتِ المجتهداتِ.</td><td><span class="fill-line"></span></td></tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===================== EXERCICES ===================== -->
+  <section>
+    <h2 class="section-title">📝 تمارين للتدرّب</h2>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">1</span>حدّد الحال في كل جملة وبيّن نوعها (مفرد / جملة فعلية / جملة اسمية):</h4>
+      <p>1) عاد الجنديُّ منتصراً. <span class="fill-line"></span></p>
+      <p>2) جاء الطفلُ يبكي. <span class="fill-line"></span></p>
+      <p>3) خرج التلميذُ وهو مسرورٌ. <span class="fill-line"></span></p>
+      <p>4) ركب الفارسُ الحصانَ مسرعاً. <span class="fill-line"></span></p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">2</span>أعرب الجمع الملوَّن في كل جملة (نوعه وعلامة إعرابه):</h4>
+      <p>1) حضر المعلمونَ. <span class="fill-line" style="min-width:60%;"></span></p>
+      <p>2) رأيتُ المعلمينَ. <span class="fill-line" style="min-width:60%;"></span></p>
+      <p>3) نجحت المعلماتُ. <span class="fill-line" style="min-width:60%;"></span></p>
+      <p>4) كافأتُ المعلماتِ. <span class="fill-line" style="min-width:60%;"></span></p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">3</span>صنّف الجموع التالية إلى (جمع مذكر سالم / جمع مؤنث سالم):</h4>
+      <p>
+        <span class="word-chip">مهندسون</span>
+        <span class="word-chip">معلمات</span>
+        <span class="word-chip">فلاحون</span>
+        <span class="word-chip">طبيبات</span>
+        <span class="word-chip">مدرّسون</span>
+        <span class="word-chip">ممرضات</span>
+      </p>
+      <table class="data-table">
+        <tr><th>جمع مذكر سالم</th><th>جمع مؤنث سالم</th></tr>
+        <tr><td style="height:50px;"></td><td></td></tr>
+      </table>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">4</span>اختر الإجابة الصحيحة:</h4>
+      <div class="qcm-item">
+        <p>1) الحال اسم نكرة منصوب يبيّن:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>هيئة صاحبه وقت وقوع الفعل</span><span><span class="checkbox"></span>عدد الأشخاص</span><span><span class="checkbox"></span>مكان الحدث</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>2) "جاء الطفلُ يبكي" الحال فيها:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>مفرد</span><span><span class="checkbox"></span>جملة فعلية</span><span><span class="checkbox"></span>جملة اسمية</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>3) جمع المذكر السالم يُرفع بـ:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>الواو</span><span><span class="checkbox"></span>الألف</span><span><span class="checkbox"></span>الضمة</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>4) جمع المؤنث السالم يُنصب بـ:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>الفتحة</span><span><span class="checkbox"></span>الكسرة</span><span><span class="checkbox"></span>الياء</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>5) "المعلمينَ" في جملة "رأيتُ المعلمينَ" حالته الإعرابية:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>مرفوع بالواو</span><span><span class="checkbox"></span>منصوب بالياء</span><span><span class="checkbox"></span>مجرور بالكسرة</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">5</span>أكمل كل جملة بالكلمة المناسبة بين القوسين مضبوطةً:</h4>
+      <p>1) عاد الفريقُ <span style="color:var(--rose);">(فرح)</span> .......... من المباراة. <i>(حال مفرد)</i></p>
+      <p>2) حضر <span style="color:var(--rose);">(معلم)</span> .......... إلى المدرسة باكراً. <i>(جمع مذكر سالم، مرفوع)</i></p>
+      <p>3) كافأتُ <span style="color:var(--rose);">(معلمة)</span> .......... المجتهداتِ. <i>(جمع مؤنث سالم، منصوب)</i></p>
+    </div>
+  </section>
+
+  <!-- ===================== CORRIGE ===================== -->
+  <div class="corrige-wrapper">
+    <p class="corrige-flag">✂ يمكن طي هذه الصفحة أو إخفاؤها (اضغط على العنوان أدناه) قبل إنجاز التمارين ✂</p>
+    <details class="corrige">
+      <summary>التصحيح الكامل</summary>
+
+      <h4>تصحيح النشاط التطبيقي</h4>
+      <div class="corrige-item">خرج التلميذُ وهو مسرورٌ ← جملة حالية اسمية (وهو مسرور)</div>
+      <div class="corrige-item">حضر الفلاحونَ باكراً ← جمع مذكر سالم مرفوع بالواو (الفلاحونَ)</div>
+      <div class="corrige-item">كافأتُ الممرضاتِ المجتهداتِ ← جمع مؤنث سالم منصوب بالكسرة (الممرضاتِ)</div>
+
+      <h4>تصحيح التمرين 1 (تحديد الحال ونوعها)</h4>
+      <div class="corrige-item">1) منتصراً: حال مفرد &nbsp;|&nbsp; 2) يبكي: جملة فعلية &nbsp;|&nbsp; 3) وهو مسرورٌ: جملة اسمية &nbsp;|&nbsp; 4) مسرعاً: حال مفرد</div>
+
+      <h4>تصحيح التمرين 2 (إعراب الجموع)</h4>
+      <div class="corrige-item">1) المعلمونَ: جمع مذكر سالم، فاعل مرفوع بالواو.</div>
+      <div class="corrige-item">2) المعلمينَ: جمع مذكر سالم، مفعول به منصوب بالياء.</div>
+      <div class="corrige-item">3) المعلماتُ: جمع مؤنث سالم، فاعل مرفوع بالضمة.</div>
+      <div class="corrige-item">4) المعلماتِ: جمع مؤنث سالم، مفعول به منصوب بالكسرة.</div>
+
+      <h4>تصحيح التمرين 3 (التصنيف)</h4>
+      <div class="corrige-item"><b>جمع مذكر سالم:</b> مهندسون، فلاحون، مدرّسون</div>
+      <div class="corrige-item"><b>جمع مؤنث سالم:</b> معلمات، طبيبات، ممرضات</div>
+
+      <h4>تصحيح التمرين 4 (الاختيار من متعدد)</h4>
+      <div class="corrige-item">1) هيئة صاحبه وقت وقوع الفعل &nbsp;|&nbsp; 2) جملة فعلية &nbsp;|&nbsp; 3) الواو &nbsp;|&nbsp; 4) الكسرة &nbsp;|&nbsp; 5) منصوب بالياء</div>
+
+      <h4>تصحيح التمرين 5 (الإكمال)</h4>
+      <div class="corrige-item">1) فَرِحاً &nbsp;|&nbsp; 2) المعلمونَ &nbsp;|&nbsp; 3) المعلماتِ</div>
+    </details>
+  </div>
+
+  <p class="footer-note">فيشة تعلّم ذاتي — اللغة العربية — الخامسة ابتدائي — الحال والجملة الحالية - إعراب جمع المذكر والمؤنث السالمين</p>
+</div>
+</body>
+</html>

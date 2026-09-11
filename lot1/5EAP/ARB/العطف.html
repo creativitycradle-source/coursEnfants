@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>العطف</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#241f33; --ink-soft:#54506a;
+    --paper:#faf8f5; --panel:#ffffff; --line:#ddd4e6;
+    --indigo:#4b3f8f; --indigo-soft:#e9e5f7;
+    --rose:#b1553f; --rose-soft:#f7e3dc;
+    --gold:#af8a2e; --gold-soft:#f4ecd2;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#e8e3ee;font-family:'Noto Naskh Arabic','Amiri',serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .sheet{max-width:880px;margin:24px auto;background:var(--paper);padding:38px 44px 50px;border:1px solid var(--line);box-shadow:0 4px 24px rgba(0,0,0,.12);}
+
+  .masthead{display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:3px solid var(--ink);padding-bottom:16px;margin-bottom:22px;}
+  .masthead-text h1{font-family:'Amiri',serif;font-weight:700;font-size:32px;margin:0 0 6px;color:var(--indigo);}
+  .masthead-text .subtitle{font-size:15px;color:var(--ink-soft);margin:0;}
+  .link-icon{width:58px;height:58px;flex-shrink:0;}
+
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+  .meta-chip{border:1px solid var(--line);background:var(--panel);border-radius:3px;padding:6px 12px;font-size:13.5px;color:var(--ink-soft);}
+  .meta-chip b{color:var(--ink);font-weight:600;}
+
+  section{margin-bottom:28px;}
+  h2.section-title{font-family:'Amiri',serif;font-size:21px;font-weight:700;color:var(--indigo);border-bottom:2px solid var(--indigo);padding-bottom:6px;margin:0 0 14px;display:flex;align-items:baseline;gap:8px;}
+  h3.sub-title{font-size:17px;font-weight:700;color:var(--rose);margin:20px 0 8px;}
+  p{line-height:2;font-size:15.5px;margin:0 0 10px;}
+
+  .objectif-box{background:var(--gold-soft);border-right:4px solid var(--gold);padding:14px 18px;border-radius:2px;font-size:15.5px;line-height:1.9;}
+
+  .rule-box{background:var(--panel);border:1px solid var(--line);border-right:4px solid var(--indigo);padding:14px 18px;border-radius:2px;margin:10px 0 16px;}
+  .rule-box p:last-child{margin-bottom:0;}
+  .rule-box ul{margin:6px 0;padding-inline-start:22px;}
+  .rule-box li{margin-bottom:6px;line-height:1.85;}
+
+  .example-box{background:var(--indigo-soft);border:1px dashed var(--indigo);padding:12px 18px;border-radius:2px;margin:10px 0;font-size:15.5px;line-height:1.95;}
+  .example-box .maatouf-alayh{color:var(--indigo);font-weight:700;}
+  .example-box .harf{color:var(--gold);font-weight:700;}
+  .example-box .maatouf{color:var(--rose);font-weight:700;}
+
+  .legend{display:flex;gap:18px;flex-wrap:wrap;font-size:13.5px;color:var(--ink-soft);margin:8px 0 14px;}
+  .legend span.swatch{display:inline-block;width:12px;height:12px;border-radius:2px;margin-inline-end:5px;vertical-align:-1px;}
+  .swatch.mo-sw{background:var(--indigo);}
+  .swatch.harf-sw{background:var(--gold);}
+  .swatch.ma-sw{background:var(--rose);}
+
+  table.data-table{width:100%;border-collapse:collapse;margin:8px 0 18px;font-size:15px;}
+  table.data-table th{background:var(--indigo);color:#fff;padding:8px 10px;font-weight:600;font-size:14px;}
+  table.data-table td{border:1px solid var(--line);padding:9px 10px;background:var(--panel);text-align:center;}
+  table.data-table tr:nth-child(even) td{background:#f2effa;}
+  .harf-tag{font-family:'Amiri',serif;font-weight:700;color:var(--gold);font-size:17px;}
+
+  .activity-box{background:var(--panel);border:1.5px solid var(--gold);border-radius:3px;padding:16px 20px;}
+  .activity-box .task-label{display:inline-block;background:var(--gold);color:#fff;font-size:12.5px;padding:3px 10px;border-radius:2px;margin-bottom:8px;}
+
+  .exercise{border:1px solid var(--line);border-radius:3px;padding:16px 20px;margin-bottom:16px;background:var(--panel);}
+  .exercise-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:var(--ink);color:var(--paper);border-radius:50%;font-size:14px;font-weight:700;margin-inline-end:8px;}
+  .exercise h4{margin:0 0 10px;font-size:16.5px;display:flex;align-items:center;}
+  .fill-line{border-bottom:1px dotted var(--ink-soft);display:inline-block;min-width:110px;height:1.6em;}
+  .qcm-item{margin-bottom:10px;}
+  .qcm-item p{margin-bottom:4px;font-weight:600;}
+  .qcm-options{display:flex;flex-wrap:wrap;gap:14px;font-size:14.5px;}
+  .qcm-options span{display:flex;align-items:center;gap:5px;}
+  .checkbox{width:13px;height:13px;border:1.4px solid var(--ink-soft);display:inline-block;border-radius:2px;}
+  .match-cols{display:flex;justify-content:space-between;gap:40px;margin-top:8px;}
+  .match-cols ul{list-style:none;padding:0;margin:0;}
+  .match-cols li{border:1px solid var(--line);background:var(--paper);padding:6px 14px;margin-bottom:10px;border-radius:3px;font-size:15px;}
+  .choice-parens{color:var(--rose);font-weight:600;}
+
+  .corrige-wrapper{page-break-before:always;padding-top:6px;}
+  .corrige-flag{text-align:center;font-size:13px;color:var(--ink-soft);margin-bottom:10px;border-top:1px dashed var(--ink-soft);padding-top:14px;}
+  details.corrige{border:2px dashed var(--rose);border-radius:4px;background:#fdf7f5;padding:6px 20px 18px;}
+  details.corrige > summary{cursor:pointer;font-family:'Amiri',serif;font-weight:700;font-size:19px;color:var(--rose);padding:14px 0;list-style:none;}
+  details.corrige > summary::-webkit-details-marker{display:none;}
+  details.corrige > summary::before{content:"✂ ";}
+  details.corrige > summary::after{content:"— اضغط لإظهار الحل / إخفائه";font-family:'Noto Naskh Arabic',serif;font-weight:400;font-size:13px;color:var(--ink-soft);margin-inline-start:8px;}
+  .corrige h4{color:var(--rose);margin:16px 0 8px;font-size:16px;}
+  .corrige-item{margin-bottom:8px;font-size:15px;line-height:1.9;}
+  .corrige table.data-table th{background:var(--rose);}
+
+  .footer-note{margin-top:30px;text-align:center;font-size:12px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:10px;}
+
+  @media print{
+    body{background:#fff;}
+    .sheet{box-shadow:none;border:none;margin:0;max-width:100%;padding:14px 6px;}
+    details.corrige{border-color:#000;}
+  }
+  @page{size:A4;margin:14mm;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="masthead-text">
+      <h1>العطفُ</h1>
+      <p class="subtitle">مادة اللغة العربية — القواعد (النحو)</p>
+    </div>
+    <svg class="link-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="6" y="26" width="22" height="14" rx="7" fill="none" stroke="#4b3f8f" stroke-width="3"/>
+      <rect x="36" y="26" width="22" height="14" rx="7" fill="none" stroke="#b1553f" stroke-width="3"/>
+      <line x1="24" y1="33" x2="40" y2="33" stroke="#af8a2e" stroke-width="3"/>
+    </svg>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta-chip">المستوى: <b>الخامسة ابتدائي (5AEP)</b></div>
+    <div class="meta-chip">المادة: <b>اللغة العربية — القواعد</b></div>
+    <div class="meta-chip">مدة الحصة: <b>ساعة واحدة</b></div>
+    <div class="meta-chip">نوع الوثيقة: <b>فيشة تعلّم ذاتي</b></div>
+  </div>
+
+  <!-- ===================== OBJECTIF ===================== -->
+  <section>
+    <h2 class="section-title">🎯 الهدف من الدرس</h2>
+    <div class="objectif-box">
+      يتمكّن المتعلم(ة) في نهاية هذا الدرس من: تعريف أسلوب العطف، والتعرّف على أهم حروف العطف ومعانيها، وتحديد المعطوف والمعطوف عليه في جمل معطاة، وإعراب المعطوف تبعاً للمعطوف عليه.
+    </div>
+  </section>
+
+  <!-- ===================== COURS ===================== -->
+  <section>
+    <h2 class="section-title">📘 الدرس</h2>
+
+    <h3 class="sub-title">1) تعريف العطف</h3>
+    <div class="rule-box">
+      <p><b>العطف</b> أسلوب يربط بين اسمين (أو أكثر) بواسطة حرف يسمى <b>حرف العطف</b>. يُسمى الاسم الأول <b>المعطوف عليه</b>، والاسم الثاني <b>المعطوف</b>.</p>
+    </div>
+    <div class="legend">
+      <span><span class="swatch mo-sw"></span>المعطوف عليه</span>
+      <span><span class="swatch harf-sw"></span>حرف العطف</span>
+      <span><span class="swatch ma-sw"></span>المعطوف</span>
+    </div>
+    <div class="example-box">
+      حضر <span class="maatouf-alayh">خالدٌ</span> <span class="harf">و</span><span class="maatouf">سعيدٌ</span>.
+    </div>
+
+    <h3 class="sub-title">2) أهم حروف العطف ومعانيها</h3>
+    <table class="data-table" style="text-align:right;">
+      <tr><th>حرف العطف</th><th>المعنى</th><th>مثال</th></tr>
+      <tr><td class="harf-tag">الواو</td><td>مطلق الجمع (دون ترتيب)</td><td>حضر خالدٌ وسعيدٌ.</td></tr>
+      <tr><td class="harf-tag">الفاء</td><td>الترتيب مع التعقيب (بدون تأخير)</td><td>دخل المعلمُ فالتلاميذُ.</td></tr>
+      <tr><td class="harf-tag">ثمّ</td><td>الترتيب مع التراخي (مع تأخير)</td><td>زرتُ الرباطَ ثم فاسَ.</td></tr>
+      <tr><td class="harf-tag">أو</td><td>التخيير أو الشك</td><td>خذ كتاباً أو قلماً.</td></tr>
+    </table>
+
+    <h3 class="sub-title">3) إعراب المعطوف</h3>
+    <div class="rule-box">
+      <p>القاعدة الأساسية في العطف: يأخذ <b>المعطوف</b> نفس إعراب <b>المعطوف عليه</b> (رفعاً كان أو نصباً أو جراً).</p>
+    </div>
+    <table class="data-table" style="text-align:right;">
+      <tr><th>الجملة</th><th>حالة المعطوف عليه</th><th>حالة المعطوف</th></tr>
+      <tr><td>نجح خالدٌ وسعيدٌ.</td><td>مرفوع (فاعل)</td><td>سعيدٌ: معطوف مرفوع</td></tr>
+      <tr><td>رأيتُ خالداً وسعيداً.</td><td>منصوب (مفعول به)</td><td>سعيداً: معطوف منصوب</td></tr>
+      <tr><td>سلّمتُ على خالدٍ وسعيدٍ.</td><td>مجرور (بحرف جر)</td><td>سعيدٍ: معطوف مجرور</td></tr>
+    </table>
+  </section>
+
+  <!-- ===================== ACTIVITE ===================== -->
+  <section>
+    <h2 class="section-title">✏️ نشاط تطبيقي</h2>
+    <div class="activity-box">
+      <span class="task-label">عمل جماعي مع الأستاذ(ة)</span>
+      <p>حدّد في كل جملة: حرف العطف، المعطوف عليه، والمعطوف. لاحظ المثال الأول المُنجَز:</p>
+      <table class="data-table" style="text-align:right;">
+        <tr><th>الجملة</th><th>حرف العطف</th><th>المعطوف عليه</th><th>المعطوف</th></tr>
+        <tr><td>حضر خالدٌ وسعيدٌ.</td><td>الواو</td><td>خالدٌ</td><td>سعيدٌ</td></tr>
+        <tr><td>دخل المعلمُ فالتلاميذُ.</td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+        <tr><td>زرتُ الرباطَ ثم فاسَ.</td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+        <tr><td>اشترِ تفاحاً أو موزاً.</td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===================== EXERCICES ===================== -->
+  <section>
+    <h2 class="section-title">📝 تمارين للتدرّب</h2>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">1</span>حدّد حرف العطف والمعطوف عليه والمعطوف في كل جملة:</h4>
+      <p>1) لعب أحمدُ ومحمدٌ في الساحة. <span class="fill-line" style="min-width:100%;"></span></p>
+      <p>2) قرأتُ القصةَ والمجلةَ. <span class="fill-line" style="min-width:100%;"></span></p>
+      <p>3) سلّمتُ على المعلمِ فالمديرِ. <span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">2</span>صل كل حرف عطف بالمعنى المناسب له:</h4>
+      <div class="match-cols">
+        <ul>
+          <li>أ) الواو</li>
+          <li>ب) الفاء</li>
+          <li>ج) ثمّ</li>
+          <li>د) أو</li>
+        </ul>
+        <ul>
+          <li>1) الترتيب مع التراخي</li>
+          <li>2) التخيير أو الشك</li>
+          <li>3) مطلق الجمع</li>
+          <li>4) الترتيب مع التعقيب</li>
+        </ul>
+      </div>
+      <p style="margin-top:10px;">الإجابة: أ - .......... &nbsp; ب - .......... &nbsp; ج - .......... &nbsp; د - ..........</p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">3</span>أعرب المعطوف الملوَّن في كل جملة:</h4>
+      <p>1) نجح خالدٌ <b>وسعيدٌ</b>. <span class="fill-line" style="min-width:60%;"></span></p>
+      <p>2) رأيتُ خالداً <b>وسعيداً</b>. <span class="fill-line" style="min-width:60%;"></span></p>
+      <p>3) سلّمتُ على خالدٍ <b>وسعيدٍ</b>. <span class="fill-line" style="min-width:60%;"></span></p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">4</span>اختر الإجابة الصحيحة:</h4>
+      <div class="qcm-item">
+        <p>1) العطف أسلوب يربط بين:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>اسمين بحرف عطف</span><span><span class="checkbox"></span>فعلين فقط</span><span><span class="checkbox"></span>حرفين</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>2) حرف العطف الذي يفيد الترتيب مع التعقيب (بدون تأخير) هو:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>الواو</span><span><span class="checkbox"></span>الفاء</span><span><span class="checkbox"></span>ثمّ</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>3) المعطوف يأخذ نفس إعراب:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>المعطوف عليه</span><span><span class="checkbox"></span>الفعل</span><span><span class="checkbox"></span>حرف العطف</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>4) "زرتُ الرباطَ ثم فاسَ" حرف العطف "ثمّ" يفيد:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>الترتيب والتراخي</span><span><span class="checkbox"></span>مطلق الجمع</span><span><span class="checkbox"></span>التخيير</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>5) في جملة "خذ كتاباً أو قلماً"، فإن "قلماً" يُعرب:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>معطوفاً منصوباً</span><span><span class="checkbox"></span>معطوفاً مرفوعاً</span><span><span class="checkbox"></span>معطوفاً مجروراً</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">5</span>أكمل كل جملة بحرف العطف المناسب بين القوسين:</h4>
+      <p>1) حضر أحمدُ .......... محمدٌ. <i>(مطلق الجمع)</i></p>
+      <p>2) دخل الأستاذُ .......... التلاميذُ. <i>(ترتيب وتعقيب)</i></p>
+      <p>3) سافرتُ إلى مراكشَ .......... أكادير. <i>(ترتيب وتراخي)</i></p>
+      <p>4) اختر القراءةَ .......... الكتابةَ. <i>(تخيير)</i></p>
+    </div>
+  </section>
+
+  <!-- ===================== CORRIGE ===================== -->
+  <div class="corrige-wrapper">
+    <p class="corrige-flag">✂ يمكن طي هذه الصفحة أو إخفاؤها (اضغط على العنوان أدناه) قبل إنجاز التمارين ✂</p>
+    <details class="corrige">
+      <summary>التصحيح الكامل</summary>
+
+      <h4>تصحيح النشاط التطبيقي</h4>
+      <table class="data-table" style="text-align:right;">
+        <tr><th>الجملة</th><th>حرف العطف</th><th>المعطوف عليه</th><th>المعطوف</th></tr>
+        <tr><td>دخل المعلمُ فالتلاميذُ.</td><td>الفاء</td><td>المعلمُ</td><td>التلاميذُ</td></tr>
+        <tr><td>زرتُ الرباطَ ثم فاسَ.</td><td>ثمّ</td><td>الرباطَ</td><td>فاسَ</td></tr>
+        <tr><td>اشترِ تفاحاً أو موزاً.</td><td>أو</td><td>تفاحاً</td><td>موزاً</td></tr>
+      </table>
+
+      <h4>تصحيح التمرين 1 (تحديد العطف)</h4>
+      <div class="corrige-item">1) حرف العطف: الواو — المعطوف عليه: أحمدُ — المعطوف: محمدٌ</div>
+      <div class="corrige-item">2) حرف العطف: الواو — المعطوف عليه: القصةَ — المعطوف: المجلةَ</div>
+      <div class="corrige-item">3) حرف العطف: الفاء — المعطوف عليه: المعلمِ — المعطوف: المديرِ</div>
+
+      <h4>تصحيح التمرين 2 (الربط)</h4>
+      <div class="corrige-item">أ - 3 (الواو ← مطلق الجمع) &nbsp;|&nbsp; ب - 4 (الفاء ← الترتيب والتعقيب) &nbsp;|&nbsp; ج - 1 (ثمّ ← الترتيب والتراخي) &nbsp;|&nbsp; د - 2 (أو ← التخيير أو الشك)</div>
+
+      <h4>تصحيح التمرين 3 (الإعراب)</h4>
+      <div class="corrige-item">1) سعيدٌ: معطوف مرفوع وعلامة رفعه الضمة.</div>
+      <div class="corrige-item">2) سعيداً: معطوف منصوب وعلامة نصبه الفتحة.</div>
+      <div class="corrige-item">3) سعيدٍ: معطوف مجرور وعلامة جره الكسرة.</div>
+
+      <h4>تصحيح التمرين 4 (الاختيار من متعدد)</h4>
+      <div class="corrige-item">1) اسمين بحرف عطف &nbsp;|&nbsp; 2) الفاء &nbsp;|&nbsp; 3) المعطوف عليه &nbsp;|&nbsp; 4) الترتيب والتراخي &nbsp;|&nbsp; 5) معطوفاً منصوباً</div>
+
+      <h4>تصحيح التمرين 5 (إكمال بحرف العطف)</h4>
+      <div class="corrige-item">1) الواو &nbsp;|&nbsp; 2) الفاء &nbsp;|&nbsp; 3) ثمّ &nbsp;|&nbsp; 4) أو</div>
+    </details>
+  </div>
+
+  <p class="footer-note">فيشة تعلّم ذاتي — اللغة العربية — الخامسة ابتدائي — العطف</p>
+</div>
+</body>
+</html>

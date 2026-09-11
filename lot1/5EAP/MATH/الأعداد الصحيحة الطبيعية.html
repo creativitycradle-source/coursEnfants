@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>الأعداد الصحيحة الطبيعية</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1c2b3a; --ink-soft:#4d5f70;
+    --paper:#f7f9fb; --panel:#ffffff; --line:#c9d6e0;
+    --blue:#2f5f8a; --blue-soft:#e2ecf3;
+    --orange:#e07b39; --orange-soft:#fbe8d8;
+    --green:#3a8f6b; --green-soft:#e1f2ea;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#dde6ec;color:var(--ink);font-family:'Noto Naskh Arabic','Amiri',serif;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .sheet{
+    max-width:880px;margin:24px auto;background:
+      repeating-linear-gradient(0deg, transparent 0 27px, rgba(47,95,138,.06) 27px 28px),
+      repeating-linear-gradient(90deg, transparent 0 27px, rgba(47,95,138,.06) 27px 28px),
+      var(--paper);
+    padding:38px 44px 50px;border:1px solid var(--line);box-shadow:0 4px 24px rgba(0,0,0,.12);
+  }
+
+  .masthead{display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:3px solid var(--ink);padding-bottom:16px;margin-bottom:22px;}
+  .masthead-text h1{font-family:'Amiri',serif;font-weight:700;font-size:28px;margin:0 0 6px;color:var(--blue);}
+  .masthead-text .subtitle{font-size:15px;color:var(--ink-soft);margin:0;}
+  .num-icon{width:60px;height:60px;flex-shrink:0;}
+
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+  .meta-chip{border:1px solid var(--line);background:var(--panel);border-radius:3px;padding:6px 12px;font-size:13.5px;color:var(--ink-soft);}
+  .meta-chip b{color:var(--ink);font-weight:600;}
+
+  section{margin-bottom:28px;}
+  h2.section-title{font-family:'Amiri',serif;font-size:21px;font-weight:700;color:var(--blue);border-bottom:2px solid var(--blue);padding-bottom:6px;margin:0 0 14px;display:flex;align-items:baseline;gap:8px;}
+  h3.sub-title{font-size:17px;font-weight:700;color:var(--orange);margin:20px 0 8px;}
+  p{line-height:2;font-size:15.5px;margin:0 0 10px;}
+
+  .objectif-box{background:var(--orange-soft);border-right:4px solid var(--orange);padding:14px 18px;border-radius:2px;font-size:15.5px;line-height:1.9;}
+
+  .rule-box{background:var(--panel);border:1px solid var(--line);border-right:4px solid var(--blue);padding:14px 18px;border-radius:2px;margin:10px 0 16px;}
+  .rule-box p:last-child{margin-bottom:0;}
+  .rule-box ul,.rule-box ol{margin:6px 0;padding-inline-start:22px;}
+  .rule-box li{margin-bottom:6px;line-height:1.85;}
+
+  table.place-table{width:100%;border-collapse:collapse;margin:10px 0 18px;font-size:14px;text-align:center;}
+  table.place-table th{padding:6px 4px;font-size:12.5px;font-weight:600;}
+  table.place-table th.class-h{background:var(--blue);color:#fff;font-size:13.5px;}
+  table.place-table td{border:1px solid var(--line);padding:10px 4px;background:var(--panel);font-size:18px;font-weight:700;color:var(--orange);}
+  table.place-table .sub-h{background:#eef3f7;color:var(--ink-soft);font-weight:600;font-size:11.5px;}
+
+  table.data-table{width:100%;border-collapse:collapse;margin:8px 0 18px;font-size:15px;}
+  table.data-table th{background:var(--blue);color:#fff;padding:8px 10px;font-weight:600;font-size:14px;}
+  table.data-table td{border:1px solid var(--line);padding:9px 10px;background:var(--panel);text-align:center;}
+  table.data-table tr:nth-child(even) td{background:#eef3f7;}
+
+  .activity-box{background:var(--panel);border:1.5px solid var(--orange);border-radius:3px;padding:16px 20px;}
+  .activity-box .task-label{display:inline-block;background:var(--orange);color:#fff;font-size:12.5px;padding:3px 10px;border-radius:2px;margin-bottom:8px;}
+
+  .exercise{border:1px solid var(--line);border-radius:3px;padding:16px 20px;margin-bottom:16px;background:var(--panel);}
+  .exercise-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:var(--ink);color:var(--paper);border-radius:50%;font-size:14px;font-weight:700;margin-inline-end:8px;}
+  .exercise h4{margin:0 0 10px;font-size:16.5px;display:flex;align-items:center;}
+  .fill-line{border-bottom:1px dotted var(--ink-soft);display:inline-block;min-width:120px;height:1.6em;}
+  .op-grid{display:flex;flex-wrap:wrap;gap:20px;}
+  .op-item{display:flex;align-items:center;gap:6px;font-size:15.5px;}
+  .qcm-item{margin-bottom:10px;}
+  .qcm-item p{margin-bottom:4px;font-weight:600;}
+  .qcm-options{display:flex;flex-wrap:wrap;gap:14px;font-size:14.5px;}
+  .qcm-options span{display:flex;align-items:center;gap:5px;}
+  .checkbox{width:13px;height:13px;border:1.4px solid var(--ink-soft);display:inline-block;border-radius:2px;}
+  .scenario-box{background:#eef3f7;border:1px solid var(--line);padding:12px 16px;font-size:15.5px;line-height:2.1;margin-bottom:10px;}
+
+  .corrige-wrapper{page-break-before:always;padding-top:6px;}
+  .corrige-flag{text-align:center;font-size:13px;color:var(--ink-soft);margin-bottom:10px;border-top:1px dashed var(--ink-soft);padding-top:14px;}
+  details.corrige{border:2px dashed var(--green);border-radius:4px;background:#f7fcfa;padding:6px 20px 18px;}
+  details.corrige > summary{cursor:pointer;font-family:'Amiri',serif;font-weight:700;font-size:19px;color:var(--green);padding:14px 0;list-style:none;}
+  details.corrige > summary::-webkit-details-marker{display:none;}
+  details.corrige > summary::before{content:"✂ ";}
+  details.corrige > summary::after{content:"— اضغط لإظهار الحل / إخفائه";font-family:'Noto Naskh Arabic',serif;font-weight:400;font-size:13px;color:var(--ink-soft);margin-inline-start:8px;}
+  .corrige h4{color:var(--green);margin:16px 0 8px;font-size:16px;}
+  .corrige-item{margin-bottom:8px;font-size:15px;line-height:1.9;}
+  .corrige table.data-table th{background:var(--green);}
+
+  .footer-note{margin-top:30px;text-align:center;font-size:12px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:10px;}
+
+  @media print{
+    body{background:#fff;}
+    .sheet{box-shadow:none;border:none;margin:0;max-width:100%;padding:14px 6px;background:var(--paper);}
+    details.corrige{border-color:#000;}
+  }
+  @page{size:A4;margin:14mm;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="masthead-text">
+      <h1>الأعدادُ الصحيحةُ الطبيعيةُ</h1>
+      <p class="subtitle">الرياضيات — الأعداد والحساب</p>
+    </div>
+    <svg class="num-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="6" y="14" width="12" height="36" rx="2" fill="none" stroke="#2f5f8a" stroke-width="2.5"/>
+      <rect x="26" y="20" width="12" height="30" rx="2" fill="none" stroke="#e07b39" stroke-width="2.5"/>
+      <rect x="46" y="8" width="12" height="42" rx="2" fill="none" stroke="#3a8f6b" stroke-width="2.5"/>
+      <line x1="6" y1="50" x2="58" y2="50" stroke="#1c2b3a" stroke-width="2.5"/>
+    </svg>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta-chip">المستوى: <b>الخامسة ابتدائي (5AEP)</b></div>
+    <div class="meta-chip">المادة: <b>الرياضيات — الأعداد والحساب</b></div>
+    <div class="meta-chip">مدة الحصة: <b>ساعة واحدة</b></div>
+    <div class="meta-chip">نوع الوثيقة: <b>فيشة تعلّم ذاتي</b></div>
+  </div>
+
+  <!-- ===================== OBJECTIF ===================== -->
+  <section>
+    <h2 class="section-title">🎯 الهدف من الدرس</h2>
+    <div class="objectif-box">
+      يتمكّن المتعلم(ة) في نهاية هذا الدرس من: التعرّف على الأعداد الصحيحة الطبيعية ومنازلها ومراتبها، وقراءة وكتابة الأعداد الكبيرة، وتحليل عدد إلى مجموع قيم منازله، ومقارنة الأعداد وترتيبها.
+    </div>
+  </section>
+
+  <!-- ===================== COURS ===================== -->
+  <section>
+    <h2 class="section-title">📘 الدرس</h2>
+
+    <h3 class="sub-title">1) تعريف الأعداد الصحيحة الطبيعية</h3>
+    <div class="rule-box">
+      <p><b>الأعداد الصحيحة الطبيعية</b> هي الأعداد التي نستعملها للعدّ: 0، 1، 2، 3، 4... وهي أعداد غير محدودة (لا نهاية لها)، ولا تحتوي على فاصلة عشرية ولا إشارة (- أو +).</p>
+    </div>
+
+    <h3 class="sub-title">2) منازل ومراتب الأعداد</h3>
+    <div class="rule-box">
+      <p>يُقسَّم أي عدد كبير إلى <b>فئات</b> (كل فئة تضم 3 منازل): فئة الوحدات، فئة الألوف، فئة الملايين... وتضم كل فئة ثلاث منازل: <b>الآحاد</b>، <b>العشرات</b>، <b>المئات</b>.</p>
+    </div>
+    <table class="place-table">
+      <tr>
+        <th class="class-h" colspan="3">فئة الملايين</th>
+        <th class="class-h" colspan="3">فئة الألوف</th>
+        <th class="class-h" colspan="3">فئة الوحدات</th>
+      </tr>
+      <tr>
+        <td class="sub-h">مئات الملايين</td><td class="sub-h">عشرات الملايين</td><td class="sub-h">آحاد الملايين</td>
+        <td class="sub-h">مئات الألوف</td><td class="sub-h">عشرات الألوف</td><td class="sub-h">آحاد الألوف</td>
+        <td class="sub-h">مئات</td><td class="sub-h">عشرات</td><td class="sub-h">آحاد</td>
+      </tr>
+      <tr>
+        <td>0</td><td>0</td><td>5</td>
+        <td>2</td><td>3</td><td>4</td>
+        <td>6</td><td>7</td><td>1</td>
+      </tr>
+    </table>
+    <p style="font-size:14px;color:var(--ink-soft);margin-top:-8px;">العدد الممثَّل في الجدول هو: <b>5 234 671</b> ويُقرأ: خمسة ملايين ومئتان وأربعة وثلاثون ألفاً وستمائة وواحد وسبعون.</p>
+
+    <h3 class="sub-title">3) قراءة وكتابة الأعداد الكبيرة</h3>
+    <div class="rule-box">
+      <p>لتسهيل قراءة عدد كبير، نُجزِّئه إلى مجموعات من ثلاثة أرقام ابتداءً من اليمين، ونفصل بين كل مجموعة وأخرى بمسافة صغيرة: مثال: <b>5 234 671</b> بدل 5234671.</p>
+    </div>
+
+    <h3 class="sub-title">4) تحليل عدد (كتابته على شكل مجموع)</h3>
+    <div class="rule-box">
+      <p>يمكن تحليل أي عدد إلى مجموع قيم منازله، أي ضرب كل رقم في قيمة منزلته:</p>
+    </div>
+    <p style="text-align:center;font-weight:700;color:var(--blue);font-size:16px;">5 234 671 = 5 000 000 + 200 000 + 30 000 + 4 000 + 600 + 70 + 1</p>
+
+    <h3 class="sub-title">5) مقارنة الأعداد وترتيبها</h3>
+    <div class="rule-box">
+      <p>لمقارنة عددين، نتّبع القاعدة التالية:</p>
+      <ol>
+        <li>العدد الذي له عدد أكبر من الأرقام هو الأكبر (مثال: 12,345 أكبر من 987).</li>
+        <li>إذا تساوى عدد الأرقام، نقارن الأرقام رقماً برقم بدءاً من اليسار، حتى نجد فرقاً.</li>
+      </ol>
+      <p>نستعمل الرموز: <b>&lt;</b> (أصغر من)، <b>&gt;</b> (أكبر من)، <b>=</b> (يساوي). مثال: 45 678 &lt; 45 687</p>
+    </div>
+
+    <h3 class="sub-title">6) التقريب</h3>
+    <div class="rule-box">
+      <p>يمكن تقريب عدد إلى أقرب عشرة أو مئة أو ألف، وذلك بالنظر إلى الرقم الذي يلي المنزلة المطلوبة: إذا كان 5 أو أكبر، نُقرِّب للأعلى؛ وإذا كان أقل من 5، نُقرِّب للأسفل. مثال: 4 678 يُقرَّب إلى أقرب مئة فيصبح 4 700.</p>
+    </div>
+  </section>
+
+  <!-- ===================== ACTIVITE ===================== -->
+  <section>
+    <h2 class="section-title">✏️ نشاط تطبيقي</h2>
+    <div class="activity-box">
+      <span class="task-label">وضع عدد في جدول المنازل والمراتب</span>
+      <p>ضع العدد <b>3 048 502</b> في الجدول التالي، ثم اكتبه بالحروف، وحلّله إلى مجموع قيم منازله:</p>
+      <table class="place-table">
+        <tr>
+          <th class="class-h" colspan="3">فئة الملايين</th>
+          <th class="class-h" colspan="3">فئة الألوف</th>
+          <th class="class-h" colspan="3">فئة الوحدات</th>
+        </tr>
+        <tr>
+          <td class="sub-h">مئات الملايين</td><td class="sub-h">عشرات الملايين</td><td class="sub-h">آحاد الملايين</td>
+          <td class="sub-h">مئات الألوف</td><td class="sub-h">عشرات الألوف</td><td class="sub-h">آحاد الألوف</td>
+          <td class="sub-h">مئات</td><td class="sub-h">عشرات</td><td class="sub-h">آحاد</td>
+        </tr>
+        <tr>
+          <td><span class="fill-line" style="min-width:20px;"></span></td><td><span class="fill-line" style="min-width:20px;"></span></td><td><span class="fill-line" style="min-width:20px;"></span></td>
+          <td><span class="fill-line" style="min-width:20px;"></span></td><td><span class="fill-line" style="min-width:20px;"></span></td><td><span class="fill-line" style="min-width:20px;"></span></td>
+          <td><span class="fill-line" style="min-width:20px;"></span></td><td><span class="fill-line" style="min-width:20px;"></span></td><td><span class="fill-line" style="min-width:20px;"></span></td>
+        </tr>
+      </table>
+      <p>كتابةً بالحروف: <span class="fill-line" style="min-width:100%;"></span></p>
+      <p>التحليل: <span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== EXERCICES ===================== -->
+  <section>
+    <h2 class="section-title">📝 تمارين للتدرّب</h2>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">1</span>اكتب بالأرقام أو بالحروف حسب المطلوب:</h4>
+      <p>1) اكتب بالأرقام: "أربعة آلاف وخمسمائة وستة وعشرون" → <span class="fill-line"></span></p>
+      <p>2) اكتب بالحروف: 12 345 → <span class="fill-line" style="min-width:100%;"></span></p>
+      <p>3) اكتب بالأرقام: "مليون ومئتا ألف وخمسون" → <span class="fill-line"></span></p>
+      <p>4) اكتب بالحروف: 7 089 → <span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">2</span>حلّل الأعداد التالية إلى مجموع قيم منازلها:</h4>
+      <div class="op-grid">
+        <div class="op-item">4 208 = <span class="fill-line" style="min-width:220px;"></span></div>
+        <div class="op-item">56 730 = <span class="fill-line" style="min-width:220px;"></span></div>
+        <div class="op-item">302 050 = <span class="fill-line" style="min-width:220px;"></span></div>
+        <div class="op-item">1 400 006 = <span class="fill-line" style="min-width:220px;"></span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">3</span>قارن بين الأعداد التالية باستعمال الرموز &lt; أو &gt; أو =، ثم رتّب المجموعة الثانية ترتيباً تصاعدياً:</h4>
+      <p>1) 45 678 <span class="fill-line" style="min-width:40px;"></span> 45 687</p>
+      <p>2) 302 450 <span class="fill-line" style="min-width:40px;"></span> 302 450</p>
+      <p>3) 1 200 000 <span class="fill-line" style="min-width:40px;"></span> 999 999</p>
+      <p>4) رتّب تصاعدياً: 34 502 — 34 250 — 34 520 — 34 205</p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">4</span>اختر الإجابة الصحيحة:</h4>
+      <div class="qcm-item">
+        <p>1) الرقم 3 في العدد 45 382 يقع في منزلة:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>الآحاد</span><span><span class="checkbox"></span>العشرات</span><span><span class="checkbox"></span>المئات</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>2) العدد 205 000 يُقرأ:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>مئتان وخمسة آلاف</span><span><span class="checkbox"></span>مئتان وخمسون ألفاً</span><span><span class="checkbox"></span>ألفان وخمسمائة</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>3) العدد الأكبر من بين: 45 678 — 45 687 — 45 600 هو:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>45 678</span><span><span class="checkbox"></span>45 687</span><span><span class="checkbox"></span>45 600</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>4) تتكوّن فئة الألوف من:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>آحاد الألوف وعشراتها ومئاتها</span><span><span class="checkbox"></span>آحاد الملايين فقط</span><span><span class="checkbox"></span>آحاد فقط</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>5) 6×1000 + 3×100 + 2×10 + 5 يساوي:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>6 325</span><span><span class="checkbox"></span>6 235</span><span><span class="checkbox"></span>6 352</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">5</span>مسألة تطبيقية:</h4>
+      <div class="scenario-box">
+        يبلغ عدد سكان مدينة 1 254 300 نسمة.
+      </div>
+      <p>1) اكتب هذا العدد بالحروف.</p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+      <p>2) ما الرقم الذي يمثّل فئة الألوف في هذا العدد؟</p>
+      <p><span class="fill-line" style="min-width:60%;"></span></p>
+      <p>3) حلّل هذا العدد إلى مجموع قيم منازله.</p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== CORRIGE ===================== -->
+  <div class="corrige-wrapper">
+    <p class="corrige-flag">✂ يمكن طي هذه الصفحة أو إخفاؤها (اضغط على العنوان أدناه) قبل إنجاز التمارين ✂</p>
+    <details class="corrige">
+      <summary>التصحيح الكامل</summary>
+
+      <h4>تصحيح النشاط التطبيقي</h4>
+      <div class="corrige-item">الجدول: مئات الملايين=0، عشرات الملايين=0، آحاد الملايين=3، مئات الألوف=0، عشرات الألوف=4، آحاد الألوف=8، مئات=5، عشرات=0، آحاد=2.</div>
+      <div class="corrige-item">كتابةً بالحروف: ثلاثة ملايين وثمانية وأربعون ألفاً وخمسمائة واثنان.</div>
+      <div class="corrige-item">التحليل: 3 048 502 = 3 000 000 + 40 000 + 8 000 + 500 + 2</div>
+
+      <h4>تصحيح التمرين 1 (الكتابة بالأرقام والحروف)</h4>
+      <div class="corrige-item">1) 4526 &nbsp;|&nbsp; 2) اثنا عشر ألفاً وثلاثمائة وخمسة وأربعون &nbsp;|&nbsp; 3) 1 200 050 &nbsp;|&nbsp; 4) سبعة آلاف وتسعة وثمانون</div>
+
+      <h4>تصحيح التمرين 2 (التحليل)</h4>
+      <div class="corrige-item">4208 = 4000+200+8 &nbsp;|&nbsp; 56730 = 50000+6000+700+30 &nbsp;|&nbsp; 302050 = 300000+2000+50 &nbsp;|&nbsp; 1400006 = 1000000+400000+6</div>
+
+      <h4>تصحيح التمرين 3 (المقارنة والترتيب)</h4>
+      <div class="corrige-item">1) 45678 &lt; 45687 &nbsp;|&nbsp; 2) 302450 = 302450 &nbsp;|&nbsp; 3) 1200000 &gt; 999999</div>
+      <div class="corrige-item">4) الترتيب التصاعدي: 34205 &lt; 34250 &lt; 34502 &lt; 34520</div>
+
+      <h4>تصحيح التمرين 4 (الاختيار من متعدد)</h4>
+      <div class="corrige-item">1) المئات &nbsp;|&nbsp; 2) مئتان وخمسة آلاف &nbsp;|&nbsp; 3) 45 687 &nbsp;|&nbsp; 4) آحاد الألوف وعشراتها ومئاتها &nbsp;|&nbsp; 5) 6 325</div>
+
+      <h4>تصحيح التمرين 5 (المسألة التطبيقية)</h4>
+      <div class="corrige-item">1) مليون ومئتان وأربعة وخمسون ألفاً وثلاثمائة.</div>
+      <div class="corrige-item">2) فئة الألوف تتمثل في الرقم 254 (254 ألفاً).</div>
+      <div class="corrige-item">3) 1 254 300 = 1 000 000 + 200 000 + 50 000 + 4 000 + 300</div>
+    </details>
+  </div>
+
+  <p class="footer-note">فيشة تعلّم ذاتي — الرياضيات — الخامسة ابتدائي — الأعداد الصحيحة الطبيعية</p>
+</div>
+</body>
+</html>

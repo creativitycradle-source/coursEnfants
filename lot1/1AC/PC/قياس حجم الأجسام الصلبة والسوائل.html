@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>قياس حجم الأجسام الصلبة والسوائل</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#122430; --ink-soft:#3f5866;
+    --paper:#f6fafb; --panel:#ffffff; --line:#cfe1e6;
+    --cyan:#1c7fa0; --cyan-soft:#dcf0f7;
+    --navy:#1f3b52; --navy-soft:#dfe7ee;
+    --amber:#d99a2b;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#dbe8ec;font-family:'Noto Naskh Arabic','Amiri',serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .sheet{max-width:880px;margin:24px auto;background:var(--paper);padding:38px 44px 50px;border:1px solid var(--line);box-shadow:0 4px 24px rgba(0,0,0,.12);}
+
+  .masthead{display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:3px solid var(--ink);padding-bottom:16px;margin-bottom:22px;}
+  .masthead-text h1{font-family:'Amiri',serif;font-weight:700;font-size:27px;margin:0 0 6px;color:var(--navy);line-height:1.3;}
+  .masthead-text .subtitle{font-size:15px;color:var(--ink-soft);margin:0;}
+  .cyl-icon{width:52px;height:60px;flex-shrink:0;}
+
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+  .meta-chip{border:1px solid var(--line);background:var(--panel);border-radius:3px;padding:6px 12px;font-size:13.5px;color:var(--ink-soft);}
+  .meta-chip b{color:var(--ink);font-weight:600;}
+
+  section{margin-bottom:28px;}
+  h2.section-title{font-family:'Amiri',serif;font-size:21px;font-weight:700;color:var(--cyan);border-bottom:2px solid var(--cyan);padding-bottom:6px;margin:0 0 14px;display:flex;align-items:baseline;gap:8px;}
+  h3.sub-title{font-size:17px;font-weight:700;color:var(--amber);margin:20px 0 8px;}
+  p{line-height:2;font-size:15.5px;margin:0 0 10px;}
+
+  .objectif-box{background:#fbf1dd;border-right:4px solid var(--amber);padding:14px 18px;border-radius:2px;font-size:15.5px;line-height:1.9;}
+
+  .rule-box{background:var(--panel);border:1px solid var(--line);border-right:4px solid var(--cyan);padding:14px 18px;border-radius:2px;margin:10px 0 16px;}
+  .rule-box p:last-child{margin-bottom:0;}
+  .rule-box ul,.rule-box ol{margin:6px 0;padding-inline-start:22px;}
+  .rule-box li{margin-bottom:8px;line-height:1.9;}
+
+  table.data-table{width:100%;border-collapse:collapse;margin:8px 0 18px;font-size:15px;}
+  table.data-table th{background:var(--cyan);color:#fff;padding:8px 10px;font-weight:600;font-size:14px;}
+  table.data-table td{border:1px solid var(--line);padding:9px 10px;background:var(--panel);text-align:center;}
+  table.data-table tr:nth-child(even) td{background:#eaf4f8;}
+
+  .cyl-wrap{display:flex;justify-content:center;gap:24px;margin:14px 0;flex-wrap:wrap;}
+
+  .activity-box{background:var(--panel);border:1.5px solid var(--amber);border-radius:3px;padding:16px 20px;}
+  .activity-box .task-label{display:inline-block;background:var(--amber);color:#fff;font-size:12.5px;padding:3px 10px;border-radius:2px;margin-bottom:8px;}
+  .step{display:flex;gap:10px;margin-bottom:8px;align-items:flex-start;}
+  .step-num{flex-shrink:0;width:22px;height:22px;border-radius:50%;background:var(--amber);color:#fff;font-size:12.5px;display:flex;align-items:center;justify-content:center;font-weight:700;}
+
+  .exercise{border:1px solid var(--line);border-radius:3px;padding:16px 20px;margin-bottom:16px;background:var(--panel);}
+  .exercise-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:var(--ink);color:var(--paper);border-radius:50%;font-size:14px;font-weight:700;margin-inline-end:8px;}
+  .exercise h4{margin:0 0 10px;font-size:16.5px;display:flex;align-items:center;}
+  .fill-line{border-bottom:1px dotted var(--ink-soft);display:inline-block;min-width:100px;height:1.6em;}
+  .op-grid{display:flex;flex-wrap:wrap;gap:20px;}
+  .op-item{display:flex;align-items:center;gap:6px;font-size:15.5px;}
+  .qcm-item{margin-bottom:10px;}
+  .qcm-item p{margin-bottom:4px;font-weight:600;}
+  .qcm-options{display:flex;flex-wrap:wrap;gap:14px;font-size:14.5px;}
+  .qcm-options span{display:flex;align-items:center;gap:5px;}
+  .checkbox{width:13px;height:13px;border:1.4px solid var(--ink-soft);display:inline-block;border-radius:2px;}
+  .scenario-box{background:#eaf4f8;border:1px solid var(--line);padding:12px 16px;font-size:15.5px;line-height:2.1;margin-bottom:10px;}
+
+  .corrige-wrapper{page-break-before:always;padding-top:6px;}
+  .corrige-flag{text-align:center;font-size:13px;color:var(--ink-soft);margin-bottom:10px;border-top:1px dashed var(--ink-soft);padding-top:14px;}
+  details.corrige{border:2px dashed var(--navy);border-radius:4px;background:#f4f7f9;padding:6px 20px 18px;}
+  details.corrige > summary{cursor:pointer;font-family:'Amiri',serif;font-weight:700;font-size:19px;color:var(--navy);padding:14px 0;list-style:none;}
+  details.corrige > summary::-webkit-details-marker{display:none;}
+  details.corrige > summary::before{content:"✂ ";}
+  details.corrige > summary::after{content:"— اضغط لإظهار الحل / إخفائه";font-family:'Noto Naskh Arabic',serif;font-weight:400;font-size:13px;color:var(--ink-soft);margin-inline-start:8px;}
+  .corrige h4{color:var(--navy);margin:16px 0 8px;font-size:16px;}
+  .corrige-item{margin-bottom:8px;font-size:15px;line-height:1.9;}
+  .corrige table.data-table th{background:var(--navy);}
+
+  .footer-note{margin-top:30px;text-align:center;font-size:12px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:10px;}
+
+  @media print{
+    body{background:#fff;}
+    .sheet{box-shadow:none;border:none;margin:0;max-width:100%;padding:14px 6px;}
+    details.corrige{border-color:#000;}
+  }
+  @page{size:A4;margin:14mm;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="masthead-text">
+      <h1>قياسُ حجمِ الأجسامِ الصلبةِ والسوائلِ</h1>
+      <p class="subtitle">الفيزياء والكيمياء — عالم المادة</p>
+    </div>
+    <svg class="cyl-icon" viewBox="0 0 44 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M14 4h16v6l3 4v34a3 3 0 0 1-3 3H14a3 3 0 0 1-3-3V14l3-4z" fill="none" stroke="#1f3b52" stroke-width="2.5"/>
+      <path d="M11 34h22v13a3 3 0 0 1-3 3H14a3 3 0 0 1-3-3z" fill="#1c7fa0" opacity="0.75"/>
+      <line x1="14" y1="20" x2="19" y2="20" stroke="#1f3b52" stroke-width="1.5"/>
+      <line x1="14" y1="27" x2="19" y2="27" stroke="#1f3b52" stroke-width="1.5"/>
+      <line x1="14" y1="34" x2="19" y2="34" stroke="#1f3b52" stroke-width="1.5"/>
+      <line x1="14" y1="41" x2="19" y2="41" stroke="#1f3b52" stroke-width="1.5"/>
+    </svg>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta-chip">المستوى: <b>الأولى إعدادي (1AC)</b></div>
+    <div class="meta-chip">المادة: <b>الفيزياء والكيمياء</b></div>
+    <div class="meta-chip">مدة الحصة: <b>ساعة واحدة</b></div>
+    <div class="meta-chip">نوع الوثيقة: <b>فيشة تعلّم ذاتي</b></div>
+  </div>
+
+  <!-- ===================== OBJECTIF ===================== -->
+  <section>
+    <h2 class="section-title">🎯 الهدف من الدرس</h2>
+    <div class="objectif-box">
+      يتمكّن المتعلم(ة) في نهاية هذا الدرس من: تعريف الحجم وتحويل وحداته، وقياس حجم سائل باستعمال المخبار المدرج، وحساب حجم جسم صلب منتظم الشكل بالقانون الرياضي، وقياس حجم جسم صلب غير منتظم الشكل بطريقة الإزاحة (الغمر).
+    </div>
+  </section>
+
+  <!-- ===================== COURS ===================== -->
+  <section>
+    <h2 class="section-title">📘 الدرس</h2>
+
+    <h3 class="sub-title">1) مفهوم الحجم ووحداته</h3>
+    <div class="rule-box">
+      <p><b>الحجم</b> هو الحيّز (المكان) الذي يشغله جسم في الفضاء. الوحدة الدولية لقياس الحجم هي <b>المتر المكعب (m³)</b>، وتُستعمل في المختبر وحدات أصغر مثل <b>اللتر (L)</b> و<b>الميلي لتر (mL)</b>.</p>
+      <p>العلاقة بين الوحدتين: <b>1 L = 1 dm³</b> &nbsp;و&nbsp; <b>1 mL = 1 cm³</b></p>
+    </div>
+    <table class="data-table">
+      <tr><th>m³</th><th>dm³</th><th>cm³</th><th>mm³</th></tr>
+      <tr><td>1</td><td>1000</td><td>1 000 000</td><td>1 000 000 000</td></tr>
+      <tr><th>kL</th><th>L</th><th>mL</th><th>—</th></tr>
+      <tr><td>1</td><td>1000</td><td>1 000 000</td><td>—</td></tr>
+    </table>
+    <p style="font-size:14px;color:var(--ink-soft);margin-top:-8px;">للانتقال من وحدة إلى الوحدة الأصغر التالية مباشرة، نضرب في 1000 (أو نُزحلق الفاصلة 3 خانات نحو اليمين). وللانتقال إلى الوحدة الأكبر، نقسم على 1000.</p>
+
+    <h3 class="sub-title">2) قياس حجم سائل</h3>
+    <div class="rule-box">
+      <p>لقياس حجم سائل، نستعمل <b>المخبار المدرَّج</b> (أو الكأس المدرَّج). نتّبع الخطوات التالية:</p>
+      <ol>
+        <li>نصبّ السائل في المخبار المدرَّج.</li>
+        <li>نضع المخبار على سطح أفقي مستوٍ.</li>
+        <li>نجعل العين في مستوى سطح السائل، ونقرأ القيمة عند <b>أسفل الهلال</b> (المنحنى الذي يتشكّل عند سطح السائل).</li>
+      </ol>
+    </div>
+    <div class="cyl-wrap">
+      <svg width="90" height="180" viewBox="0 0 90 180" xmlns="http://www.w3.org/2000/svg">
+        <path d="M28 10h34v10l6 8v130a5 5 0 0 1-5 5H27a5 5 0 0 1-5-5V28l6-8z" fill="none" stroke="#1f3b52" stroke-width="2.5"/>
+        <path d="M23 90h44v58a5 5 0 0 1-5 5H28a5 5 0 0 1-5-5z" fill="#1c7fa0" opacity="0.75"/>
+        <ellipse cx="45" cy="90" rx="22" ry="4" fill="#1c7fa0" opacity="0.9"/>
+        <line x1="28" y1="40" x2="35" y2="40" stroke="#1f3b52" stroke-width="1.2"/><text x="55" y="44" font-size="10" fill="#1f3b52">100</text>
+        <line x1="28" y1="65" x2="35" y2="65" stroke="#1f3b52" stroke-width="1.2"/><text x="55" y="69" font-size="10" fill="#1f3b52">75</text>
+        <line x1="28" y1="90" x2="35" y2="90" stroke="#1f3b52" stroke-width="1.5"/><text x="55" y="94" font-size="10" fill="#1f3b52">50</text>
+        <line x1="28" y1="115" x2="35" y2="115" stroke="#1f3b52" stroke-width="1.2"/><text x="55" y="119" font-size="10" fill="#1f3b52">25</text>
+        <line x1="28" y1="140" x2="35" y2="140" stroke="#1f3b52" stroke-width="1.2"/><text x="55" y="144" font-size="10" fill="#1f3b52">0</text>
+      </svg>
+    </div>
+    <p style="text-align:center;font-size:14px;color:var(--ink-soft);margin-top:-8px;">في هذا المثال، حجم السائل = <b>50 mL</b></p>
+
+    <h3 class="sub-title">3) قياس حجم جسم صلب منتظم الشكل</h3>
+    <div class="rule-box">
+      <p>عندما يكون للجسم الصلب شكل هندسي معروف (مكعّب، متوازي مستطيلات...)، نحسب حجمه مباشرة بالقانون الرياضي المناسب:</p>
+      <ul>
+        <li><b>المكعّب</b> (طول الحرف a): الحجم = a<sup>3</sup></li>
+        <li><b>متوازي المستطيلات</b> (الطول L، العرض l، الارتفاع h): الحجم = L × l × h</li>
+      </ul>
+    </div>
+    <p style="font-size:14px;color:var(--ink-soft);margin-top:-8px;">مثال: متوازي مستطيلات أبعاده 5 سم × 4 سم × 3 سم، حجمه = 5 × 4 × 3 = 60 cm³.</p>
+
+    <h3 class="sub-title">4) قياس حجم جسم صلب غير منتظم الشكل: طريقة الإزاحة</h3>
+    <div class="rule-box">
+      <p>عندما يكون للجسم الصلب شكل غير منتظم (حجر مثلاً) لا يمكن تطبيق قانون رياضي عليه مباشرة، نستعمل <b>طريقة الإزاحة (الغمر)</b>:</p>
+      <ol>
+        <li>نضع كمية من الماء في مخبار مدرَّج، ونقرأ الحجم الابتدائي <b>V₁</b>.</li>
+        <li>نغمر الجسم الصلب بالكامل داخل الماء (بواسطة خيط مثلاً).</li>
+        <li>نقرأ الحجم الجديد بعد الغمر <b>V₂</b> (يرتفع مستوى الماء لأن الجسم أخذ حيزاً).</li>
+        <li>حجم الجسم الصلب = <b>V₂ − V₁</b></li>
+      </ol>
+    </div>
+
+    <h3 class="sub-title">5) جدول تلخيصي</h3>
+    <table class="data-table" style="text-align:right;">
+      <tr><th>الحالة</th><th>الأداة/الطريقة</th></tr>
+      <tr><td>سائل</td><td>المخبار المدرَّج (قراءة مباشرة)</td></tr>
+      <tr><td>جسم صلب منتظم الشكل</td><td>القانون الرياضي (مكعّب، متوازي مستطيلات...)</td></tr>
+      <tr><td>جسم صلب غير منتظم الشكل</td><td>طريقة الإزاحة: V₂ − V₁</td></tr>
+    </table>
+  </section>
+
+  <!-- ===================== ACTIVITE ===================== -->
+  <section>
+    <h2 class="section-title">🔬 نشاط تطبيقي</h2>
+    <div class="activity-box">
+      <span class="task-label">تجربة قياس حجم حجر بطريقة الإزاحة</span>
+      <div class="step"><span class="step-num">1</span><span>وضعتَ 50 mL من الماء في مخبار مدرَّج.</span></div>
+      <div class="step"><span class="step-num">2</span><span>غمرتَ حجراً صغيراً بالكامل داخل الماء بواسطة خيط.</span></div>
+      <div class="step"><span class="step-num">3</span><span>لاحظتَ أن مستوى الماء ارتفع إلى 68 mL.</span></div>
+      <p>احسب حجم الحجر: V<sub>حجر</sub> = V₂ − V₁ = <span class="fill-line" style="min-width:200px;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== EXERCICES ===================== -->
+  <section>
+    <h2 class="section-title">📝 تمارين للتدرّب</h2>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">1</span>حوّل الوحدات التالية:</h4>
+      <div class="op-grid">
+        <div class="op-item">2 L = <span class="fill-line"></span> mL</div>
+        <div class="op-item">500 mL = <span class="fill-line"></span> L</div>
+        <div class="op-item">3 dm³ = <span class="fill-line"></span> cm³</div>
+        <div class="op-item">1500 cm³ = <span class="fill-line"></span> dm³</div>
+        <div class="op-item">0.5 m³ = <span class="fill-line"></span> dm³</div>
+        <div class="op-item">250 mL = <span class="fill-line"></span> cm³</div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">2</span>اقرأ حجم السائل الموضح في المخبارين المدرَّجين التاليين:</h4>
+      <div class="cyl-wrap">
+        <svg width="80" height="160" viewBox="0 0 80 160">
+          <path d="M22 8h30v9l5 7v120a4 4 0 0 1-4 4H21a4 4 0 0 1-4-4V24l5-7z" fill="none" stroke="#1f3b52" stroke-width="2"/>
+          <path d="M18 70h38v65a4 4 0 0 1-4 4H22a4 4 0 0 1-4-4z" fill="#1c7fa0" opacity="0.75"/>
+          <line x1="22" y1="35" x2="28" y2="35" stroke="#1f3b52" stroke-width="1"/><text x="42" y="39" font-size="9">100</text>
+          <line x1="22" y1="52" x2="28" y2="52" stroke="#1f3b52" stroke-width="1"/><text x="42" y="56" font-size="9">80</text>
+          <line x1="22" y1="70" x2="28" y2="70" stroke="#1f3b52" stroke-width="1.3"/><text x="42" y="74" font-size="9">60</text>
+          <line x1="22" y1="88" x2="28" y2="88" stroke="#1f3b52" stroke-width="1"/><text x="42" y="92" font-size="9">40</text>
+          <line x1="22" y1="105" x2="28" y2="105" stroke="#1f3b52" stroke-width="1"/><text x="42" y="109" font-size="9">20</text>
+          <line x1="22" y1="122" x2="28" y2="122" stroke="#1f3b52" stroke-width="1"/><text x="42" y="126" font-size="9">0</text>
+        </svg>
+        <svg width="80" height="160" viewBox="0 0 80 160">
+          <path d="M22 8h30v9l5 7v120a4 4 0 0 1-4 4H21a4 4 0 0 1-4-4V24l5-7z" fill="none" stroke="#1f3b52" stroke-width="2"/>
+          <path d="M18 95h38v40a4 4 0 0 1-4 4H22a4 4 0 0 1-4-4z" fill="#1c7fa0" opacity="0.75"/>
+          <line x1="22" y1="35" x2="28" y2="35" stroke="#1f3b52" stroke-width="1"/><text x="42" y="39" font-size="9">50</text>
+          <line x1="22" y1="60" x2="28" y2="60" stroke="#1f3b52" stroke-width="1"/><text x="42" y="64" font-size="9">40</text>
+          <line x1="22" y1="95" x2="28" y2="95" stroke="#1f3b52" stroke-width="1.3"/><text x="42" y="99" font-size="9">25</text>
+          <line x1="22" y1="122" x2="28" y2="122" stroke="#1f3b52" stroke-width="1"/><text x="42" y="126" font-size="9">0</text>
+        </svg>
+      </div>
+      <p>المخبار الأول: <span class="fill-line"></span> &nbsp;&nbsp; المخبار الثاني: <span class="fill-line"></span></p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">3</span>احسب حجم كل جسم فيما يلي:</h4>
+      <p>1) متوازي مستطيلات أبعاده 5 سم × 4 سم × 3 سم. الحجم = <span class="fill-line"></span></p>
+      <p>2) مكعّب طول حرفه 6 سم. الحجم = <span class="fill-line"></span></p>
+      <p>3) متوازي مستطيلات أبعاده 10 سم × 8 سم × 2 سم. الحجم = <span class="fill-line"></span></p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">4</span>اختر الإجابة الصحيحة:</h4>
+      <div class="qcm-item">
+        <p>1) وحدة قياس الحجم في النظام الدولي هي:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>م</span><span><span class="checkbox"></span>م²</span><span><span class="checkbox"></span>م³</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>2) 1 لتر يساوي:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>1 سم³</span><span><span class="checkbox"></span>1 دسم³</span><span><span class="checkbox"></span>1 مم³</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>3) لقياس حجم سائل نستعمل:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>الميزان</span><span><span class="checkbox"></span>المخبار المدرَّج</span><span><span class="checkbox"></span>المسطرة</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>4) لقياس حجم جسم صلب غير منتظم الشكل نستعمل:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>القانون الرياضي مباشرة</span><span><span class="checkbox"></span>طريقة الإزاحة</span><span><span class="checkbox"></span>الميزان فقط</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>5) عند قراءة حجم سائل في مخبار، يجب أن تكون العين في مستوى:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>أعلى الهلال</span><span><span class="checkbox"></span>أسفل الهلال</span><span><span class="checkbox"></span>جانب المخبار</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">5</span>مسألة تطبيقية:</h4>
+      <div class="scenario-box">
+        وضع تلميذ 40 mL من الماء في مخبار مدرَّج، ثم غمر فيه قطعة معدنية غير منتظمة الشكل، فارتفع مستوى الماء إلى 55 mL.
+      </div>
+      <p>1) ما اسم الطريقة المستعملة لقياس حجم هذه القطعة المعدنية؟</p>
+      <p><span class="fill-line" style="min-width:60%;"></span></p>
+      <p>2) احسب حجم القطعة المعدنية.</p>
+      <p><span class="fill-line" style="min-width:60%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== CORRIGE ===================== -->
+  <div class="corrige-wrapper">
+    <p class="corrige-flag">✂ يمكن طي هذه الصفحة أو إخفاؤها (اضغط على العنوان أدناه) قبل إنجاز التمارين ✂</p>
+    <details class="corrige">
+      <summary>التصحيح الكامل</summary>
+
+      <h4>تصحيح النشاط التطبيقي</h4>
+      <div class="corrige-item">V<sub>حجر</sub> = 68 − 50 = 18 mL = 18 cm³</div>
+
+      <h4>تصحيح التمرين 1 (تحويل الوحدات)</h4>
+      <div class="corrige-item">2 L = 2000 mL &nbsp;|&nbsp; 500 mL = 0.5 L &nbsp;|&nbsp; 3 dm³ = 3000 cm³ &nbsp;|&nbsp; 1500 cm³ = 1.5 dm³ &nbsp;|&nbsp; 0.5 m³ = 500 dm³ &nbsp;|&nbsp; 250 mL = 250 cm³</div>
+
+      <h4>تصحيح التمرين 2 (قراءة الحجم)</h4>
+      <div class="corrige-item">المخبار الأول: 60 mL &nbsp;|&nbsp; المخبار الثاني: 25 mL</div>
+
+      <h4>تصحيح التمرين 3 (حساب الحجوم)</h4>
+      <div class="corrige-item">1) 5×4×3 = 60 cm³ &nbsp;|&nbsp; 2) 6³ = 216 cm³ &nbsp;|&nbsp; 3) 10×8×2 = 160 cm³</div>
+
+      <h4>تصحيح التمرين 4 (الاختيار من متعدد)</h4>
+      <div class="corrige-item">1) م³ &nbsp;|&nbsp; 2) 1 دسم³ &nbsp;|&nbsp; 3) المخبار المدرَّج &nbsp;|&nbsp; 4) طريقة الإزاحة &nbsp;|&nbsp; 5) أسفل الهلال</div>
+
+      <h4>تصحيح التمرين 5 (المسألة التطبيقية)</h4>
+      <div class="corrige-item">1) طريقة الإزاحة (الغمر).</div>
+      <div class="corrige-item">2) V<sub>قطعة</sub> = 55 − 40 = 15 mL = 15 cm³</div>
+    </details>
+  </div>
+
+  <p class="footer-note">فيشة تعلّم ذاتي — الفيزياء والكيمياء — الأولى إعدادي — قياس حجم الأجسام الصلبة والسوائل</p>
+</div>
+</body>
+</html>

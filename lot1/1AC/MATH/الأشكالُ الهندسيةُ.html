@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>الأشكالُ الهندسيةُ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@500;600;700;800&family=Noto+Naskh+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#3a2e39;
+    --ink-soft:#6b5f68;
+    --paper:#fffaf0;
+    --panel:#ffffff;
+    --line:#efe2c8;
+    --red:#ff6b6b; --red-soft:#ffe1e1;
+    --blue:#3fa9dc; --blue-soft:#dcf1fb;
+    --yellow:#ffc93c; --yellow-soft:#fff3d1;
+    --green:#6bcb77; --green-soft:#e2f7e4;
+    --purple:#a479e0; --purple-soft:#eee0fb;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:#f1e9d8;
+    font-family:'Noto Naskh Arabic',serif;
+    color:var(--ink);
+    -webkit-print-color-adjust:exact;
+    print-color-adjust:exact;
+  }
+  .sheet{
+    max-width:860px;
+    margin:24px auto;
+    background:var(--paper);
+    padding:0 0 50px;
+    border:1px solid var(--line);
+    box-shadow:0 4px 24px rgba(0,0,0,.12);
+    overflow:hidden;
+    position:relative;
+  }
+  .confetti{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:0;opacity:.55;}
+  .confetti span{position:absolute;border-radius:50%;}
+
+  .masthead{
+    position:relative;z-index:1;
+    display:flex;align-items:center;justify-content:space-between;gap:18px;
+    padding:26px 44px 18px;margin-bottom:14px;
+  }
+  .masthead-text h1{
+    font-family:'Baloo Bhaijaan 2',sans-serif;
+    font-weight:800;font-size:34px;margin:0 0 4px;line-height:1.25;color:var(--purple);
+  }
+  .masthead-text .subtitle{font-size:15px;color:var(--ink-soft);margin:0;font-weight:600;}
+  .shapes-icon{display:flex;gap:8px;flex-shrink:0;}
+  .shapes-icon svg{width:44px;height:44px;}
+
+  .content{padding:0 44px;position:relative;z-index:1;}
+
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:24px;}
+  .meta-chip{border:2px solid var(--line);background:var(--panel);border-radius:20px;padding:6px 16px;font-size:13.5px;color:var(--ink-soft);font-weight:600;}
+  .meta-chip b{color:var(--ink);}
+
+  section{margin-bottom:26px;}
+  h2.section-title{
+    font-family:'Baloo Bhaijaan 2',sans-serif;font-size:23px;font-weight:700;color:var(--blue);
+    margin:0 0 14px;display:flex;align-items:center;gap:10px;
+  }
+  h2.section-title .dot{width:14px;height:14px;border-radius:50%;background:var(--blue);}
+  p{line-height:2;font-size:16px;margin:0 0 10px;}
+
+  .objectif-box{background:var(--yellow-soft);border:3px dashed var(--yellow);padding:16px 20px;border-radius:18px;font-size:16.5px;line-height:1.9;font-weight:600;}
+
+  .shape-card{
+    display:flex;align-items:center;gap:18px;
+    background:var(--panel);border:2px solid var(--line);border-radius:20px;
+    padding:14px 20px;margin-bottom:14px;
+  }
+  .shape-card svg{width:70px;height:70px;flex-shrink:0;}
+  .shape-card .txt b{font-family:'Baloo Bhaijaan 2',sans-serif;font-size:19px;display:block;margin-bottom:3px;}
+  .shape-card .txt span{font-size:15px;color:var(--ink-soft);}
+
+  .activity-box{
+    background:var(--green-soft);border:3px dashed var(--green);border-radius:20px;padding:18px 22px;
+  }
+  .activity-box .task-label{
+    display:inline-block;background:var(--green);color:#fff;font-size:13px;font-weight:700;
+    padding:4px 14px;border-radius:14px;margin-bottom:10px;font-family:'Baloo Bhaijaan 2',sans-serif;
+  }
+
+  .exercise{
+    border:2px solid var(--line);border-radius:20px;padding:18px 22px;margin-bottom:16px;background:var(--panel);
+  }
+  .exercise h4{
+    font-family:'Baloo Bhaijaan 2',sans-serif;margin:0 0 12px;font-size:18px;display:flex;align-items:center;color:var(--red);
+  }
+  .exercise-num{
+    display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;
+    background:var(--red);color:#fff;border-radius:50%;font-size:15px;font-weight:700;margin-inline-end:10px;
+    font-family:'Baloo Bhaijaan 2',sans-serif;
+  }
+
+  .shape-row{display:flex;flex-wrap:wrap;gap:16px;align-items:center;}
+  .shape-box{
+    display:flex;flex-direction:column;align-items:center;gap:6px;
+    border:2px solid var(--line);border-radius:14px;padding:10px 14px;background:var(--paper);
+  }
+  .shape-box svg{width:56px;height:56px;}
+  .shape-box span{font-size:13.5px;color:var(--ink-soft);}
+
+  .match-cols{display:flex;justify-content:space-between;gap:30px;margin-top:6px;}
+  .match-cols .col{display:flex;flex-direction:column;gap:14px;}
+  .match-item{
+    display:flex;align-items:center;gap:10px;border:2px solid var(--line);border-radius:14px;
+    padding:8px 14px;background:var(--paper);font-size:15px;
+  }
+  .match-item svg{width:38px;height:38px;}
+
+  .count-box{
+    display:flex;align-items:center;gap:14px;border:2px solid var(--line);border-radius:14px;padding:10px 16px;
+    margin-bottom:10px;background:var(--paper);
+  }
+  .count-box .shapes{display:flex;gap:6px;flex-wrap:wrap;flex:1;}
+  .count-box svg{width:30px;height:30px;}
+  .answer-blank{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:44px;height:44px;border:2.5px dashed var(--ink-soft);border-radius:10px;font-weight:700;font-size:18px;
+  }
+
+  .trace-box{text-align:center;padding:10px 0;}
+
+  .corrige-wrapper{page-break-before:always;padding-top:6px;}
+  .corrige-flag{text-align:center;font-size:13px;color:var(--ink-soft);margin-bottom:10px;border-top:2px dashed var(--ink-soft);padding-top:14px;font-weight:600;}
+  details.corrige{
+    border:3px dashed var(--purple);border-radius:20px;background:#faf5ff;padding:6px 22px 20px;
+  }
+  details.corrige > summary{
+    cursor:pointer;font-family:'Baloo Bhaijaan 2',sans-serif;font-weight:700;font-size:20px;color:var(--purple);
+    padding:14px 0;list-style:none;
+  }
+  details.corrige > summary::-webkit-details-marker{display:none;}
+  details.corrige > summary::before{content:"✂ ";}
+  details.corrige > summary::after{
+    content:"— اضغط لإظهار الحل / إخفائه";font-family:'Noto Naskh Arabic',serif;font-weight:400;font-size:13px;
+    color:var(--ink-soft);margin-inline-start:8px;
+  }
+  .corrige h4{color:var(--purple);margin:16px 0 8px;font-size:16.5px;font-family:'Baloo Bhaijaan 2',sans-serif;}
+  .corrige-item{margin-bottom:8px;font-size:15.5px;line-height:1.9;}
+
+  .footer-note{margin-top:30px;text-align:center;font-size:12.5px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:10px;font-weight:600;}
+
+  @media print{
+    body{background:#fff;}
+    .sheet{box-shadow:none;border:none;margin:0;max-width:100%;}
+    .confetti{display:none;}
+    details.corrige{border-color:#000;}
+  }
+  @page{size:A4;margin:14mm;}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <div class="confetti">
+    <span style="width:16px;height:16px;background:#ff6b6b;top:20px;left:60px;"></span>
+    <span style="width:10px;height:10px;background:#ffc93c;top:80px;left:780px;"></span>
+    <span style="width:14px;height:14px;background:#6bcb77;top:180px;left:20px;"></span>
+    <span style="width:12px;height:12px;background:#3fa9dc;top:400px;left:800px;"></span>
+    <span style="width:10px;height:10px;background:#a479e0;top:600px;left:40px;"></span>
+  </div>
+
+  <div class="masthead">
+    <div class="masthead-text">
+      <h1>الأشكالُ الهندسيةُ</h1>
+      <p class="subtitle">الرياضيات — التعليم الأولي 🎈</p>
+    </div>
+    <div class="shapes-icon">
+      <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="19" fill="#ff6b6b"/></svg>
+      <svg viewBox="0 0 44 44"><rect x="4" y="4" width="36" height="36" rx="6" fill="#3fa9dc"/></svg>
+      <svg viewBox="0 0 44 44"><polygon points="22,4 40,38 4,38" fill="#ffc93c"/></svg>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="meta-row">
+      <div class="meta-chip">المستوى: <b>التعليم الأولي (4 سنوات)</b></div>
+      <div class="meta-chip">المادة: <b>الرياضيات — الأشكال</b></div>
+      <div class="meta-chip">المدة: <b>25-30 دقيقة</b></div>
+    </div>
+
+    <!-- ===================== OBJECTIF ===================== -->
+    <section>
+      <h2 class="section-title"><span class="dot"></span>🎯 هدف الحصة</h2>
+      <div class="objectif-box">
+        يتعرّف الطفل(ة) على أربعة أشكال هندسية بسيطة: <b>الدائرة، المربع، المثلث، المستطيل</b>، ويميّز بينها بالشكل واللون، ويجدها في الأشياء المحيطة به.
+      </div>
+    </section>
+
+    <!-- ===================== COURS ===================== -->
+    <section>
+      <h2 class="section-title"><span class="dot"></span>📘 الدرس: أشكال حول العالم</h2>
+      <p>هيا نكتشف معاً أشكالاً جميلة نراها كل يوم!</p>
+
+      <div class="shape-card">
+        <svg viewBox="0 0 80 80"><circle cx="40" cy="40" r="34" fill="#ff6b6b"/></svg>
+        <div class="txt"><b>الدائرةُ ⚪</b><span>شكل مستدير بلا زوايا، مثل: الكرة 🏀، العجلة، القمر 🌕</span></div>
+      </div>
+      <div class="shape-card">
+        <svg viewBox="0 0 80 80"><rect x="8" y="8" width="64" height="64" rx="8" fill="#3fa9dc"/></svg>
+        <div class="txt"><b>المربّعُ 🟦</b><span>له أربعة أضلاع متساوية وأربع زوايا، مثل: النافذة، الصندوق</span></div>
+      </div>
+      <div class="shape-card">
+        <svg viewBox="0 0 80 80"><polygon points="40,8 72,70 8,70" fill="#ffc93c"/></svg>
+        <div class="txt"><b>المثلَّثُ 🔺</b><span>له ثلاثة أضلاع وثلاث زوايا، مثل: سقف البيت، شريحة البيتزا 🍕</span></div>
+      </div>
+      <div class="shape-card">
+        <svg viewBox="0 0 80 80"><rect x="6" y="20" width="68" height="40" rx="8" fill="#6bcb77"/></svg>
+        <div class="txt"><b>المستطيلُ ▭</b><span>له أربعة أضلاع، ضلعان طويلان وضلعان قصيران، مثل: الباب، الكتاب 📖</span></div>
+      </div>
+    </section>
+
+    <!-- ===================== ACTIVITE ===================== -->
+    <section>
+      <h2 class="section-title"><span class="dot"></span>🔎 نشاط تطبيقي</h2>
+      <div class="activity-box">
+        <span class="task-label">جولة الأشكال</span>
+        <p>يتجول الطفل(ة) داخل القسم أو البيت بمرافقة المربية/الوالدين، ويبحث عن غرض واحد على الأقل لكل شكل من الأشكال الأربعة (دائرة، مربع، مثلث، مستطيل)، ويسمّيه بصوت عالٍ. يمكن أيضاً رسم الأغراض التي وجدها في الإطارات أدناه:</p>
+        <div class="shape-row">
+          <div class="shape-box"><svg viewBox="0 0 56 56"><circle cx="28" cy="28" r="24" fill="none" stroke="#ff6b6b" stroke-width="2.5" stroke-dasharray="4 4"/></svg><span>غرض دائري</span></div>
+          <div class="shape-box"><svg viewBox="0 0 56 56"><rect x="6" y="6" width="44" height="44" rx="6" fill="none" stroke="#3fa9dc" stroke-width="2.5" stroke-dasharray="4 4"/></svg><span>غرض مربّع</span></div>
+          <div class="shape-box"><svg viewBox="0 0 56 56"><polygon points="28,6 50,48 6,48" fill="none" stroke="#ffc93c" stroke-width="2.5" stroke-dasharray="4 4"/></svg><span>غرض مثلَّث</span></div>
+          <div class="shape-box"><svg viewBox="0 0 56 56"><rect x="4" y="16" width="48" height="26" rx="6" fill="none" stroke="#6bcb77" stroke-width="2.5" stroke-dasharray="4 4"/></svg><span>غرض مستطيل</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== EXERCICES ===================== -->
+    <section>
+      <h2 class="section-title"><span class="dot"></span>📝 تمارين ممتعة</h2>
+
+      <div class="exercise">
+        <h4><span class="exercise-num">1</span>لوّن كل شكل باللون المطلوب:</h4>
+        <div class="shape-row">
+          <div class="shape-box"><svg viewBox="0 0 56 56"><circle cx="28" cy="28" r="24" fill="#fff" stroke="var(--ink)" stroke-width="2"/></svg><span>دائرة → أحمر</span></div>
+          <div class="shape-box"><svg viewBox="0 0 56 56"><rect x="6" y="6" width="44" height="44" rx="6" fill="#fff" stroke="var(--ink)" stroke-width="2"/></svg><span>مربّع → أزرق</span></div>
+          <div class="shape-box"><svg viewBox="0 0 56 56"><polygon points="28,6 50,48 6,48" fill="#fff" stroke="var(--ink)" stroke-width="2"/></svg><span>مثلَّث → أصفر</span></div>
+          <div class="shape-box"><svg viewBox="0 0 56 56"><rect x="4" y="16" width="48" height="26" rx="6" fill="#fff" stroke="var(--ink)" stroke-width="2"/></svg><span>مستطيل → أخضر</span></div>
+        </div>
+      </div>
+
+      <div class="exercise">
+        <h4><span class="exercise-num">2</span>أحِط بدائرة 🔴 كل الأشكال التي هي "مثلَّث":</h4>
+        <div class="shape-row">
+          <svg viewBox="0 0 56 56" width="52" height="52"><polygon points="28,6 50,48 6,48" fill="#ffc93c"/></svg>
+          <svg viewBox="0 0 56 56" width="52" height="52"><circle cx="28" cy="28" r="24" fill="#ff6b6b"/></svg>
+          <svg viewBox="0 0 56 56" width="52" height="52"><polygon points="28,8 48,46 8,46" fill="#ffc93c"/></svg>
+          <svg viewBox="0 0 56 56" width="52" height="52"><rect x="6" y="6" width="44" height="44" rx="6" fill="#3fa9dc"/></svg>
+          <svg viewBox="0 0 56 56" width="52" height="52"><rect x="4" y="16" width="48" height="26" rx="6" fill="#6bcb77"/></svg>
+          <svg viewBox="0 0 56 56" width="52" height="52"><polygon points="28,10 46,44 10,44" fill="#ffc93c"/></svg>
+        </div>
+      </div>
+
+      <div class="exercise">
+        <h4><span class="exercise-num">3</span>صل كل شكل بالغرض الذي يُشبهه:</h4>
+        <div class="match-cols">
+          <div class="col">
+            <div class="match-item"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="17" fill="#ff6b6b"/></svg> دائرة</div>
+            <div class="match-item"><svg viewBox="0 0 40 40"><rect x="4" y="4" width="32" height="32" rx="5" fill="#3fa9dc"/></svg> مربّع</div>
+            <div class="match-item"><svg viewBox="0 0 40 40"><polygon points="20,4 36,35 4,35" fill="#ffc93c"/></svg> مثلَّث</div>
+            <div class="match-item"><svg viewBox="0 0 40 40"><rect x="3" y="11" width="34" height="18" rx="5" fill="#6bcb77"/></svg> مستطيل</div>
+          </div>
+          <div class="col">
+            <div class="match-item">⚽ كرة القدم</div>
+            <div class="match-item">🚪 باب</div>
+            <div class="match-item">📦 صندوق هدية</div>
+            <div class="match-item">⛺ خيمة</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="exercise">
+        <h4><span class="exercise-num">4</span>عُدَّ الأشكال ثم اكتب العدد في الخانة:</h4>
+        <div class="count-box">
+          <div class="shapes">
+            <svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="17" fill="#ff6b6b"/></svg>
+            <svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="17" fill="#ff6b6b"/></svg>
+            <svg viewBox="0 0 40 40"><rect x="4" y="4" width="32" height="32" rx="5" fill="#3fa9dc"/></svg>
+            <svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="17" fill="#ff6b6b"/></svg>
+          </div>
+          <span>عدد الدوائر:</span><span class="answer-blank"></span>
+        </div>
+        <div class="count-box">
+          <div class="shapes">
+            <svg viewBox="0 0 40 40"><polygon points="20,4 36,35 4,35" fill="#ffc93c"/></svg>
+            <svg viewBox="0 0 40 40"><rect x="4" y="4" width="32" height="32" rx="5" fill="#3fa9dc"/></svg>
+            <svg viewBox="0 0 40 40"><polygon points="20,4 36,35 4,35" fill="#ffc93c"/></svg>
+            <svg viewBox="0 0 40 40"><polygon points="20,4 36,35 4,35" fill="#ffc93c"/></svg>
+            <svg viewBox="0 0 40 40"><rect x="4" y="4" width="32" height="32" rx="5" fill="#3fa9dc"/></svg>
+          </div>
+          <span>عدد المثلَّثات:</span><span class="answer-blank"></span>
+        </div>
+      </div>
+
+      <div class="exercise">
+        <h4><span class="exercise-num">5</span>اتّبع الخط المنقّط لرسم كل شكل:</h4>
+        <div class="shape-row" style="justify-content:space-around;">
+          <div class="trace-box"><svg width="70" height="70" viewBox="0 0 70 70"><circle cx="35" cy="35" r="28" fill="none" stroke="var(--ink-soft)" stroke-width="2" stroke-dasharray="3 5"/></svg><p style="font-size:13px;">دائرة</p></div>
+          <div class="trace-box"><svg width="70" height="70" viewBox="0 0 70 70"><rect x="7" y="7" width="56" height="56" rx="6" fill="none" stroke="var(--ink-soft)" stroke-width="2" stroke-dasharray="3 5"/></svg><p style="font-size:13px;">مربّع</p></div>
+          <div class="trace-box"><svg width="70" height="70" viewBox="0 0 70 70"><polygon points="35,7 63,62 7,62" fill="none" stroke="var(--ink-soft)" stroke-width="2" stroke-dasharray="3 5"/></svg><p style="font-size:13px;">مثلَّث</p></div>
+          <div class="trace-box"><svg width="70" height="70" viewBox="0 0 70 70"><rect x="5" y="20" width="60" height="32" rx="6" fill="none" stroke="var(--ink-soft)" stroke-width="2" stroke-dasharray="3 5"/></svg><p style="font-size:13px;">مستطيل</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CORRIGE ===================== -->
+    <div class="corrige-wrapper">
+      <p class="corrige-flag">✂ يمكن طي هذه الصفحة أو إخفاؤها (اضغط على العنوان أدناه) قبل إنجاز التمارين ✂</p>
+      <details class="corrige">
+        <summary>التصحيح الكامل (للمربية / الوالدين)</summary>
+
+        <h4>تصحيح التمرين 1</h4>
+        <div class="corrige-item">الدائرة → لون أحمر / المربّع → لون أزرق / المثلَّث → لون أصفر / المستطيل → لون أخضر.</div>
+
+        <h4>تصحيح التمرين 2</h4>
+        <div class="corrige-item">الأشكال المطلوب إحاطتها هي المثلثات الثلاثة الصفراء (الشكل 1، الشكل 3، والشكل 6 حسب الترتيب في التمرين).</div>
+
+        <h4>تصحيح التمرين 3</h4>
+        <div class="corrige-item">الدائرة ← كرة القدم ⚽ &nbsp;|&nbsp; المربّع ← صندوق الهدية 📦 &nbsp;|&nbsp; المثلَّث ← الخيمة ⛺ &nbsp;|&nbsp; المستطيل ← الباب 🚪</div>
+
+        <h4>تصحيح التمرين 4</h4>
+        <div class="corrige-item">عدد الدوائر = 3 &nbsp;|&nbsp; عدد المثلَّثات = 3</div>
+
+        <h4>تصحيح التمرين 5</h4>
+        <div class="corrige-item">يتحقق المربي(ة) من أن الطفل(ة) تتبع الخط المنقّط بشكل صحيح لرسم كل شكل من الأشكال الأربعة دون الخروج عن الخطوط قدر الإمكان.</div>
+      </details>
+    </div>
+
+    <p class="footer-note">فيشة تعلّم — الرياضيات — التعليم الأولي (4 سنوات) — الأشكال الهندسية 🎈</p>
+  </div>
+</div>
+</body>
+</html>

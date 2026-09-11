@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>التغذية والجهاز الهضمي</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#20301f; --ink-soft:#4c5a48;
+    --paper:#f8faf4; --panel:#ffffff; --line:#d7e0cd;
+    --leaf:#3f7d3a; --leaf-soft:#e3f0df;
+    --grain:#c98a2e; --grain-soft:#f6e9d3;
+    --protein:#c15a45; --protein-soft:#f5e0dc;
+    --sky:#2f7ea8; --sky-soft:#deeef6;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#e4e9dc;font-family:'Noto Naskh Arabic','Amiri',serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .sheet{max-width:880px;margin:24px auto;background:var(--paper);padding:38px 44px 50px;border:1px solid var(--line);box-shadow:0 4px 24px rgba(0,0,0,.12);}
+
+  .masthead{display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:3px solid var(--ink);padding-bottom:16px;margin-bottom:22px;}
+  .masthead-text h1{font-family:'Amiri',serif;font-weight:700;font-size:28px;margin:0 0 6px;color:var(--leaf);line-height:1.3;}
+  .masthead-text .subtitle{font-size:15px;color:var(--ink-soft);margin:0;}
+  .food-icon{width:58px;height:58px;flex-shrink:0;}
+
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+  .meta-chip{border:1px solid var(--line);background:var(--panel);border-radius:3px;padding:6px 12px;font-size:13.5px;color:var(--ink-soft);}
+  .meta-chip b{color:var(--ink);font-weight:600;}
+
+  section{margin-bottom:28px;}
+  h2.section-title{font-family:'Amiri',serif;font-size:21px;font-weight:700;color:var(--sky);border-bottom:2px solid var(--sky);padding-bottom:6px;margin:0 0 14px;display:flex;align-items:baseline;gap:8px;}
+  h3.sub-title{font-size:17px;font-weight:700;color:var(--leaf);margin:20px 0 8px;}
+  p{line-height:2;font-size:15.5px;margin:0 0 10px;}
+
+  .objectif-box{background:var(--sky-soft);border-right:4px solid var(--sky);padding:14px 18px;border-radius:2px;font-size:15.5px;line-height:1.9;}
+
+  .rule-box{background:var(--panel);border:1px solid var(--line);border-right:4px solid var(--leaf);padding:14px 18px;border-radius:2px;margin:10px 0 16px;}
+  .rule-box p:last-child{margin-bottom:0;}
+  .rule-box ul,.rule-box ol{margin:6px 0;padding-inline-start:22px;}
+  .rule-box li{margin-bottom:6px;line-height:1.85;}
+
+  .food-grid{display:flex;flex-wrap:wrap;gap:14px;margin:10px 0 16px;}
+  .food-card{flex:1 1 200px;border-radius:8px;padding:12px 16px;}
+  .food-card.grain{background:var(--grain-soft);border:1px solid var(--grain);}
+  .food-card.protein{background:var(--protein-soft);border:1px solid var(--protein);}
+  .food-card.leaf{background:var(--leaf-soft);border:1px solid var(--leaf);}
+  .food-card .head{font-weight:700;font-size:15.5px;margin-bottom:4px;}
+  .food-card.grain .head{color:var(--grain);}
+  .food-card.protein .head{color:var(--protein);}
+  .food-card.leaf .head{color:var(--leaf);}
+  .food-card p{margin:2px 0 0;font-size:14px;color:var(--ink-soft);line-height:1.85;}
+
+  .organ-diagram{display:flex;justify-content:center;margin:14px 0;}
+
+  table.data-table{width:100%;border-collapse:collapse;margin:8px 0 18px;font-size:15px;}
+  table.data-table th{background:var(--sky);color:#fff;padding:8px 10px;font-weight:600;font-size:14px;}
+  table.data-table td{border:1px solid var(--line);padding:9px 10px;background:var(--panel);}
+  table.data-table tr:nth-child(even) td{background:#eef3e8;}
+
+  .activity-box{background:var(--panel);border:1.5px solid var(--grain);border-radius:3px;padding:16px 20px;}
+  .activity-box .task-label{display:inline-block;background:var(--grain);color:#fff;font-size:12.5px;padding:3px 10px;border-radius:2px;margin-bottom:8px;}
+
+  .exercise{border:1px solid var(--line);border-radius:3px;padding:16px 20px;margin-bottom:16px;background:var(--panel);}
+  .exercise-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:var(--ink);color:var(--paper);border-radius:50%;font-size:14px;font-weight:700;margin-inline-end:8px;}
+  .exercise h4{margin:0 0 10px;font-size:16.5px;display:flex;align-items:center;}
+  .fill-line{border-bottom:1px dotted var(--ink-soft);display:inline-block;min-width:120px;height:1.6em;}
+  .word-chip{display:inline-block;background:var(--paper);border:1px solid var(--line);border-radius:3px;padding:3px 12px;margin:3px 4px;font-size:16px;}
+  .qcm-item{margin-bottom:10px;}
+  .qcm-item p{margin-bottom:4px;font-weight:600;}
+  .qcm-options{display:flex;flex-wrap:wrap;gap:14px;font-size:14.5px;}
+  .qcm-options span{display:flex;align-items:center;gap:5px;}
+  .checkbox{width:13px;height:13px;border:1.4px solid var(--ink-soft);display:inline-block;border-radius:2px;}
+  .match-cols{display:flex;justify-content:space-between;gap:40px;margin-top:8px;}
+  .match-cols ul{list-style:none;padding:0;margin:0;}
+  .match-cols li{border:1px solid var(--line);background:var(--paper);padding:6px 14px;margin-bottom:10px;border-radius:3px;font-size:15px;}
+  .order-list{display:flex;flex-direction:column;gap:8px;}
+  .order-item{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:6px;padding:8px 12px;background:var(--paper);}
+  .order-item .num-box{width:32px;height:32px;border:2px dashed var(--ink-soft);border-radius:6px;flex-shrink:0;}
+  .scenario-box{background:#eef3e8;border:1px solid var(--line);padding:12px 16px;font-size:15.5px;line-height:2.1;margin-bottom:10px;}
+
+  .corrige-wrapper{page-break-before:always;padding-top:6px;}
+  .corrige-flag{text-align:center;font-size:13px;color:var(--ink-soft);margin-bottom:10px;border-top:1px dashed var(--ink-soft);padding-top:14px;}
+  details.corrige{border:2px dashed var(--protein);border-radius:4px;background:#fdf6f4;padding:6px 20px 18px;}
+  details.corrige > summary{cursor:pointer;font-family:'Amiri',serif;font-weight:700;font-size:19px;color:var(--protein);padding:14px 0;list-style:none;}
+  details.corrige > summary::-webkit-details-marker{display:none;}
+  details.corrige > summary::before{content:"✂ ";}
+  details.corrige > summary::after{content:"— اضغط لإظهار الحل / إخفائه";font-family:'Noto Naskh Arabic',serif;font-weight:400;font-size:13px;color:var(--ink-soft);margin-inline-start:8px;}
+  .corrige h4{color:var(--protein);margin:16px 0 8px;font-size:16px;}
+  .corrige-item{margin-bottom:8px;font-size:15px;line-height:1.9;}
+  .corrige table.data-table th{background:var(--protein);}
+
+  .footer-note{margin-top:30px;text-align:center;font-size:12px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:10px;}
+
+  @media print{
+    body{background:#fff;}
+    .sheet{box-shadow:none;border:none;margin:0;max-width:100%;padding:14px 6px;}
+    details.corrige{border-color:#000;}
+  }
+  @page{size:A4;margin:14mm;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="masthead-text">
+      <h1>التغذيةُ والجهازُ الهضميُّ</h1>
+      <p class="subtitle">النشاط العلمي — جسم الإنسان</p>
+    </div>
+    <svg class="food-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="24" cy="30" r="16" fill="#c98a2e" opacity="0.85"/>
+      <path d="M42 12c4 4 4 12 0 16" stroke="#3f7d3a" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <path d="M48 12v36" stroke="#c15a45" stroke-width="3" stroke-linecap="round"/>
+      <path d="M42 12v14" stroke="#3f7d3a" stroke-width="3" stroke-linecap="round"/>
+    </svg>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta-chip">المستوى: <b>الخامسة ابتدائي (5AEP)</b></div>
+    <div class="meta-chip">المادة: <b>النشاط العلمي</b></div>
+    <div class="meta-chip">مدة الحصة: <b>ساعة واحدة</b></div>
+    <div class="meta-chip">نوع الوثيقة: <b>فيشة تعلّم ذاتي</b></div>
+  </div>
+
+  <!-- ===================== OBJECTIF ===================== -->
+  <section>
+    <h2 class="section-title">🎯 الهدف من الدرس</h2>
+    <div class="objectif-box">
+      يتمكّن المتعلم(ة) في نهاية هذا الدرس من: التعرّف على أهمية التغذية والمجموعات الغذائية الأساسية، وتحديد مكونات الجهاز الهضمي ووظيفة كل عضو من أعضائه، وتوظيف قواعد التغذية السليمة في حياته اليومية.
+    </div>
+  </section>
+
+  <!-- ===================== COURS ===================== -->
+  <section>
+    <h2 class="section-title">📘 الدرس</h2>
+
+    <h3 class="sub-title">1) أهمية التغذية</h3>
+    <div class="rule-box">
+      <p>يحتاج جسم الإنسان إلى الغذاء للحصول على <b>الطاقة</b> اللازمة للحركة والنمو والقيام بالأنشطة اليومية، ولتعويض الخلايا التالفة وبناء أنسجة جديدة، وللوقاية من الأمراض والحفاظ على صحة الجسم.</p>
+    </div>
+
+    <h3 class="sub-title">2) المجموعات الغذائية</h3>
+    <div class="rule-box">
+      <p>تُصنَّف الأطعمة حسب دورها في الجسم إلى ثلاث مجموعات رئيسية:</p>
+    </div>
+    <div class="food-grid">
+      <div class="food-card grain">
+        <div class="head">🍞 الأغذية الطاقية</div>
+        <p>تمدّ الجسم بالطاقة اللازمة للحركة والنشاط. مثال: الخبز، الأرز، المعكرونة، السكر، البطاطس.</p>
+      </div>
+      <div class="food-card protein">
+        <div class="head">🥩 الأغذية البانية</div>
+        <p>تبني الجسم وتجدّد خلاياه وعضلاته. مثال: اللحوم، الأسماك، البيض، الحليب، البقوليات.</p>
+      </div>
+      <div class="food-card leaf">
+        <div class="head">🥦 الأغذية الوقائية</div>
+        <p>تحمي الجسم من الأمراض وتقوّي مناعته، غنية بالفيتامينات والمعادن. مثال: الفواكه والخضروات.</p>
+      </div>
+    </div>
+    <p style="font-size:14px;color:var(--ink-soft);margin-top:-8px;">إضافة إلى ذلك، يُعتبر <b>الماء</b> ضرورياً لجميع وظائف الجسم، ويجب شربه بكمية كافية يومياً.</p>
+
+    <h3 class="sub-title">3) الجهاز الهضمي ومسار الغذاء</h3>
+    <div class="rule-box">
+      <p>الجهاز الهضمي هو مجموعة الأعضاء التي تُحوِّل الغذاء إلى مواد بسيطة يمكن للجسم امتصاصها والاستفادة منها. يمرّ الغذاء عبر المسار التالي:</p>
+    </div>
+    <div class="organ-diagram">
+      <svg width="260" height="320" viewBox="0 0 260 320" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="130" cy="30" rx="26" ry="18" fill="#dcf0f7" stroke="#2f7ea8" stroke-width="2.5"/>
+        <text x="130" y="35" text-anchor="middle" font-family="Noto Naskh Arabic, serif" font-size="13" font-weight="700" fill="#1f3b52">1</text>
+        <path d="M130 48 C120 70, 120 90, 130 110" stroke="#2f7ea8" stroke-width="10" fill="none" stroke-linecap="round"/>
+        <text x="145" y="80" font-size="13" font-weight="700" fill="#1f3b52">2</text>
+        <ellipse cx="130" cy="140" rx="34" ry="30" fill="#f6e9d3" stroke="#c98a2e" stroke-width="2.5"/>
+        <text x="130" y="145" text-anchor="middle" font-size="13" font-weight="700" fill="#8a5a34">3</text>
+        <path d="M110 165 C90 180, 170 190, 100 210 C60 225, 180 235, 120 255"
+              stroke="#c15a45" stroke-width="9" fill="none" stroke-linecap="round"/>
+        <text x="60" y="200" font-size="13" font-weight="700" fill="#8a2f2f">4</text>
+        <rect x="55" y="255" width="150" height="35" rx="14" fill="none" stroke="#3f7d3a" stroke-width="9"/>
+        <text x="130" y="277" text-anchor="middle" font-size="13" font-weight="700" fill="#20301f">5</text>
+        <circle cx="130" cy="300" r="8" fill="#8a5a34"/>
+        <text x="130" y="304" text-anchor="middle" font-size="10" font-weight="700" fill="#fff">6</text>
+      </svg>
+    </div>
+    <table class="data-table">
+      <tr><th>الرقم</th><th>العضو</th><th>الدور</th></tr>
+      <tr><td>1</td><td>الفم</td><td>مضغ الطعام وخلطه باللعاب لتسهيل بلعه.</td></tr>
+      <tr><td>2</td><td>المريء</td><td>أنبوب ينقل الطعام من الفم إلى المعدة.</td></tr>
+      <tr><td>3</td><td>المعدة</td><td>هضم الطعام بواسطة العصارة المعدية وتحويله إلى عجينة سائلة.</td></tr>
+      <tr><td>4</td><td>الأمعاء الدقيقة</td><td>إتمام الهضم وامتصاص المغذيات إلى الدم.</td></tr>
+      <tr><td>5</td><td>الأمعاء الغليظة</td><td>امتصاص الماء المتبقي وتكوين الفضلات الصلبة.</td></tr>
+      <tr><td>6</td><td>الشرج</td><td>إخراج الفضلات غير المهضومة من الجسم.</td></tr>
+    </table>
+
+    <h3 class="sub-title">4) قواعد التغذية السليمة</h3>
+    <div class="rule-box">
+      <ul>
+        <li>تنويع الأطعمة بحيث تشمل الوجبة المجموعات الغذائية الثلاث.</li>
+        <li>تناول وجبات منتظمة (الفطور، الغداء، العشاء) وعدم إهمال وجبة الفطور.</li>
+        <li>شرب كمية كافية من الماء يومياً.</li>
+        <li>تجنّب الإفراط في تناول السكريات والدهون والوجبات السريعة.</li>
+        <li>غسل اليدين قبل الأكل، ومضغ الطعام جيداً.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===================== ACTIVITE ===================== -->
+  <section>
+    <h2 class="section-title">🍽️ نشاط تطبيقي</h2>
+    <div class="activity-box">
+      <span class="task-label">تقييم وجبة غذائية</span>
+      <p>لاحظ وجبة الغداء التالية: أرز + قطعة دجاج + سلطة خضراء + تفاحة + كأس ماء. صنّف مكوناتها حسب المجموعات الغذائية:</p>
+      <table class="data-table">
+        <tr><th>أغذية طاقية</th><th>أغذية بانية</th><th>أغذية وقائية</th></tr>
+        <tr><td style="height:50px;"></td><td></td><td></td></tr>
+      </table>
+      <p>هل تعتبر هذه الوجبة متوازنة؟ علّل جوابك: <span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== EXERCICES ===================== -->
+  <section>
+    <h2 class="section-title">📝 تمارين للتدرّب</h2>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">1</span>صنّف الأطعمة التالية حسب مجموعتها الغذائية:</h4>
+      <p>
+        <span class="word-chip">خبز</span>
+        <span class="word-chip">لحم</span>
+        <span class="word-chip">تفاحة</span>
+        <span class="word-chip">أرز</span>
+        <span class="word-chip">سمك</span>
+        <span class="word-chip">جزر</span>
+        <span class="word-chip">بيض</span>
+        <span class="word-chip">سكر</span>
+      </p>
+      <table class="data-table">
+        <tr><th>أغذية طاقية</th><th>أغذية بانية</th><th>أغذية وقائية</th></tr>
+        <tr><td style="height:60px;"></td><td></td><td></td></tr>
+      </table>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">2</span>اختر الإجابة الصحيحة:</h4>
+      <div class="qcm-item">
+        <p>1) الفواكه والخضروات تنتمي إلى مجموعة الأغذية:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>الطاقية</span><span><span class="checkbox"></span>البانية</span><span><span class="checkbox"></span>الوقائية</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>2) العضو الذي يمضغ الطعام هو:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>المعدة</span><span><span class="checkbox"></span>الفم</span><span><span class="checkbox"></span>المريء</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>3) يتم امتصاص معظم المغذيات إلى الدم في:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>المعدة</span><span><span class="checkbox"></span>الأمعاء الدقيقة</span><span><span class="checkbox"></span>الفم</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>4) المريء هو العضو الذي:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>يهضم الطعام</span><span><span class="checkbox"></span>ينقل الطعام من الفم إلى المعدة</span><span><span class="checkbox"></span>يخرج الفضلات</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>5) الأمعاء الغليظة تقوم بامتصاص:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>البروتينات</span><span><span class="checkbox"></span>الماء المتبقي</span><span><span class="checkbox"></span>الدهون فقط</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">3</span>رتّب أعضاء الجهاز الهضمي حسب مسار الغذاء (من 1 إلى 6):</h4>
+      <div class="order-list">
+        <div class="order-item"><div class="num-box"></div><span>المعدة</span></div>
+        <div class="order-item"><div class="num-box"></div><span>الفم</span></div>
+        <div class="order-item"><div class="num-box"></div><span>الأمعاء الغليظة</span></div>
+        <div class="order-item"><div class="num-box"></div><span>المريء</span></div>
+        <div class="order-item"><div class="num-box"></div><span>الشرج</span></div>
+        <div class="order-item"><div class="num-box"></div><span>الأمعاء الدقيقة</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">4</span>صل كل عضو بوظيفته المناسبة:</h4>
+      <div class="match-cols">
+        <ul>
+          <li>أ) الفم</li>
+          <li>ب) المعدة</li>
+          <li>ج) الأمعاء الدقيقة</li>
+          <li>د) الأمعاء الغليظة</li>
+        </ul>
+        <ul>
+          <li>1) هضم الطعام بالعصارة المعدية</li>
+          <li>2) امتصاص الماء وتكوين الفضلات</li>
+          <li>3) مضغ الطعام وخلطه باللعاب</li>
+          <li>4) امتصاص المغذيات إلى الدم</li>
+        </ul>
+      </div>
+      <p style="margin-top:10px;">الإجابة: أ - .......... &nbsp; ب - .......... &nbsp; ج - .......... &nbsp; د - ..........</p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">5</span>وضعية-مشكلة:</h4>
+      <div class="scenario-box">
+        وجبة غداء أحمد اليوم تتكوّن فقط من: بطاطس مقلية، وقارورة مشروب غازي محلّى بالسكر.
+      </div>
+      <p>1) ما المجموعات الغذائية الناقصة في هذه الوجبة؟</p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+      <p>2) اقترح تعديلاً على هذه الوجبة لجعلها متوازنة أكثر.</p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== CORRIGE ===================== -->
+  <div class="corrige-wrapper">
+    <p class="corrige-flag">✂ يمكن طي هذه الصفحة أو إخفاؤها (اضغط على العنوان أدناه) قبل إنجاز التمارين ✂</p>
+    <details class="corrige">
+      <summary>التصحيح الكامل</summary>
+
+      <h4>تصحيح النشاط التطبيقي</h4>
+      <div class="corrige-item"><b>أغذية طاقية:</b> الأرز &nbsp;|&nbsp; <b>أغذية بانية:</b> قطعة الدجاج &nbsp;|&nbsp; <b>أغذية وقائية:</b> السلطة الخضراء، التفاحة</div>
+      <div class="corrige-item">نعم، تعتبر هذه الوجبة متوازنة نسبياً لأنها تجمع بين المجموعات الغذائية الثلاث بالإضافة إلى الماء.</div>
+
+      <h4>تصحيح التمرين 1 (التصنيف)</h4>
+      <div class="corrige-item"><b>أغذية طاقية:</b> خبز، أرز، سكر</div>
+      <div class="corrige-item"><b>أغذية بانية:</b> لحم، سمك، بيض</div>
+      <div class="corrige-item"><b>أغذية وقائية:</b> تفاحة، جزر</div>
+
+      <h4>تصحيح التمرين 2 (الاختيار من متعدد)</h4>
+      <div class="corrige-item">1) الوقائية &nbsp;|&nbsp; 2) الفم &nbsp;|&nbsp; 3) الأمعاء الدقيقة &nbsp;|&nbsp; 4) ينقل الطعام من الفم إلى المعدة &nbsp;|&nbsp; 5) الماء المتبقي</div>
+
+      <h4>تصحيح التمرين 3 (الترتيب)</h4>
+      <div class="corrige-item">1) الفم &nbsp;→&nbsp; 2) المريء &nbsp;→&nbsp; 3) المعدة &nbsp;→&nbsp; 4) الأمعاء الدقيقة &nbsp;→&nbsp; 5) الأمعاء الغليظة &nbsp;→&nbsp; 6) الشرج</div>
+
+      <h4>تصحيح التمرين 4 (الربط)</h4>
+      <div class="corrige-item">أ - 3 (الفم ← المضغ) &nbsp;|&nbsp; ب - 1 (المعدة ← الهضم بالعصارة المعدية) &nbsp;|&nbsp; ج - 4 (الأمعاء الدقيقة ← الامتصاص) &nbsp;|&nbsp; د - 2 (الأمعاء الغليظة ← امتصاص الماء)</div>
+
+      <h4>تصحيح التمرين 5 (وضعية-مشكلة)</h4>
+      <div class="corrige-item">1) الوجبة تفتقر إلى الأغذية البانية (البروتينات مثل اللحم أو البيض) وإلى الأغذية الوقائية (الفواكه والخضروات)، كما تحتوي على كمية كبيرة من السكريات دون فائدة غذائية كافية.</div>
+      <div class="corrige-item">2) يمكن إضافة قطعة دجاج أو سمك (غذاء بانٍ)، وطبق سلطة أو فاكهة (غذاء وقائي)، واستبدال المشروب الغازي بكأس ماء أو عصير طبيعي.</div>
+    </details>
+  </div>
+
+  <p class="footer-note">فيشة تعلّم ذاتي — النشاط العلمي — الخامسة ابتدائي — التغذية والجهاز الهضمي</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>الزوايا</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1c2b3a; --ink-soft:#4d5f70;
+    --paper:#f7f9fb; --panel:#ffffff; --line:#c9d6e0;
+    --blue:#2f5f8a; --blue-soft:#e2ecf3;
+    --orange:#e07b39; --orange-soft:#fbe8d8;
+    --green:#3a8f6b; --green-soft:#e1f2ea;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#dde6ec;color:var(--ink);font-family:'Noto Naskh Arabic','Amiri',serif;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .sheet{
+    max-width:900px;margin:24px auto;background:
+      repeating-linear-gradient(0deg, transparent 0 27px, rgba(47,95,138,.06) 27px 28px),
+      repeating-linear-gradient(90deg, transparent 0 27px, rgba(47,95,138,.06) 27px 28px),
+      var(--paper);
+    padding:38px 44px 50px;border:1px solid var(--line);box-shadow:0 4px 24px rgba(0,0,0,.12);
+  }
+
+  .masthead{display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:3px solid var(--ink);padding-bottom:16px;margin-bottom:22px;}
+  .masthead-text h1{font-family:'Amiri',serif;font-weight:700;font-size:32px;margin:0 0 6px;color:var(--blue);}
+  .masthead-text .subtitle{font-size:15px;color:var(--ink-soft);margin:0;}
+  .angle-icon{width:60px;height:56px;flex-shrink:0;}
+
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+  .meta-chip{border:1px solid var(--line);background:var(--panel);border-radius:3px;padding:6px 12px;font-size:13.5px;color:var(--ink-soft);}
+  .meta-chip b{color:var(--ink);font-weight:600;}
+
+  section{margin-bottom:28px;}
+  h2.section-title{font-family:'Amiri',serif;font-size:21px;font-weight:700;color:var(--blue);border-bottom:2px solid var(--blue);padding-bottom:6px;margin:0 0 14px;display:flex;align-items:baseline;gap:8px;}
+  h3.sub-title{font-size:17px;font-weight:700;color:var(--orange);margin:20px 0 8px;}
+  p{line-height:2;font-size:15.5px;margin:0 0 10px;}
+
+  .objectif-box{background:var(--orange-soft);border-right:4px solid var(--orange);padding:14px 18px;border-radius:2px;font-size:15.5px;line-height:1.9;}
+
+  .rule-box{background:var(--panel);border:1px solid var(--line);border-right:4px solid var(--blue);padding:14px 18px;border-radius:2px;margin:10px 0 16px;}
+  .rule-box p:last-child{margin-bottom:0;}
+  .rule-box ul,.rule-box ol{margin:6px 0;padding-inline-start:22px;}
+  .rule-box li{margin-bottom:6px;line-height:1.85;}
+
+  .type-grid{display:flex;flex-wrap:wrap;gap:12px;margin:10px 0 16px;}
+  .type-card{flex:1 1 160px;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:10px;text-align:center;}
+  .type-card svg{width:100%;max-width:120px;height:auto;}
+  .type-card .name{font-weight:700;color:var(--blue);font-size:14px;margin-top:4px;}
+  .type-card .measure{font-size:12.5px;color:var(--orange);font-weight:700;}
+
+  .figure-wrap{display:flex;justify-content:center;gap:24px;margin:14px 0;flex-wrap:wrap;}
+  .figure-item{text-align:center;}
+  .figure-item p{font-size:13px;color:var(--ink-soft);margin-top:4px;}
+
+  table.data-table{width:100%;border-collapse:collapse;margin:8px 0 18px;font-size:15px;}
+  table.data-table th{background:var(--blue);color:#fff;padding:8px 10px;font-weight:600;font-size:14px;}
+  table.data-table td{border:1px solid var(--line);padding:9px 10px;background:var(--panel);text-align:center;}
+  table.data-table tr:nth-child(even) td{background:#eef3f7;}
+
+  .activity-box{background:var(--panel);border:1.5px solid var(--orange);border-radius:3px;padding:16px 20px;}
+  .activity-box .task-label{display:inline-block;background:var(--orange);color:#fff;font-size:12.5px;padding:3px 10px;border-radius:2px;margin-bottom:8px;}
+
+  .exercise{border:1px solid var(--line);border-radius:3px;padding:16px 20px;margin-bottom:16px;background:var(--panel);}
+  .exercise-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:var(--ink);color:var(--paper);border-radius:50%;font-size:14px;font-weight:700;margin-inline-end:8px;}
+  .exercise h4{margin:0 0 10px;font-size:16.5px;display:flex;align-items:center;}
+  .fill-line{border-bottom:1px dotted var(--ink-soft);display:inline-block;min-width:100px;height:1.6em;}
+  .op-grid{display:flex;flex-wrap:wrap;gap:16px;}
+  .op-item{display:flex;align-items:center;gap:6px;font-size:15.5px;}
+  .qcm-item{margin-bottom:10px;}
+  .qcm-item p{margin-bottom:4px;font-weight:600;}
+  .qcm-options{display:flex;flex-wrap:wrap;gap:14px;font-size:14.5px;}
+  .qcm-options span{display:flex;align-items:center;gap:5px;}
+  .checkbox{width:13px;height:13px;border:1.4px solid var(--ink-soft);display:inline-block;border-radius:2px;}
+  .scenario-box{background:#eef3f7;border:1px solid var(--line);padding:12px 16px;font-size:15.5px;line-height:2.1;margin-bottom:10px;}
+  .tf-item{display:flex;justify-content:space-between;align-items:center;border:1px solid var(--line);border-radius:6px;padding:8px 12px;margin-bottom:8px;background:var(--paper);}
+  .tf-boxes{display:flex;gap:10px;}
+  .tf-box{width:24px;height:24px;border:1.5px solid var(--ink-soft);border-radius:3px;display:inline-flex;align-items:center;justify-content:center;font-size:11px;}
+
+  .corrige-wrapper{page-break-before:always;padding-top:6px;}
+  .corrige-flag{text-align:center;font-size:13px;color:var(--ink-soft);margin-bottom:10px;border-top:1px dashed var(--ink-soft);padding-top:14px;}
+  details.corrige{border:2px dashed var(--green);border-radius:4px;background:#f7fcfa;padding:6px 20px 18px;}
+  details.corrige > summary{cursor:pointer;font-family:'Amiri',serif;font-weight:700;font-size:19px;color:var(--green);padding:14px 0;list-style:none;}
+  details.corrige > summary::-webkit-details-marker{display:none;}
+  details.corrige > summary::before{content:"✂ ";}
+  details.corrige > summary::after{content:"— اضغط لإظهار الحل / إخفائه";font-family:'Noto Naskh Arabic',serif;font-weight:400;font-size:13px;color:var(--ink-soft);margin-inline-start:8px;}
+  .corrige h4{color:var(--green);margin:16px 0 8px;font-size:16px;}
+  .corrige-item{margin-bottom:8px;font-size:15px;line-height:1.9;}
+  .corrige table.data-table th{background:var(--green);}
+
+  .footer-note{margin-top:30px;text-align:center;font-size:12px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:10px;}
+
+  @media print{
+    body{background:#fff;}
+    .sheet{box-shadow:none;border:none;margin:0;max-width:100%;padding:14px 6px;background:var(--paper);}
+    details.corrige{border-color:#000;}
+  }
+  @page{size:A4;margin:14mm;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="masthead-text">
+      <h1>الزوايا</h1>
+      <p class="subtitle">الرياضيات — الهندسة</p>
+    </div>
+    <svg class="angle-icon" viewBox="0 0 64 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="10" y1="46" x2="58" y2="46" stroke="#1c2b3a" stroke-width="2.5"/>
+      <line x1="10" y1="46" x2="40" y2="10" stroke="#1c2b3a" stroke-width="2.5"/>
+      <path d="M28 46 A18 18 0 0 1 22 33" stroke="#e07b39" stroke-width="2" fill="none"/>
+    </svg>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta-chip">المستوى: <b>الأولى إعدادي (1AC)</b></div>
+    <div class="meta-chip">المادة: <b>الرياضيات — الهندسة</b></div>
+    <div class="meta-chip">مدة الحصة: <b>ساعة إلى ساعة ونصف</b></div>
+    <div class="meta-chip">نوع الوثيقة: <b>فيشة تعلّم ذاتي</b></div>
+  </div>
+
+  <!-- ===================== OBJECTIF ===================== -->
+  <section>
+    <h2 class="section-title">🎯 الهدف من الدرس</h2>
+    <div class="objectif-box">
+      يتمكّن المتعلم(ة) في نهاية هذا الدرس من: تعريف الزاوية وقياسها بالمنقلة، وتصنيف الزوايا حسب قياساتها (حادة، قائمة، منفرجة، مستقيمة)، وتحديد الزوايا المتكاملة والمتتامة والمتجاورة والمتقابلة بالرأس وتوظيف خصائصها.
+    </div>
+  </section>
+
+  <!-- ===================== COURS ===================== -->
+  <section>
+    <h2 class="section-title">📘 الدرس</h2>
+
+    <h3 class="sub-title">1) تعريف الزاوية وقياسها</h3>
+    <div class="rule-box">
+      <p><b>الزاوية</b> شكل هندسي يتكوّن من نصفَي مستقيم لهما نفس الأصل، يسمى <b>رأس الزاوية</b>. تُقاس الزاوية بأداة تسمى <b>المنقلة</b>، ووحدة القياس هي <b>الدرجة (°)</b>.</p>
+    </div>
+
+    <h3 class="sub-title">2) أنواع الزوايا حسب القياس</h3>
+    <div class="type-grid">
+      <div class="type-card">
+        <svg viewBox="0 0 120 100"><line x1="15" y1="85" x2="105" y2="85" stroke="#2f5f8a" stroke-width="2"/><line x1="15" y1="85" x2="70" y2="25" stroke="#2f5f8a" stroke-width="2"/><path d="M45 85 A30 30 0 0 1 33 62" stroke="#e07b39" stroke-width="2" fill="none"/></svg>
+        <div class="name">حادة</div>
+        <div class="measure">أصغر من 90°</div>
+      </div>
+      <div class="type-card">
+        <svg viewBox="0 0 120 100"><line x1="15" y1="85" x2="105" y2="85" stroke="#2f5f8a" stroke-width="2"/><line x1="15" y1="85" x2="15" y2="20" stroke="#2f5f8a" stroke-width="2"/><rect x="15" y="70" width="15" height="15" fill="none" stroke="#e07b39" stroke-width="1.5"/></svg>
+        <div class="name">قائمة</div>
+        <div class="measure">= 90°</div>
+      </div>
+      <div class="type-card">
+        <svg viewBox="0 0 120 100"><line x1="15" y1="85" x2="105" y2="85" stroke="#2f5f8a" stroke-width="2"/><line x1="15" y1="85" x2="80" y2="15" stroke="#2f5f8a" stroke-width="2"/><path d="M55 85 A40 40 0 0 1 35 48" stroke="#e07b39" stroke-width="2" fill="none"/></svg>
+        <div class="name">منفرجة</div>
+        <div class="measure">بين 90° و180°</div>
+      </div>
+      <div class="type-card">
+        <svg viewBox="0 0 120 100"><line x1="10" y1="50" x2="110" y2="50" stroke="#2f5f8a" stroke-width="2"/><path d="M40 50 A30 30 0 0 1 80 50" stroke="#e07b39" stroke-width="2" fill="none"/></svg>
+        <div class="name">مستقيمة</div>
+        <div class="measure">= 180°</div>
+      </div>
+    </div>
+
+    <h3 class="sub-title">3) الزاويتان المتكاملتان والمتتامتان</h3>
+    <div class="rule-box">
+      <p><b>الزاويتان المتكاملتان:</b> زاويتان مجموع قياسيهما يساوي <b>90°</b>.</p>
+      <p><b>الزاويتان المتتامتان:</b> زاويتان مجموع قياسيهما يساوي <b>180°</b>.</p>
+    </div>
+    <p style="font-size:14px;color:var(--ink-soft);">مثال: زاويتان قياساهما 30° و60° متكاملتان (30+60=90). زاويتان قياساهما 110° و70° متتامتان (110+70=180).</p>
+
+    <h3 class="sub-title">4) الزاويتان المتجاورتان والمتقابلتان بالرأس</h3>
+    <div class="rule-box">
+      <p><b>الزاويتان المتجاورتان:</b> لهما نفس الرأس وضلع مشترك، وتقعان على جانبين متقابلين من هذا الضلع المشترك.</p>
+      <p><b>الزاويتان المتقابلتان بالرأس:</b> ناتجتان عن تقاطع مستقيمين في نقطة واحدة، وتكونان دائماً <b>متساويتين</b> في القياس.</p>
+    </div>
+    <div class="figure-wrap">
+      <div class="figure-item">
+        <svg width="180" height="140" viewBox="0 0 180 140">
+          <line x1="20" y1="70" x2="160" y2="70" stroke="#1c2b3a" stroke-width="2"/>
+          <line x1="90" y1="10" x2="90" y2="130" stroke="#1c2b3a" stroke-width="2"/>
+          <circle cx="90" cy="70" r="3" fill="#e07b39"/>
+          <text x="115" y="45" font-size="13" fill="#2f5f8a">1</text>
+          <text x="65" y="45" font-size="13" fill="#3a8f6b">2</text>
+          <text x="65" y="100" font-size="13" fill="#2f5f8a">3</text>
+          <text x="115" y="100" font-size="13" fill="#3a8f6b">4</text>
+        </svg>
+        <p>الزاويتان 1 و3 متقابلتان بالرأس، وكذلك 2 و4</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ACTIVITE ===================== -->
+  <section>
+    <h2 class="section-title">✏️ نشاط تطبيقي</h2>
+    <div class="activity-box">
+      <span class="task-label">قياس وتصنيف</span>
+      <p>ارسم على ورقة بيضاء ثلاث زوايا مختلفة باستعمال المنقلة والمسطرة (زاوية حادة، زاوية قائمة، زاوية منفرجة)، ثم أكمل الجدول التالي:</p>
+      <table class="data-table">
+        <tr><th>الزاوية</th><th>القياس بالمنقلة</th><th>النوع</th></tr>
+        <tr><td>الأولى</td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+        <tr><td>الثانية</td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+        <tr><td>الثالثة</td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===================== EXERCICES ===================== -->
+  <section>
+    <h2 class="section-title">📝 تمارين للتدرّب</h2>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">1</span>صنّف الزوايا التالية حسب قياساتها (حادة / قائمة / منفرجة / مستقيمة):</h4>
+      <table class="data-table">
+        <tr><th>القياس</th><th>45°</th><th>90°</th><th>120°</th><th>180°</th><th>30°</th><th>150°</th></tr>
+        <tr><th>النوع</th><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+      </table>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">2</span>لاحظ الزوايا التالية، ثم صنّف كل واحدة حسب شكلها الظاهري (حادة/قائمة/منفرجة):</h4>
+      <div class="figure-wrap">
+        <div class="figure-item">
+          <svg width="120" height="100" viewBox="0 0 120 100"><line x1="15" y1="85" x2="105" y2="85" stroke="#2f5f8a" stroke-width="2"/><line x1="15" y1="85" x2="95" y2="45" stroke="#2f5f8a" stroke-width="2"/></svg>
+          <p>الزاوية أ: <span class="fill-line"></span></p>
+        </div>
+        <div class="figure-item">
+          <svg width="120" height="100" viewBox="0 0 120 100"><line x1="15" y1="85" x2="105" y2="85" stroke="#2f5f8a" stroke-width="2"/><line x1="15" y1="85" x2="15" y2="15" stroke="#2f5f8a" stroke-width="2"/></svg>
+          <p>الزاوية ب: <span class="fill-line"></span></p>
+        </div>
+        <div class="figure-item">
+          <svg width="120" height="100" viewBox="0 0 120 100"><line x1="15" y1="85" x2="105" y2="85" stroke="#2f5f8a" stroke-width="2"/><line x1="15" y1="85" x2="85" y2="20" stroke="#2f5f8a" stroke-width="2"/></svg>
+          <p>الزاوية ج: <span class="fill-line"></span></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">3</span>اختر الإجابة الصحيحة:</h4>
+      <div class="qcm-item">
+        <p>1) تُقاس الزاوية بأداة تسمى:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>المسطرة</span><span><span class="checkbox"></span>المنقلة</span><span><span class="checkbox"></span>الفرجار</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>2) الزاوية التي تساوي 90° تسمى:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>حادة</span><span><span class="checkbox"></span>قائمة</span><span><span class="checkbox"></span>منفرجة</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>3) الزاويتان المتكاملتان مجموعهما:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>90°</span><span><span class="checkbox"></span>180°</span><span><span class="checkbox"></span>360°</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>4) الزاويتان المتتامتان مجموعهما:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>90°</span><span><span class="checkbox"></span>180°</span><span><span class="checkbox"></span>360°</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>5) الزاويتان المتقابلتان بالرأس تكونان:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>متساويتين</span><span><span class="checkbox"></span>متكاملتين</span><span><span class="checkbox"></span>متتامتين</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">4</span>احسب متمّم (المتكاملة مع) كل زاوية من الزوايا التالية:</h4>
+      <div class="op-grid">
+        <div class="op-item">30° → <span class="fill-line"></span></div>
+        <div class="op-item">55° → <span class="fill-line"></span></div>
+        <div class="op-item">72° → <span class="fill-line"></span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">5</span>احسب مكمّل (المتتامة مع) كل زاوية من الزوايا التالية:</h4>
+      <div class="op-grid">
+        <div class="op-item">110° → <span class="fill-line"></span></div>
+        <div class="op-item">45° → <span class="fill-line"></span></div>
+        <div class="op-item">162° → <span class="fill-line"></span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">6</span>بالاعتماد على شكل الدرس (تقاطع مستقيمين في نقطة، مع أربع زوايا مرقّمة 1، 2، 3، 4)، حدّد أزواج الزوايا المتقابلة بالرأس.</h4>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">7</span>حدّد صحيح أو خطأ لكل عبارة:</h4>
+      <div class="tf-item"><span>الزاويتان المتجاورتان لهما نفس الرأس وضلع مشترك.</span><div class="tf-boxes"><span class="tf-box">✓</span><span class="tf-box">✗</span></div></div>
+      <div class="tf-item"><span>الزاويتان المتقابلتان بالرأس مجموعهما 180° دائماً.</span><div class="tf-boxes"><span class="tf-box">✓</span><span class="tf-box">✗</span></div></div>
+      <div class="tf-item"><span>كل زاويتين متكاملتين مجموعهما 90°.</span><div class="tf-boxes"><span class="tf-box">✓</span><span class="tf-box">✗</span></div></div>
+      <div class="tf-item"><span>الزاوية المنفرجة أكبر من 180°.</span><div class="tf-boxes"><span class="tf-box">✓</span><span class="tf-box">✗</span></div></div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">8</span>مسألة تطبيقية:</h4>
+      <div class="scenario-box">
+        1) زاويتان متجاورتان AOB وBOC تشكّلان معاً زاوية مستقيمة AOC. إذا كانت زاوية AOB = 110°، احسب زاوية BOC.
+      </div>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+      <div class="scenario-box">
+        2) زاويتان متقابلتان بالرأس، إحداهما قياسها (3x+10)° والأخرى قياسها (5x−30)°. احسب قيمة x، ثم استنتج قياس كل زاوية.
+      </div>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== CORRIGE ===================== -->
+  <div class="corrige-wrapper">
+    <p class="corrige-flag">✂ يمكن طي هذه الصفحة أو إخفاؤها (اضغط على العنوان أدناه) قبل إنجاز التمارين ✂</p>
+    <details class="corrige">
+      <summary>التصحيح الكامل</summary>
+
+      <h4>تصحيح النشاط التطبيقي</h4>
+      <div class="corrige-item">يتحقق الأستاذ(ة) من صحة قياس الزوايا الثلاث بالمنقلة، ومن مطابقة النوع المذكور للقياس الفعلي.</div>
+
+      <h4>تصحيح التمرين 1 (التصنيف حسب القياس)</h4>
+      <div class="corrige-item">45° ← حادة &nbsp;|&nbsp; 90° ← قائمة &nbsp;|&nbsp; 120° ← منفرجة &nbsp;|&nbsp; 180° ← مستقيمة &nbsp;|&nbsp; 30° ← حادة &nbsp;|&nbsp; 150° ← منفرجة</div>
+
+      <h4>تصحيح التمرين 2 (التصنيف من الأشكال)</h4>
+      <div class="corrige-item">الزاوية أ: حادة &nbsp;|&nbsp; الزاوية ب: قائمة &nbsp;|&nbsp; الزاوية ج: منفرجة</div>
+
+      <h4>تصحيح التمرين 3 (الاختيار من متعدد)</h4>
+      <div class="corrige-item">1) المنقلة &nbsp;|&nbsp; 2) قائمة &nbsp;|&nbsp; 3) 90° &nbsp;|&nbsp; 4) 180° &nbsp;|&nbsp; 5) متساويتين</div>
+
+      <h4>تصحيح التمرين 4 (المتمّم)</h4>
+      <div class="corrige-item">90−30=60° &nbsp;|&nbsp; 90−55=35° &nbsp;|&nbsp; 90−72=18°</div>
+
+      <h4>تصحيح التمرين 5 (المكمّل)</h4>
+      <div class="corrige-item">180−110=70° &nbsp;|&nbsp; 180−45=135° &nbsp;|&nbsp; 180−162=18°</div>
+
+      <h4>تصحيح التمرين 6 (الزوايا المتقابلة بالرأس)</h4>
+      <div class="corrige-item">الزاويتان 1 و3 متقابلتان بالرأس، وكذلك الزاويتان 2 و4.</div>
+
+      <h4>تصحيح التمرين 7 (صحيح/خطأ)</h4>
+      <div class="corrige-item">1) صحيح &nbsp;|&nbsp; 2) خطأ (هما متساويتان وليس بالضرورة مجموعهما 180°) &nbsp;|&nbsp; 3) صحيح &nbsp;|&nbsp; 4) خطأ (الزاوية المنفرجة بين 90° و180°)</div>
+
+      <h4>تصحيح التمرين 8 (المسألة التطبيقية)</h4>
+      <div class="corrige-item">1) بما أن AOB وBOC متجاورتان ومجموعهما = 180° (زاوية مستقيمة)، فإن: BOC = 180−110 = 70°.</div>
+      <div class="corrige-item">2) بما أن الزاويتين متقابلتان بالرأس، فهما متساويتان: 3x+10 = 5x−30 ⟹ 40 = 2x ⟹ x = 20. قياس كل زاوية = 3×20+10 = 70°.</div>
+    </details>
+  </div>
+
+  <p class="footer-note">فيشة تعلّم ذاتي — الرياضيات — الأولى إعدادي — الزوايا</p>
+</div>
+</body>
+</html>

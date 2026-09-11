@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>التدرب على رسم الإحداثيات وتحديد الموقع</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#2c2417; --ink-soft:#5c5140;
+    --paper:#f8f2e2; --panel:#fffcf5; --line:#ddccaa;
+    --navy:#2b4a63; --navy-soft:#e1eaf0;
+    --terra:#bd5b34; --terra-soft:#f5e0d2;
+    --gold:#af8b2e;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#e5dcc4;font-family:'Noto Naskh Arabic','Amiri',serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .sheet{max-width:880px;margin:24px auto;background:var(--paper);padding:38px 44px 50px;border:1px solid var(--line);box-shadow:0 4px 24px rgba(0,0,0,.12);}
+
+  .masthead{display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:3px solid var(--ink);padding-bottom:16px;margin-bottom:22px;}
+  .masthead-text h1{font-family:'Amiri',serif;font-weight:700;font-size:26px;margin:0 0 6px;color:var(--navy);line-height:1.3;}
+  .masthead-text .subtitle{font-size:15px;color:var(--ink-soft);margin:0;}
+  .compass-icon{width:60px;height:60px;flex-shrink:0;}
+
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+  .meta-chip{border:1px solid var(--line);background:var(--panel);border-radius:3px;padding:6px 12px;font-size:13.5px;color:var(--ink-soft);}
+  .meta-chip b{color:var(--ink);font-weight:600;}
+
+  section{margin-bottom:28px;}
+  h2.section-title{font-family:'Amiri',serif;font-size:21px;font-weight:700;color:var(--navy);border-bottom:2px solid var(--navy);padding-bottom:6px;margin:0 0 14px;display:flex;align-items:baseline;gap:8px;}
+  h3.sub-title{font-size:17px;font-weight:700;color:var(--terra);margin:20px 0 8px;}
+  p{line-height:2;font-size:15.5px;margin:0 0 10px;}
+
+  .objectif-box{background:var(--terra-soft);border-right:4px solid var(--terra);padding:14px 18px;border-radius:2px;font-size:15.5px;line-height:1.9;}
+
+  .rule-box{background:var(--panel);border:1px solid var(--line);border-right:4px solid var(--navy);padding:14px 18px;border-radius:2px;margin:10px 0 16px;}
+  .rule-box p:last-child{margin-bottom:0;}
+  .rule-box ul,.rule-box ol{margin:6px 0;padding-inline-start:22px;}
+  .rule-box li{margin-bottom:6px;line-height:1.85;}
+
+  .grid-wrap{display:flex;justify-content:center;margin:14px 0;}
+
+  table.data-table{width:100%;border-collapse:collapse;margin:8px 0 18px;font-size:15px;}
+  table.data-table th{background:var(--navy);color:#fff;padding:8px 10px;font-weight:600;font-size:14px;}
+  table.data-table td{border:1px solid var(--line);padding:9px 10px;background:var(--panel);text-align:center;}
+  table.data-table tr:nth-child(even) td{background:#f2ead6;}
+
+  .activity-box{background:var(--panel);border:1.5px solid var(--gold);border-radius:3px;padding:16px 20px;}
+  .activity-box .task-label{display:inline-block;background:var(--gold);color:#fff;font-size:12.5px;padding:3px 10px;border-radius:2px;margin-bottom:8px;}
+
+  .exercise{border:1px solid var(--line);border-radius:3px;padding:16px 20px;margin-bottom:16px;background:var(--panel);}
+  .exercise-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:var(--ink);color:var(--paper);border-radius:50%;font-size:14px;font-weight:700;margin-inline-end:8px;}
+  .exercise h4{margin:0 0 10px;font-size:16.5px;display:flex;align-items:center;}
+  .fill-line{border-bottom:1px dotted var(--ink-soft);display:inline-block;min-width:120px;height:1.6em;}
+  .qcm-item{margin-bottom:10px;}
+  .qcm-item p{margin-bottom:4px;font-weight:600;}
+  .qcm-options{display:flex;flex-wrap:wrap;gap:14px;font-size:14.5px;}
+  .qcm-options span{display:flex;align-items:center;gap:5px;}
+  .checkbox{width:13px;height:13px;border:1.4px solid var(--ink-soft);display:inline-block;border-radius:2px;}
+
+  .corrige-wrapper{page-break-before:always;padding-top:6px;}
+  .corrige-flag{text-align:center;font-size:13px;color:var(--ink-soft);margin-bottom:10px;border-top:1px dashed var(--ink-soft);padding-top:14px;}
+  details.corrige{border:2px dashed var(--terra);border-radius:4px;background:#fdf5f0;padding:6px 20px 18px;}
+  details.corrige > summary{cursor:pointer;font-family:'Amiri',serif;font-weight:700;font-size:19px;color:var(--terra);padding:14px 0;list-style:none;}
+  details.corrige > summary::-webkit-details-marker{display:none;}
+  details.corrige > summary::before{content:"✂ ";}
+  details.corrige > summary::after{content:"— اضغط لإظهار الحل / إخفائه";font-family:'Noto Naskh Arabic',serif;font-weight:400;font-size:13px;color:var(--ink-soft);margin-inline-start:8px;}
+  .corrige h4{color:var(--terra);margin:16px 0 8px;font-size:16px;}
+  .corrige-item{margin-bottom:8px;font-size:15px;line-height:1.9;}
+  .corrige table.data-table th{background:var(--terra);}
+
+  .footer-note{margin-top:30px;text-align:center;font-size:12px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:10px;}
+
+  @media print{
+    body{background:#fff;}
+    .sheet{box-shadow:none;border:none;margin:0;max-width:100%;padding:14px 6px;}
+    details.corrige{border-color:#000;}
+  }
+  @page{size:A4;margin:14mm;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="masthead-text">
+      <h1>التدرّب على رسم الإحداثيات وتحديد الموقع</h1>
+      <p class="subtitle">الاجتماعيات — الجغرافيا: التمثيل المجالي</p>
+    </div>
+    <svg class="compass-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="32" cy="32" r="24" fill="none" stroke="#2b4a63" stroke-width="3"/>
+      <polygon points="32,12 38,32 32,52 26,32" fill="#bd5b34"/>
+      <circle cx="32" cy="32" r="3" fill="#2c2417"/>
+    </svg>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta-chip">المستوى: <b>الأولى إعدادي (1AC)</b></div>
+    <div class="meta-chip">المادة: <b>الاجتماعيات — الجغرافيا</b></div>
+    <div class="meta-chip">مدة الحصة: <b>ساعة واحدة</b></div>
+    <div class="meta-chip">نوع الوثيقة: <b>فيشة تعلّم ذاتي (منهجية)</b></div>
+  </div>
+
+  <!-- ===================== OBJECTIF ===================== -->
+  <section>
+    <h2 class="section-title">🎯 الهدف من الدرس</h2>
+    <div class="objectif-box">
+      يتمكّن المتعلم(ة) في نهاية هذا الدرس من: رسم شبكة إحداثيات بسيطة (أعمدة وصفوف) على مبيان أو خريطة، وقراءة إحداثيات نقطة معيّنة وتحديد موقعها بدقة، والتعرّف على خطوط الطول ودوائر العرض كشبكة إحداثيات حقيقية تُستعمل لتحديد مواقع الأماكن على الكرة الأرضية.
+    </div>
+  </section>
+
+  <!-- ===================== COURS ===================== -->
+  <section>
+    <h2 class="section-title">📘 الدرس</h2>
+
+    <h3 class="sub-title">1) ما هي شبكة الإحداثيات؟</h3>
+    <div class="rule-box">
+      <p>لتحديد موقع أي عنصر على خريطة أو مبيان بدقة، نرسم فوقه <b>شبكة إحداثيات</b>: مجموعة من الأعمدة العمودية نرمز لها بحروف (A، B، C...)، ومجموعة من الصفوف الأفقية نرمز لها بأرقام (1، 2، 3...). كل خانة في هذه الشبكة لها <b>إحداثيات فريدة</b> مكوَّنة من (الحرف، الرقم)، مثل: <b>C2</b>.</p>
+    </div>
+
+    <h3 class="sub-title">2) طريقة قراءة إحداثيات نقطة</h3>
+    <div class="rule-box">
+      <p>لقراءة إحداثيات عنصر موجود في الشبكة، نتّبع خطوتين:</p>
+      <ol>
+        <li>نحدّد <b>العمود</b> (الحرف) الذي يمرّ من العنصر.</li>
+        <li>نحدّد <b>الصف</b> (الرقم) الذي يمرّ من العنصر.</li>
+      </ol>
+      <p>نكتب الإحداثيات بترتيب: الحرف أولاً، ثم الرقم.</p>
+    </div>
+    <div class="grid-wrap">
+      <svg width="320" height="320" viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg">
+        <text x="75" y="30" text-anchor="middle" font-family="Noto Naskh Arabic, serif" font-size="16" font-weight="700" fill="#2b4a63">A</text>
+        <text x="125" y="30" text-anchor="middle" font-family="Noto Naskh Arabic, serif" font-size="16" font-weight="700" fill="#2b4a63">B</text>
+        <text x="175" y="30" text-anchor="middle" font-family="Noto Naskh Arabic, serif" font-size="16" font-weight="700" fill="#2b4a63">C</text>
+        <text x="225" y="30" text-anchor="middle" font-family="Noto Naskh Arabic, serif" font-size="16" font-weight="700" fill="#2b4a63">D</text>
+        <text x="275" y="30" text-anchor="middle" font-family="Noto Naskh Arabic, serif" font-size="16" font-weight="700" fill="#2b4a63">E</text>
+        <text x="35" y="80" text-anchor="middle" font-family="Noto Naskh Arabic, serif" font-size="16" font-weight="700" fill="#2b4a63">1</text>
+        <text x="35" y="130" text-anchor="middle" font-family="Noto Naskh Arabic, serif" font-size="16" font-weight="700" fill="#2b4a63">2</text>
+        <text x="35" y="180" text-anchor="middle" font-family="Noto Naskh Arabic, serif" font-size="16" font-weight="700" fill="#2b4a63">3</text>
+        <text x="35" y="230" text-anchor="middle" font-family="Noto Naskh Arabic, serif" font-size="16" font-weight="700" fill="#2b4a63">4</text>
+        <text x="35" y="280" text-anchor="middle" font-family="Noto Naskh Arabic, serif" font-size="16" font-weight="700" fill="#2b4a63">5</text>
+        <rect x="50" y="50" width="250" height="250" fill="none" stroke="#2c2417" stroke-width="2"/>
+        <line x1="100" y1="50" x2="100" y2="300" stroke="#ddccaa" stroke-width="1.5"/>
+        <line x1="150" y1="50" x2="150" y2="300" stroke="#ddccaa" stroke-width="1.5"/>
+        <line x1="200" y1="50" x2="200" y2="300" stroke="#ddccaa" stroke-width="1.5"/>
+        <line x1="250" y1="50" x2="250" y2="300" stroke="#ddccaa" stroke-width="1.5"/>
+        <line x1="50" y1="100" x2="300" y2="100" stroke="#ddccaa" stroke-width="1.5"/>
+        <line x1="50" y1="150" x2="300" y2="150" stroke="#ddccaa" stroke-width="1.5"/>
+        <line x1="50" y1="200" x2="300" y2="200" stroke="#ddccaa" stroke-width="1.5"/>
+        <line x1="50" y1="250" x2="300" y2="250" stroke="#ddccaa" stroke-width="1.5"/>
+        <!-- Tree at C2 -->
+        <polygon points="175,110 190,135 160,135" fill="#3f7d3a"/>
+        <rect x="172" y="135" width="6" height="10" fill="#8a5a34"/>
+        <!-- House at A4 -->
+        <rect x="65" y="215" width="20" height="15" fill="#bd5b34"/>
+        <polygon points="60,215 75,200 90,215" fill="#8a5a34"/>
+        <!-- Well at E1 -->
+        <circle cx="275" cy="75" r="8" fill="none" stroke="#2b4a63" stroke-width="2.5"/>
+      </svg>
+    </div>
+    <p style="font-size:14px;color:var(--ink-soft);margin-top:-8px;">في هذا المثال: الشجرة في الخانة <b>C2</b>، البيت في الخانة <b>A4</b>، البئر في الخانة <b>E1</b>.</p>
+
+    <h3 class="sub-title">3) طريقة تحديد موقع نقطة معلومة الإحداثيات</h3>
+    <div class="rule-box">
+      <p>إذا أُعطيت لنا إحداثيات نقطة (مثلاً D3)، نتّبع الخطوات التالية لتحديد موقعها على الشبكة:</p>
+      <ol>
+        <li>نبحث عن العمود المطابق للحرف (هنا: العمود D).</li>
+        <li>نبحث عن الصف المطابق للرقم (هنا: الصف 3).</li>
+        <li>نضع علامة عند نقطة تقاطع هذا العمود مع هذا الصف: هذا هو موقع النقطة D3.</li>
+      </ol>
+    </div>
+
+    <h3 class="sub-title">4) من الشبكة البسيطة إلى الشبكة الجغرافية الحقيقية</h3>
+    <div class="rule-box">
+      <p>تُستعمل نفس الفكرة على الكرة الأرضية والخرائط الجغرافية، لكن بشبكة تسمى <b>الشبكة الجغرافية</b>، وتتكوّن من:</p>
+      <ul>
+        <li><b>خطوط الطول:</b> خطوط عمودية تصل بين القطبين، وتُقاس بالدرجات شرقاً أو غرباً انطلاقاً من خط غرينتش (خط الطول 0°).</li>
+        <li><b>دوائر العرض:</b> خطوط أفقية موازية لخط الاستواء (دائرة العرض 0°)، وتُقاس بالدرجات شمالاً أو جنوباً.</li>
+      </ul>
+      <p><b>الإحداثيات الجغرافية</b> لأي نقطة على سطح الأرض = (خط الطول، دائرة العرض) المارّان من هذه النقطة. مثال: تقع مدينة الرباط تقريباً عند خط الطول 7° غرباً، ودائرة العرض 34° شمالاً.</p>
+    </div>
+  </section>
+
+  <!-- ===================== ACTIVITE ===================== -->
+  <section>
+    <h2 class="section-title">✏️ نشاط تطبيقي</h2>
+    <div class="activity-box">
+      <span class="task-label">قراءة وتموضع على الشبكة</span>
+      <p>لاحظ الشبكة التالية، ثم أجب عن الأسئلة الموالية:</p>
+      <div class="grid-wrap">
+        <svg width="320" height="320" viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg">
+          <text x="75" y="30" text-anchor="middle" font-size="16" font-weight="700" fill="#2b4a63">A</text>
+          <text x="125" y="30" text-anchor="middle" font-size="16" font-weight="700" fill="#2b4a63">B</text>
+          <text x="175" y="30" text-anchor="middle" font-size="16" font-weight="700" fill="#2b4a63">C</text>
+          <text x="225" y="30" text-anchor="middle" font-size="16" font-weight="700" fill="#2b4a63">D</text>
+          <text x="275" y="30" text-anchor="middle" font-size="16" font-weight="700" fill="#2b4a63">E</text>
+          <text x="35" y="80" text-anchor="middle" font-size="16" font-weight="700" fill="#2b4a63">1</text>
+          <text x="35" y="130" text-anchor="middle" font-size="16" font-weight="700" fill="#2b4a63">2</text>
+          <text x="35" y="180" text-anchor="middle" font-size="16" font-weight="700" fill="#2b4a63">3</text>
+          <text x="35" y="230" text-anchor="middle" font-size="16" font-weight="700" fill="#2b4a63">4</text>
+          <text x="35" y="280" text-anchor="middle" font-size="16" font-weight="700" fill="#2b4a63">5</text>
+          <rect x="50" y="50" width="250" height="250" fill="none" stroke="#2c2417" stroke-width="2"/>
+          <line x1="100" y1="50" x2="100" y2="300" stroke="#ddccaa" stroke-width="1.5"/>
+          <line x1="150" y1="50" x2="150" y2="300" stroke="#ddccaa" stroke-width="1.5"/>
+          <line x1="200" y1="50" x2="200" y2="300" stroke="#ddccaa" stroke-width="1.5"/>
+          <line x1="250" y1="50" x2="250" y2="300" stroke="#ddccaa" stroke-width="1.5"/>
+          <line x1="50" y1="100" x2="300" y2="100" stroke="#ddccaa" stroke-width="1.5"/>
+          <line x1="50" y1="150" x2="300" y2="150" stroke="#ddccaa" stroke-width="1.5"/>
+          <line x1="50" y1="200" x2="300" y2="200" stroke="#ddccaa" stroke-width="1.5"/>
+          <line x1="50" y1="250" x2="300" y2="250" stroke="#ddccaa" stroke-width="1.5"/>
+          <!-- tree B2 -->
+          <polygon points="125,110 140,135 110,135" fill="#3f7d3a"/><rect x="122" y="135" width="6" height="10" fill="#8a5a34"/>
+          <!-- house D4 -->
+          <rect x="215" y="215" width="20" height="15" fill="#bd5b34"/><polygon points="210,215 225,200 240,215" fill="#8a5a34"/>
+          <!-- star C5 -->
+          <text x="175" y="285" text-anchor="middle" font-size="20">⭐</text>
+          <!-- well A1 -->
+          <circle cx="75" cy="75" r="8" fill="none" stroke="#2b4a63" stroke-width="2.5"/>
+        </svg>
+      </div>
+      <p>1) اكتب إحداثيات الشجرة: <span class="fill-line"></span> — البيت: <span class="fill-line"></span> — النجمة: <span class="fill-line"></span> — البئر: <span class="fill-line"></span></p>
+      <p>2) ارسم رمزاً من اختيارك (دائرة مثلاً) في الخانة <b>E3</b> من الشبكة أعلاه.</p>
+    </div>
+  </section>
+
+  <!-- ===================== EXERCICES ===================== -->
+  <section>
+    <h2 class="section-title">📝 تمارين للتدرّب</h2>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">1</span>اكتب إحداثيات كل عنصر من العناصر الموضحة في الشبكة:</h4>
+      <div class="grid-wrap">
+        <svg width="300" height="300" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+          <text x="65" y="25" text-anchor="middle" font-size="14" font-weight="700" fill="#2b4a63">A</text>
+          <text x="115" y="25" text-anchor="middle" font-size="14" font-weight="700" fill="#2b4a63">B</text>
+          <text x="165" y="25" text-anchor="middle" font-size="14" font-weight="700" fill="#2b4a63">C</text>
+          <text x="215" y="25" text-anchor="middle" font-size="14" font-weight="700" fill="#2b4a63">D</text>
+          <text x="265" y="25" text-anchor="middle" font-size="14" font-weight="700" fill="#2b4a63">E</text>
+          <text x="30" y="70" text-anchor="middle" font-size="14" font-weight="700" fill="#2b4a63">1</text>
+          <text x="30" y="120" text-anchor="middle" font-size="14" font-weight="700" fill="#2b4a63">2</text>
+          <text x="30" y="170" text-anchor="middle" font-size="14" font-weight="700" fill="#2b4a63">3</text>
+          <text x="30" y="220" text-anchor="middle" font-size="14" font-weight="700" fill="#2b4a63">4</text>
+          <text x="30" y="270" text-anchor="middle" font-size="14" font-weight="700" fill="#2b4a63">5</text>
+          <rect x="40" y="40" width="240" height="240" fill="none" stroke="#2c2417" stroke-width="2"/>
+          <line x1="88" y1="40" x2="88" y2="280" stroke="#ddccaa" stroke-width="1.2"/>
+          <line x1="136" y1="40" x2="136" y2="280" stroke="#ddccaa" stroke-width="1.2"/>
+          <line x1="184" y1="40" x2="184" y2="280" stroke="#ddccaa" stroke-width="1.2"/>
+          <line x1="232" y1="40" x2="232" y2="280" stroke="#ddccaa" stroke-width="1.2"/>
+          <line x1="40" y1="88" x2="280" y2="88" stroke="#ddccaa" stroke-width="1.2"/>
+          <line x1="40" y1="136" x2="280" y2="136" stroke="#ddccaa" stroke-width="1.2"/>
+          <line x1="40" y1="184" x2="280" y2="184" stroke="#ddccaa" stroke-width="1.2"/>
+          <line x1="40" y1="232" x2="280" y2="232" stroke="#ddccaa" stroke-width="1.2"/>
+          <!-- flower B3 -->
+          <text x="112" y="168" text-anchor="middle" font-size="18">🌸</text>
+          <!-- boat D2 -->
+          <text x="212" y="118" text-anchor="middle" font-size="18">⛵</text>
+          <!-- moon A5 -->
+          <text x="62" y="268" text-anchor="middle" font-size="18">🌙</text>
+          <!-- sun E4 -->
+          <text x="262" y="218" text-anchor="middle" font-size="18">☀️</text>
+        </svg>
+      </div>
+      <p>الزهرة: <span class="fill-line"></span> — القارب: <span class="fill-line"></span> — القمر: <span class="fill-line"></span> — الشمس: <span class="fill-line"></span></p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">2</span>ضع علامة (×) في الخانات المطابقة للإحداثيات التالية على الشبكة الفارغة أدناه: C3 — A2 — E5 — B4</h4>
+      <div class="grid-wrap">
+        <svg width="300" height="300" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+          <text x="65" y="25" text-anchor="middle" font-size="14" font-weight="700" fill="#2b4a63">A</text>
+          <text x="115" y="25" text-anchor="middle" font-size="14" font-weight="700" fill="#2b4a63">B</text>
+          <text x="165" y="25" text-anchor="middle" font-size="14" font-weight="700" fill="#2b4a63">C</text>
+          <text x="215" y="25" text-anchor="middle" font-size="14" font-weight="700" fill="#2b4a63">D</text>
+          <text x="265" y="25" text-anchor="middle" font-size="14" font-weight="700" fill="#2b4a63">E</text>
+          <text x="30" y="70" text-anchor="middle" font-size="14" font-weight="700" fill="#2b4a63">1</text>
+          <text x="30" y="120" text-anchor="middle" font-size="14" font-weight="700" fill="#2b4a63">2</text>
+          <text x="30" y="170" text-anchor="middle" font-size="14" font-weight="700" fill="#2b4a63">3</text>
+          <text x="30" y="220" text-anchor="middle" font-size="14" font-weight="700" fill="#2b4a63">4</text>
+          <text x="30" y="270" text-anchor="middle" font-size="14" font-weight="700" fill="#2b4a63">5</text>
+          <rect x="40" y="40" width="240" height="240" fill="none" stroke="#2c2417" stroke-width="2"/>
+          <line x1="88" y1="40" x2="88" y2="280" stroke="#ddccaa" stroke-width="1.2"/>
+          <line x1="136" y1="40" x2="136" y2="280" stroke="#ddccaa" stroke-width="1.2"/>
+          <line x1="184" y1="40" x2="184" y2="280" stroke="#ddccaa" stroke-width="1.2"/>
+          <line x1="232" y1="40" x2="232" y2="280" stroke="#ddccaa" stroke-width="1.2"/>
+          <line x1="40" y1="88" x2="280" y2="88" stroke="#ddccaa" stroke-width="1.2"/>
+          <line x1="40" y1="136" x2="280" y2="136" stroke="#ddccaa" stroke-width="1.2"/>
+          <line x1="40" y1="184" x2="280" y2="184" stroke="#ddccaa" stroke-width="1.2"/>
+          <line x1="40" y1="232" x2="280" y2="232" stroke="#ddccaa" stroke-width="1.2"/>
+        </svg>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">3</span>اختر الإجابة الصحيحة:</h4>
+      <div class="qcm-item">
+        <p>1) الخطوط العمودية التي تصل بين القطبين تسمى:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>خطوط الطول</span><span><span class="checkbox"></span>دوائر العرض</span><span><span class="checkbox"></span>خط الاستواء</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>2) خط الطول 0° يسمى:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>خط غرينتش</span><span><span class="checkbox"></span>خط الاستواء</span><span><span class="checkbox"></span>القطب الشمالي</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>3) في الإحداثيات المكتوبة "C2"، الحرف يمثّل:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>الصف</span><span><span class="checkbox"></span>العمود</span><span><span class="checkbox"></span>القطر</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>4) دوائر العرض خطوط:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>عمودية تصل بين القطبين</span><span><span class="checkbox"></span>أفقية موازية لخط الاستواء</span><span><span class="checkbox"></span>مائلة</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>5) الإحداثيات الجغرافية لنقطة تتكون من:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>خط الطول ودائرة العرض</span><span><span class="checkbox"></span>الطول والعرض بالمتر</span><span><span class="checkbox"></span>اسم المدينة فقط</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">4</span>أكمل الجمل بالكلمة المناسبة (خط الطول / دائرة العرض / خط الاستواء / خط غرينتش):</h4>
+      <p>1) .......... خط أفقي يقسم الكرة الأرضية إلى نصفين شمالي وجنوبي.</p>
+      <p>2) .......... خط عمودي يُعتبر نقطة انطلاق قياس خطوط الطول (0°).</p>
+      <p>3) تُقاس .......... بالدرجات شرقاً أو غرباً.</p>
+      <p>4) تُقاس .......... بالدرجات شمالاً أو جنوباً.</p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">5</span>وضعية-مشكلة:</h4>
+      <p>تعرف أن مدينة الرباط تقع تقريباً عند خط الطول 7° غرباً ودائرة العرض 34° شمالاً.</p>
+      <p>1) اكتب الإحداثيات الجغرافية لمدينة الرباط بالشكل الصحيح (خط الطول، دائرة العرض).</p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+      <p>2) بيّن كيف يمكن لشخص يعرف هذه الإحداثيات فقط أن يحدّد موقع الرباط على خريطة العالم، بالاعتماد على منهجية الدرس.</p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== CORRIGE ===================== -->
+  <div class="corrige-wrapper">
+    <p class="corrige-flag">✂ يمكن طي هذه الصفحة أو إخفاؤها (اضغط على العنوان أدناه) قبل إنجاز التمارين ✂</p>
+    <details class="corrige">
+      <summary>التصحيح الكامل</summary>
+
+      <h4>تصحيح النشاط التطبيقي</h4>
+      <div class="corrige-item">الشجرة: B2 &nbsp;|&nbsp; البيت: D4 &nbsp;|&nbsp; النجمة: C5 &nbsp;|&nbsp; البئر: A1</div>
+      <div class="corrige-item">يتحقق الأستاذ(ة) من أن الرمز المرسوم في التمرين الثاني موجود فعلاً في الخانة E3 (العمود E، الصف 3).</div>
+
+      <h4>تصحيح التمرين 1 (قراءة الإحداثيات)</h4>
+      <div class="corrige-item">الزهرة: B3 &nbsp;|&nbsp; القارب: D2 &nbsp;|&nbsp; القمر: A5 &nbsp;|&nbsp; الشمس: E4</div>
+
+      <h4>تصحيح التمرين 2 (وضع العلامات)</h4>
+      <div class="corrige-item">يتحقق الأستاذ(ة) من أن العلامات (×) وُضعت في الخانات الصحيحة: C3 (العمود C، الصف 3) — A2 (العمود A، الصف 2) — E5 (العمود E، الصف 5) — B4 (العمود B، الصف 4).</div>
+
+      <h4>تصحيح التمرين 3 (الاختيار من متعدد)</h4>
+      <div class="corrige-item">1) خطوط الطول &nbsp;|&nbsp; 2) خط غرينتش &nbsp;|&nbsp; 3) العمود &nbsp;|&nbsp; 4) أفقية موازية لخط الاستواء &nbsp;|&nbsp; 5) خط الطول ودائرة العرض</div>
+
+      <h4>تصحيح التمرين 4 (إكمال الجمل)</h4>
+      <div class="corrige-item">1) خط الاستواء &nbsp;|&nbsp; 2) خط غرينتش &nbsp;|&nbsp; 3) خطوط الطول &nbsp;|&nbsp; 4) دوائر العرض</div>
+
+      <h4>تصحيح التمرين 5 (وضعية-مشكلة)</h4>
+      <div class="corrige-item">1) إحداثيات الرباط: (7° غرباً، 34° شمالاً).</div>
+      <div class="corrige-item">2) يبحث الشخص عن خط الطول 7° غرب خط غرينتش على الخريطة، ثم يبحث عن دائرة العرض 34° شمال خط الاستواء، ونقطة تقاطع هذين الخطين تُحدّد له موقع مدينة الرباط تقريباً، بنفس الطريقة المستعملة مع الشبكة البسيطة (عمود × صف).</div>
+    </details>
+  </div>
+
+  <p class="footer-note">فيشة تعلّم ذاتي — الاجتماعيات (الجغرافيا) — الأولى إعدادي — رسم الإحداثيات وتحديد الموقع</p>
+</div>
+</body>
+</html>

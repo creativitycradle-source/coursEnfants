@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>الذوبان في الماء</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#122430; --ink-soft:#3f5866;
+    --paper:#f6fafb; --panel:#ffffff; --line:#cfe1e6;
+    --cyan:#1c7fa0; --cyan-soft:#dcf0f7;
+    --navy:#1f3b52; --navy-soft:#dfe7ee;
+    --amber:#d99a2b; --amber-soft:#faf0da;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#dbe8ec;font-family:'Noto Naskh Arabic','Amiri',serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .sheet{max-width:880px;margin:24px auto;background:var(--paper);padding:38px 44px 50px;border:1px solid var(--line);box-shadow:0 4px 24px rgba(0,0,0,.12);}
+
+  .masthead{display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:3px solid var(--ink);padding-bottom:16px;margin-bottom:22px;}
+  .masthead-text h1{font-family:'Amiri',serif;font-weight:700;font-size:29px;margin:0 0 6px;color:var(--navy);}
+  .masthead-text .subtitle{font-size:15px;color:var(--ink-soft);margin:0;}
+  .glass-icon{width:46px;height:60px;flex-shrink:0;}
+
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+  .meta-chip{border:1px solid var(--line);background:var(--panel);border-radius:3px;padding:6px 12px;font-size:13.5px;color:var(--ink-soft);}
+  .meta-chip b{color:var(--ink);font-weight:600;}
+
+  section{margin-bottom:28px;}
+  h2.section-title{font-family:'Amiri',serif;font-size:21px;font-weight:700;color:var(--cyan);border-bottom:2px solid var(--cyan);padding-bottom:6px;margin:0 0 14px;display:flex;align-items:baseline;gap:8px;}
+  h3.sub-title{font-size:17px;font-weight:700;color:var(--amber);margin:20px 0 8px;}
+  p{line-height:2;font-size:15.5px;margin:0 0 10px;}
+
+  .objectif-box{background:var(--amber-soft);border-right:4px solid var(--amber);padding:14px 18px;border-radius:2px;font-size:15.5px;line-height:1.9;}
+
+  .rule-box{background:var(--panel);border:1px solid var(--line);border-right:4px solid var(--cyan);padding:14px 18px;border-radius:2px;margin:10px 0 16px;}
+  .rule-box p:last-child{margin-bottom:0;}
+  .rule-box ul,.rule-box ol{margin:6px 0;padding-inline-start:22px;}
+  .rule-box li{margin-bottom:8px;line-height:1.9;}
+
+  table.data-table{width:100%;border-collapse:collapse;margin:8px 0 18px;font-size:15px;}
+  table.data-table th{background:var(--cyan);color:#fff;padding:8px 10px;font-weight:600;font-size:14px;}
+  table.data-table td{border:1px solid var(--line);padding:9px 10px;background:var(--panel);text-align:center;}
+  table.data-table tr:nth-child(even) td{background:#eaf4f8;}
+
+  .factor-grid{display:flex;flex-wrap:wrap;gap:14px;margin:10px 0 16px;}
+  .factor-card{flex:1 1 220px;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:12px 16px;}
+  .factor-card .head{font-weight:700;color:var(--cyan);font-size:15.5px;margin-bottom:4px;}
+  .factor-card p{margin:2px 0 0;font-size:14px;color:var(--ink-soft);line-height:1.85;}
+
+  .satur-wrap{display:flex;justify-content:center;margin:14px 0;}
+
+  .activity-box{background:var(--panel);border:1.5px solid var(--amber);border-radius:3px;padding:16px 20px;}
+  .activity-box .task-label{display:inline-block;background:var(--amber);color:#fff;font-size:12.5px;padding:3px 10px;border-radius:2px;margin-bottom:8px;}
+  .step{display:flex;gap:10px;margin-bottom:8px;align-items:flex-start;}
+  .step-num{flex-shrink:0;width:22px;height:22px;border-radius:50%;background:var(--amber);color:#fff;font-size:12.5px;display:flex;align-items:center;justify-content:center;font-weight:700;}
+
+  .exercise{border:1px solid var(--line);border-radius:3px;padding:16px 20px;margin-bottom:16px;background:var(--panel);}
+  .exercise-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:var(--ink);color:var(--paper);border-radius:50%;font-size:14px;font-weight:700;margin-inline-end:8px;}
+  .exercise h4{margin:0 0 10px;font-size:16.5px;display:flex;align-items:center;}
+  .fill-line{border-bottom:1px dotted var(--ink-soft);display:inline-block;min-width:100px;height:1.6em;}
+  .word-chip{display:inline-block;background:var(--paper);border:1px solid var(--line);border-radius:3px;padding:3px 12px;margin:3px 4px;font-size:16px;}
+  .qcm-item{margin-bottom:10px;}
+  .qcm-item p{margin-bottom:4px;font-weight:600;}
+  .qcm-options{display:flex;flex-wrap:wrap;gap:14px;font-size:14.5px;}
+  .qcm-options span{display:flex;align-items:center;gap:5px;}
+  .checkbox{width:13px;height:13px;border:1.4px solid var(--ink-soft);display:inline-block;border-radius:2px;}
+  .match-cols{display:flex;justify-content:space-between;gap:40px;margin-top:8px;}
+  .match-cols ul{list-style:none;padding:0;margin:0;}
+  .match-cols li{border:1px solid var(--line);background:var(--paper);padding:6px 14px;margin-bottom:10px;border-radius:3px;font-size:15px;}
+  .scenario-box{background:#eaf4f8;border:1px solid var(--line);padding:12px 16px;font-size:15.5px;line-height:2.1;margin-bottom:10px;}
+
+  .corrige-wrapper{page-break-before:always;padding-top:6px;}
+  .corrige-flag{text-align:center;font-size:13px;color:var(--ink-soft);margin-bottom:10px;border-top:1px dashed var(--ink-soft);padding-top:14px;}
+  details.corrige{border:2px dashed var(--navy);border-radius:4px;background:#f4f7f9;padding:6px 20px 18px;}
+  details.corrige > summary{cursor:pointer;font-family:'Amiri',serif;font-weight:700;font-size:19px;color:var(--navy);padding:14px 0;list-style:none;}
+  details.corrige > summary::-webkit-details-marker{display:none;}
+  details.corrige > summary::before{content:"✂ ";}
+  details.corrige > summary::after{content:"— اضغط لإظهار الحل / إخفائه";font-family:'Noto Naskh Arabic',serif;font-weight:400;font-size:13px;color:var(--ink-soft);margin-inline-start:8px;}
+  .corrige h4{color:var(--navy);margin:16px 0 8px;font-size:16px;}
+  .corrige-item{margin-bottom:8px;font-size:15px;line-height:1.9;}
+  .corrige table.data-table th{background:var(--navy);}
+
+  .footer-note{margin-top:30px;text-align:center;font-size:12px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:10px;}
+
+  @media print{
+    body{background:#fff;}
+    .sheet{box-shadow:none;border:none;margin:0;max-width:100%;padding:14px 6px;}
+    details.corrige{border-color:#000;}
+  }
+  @page{size:A4;margin:14mm;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="masthead-text">
+      <h1>الذوبانُ في الماءِ</h1>
+      <p class="subtitle">الفيزياء والكيمياء — عالم المادة</p>
+    </div>
+    <svg class="glass-icon" viewBox="0 0 40 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M8 6h24l-4 44a3 3 0 0 1-3 3H15a3 3 0 0 1-3-3z" fill="none" stroke="#1f3b52" stroke-width="2.5"/>
+      <path d="M9.5 25h21l-2.5 25a3 3 0 0 1-3 3H15a3 3 0 0 1-3-3z" fill="#1c7fa0" opacity="0.75"/>
+      <circle cx="16" cy="35" r="1.6" fill="#d99a2b"/><circle cx="22" cy="40" r="1.6" fill="#d99a2b"/><circle cx="19" cy="45" r="1.6" fill="#d99a2b"/>
+    </svg>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta-chip">المستوى: <b>الأولى إعدادي (1AC)</b></div>
+    <div class="meta-chip">المادة: <b>الفيزياء والكيمياء</b></div>
+    <div class="meta-chip">مدة الحصة: <b>ساعة واحدة</b></div>
+    <div class="meta-chip">نوع الوثيقة: <b>فيشة تعلّم ذاتي</b></div>
+  </div>
+
+  <!-- ===================== OBJECTIF ===================== -->
+  <section>
+    <h2 class="section-title">🎯 الهدف من الدرس</h2>
+    <div class="objectif-box">
+      يتمكّن المتعلم(ة) في نهاية هذا الدرس من: تعريف الذوبان والتمييز بين المواد الذوّابة وغير الذوّابة في الماء، وتحديد مفهومَي الذوبانية والتشبع، وتفسير العوامل المؤثرة في سرعة الذوبان، وتوظيف ذلك في حل مسائل بسيطة.
+    </div>
+  </section>
+
+  <!-- ===================== COURS ===================== -->
+  <section>
+    <h2 class="section-title">📘 الدرس</h2>
+
+    <h3 class="sub-title">1) ما هو الذوبان؟</h3>
+    <div class="rule-box">
+      <p><b>الذوبان</b> ظاهرة اختفاء مادة (تسمى <b>المذاب</b>) داخل سائل (يسمى <b>المذيب</b>) لتكوين مخلوط متجانس يسمى <b>محلول</b>. يُعتبر الماء من أفضل المذيبات لقدرته على إذابة عدد كبير من المواد، لذلك يُلقَّب أحياناً بـ"المذيب الشامل".</p>
+    </div>
+
+    <h3 class="sub-title">2) المواد الذوّابة وغير الذوّابة في الماء</h3>
+    <div class="rule-box">
+      <p>لا تذوب كل المواد في الماء بنفس الطريقة: بعضها <b>ذوّاب</b> (يختفي تماماً في الماء)، وبعضها <b>غير ذوّاب</b> (يبقى ظاهراً ومنفصلاً عن الماء).</p>
+    </div>
+    <table class="data-table">
+      <tr><th>مواد ذوّابة في الماء</th><th>مواد غير ذوّابة (أو ضعيفة الذوبان) في الماء</th></tr>
+      <tr><td>السكر، الملح، الكحول</td><td>الرمل، الزيت، الطباشير</td></tr>
+    </table>
+
+    <h3 class="sub-title">3) الذوبانية والتشبع</h3>
+    <div class="rule-box">
+      <p><b>الذوبانية</b> هي الكمية القصوى من مادة يمكن أن تذوب في كمية معينة من الماء (مثلاً 100 mL) عند درجة حرارة معينة. تختلف الذوبانية من مادة إلى أخرى.</p>
+      <p>عندما تصل كمية المذاب في المحلول إلى الحد الأقصى الذي يمكن أن يذوب، يُصبح المحلول <b>مشبعاً</b>. عندئذ، أي كمية إضافية من المذاب لن تذوب، بل تبقى على شكل راسب صلب في قاع الإناء.</p>
+    </div>
+    <div class="satur-wrap">
+      <svg width="220" height="170" viewBox="0 0 220 170">
+        <path d="M50 20h120l-10 130a6 6 0 0 1-6 6H66a6 6 0 0 1-6-6z" fill="none" stroke="#1f3b52" stroke-width="2.5"/>
+        <path d="M53 60h114l-8 88a6 6 0 0 1-6 6H67a6 6 0 0 1-6-6z" fill="#1c7fa0" opacity="0.75"/>
+        <ellipse cx="110" cy="150" rx="35" ry="7" fill="#c9a35a"/>
+        <circle cx="95" cy="146" r="3" fill="#8a5a34"/><circle cx="120" cy="148" r="3" fill="#8a5a34"/><circle cx="108" cy="152" r="3" fill="#8a5a34"/>
+        <text x="150" y="150" font-size="11" fill="#1f3b52">راسب (غير ذائب)</text>
+      </svg>
+    </div>
+    <p style="text-align:center;font-size:14px;color:var(--ink-soft);margin-top:-8px;">محلول مشبع: تظهر كمية من المذاب الصلب في قاع الإناء لأن الماء لم يعد قادراً على إذابة المزيد.</p>
+
+    <h3 class="sub-title">4) العوامل المؤثرة في سرعة الذوبان</h3>
+    <div class="factor-grid">
+      <div class="factor-card"><div class="head">التحريك</div><p>يُسرِّع تحريك المحلول عملية الذوبان، لأنه يُقرِّب جسيمات المذاب من جسيمات الماء باستمرار.</p></div>
+      <div class="factor-card"><div class="head">درجة الحرارة</div><p>يذوب السكر مثلاً بسرعة أكبر في ماء ساخن مقارنة بماء بارد؛ ترتفع الذوبانية غالباً بارتفاع درجة الحرارة.</p></div>
+      <div class="factor-card"><div class="head">تفتيت المادة</div><p>يذوب السكر المطحون (بلورات صغيرة) أسرع من قطعة سكر كبيرة، لأن التفتيت يزيد من مساحة التلامس مع الماء.</p></div>
+      <div class="factor-card"><div class="head">كمية الماء</div><p>كلما زادت كمية الماء (المذيب)، أمكن إذابة كمية أكبر من المذاب قبل الوصول إلى التشبع.</p></div>
+    </div>
+  </section>
+
+  <!-- ===================== ACTIVITE ===================== -->
+  <section>
+    <h2 class="section-title">🔬 نشاط تطبيقي</h2>
+    <div class="activity-box">
+      <span class="task-label">تجربة الوصول إلى التشبع</span>
+      <div class="step"><span class="step-num">1</span><span>ضع كأساً به 100 mL من الماء البارد.</span></div>
+      <div class="step"><span class="step-num">2</span><span>أضف ملعقة صغيرة من السكر مع التحريك، ولاحظ أنها تذوب بسرعة.</span></div>
+      <div class="step"><span class="step-num">3</span><span>استمر في إضافة السكر ملعقةً بعد أخرى مع التحريك، حتى تلاحظ أن السكر لم يعد يذوب ويبقى راسباً في القاع.</span></div>
+      <p>1) ماذا نسمي المحلول عند هذه المرحلة (عندما توقف السكر عن الذوبان)؟ <span class="fill-line"></span></p>
+      <p>2) اقترح طريقتين يمكن استعمالهما لإذابة المزيد من السكر في نفس الكأس.</p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== EXERCICES ===================== -->
+  <section>
+    <h2 class="section-title">📝 تمارين للتدرّب</h2>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">1</span>صنّف المواد التالية إلى (ذوّابة / غير ذوّابة) في الماء:</h4>
+      <p>
+        <span class="word-chip">السكر</span>
+        <span class="word-chip">الرمل</span>
+        <span class="word-chip">الملح</span>
+        <span class="word-chip">الزيت</span>
+        <span class="word-chip">الطباشير</span>
+        <span class="word-chip">الكحول</span>
+      </p>
+      <table class="data-table">
+        <tr><th>ذوّابة</th><th>غير ذوّابة</th></tr>
+        <tr><td style="height:60px;"></td><td></td></tr>
+      </table>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">2</span>اختر الإجابة الصحيحة:</h4>
+      <div class="qcm-item">
+        <p>1) المادة التي تذوب في المذيب تسمى:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>المذيب</span><span><span class="checkbox"></span>المذاب</span><span><span class="checkbox"></span>الراسب</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>2) عندما يصل محلول إلى أقصى كمية يمكن أن يذيبها من مادة معينة، يسمى:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>محلولاً مخفَّفاً</span><span><span class="checkbox"></span>محلولاً مشبعاً</span><span><span class="checkbox"></span>محلولاً نقياً</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>3) من العوامل التي تُسرِّع الذوبان:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>التحريك</span><span><span class="checkbox"></span>ترك المحلول ساكناً</span><span><span class="checkbox"></span>تبريد الماء فقط</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>4) يذوب السكر المطحون أسرع من قطعة سكر كبيرة لأن:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>مساحة تلامسه مع الماء أكبر</span><span><span class="checkbox"></span>لونه مختلف</span><span><span class="checkbox"></span>كتلته أكبر</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>5) الرمل يُعتبر مادة:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>ذوّابة في الماء</span><span><span class="checkbox"></span>غير ذوّابة في الماء</span><span><span class="checkbox"></span>مذيباً قوياً</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">3</span>فسّر أيّ الحالتين تذوب بسرعة أكبر في كل زوج، مع التعليل:</h4>
+      <p>1) ملعقة سكر في ماء ساخن، أو نفس الملعقة في ماء بارد؟ <span class="fill-line" style="min-width:60%;"></span></p>
+      <p>2) قطعة سكر كاملة، أو نفس الكمية من السكر مطحونة؟ <span class="fill-line" style="min-width:60%;"></span></p>
+      <p>3) محلول يُحرَّك باستمرار، أو محلول تُرِك ساكناً؟ <span class="fill-line" style="min-width:60%;"></span></p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">4</span>صل كل مصطلح بتعريفه المناسب:</h4>
+      <div class="match-cols">
+        <ul>
+          <li>أ) الذوبانية</li>
+          <li>ب) المحلول المشبع</li>
+          <li>ج) المذيب</li>
+          <li>د) المذاب</li>
+        </ul>
+        <ul>
+          <li>1) المادة التي تذوب وتختفي في السائل</li>
+          <li>2) المادة التي تُذيب مادة أخرى (غالباً الماء)</li>
+          <li>3) الكمية القصوى من مادة يمكن أن تذوب في كمية معينة من الماء</li>
+          <li>4) محلول وصل إلى الحد الأقصى من الذوبان ولم يعد يقبل مزيداً من المذاب</li>
+        </ul>
+      </div>
+      <p style="margin-top:10px;">الإجابة: أ - .......... &nbsp; ب - .......... &nbsp; ج - .......... &nbsp; د - ..........</p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">5</span>مسألة تطبيقية:</h4>
+      <div class="scenario-box">
+        تبلغ الذوبانية القصوى لملح الطعام في الماء، عند درجة حرارة معينة، 36 g لكل 100 mL من الماء.
+      </div>
+      <p>1) إذا أذبنا 30 g من هذا الملح في 100 mL من الماء، هل يكون المحلول مشبعاً أم غير مشبع؟ علّل.</p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+      <p>2) إذا حاولنا إذابة 45 g من نفس الملح في نفس كمية الماء (100 mL)، ماذا يحدث؟ احسب كمية الملح التي تبقى غير ذائبة.</p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== CORRIGE ===================== -->
+  <div class="corrige-wrapper">
+    <p class="corrige-flag">✂ يمكن طي هذه الصفحة أو إخفاؤها (اضغط على العنوان أدناه) قبل إنجاز التمارين ✂</p>
+    <details class="corrige">
+      <summary>التصحيح الكامل</summary>
+
+      <h4>تصحيح النشاط التطبيقي</h4>
+      <div class="corrige-item">1) يسمى المحلول عندئذ "محلولاً مشبعاً".</div>
+      <div class="corrige-item">2) يمكن تسخين الماء (رفع درجة الحرارة) أو إضافة كمية أكبر من الماء لإذابة المزيد من السكر.</div>
+
+      <h4>تصحيح التمرين 1 (التصنيف)</h4>
+      <div class="corrige-item"><b>ذوّابة:</b> السكر، الملح، الكحول</div>
+      <div class="corrige-item"><b>غير ذوّابة:</b> الرمل، الزيت، الطباشير</div>
+
+      <h4>تصحيح التمرين 2 (الاختيار من متعدد)</h4>
+      <div class="corrige-item">1) المذاب &nbsp;|&nbsp; 2) محلولاً مشبعاً &nbsp;|&nbsp; 3) التحريك &nbsp;|&nbsp; 4) مساحة تلامسه مع الماء أكبر &nbsp;|&nbsp; 5) غير ذوّابة في الماء</div>
+
+      <h4>تصحيح التمرين 3 (المقارنة)</h4>
+      <div class="corrige-item">1) يذوب السكر أسرع في الماء الساخن، لأن ارتفاع درجة الحرارة يُسرِّع حركة الجسيمات ويزيد الذوبانية.</div>
+      <div class="corrige-item">2) يذوب السكر المطحون أسرع، لأن تفتيته يزيد من مساحة تلامسه مع الماء.</div>
+      <div class="corrige-item">3) يذوب المحلول المُحرَّك أسرع، لأن التحريك يُقرِّب جسيمات المذاب من جسيمات الماء باستمرار.</div>
+
+      <h4>تصحيح التمرين 4 (الربط)</h4>
+      <div class="corrige-item">أ - 3 (الذوبانية) &nbsp;|&nbsp; ب - 4 (المحلول المشبع) &nbsp;|&nbsp; ج - 2 (المذيب) &nbsp;|&nbsp; د - 1 (المذاب)</div>
+
+      <h4>تصحيح التمرين 5 (المسألة التطبيقية)</h4>
+      <div class="corrige-item">1) المحلول غير مشبع، لأن 30 g أقل من الذوبانية القصوى (36 g)، فتذوب الكمية بالكامل.</div>
+      <div class="corrige-item">2) يذوب 36 g فقط من الملح (الحد الأقصى)، ويبقى 45 − 36 = 9 g غير ذائبة على شكل راسب في قاع الإناء، ويصبح المحلول مشبعاً.</div>
+    </details>
+  </div>
+
+  <p class="footer-note">فيشة تعلّم ذاتي — الفيزياء والكيمياء — الأولى إعدادي — الذوبان في الماء</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>مبادئ أساسية في الهندسة المستوية</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1c2b3a; --ink-soft:#4d5f70;
+    --paper:#f7f9fb; --panel:#ffffff; --line:#c9d6e0;
+    --blue:#2f5f8a; --blue-soft:#e2ecf3;
+    --orange:#e07b39; --orange-soft:#fbe8d8;
+    --green:#3a8f6b; --green-soft:#e1f2ea;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#dde6ec;color:var(--ink);font-family:'Noto Naskh Arabic','Amiri',serif;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .sheet{
+    max-width:900px;margin:24px auto;background:
+      repeating-linear-gradient(0deg, transparent 0 27px, rgba(47,95,138,.06) 27px 28px),
+      repeating-linear-gradient(90deg, transparent 0 27px, rgba(47,95,138,.06) 27px 28px),
+      var(--paper);
+    padding:38px 44px 50px;border:1px solid var(--line);box-shadow:0 4px 24px rgba(0,0,0,.12);
+  }
+
+  .masthead{display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:3px solid var(--ink);padding-bottom:16px;margin-bottom:22px;}
+  .masthead-text h1{font-family:'Amiri',serif;font-weight:700;font-size:26px;margin:0 0 6px;color:var(--blue);line-height:1.3;}
+  .masthead-text .subtitle{font-size:15px;color:var(--ink-soft);margin:0;}
+  .geo-icon{width:62px;height:62px;flex-shrink:0;}
+
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+  .meta-chip{border:1px solid var(--line);background:var(--panel);border-radius:3px;padding:6px 12px;font-size:13.5px;color:var(--ink-soft);}
+  .meta-chip b{color:var(--ink);font-weight:600;}
+
+  section{margin-bottom:28px;}
+  h2.section-title{font-family:'Amiri',serif;font-size:21px;font-weight:700;color:var(--blue);border-bottom:2px solid var(--blue);padding-bottom:6px;margin:0 0 14px;display:flex;align-items:baseline;gap:8px;}
+  h3.sub-title{font-size:17px;font-weight:700;color:var(--orange);margin:20px 0 8px;}
+  p{line-height:2;font-size:15.5px;margin:0 0 10px;}
+
+  .objectif-box{background:var(--orange-soft);border-right:4px solid var(--orange);padding:14px 18px;border-radius:2px;font-size:15.5px;line-height:1.9;}
+
+  .rule-box{background:var(--panel);border:1px solid var(--line);border-right:4px solid var(--blue);padding:14px 18px;border-radius:2px;margin:10px 0 16px;}
+  .rule-box p:last-child{margin-bottom:0;}
+  .rule-box ul,.rule-box ol{margin:6px 0;padding-inline-start:22px;}
+  .rule-box li{margin-bottom:6px;line-height:1.85;}
+
+  .concept-grid{display:flex;flex-wrap:wrap;gap:14px;margin:10px 0 16px;}
+  .concept-card{flex:1 1 200px;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:10px;text-align:center;}
+  .concept-card svg{width:100%;max-width:180px;height:auto;}
+  .concept-card .name{font-weight:700;color:var(--blue);font-size:15px;margin-top:4px;}
+  .concept-card .sym{font-size:14px;color:var(--orange);font-weight:700;}
+
+  table.data-table{width:100%;border-collapse:collapse;margin:8px 0 18px;font-size:15px;}
+  table.data-table th{background:var(--blue);color:#fff;padding:8px 10px;font-weight:600;font-size:14px;}
+  table.data-table td{border:1px solid var(--line);padding:9px 10px;background:var(--panel);}
+  table.data-table tr:nth-child(even) td{background:#eef3f7;}
+
+  .activity-box{background:var(--panel);border:1.5px solid var(--orange);border-radius:3px;padding:16px 20px;}
+  .activity-box .task-label{display:inline-block;background:var(--orange);color:#fff;font-size:12.5px;padding:3px 10px;border-radius:2px;margin-bottom:8px;}
+
+  .exercise{border:1px solid var(--line);border-radius:3px;padding:16px 20px;margin-bottom:16px;background:var(--panel);}
+  .exercise-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:var(--ink);color:var(--paper);border-radius:50%;font-size:14px;font-weight:700;margin-inline-end:8px;}
+  .exercise h4{margin:0 0 10px;font-size:16.5px;display:flex;align-items:center;}
+  .fill-line{border-bottom:1px dotted var(--ink-soft);display:inline-block;min-width:100px;height:1.6em;}
+  .qcm-item{margin-bottom:10px;}
+  .qcm-item p{margin-bottom:4px;font-weight:600;}
+  .qcm-options{display:flex;flex-wrap:wrap;gap:14px;font-size:14.5px;}
+  .qcm-options span{display:flex;align-items:center;gap:5px;}
+  .checkbox{width:13px;height:13px;border:1.4px solid var(--ink-soft);display:inline-block;border-radius:2px;}
+  .figure-wrap{display:flex;justify-content:center;margin:10px 0;}
+  .pair-grid{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;}
+  .pair-item{text-align:center;}
+
+  .corrige-wrapper{page-break-before:always;padding-top:6px;}
+  .corrige-flag{text-align:center;font-size:13px;color:var(--ink-soft);margin-bottom:10px;border-top:1px dashed var(--ink-soft);padding-top:14px;}
+  details.corrige{border:2px dashed var(--green);border-radius:4px;background:#f7fcfa;padding:6px 20px 18px;}
+  details.corrige > summary{cursor:pointer;font-family:'Amiri',serif;font-weight:700;font-size:19px;color:var(--green);padding:14px 0;list-style:none;}
+  details.corrige > summary::-webkit-details-marker{display:none;}
+  details.corrige > summary::before{content:"✂ ";}
+  details.corrige > summary::after{content:"— اضغط لإظهار الحل / إخفائه";font-family:'Noto Naskh Arabic',serif;font-weight:400;font-size:13px;color:var(--ink-soft);margin-inline-start:8px;}
+  .corrige h4{color:var(--green);margin:16px 0 8px;font-size:16px;}
+  .corrige-item{margin-bottom:8px;font-size:15px;line-height:1.9;}
+  .corrige table.data-table th{background:var(--green);}
+
+  .footer-note{margin-top:30px;text-align:center;font-size:12px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:10px;}
+
+  @media print{
+    body{background:#fff;}
+    .sheet{box-shadow:none;border:none;margin:0;max-width:100%;padding:14px 6px;background:var(--paper);}
+    details.corrige{border-color:#000;}
+  }
+  @page{size:A4;margin:14mm;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="masthead-text">
+      <h1>مبادئُ أساسيةٌ في الهندسةِ المستويةِ</h1>
+      <p class="subtitle">الرياضيات — الهندسة</p>
+    </div>
+    <svg class="geo-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="14" cy="14" r="2.5" fill="#e07b39"/>
+      <line x1="14" y1="14" x2="50" y2="14" stroke="#1c2b3a" stroke-width="2"/>
+      <circle cx="50" cy="14" r="2.5" fill="#e07b39"/>
+      <line x1="14" y1="34" x2="50" y2="34" stroke="#2f5f8a" stroke-width="2.5"/>
+      <line x1="10" y1="50" x2="54" y2="50" stroke="#3a8f6b" stroke-width="2.5"/>
+    </svg>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta-chip">المستوى: <b>الأولى إعدادي (1AC)</b></div>
+    <div class="meta-chip">المادة: <b>الرياضيات — الهندسة</b></div>
+    <div class="meta-chip">مدة الحصة: <b>ساعة إلى ساعة ونصف</b></div>
+    <div class="meta-chip">نوع الوثيقة: <b>فيشة تعلّم ذاتي</b></div>
+  </div>
+
+  <!-- ===================== OBJECTIF ===================== -->
+  <section>
+    <h2 class="section-title">🎯 الهدف من الدرس</h2>
+    <div class="objectif-box">
+      يتمكّن المتعلم(ة) في نهاية هذا الدرس من: التعرّف على المفاهيم الهندسية الأساسية (النقطة، المستقيم، نصف المستقيم، القطعة)، واستعمال الرموز والتدوين الرياضي الصحيح لكل منها، وتحديد النقط المحاذية ومنتصف قطعة، والتمييز بين وضعيات مستقيمين (متقاطعان، متوازيان).
+    </div>
+  </section>
+
+  <!-- ===================== COURS ===================== -->
+  <section>
+    <h2 class="section-title">📘 الدرس</h2>
+
+    <h3 class="sub-title">1) النقطة</h3>
+    <div class="rule-box">
+      <p>تُمثَّل <b>النقطة</b> بعلامة صغيرة، وتُسمَّى بحرف كبير من الأبجدية اللاتينية (A، B، C...). النقطة ليس لها طول ولا عرض.</p>
+    </div>
+
+    <h3 class="sub-title">2) المستقيم</h3>
+    <div class="rule-box">
+      <p><b>المستقيم</b> مجموعة من النقط تمتد بلا نهاية في اتجاهين متعاكسين. يُرمز له بحرفين يمثّلان نقطتين عليه بين قوسين، مثل: المستقيم <b>(AB)</b>، أو بحرف لاتيني صغير بين قوسين مثل: المستقيم <b>(d)</b>.</p>
+    </div>
+
+    <h3 class="sub-title">3) الانتماء والنقط المحاذية</h3>
+    <div class="rule-box">
+      <p>نقول إن نقطة <b>تنتمي</b> إلى مستقيم إذا كانت موجودة عليه، ونكتب: A ∈ (d) (تُقرأ: A تنتمي إلى (d)). وإذا لم تكن موجودة عليه، نكتب: B ∉ (d).</p>
+      <p>النقط التي تنتمي إلى نفس المستقيم تسمى <b>نقطاً محاذية (مصطفة)</b>.</p>
+    </div>
+
+    <h3 class="sub-title">4) نصف المستقيم</h3>
+    <div class="rule-box">
+      <p><b>نصف المستقيم</b> جزء من المستقيم ينطلق من نقطة معينة (تسمى <b>أصل</b> نصف المستقيم) ويمتد بلا نهاية في اتجاه واحد فقط. إذا كان أصله A ويمر من النقطة B، نرمز له بـ <b>[AB)</b>.</p>
+    </div>
+
+    <h3 class="sub-title">5) القطعة</h3>
+    <div class="rule-box">
+      <p><b>القطعة</b> جزء من المستقيم محصور بين نقطتين تسمَّيان <b>طرفَي القطعة</b>. للقطعة طول محدد يمكن قياسه. إذا كان طرفاها A وB، نرمز لها بـ <b>[AB]</b>، وطولها يُكتب AB.</p>
+    </div>
+
+    <h3 class="sub-title">6) منتصف قطعة</h3>
+    <div class="rule-box">
+      <p><b>منتصف القطعة [AB]</b> هي النقطة I التي تنتمي إلى القطعة وتُقسِّمها إلى قطعتين متساويتين في الطول: IA = IB.</p>
+    </div>
+
+    <h3 class="sub-title">7) الأدوات الأساسية بالرسم والرمز</h3>
+    <div class="concept-grid">
+      <div class="concept-card">
+        <svg viewBox="0 0 160 60"><circle cx="80" cy="30" r="4" fill="#e07b39"/><text x="80" y="16" text-anchor="middle" font-family="Noto Naskh Arabic, serif" font-size="14" font-weight="700" fill="#1c2b3a">A</text></svg>
+        <div class="name">نقطة</div>
+        <div class="sym">A</div>
+      </div>
+      <div class="concept-card">
+        <svg viewBox="0 0 160 60"><line x1="10" y1="30" x2="150" y2="30" stroke="#1c2b3a" stroke-width="2"/><circle cx="50" cy="30" r="3" fill="#2f5f8a"/><circle cx="110" cy="30" r="3" fill="#2f5f8a"/><text x="50" y="18" text-anchor="middle" font-size="13">A</text><text x="110" y="18" text-anchor="middle" font-size="13">B</text></svg>
+        <div class="name">مستقيم</div>
+        <div class="sym">(AB)</div>
+      </div>
+      <div class="concept-card">
+        <svg viewBox="0 0 160 60"><line x1="30" y1="30" x2="150" y2="30" stroke="#e07b39" stroke-width="2" marker-end="url(#ar1)"/><circle cx="30" cy="30" r="3" fill="#e07b39"/><circle cx="80" cy="30" r="3" fill="#e07b39"/><text x="30" y="18" text-anchor="middle" font-size="13">A</text><text x="80" y="18" text-anchor="middle" font-size="13">B</text><defs><marker id="ar1" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#e07b39"/></marker></defs></svg>
+        <div class="name">نصف مستقيم</div>
+        <div class="sym">[AB)</div>
+      </div>
+      <div class="concept-card">
+        <svg viewBox="0 0 160 60"><line x1="30" y1="30" x2="130" y2="30" stroke="#3a8f6b" stroke-width="3"/><line x1="30" y1="22" x2="30" y2="38" stroke="#3a8f6b" stroke-width="2"/><line x1="130" y1="22" x2="130" y2="38" stroke="#3a8f6b" stroke-width="2"/><text x="30" y="16" text-anchor="middle" font-size="13">A</text><text x="130" y="16" text-anchor="middle" font-size="13">B</text></svg>
+        <div class="name">قطعة</div>
+        <div class="sym">[AB]</div>
+      </div>
+    </div>
+
+    <h3 class="sub-title">8) وضعيات مستقيمين</h3>
+    <div class="rule-box">
+      <ul>
+        <li><b>متقاطعان:</b> لهما نقطة مشتركة واحدة فقط.</li>
+        <li><b>متوازيان:</b> لا يلتقيان مهما امتدّا.</li>
+        <li><b>منطبقان:</b> لهما نفس النقط بالضبط (هما في الحقيقة المستقيم نفسه).</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===================== ACTIVITE ===================== -->
+  <section>
+    <h2 class="section-title">✏️ نشاط تطبيقي</h2>
+    <div class="activity-box">
+      <span class="task-label">تسمية عناصر شكل هندسي</span>
+      <p>لاحظ الشكل التالي، ثم أجب عن الأسئلة الموالية باستعمال الرموز الصحيحة:</p>
+      <div class="figure-wrap">
+        <svg width="320" height="140" viewBox="0 0 320 140">
+          <line x1="20" y1="40" x2="300" y2="40" stroke="#1c2b3a" stroke-width="2"/>
+          <circle cx="60" cy="40" r="3.5" fill="#2f5f8a"/><text x="60" y="28" text-anchor="middle" font-size="13">A</text>
+          <circle cx="150" cy="40" r="3.5" fill="#2f5f8a"/><text x="150" y="28" text-anchor="middle" font-size="13">B</text>
+          <circle cx="230" cy="40" r="3.5" fill="#2f5f8a"/><text x="230" y="28" text-anchor="middle" font-size="13">C</text>
+          <circle cx="180" cy="100" r="3.5" fill="#c15a45"/><text x="180" y="118" text-anchor="middle" font-size="13">D</text>
+        </svg>
+      </div>
+      <p>1) اكتب العلاقة بين النقطة A والمستقيم (BC): <span class="fill-line"></span></p>
+      <p>2) اكتب العلاقة بين النقطة D والمستقيم (BC): <span class="fill-line"></span></p>
+      <p>3) هل النقط A وB وC محاذية؟ ولماذا؟ <span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== EXERCICES ===================== -->
+  <section>
+    <h2 class="section-title">📝 تمارين للتدرّب</h2>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">1</span>سمِّ العناصر الهندسية الظاهرة في الشكل التالي، مستعملاً الرمز المناسب لكل عنصر:</h4>
+      <div class="figure-wrap">
+        <svg width="340" height="150" viewBox="0 0 340 150">
+          <line x1="10" y1="30" x2="330" y2="30" stroke="#1c2b3a" stroke-width="2"/>
+          <circle cx="60" cy="30" r="3.5" fill="#2f5f8a"/><text x="60" y="18" text-anchor="middle" font-size="13">A</text>
+          <circle cx="140" cy="30" r="3.5" fill="#2f5f8a"/><text x="140" y="18" text-anchor="middle" font-size="13">B</text>
+          <line x1="60" y1="80" x2="220" y2="80" stroke="#e07b39" stroke-width="2" marker-end="url(#ar2)"/>
+          <circle cx="60" cy="80" r="3.5" fill="#e07b39"/><text x="60" y="98" text-anchor="middle" font-size="13">C</text>
+          <circle cx="140" cy="80" r="3.5" fill="#e07b39"/><text x="140" y="98" text-anchor="middle" font-size="13">D</text>
+          <line x1="60" y1="125" x2="180" y2="125" stroke="#3a8f6b" stroke-width="3"/>
+          <line x1="60" y1="118" x2="60" y2="132" stroke="#3a8f6b" stroke-width="2"/>
+          <line x1="180" y1="118" x2="180" y2="132" stroke="#3a8f6b" stroke-width="2"/>
+          <text x="60" y="112" text-anchor="middle" font-size="13">E</text><text x="180" y="112" text-anchor="middle" font-size="13">F</text>
+          <defs><marker id="ar2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#e07b39"/></marker></defs>
+        </svg>
+      </div>
+      <p>المستقيم: <span class="fill-line"></span> &nbsp; نصف المستقيم: <span class="fill-line"></span> &nbsp; القطعة: <span class="fill-line"></span></p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">2</span>بالاعتماد على شكل نشاط التطبيق (النقط A، B، C على المستقيم، وD خارجه)، أجب بصحيح أو خطأ:</h4>
+      <p>1) A ∈ (BC) &nbsp; <span class="fill-line"></span></p>
+      <p>2) D ∈ (BC) &nbsp; <span class="fill-line"></span></p>
+      <p>3) C ∈ (AB) &nbsp; <span class="fill-line"></span></p>
+      <p>4) النقط A وB وC وD محاذية. &nbsp; <span class="fill-line"></span></p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">3</span>ارسم قطعة [AB] طولها 5 سم، ثم حدّد منتصفها I، واكتب المساواة بين طولَي القطعتين الناتجتين.</h4>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">4</span>لديك النقط التالية: A وB وC تنتمي إلى المستقيم (d)، والنقطتان E وF لا تنتميان إليه. حدّد مجموعة النقط المحاذية من بين هذه النقط الخمس.</h4>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">5</span>اختر الإجابة الصحيحة:</h4>
+      <div class="qcm-item">
+        <p>1) رمز نصف المستقيم أصله A ويمر بـB هو:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>(AB)</span><span><span class="checkbox"></span>[AB)</span><span><span class="checkbox"></span>[AB]</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>2) القطعة تتميّز بأن لها:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>طولاً محدداً</span><span><span class="checkbox"></span>امتداداً لا نهائياً في اتجاهين</span><span><span class="checkbox"></span>امتداداً لا نهائياً في اتجاه واحد</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>3) إذا كانت I منتصف [AB]، فإن:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>IA = IB</span><span><span class="checkbox"></span>IA = 2×IB</span><span><span class="checkbox"></span>IA ≠ IB دائماً</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>4) مستقيمان لا يلتقيان مهما امتدّا يُقال عنهما:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>متقاطعان</span><span><span class="checkbox"></span>متوازيان</span><span><span class="checkbox"></span>منطبقان</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>5) النقط التي تنتمي إلى نفس المستقيم تسمى:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>نقطاً متقاطعة</span><span><span class="checkbox"></span>نقطاً محاذية</span><span><span class="checkbox"></span>نقطاً متوازية</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">6</span>صنّف أزواج المستقيمين التالية إلى (متقاطعان / متوازيان):</h4>
+      <div class="pair-grid">
+        <div class="pair-item">
+          <svg width="140" height="100" viewBox="0 0 140 100"><line x1="15" y1="30" x2="125" y2="30" stroke="#1c2b3a" stroke-width="2"/><line x1="15" y1="70" x2="125" y2="70" stroke="#1c2b3a" stroke-width="2"/></svg>
+          <p><span class="fill-line"></span></p>
+        </div>
+        <div class="pair-item">
+          <svg width="140" height="100" viewBox="0 0 140 100"><line x1="20" y1="20" x2="120" y2="80" stroke="#1c2b3a" stroke-width="2"/><line x1="20" y1="80" x2="120" y2="20" stroke="#1c2b3a" stroke-width="2"/></svg>
+          <p><span class="fill-line"></span></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">7</span>أكمل الجدول بالرمز الصحيح لكل عنصر هندسي موصوف:</h4>
+      <table class="data-table">
+        <tr><th>الوصف</th><th>الرمز</th></tr>
+        <tr><td>نصف مستقيم أصله A ويمرّ بـB</td><td><span class="fill-line"></span></td></tr>
+        <tr><td>قطعة طرفاها C وD</td><td><span class="fill-line"></span></td></tr>
+        <tr><td>مستقيم يمرّ بـE وF</td><td><span class="fill-line"></span></td></tr>
+        <tr><td>النقطة G تنتمي إلى المستقيم (d)</td><td><span class="fill-line"></span></td></tr>
+      </table>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">8</span>مسألة تطبيقية:</h4>
+      <p>ارسم ثلاث نقط A وB وC غير محاذية (لا تنتمي إلى نفس المستقيم)، ثم ارسم جميع المستقيمات الممكنة التي تصل كل نقطتين منها ببعضهما.</p>
+      <p>1) كم عدد المستقيمات التي حصلت عليها؟ <span class="fill-line"></span></p>
+      <p>2) لو أضفنا نقطة رابعة D (بحيث لا توجد أي ثلاث نقط من الأربع محاذية)، كم سيصبح عدد المستقيمات الممكنة؟</p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== CORRIGE ===================== -->
+  <div class="corrige-wrapper">
+    <p class="corrige-flag">✂ يمكن طي هذه الصفحة أو إخفاؤها (اضغط على العنوان أدناه) قبل إنجاز التمارين ✂</p>
+    <details class="corrige">
+      <summary>التصحيح الكامل</summary>
+
+      <h4>تصحيح النشاط التطبيقي</h4>
+      <div class="corrige-item">1) A ∈ (BC)</div>
+      <div class="corrige-item">2) D ∉ (BC)</div>
+      <div class="corrige-item">3) نعم، النقط A وB وC محاذية لأنها تنتمي جميعها إلى نفس المستقيم.</div>
+
+      <h4>تصحيح التمرين 1 (تسمية العناصر)</h4>
+      <div class="corrige-item">المستقيم: (AB) &nbsp;|&nbsp; نصف المستقيم: [CD) &nbsp;|&nbsp; القطعة: [EF]</div>
+
+      <h4>تصحيح التمرين 2 (صحيح/خطأ)</h4>
+      <div class="corrige-item">1) صحيح &nbsp;|&nbsp; 2) خطأ &nbsp;|&nbsp; 3) صحيح &nbsp;|&nbsp; 4) خطأ (D لا تنتمي إلى المستقيم)</div>
+
+      <h4>تصحيح التمرين 3 (الرسم)</h4>
+      <div class="corrige-item">يتحقق الأستاذ(ة) من رسم قطعة [AB] طولها 5 سم بالضبط، وتحديد منتصفها I بحيث IA = IB = 2.5 سم.</div>
+
+      <h4>تصحيح التمرين 4 (النقط المحاذية)</h4>
+      <div class="corrige-item">النقط المحاذية هي: A وB وC (لأنها تنتمي جميعاً إلى المستقيم (d))، بينما E وF ليستا محاذيتين لهما.</div>
+
+      <h4>تصحيح التمرين 5 (الاختيار من متعدد)</h4>
+      <div class="corrige-item">1) [AB) &nbsp;|&nbsp; 2) طولاً محدداً &nbsp;|&nbsp; 3) IA = IB &nbsp;|&nbsp; 4) متوازيان &nbsp;|&nbsp; 5) نقطاً محاذية</div>
+
+      <h4>تصحيح التمرين 6 (وضعيات المستقيمين)</h4>
+      <div class="corrige-item">الشكل الأول: متوازيان &nbsp;|&nbsp; الشكل الثاني: متقاطعان</div>
+
+      <h4>تصحيح التمرين 7 (الجدول)</h4>
+      <table class="data-table">
+        <tr><th>الوصف</th><th>الرمز</th></tr>
+        <tr><td>نصف مستقيم أصله A ويمرّ بـB</td><td>[AB)</td></tr>
+        <tr><td>قطعة طرفاها C وD</td><td>[CD]</td></tr>
+        <tr><td>مستقيم يمرّ بـE وF</td><td>(EF)</td></tr>
+        <tr><td>النقطة G تنتمي إلى المستقيم (d)</td><td>G ∈ (d)</td></tr>
+      </table>
+
+      <h4>تصحيح التمرين 8 (المسألة التطبيقية)</h4>
+      <div class="corrige-item">1) عدد المستقيمات = 3 (المستقيمات (AB)، (AC)، (BC)).</div>
+      <div class="corrige-item">2) مع 4 نقط لا توجد بينها ثلاث محاذية، يصبح عدد المستقيمات الممكنة 6 (كل زوج من النقط الأربع يُعطي مستقيماً واحداً: (AB)، (AC)، (AD)، (BC)، (BD)، (CD)).</div>
+    </details>
+  </div>
+
+  <p class="footer-note">فيشة تعلّم ذاتي — الرياضيات — الأولى إعدادي — مبادئ أساسية في الهندسة المستوية</p>
+</div>
+</body>
+</html>

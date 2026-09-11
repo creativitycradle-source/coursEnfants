@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>الجهاز البولي</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#122430; --ink-soft:#3f5866;
+    --paper:#f6fafb; --panel:#ffffff; --line:#cfe1e6;
+    --sky:#2f7ea8; --sky-soft:#deeef6;
+    --amber:#d99a2b; --amber-soft:#faf0da;
+    --leaf:#3f7d3a; --leaf-soft:#e3f0df;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#dbe8ec;font-family:'Noto Naskh Arabic','Amiri',serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .sheet{max-width:880px;margin:24px auto;background:var(--paper);padding:38px 44px 50px;border:1px solid var(--line);box-shadow:0 4px 24px rgba(0,0,0,.12);}
+
+  .masthead{display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:3px solid var(--ink);padding-bottom:16px;margin-bottom:22px;}
+  .masthead-text h1{font-family:'Amiri',serif;font-weight:700;font-size:30px;margin:0 0 6px;color:var(--sky);}
+  .masthead-text .subtitle{font-size:15px;color:var(--ink-soft);margin:0;}
+  .kidney-icon{width:58px;height:58px;flex-shrink:0;}
+
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+  .meta-chip{border:1px solid var(--line);background:var(--panel);border-radius:3px;padding:6px 12px;font-size:13.5px;color:var(--ink-soft);}
+  .meta-chip b{color:var(--ink);font-weight:600;}
+
+  section{margin-bottom:28px;}
+  h2.section-title{font-family:'Amiri',serif;font-size:21px;font-weight:700;color:var(--sky);border-bottom:2px solid var(--sky);padding-bottom:6px;margin:0 0 14px;display:flex;align-items:baseline;gap:8px;}
+  h3.sub-title{font-size:17px;font-weight:700;color:var(--amber);margin:20px 0 8px;}
+  p{line-height:2;font-size:15.5px;margin:0 0 10px;}
+
+  .objectif-box{background:var(--amber-soft);border-right:4px solid var(--amber);padding:14px 18px;border-radius:2px;font-size:15.5px;line-height:1.9;}
+
+  .rule-box{background:var(--panel);border:1px solid var(--line);border-right:4px solid var(--sky);padding:14px 18px;border-radius:2px;margin:10px 0 16px;}
+  .rule-box p:last-child{margin-bottom:0;}
+  .rule-box ul,.rule-box ol{margin:6px 0;padding-inline-start:22px;}
+  .rule-box li{margin-bottom:6px;line-height:1.85;}
+
+  .organ-diagram{display:flex;justify-content:center;margin:14px 0;}
+
+  table.data-table{width:100%;border-collapse:collapse;margin:8px 0 18px;font-size:15px;}
+  table.data-table th{background:var(--sky);color:#fff;padding:8px 10px;font-weight:600;font-size:14px;}
+  table.data-table td{border:1px solid var(--line);padding:9px 10px;background:var(--panel);}
+  table.data-table tr:nth-child(even) td{background:#eaf4f8;}
+
+  .activity-box{background:var(--panel);border:1.5px solid var(--amber);border-radius:3px;padding:16px 20px;}
+  .activity-box .task-label{display:inline-block;background:var(--amber);color:#fff;font-size:12.5px;padding:3px 10px;border-radius:2px;margin-bottom:8px;}
+  .step{display:flex;gap:10px;margin-bottom:8px;align-items:flex-start;}
+  .step-num{flex-shrink:0;width:22px;height:22px;border-radius:50%;background:var(--amber);color:#fff;font-size:12.5px;display:flex;align-items:center;justify-content:center;font-weight:700;}
+
+  .exercise{border:1px solid var(--line);border-radius:3px;padding:16px 20px;margin-bottom:16px;background:var(--panel);}
+  .exercise-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:var(--ink);color:var(--paper);border-radius:50%;font-size:14px;font-weight:700;margin-inline-end:8px;}
+  .exercise h4{margin:0 0 10px;font-size:16.5px;display:flex;align-items:center;}
+  .fill-line{border-bottom:1px dotted var(--ink-soft);display:inline-block;min-width:120px;height:1.6em;}
+  .word-chip{display:inline-block;background:var(--paper);border:1px solid var(--line);border-radius:3px;padding:3px 12px;margin:3px 4px;font-size:16px;}
+  .qcm-item{margin-bottom:10px;}
+  .qcm-item p{margin-bottom:4px;font-weight:600;}
+  .qcm-options{display:flex;flex-wrap:wrap;gap:14px;font-size:14.5px;}
+  .qcm-options span{display:flex;align-items:center;gap:5px;}
+  .checkbox{width:13px;height:13px;border:1.4px solid var(--ink-soft);display:inline-block;border-radius:2px;}
+  .match-cols{display:flex;justify-content:space-between;gap:40px;margin-top:8px;}
+  .match-cols ul{list-style:none;padding:0;margin:0;}
+  .match-cols li{border:1px solid var(--line);background:var(--paper);padding:6px 14px;margin-bottom:10px;border-radius:3px;font-size:15px;}
+  .order-list{display:flex;flex-direction:column;gap:8px;}
+  .order-item{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:6px;padding:8px 12px;background:var(--paper);}
+  .order-item .num-box{width:32px;height:32px;border:2px dashed var(--ink-soft);border-radius:6px;flex-shrink:0;}
+  .scenario-box{background:#eaf4f8;border:1px solid var(--line);padding:12px 16px;font-size:15.5px;line-height:2.1;margin-bottom:10px;}
+  .fill-para{background:#eaf4f8;border:1px solid var(--line);padding:12px 16px;border-radius:6px;font-size:15.5px;line-height:2.3;}
+
+  .corrige-wrapper{page-break-before:always;padding-top:6px;}
+  .corrige-flag{text-align:center;font-size:13px;color:var(--ink-soft);margin-bottom:10px;border-top:1px dashed var(--ink-soft);padding-top:14px;}
+  details.corrige{border:2px dashed var(--leaf);border-radius:4px;background:#f5faf3;padding:6px 20px 18px;}
+  details.corrige > summary{cursor:pointer;font-family:'Amiri',serif;font-weight:700;font-size:19px;color:var(--leaf);padding:14px 0;list-style:none;}
+  details.corrige > summary::-webkit-details-marker{display:none;}
+  details.corrige > summary::before{content:"✂ ";}
+  details.corrige > summary::after{content:"— اضغط لإظهار الحل / إخفائه";font-family:'Noto Naskh Arabic',serif;font-weight:400;font-size:13px;color:var(--ink-soft);margin-inline-start:8px;}
+  .corrige h4{color:var(--leaf);margin:16px 0 8px;font-size:16px;}
+  .corrige-item{margin-bottom:8px;font-size:15px;line-height:1.9;}
+  .corrige table.data-table th{background:var(--leaf);}
+
+  .footer-note{margin-top:30px;text-align:center;font-size:12px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:10px;}
+
+  @media print{
+    body{background:#fff;}
+    .sheet{box-shadow:none;border:none;margin:0;max-width:100%;padding:14px 6px;}
+    details.corrige{border-color:#000;}
+  }
+  @page{size:A4;margin:14mm;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="masthead-text">
+      <h1>الجهازُ البوليُّ</h1>
+      <p class="subtitle">النشاط العلمي — جسم الإنسان</p>
+    </div>
+    <svg class="kidney-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M20 14c-8 2-12 12-8 22 3 8 2 14-2 18 8 2 16-4 16-14 0-6-4-8-4-14 0-6 4-10-2-12z" fill="#2f7ea8" opacity="0.85"/>
+      <path d="M44 14c8 2 12 12 8 22-3 8-2 14 2 18-8 2-16-4-16-14 0-6 4-8 4-14 0-6-4-10 2-12z" fill="#2f7ea8" opacity="0.85"/>
+      <path d="M28 40c0 8 2 14 4 18M36 40c0 8-2 14-4 18" stroke="#d99a2b" stroke-width="2.5" fill="none"/>
+    </svg>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta-chip">المستوى: <b>الخامسة ابتدائي (5AEP)</b></div>
+    <div class="meta-chip">المادة: <b>النشاط العلمي</b></div>
+    <div class="meta-chip">مدة الحصة: <b>ساعة واحدة</b></div>
+    <div class="meta-chip">نوع الوثيقة: <b>فيشة تعلّم ذاتي</b></div>
+  </div>
+
+  <!-- ===================== OBJECTIF ===================== -->
+  <section>
+    <h2 class="section-title">🎯 الهدف من الدرس</h2>
+    <div class="objectif-box">
+      يتمكّن المتعلم(ة) في نهاية هذا الدرس من: تحديد مكونات الجهاز البولي ووظيفة كل عضو من أعضائه، وتفسير دور الكليتين في تنقية الدم وتكوين البول، وتحديد قواعد الحفاظ على صحة الجهاز البولي.
+    </div>
+  </section>
+
+  <!-- ===================== COURS ===================== -->
+  <section>
+    <h2 class="section-title">📘 الدرس</h2>
+
+    <h3 class="sub-title">1) أهمية الجهاز البولي</h3>
+    <div class="rule-box">
+      <p>ينتج جسم الإنسان باستمرار فضلات سائلة ناتجة عن نشاط الخلايا (مثل اليوريا)، بالإضافة إلى الماء الزائد عن حاجة الجسم. يتكفّل <b>الجهاز البولي</b> بتصفية هذه الفضلات من الدم وطرحها خارج الجسم على شكل <b>بول</b>، مما يحافظ على توازن الجسم وسلامته.</p>
+    </div>
+
+    <h3 class="sub-title">2) مكونات الجهاز البولي</h3>
+    <div class="organ-diagram">
+      <svg width="220" height="260" viewBox="0 0 220 260" xmlns="http://www.w3.org/2000/svg">
+        <path d="M75 30c-14 3-20 20-13 36 5 12 3 22-3 28 13 3 26-6 26-22 0-10-6-13-6-22 0-9 6-16-4-20z" fill="#deeef6" stroke="#2f7ea8" stroke-width="2"/>
+        <text x="80" y="55" text-anchor="middle" font-size="12" font-weight="700" fill="#1f3b52">1</text>
+        <path d="M145 30c14 3 20 20 13 36 -5 12 -3 22 3 28 -13 3 -26 -6 -26 -22 0 -10 6 -13 6 -22 0 -9 -6 -16 4 -20z" fill="#deeef6" stroke="#2f7ea8" stroke-width="2"/>
+        <text x="140" y="55" text-anchor="middle" font-size="12" font-weight="700" fill="#1f3b52">1</text>
+        <path d="M72 95c0 30 5 55 15 65" stroke="#d99a2b" stroke-width="4" fill="none"/>
+        <text x="55" y="130" font-size="12" font-weight="700" fill="#8a6a1e">2</text>
+        <path d="M148 95c0 30 -5 55 -15 65" stroke="#d99a2b" stroke-width="4" fill="none"/>
+        <text x="155" y="130" font-size="12" font-weight="700" fill="#8a6a1e">2</text>
+        <ellipse cx="110" cy="190" rx="34" ry="28" fill="#e3f0df" stroke="#3f7d3a" stroke-width="2.5"/>
+        <text x="110" y="195" text-anchor="middle" font-size="12" font-weight="700" fill="#20301f">3</text>
+        <rect x="103" y="215" width="14" height="30" fill="none" stroke="#c15a4a" stroke-width="2.5"/>
+        <text x="110" y="235" text-anchor="middle" font-size="10" font-weight="700" fill="#7a2f22">4</text>
+      </svg>
+    </div>
+    <table class="data-table">
+      <tr><th>الرقم</th><th>العضو</th><th>الدور</th></tr>
+      <tr><td>1</td><td>الكليتان (اثنتان)</td><td>تُرشِّحان الدم من الفضلات والماء الزائد، وتكوِّنان البول.</td></tr>
+      <tr><td>2</td><td>الحالبان</td><td>أنبوبان ينقلان البول من كل كلية إلى المثانة.</td></tr>
+      <tr><td>3</td><td>المثانة</td><td>كيس عضلي يخزّن البول مؤقتاً إلى حين التبوّل.</td></tr>
+      <tr><td>4</td><td>الإحليل</td><td>قناة يخرج منها البول إلى خارج الجسم.</td></tr>
+    </table>
+
+    <h3 class="sub-title">3) وظيفة الكليتين بالتفصيل</h3>
+    <div class="rule-box">
+      <p>تصل كمية كبيرة من الدم إلى الكليتين عبر الشرايين الكلوية. تقوم الكليتان بترشيح هذا الدم، فتُبقيان على العناصر المفيدة (كالمغذيات) وتُرجعانها إلى الدورة الدموية، بينما تُخرجان الفضلات (كاليوريا) والماء الزائد على شكل <b>بول</b>. بهذا الشكل، تُحافظ الكليتان على نظافة الدم وتوازن السوائل في الجسم.</p>
+    </div>
+
+    <h3 class="sub-title">4) مسار تكوين البول وطرحه</h3>
+    <div class="rule-box">
+      <ol>
+        <li>تُرشِّح <b>الكليتان</b> الدم وتُكوِّنان البول.</li>
+        <li>ينتقل البول عبر <b>الحالبين</b> نحو المثانة.</li>
+        <li>تُخزِّن <b>المثانة</b> البول مؤقتاً.</li>
+        <li>يُطرَح البول خارج الجسم عبر <b>الإحليل</b> عند التبوّل.</li>
+      </ol>
+    </div>
+
+    <h3 class="sub-title">5) قواعد الحفاظ على صحة الجهاز البولي</h3>
+    <div class="rule-box">
+      <ul>
+        <li>شرب كمية كافية من الماء يومياً (حوالي 1.5 لتر على الأقل) للمساعدة على تنقية الكليتين.</li>
+        <li>عدم حبس البول لفترات طويلة.</li>
+        <li>الحرص على النظافة الشخصية.</li>
+        <li>تجنّب الإفراط في تناول الملح.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===================== ACTIVITE ===================== -->
+  <section>
+    <h2 class="section-title">🔬 نشاط تطبيقي</h2>
+    <div class="activity-box">
+      <span class="task-label">متابعة كمية شرب الماء اليومية</span>
+      <p>تُنصح الأطفال في سنّك بشرب ما يقارب 1.5 لتر من الماء يومياً (حوالي 6 إلى 8 أكواب) للحفاظ على صحة كليتيهم.</p>
+      <p>1) دوّن تقريبياً عدد أكواب الماء التي تشربها عادة في يوم واحد: <span class="fill-line" style="min-width:100%;"></span></p>
+      <p>2) قارن ما تشربه بالكمية الموصى بها. هل تحتاج إلى شرب كمية أكبر من الماء؟ علّل جوابك.</p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== EXERCICES ===================== -->
+  <section>
+    <h2 class="section-title">📝 تمارين للتدرّب</h2>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">1</span>رتّب أعضاء الجهاز البولي التالية حسب مسار تكوين البول وطرحه (من 1 إلى 4):</h4>
+      <div class="order-list">
+        <div class="order-item"><div class="num-box"></div><span>المثانة</span></div>
+        <div class="order-item"><div class="num-box"></div><span>الكليتان</span></div>
+        <div class="order-item"><div class="num-box"></div><span>الإحليل</span></div>
+        <div class="order-item"><div class="num-box"></div><span>الحالبان</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">2</span>صل كل عضو بوظيفته المناسبة:</h4>
+      <div class="match-cols">
+        <ul>
+          <li>أ) الكليتان</li>
+          <li>ب) الحالبان</li>
+          <li>ج) المثانة</li>
+          <li>د) الإحليل</li>
+        </ul>
+        <ul>
+          <li>1) طرح البول خارج الجسم</li>
+          <li>2) ترشيح الدم وتكوين البول</li>
+          <li>3) تخزين البول مؤقتاً</li>
+          <li>4) نقل البول إلى المثانة</li>
+        </ul>
+      </div>
+      <p style="margin-top:10px;">الإجابة: أ - .......... &nbsp; ب - .......... &nbsp; ج - .......... &nbsp; د - ..........</p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">3</span>اختر الإجابة الصحيحة:</h4>
+      <div class="qcm-item">
+        <p>1) عدد الكليتين في جسم الإنسان:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>واحدة</span><span><span class="checkbox"></span>كليتان</span><span><span class="checkbox"></span>ثلاث</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>2) العضو المسؤول عن تخزين البول مؤقتاً هو:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>الكليتان</span><span><span class="checkbox"></span>المثانة</span><span><span class="checkbox"></span>الإحليل</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>3) الأنبوبان اللذان ينقلان البول من الكليتين إلى المثانة يُسمّيان:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>الحالبين</span><span><span class="checkbox"></span>الإحليل</span><span><span class="checkbox"></span>الشرايين</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>4) الجهاز البولي مسؤول بشكل أساسي عن:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>هضم الطعام</span><span><span class="checkbox"></span>التخلّص من الفضلات السائلة</span><span><span class="checkbox"></span>ضخّ الدم</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>5) من قواعد الحفاظ على صحة الجهاز البولي:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>حبس البول لفترات طويلة</span><span><span class="checkbox"></span>شرب كمية كافية من الماء</span><span><span class="checkbox"></span>تقليل شرب الماء</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">4</span>أكمل النص التالي بالكلمات المناسبة: (الكليتان، الفضلات، البول، الحالبين، المثانة)</h4>
+      <div class="fill-para">
+        تقوم <span class="fill-line"></span> بترشيح الدم للتخلّص من <span class="fill-line"></span> والماء الزائد، فينتج عن ذلك <span class="fill-line"></span> الذي ينتقل عبر <span class="fill-line"></span> إلى <span class="fill-line"></span> حيث يُخزَّن مؤقتاً.
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">5</span>وضعية-مشكلة:</h4>
+      <div class="scenario-box">
+        لاحظ تلميذ في يوم صيفي حار أنه لم يشرب سوى كوب واحد من الماء طيلة اليوم، وأن لون بوله أصبح داكناً بشكل ملحوظ.
+      </div>
+      <p>1) فسّر العلاقة بين قلة شرب الماء ولون البول الداكن.</p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+      <p>2) اقترح نصيحتين للحفاظ على صحة جهازه البولي.</p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== CORRIGE ===================== -->
+  <div class="corrige-wrapper">
+    <p class="corrige-flag">✂ يمكن طي هذه الصفحة أو إخفاؤها (اضغط على العنوان أدناه) قبل إنجاز التمارين ✂</p>
+    <details class="corrige">
+      <summary>التصحيح الكامل</summary>
+
+      <h4>تصحيح النشاط التطبيقي</h4>
+      <div class="corrige-item">يتحقق الأستاذ(ة) من أن المتعلم(ة) قارن فعلاً كميته اليومية من الماء بالكمية الموصى بها (1.5 لتر تقريباً)، وقدّم تعليلاً منطقياً (مثلاً: أشرب كمية أقل، لذلك يجب أن أزيد من شرب الماء للحفاظ على صحة كليتيّ).</div>
+
+      <h4>تصحيح التمرين 1 (الترتيب)</h4>
+      <div class="corrige-item">1) الكليتان &nbsp;→&nbsp; 2) الحالبان &nbsp;→&nbsp; 3) المثانة &nbsp;→&nbsp; 4) الإحليل</div>
+
+      <h4>تصحيح التمرين 2 (الربط)</h4>
+      <div class="corrige-item">أ - 2 (الكليتان ← ترشيح الدم وتكوين البول) &nbsp;|&nbsp; ب - 4 (الحالبان ← نقل البول إلى المثانة) &nbsp;|&nbsp; ج - 3 (المثانة ← تخزين البول) &nbsp;|&nbsp; د - 1 (الإحليل ← طرح البول)</div>
+
+      <h4>تصحيح التمرين 3 (الاختيار من متعدد)</h4>
+      <div class="corrige-item">1) كليتان &nbsp;|&nbsp; 2) المثانة &nbsp;|&nbsp; 3) الحالبين &nbsp;|&nbsp; 4) التخلّص من الفضلات السائلة &nbsp;|&nbsp; 5) شرب كمية كافية من الماء</div>
+
+      <h4>تصحيح التمرين 4 (إكمال النص)</h4>
+      <div class="corrige-item">تقوم <b>الكليتان</b> بترشيح الدم للتخلّص من <b>الفضلات</b> والماء الزائد، فينتج عن ذلك <b>البول</b> الذي ينتقل عبر <b>الحالبين</b> إلى <b>المثانة</b> حيث يُخزَّن مؤقتاً.</div>
+
+      <h4>تصحيح التمرين 5 (وضعية-مشكلة)</h4>
+      <div class="corrige-item">1) عندما يشرب الجسم كمية قليلة من الماء، تُصبح الكليتان مضطرتين لتركيز الفضلات في كمية أقل من الماء، مما يجعل البول أكثر تركيزاً وداكن اللون، وهذا مؤشر على حاجة الجسم لمزيد من الماء.</div>
+      <div class="corrige-item">2) يُنصح بشرب كمية كافية من الماء بانتظام طيلة اليوم، خاصة في الأيام الحارة، وعدم حبس البول لفترات طويلة.</div>
+    </details>
+  </div>
+
+  <p class="footer-note">فيشة تعلّم ذاتي — النشاط العلمي — الخامسة ابتدائي — الجهاز البولي</p>
+</div>
+</body>
+</html>

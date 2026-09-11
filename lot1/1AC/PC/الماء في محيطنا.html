@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>الماء في محيطنا</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0f2a38; --ink-soft:#3f5866;
+    --paper:#f5fafc; --panel:#ffffff; --line:#cfe3ea;
+    --aqua:#1c7fa0; --aqua-soft:#dcf0f7;
+    --deep:#0e4d68; --deep-soft:#dbe9ef;
+    --ice:#7fb8cf; --ice-soft:#eaf5fa;
+    --sun:#e0a634;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#dcebf1;font-family:'Noto Naskh Arabic','Amiri',serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .sheet{max-width:880px;margin:24px auto;background:var(--paper);padding:38px 44px 50px;border:1px solid var(--line);box-shadow:0 4px 24px rgba(0,0,0,.12);}
+
+  .masthead{display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:3px solid var(--ink);padding-bottom:16px;margin-bottom:22px;}
+  .masthead-text h1{font-family:'Amiri',serif;font-weight:700;font-size:30px;margin:0 0 6px;color:var(--deep);}
+  .masthead-text .subtitle{font-size:15px;color:var(--ink-soft);margin:0;}
+  .drop-icon{width:56px;height:56px;flex-shrink:0;}
+
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+  .meta-chip{border:1px solid var(--line);background:var(--panel);border-radius:3px;padding:6px 12px;font-size:13.5px;color:var(--ink-soft);}
+  .meta-chip b{color:var(--ink);font-weight:600;}
+
+  section{margin-bottom:28px;}
+  h2.section-title{font-family:'Amiri',serif;font-size:21px;font-weight:700;color:var(--aqua);border-bottom:2px solid var(--aqua);padding-bottom:6px;margin:0 0 14px;display:flex;align-items:baseline;gap:8px;}
+  h3.sub-title{font-size:17px;font-weight:700;color:var(--deep);margin:20px 0 8px;}
+  p{line-height:2;font-size:15.5px;margin:0 0 10px;}
+
+  .objectif-box{background:var(--aqua-soft);border-right:4px solid var(--aqua);padding:14px 18px;border-radius:2px;font-size:15.5px;line-height:1.9;}
+
+  .rule-box{background:var(--panel);border:1px solid var(--line);border-right:4px solid var(--deep);padding:14px 18px;border-radius:2px;margin:10px 0 16px;}
+  .rule-box p:last-child{margin-bottom:0;}
+  .rule-box ul,.rule-box ol{margin:6px 0;padding-inline-start:22px;}
+  .rule-box li{margin-bottom:6px;line-height:1.85;}
+
+  .distrib-bar{display:flex;height:34px;border-radius:6px;overflow:hidden;margin:10px 0;border:1px solid var(--line);}
+  .distrib-bar .salt{background:var(--deep);width:97%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:13px;font-weight:600;}
+  .distrib-bar .fresh{background:var(--sun);width:3%;display:flex;align-items:center;justify-content:center;}
+  .distrib-legend{display:flex;gap:22px;font-size:13.5px;color:var(--ink-soft);margin-bottom:14px;}
+  .distrib-legend span.swatch{display:inline-block;width:12px;height:12px;border-radius:2px;margin-inline-end:5px;vertical-align:-1px;}
+  .swatch.salt-sw{background:var(--deep);}
+  .swatch.fresh-sw{background:var(--sun);}
+
+  .state-grid{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;margin:10px 0 16px;}
+  .state-card{flex:1 1 180px;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:12px;text-align:center;}
+  .state-card svg{width:60px;height:60px;}
+  .state-card .name{font-weight:700;color:var(--aqua);font-size:15.5px;margin-top:4px;}
+  .state-card .ex{font-size:13px;color:var(--ink-soft);}
+
+  .diagram-wrap{display:flex;justify-content:center;margin:16px 0;}
+
+  table.data-table{width:100%;border-collapse:collapse;margin:8px 0 18px;font-size:15px;}
+  table.data-table th{background:var(--aqua);color:#fff;padding:8px 10px;font-weight:600;font-size:14px;}
+  table.data-table td{border:1px solid var(--line);padding:9px 10px;background:var(--panel);}
+  table.data-table tr:nth-child(even) td{background:#eaf4f8;}
+
+  .activity-box{background:var(--panel);border:1.5px solid var(--sun);border-radius:3px;padding:16px 20px;}
+  .activity-box .task-label{display:inline-block;background:var(--sun);color:#fff;font-size:12.5px;padding:3px 10px;border-radius:2px;margin-bottom:8px;}
+
+  .exercise{border:1px solid var(--line);border-radius:3px;padding:16px 20px;margin-bottom:16px;background:var(--panel);}
+  .exercise-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:var(--ink);color:var(--paper);border-radius:50%;font-size:14px;font-weight:700;margin-inline-end:8px;}
+  .exercise h4{margin:0 0 10px;font-size:16.5px;display:flex;align-items:center;}
+  .fill-line{border-bottom:1px dotted var(--ink-soft);display:inline-block;min-width:120px;height:1.6em;}
+  .word-chip{display:inline-block;background:var(--paper);border:1px solid var(--line);border-radius:3px;padding:3px 12px;margin:3px 4px;font-size:16px;}
+  .qcm-item{margin-bottom:10px;}
+  .qcm-item p{margin-bottom:4px;font-weight:600;}
+  .qcm-options{display:flex;flex-wrap:wrap;gap:14px;font-size:14.5px;}
+  .qcm-options span{display:flex;align-items:center;gap:5px;}
+  .checkbox{width:13px;height:13px;border:1.4px solid var(--ink-soft);display:inline-block;border-radius:2px;}
+  .order-list{display:flex;flex-direction:column;gap:8px;}
+  .order-item{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:6px;padding:8px 12px;background:var(--paper);}
+  .order-item .num-box{width:32px;height:32px;border:2px dashed var(--ink-soft);border-radius:6px;flex-shrink:0;}
+  .scenario-box{background:#eaf4f8;border:1px solid var(--line);padding:12px 16px;font-size:15.5px;line-height:2.1;margin-bottom:10px;}
+
+  .corrige-wrapper{page-break-before:always;padding-top:6px;}
+  .corrige-flag{text-align:center;font-size:13px;color:var(--ink-soft);margin-bottom:10px;border-top:1px dashed var(--ink-soft);padding-top:14px;}
+  details.corrige{border:2px dashed var(--deep);border-radius:4px;background:#f4f9fb;padding:6px 20px 18px;}
+  details.corrige > summary{cursor:pointer;font-family:'Amiri',serif;font-weight:700;font-size:19px;color:var(--deep);padding:14px 0;list-style:none;}
+  details.corrige > summary::-webkit-details-marker{display:none;}
+  details.corrige > summary::before{content:"✂ ";}
+  details.corrige > summary::after{content:"— اضغط لإظهار الحل / إخفائه";font-family:'Noto Naskh Arabic',serif;font-weight:400;font-size:13px;color:var(--ink-soft);margin-inline-start:8px;}
+  .corrige h4{color:var(--deep);margin:16px 0 8px;font-size:16px;}
+  .corrige-item{margin-bottom:8px;font-size:15px;line-height:1.9;}
+  .corrige table.data-table th{background:var(--deep);}
+
+  .footer-note{margin-top:30px;text-align:center;font-size:12px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:10px;}
+
+  @media print{
+    body{background:#fff;}
+    .sheet{box-shadow:none;border:none;margin:0;max-width:100%;padding:14px 6px;}
+    details.corrige{border-color:#000;}
+  }
+  @page{size:A4;margin:14mm;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="masthead-text">
+      <h1>الماءُ في محيطِنا</h1>
+      <p class="subtitle">الفيزياء والكيمياء — عالم المادة</p>
+    </div>
+    <svg class="drop-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M32 6C22 22 14 32 14 42a18 18 0 0 0 36 0c0-10-8-20-18-36z" fill="#1c7fa0"/>
+      <path d="M22 40c0 6 4 10 9 11" stroke="#eaf5fa" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    </svg>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta-chip">المستوى: <b>الأولى إعدادي (1AC)</b></div>
+    <div class="meta-chip">المادة: <b>الفيزياء والكيمياء</b></div>
+    <div class="meta-chip">مدة الحصة: <b>ساعة واحدة</b></div>
+    <div class="meta-chip">نوع الوثيقة: <b>فيشة تعلّم ذاتي</b></div>
+  </div>
+
+  <!-- ===================== OBJECTIF ===================== -->
+  <section>
+    <h2 class="section-title">🎯 الهدف من الدرس</h2>
+    <div class="objectif-box">
+      يتمكّن المتعلم(ة) في نهاية هذا الدرس من: التعرّف على توزيع الماء في الطبيعة وحالاته الفيزيائية الثلاث، وتحديد تغيرات الحالة الفيزيائية للماء (الانصهار، التجمد، التبخر، التكاثف، التصعيد، الإماهة) باستعمال مخطط التسميات، وتفسير دورة الماء في الطبيعة، وإدراك أهمية الحفاظ على الماء وترشيد استهلاكه.
+    </div>
+  </section>
+
+  <!-- ===================== COURS ===================== -->
+  <section>
+    <h2 class="section-title">📘 الدرس</h2>
+
+    <h3 class="sub-title">1) توزيع الماء في الطبيعة</h3>
+    <div class="rule-box">
+      <p>يغطي الماءُ حوالي ثلاثة أرباع سطح الكرة الأرضية، لكن معظمه ماءٌ مالح لا يصلح للشرب مباشرة:</p>
+    </div>
+    <div class="distrib-bar"><div class="salt">ماء مالح (بحار ومحيطات) — 97%</div><div class="fresh"></div></div>
+    <div class="distrib-legend">
+      <span><span class="swatch salt-sw"></span>ماء مالح: البحار والمحيطات</span>
+      <span><span class="swatch fresh-sw"></span>ماء عذب (≈3%): أنهار، بحيرات، مياه جوفية، جليديات</span>
+    </div>
+
+    <h3 class="sub-title">2) حالات وجود الماء في الطبيعة</h3>
+    <div class="state-grid">
+      <div class="state-card">
+        <svg viewBox="0 0 60 60"><rect x="14" y="14" width="32" height="32" rx="4" fill="#dcf0f7" stroke="#1c7fa0" stroke-width="2.5"/></svg>
+        <div class="name">الحالة الصلبة</div>
+        <div class="ex">الجليد، الثلج، البَرَد</div>
+      </div>
+      <div class="state-card">
+        <svg viewBox="0 0 60 60"><path d="M30 12C22 24 16 32 16 40a14 14 0 0 0 28 0c0-8-6-16-14-28z" fill="#1c7fa0"/></svg>
+        <div class="name">الحالة السائلة</div>
+        <div class="ex">مياه الأنهار، البحار، الأمطار</div>
+      </div>
+      <div class="state-card">
+        <svg viewBox="0 0 60 60"><circle cx="22" cy="34" r="8" fill="#eaf5fa" stroke="#7fb8cf" stroke-width="2"/><circle cx="34" cy="26" r="10" fill="#eaf5fa" stroke="#7fb8cf" stroke-width="2"/><circle cx="42" cy="36" r="7" fill="#eaf5fa" stroke="#7fb8cf" stroke-width="2"/></svg>
+        <div class="name">الحالة الغازية</div>
+        <div class="ex">بخار الماء (غير مرئي في الهواء)</div>
+      </div>
+    </div>
+
+    <h3 class="sub-title">3) تغيرات الحالة الفيزيائية للماء</h3>
+    <div class="rule-box">
+      <p>ينتقل الماء من حالة إلى أخرى دون أن يتغيّر تركيبه الكيميائي، ولكل انتقال اسمٌ خاص:</p>
+    </div>
+    <div class="diagram-wrap">
+      <svg width="420" height="230" viewBox="0 0 420 230" xmlns="http://www.w3.org/2000/svg">
+        <rect x="15" y="90" width="100" height="55" rx="8" fill="#dcf0f7" stroke="#1c7fa0" stroke-width="2.5"/>
+        <text x="65" y="123" text-anchor="middle" font-family="Noto Naskh Arabic, serif" font-size="16" font-weight="700" fill="#0f2a38">صلبة</text>
+        <rect x="160" y="90" width="100" height="55" rx="8" fill="#1c7fa0"/>
+        <text x="210" y="123" text-anchor="middle" font-family="Noto Naskh Arabic, serif" font-size="16" font-weight="700" fill="#fff">سائلة</text>
+        <rect x="305" y="90" width="100" height="55" rx="8" fill="#eaf5fa" stroke="#7fb8cf" stroke-width="2.5"/>
+        <text x="355" y="123" text-anchor="middle" font-family="Noto Naskh Arabic, serif" font-size="16" font-weight="700" fill="#0f2a38">غازية</text>
+
+        <line x1="115" y1="105" x2="160" y2="105" stroke="#0f2a38" stroke-width="2" marker-end="url(#arrow)"/>
+        <text x="137" y="98" text-anchor="middle" font-family="Noto Naskh Arabic, serif" font-size="12" fill="#0f2a38">الانصهار</text>
+        <line x1="160" y1="130" x2="115" y2="130" stroke="#0f2a38" stroke-width="2" marker-end="url(#arrow)"/>
+        <text x="137" y="148" text-anchor="middle" font-family="Noto Naskh Arabic, serif" font-size="12" fill="#0f2a38">التجمّد</text>
+
+        <line x1="260" y1="105" x2="305" y2="105" stroke="#0f2a38" stroke-width="2" marker-end="url(#arrow)"/>
+        <text x="282" y="98" text-anchor="middle" font-family="Noto Naskh Arabic, serif" font-size="12" fill="#0f2a38">التبخّر</text>
+        <line x1="305" y1="130" x2="260" y2="130" stroke="#0f2a38" stroke-width="2" marker-end="url(#arrow)"/>
+        <text x="282" y="148" text-anchor="middle" font-family="Noto Naskh Arabic, serif" font-size="12" fill="#0f2a38">التكاثف</text>
+
+        <path d="M65 90 C 100 30, 320 30, 355 90" stroke="#0f2a38" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+        <text x="210" y="28" text-anchor="middle" font-family="Noto Naskh Arabic, serif" font-size="12" fill="#0f2a38">التصعيد</text>
+        <path d="M355 145 C 320 205, 100 205, 65 145" stroke="#0f2a38" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+        <text x="210" y="216" text-anchor="middle" font-family="Noto Naskh Arabic, serif" font-size="12" fill="#0f2a38">الإماهة (التبلور)</text>
+
+        <defs>
+          <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+            <path d="M0,0 L6,3 L0,6 Z" fill="#0f2a38"/>
+          </marker>
+        </defs>
+      </svg>
+    </div>
+    <table class="data-table">
+      <tr><th>التغيّر</th><th>من حالة إلى حالة</th><th>مثال</th></tr>
+      <tr><td>الانصهار</td><td>صلبة ← سائلة</td><td>ذوبان الثلج عند تسخينه (عند 0°C)</td></tr>
+      <tr><td>التجمّد</td><td>سائلة ← صلبة</td><td>تجمّد الماء في الثلاجة (عند 0°C)</td></tr>
+      <tr><td>التبخّر</td><td>سائلة ← غازية</td><td>جفاف الثوب المبلل في الشمس</td></tr>
+      <tr><td>التكاثف</td><td>غازية ← سائلة</td><td>تكوّن قطرات ماء على كأس بارد</td></tr>
+      <tr><td>التصعيد</td><td>صلبة ← غازية (مباشرة)</td><td>تناقص حجم مكعبات الثلج المجمَّدة مع الوقت</td></tr>
+      <tr><td>الإماهة (التبلور)</td><td>غازية ← صلبة (مباشرة)</td><td>تكوّن الصقيع على النباتات في الشتاء</td></tr>
+    </table>
+
+    <h3 class="sub-title">4) دورة الماء في الطبيعة</h3>
+    <div class="rule-box">
+      <p>يتنقّل الماء باستمرار بين البحار والغلاف الجوي واليابسة وفق دورة طبيعية مستمرة:</p>
+      <ol>
+        <li><b>التبخّر:</b> تتبخّر مياه البحار والأنهار بفعل حرارة الشمس، فتتحول إلى بخار ماء يرتفع في الهواء.</li>
+        <li><b>التكاثف:</b> يبرد بخار الماء في الطبقات العليا من الغلاف الجوي فيتكاثف مكوِّناً الغيوم.</li>
+        <li><b>التساقطات:</b> عندما تصبح قطرات الماء في الغيوم كبيرة وثقيلة، تسقط على شكل أمطار أو ثلوج.</li>
+        <li><b>الجريان والترشّح:</b> يجري جزء من الماء على سطح الأرض نحو الأنهار والبحار، ويترشّح جزء آخر إلى باطن الأرض ليكوّن المياه الجوفية.</li>
+      </ol>
+      <p>وهكذا تتكرر الدورة من جديد بشكل مستمر.</p>
+    </div>
+
+    <h3 class="sub-title">5) أهمية الحفاظ على الماء</h3>
+    <div class="rule-box">
+      <p>رغم وفرة الماء على سطح الأرض، فإن الماء الصالح للشرب نادر ومحدود، لذلك من الضروري ترشيد استهلاكه: إغلاق الصنبور أثناء تفريش الأسنان، إصلاح التسربات، إعادة استعمال مياه السقي، وعدم تلويث المسطحات المائية.</p>
+    </div>
+  </section>
+
+  <!-- ===================== ACTIVITE ===================== -->
+  <section>
+    <h2 class="section-title">🔬 نشاط تطبيقي</h2>
+    <div class="activity-box">
+      <span class="task-label">ملء مخطط تغيرات الحالة</span>
+      <p>أعد رسم المخطط التالي في دفترك، ثم اكتب اسم التغيّر المناسب (الانصهار، التجمّد، التبخّر، التكاثف) على كل سهم فارغ:</p>
+      <div class="diagram-wrap">
+        <svg width="420" height="150" viewBox="0 0 420 150" xmlns="http://www.w3.org/2000/svg">
+          <rect x="15" y="50" width="100" height="55" rx="8" fill="#dcf0f7" stroke="#1c7fa0" stroke-width="2.5"/>
+          <text x="65" y="83" text-anchor="middle" font-family="Noto Naskh Arabic, serif" font-size="16" font-weight="700" fill="#0f2a38">صلبة</text>
+          <rect x="160" y="50" width="100" height="55" rx="8" fill="#1c7fa0"/>
+          <text x="210" y="83" text-anchor="middle" font-family="Noto Naskh Arabic, serif" font-size="16" font-weight="700" fill="#fff">سائلة</text>
+          <rect x="305" y="50" width="100" height="55" rx="8" fill="#eaf5fa" stroke="#7fb8cf" stroke-width="2.5"/>
+          <text x="355" y="83" text-anchor="middle" font-family="Noto Naskh Arabic, serif" font-size="16" font-weight="700" fill="#0f2a38">غازية</text>
+          <line x1="115" y1="65" x2="160" y2="65" stroke="#0f2a38" stroke-width="2" stroke-dasharray="4 3" marker-end="url(#arrow2)"/>
+          <line x1="160" y1="90" x2="115" y2="90" stroke="#0f2a38" stroke-width="2" stroke-dasharray="4 3" marker-end="url(#arrow2)"/>
+          <line x1="260" y1="65" x2="305" y2="65" stroke="#0f2a38" stroke-width="2" stroke-dasharray="4 3" marker-end="url(#arrow2)"/>
+          <line x1="305" y1="90" x2="260" y2="90" stroke="#0f2a38" stroke-width="2" stroke-dasharray="4 3" marker-end="url(#arrow2)"/>
+          <text x="137" y="58" text-anchor="middle" font-size="12">..........</text>
+          <text x="137" y="106" text-anchor="middle" font-size="12">..........</text>
+          <text x="282" y="58" text-anchor="middle" font-size="12">..........</text>
+          <text x="282" y="106" text-anchor="middle" font-size="12">..........</text>
+          <defs><marker id="arrow2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#0f2a38"/></marker></defs>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== EXERCICES ===================== -->
+  <section>
+    <h2 class="section-title">📝 تمارين للتدرّب</h2>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">1</span>صنّف الأمثلة التالية حسب حالة الماء (صلبة / سائلة / غازية):</h4>
+      <p>
+        <span class="word-chip">الجليد</span>
+        <span class="word-chip">بخار الماء</span>
+        <span class="word-chip">مياه النهر</span>
+        <span class="word-chip">الثلج</span>
+        <span class="word-chip">الضباب</span>
+        <span class="word-chip">ماء البحر</span>
+      </p>
+      <table class="data-table">
+        <tr><th>حالة صلبة</th><th>حالة سائلة</th><th>حالة غازية</th></tr>
+        <tr><td style="height:60px;"></td><td></td><td></td></tr>
+      </table>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">2</span>اختر الإجابة الصحيحة:</h4>
+      <div class="qcm-item">
+        <p>1) نسبة الماء العذب على سطح الأرض تقارب:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>97%</span><span><span class="checkbox"></span>50%</span><span><span class="checkbox"></span>3%</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>2) انتقال الماء من الحالة السائلة إلى الحالة الغازية يسمى:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>التبخّر</span><span><span class="checkbox"></span>التكاثف</span><span><span class="checkbox"></span>الانصهار</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>3) تكوّن الغيوم في السماء ناتج عن ظاهرة:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>التبخّر</span><span><span class="checkbox"></span>التكاثف</span><span><span class="checkbox"></span>التجمّد</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>4) يتجمّد الماء ويصبح جليداً عند درجة حرارة:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>100°C</span><span><span class="checkbox"></span>0°C</span><span><span class="checkbox"></span>50°C</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>5) من مظاهر ترشيد استهلاك الماء:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>ترك الصنبور مفتوحاً</span><span><span class="checkbox"></span>إصلاح التسربات</span><span><span class="checkbox"></span>تلويث الأنهار</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">3</span>أكمل الجدول بذكر التغيّر المناسب:</h4>
+      <table class="data-table">
+        <tr><th>من حالة إلى حالة</th><th>اسم التغيّر</th></tr>
+        <tr><td>صلبة ← سائلة</td><td><span class="fill-line"></span></td></tr>
+        <tr><td>سائلة ← صلبة</td><td><span class="fill-line"></span></td></tr>
+        <tr><td>سائلة ← غازية</td><td><span class="fill-line"></span></td></tr>
+        <tr><td>غازية ← سائلة</td><td><span class="fill-line"></span></td></tr>
+      </table>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">4</span>رتّب مراحل دورة الماء في الطبيعة بكتابة الرقم المناسب (من 1 إلى 4) في كل مربع:</h4>
+      <div class="order-list">
+        <div class="order-item"><div class="num-box"></div><span>التساقطات (أمطار أو ثلوج)</span></div>
+        <div class="order-item"><div class="num-box"></div><span>التبخّر من البحار والأنهار</span></div>
+        <div class="order-item"><div class="num-box"></div><span>الجريان والترشّح نحو المسطحات المائية</span></div>
+        <div class="order-item"><div class="num-box"></div><span>التكاثف وتكوّن الغيوم</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">5</span>وضعية-مشكلة:</h4>
+      <div class="scenario-box">
+        في يوم صيفي حار، لاحظ أحمد أن قطرات ماء تكوّنت على السطح الخارجي لكأس يحتوي على ماء بارد جداً، رغم أن الكأس مغلق ولا يتسرب منه أي ماء.
+      </div>
+      <p>1) من أين أتت هذه القطرات في رأيك؟</p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+      <p>2) ما اسم ظاهرة تغيّر الحالة الفيزيائية المسؤولة عن ذلك؟ علّل جوابك.</p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== CORRIGE ===================== -->
+  <div class="corrige-wrapper">
+    <p class="corrige-flag">✂ يمكن طي هذه الصفحة أو إخفاؤها (اضغط على العنوان أدناه) قبل إنجاز التمارين ✂</p>
+    <details class="corrige">
+      <summary>التصحيح الكامل</summary>
+
+      <h4>تصحيح النشاط التطبيقي (مخطط تغيرات الحالة)</h4>
+      <div class="corrige-item">من الصلبة إلى السائلة (السهم العلوي الأيسر): <b>الانصهار</b></div>
+      <div class="corrige-item">من السائلة إلى الصلبة (السهم السفلي الأيسر): <b>التجمّد</b></div>
+      <div class="corrige-item">من السائلة إلى الغازية (السهم العلوي الأيمن): <b>التبخّر</b></div>
+      <div class="corrige-item">من الغازية إلى السائلة (السهم السفلي الأيمن): <b>التكاثف</b></div>
+
+      <h4>تصحيح التمرين 1 (التصنيف)</h4>
+      <div class="corrige-item"><b>حالة صلبة:</b> الجليد، الثلج</div>
+      <div class="corrige-item"><b>حالة سائلة:</b> مياه النهر، ماء البحر</div>
+      <div class="corrige-item"><b>حالة غازية:</b> بخار الماء، الضباب (قطيرات دقيقة ناتجة عن تكاثف قريب من الغازية)</div>
+
+      <h4>تصحيح التمرين 2 (الاختيار من متعدد)</h4>
+      <div class="corrige-item">1) 3% &nbsp;|&nbsp; 2) التبخّر &nbsp;|&nbsp; 3) التكاثف &nbsp;|&nbsp; 4) 0°C &nbsp;|&nbsp; 5) إصلاح التسربات</div>
+
+      <h4>تصحيح التمرين 3 (الجدول)</h4>
+      <table class="data-table">
+        <tr><th>من حالة إلى حالة</th><th>اسم التغيّر</th></tr>
+        <tr><td>صلبة ← سائلة</td><td>الانصهار</td></tr>
+        <tr><td>سائلة ← صلبة</td><td>التجمّد</td></tr>
+        <tr><td>سائلة ← غازية</td><td>التبخّر</td></tr>
+        <tr><td>غازية ← سائلة</td><td>التكاثف</td></tr>
+      </table>
+
+      <h4>تصحيح التمرين 4 (ترتيب دورة الماء)</h4>
+      <div class="corrige-item">1) التبخّر من البحار والأنهار &nbsp;→&nbsp; 2) التكاثف وتكوّن الغيوم &nbsp;→&nbsp; 3) التساقطات (أمطار أو ثلوج) &nbsp;→&nbsp; 4) الجريان والترشّح نحو المسطحات المائية</div>
+
+      <h4>تصحيح التمرين 5 (وضعية-مشكلة)</h4>
+      <div class="corrige-item">1) القطرات أتت من بخار الماء الموجود في الهواء المحيط بالكأس، وليس من داخل الكأس.</div>
+      <div class="corrige-item">2) الظاهرة المسؤولة هي <b>التكاثف</b>: فعندما يلامس بخار الماء الموجود في الهواء السطح البارد للكأس، يبرد فجأة ويتحوّل من الحالة الغازية إلى الحالة السائلة، فتظهر قطرات الماء على سطح الكأس.</div>
+    </details>
+  </div>
+
+  <p class="footer-note">فيشة تعلّم ذاتي — الفيزياء والكيمياء — الأولى إعدادي — الماء في محيطنا</p>
+</div>
+</body>
+</html>

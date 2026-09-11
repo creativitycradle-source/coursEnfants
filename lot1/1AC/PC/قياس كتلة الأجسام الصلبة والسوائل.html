@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>قياس كتلة الأجسام الصلبة والسوائل</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#122430; --ink-soft:#3f5866;
+    --paper:#f6fafb; --panel:#ffffff; --line:#cfe1e6;
+    --cyan:#1c7fa0; --cyan-soft:#dcf0f7;
+    --navy:#1f3b52; --navy-soft:#dfe7ee;
+    --amber:#d99a2b;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#dbe8ec;font-family:'Noto Naskh Arabic','Amiri',serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .sheet{max-width:880px;margin:24px auto;background:var(--paper);padding:38px 44px 50px;border:1px solid var(--line);box-shadow:0 4px 24px rgba(0,0,0,.12);}
+
+  .masthead{display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:3px solid var(--ink);padding-bottom:16px;margin-bottom:22px;}
+  .masthead-text h1{font-family:'Amiri',serif;font-weight:700;font-size:27px;margin:0 0 6px;color:var(--navy);line-height:1.3;}
+  .masthead-text .subtitle{font-size:15px;color:var(--ink-soft);margin:0;}
+  .scale-icon{width:58px;height:58px;flex-shrink:0;}
+
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+  .meta-chip{border:1px solid var(--line);background:var(--panel);border-radius:3px;padding:6px 12px;font-size:13.5px;color:var(--ink-soft);}
+  .meta-chip b{color:var(--ink);font-weight:600;}
+
+  section{margin-bottom:28px;}
+  h2.section-title{font-family:'Amiri',serif;font-size:21px;font-weight:700;color:var(--cyan);border-bottom:2px solid var(--cyan);padding-bottom:6px;margin:0 0 14px;display:flex;align-items:baseline;gap:8px;}
+  h3.sub-title{font-size:17px;font-weight:700;color:var(--amber);margin:20px 0 8px;}
+  p{line-height:2;font-size:15.5px;margin:0 0 10px;}
+
+  .objectif-box{background:#fbf1dd;border-right:4px solid var(--amber);padding:14px 18px;border-radius:2px;font-size:15.5px;line-height:1.9;}
+
+  .rule-box{background:var(--panel);border:1px solid var(--line);border-right:4px solid var(--cyan);padding:14px 18px;border-radius:2px;margin:10px 0 16px;}
+  .rule-box p:last-child{margin-bottom:0;}
+  .rule-box ul,.rule-box ol{margin:6px 0;padding-inline-start:22px;}
+  .rule-box li{margin-bottom:8px;line-height:1.9;}
+
+  table.data-table{width:100%;border-collapse:collapse;margin:8px 0 18px;font-size:15px;}
+  table.data-table th{background:var(--cyan);color:#fff;padding:8px 10px;font-weight:600;font-size:14px;}
+  table.data-table td{border:1px solid var(--line);padding:9px 10px;background:var(--panel);text-align:center;}
+  table.data-table tr:nth-child(even) td{background:#eaf4f8;}
+
+  .tool-grid{display:flex;flex-wrap:wrap;gap:16px;margin:10px 0 16px;justify-content:center;}
+  .tool-card{flex:1 1 220px;text-align:center;border:1px solid var(--line);border-radius:8px;padding:12px;background:var(--panel);}
+  .tool-card svg{width:110px;height:90px;}
+  .tool-card .lbl{font-weight:700;font-size:15px;color:var(--navy);margin-top:4px;}
+
+  .activity-box{background:var(--panel);border:1.5px solid var(--amber);border-radius:3px;padding:16px 20px;}
+  .activity-box .task-label{display:inline-block;background:var(--amber);color:#fff;font-size:12.5px;padding:3px 10px;border-radius:2px;margin-bottom:8px;}
+  .step{display:flex;gap:10px;margin-bottom:8px;align-items:flex-start;}
+  .step-num{flex-shrink:0;width:22px;height:22px;border-radius:50%;background:var(--amber);color:#fff;font-size:12.5px;display:flex;align-items:center;justify-content:center;font-weight:700;}
+
+  .exercise{border:1px solid var(--line);border-radius:3px;padding:16px 20px;margin-bottom:16px;background:var(--panel);}
+  .exercise-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:var(--ink);color:var(--paper);border-radius:50%;font-size:14px;font-weight:700;margin-inline-end:8px;}
+  .exercise h4{margin:0 0 10px;font-size:16.5px;display:flex;align-items:center;}
+  .fill-line{border-bottom:1px dotted var(--ink-soft);display:inline-block;min-width:100px;height:1.6em;}
+  .op-grid{display:flex;flex-wrap:wrap;gap:20px;}
+  .op-item{display:flex;align-items:center;gap:6px;font-size:15.5px;}
+  .qcm-item{margin-bottom:10px;}
+  .qcm-item p{margin-bottom:4px;font-weight:600;}
+  .qcm-options{display:flex;flex-wrap:wrap;gap:14px;font-size:14.5px;}
+  .qcm-options span{display:flex;align-items:center;gap:5px;}
+  .checkbox{width:13px;height:13px;border:1.4px solid var(--ink-soft);display:inline-block;border-radius:2px;}
+  .scenario-box{background:#eaf4f8;border:1px solid var(--line);padding:12px 16px;font-size:15.5px;line-height:2.1;margin-bottom:10px;}
+  .scale-wrap{display:flex;justify-content:center;gap:24px;margin:14px 0;flex-wrap:wrap;}
+
+  .corrige-wrapper{page-break-before:always;padding-top:6px;}
+  .corrige-flag{text-align:center;font-size:13px;color:var(--ink-soft);margin-bottom:10px;border-top:1px dashed var(--ink-soft);padding-top:14px;}
+  details.corrige{border:2px dashed var(--navy);border-radius:4px;background:#f4f7f9;padding:6px 20px 18px;}
+  details.corrige > summary{cursor:pointer;font-family:'Amiri',serif;font-weight:700;font-size:19px;color:var(--navy);padding:14px 0;list-style:none;}
+  details.corrige > summary::-webkit-details-marker{display:none;}
+  details.corrige > summary::before{content:"✂ ";}
+  details.corrige > summary::after{content:"— اضغط لإظهار الحل / إخفائه";font-family:'Noto Naskh Arabic',serif;font-weight:400;font-size:13px;color:var(--ink-soft);margin-inline-start:8px;}
+  .corrige h4{color:var(--navy);margin:16px 0 8px;font-size:16px;}
+  .corrige-item{margin-bottom:8px;font-size:15px;line-height:1.9;}
+  .corrige table.data-table th{background:var(--navy);}
+
+  .footer-note{margin-top:30px;text-align:center;font-size:12px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:10px;}
+
+  @media print{
+    body{background:#fff;}
+    .sheet{box-shadow:none;border:none;margin:0;max-width:100%;padding:14px 6px;}
+    details.corrige{border-color:#000;}
+  }
+  @page{size:A4;margin:14mm;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="masthead-text">
+      <h1>قياسُ كتلةِ الأجسامِ الصلبةِ والسوائلِ</h1>
+      <p class="subtitle">الفيزياء والكيمياء — عالم المادة</p>
+    </div>
+    <svg class="scale-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="32" y1="8" x2="32" y2="48" stroke="#1f3b52" stroke-width="2.5"/>
+      <line x1="10" y1="18" x2="54" y2="18" stroke="#1f3b52" stroke-width="2.5"/>
+      <path d="M10 18 L4 32 A9 9 0 0 0 16 32 Z" stroke="#1c7fa0" stroke-width="2" fill="none"/>
+      <path d="M54 18 L48 32 A9 9 0 0 0 60 32 Z" stroke="#1c7fa0" stroke-width="2" fill="none"/>
+      <circle cx="32" cy="16" r="3" fill="#d99a2b"/>
+      <line x1="20" y1="54" x2="44" y2="54" stroke="#1f3b52" stroke-width="3" stroke-linecap="round"/>
+    </svg>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta-chip">المستوى: <b>الأولى إعدادي (1AC)</b></div>
+    <div class="meta-chip">المادة: <b>الفيزياء والكيمياء</b></div>
+    <div class="meta-chip">مدة الحصة: <b>ساعة واحدة</b></div>
+    <div class="meta-chip">نوع الوثيقة: <b>فيشة تعلّم ذاتي</b></div>
+  </div>
+
+  <!-- ===================== OBJECTIF ===================== -->
+  <section>
+    <h2 class="section-title">🎯 الهدف من الدرس</h2>
+    <div class="objectif-box">
+      يتمكّن المتعلم(ة) في نهاية هذا الدرس من: تعريف الكتلة وتحويل وحداتها، والتعرّف على أدوات قياس الكتلة (الميزان ذو الكفتين والميزان الإلكتروني)، وقياس كتلة جسم صلب، وقياس كتلة سائل باستعمال طريقة الفرق.
+    </div>
+  </section>
+
+  <!-- ===================== COURS ===================== -->
+  <section>
+    <h2 class="section-title">📘 الدرس</h2>
+
+    <h3 class="sub-title">1) مفهوم الكتلة ووحداتها</h3>
+    <div class="rule-box">
+      <p><b>الكتلة</b> مقدار يدلّ على كمية المادة التي يتكوّن منها جسم، وتُقاس بواسطة <b>الميزان</b>. الوحدة الدولية لقياس الكتلة هي <b>الكيلوغرام (kg)</b>، وتُستعمل أيضاً وحدات أخرى: <b>الغرام (g)</b>، <b>الميليغرام (mg)</b>، و<b>الطن (t)</b> للكتل الكبيرة جداً.</p>
+    </div>
+    <table class="data-table">
+      <tr><th>t (طن)</th><th>kg (كيلوغرام)</th><th>g (غرام)</th><th>mg (ميليغرام)</th></tr>
+      <tr><td>1</td><td>1000</td><td>1 000 000</td><td>1 000 000 000</td></tr>
+    </table>
+    <p style="font-size:14px;color:var(--ink-soft);margin-top:-8px;">للانتقال من وحدة إلى الوحدة الأصغر التالية، نضرب في 1000. وللانتقال إلى الوحدة الأكبر، نقسم على 1000.</p>
+
+    <h3 class="sub-title">2) أدوات قياس الكتلة</h3>
+    <div class="rule-box">
+      <p>هناك نوعان أساسيان من الموازين تُستعمل في المختبر:</p>
+    </div>
+    <div class="tool-grid">
+      <div class="tool-card">
+        <svg viewBox="0 0 120 100"><line x1="60" y1="10" x2="60" y2="55" stroke="#1f3b52" stroke-width="2.5"/><line x1="20" y1="25" x2="100" y2="25" stroke="#1f3b52" stroke-width="2.5"/><path d="M20 25 L12 45 A11 11 0 0 0 28 45 Z" fill="none" stroke="#1c7fa0" stroke-width="2"/><path d="M100 25 L92 45 A11 11 0 0 0 108 45 Z" fill="none" stroke="#1c7fa0" stroke-width="2"/><rect x="45" y="65" width="30" height="18" fill="none" stroke="#1f3b52" stroke-width="2"/><line x1="60" y1="55" x2="60" y2="65" stroke="#1f3b52" stroke-width="2"/></svg>
+        <div class="lbl">الميزان ذو الكفتين (Roberval)</div>
+      </div>
+      <div class="tool-card">
+        <svg viewBox="0 0 120 100"><rect x="20" y="30" width="80" height="50" rx="4" fill="none" stroke="#1f3b52" stroke-width="2.5"/><rect x="30" y="38" width="60" height="20" rx="2" fill="#1c7fa0" opacity="0.85"/><text x="60" y="53" text-anchor="middle" font-size="12" fill="#fff" font-weight="700">342 g</text></svg>
+        <div class="lbl">الميزان الإلكتروني</div>
+      </div>
+    </div>
+
+    <h3 class="sub-title">3) قياس كتلة جسم صلب</h3>
+    <div class="rule-box">
+      <p><b>بالميزان ذي الكفتين:</b> نضع الجسم على إحدى الكفتين، ونضيف كتلاً معيارية (صنجات) على الكفة الأخرى حتى يتحقق التوازن. عندئذ تكون كتلة الجسم مساوية لمجموع كتل الصنجات المستعملة.</p>
+      <p><b>بالميزان الإلكتروني:</b> نضع الجسم مباشرة على صحن الميزان، ونقرأ كتلته مباشرة على الشاشة الرقمية.</p>
+    </div>
+
+    <h3 class="sub-title">4) قياس كتلة سائل: طريقة الفرق</h3>
+    <div class="rule-box">
+      <p>لا يمكن وضع سائل مباشرة على كفة الميزان، لذلك نتّبع <b>طريقة الفرق</b>:</p>
+      <ol>
+        <li>نقيس كتلة الإناء وهو <b>فارغ</b>: نرمز لها بـ <b>m₁</b>.</li>
+        <li>نضع السائل داخل الإناء، ونقيس كتلة <b>الإناء والسائل معاً</b>: نرمز لها بـ <b>m₂</b>.</li>
+        <li>كتلة السائل وحده = <b>m₂ − m₁</b></li>
+      </ol>
+    </div>
+    <p style="font-size:14px;color:var(--ink-soft);margin-top:-8px;">مثال: كتلة إناء فارغ = 30 g، وكتلة الإناء مع الماء = 130 g. كتلة الماء = 130 − 30 = 100 g.</p>
+
+    <h3 class="sub-title">5) جدول تلخيصي</h3>
+    <table class="data-table" style="text-align:right;">
+      <tr><th>الحالة</th><th>الطريقة</th></tr>
+      <tr><td>جسم صلب</td><td>يوضع مباشرة على الميزان (بالصنجات أو إلكترونياً)</td></tr>
+      <tr><td>سائل</td><td>طريقة الفرق: كتلة (الإناء+السائل) − كتلة الإناء الفارغ</td></tr>
+    </table>
+  </section>
+
+  <!-- ===================== ACTIVITE ===================== -->
+  <section>
+    <h2 class="section-title">🔬 نشاط تطبيقي</h2>
+    <div class="activity-box">
+      <span class="task-label">تجربة قياس كتلة سائل</span>
+      <div class="step"><span class="step-num">1</span><span>وزنتَ إناءً فارغاً فوجدتَ كتلته = 25 g.</span></div>
+      <div class="step"><span class="step-num">2</span><span>صببتَ فيه كمية من الحليب، ووزنتَ الإناء بمحتواه فوجدتَ الكتلة الكلية = 265 g.</span></div>
+      <p>احسب كتلة الحليب وحده: m<sub>حليب</sub> = m₂ − m₁ = <span class="fill-line" style="min-width:200px;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== EXERCICES ===================== -->
+  <section>
+    <h2 class="section-title">📝 تمارين للتدرّب</h2>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">1</span>حوّل الوحدات التالية:</h4>
+      <div class="op-grid">
+        <div class="op-item">3 kg = <span class="fill-line"></span> g</div>
+        <div class="op-item">500 g = <span class="fill-line"></span> kg</div>
+        <div class="op-item">2 g = <span class="fill-line"></span> mg</div>
+        <div class="op-item">1500 mg = <span class="fill-line"></span> g</div>
+        <div class="op-item">2.5 t = <span class="fill-line"></span> kg</div>
+        <div class="op-item">750 kg = <span class="fill-line"></span> t</div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">2</span>حدّد كتلة الجسم الموزون في كل حالة:</h4>
+      <div class="scale-wrap">
+        <svg width="160" height="120" viewBox="0 0 160 120">
+          <line x1="80" y1="10" x2="80" y2="55" stroke="#1f3b52" stroke-width="2.5"/>
+          <line x1="20" y1="30" x2="140" y2="30" stroke="#1f3b52" stroke-width="2.5"/>
+          <path d="M20 30 L10 55 A13 13 0 0 0 30 55 Z" fill="none" stroke="#1c7fa0" stroke-width="2"/>
+          <path d="M140 30 L130 55 A13 13 0 0 0 150 55 Z" fill="none" stroke="#1c7fa0" stroke-width="2"/>
+          <text x="20" y="48" text-anchor="middle" font-size="11" font-weight="700">جسم</text>
+          <text x="140" y="48" text-anchor="middle" font-size="10">500g+200g+50g</text>
+          <rect x="65" y="65" width="30" height="16" fill="none" stroke="#1f3b52" stroke-width="2"/>
+        </svg>
+        <svg width="140" height="100" viewBox="0 0 120 100">
+          <rect x="20" y="30" width="80" height="50" rx="4" fill="none" stroke="#1f3b52" stroke-width="2.5"/>
+          <rect x="30" y="38" width="60" height="20" rx="2" fill="#1c7fa0" opacity="0.85"/>
+          <text x="60" y="53" text-anchor="middle" font-size="12" fill="#fff" font-weight="700">1.2 kg</text>
+        </svg>
+      </div>
+      <p>الميزان الأول (بالصنجات): <span class="fill-line"></span> &nbsp;&nbsp; الميزان الثاني (الإلكتروني): <span class="fill-line"></span></p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">3</span>اختر الإجابة الصحيحة:</h4>
+      <div class="qcm-item">
+        <p>1) وحدة قياس الكتلة في النظام الدولي هي:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>الغرام</span><span><span class="checkbox"></span>الكيلوغرام</span><span><span class="checkbox"></span>اللتر</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>2) لقياس كتلة سائل نستعمل:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>الميزان مباشرة</span><span><span class="checkbox"></span>طريقة الفرق</span><span><span class="checkbox"></span>المخبار المدرَّج</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>3) 1 كيلوغرام يساوي:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>100 غ</span><span><span class="checkbox"></span>1000 غ</span><span><span class="checkbox"></span>10 غ</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>4) الأداة المستعملة لقياس الكتلة هي:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>المخبار</span><span><span class="checkbox"></span>الميزان</span><span><span class="checkbox"></span>الترمومتر</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>5) إذا كانت كتلة إناء فارغ 30 g، وكتلة الإناء الممتلئ بالماء 130 g، فإن كتلة الماء تساوي:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>100 g</span><span><span class="checkbox"></span>160 g</span><span><span class="checkbox"></span>30 g</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">4</span>أكمل الجدول بحساب كتلة السائل في كل حالة (طريقة الفرق):</h4>
+      <table class="data-table">
+        <tr><th>كتلة الإناء الفارغ</th><th>كتلة الإناء الممتلئ</th><th>كتلة السائل</th></tr>
+        <tr><td>20 g</td><td>220 g</td><td><span class="fill-line"></span></td></tr>
+        <tr><td>15 g</td><td>315 g</td><td><span class="fill-line"></span></td></tr>
+        <tr><td>50 g</td><td>450 g</td><td><span class="fill-line"></span></td></tr>
+      </table>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">5</span>مسألة تطبيقية:</h4>
+      <div class="scenario-box">
+        اشترى أب زجاجة زيت. كتلة الزجاجة فارغة = 45 g. كتلة الزجاجة مملوءة بالزيت = 945 g.
+      </div>
+      <p>1) احسب كتلة الزيت وحده بالغرام.</p>
+      <p><span class="fill-line" style="min-width:60%;"></span></p>
+      <p>2) حوّل هذه الكتلة إلى الكيلوغرام.</p>
+      <p><span class="fill-line" style="min-width:60%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== CORRIGE ===================== -->
+  <div class="corrige-wrapper">
+    <p class="corrige-flag">✂ يمكن طي هذه الصفحة أو إخفاؤها (اضغط على العنوان أدناه) قبل إنجاز التمارين ✂</p>
+    <details class="corrige">
+      <summary>التصحيح الكامل</summary>
+
+      <h4>تصحيح النشاط التطبيقي</h4>
+      <div class="corrige-item">m<sub>حليب</sub> = 265 − 25 = 240 g</div>
+
+      <h4>تصحيح التمرين 1 (تحويل الوحدات)</h4>
+      <div class="corrige-item">3 kg = 3000 g &nbsp;|&nbsp; 500 g = 0.5 kg &nbsp;|&nbsp; 2 g = 2000 mg &nbsp;|&nbsp; 1500 mg = 1.5 g &nbsp;|&nbsp; 2.5 t = 2500 kg &nbsp;|&nbsp; 750 kg = 0.75 t</div>
+
+      <h4>تصحيح التمرين 2 (قراءة الكتلة)</h4>
+      <div class="corrige-item">الميزان الأول: 500+200+50 = 750 g &nbsp;|&nbsp; الميزان الثاني: 1.2 kg</div>
+
+      <h4>تصحيح التمرين 3 (الاختيار من متعدد)</h4>
+      <div class="corrige-item">1) الكيلوغرام &nbsp;|&nbsp; 2) طريقة الفرق &nbsp;|&nbsp; 3) 1000 غ &nbsp;|&nbsp; 4) الميزان &nbsp;|&nbsp; 5) 100 g</div>
+
+      <h4>تصحيح التمرين 4 (طريقة الفرق)</h4>
+      <table class="data-table">
+        <tr><th>كتلة الإناء الفارغ</th><th>كتلة الإناء الممتلئ</th><th>كتلة السائل</th></tr>
+        <tr><td>20 g</td><td>220 g</td><td>200 g</td></tr>
+        <tr><td>15 g</td><td>315 g</td><td>300 g</td></tr>
+        <tr><td>50 g</td><td>450 g</td><td>400 g</td></tr>
+      </table>
+
+      <h4>تصحيح التمرين 5 (المسألة التطبيقية)</h4>
+      <div class="corrige-item">1) كتلة الزيت = 945 − 45 = 900 g</div>
+      <div class="corrige-item">2) 900 g = 0.9 kg</div>
+    </details>
+  </div>
+
+  <p class="footer-note">فيشة تعلّم ذاتي — الفيزياء والكيمياء — الأولى إعدادي — قياس كتلة الأجسام الصلبة والسوائل</p>
+</div>
+</body>
+</html>

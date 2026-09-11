@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>دراسة مدينة إسلامية: فاس في عهد الأدارسة نموذجا</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#2e2013; --ink-soft:#5c4c3a;
+    --paper:#f8f1e2; --panel:#fffdf7; --line:#ddc9a3;
+    --clay:#b5652f; --clay-soft:#f3e0cc;
+    --bronze:#8a6a1e; --bronze-soft:#f0e6c4;
+    --lapis:#2c5c78; --lapis-soft:#dfeaf0;
+    --leaf:#3f7d3a; --leaf-soft:#e3f0df;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#e3d8bd;font-family:'Noto Naskh Arabic','Amiri',serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .sheet{max-width:880px;margin:24px auto;background:var(--paper);padding:38px 44px 50px;border:1px solid var(--line);box-shadow:0 4px 24px rgba(0,0,0,.12);}
+
+  .masthead{display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:3px solid var(--ink);padding-bottom:16px;margin-bottom:22px;}
+  .masthead-text h1{font-family:'Amiri',serif;font-weight:700;font-size:24px;margin:0 0 6px;color:var(--clay);line-height:1.4;}
+  .masthead-text .subtitle{font-size:15px;color:var(--ink-soft);margin:0;}
+  .gate-icon{width:54px;height:60px;flex-shrink:0;}
+
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+  .meta-chip{border:1px solid var(--line);background:var(--panel);border-radius:3px;padding:6px 12px;font-size:13.5px;color:var(--ink-soft);}
+  .meta-chip b{color:var(--ink);font-weight:600;}
+
+  section{margin-bottom:28px;}
+  h2.section-title{font-family:'Amiri',serif;font-size:21px;font-weight:700;color:var(--lapis);border-bottom:2px solid var(--lapis);padding-bottom:6px;margin:0 0 14px;display:flex;align-items:baseline;gap:8px;}
+  h3.sub-title{font-size:17px;font-weight:700;color:var(--clay);margin:20px 0 8px;}
+  p{line-height:2;font-size:15.5px;margin:0 0 10px;}
+
+  .objectif-box{background:var(--bronze-soft);border-right:4px solid var(--bronze);padding:14px 18px;border-radius:2px;font-size:15.5px;line-height:1.9;}
+
+  .rule-box{background:var(--panel);border:1px solid var(--line);border-right:4px solid var(--lapis);padding:14px 18px;border-radius:2px;margin:10px 0 16px;}
+  .rule-box p:last-child{margin-bottom:0;}
+  .rule-box ul,.rule-box ol{margin:6px 0;padding-inline-start:22px;}
+  .rule-box li{margin-bottom:6px;line-height:1.85;}
+
+  .map-wrap{display:flex;justify-content:center;margin:16px 0;}
+
+  .site-grid{display:flex;flex-wrap:wrap;gap:14px;margin:10px 0 16px;}
+  .site-card{flex:1 1 220px;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:12px 16px;}
+  .site-card .head{font-weight:700;color:var(--clay);font-size:15.5px;margin-bottom:4px;}
+  .site-card p{margin:2px 0 0;font-size:14px;color:var(--ink-soft);line-height:1.85;}
+
+  table.data-table{width:100%;border-collapse:collapse;margin:8px 0 18px;font-size:15px;}
+  table.data-table th{background:var(--lapis);color:#fff;padding:8px 10px;font-weight:600;font-size:14px;}
+  table.data-table td{border:1px solid var(--line);padding:9px 10px;background:var(--panel);}
+  table.data-table tr:nth-child(even) td{background:#f2e9d3;}
+
+  .activity-box{background:var(--panel);border:1.5px solid var(--bronze);border-radius:3px;padding:16px 20px;}
+  .activity-box .task-label{display:inline-block;background:var(--bronze);color:#fff;font-size:12.5px;padding:3px 10px;border-radius:2px;margin-bottom:8px;}
+  .id-card{background:var(--lapis-soft);border:1px dashed var(--lapis);border-radius:6px;padding:14px 18px;margin-top:10px;}
+  .id-row{display:flex;gap:10px;margin-bottom:8px;font-size:14.5px;}
+  .id-row b{white-space:nowrap;}
+
+  .exercise{border:1px solid var(--line);border-radius:3px;padding:16px 20px;margin-bottom:16px;background:var(--panel);}
+  .exercise-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:var(--ink);color:var(--paper);border-radius:50%;font-size:14px;font-weight:700;margin-inline-end:8px;}
+  .exercise h4{margin:0 0 10px;font-size:16.5px;display:flex;align-items:center;}
+  .fill-line{border-bottom:1px dotted var(--ink-soft);display:inline-block;min-width:120px;height:1.6em;}
+  .qcm-item{margin-bottom:10px;}
+  .qcm-item p{margin-bottom:4px;font-weight:600;}
+  .qcm-options{display:flex;flex-wrap:wrap;gap:14px;font-size:14.5px;}
+  .qcm-options span{display:flex;align-items:center;gap:5px;}
+  .checkbox{width:13px;height:13px;border:1.4px solid var(--ink-soft);display:inline-block;border-radius:2px;}
+  .match-cols{display:flex;justify-content:space-between;gap:40px;margin-top:8px;}
+  .match-cols ul{list-style:none;padding:0;margin:0;}
+  .match-cols li{border:1px solid var(--line);background:var(--paper);padding:6px 14px;margin-bottom:10px;border-radius:3px;font-size:15px;}
+  .order-list{display:flex;flex-direction:column;gap:8px;}
+  .order-item{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:6px;padding:8px 12px;background:var(--paper);}
+  .order-item .num-box{width:32px;height:32px;border:2px dashed var(--ink-soft);border-radius:6px;flex-shrink:0;}
+
+  .corrige-wrapper{page-break-before:always;padding-top:6px;}
+  .corrige-flag{text-align:center;font-size:13px;color:var(--ink-soft);margin-bottom:10px;border-top:1px dashed var(--ink-soft);padding-top:14px;}
+  details.corrige{border:2px dashed var(--clay);border-radius:4px;background:#fdf6ef;padding:6px 20px 18px;}
+  details.corrige > summary{cursor:pointer;font-family:'Amiri',serif;font-weight:700;font-size:19px;color:var(--clay);padding:14px 0;list-style:none;}
+  details.corrige > summary::-webkit-details-marker{display:none;}
+  details.corrige > summary::before{content:"✂ ";}
+  details.corrige > summary::after{content:"— اضغط لإظهار الحل / إخفائه";font-family:'Noto Naskh Arabic',serif;font-weight:400;font-size:13px;color:var(--ink-soft);margin-inline-start:8px;}
+  .corrige h4{color:var(--clay);margin:16px 0 8px;font-size:16px;}
+  .corrige-item{margin-bottom:8px;font-size:15px;line-height:1.9;}
+  .corrige table.data-table th{background:var(--clay);}
+
+  .footer-note{margin-top:30px;text-align:center;font-size:12px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:10px;}
+
+  @media print{
+    body{background:#fff;}
+    .sheet{box-shadow:none;border:none;margin:0;max-width:100%;padding:14px 6px;}
+    details.corrige{border-color:#000;}
+  }
+  @page{size:A4;margin:14mm;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="masthead-text">
+      <h1>دراسةُ مدينةٍ إسلاميةٍ: فاسُ في عهدِ الأدارسةِ نموذجاً</h1>
+      <p class="subtitle">الاجتماعيات — التاريخ: المغرب في العصر الوسيط</p>
+    </div>
+    <svg class="gate-icon" viewBox="0 0 48 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M8 56V26a16 16 0 0 1 32 0v30" fill="none" stroke="#b5652f" stroke-width="3"/>
+      <path d="M14 56V28a10 10 0 0 1 20 0v28" fill="none" stroke="#8a6a1e" stroke-width="2"/>
+      <line x1="4" y1="56" x2="44" y2="56" stroke="#2e2013" stroke-width="3"/>
+    </svg>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta-chip">المستوى: <b>السادسة ابتدائي (6AEP)</b></div>
+    <div class="meta-chip">المادة: <b>الاجتماعيات — التاريخ</b></div>
+    <div class="meta-chip">مدة الحصة: <b>ساعة واحدة</b></div>
+    <div class="meta-chip">نوع الوثيقة: <b>فيشة تعلّم ذاتي</b></div>
+  </div>
+
+  <!-- ===================== OBJECTIF ===================== -->
+  <section>
+    <h2 class="section-title">🎯 الهدف من الدرس</h2>
+    <div class="objectif-box">
+      يتمكّن المتعلم(ة) في نهاية هذا الدرس من: التعرّف على ظروف تأسيس الدولة الإدريسية ومدينة فاس، وتحديد أهم معالم مدينة فاس في هذا العصر، وتفسير أهمية فاس كنموذج للمدينة الإسلامية المغربية.
+    </div>
+  </section>
+
+  <!-- ===================== COURS ===================== -->
+  <section>
+    <h2 class="section-title">📘 الدرس</h2>
+
+    <h3 class="sub-title">1) تأسيس الدولة الإدريسية</h3>
+    <div class="rule-box">
+      <p>أسّس <b>إدريس الأول</b> الدولة الإدريسية بالمغرب في أواخر القرن الثامن الميلادي، بعد استقراره بمنطقة وليلي وبيعة القبائل الأمازيغية له. تُعتبر الدولة الإدريسية من أوائل الدول الإسلامية المستقلة التي قامت ببلاد المغرب.</p>
+    </div>
+
+    <h3 class="sub-title">2) تأسيس مدينة فاس</h3>
+    <div class="rule-box">
+      <p>واصل <b>إدريس الثاني</b> (ابن إدريس الأول) بناء الدولة، وأسّس مدينة <b>فاس</b> وطوّرها لتصبح عاصمة الدولة الإدريسية. استقطبت المدينة الناشئة موجات من المهاجرين: قادمون من مدينة <b>القيروان</b> (بتونس)، وآخرون قادمون من <b>الأندلس</b>، فأعطوا المدينة منذ نشأتها طابعاً حضارياً متنوعاً وغنياً.</p>
+    </div>
+
+    <h3 class="sub-title">3) تقسيم فاس إلى عدوتين</h3>
+    <div class="map-wrap">
+      <svg width="320" height="180" viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg">
+        <rect x="10" y="10" width="300" height="160" rx="10" fill="#f3e0cc" stroke="#ddc9a3" stroke-width="2"/>
+        <path d="M160 15 C 150 60, 170 110, 155 165" stroke="#2c5c78" stroke-width="6" fill="none"/>
+        <text x="160" y="30" text-anchor="middle" font-family="Noto Naskh Arabic, serif" font-size="11" fill="#2c5c78">وادي فاس</text>
+        <text x="85" y="90" text-anchor="middle" font-family="Noto Naskh Arabic, serif" font-size="14" font-weight="700" fill="#8a6a1e">عدوة القرويين</text>
+        <text x="235" y="90" text-anchor="middle" font-family="Noto Naskh Arabic, serif" font-size="14" font-weight="700" fill="#b5652f">عدوة الأندلسيين</text>
+      </svg>
+    </div>
+    <div class="rule-box">
+      <p>تنقسم مدينة فاس القديمة إلى ضفتين (عدوتين) يفصل بينهما <b>وادي فاس</b>: <b>عدوة القرويين</b>، التي استقرّ بها المهاجرون القادمون من القيروان، و<b>عدوة الأندلسيين</b>، التي استقرّ بها المهاجرون القادمون من الأندلس.</p>
+    </div>
+
+    <h3 class="sub-title">4) أهم معالم فاس في هذا العصر</h3>
+    <div class="site-grid">
+      <div class="site-card">
+        <div class="head">🕌 جامع القرويين</div>
+        <p>أسّسته <b>فاطمة الفهرية</b> (امرأة من أصل قيرواني) سنة 859م تقريباً. يُعتبر من أقدم الجامعات في العالم، وكان مركزاً علمياً ودينياً كبيراً استقطب طلبة العلم من مختلف الجهات.</p>
+      </div>
+      <div class="site-card">
+        <div class="head">🕌 مسجد الأندلسيين</div>
+        <p>أسّسته <b>مريم الفهرية</b> (أخت فاطمة الفهرية) لخدمة سكان عدوة الأندلسيين، وهو من أقدم المساجد بالمدينة أيضاً.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-title">5) أهمية فاس كمدينة إسلامية نموذجية</h3>
+    <div class="rule-box">
+      <p>تُعتبر فاس نموذجاً للمدينة الإسلامية المغربية، إذ جمعت منذ تأسيسها بين الطابع الأمازيغي والعربي الإسلامي والأندلسي، وكانت مركزاً دينياً وعلمياً وتجارياً وحرفياً هاماً. وهي اليوم مدينة تاريخية مصنَّفة ضمن التراث العالمي لدى منظمة اليونسكو.</p>
+    </div>
+  </section>
+
+  <!-- ===================== ACTIVITE ===================== -->
+  <section>
+    <h2 class="section-title">🗂️ نشاط تطبيقي</h2>
+    <div class="activity-box">
+      <span class="task-label">بطاقة تعريف مدينة فاس</span>
+      <p>أكمل بطاقة التعريف التالية بمدينة فاس بالاعتماد على معطيات الدرس:</p>
+      <div class="id-card">
+        <div class="id-row"><b>مؤسِّسها:</b> <span class="fill-line" style="min-width:250px;"></span></div>
+        <div class="id-row"><b>الدولة التي أسّستها:</b> <span class="fill-line" style="min-width:250px;"></span></div>
+        <div class="id-row"><b>العدوتان اللتان تتكوّن منهما:</b> <span class="fill-line" style="min-width:100%;"></span></div>
+        <div class="id-row"><b>أهم معالمها الدينية:</b> <span class="fill-line" style="min-width:100%;"></span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== EXERCICES ===================== -->
+  <section>
+    <h2 class="section-title">📝 تمارين للتدرّب</h2>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">1</span>أكمل الجمل التالية بالمعطى المناسب:</h4>
+      <p>1) أسّس الدولة الإدريسية القائد .......... </p>
+      <p>2) أسّس مدينة فاس وطوّرها القائد .......... </p>
+      <p>3) أسّست جامع القرويين السيدة .......... </p>
+      <p>4) تنقسم مدينة فاس إلى عدوتين يفصل بينهما .......... </p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">2</span>صل كل شخصية بالدور الذي قامت به:</h4>
+      <div class="match-cols">
+        <ul>
+          <li>أ) إدريس الأول</li>
+          <li>ب) إدريس الثاني</li>
+          <li>ج) فاطمة الفهرية</li>
+          <li>د) مريم الفهرية</li>
+        </ul>
+        <ul>
+          <li>1) أسّست مسجد الأندلسيين</li>
+          <li>2) أسّس الدولة الإدريسية</li>
+          <li>3) أسّست جامع القرويين</li>
+          <li>4) أسّس مدينة فاس وطوّرها</li>
+        </ul>
+      </div>
+      <p style="margin-top:10px;">الإجابة: أ - .......... &nbsp; ب - .......... &nbsp; ج - .......... &nbsp; د - ..........</p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">3</span>اختر الإجابة الصحيحة:</h4>
+      <div class="qcm-item">
+        <p>1) أسّس الدولة الإدريسية:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>إدريس الأول</span><span><span class="checkbox"></span>إدريس الثاني</span><span><span class="checkbox"></span>فاطمة الفهرية</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>2) أسّس مدينة فاس وطوّرها:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>إدريس الأول</span><span><span class="checkbox"></span>إدريس الثاني</span><span><span class="checkbox"></span>موسى بن نصير</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>3) أسّست جامع القرويين:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>فاطمة الفهرية</span><span><span class="checkbox"></span>مريم الفهرية</span><span><span class="checkbox"></span>إدريس الثاني</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>4) تنقسم مدينة فاس القديمة إلى عدوتين هما:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>القرويين والأندلسيين</span><span><span class="checkbox"></span>الرباط وسلا</span><span><span class="checkbox"></span>طنجة وتطوان</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>5) جامع القرويين يُعتبر من:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>أقدم الجامعات في العالم</span><span><span class="checkbox"></span>أحدث المباني بالمغرب</span><span><span class="checkbox"></span>مبنى إداري فقط</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">4</span>رتّب الأحداث التالية حسب تسلسلها الزمني (من 1 إلى 4):</h4>
+      <div class="order-list">
+        <div class="order-item"><div class="num-box"></div><span>تأسيس جامع القرويين على يد فاطمة الفهرية</span></div>
+        <div class="order-item"><div class="num-box"></div><span>تأسيس الدولة الإدريسية بقيادة إدريس الأول</span></div>
+        <div class="order-item"><div class="num-box"></div><span>هجرة سكان من الأندلس والقيروان إلى فاس</span></div>
+        <div class="order-item"><div class="num-box"></div><span>تأسيس مدينة فاس وتطويرها بقيادة إدريس الثاني</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">5</span>سؤال تحليلي:</h4>
+      <p>لماذا تُعتبر مدينة فاس نموذجاً للمدينة الإسلامية المغربية؟ اذكر سببين اثنين بالاعتماد على معطيات الدرس.</p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== CORRIGE ===================== -->
+  <div class="corrige-wrapper">
+    <p class="corrige-flag">✂ يمكن طي هذه الصفحة أو إخفاؤها (اضغط على العنوان أدناه) قبل إنجاز التمارين ✂</p>
+    <details class="corrige">
+      <summary>التصحيح الكامل</summary>
+
+      <h4>تصحيح النشاط التطبيقي</h4>
+      <div class="corrige-item"><b>مؤسِّسها:</b> إدريس الثاني (استكمالاً لعمل والده إدريس الأول)</div>
+      <div class="corrige-item"><b>الدولة:</b> الدولة الإدريسية</div>
+      <div class="corrige-item"><b>العدوتان:</b> عدوة القرويين وعدوة الأندلسيين</div>
+      <div class="corrige-item"><b>أهم معالمها الدينية:</b> جامع القرويين ومسجد الأندلسيين</div>
+
+      <h4>تصحيح التمرين 1 (إكمال الجمل)</h4>
+      <div class="corrige-item">1) إدريس الأول &nbsp;|&nbsp; 2) إدريس الثاني &nbsp;|&nbsp; 3) فاطمة الفهرية &nbsp;|&nbsp; 4) وادي فاس</div>
+
+      <h4>تصحيح التمرين 2 (الربط)</h4>
+      <div class="corrige-item">أ - 2 (إدريس الأول ← تأسيس الدولة) &nbsp;|&nbsp; ب - 4 (إدريس الثاني ← تأسيس فاس) &nbsp;|&nbsp; ج - 3 (فاطمة الفهرية ← جامع القرويين) &nbsp;|&nbsp; د - 1 (مريم الفهرية ← مسجد الأندلسيين)</div>
+
+      <h4>تصحيح التمرين 3 (الاختيار من متعدد)</h4>
+      <div class="corrige-item">1) إدريس الأول &nbsp;|&nbsp; 2) إدريس الثاني &nbsp;|&nbsp; 3) فاطمة الفهرية &nbsp;|&nbsp; 4) القرويين والأندلسيين &nbsp;|&nbsp; 5) أقدم الجامعات في العالم</div>
+
+      <h4>تصحيح التمرين 4 (الترتيب الزمني)</h4>
+      <div class="corrige-item">1) تأسيس الدولة الإدريسية &nbsp;→&nbsp; 2) تأسيس مدينة فاس وتطويرها &nbsp;→&nbsp; 3) هجرة سكان الأندلس والقيروان إلى فاس &nbsp;→&nbsp; 4) تأسيس جامع القرويين</div>
+
+      <h4>تصحيح التمرين 5 (السؤال التحليلي)</h4>
+      <div class="corrige-item">1) جمعت فاس منذ نشأتها بين ثقافات متعددة (أمازيغية وعربية إسلامية وأندلسية)، مما أعطاها طابعاً حضارياً متنوعاً وغنياً.</div>
+      <div class="corrige-item">2) كانت فاس مركزاً دينياً وعلمياً هاماً بفضل جامع القرويين، ولا تزال اليوم مصنَّفة ضمن التراث العالمي لليونسكو، مما يؤكد أهميتها التاريخية والحضارية.</div>
+    </details>
+  </div>
+
+  <p class="footer-note">فيشة تعلّم ذاتي — الاجتماعيات (التاريخ) — السادسة ابتدائي — دراسة مدينة إسلامية: فاس في عهد الأدارسة نموذجاً</p>
+</div>
+</body>
+</html>

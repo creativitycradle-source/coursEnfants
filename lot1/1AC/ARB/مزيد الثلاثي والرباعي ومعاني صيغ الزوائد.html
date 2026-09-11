@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>مزيد الثلاثي والرباعي ومعاني صيغ الزوائد</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#20261f; --ink-soft:#4a4238;
+    --paper:#faf8f1; --panel:#ffffff; --line:#d8d0bd;
+    --gold:#a1731f; --gold-soft:#f1e6c9;
+    --teal:#2f6a5d; --teal-soft:#e5efe9;
+    --root:#a83a2c; --root-soft:#fbe7e2;
+    --added:#2f6a5d; --added-soft:#e2eee8;
+    --purple:#5b4b8a; --purple-soft:#ece7f5;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#e9e4d6;font-family:'Noto Naskh Arabic','Amiri',serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .sheet{max-width:860px;margin:24px auto;background:var(--paper);padding:38px 44px 50px;border:1px solid var(--line);box-shadow:0 4px 24px rgba(0,0,0,.12);}
+
+  .masthead{display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:3px solid var(--ink);padding-bottom:16px;margin-bottom:22px;}
+  .masthead-text h1{font-family:'Amiri',serif;font-weight:700;font-size:27px;margin:0 0 6px;line-height:1.3;}
+  .masthead-text .subtitle{font-size:15px;color:var(--ink-soft);margin:0;}
+  .lesson-tag{display:inline-block;background:var(--purple);color:#fff;font-size:12px;padding:3px 12px;border-radius:12px;margin-bottom:6px;}
+  .balance-icon{width:60px;height:60px;flex-shrink:0;}
+
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+  .meta-chip{border:1px solid var(--line);background:var(--panel);border-radius:3px;padding:6px 12px;font-size:13.5px;color:var(--ink-soft);}
+  .meta-chip b{color:var(--ink);font-weight:600;}
+
+  section{margin-bottom:28px;}
+  h2.section-title{font-family:'Amiri',serif;font-size:21px;font-weight:700;color:var(--teal);border-bottom:2px solid var(--teal);padding-bottom:6px;margin:0 0 14px;display:flex;align-items:baseline;gap:8px;}
+  h3.sub-title{font-size:17px;font-weight:700;color:var(--gold);margin:20px 0 8px;}
+  p{line-height:2;font-size:15.5px;margin:0 0 10px;}
+
+  .objectif-box{background:var(--gold-soft);border-right:4px solid var(--gold);padding:14px 18px;border-radius:2px;font-size:15.5px;line-height:1.9;}
+  .rappel-box{background:var(--purple-soft);border-right:4px solid var(--purple);padding:12px 18px;border-radius:2px;font-size:14.5px;line-height:1.85;margin-bottom:14px;}
+
+  .rule-box{background:var(--panel);border:1px solid var(--line);border-right:4px solid var(--teal);padding:14px 18px;border-radius:2px;margin:10px 0 16px;}
+  .rule-box p:last-child{margin-bottom:0;}
+  .rule-box ul{margin:6px 0;padding-inline-start:22px;}
+  .rule-box li{margin-bottom:6px;line-height:1.85;}
+
+  table.data-table{width:100%;border-collapse:collapse;margin:8px 0 18px;font-size:15px;}
+  table.data-table th{background:var(--teal);color:#fff;padding:8px 10px;font-weight:600;font-size:14px;}
+  table.data-table td{border:1px solid var(--line);padding:9px 10px;background:var(--panel);}
+  table.data-table tr:nth-child(even) td{background:#f4f1e7;}
+  .wazn-tag{font-family:'Amiri',serif;font-weight:700;color:var(--gold);}
+  .meaning-tag{color:var(--root);font-weight:700;}
+
+  .meaning-card{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:12px 16px;margin-bottom:12px;}
+  .meaning-card .head{display:flex;align-items:center;gap:10px;margin-bottom:6px;}
+  .meaning-card .badge{background:var(--teal);color:#fff;font-size:13px;padding:3px 12px;border-radius:12px;font-weight:600;}
+  .meaning-card .weights{font-family:'Amiri',serif;font-weight:700;color:var(--gold);font-size:15px;}
+  .meaning-card p{margin:4px 0 0;font-size:14.5px;}
+
+  .activity-box{background:var(--panel);border:1.5px solid var(--gold);border-radius:3px;padding:16px 20px;}
+  .activity-box .task-label{display:inline-block;background:var(--gold);color:#fff;font-size:12.5px;padding:3px 10px;border-radius:2px;margin-bottom:8px;}
+
+  .exercise{border:1px solid var(--line);border-radius:3px;padding:16px 20px;margin-bottom:16px;background:var(--panel);}
+  .exercise-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:var(--ink);color:var(--paper);border-radius:50%;font-size:14px;font-weight:700;margin-inline-end:8px;}
+  .exercise h4{margin:0 0 10px;font-size:16.5px;display:flex;align-items:center;}
+  .fill-line{border-bottom:1px dotted var(--ink-soft);display:inline-block;min-width:120px;height:1.6em;}
+  .qcm-item{margin-bottom:10px;}
+  .qcm-item p{margin-bottom:4px;font-weight:600;}
+  .qcm-options{display:flex;flex-wrap:wrap;gap:14px;font-size:14.5px;}
+  .qcm-options span{display:flex;align-items:center;gap:5px;}
+  .checkbox{width:13px;height:13px;border:1.4px solid var(--ink-soft);display:inline-block;border-radius:2px;}
+  .match-cols{display:flex;justify-content:space-between;gap:40px;margin-top:8px;}
+  .match-cols ul{list-style:none;padding:0;margin:0;}
+  .match-cols li{border:1px solid var(--line);background:var(--paper);padding:6px 14px;margin-bottom:10px;border-radius:3px;font-size:15px;}
+
+  .corrige-wrapper{page-break-before:always;padding-top:6px;}
+  .corrige-flag{text-align:center;font-size:13px;color:var(--ink-soft);margin-bottom:10px;border-top:1px dashed var(--ink-soft);padding-top:14px;}
+  details.corrige{border:2px dashed var(--root);border-radius:4px;background:#fffaf8;padding:6px 20px 18px;}
+  details.corrige > summary{cursor:pointer;font-family:'Amiri',serif;font-weight:700;font-size:19px;color:var(--root);padding:14px 0;list-style:none;}
+  details.corrige > summary::-webkit-details-marker{display:none;}
+  details.corrige > summary::before{content:"✂ ";}
+  details.corrige > summary::after{content:"— اضغط لإظهار الحل / إخفائه";font-family:'Noto Naskh Arabic',serif;font-weight:400;font-size:13px;color:var(--ink-soft);margin-inline-start:8px;}
+  .corrige h4{color:var(--root);margin:16px 0 8px;font-size:16px;}
+  .corrige-item{margin-bottom:8px;font-size:15px;line-height:1.9;}
+  .corrige table.data-table th{background:var(--root);}
+
+  .footer-note{margin-top:30px;text-align:center;font-size:12px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:10px;}
+
+  @media print{
+    body{background:#fff;}
+    .sheet{box-shadow:none;border:none;margin:0;max-width:100%;padding:14px 6px;}
+    details.corrige{border-color:#000;}
+  }
+  @page{size:A4;margin:14mm;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="masthead-text">
+      <span class="lesson-tag">الدرس الثاني — سلسلة الصرف</span>
+      <h1>مزيدُ الثلاثي والرباعي ومعاني صِيَغ الزوائد</h1>
+      <p class="subtitle">مادة اللغة العربية — قواعد الصرف</p>
+    </div>
+    <svg class="balance-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="32" y1="6" x2="32" y2="46" stroke="#a1731f" stroke-width="2.5"/>
+      <line x1="10" y1="16" x2="54" y2="16" stroke="#20261f" stroke-width="2.5"/>
+      <path d="M10 16 L4 30 A9 9 0 0 0 16 30 Z" stroke="#2f6a5d" stroke-width="2" fill="none"/>
+      <path d="M54 16 L48 30 A9 9 0 0 0 60 30 Z" stroke="#2f6a5d" stroke-width="2" fill="none"/>
+      <circle cx="32" cy="14" r="3" fill="#a1731f"/>
+      <line x1="20" y1="52" x2="44" y2="52" stroke="#20261f" stroke-width="3" stroke-linecap="round"/>
+      <line x1="32" y1="46" x2="32" y2="52" stroke="#20261f" stroke-width="2.5"/>
+    </svg>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta-chip">المستوى: <b>الأولى إعدادي (1AC)</b></div>
+    <div class="meta-chip">المادة: <b>اللغة العربية — الصرف والتحويل</b></div>
+    <div class="meta-chip">مدة الحصة: <b>ساعة واحدة</b></div>
+    <div class="meta-chip">نوع الوثيقة: <b>فيشة تعلّم ذاتي</b></div>
+  </div>
+
+  <!-- ===================== OBJECTIF ===================== -->
+  <section>
+    <h2 class="section-title">🎯 الهدف من الدرس</h2>
+    <div class="objectif-box">
+      يتمكّن المتعلم(ة) في نهاية هذا الدرس من: التمييز بين المعاني التي تفيدها صيغ الزيادة في الأفعال المزيدة (التعدية، المشاركة، المطاوعة، التكثير والمبالغة، التكلف، الطلب)، وربط كل معنى بالوزن أو الأوزان التي تحمله، وتوظيف ذلك في جمل من إنشائه.
+    </div>
+    <div class="rappel-box">
+      <b>تذكير من الدرس السابق:</b> الفعل المزيد هو الفعل الذي زِيدَ على حروفه الأصلية حرفٌ أو حرفان أو ثلاثة أحرف (مثل: أَكْرَمَ، تَعَلَّمَ، اسْتَخْرَجَ). في هذا الدرس، سنكتشف <b>لماذا</b> تُزاد هذه الحروف، أي ما المعنى الجديد الذي تضيفه الزيادة إلى معنى الفعل المجرد.
+    </div>
+  </section>
+
+  <!-- ===================== COURS ===================== -->
+  <section>
+    <h2 class="section-title">📘 الدرس</h2>
+
+    <h3 class="sub-title">1) فكرة أساسية</h3>
+    <div class="rule-box">
+      <p>عندما تُزاد حروفٌ على الفعل المجرَّد، فإن معنى الفعل يتغيّر أو يُضاف إليه معنى جديد. فمثلاً: <b>خَرَجَ</b> (فعل لازم، الفاعل هو من يقوم بالخروج) يختلف عن <b>أَخْرَجَ</b> (فعل متعدٍّ، فاعل جعل غيره يخرج). إذن فحرف الزيادة (الهمزة هنا) أضاف معنى جديداً هو "جعل الفاعل الآخر يقوم بالفعل".</p>
+    </div>
+
+    <h3 class="sub-title">2) أهمّ معاني صيغ الزوائد</h3>
+
+    <div class="meaning-card">
+      <div class="head"><span class="badge">1</span><span class="weights">أَفْعَلَ — فَعَّلَ</span></div>
+      <p><span class="meaning-tag">التعدية:</span> تحويل الفعل اللازم (الذي يحتاج فاعلاً فقط) إلى فعل متعدٍّ (يحتاج مفعولاً به)، أي: جعل شخصاً آخر يقوم بالفعل.</p>
+      <p style="color:var(--ink-soft);">مثال: خَرَجَ الولدُ (لازم) ← أَخْرَجَ المعلّمُ الولدَ (متعدٍّ) — فَرِحَ الطفلُ ← فَرَّحَ الهديةُ الطفلَ</p>
+    </div>
+
+    <div class="meaning-card">
+      <div class="head"><span class="badge">2</span><span class="weights">فاعَلَ</span></div>
+      <p><span class="meaning-tag">المشاركة:</span> الدلالة على أن العمل يقوم به طرفان (فأكثر) معاً.</p>
+      <p style="color:var(--ink-soft);">مثال: قاتَلَ الجنديُّ عدوَّه (اشتركا في القتال) — سابَقَ خالدٌ صديقَه (اشتركا في السباق)</p>
+    </div>
+
+    <div class="meaning-card">
+      <div class="head"><span class="badge">3</span><span class="weights">انْفَعَلَ — افْتَعَلَ — تَفَعَّلَ — تَفاعَلَ</span></div>
+      <p><span class="meaning-tag">المطاوعة:</span> الدلالة على تأثّر شيء أو شخص بفعل وقع عليه (نتيجة أو أثر الفعل).</p>
+      <p style="color:var(--ink-soft);">مثال: كَسَرْتُ الزجاجَ فـ انْكَسَرَ الزجاجُ — جَمَعْتُ الأوراقَ فـ اجْتَمَعَتِ الأوراقُ — عَلَّمْتُهُ فـ تَعَلَّمَ</p>
+    </div>
+
+    <div class="meaning-card">
+      <div class="head"><span class="badge">4</span><span class="weights">فَعَّلَ — افْعَلَّ</span></div>
+      <p><span class="meaning-tag">التكثير والمبالغة:</span> «فَعَّلَ» يفيد تكرار الفعل أو كثرته (بخلاف حدوثه مرة واحدة في المجرد)، أما «افْعَلَّ» فيفيد المبالغة في الألوان والعيوب (اشتداد اللون أو العيب).</p>
+      <p style="color:var(--ink-soft);">مثال: قَطَعَ الحبلَ (مرة) ← قَطَّعَ اللحمَ (عدة قطع) — احْمَرَّ وجهُهُ (اشتدّ لونُه الأحمر) — اعْوَجَّ العودُ (اشتدّ اعوجاجه)</p>
+    </div>
+
+    <div class="meaning-card">
+      <div class="head"><span class="badge">5</span><span class="weights">تَفَعَّلَ — تَفاعَلَ</span></div>
+      <p><span class="meaning-tag">التكلُّف:</span> الدلالة على أن الفاعل يتظاهر بالقيام بالفعل دون أن يفعله حقيقةً.</p>
+      <p style="color:var(--ink-soft);">مثال: تَشَجَّعَ الجبانُ (تظاهر بالشجاعة) — تَمارَضَ التلميذُ (تظاهر بالمرض ليتغيّب) — تَناوَمَ (تظاهر بالنوم)</p>
+    </div>
+
+    <div class="meaning-card">
+      <div class="head"><span class="badge">6</span><span class="weights">اسْتَفْعَلَ</span></div>
+      <p><span class="meaning-tag">الطلب:</span> الدلالة على طلب حدوث الفعل أو طلب صفة الفعل.</p>
+      <p style="color:var(--ink-soft);">مثال: اسْتَغْفَرَ العبدُ ربَّه (طلب المغفرة) — اسْتَعْلَمَ التلميذُ عن نتيجته (طلب العلم بها) — اسْتَحْسَنَ الأستاذُ الجوابَ (وجده حسناً)</p>
+    </div>
+
+    <h3 class="sub-title">3) جدول تلخيصي</h3>
+    <table class="data-table">
+      <tr><th>المعنى</th><th>الأوزان الحاملة له</th><th>مثال</th></tr>
+      <tr><td>التعدية</td><td class="wazn-tag">أَفْعَلَ / فَعَّلَ</td><td>أَخْرَجَ — فَرَّحَ</td></tr>
+      <tr><td>المشاركة</td><td class="wazn-tag">فاعَلَ</td><td>قاتَلَ — سابَقَ</td></tr>
+      <tr><td>المطاوعة</td><td class="wazn-tag">انْفَعَلَ / افْتَعَلَ / تَفَعَّلَ / تَفاعَلَ</td><td>انْكَسَرَ — اجْتَمَعَ — تَعَلَّمَ</td></tr>
+      <tr><td>التكثير والمبالغة</td><td class="wazn-tag">فَعَّلَ / افْعَلَّ</td><td>قَطَّعَ — احْمَرَّ</td></tr>
+      <tr><td>التكلُّف</td><td class="wazn-tag">تَفَعَّلَ / تَفاعَلَ</td><td>تَشَجَّعَ — تَمارَضَ</td></tr>
+      <tr><td>الطلب</td><td class="wazn-tag">اسْتَفْعَلَ</td><td>اسْتَغْفَرَ — اسْتَعْلَمَ</td></tr>
+    </table>
+    <p style="font-size:14px;color:var(--ink-soft);margin-top:-8px;">ملاحظة: قد يفيد الوزنُ نفسه أكثر من معنى بحسب سياق الجملة، ولذلك يُستحسن دائماً فهمُ الجملة كاملةً قبل تحديد المعنى.</p>
+  </section>
+
+  <!-- ===================== ACTIVITE ===================== -->
+  <section>
+    <h2 class="section-title">✏️ نشاط تطبيقي</h2>
+    <div class="activity-box">
+      <span class="task-label">عمل جماعي مع الأستاذ(ة)</span>
+      <p>حدّد المعنى الذي يفيده الفعل المزيد الملوّن في كل جملة من الجمل الآتية، مستعيناً بالجدول التلخيصي أعلاه. لاحظ المثال الأول المُنجَز:</p>
+      <table class="data-table">
+        <tr><th>الجملة</th><th>الفعل المزيد ووزنه</th><th>المعنى المُفاد</th></tr>
+        <tr>
+          <td>اسْتَخْرَجَ الفلاحُ الماءَ من البئر.</td>
+          <td>اسْتَخْرَجَ (اسْتَفْعَلَ)</td>
+          <td>الطلب</td>
+        </tr>
+        <tr><td>تَعاوَنَ التلاميذُ على إنجاز المشروع.</td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+        <tr><td>أَجْلَسَتِ الأمُّ طفلَها على الكرسي.</td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+        <tr><td>اصْفَرَّ لونُ الأوراقِ في الخريف.</td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+        <tr><td>تَباكى الطفلُ ليحصلَ على اللعبة.</td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===================== EXERCICES ===================== -->
+  <section>
+    <h2 class="section-title">📝 تمارين للتدرّب</h2>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">1</span>صل كل فعل بالمعنى الذي يفيده:</h4>
+      <div class="match-cols">
+        <ul>
+          <li>أ) أَخْرَجَ</li>
+          <li>ب) تَقاتَلَ</li>
+          <li>ج) اسْتَغْفَرَ</li>
+          <li>د) انْكَسَرَ</li>
+          <li>هـ) احْمَرَّ</li>
+          <li>و) تَمارَضَ</li>
+        </ul>
+        <ul>
+          <li>1) المشاركة</li>
+          <li>2) التعدية</li>
+          <li>3) المطاوعة</li>
+          <li>4) الطلب</li>
+          <li>5) التكلُّف</li>
+          <li>6) المبالغة (في اللون)</li>
+        </ul>
+      </div>
+      <p style="margin-top:10px;">الإجابة: أ - .......... &nbsp; ب - .......... &nbsp; ج - .......... &nbsp; د - .......... &nbsp; هـ - .......... &nbsp; و - ..........</p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">2</span>اختر الإجابة الصحيحة:</h4>
+      <div class="qcm-item">
+        <p>1) الفعل "فَرَّحَ" في جملة "فرَّحَتِ الهديةُ الطفلَ" يفيد:</p>
+        <div class="qcm-options">
+          <span><span class="checkbox"></span>المشاركة</span>
+          <span><span class="checkbox"></span>التعدية</span>
+          <span><span class="checkbox"></span>الطلب</span>
+        </div>
+      </div>
+      <div class="qcm-item">
+        <p>2) الفعل "اجْتَهَدَ" يفيد في الغالب:</p>
+        <div class="qcm-options">
+          <span><span class="checkbox"></span>المبالغة في بذل الجهد</span>
+          <span><span class="checkbox"></span>التعدية</span>
+          <span><span class="checkbox"></span>الطلب</span>
+        </div>
+      </div>
+      <div class="qcm-item">
+        <p>3) "اسْتَعْلَمَ" على وزن اسْتَفْعَلَ، ويفيد:</p>
+        <div class="qcm-options">
+          <span><span class="checkbox"></span>المشاركة</span>
+          <span><span class="checkbox"></span>الطلب</span>
+          <span><span class="checkbox"></span>التكثير</span>
+        </div>
+      </div>
+      <div class="qcm-item">
+        <p>4) الفعل الذي يفيد "التكلُّف" في الأمثلة الآتية هو:</p>
+        <div class="qcm-options">
+          <span><span class="checkbox"></span>تَشَجَّعَ</span>
+          <span><span class="checkbox"></span>أَكْرَمَ</span>
+          <span><span class="checkbox"></span>تَقاتَلَ</span>
+        </div>
+      </div>
+      <div class="qcm-item">
+        <p>5) وزن "فاعَلَ" يفيد غالباً:</p>
+        <div class="qcm-options">
+          <span><span class="checkbox"></span>المطاوعة</span>
+          <span><span class="checkbox"></span>المشاركة</span>
+          <span><span class="checkbox"></span>الطلب</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">3</span>أكمل الجدول بكتابة الفعل المزيد المناسب للمعنى المطلوب انطلاقاً من الفعل المجرَّد:</h4>
+      <table class="data-table">
+        <tr><th>الفعل المجرَّد</th><th>المعنى المطلوب</th><th>الفعل المزيد</th></tr>
+        <tr><td>خَرَجَ</td><td>التعدية</td><td><span class="fill-line" style="min-width:200px;"></span></td></tr>
+        <tr><td>عَلِمَ</td><td>الطلب</td><td><span class="fill-line" style="min-width:200px;"></span></td></tr>
+        <tr><td>سَبَقَ</td><td>المشاركة</td><td><span class="fill-line" style="min-width:200px;"></span></td></tr>
+        <tr><td>صَفُرَ (اللون)</td><td>المبالغة</td><td><span class="fill-line" style="min-width:200px;"></span></td></tr>
+        <tr><td>نامَ</td><td>التكلُّف</td><td><span class="fill-line" style="min-width:200px;"></span></td></tr>
+      </table>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">4</span>أعِد صياغة كل جملة بتحويل الفعل الملوَّن إلى وزن مزيد يفيد المعنى المطلوب بين قوسين:</h4>
+      <p>1) خَرَجَ الطفلُ من الغرفة. <i>(المعنى المطلوب: التعدية، والفاعل الجديد هو الأمّ)</i><br>➜ <span class="fill-line" style="min-width:100%;"></span></p>
+      <p>2) لَعِبَ الولدُ. <i>(المعنى المطلوب: المشاركة مع صديقه)</i><br>➜ <span class="fill-line" style="min-width:100%;"></span></p>
+      <p>3) غَفَرَ اللهُ للعبد. <i>(المعنى المطلوب: الطلب من طرف العبد)</i><br>➜ <span class="fill-line" style="min-width:100%;"></span></p>
+      <p>4) كَسَرْتُ الزجاجَ. <i>(المعنى المطلوب: المطاوعة، أي أثر الفعل على الزجاج)</i><br>➜ <span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">5</span>اكتب ثلاث جمل من إنشائك، توظّف في كل جملة فعلاً مزيداً يدل على معنى مختلف من بين المعاني المدروسة (التعدية، المشاركة، المطاوعة، التكثير أو المبالغة، التكلُّف، الطلب)، وحدِّد بين قوسين بعد كل جملة الوزنَ والمعنى المُفاد:</h4>
+      <p>1) <span class="fill-line" style="min-width:100%;"></span></p>
+      <p>2) <span class="fill-line" style="min-width:100%;"></span></p>
+      <p>3) <span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== CORRIGE ===================== -->
+  <div class="corrige-wrapper">
+    <p class="corrige-flag">✂ يمكن طي هذه الصفحة أو إخفاؤها (اضغط على العنوان أدناه) قبل إنجاز التمارين ✂</p>
+    <details class="corrige">
+      <summary>التصحيح الكامل</summary>
+
+      <h4>تصحيح النشاط التطبيقي</h4>
+      <table class="data-table">
+        <tr><th>الجملة</th><th>الفعل ووزنه</th><th>المعنى</th></tr>
+        <tr><td>تَعاوَنَ التلاميذُ...</td><td>تَعاوَنَ (تَفاعَلَ)</td><td>المشاركة</td></tr>
+        <tr><td>أَجْلَسَتِ الأمُّ طفلَها...</td><td>أَجْلَسَتْ (أَفْعَلَ)</td><td>التعدية</td></tr>
+        <tr><td>اصْفَرَّ لونُ الأوراق...</td><td>اصْفَرَّ (افْعَلَّ)</td><td>المبالغة في اللون</td></tr>
+        <tr><td>تَباكى الطفلُ...</td><td>تَباكى (تَفاعَلَ)</td><td>التكلُّف</td></tr>
+      </table>
+
+      <h4>تصحيح التمرين 1 (الربط)</h4>
+      <div class="corrige-item">أ - 2 (التعدية) &nbsp;|&nbsp; ب - 1 (المشاركة) &nbsp;|&nbsp; ج - 4 (الطلب) &nbsp;|&nbsp; د - 3 (المطاوعة) &nbsp;|&nbsp; هـ - 6 (المبالغة في اللون) &nbsp;|&nbsp; و - 5 (التكلُّف)</div>
+
+      <h4>تصحيح التمرين 2 (الاختيار من متعدد)</h4>
+      <div class="corrige-item">1) التعدية &nbsp;|&nbsp; 2) المبالغة في بذل الجهد &nbsp;|&nbsp; 3) الطلب &nbsp;|&nbsp; 4) تَشَجَّعَ &nbsp;|&nbsp; 5) المشاركة</div>
+
+      <h4>تصحيح التمرين 3 (الجدول)</h4>
+      <table class="data-table">
+        <tr><th>الفعل المجرَّد</th><th>المعنى</th><th>الفعل المزيد</th></tr>
+        <tr><td>خَرَجَ</td><td>التعدية</td><td>أَخْرَجَ</td></tr>
+        <tr><td>عَلِمَ</td><td>الطلب</td><td>اسْتَعْلَمَ</td></tr>
+        <tr><td>سَبَقَ</td><td>المشاركة</td><td>سابَقَ</td></tr>
+        <tr><td>صَفُرَ</td><td>المبالغة</td><td>اصْفَرَّ</td></tr>
+        <tr><td>نامَ</td><td>التكلُّف</td><td>تَناوَمَ</td></tr>
+      </table>
+
+      <h4>تصحيح التمرين 4 (إعادة الصياغة)</h4>
+      <div class="corrige-item">1) أَخْرَجَتِ الأمُّ الطفلَ من الغرفة.</div>
+      <div class="corrige-item">2) لاعَبَ الولدُ صديقَه.</div>
+      <div class="corrige-item">3) اسْتَغْفَرَ العبدُ ربَّه.</div>
+      <div class="corrige-item">4) انْكَسَرَ الزجاجُ.</div>
+
+      <h4>تصحيح التمرين 5 (إنشاء نموذجي)</h4>
+      <div class="corrige-item">1) أَلْبَسَتِ الأمُّ ابنتَها ثوباً جديداً. (أَفْعَلَ ← التعدية)</div>
+      <div class="corrige-item">2) تَعانَقَ الصديقان بعد طول غياب. (تَفاعَلَ ← المشاركة)</div>
+      <div class="corrige-item">3) اسْتَخْبَرَ التلميذُ أستاذَه عن موعد الامتحان. (اسْتَفْعَلَ ← الطلب)</div>
+      <p style="font-size:13.5px;color:var(--ink-soft);">(هذه أمثلة للاسترشاد فقط، ويُقبل كل جواب سليم لغوياً يوظّف وزناً ومعنى صحيحين من بين المعاني المدروسة)</p>
+    </details>
+  </div>
+
+  <p class="footer-note">فيشة تعلّم ذاتي — اللغة العربية — الأولى إعدادي — مزيد الثلاثي والرباعي ومعاني صيغ الزوائد</p>
+</div>
+</body>
+</html>

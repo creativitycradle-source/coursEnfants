@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>الكتلة الحجمية</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#122430; --ink-soft:#3f5866;
+    --paper:#f6fafb; --panel:#ffffff; --line:#cfe1e6;
+    --cyan:#1c7fa0; --cyan-soft:#dcf0f7;
+    --navy:#1f3b52; --navy-soft:#dfe7ee;
+    --amber:#d99a2b; --amber-soft:#faf0da;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#dbe8ec;font-family:'Noto Naskh Arabic','Amiri',serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .sheet{max-width:880px;margin:24px auto;background:var(--paper);padding:38px 44px 50px;border:1px solid var(--line);box-shadow:0 4px 24px rgba(0,0,0,.12);}
+
+  .masthead{display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:3px solid var(--ink);padding-bottom:16px;margin-bottom:22px;}
+  .masthead-text h1{font-family:'Amiri',serif;font-weight:700;font-size:29px;margin:0 0 6px;color:var(--navy);}
+  .masthead-text .subtitle{font-size:15px;color:var(--ink-soft);margin:0;}
+  .rho-icon{width:56px;height:56px;flex-shrink:0;}
+
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+  .meta-chip{border:1px solid var(--line);background:var(--panel);border-radius:3px;padding:6px 12px;font-size:13.5px;color:var(--ink-soft);}
+  .meta-chip b{color:var(--ink);font-weight:600;}
+
+  section{margin-bottom:28px;}
+  h2.section-title{font-family:'Amiri',serif;font-size:21px;font-weight:700;color:var(--cyan);border-bottom:2px solid var(--cyan);padding-bottom:6px;margin:0 0 14px;display:flex;align-items:baseline;gap:8px;}
+  h3.sub-title{font-size:17px;font-weight:700;color:var(--amber);margin:20px 0 8px;}
+  p{line-height:2;font-size:15.5px;margin:0 0 10px;}
+
+  .objectif-box{background:var(--amber-soft);border-right:4px solid var(--amber);padding:14px 18px;border-radius:2px;font-size:15.5px;line-height:1.9;}
+
+  .rule-box{background:var(--panel);border:1px solid var(--line);border-right:4px solid var(--cyan);padding:14px 18px;border-radius:2px;margin:10px 0 16px;}
+  .rule-box p:last-child{margin-bottom:0;}
+  .rule-box ul,.rule-box ol{margin:6px 0;padding-inline-start:22px;}
+  .rule-box li{margin-bottom:8px;line-height:1.9;}
+
+  .formula-box{background:var(--navy);color:#fff;text-align:center;padding:16px;border-radius:6px;font-size:22px;font-weight:700;margin:10px 0 16px;}
+  .formula-box .sub{font-size:13px;font-weight:400;opacity:0.85;display:block;margin-top:6px;}
+
+  table.data-table{width:100%;border-collapse:collapse;margin:8px 0 18px;font-size:15px;}
+  table.data-table th{background:var(--cyan);color:#fff;padding:8px 10px;font-weight:600;font-size:14px;}
+  table.data-table td{border:1px solid var(--line);padding:9px 10px;background:var(--panel);text-align:center;}
+  table.data-table tr:nth-child(even) td{background:#eaf4f8;}
+
+  .float-wrap{display:flex;justify-content:center;margin:14px 0;}
+
+  .activity-box{background:var(--panel);border:1.5px solid var(--amber);border-radius:3px;padding:16px 20px;}
+  .activity-box .task-label{display:inline-block;background:var(--amber);color:#fff;font-size:12.5px;padding:3px 10px;border-radius:2px;margin-bottom:8px;}
+
+  .exercise{border:1px solid var(--line);border-radius:3px;padding:16px 20px;margin-bottom:16px;background:var(--panel);}
+  .exercise-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:var(--ink);color:var(--paper);border-radius:50%;font-size:14px;font-weight:700;margin-inline-end:8px;}
+  .exercise h4{margin:0 0 10px;font-size:16.5px;display:flex;align-items:center;}
+  .fill-line{border-bottom:1px dotted var(--ink-soft);display:inline-block;min-width:100px;height:1.6em;}
+  .qcm-item{margin-bottom:10px;}
+  .qcm-item p{margin-bottom:4px;font-weight:600;}
+  .qcm-options{display:flex;flex-wrap:wrap;gap:14px;font-size:14.5px;}
+  .qcm-options span{display:flex;align-items:center;gap:5px;}
+  .checkbox{width:13px;height:13px;border:1.4px solid var(--ink-soft);display:inline-block;border-radius:2px;}
+  .scenario-box{background:#eaf4f8;border:1px solid var(--line);padding:12px 16px;font-size:15.5px;line-height:2.1;margin-bottom:10px;}
+
+  .corrige-wrapper{page-break-before:always;padding-top:6px;}
+  .corrige-flag{text-align:center;font-size:13px;color:var(--ink-soft);margin-bottom:10px;border-top:1px dashed var(--ink-soft);padding-top:14px;}
+  details.corrige{border:2px dashed var(--navy);border-radius:4px;background:#f4f7f9;padding:6px 20px 18px;}
+  details.corrige > summary{cursor:pointer;font-family:'Amiri',serif;font-weight:700;font-size:19px;color:var(--navy);padding:14px 0;list-style:none;}
+  details.corrige > summary::-webkit-details-marker{display:none;}
+  details.corrige > summary::before{content:"✂ ";}
+  details.corrige > summary::after{content:"— اضغط لإظهار الحل / إخفائه";font-family:'Noto Naskh Arabic',serif;font-weight:400;font-size:13px;color:var(--ink-soft);margin-inline-start:8px;}
+  .corrige h4{color:var(--navy);margin:16px 0 8px;font-size:16px;}
+  .corrige-item{margin-bottom:8px;font-size:15px;line-height:1.9;}
+  .corrige table.data-table th{background:var(--navy);}
+
+  .footer-note{margin-top:30px;text-align:center;font-size:12px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:10px;}
+
+  @media print{
+    body{background:#fff;}
+    .sheet{box-shadow:none;border:none;margin:0;max-width:100%;padding:14px 6px;}
+    details.corrige{border-color:#000;}
+  }
+  @page{size:A4;margin:14mm;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="masthead-text">
+      <h1>الكتلةُ الحجميةُ</h1>
+      <p class="subtitle">الفيزياء والكيمياء — عالم المادة</p>
+    </div>
+    <svg class="rho-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M16 10h32v10l-8 6 8 6v22H16V32l8-6-8-6z" fill="none" stroke="#1f3b52" stroke-width="2.5"/>
+      <path d="M17 40h30v13a1 1 0 0 1-1 1H18a1 1 0 0 1-1-1z" fill="#1c7fa0" opacity="0.8"/>
+      <rect x="17" y="33" width="30" height="7" fill="#d99a2b" opacity="0.8"/>
+    </svg>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta-chip">المستوى: <b>الأولى إعدادي (1AC)</b></div>
+    <div class="meta-chip">المادة: <b>الفيزياء والكيمياء</b></div>
+    <div class="meta-chip">مدة الحصة: <b>ساعة واحدة</b></div>
+    <div class="meta-chip">نوع الوثيقة: <b>فيشة تعلّم ذاتي</b></div>
+  </div>
+
+  <!-- ===================== OBJECTIF ===================== -->
+  <section>
+    <h2 class="section-title">🎯 الهدف من الدرس</h2>
+    <div class="objectif-box">
+      يتمكّن المتعلم(ة) في نهاية هذا الدرس من: تعريف الكتلة الحجمية والعلاقة الرياضية التي تربطها بالكتلة والحجم، وحساب الكتلة الحجمية لمادة انطلاقاً من كتلتها وحجمها، وتوظيف الكتلة الحجمية لتفسير ظاهرتَي الطفو والغوص، وتحديد كتلة أو حجم جسم انطلاقاً من كتلته الحجمية.
+    </div>
+  </section>
+
+  <!-- ===================== COURS ===================== -->
+  <section>
+    <h2 class="section-title">📘 الدرس</h2>
+
+    <h3 class="sub-title">1) تعريف الكتلة الحجمية</h3>
+    <div class="rule-box">
+      <p><b>الكتلة الحجمية</b> (يرمز لها بالحرف اليوناني <b>ρ</b> ويُقرأ "رو") مقدار فيزيائي يمثّل كتلة وحدة الحجم (1 cm³ أو 1 m³) من مادة معينة. تختلف الكتلة الحجمية من مادة إلى أخرى، وهي خاصية مميِّزة لكل مادة.</p>
+    </div>
+    <div class="formula-box">
+      ρ = m ÷ V
+      <span class="sub">الكتلة الحجمية = الكتلة ÷ الحجم</span>
+    </div>
+
+    <h3 class="sub-title">2) وحدات الكتلة الحجمية</h3>
+    <div class="rule-box">
+      <p>الوحدة الدولية للكتلة الحجمية هي <b>kg/m³</b>، وتُستعمل في المختبر وحدة أصغر هي <b>g/cm³</b>. العلاقة بينهما:</p>
+      <p style="text-align:center;font-weight:700;font-size:17px;color:var(--navy);">1 g/cm³ = 1000 kg/m³</p>
+    </div>
+
+    <h3 class="sub-title">3) كيف نحدد الكتلة الحجمية تجريبياً؟</h3>
+    <div class="rule-box">
+      <ol>
+        <li>نقيس <b>كتلة</b> المادة (m) باستعمال الميزان.</li>
+        <li>نقيس <b>حجم</b> المادة (V) باستعمال المخبار المدرَّج (أو بالحساب الهندسي إن كان الجسم منتظم الشكل، أو بطريقة الإزاحة إن كان غير منتظم).</li>
+        <li>نحسب الكتلة الحجمية: ρ = m ÷ V</li>
+      </ol>
+    </div>
+    <p style="font-size:14px;color:var(--ink-soft);margin-top:-8px;">مثال: قطعة معدنية كتلتها m = 54 g، وحجمها V = 20 cm³. الكتلة الحجمية: ρ = 54 ÷ 20 = 2.7 g/cm³.</p>
+
+    <h3 class="sub-title">4) الكتلة الحجمية لبعض المواد الشائعة</h3>
+    <table class="data-table">
+      <tr><th>المادة</th><th>الكتلة الحجمية (g/cm³)</th></tr>
+      <tr><td>الماء</td><td>1</td></tr>
+      <tr><td>الزيت</td><td>≈ 0.9</td></tr>
+      <tr><td>الخشب</td><td>≈ 0.6 إلى 0.9</td></tr>
+      <tr><td>الألمنيوم</td><td>≈ 2.7</td></tr>
+      <tr><td>الحديد</td><td>≈ 7.8</td></tr>
+      <tr><td>الرصاص</td><td>≈ 11.3</td></tr>
+    </table>
+
+    <h3 class="sub-title">5) الكتلة الحجمية وظاهرتا الطفو والغوص</h3>
+    <div class="rule-box">
+      <p>عند وضع جسم أو سائل داخل سائل آخر، تتحدَّد النتيجة بمقارنة الكتلتين الحجميتين:</p>
+      <ul>
+        <li>إذا كانت الكتلة الحجمية للجسم <b>أصغر</b> من الكتلة الحجمية للسائل، فإن الجسم <b>يطفو</b>.</li>
+        <li>إذا كانت الكتلة الحجمية للجسم <b>أكبر</b> من الكتلة الحجمية للسائل، فإن الجسم <b>يغوص</b>.</li>
+      </ul>
+    </div>
+    <div class="float-wrap">
+      <svg width="200" height="180" viewBox="0 0 200 180">
+        <path d="M20 40h160v110a6 6 0 0 1-6 6H26a6 6 0 0 1-6-6z" fill="none" stroke="#1f3b52" stroke-width="2.5"/>
+        <path d="M22 90h156v58a5 5 0 0 1-5 5H27a5 5 0 0 1-5-5z" fill="#1c7fa0" opacity="0.8"/>
+        <path d="M22 62h156v28H22z" fill="#d99a2b" opacity="0.7"/>
+        <circle cx="70" cy="75" r="12" fill="#8a5a34"/>
+        <circle cx="140" cy="130" r="10" fill="#4d5f70"/>
+        <text x="185" y="76" font-size="11" fill="#1f3b52">الزيت</text>
+        <text x="185" y="125" font-size="11" fill="#1f3b52">الماء</text>
+      </svg>
+    </div>
+    <p style="text-align:center;font-size:14px;color:var(--ink-soft);margin-top:-8px;">يطفو الزيت فوق الماء (ρ الزيت &lt; ρ الماء)، بينما تغوص القطعة المعدنية (ρ المعدن &gt; ρ الماء).</p>
+
+    <h3 class="sub-title">6) حساب الكتلة أو الحجم انطلاقاً من الكتلة الحجمية</h3>
+    <div class="rule-box">
+      <p>يمكن استنتاج صيغتين مفيدتين من العلاقة الأساسية ρ = m ÷ V:</p>
+      <p style="text-align:center;font-weight:700;font-size:16px;color:var(--navy);">m = ρ × V &nbsp;&nbsp;&nbsp; V = m ÷ ρ</p>
+    </div>
+  </section>
+
+  <!-- ===================== ACTIVITE ===================== -->
+  <section>
+    <h2 class="section-title">🔬 نشاط تطبيقي</h2>
+    <div class="activity-box">
+      <span class="task-label">تحديد الكتلة الحجمية والتعرّف على المادة</span>
+      <p>قاس تلميذ كتلة قطعة معدنية فوجدها 158 g، ثم قاس حجمها بطريقة الإزاحة فوجده 20 cm³.</p>
+      <p>1) احسب الكتلة الحجمية لهذه القطعة: ρ = m ÷ V = <span class="fill-line" style="min-width:200px;"></span></p>
+      <p>2) بالاعتماد على جدول الكتلة الحجمية أعلاه، ما المادة التي يُحتمل أن تكون مصنوعة منها هذه القطعة؟</p>
+      <p><span class="fill-line" style="min-width:60%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== EXERCICES ===================== -->
+  <section>
+    <h2 class="section-title">📝 تمارين للتدرّب</h2>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">1</span>احسب الكتلة الحجمية لكل مادة، ثم استنتج اسمها بمقارنتها بجدول الدرس:</h4>
+      <table class="data-table">
+        <tr><th>الكتلة (g)</th><th>الحجم (cm³)</th><th>الكتلة الحجمية (g/cm³)</th><th>المادة المحتملة</th></tr>
+        <tr><td>200</td><td>100</td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+        <tr><td>54</td><td>20</td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+        <tr><td>900</td><td>1000</td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+        <tr><td>780</td><td>100</td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+      </table>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">2</span>اختر الإجابة الصحيحة:</h4>
+      <div class="qcm-item">
+        <p>1) صيغة حساب الكتلة الحجمية هي:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>ρ = m × V</span><span><span class="checkbox"></span>ρ = m ÷ V</span><span><span class="checkbox"></span>ρ = V ÷ m</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>2) الكتلة الحجمية للماء تساوي:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>1 g/cm³</span><span><span class="checkbox"></span>10 g/cm³</span><span><span class="checkbox"></span>0.1 g/cm³</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>3) 1 g/cm³ يساوي:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>1 kg/m³</span><span><span class="checkbox"></span>100 kg/m³</span><span><span class="checkbox"></span>1000 kg/m³</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>4) جسم كتلته الحجمية أكبر من كتلة الماء الحجمية سوف:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>يطفو</span><span><span class="checkbox"></span>يغوص</span><span><span class="checkbox"></span>يبقى معلَّقاً في المنتصف</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>5) يطفو الزيت على الماء لأن:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>كتلته الحجمية أكبر من الماء</span><span><span class="checkbox"></span>كتلته الحجمية أصغر من الماء</span><span><span class="checkbox"></span>لهما نفس الكتلة الحجمية</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">3</span>احسب المطلوب في كل حالة:</h4>
+      <p>1) احسب كتلة قطعة حديد حجمها 50 cm³، علماً أن الكتلة الحجمية للحديد ρ = 7.8 g/cm³.</p>
+      <p>m = ρ × V = <span class="fill-line" style="min-width:60%;"></span></p>
+      <p>2) احسب حجم كمية من الزيت كتلتها 450 g، علماً أن الكتلة الحجمية للزيت ρ = 0.9 g/cm³.</p>
+      <p>V = m ÷ ρ = <span class="fill-line" style="min-width:60%;"></span></p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">4</span>فسّر باستعمال مفهوم الكتلة الحجمية:</h4>
+      <p>1) وُضعت قطعة خشب (ρ ≈ 0.7 g/cm³) في وعاء يحتوي على ماء (ρ = 1 g/cm³). هل تطفو أم تغوص؟ علّل جوابك.</p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+      <p>2) وُضعت كرة من الرصاص (ρ ≈ 11.3 g/cm³) في نفس الوعاء. ماذا يحدث؟ علّل جوابك.</p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">5</span>مسألة تطبيقية:</h4>
+      <div class="scenario-box">
+        عُثر على قطعة معدنية مجهولة الهوية. قِيست كتلتها فكانت 270 g، وقِيس حجمها بطريقة الإزاحة فكان 100 cm³.
+      </div>
+      <p>1) احسب الكتلة الحجمية لهذه القطعة.</p>
+      <p><span class="fill-line" style="min-width:60%;"></span></p>
+      <p>2) بالاعتماد على جدول الكتلة الحجمية، حدد من أي مادة (الألمنيوم، الحديد، أو الرصاص) يُحتمل أن تكون هذه القطعة مصنوعة.</p>
+      <p><span class="fill-line" style="min-width:60%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== CORRIGE ===================== -->
+  <div class="corrige-wrapper">
+    <p class="corrige-flag">✂ يمكن طي هذه الصفحة أو إخفاؤها (اضغط على العنوان أدناه) قبل إنجاز التمارين ✂</p>
+    <details class="corrige">
+      <summary>التصحيح الكامل</summary>
+
+      <h4>تصحيح النشاط التطبيقي</h4>
+      <div class="corrige-item">1) ρ = 158 ÷ 20 = 7.9 g/cm³ (قريبة من 7.8)</div>
+      <div class="corrige-item">2) المادة المحتملة: الحديد.</div>
+
+      <h4>تصحيح التمرين 1 (حساب الكتلة الحجمية وتحديد المادة)</h4>
+      <table class="data-table">
+        <tr><th>الكتلة (g)</th><th>الحجم (cm³)</th><th>ρ (g/cm³)</th><th>المادة</th></tr>
+        <tr><td>200</td><td>100</td><td>2</td><td>—</td></tr>
+        <tr><td>54</td><td>20</td><td>2.7</td><td>الألمنيوم</td></tr>
+        <tr><td>900</td><td>1000</td><td>0.9</td><td>الزيت</td></tr>
+        <tr><td>780</td><td>100</td><td>7.8</td><td>الحديد</td></tr>
+      </table>
+
+      <h4>تصحيح التمرين 2 (الاختيار من متعدد)</h4>
+      <div class="corrige-item">1) ρ = m ÷ V &nbsp;|&nbsp; 2) 1 g/cm³ &nbsp;|&nbsp; 3) 1000 kg/m³ &nbsp;|&nbsp; 4) يغوص &nbsp;|&nbsp; 5) كتلته الحجمية أصغر من الماء</div>
+
+      <h4>تصحيح التمرين 3 (الحساب بالصيغ المشتقة)</h4>
+      <div class="corrige-item">1) m = 7.8 × 50 = 390 g</div>
+      <div class="corrige-item">2) V = 450 ÷ 0.9 = 500 cm³</div>
+
+      <h4>تصحيح التمرين 4 (التفسير)</h4>
+      <div class="corrige-item">1) تطفو قطعة الخشب لأن كتلتها الحجمية (0.7 g/cm³) أصغر من الكتلة الحجمية للماء (1 g/cm³).</div>
+      <div class="corrige-item">2) تغوص كرة الرصاص لأن كتلتها الحجمية (11.3 g/cm³) أكبر بكثير من الكتلة الحجمية للماء (1 g/cm³).</div>
+
+      <h4>تصحيح التمرين 5 (المسألة التطبيقية)</h4>
+      <div class="corrige-item">1) ρ = 270 ÷ 100 = 2.7 g/cm³</div>
+      <div class="corrige-item">2) هذه القيمة مطابقة للكتلة الحجمية للألمنيوم، إذن يُحتمل أن تكون القطعة مصنوعة من الألمنيوم.</div>
+    </details>
+  </div>
+
+  <p class="footer-note">فيشة تعلّم ذاتي — الفيزياء والكيمياء — الأولى إعدادي — الكتلة الحجمية</p>
+</div>
+</body>
+</html>

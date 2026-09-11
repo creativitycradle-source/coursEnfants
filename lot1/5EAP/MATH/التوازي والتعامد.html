@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>التوازي والتعامد</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1c2b3a; --ink-soft:#4d5f70;
+    --paper:#f7f9fb; --panel:#ffffff; --line:#c9d6e0;
+    --blue:#2f5f8a; --blue-soft:#e2ecf3;
+    --orange:#e07b39; --orange-soft:#fbe8d8;
+    --green:#3a8f6b; --green-soft:#e1f2ea;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#dde6ec;color:var(--ink);font-family:'Noto Naskh Arabic','Amiri',serif;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .sheet{
+    max-width:880px;margin:24px auto;background:
+      repeating-linear-gradient(0deg, transparent 0 27px, rgba(47,95,138,.06) 27px 28px),
+      repeating-linear-gradient(90deg, transparent 0 27px, rgba(47,95,138,.06) 27px 28px),
+      var(--paper);
+    padding:38px 44px 50px;border:1px solid var(--line);box-shadow:0 4px 24px rgba(0,0,0,.12);
+  }
+
+  .masthead{display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:3px solid var(--ink);padding-bottom:16px;margin-bottom:22px;}
+  .masthead-text h1{font-family:'Amiri',serif;font-weight:700;font-size:30px;margin:0 0 6px;color:var(--blue);}
+  .masthead-text .subtitle{font-size:15px;color:var(--ink-soft);margin:0;}
+  .geo-icon{width:62px;height:62px;flex-shrink:0;}
+
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+  .meta-chip{border:1px solid var(--line);background:var(--panel);border-radius:3px;padding:6px 12px;font-size:13.5px;color:var(--ink-soft);}
+  .meta-chip b{color:var(--ink);font-weight:600;}
+
+  section{margin-bottom:28px;}
+  h2.section-title{font-family:'Amiri',serif;font-size:21px;font-weight:700;color:var(--blue);border-bottom:2px solid var(--blue);padding-bottom:6px;margin:0 0 14px;display:flex;align-items:baseline;gap:8px;}
+  h3.sub-title{font-size:17px;font-weight:700;color:var(--orange);margin:20px 0 8px;}
+  p{line-height:2;font-size:15.5px;margin:0 0 10px;}
+
+  .objectif-box{background:var(--orange-soft);border-right:4px solid var(--orange);padding:14px 18px;border-radius:2px;font-size:15.5px;line-height:1.9;}
+
+  .rule-box{background:var(--panel);border:1px solid var(--line);border-right:4px solid var(--blue);padding:14px 18px;border-radius:2px;margin:10px 0 16px;}
+  .rule-box p:last-child{margin-bottom:0;}
+  .rule-box ol,.rule-box ul{margin:6px 0;padding-inline-start:22px;}
+  .rule-box li{margin-bottom:6px;line-height:1.85;}
+
+  .def-grid{display:flex;flex-wrap:wrap;gap:16px;margin:10px 0 16px;}
+  .def-card{flex:1 1 260px;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:12px;text-align:center;}
+  .def-card svg{width:100%;max-width:220px;height:auto;}
+  .def-card .name{font-weight:700;color:var(--blue);font-size:16px;margin-top:6px;}
+  .def-card .ex{font-size:13px;color:var(--ink-soft);}
+
+  table.data-table{width:100%;border-collapse:collapse;margin:8px 0 18px;font-size:15px;}
+  table.data-table th{background:var(--blue);color:#fff;padding:8px 10px;font-weight:600;font-size:14px;}
+  table.data-table td{border:1px solid var(--line);padding:9px 10px;background:var(--panel);}
+  table.data-table tr:nth-child(even) td{background:#eef3f7;}
+
+  .activity-box{background:var(--panel);border:1.5px solid var(--orange);border-radius:3px;padding:16px 20px;}
+  .activity-box .task-label{display:inline-block;background:var(--orange);color:#fff;font-size:12.5px;padding:3px 10px;border-radius:2px;margin-bottom:8px;}
+  .step{display:flex;gap:10px;margin-bottom:8px;align-items:flex-start;}
+  .step-num{flex-shrink:0;width:22px;height:22px;border-radius:50%;background:var(--orange);color:#fff;font-size:12.5px;display:flex;align-items:center;justify-content:center;font-weight:700;}
+
+  .exercise{border:1px solid var(--line);border-radius:3px;padding:16px 20px;margin-bottom:16px;background:var(--panel);}
+  .exercise-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:var(--ink);color:var(--paper);border-radius:50%;font-size:14px;font-weight:700;margin-inline-end:8px;}
+  .exercise h4{margin:0 0 10px;font-size:16.5px;display:flex;align-items:center;}
+  .fill-line{border-bottom:1px dotted var(--ink-soft);display:inline-block;min-width:120px;height:1.6em;}
+  .qcm-item{margin-bottom:10px;}
+  .qcm-item p{margin-bottom:4px;font-weight:600;}
+  .qcm-options{display:flex;flex-wrap:wrap;gap:14px;font-size:14.5px;}
+  .qcm-options span{display:flex;align-items:center;gap:5px;}
+  .checkbox{width:13px;height:13px;border:1.4px solid var(--ink-soft);display:inline-block;border-radius:2px;}
+  .classify-grid{display:flex;flex-wrap:wrap;gap:14px;}
+  .classify-item{flex:1 1 150px;text-align:center;border:1px solid var(--line);border-radius:8px;padding:8px;background:var(--paper);}
+  .classify-item svg{width:100%;max-width:150px;}
+  .classify-item .fill-line{min-width:100%;margin-top:4px;}
+  .construct-box{background:var(--paper);border:1px dashed var(--ink-soft);border-radius:6px;padding:14px;text-align:center;}
+
+  .corrige-wrapper{page-break-before:always;padding-top:6px;}
+  .corrige-flag{text-align:center;font-size:13px;color:var(--ink-soft);margin-bottom:10px;border-top:1px dashed var(--ink-soft);padding-top:14px;}
+  details.corrige{border:2px dashed var(--green);border-radius:4px;background:#f7fcfa;padding:6px 20px 18px;}
+  details.corrige > summary{cursor:pointer;font-family:'Amiri',serif;font-weight:700;font-size:19px;color:var(--green);padding:14px 0;list-style:none;}
+  details.corrige > summary::-webkit-details-marker{display:none;}
+  details.corrige > summary::before{content:"✂ ";}
+  details.corrige > summary::after{content:"— اضغط لإظهار الحل / إخفائه";font-family:'Noto Naskh Arabic',serif;font-weight:400;font-size:13px;color:var(--ink-soft);margin-inline-start:8px;}
+  .corrige h4{color:var(--green);margin:16px 0 8px;font-size:16px;}
+  .corrige-item{margin-bottom:8px;font-size:15px;line-height:1.9;}
+  .corrige table.data-table th{background:var(--green);}
+
+  .footer-note{margin-top:30px;text-align:center;font-size:12px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:10px;}
+
+  @media print{
+    body{background:#fff;}
+    .sheet{box-shadow:none;border:none;margin:0;max-width:100%;padding:14px 6px;background:var(--paper);}
+    details.corrige{border-color:#000;}
+  }
+  @page{size:A4;margin:14mm;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="masthead-text">
+      <h1>التوازي والتعامد</h1>
+      <p class="subtitle">الرياضيات — الهندسة</p>
+    </div>
+    <svg class="geo-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="6" y1="20" x2="58" y2="20" stroke="#2f5f8a" stroke-width="3"/>
+      <line x1="6" y1="32" x2="58" y2="32" stroke="#2f5f8a" stroke-width="3"/>
+      <line x1="16" y1="42" x2="16" y2="60" stroke="#e07b39" stroke-width="3"/>
+      <line x1="16" y1="42" x2="34" y2="42" stroke="#e07b39" stroke-width="3"/>
+      <rect x="16" y="42" width="6" height="6" fill="none" stroke="#e07b39" stroke-width="1.5"/>
+    </svg>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta-chip">المستوى: <b>السادسة ابتدائي (6AEP)</b></div>
+    <div class="meta-chip">المادة: <b>الرياضيات — الهندسة</b></div>
+    <div class="meta-chip">مدة الحصة: <b>ساعة واحدة</b></div>
+    <div class="meta-chip">نوع الوثيقة: <b>فيشة تعلّم ذاتي</b></div>
+  </div>
+
+  <!-- ===================== OBJECTIF ===================== -->
+  <section>
+    <h2 class="section-title">🎯 الهدف من الدرس</h2>
+    <div class="objectif-box">
+      يتمكّن المتعلم(ة) في نهاية هذا الدرس من: تعريف المستقيمين المتوازيين والمستقيمين المتعامدين، والتحقق من التوازي والتعامد باستعمال أدوات الهندسة (المسطرة والكوس والمنقلة)، ورسم مستقيم مواز أو عمودي لمستقيم معطى يمرّ من نقطة معيّنة، وتوظيف خاصية العلاقة بين التوازي والتعامد.
+    </div>
+  </section>
+
+  <!-- ===================== COURS ===================== -->
+  <section>
+    <h2 class="section-title">📘 الدرس</h2>
+
+    <h3 class="sub-title">1) المستقيمان المتوازيان</h3>
+    <div class="rule-box">
+      <p><b>مستقيمان متوازيان</b> هما مستقيمان لا يلتقيان مهما امتدّا في الاتجاهين، وتبقى المسافة بينهما ثابتة في كل نقطة. إذا كان المستقيم (د1) موازياً للمستقيم (د2) نكتب: <b>(د1) // (د2)</b>.</p>
+    </div>
+    <div class="def-grid">
+      <div class="def-card">
+        <svg viewBox="0 0 220 130"><line x1="20" y1="45" x2="200" y2="45" stroke="#1c2b3a" stroke-width="3"/><line x1="20" y1="85" x2="200" y2="85" stroke="#1c2b3a" stroke-width="3"/><path d="M100,40 l6,5 l-6,5" stroke="#e07b39" stroke-width="2" fill="none"/><path d="M100,80 l6,5 l-6,5" stroke="#e07b39" stroke-width="2" fill="none"/><text x="25" y="38" font-size="13" font-family="Noto Naskh Arabic, serif" fill="#2f5f8a">(د1)</text><text x="25" y="100" font-size="13" font-family="Noto Naskh Arabic, serif" fill="#2f5f8a">(د2)</text></svg>
+        <div class="name">(د1) // (د2)</div>
+        <div class="ex">أمثلة: خطوط السكة الحديدية، أسطر الكراسة، حافتا الطاولة المتقابلتان</div>
+      </div>
+    </div>
+
+    <h3 class="sub-title">2) المستقيمان المتعامدان</h3>
+    <div class="rule-box">
+      <p><b>مستقيمان متعامدان</b> هما مستقيمان يتقاطعان مكوِّنَين زاوية قائمة (90°). إذا كان المستقيم (د1) عمودياً على المستقيم (د2) نكتب: <b>(د1) ⊥ (د2)</b>.</p>
+    </div>
+    <div class="def-grid">
+      <div class="def-card">
+        <svg viewBox="0 0 220 150"><line x1="20" y1="75" x2="200" y2="75" stroke="#1c2b3a" stroke-width="3"/><line x1="110" y1="10" x2="110" y2="140" stroke="#1c2b3a" stroke-width="3"/><path d="M110,60 L125,60 L125,75" stroke="#e07b39" stroke-width="2" fill="none"/><text x="20" y="68" font-size="13" font-family="Noto Naskh Arabic, serif" fill="#2f5f8a">(د1)</text><text x="115" y="22" font-size="13" font-family="Noto Naskh Arabic, serif" fill="#2f5f8a">(د2)</text></svg>
+        <div class="name">(د1) ⊥ (د2)</div>
+        <div class="ex">أمثلة: زاوية الغرفة، تقاطع شارعين متعامدين، حروف مثل T</div>
+      </div>
+    </div>
+
+    <h3 class="sub-title">3) كيف نتحقّق من التوازي؟</h3>
+    <div class="rule-box">
+      <p><b>بواسطة الكوس والمسطرة:</b></p>
+      <ol>
+        <li>نضع أحد ضلعي الكوس على المستقيم الأول (د1).</li>
+        <li>نُلصق المسطرة بالضلع الآخر للكوس.</li>
+        <li>نُثبّت المسطرة، ونُزحلق الكوس عليها حتى يصل ضلعه إلى موضع المستقيم الثاني.</li>
+        <li>إذا انطبق ضلع الكوس تماماً على المستقيم الثاني، فالمستقيمان متوازيان.</li>
+      </ol>
+      <p><b>بواسطة قياس المسافة:</b> نقيس المسافة العمودية بين المستقيمين في نقطتين مختلفتين على الأقل؛ إذا كانت المسافة نفسها في الموضعين، فالمستقيمان متوازيان.</p>
+    </div>
+
+    <h3 class="sub-title">4) كيف نتحقّق من التعامد؟</h3>
+    <div class="rule-box">
+      <p>نضع زاوية الكوس القائمة (90°) عند نقطة تقاطع المستقيمين، بحيث ينطبق كل ضلع من ضلعَي الكوس على أحد المستقيمين. إذا انطبق الضلعان تماماً على المستقيمين، فهما متعامدان. يمكن أيضاً استعمال المنقلة والتحقق من أن قياس الزاوية بينهما يساوي 90°.</p>
+    </div>
+
+    <h3 class="sub-title">5) رسم مستقيم مواز أو عمودي لمستقيم معطى</h3>
+    <div class="rule-box">
+      <p><b>لرسم مستقيم (د2) يوازي مستقيماً (د1) ويمرّ من نقطة A:</b></p>
+      <ol>
+        <li>نضع ضلع الكوس على المستقيم (د1)، ونُلصق المسطرة بالضلع الآخر.</li>
+        <li>نُثبّت المسطرة، ونُزحلق الكوس عليها حتى يصل ضلعه إلى النقطة A.</li>
+        <li>نرسم المستقيم (د2) على طول هذا الضلع، مروراً بالنقطة A.</li>
+      </ol>
+      <p><b>لرسم مستقيم (د2) عمودي على مستقيم (د1) ويمرّ من نقطة A:</b></p>
+      <ol>
+        <li>نضع أحد ضلعَي زاوية الكوس القائمة على المستقيم (د1).</li>
+        <li>نُزحلق الكوس حتى يمرّ الضلع الآخر (العمودي) بالنقطة A.</li>
+        <li>نرسم المستقيم (د2) على طول هذا الضلع.</li>
+      </ol>
+    </div>
+
+    <h3 class="sub-title">6) خاصية مهمة</h3>
+    <div class="rule-box">
+      <ul>
+        <li>إذا كان المستقيم (د1) عمودياً على المستقيم (د3)، والمستقيم (د2) عمودياً أيضاً على (د3)، فإن <b>(د1) // (د2)</b>.</li>
+        <li>إذا كان المستقيم (د3) عمودياً على أحد مستقيمين متوازيين (د1) و(د2)، فإنه يكون عمودياً على المستقيم الآخر كذلك.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===================== ACTIVITE ===================== -->
+  <section>
+    <h2 class="section-title">🔎 نشاط تطبيقي</h2>
+    <div class="activity-box">
+      <span class="task-label">تدرّب باستعمال أدواتك الهندسية</span>
+      <p>باستعمال مسطرتك وكوسك الحقيقيين، تحقّق من العلاقة بين المستقيمات المرسومة في الشكل التالي، ثم أجب:</p>
+      <div class="construct-box">
+        <svg width="260" height="180" viewBox="0 0 260 180">
+          <line x1="20" y1="30" x2="240" y2="30" stroke="#1c2b3a" stroke-width="2.5"/>
+          <line x1="20" y1="70" x2="240" y2="60" stroke="#1c2b3a" stroke-width="2.5"/>
+          <line x1="90" y1="10" x2="150" y2="170" stroke="#1c2b3a" stroke-width="2.5"/>
+          <text x="20" y="22" font-size="13" font-family="Noto Naskh Arabic, serif" fill="#2f5f8a">(د1)</text>
+          <text x="20" y="88" font-size="13" font-family="Noto Naskh Arabic, serif" fill="#2f5f8a">(د2)</text>
+          <text x="152" y="20" font-size="13" font-family="Noto Naskh Arabic, serif" fill="#2f5f8a">(د3)</text>
+        </svg>
+      </div>
+      <p>1) هل المستقيمان (د1) و(د2) متوازيان؟ <span class="fill-line"></span></p>
+      <p>2) هل المستقيمان (د1) و(د3) متعامدان؟ <span class="fill-line"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== EXERCICES ===================== -->
+  <section>
+    <h2 class="section-title">📝 تمارين للتدرّب</h2>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">1</span>حدّد العلاقة بين المستقيمين في كل شكل (متوازيان / متعامدان / لا متوازيان ولا متعامدان):</h4>
+      <div class="classify-grid">
+        <div class="classify-item">
+          <svg viewBox="0 0 150 100"><line x1="15" y1="30" x2="135" y2="30" stroke="#1c2b3a" stroke-width="2.5"/><line x1="15" y1="70" x2="135" y2="70" stroke="#1c2b3a" stroke-width="2.5"/></svg>
+          <span class="fill-line"></span>
+        </div>
+        <div class="classify-item">
+          <svg viewBox="0 0 150 100"><line x1="15" y1="70" x2="135" y2="70" stroke="#1c2b3a" stroke-width="2.5"/><line x1="75" y1="10" x2="75" y2="90" stroke="#1c2b3a" stroke-width="2.5"/></svg>
+          <span class="fill-line"></span>
+        </div>
+        <div class="classify-item">
+          <svg viewBox="0 0 150 100"><line x1="20" y1="20" x2="130" y2="55" stroke="#1c2b3a" stroke-width="2.5"/><line x1="20" y1="80" x2="130" y2="30" stroke="#1c2b3a" stroke-width="2.5"/></svg>
+          <span class="fill-line"></span>
+        </div>
+        <div class="classify-item">
+          <svg viewBox="0 0 150 100"><line x1="40" y1="10" x2="40" y2="90" stroke="#1c2b3a" stroke-width="2.5"/><line x1="100" y1="10" x2="100" y2="90" stroke="#1c2b3a" stroke-width="2.5"/></svg>
+          <span class="fill-line"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">2</span>اختر الإجابة الصحيحة:</h4>
+      <div class="qcm-item">
+        <p>1) مستقيمان متوازيان هما مستقيمان:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>يتقاطعان دائماً</span><span><span class="checkbox"></span>لا يلتقيان مهما امتدّا</span><span><span class="checkbox"></span>يكوّنان زاوية قائمة</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>2) رمز التعامد بين مستقيمين هو:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>//</span><span><span class="checkbox"></span>⊥</span><span><span class="checkbox"></span>=</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>3) للتحقق من التعامد بين مستقيمين نستعمل:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>الكوس</span><span><span class="checkbox"></span>البِرْكار فقط</span><span><span class="checkbox"></span>القلم</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>4) إذا كان (د1) ⊥ (د3) و(د2) ⊥ (د3)، فإن:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>(د1) ⊥ (د2)</span><span><span class="checkbox"></span>(د1) // (د2)</span><span><span class="checkbox"></span>لا علاقة بينهما</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>5) المسافة بين مستقيمين متوازيين:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>تتغيّر باستمرار</span><span><span class="checkbox"></span>تبقى ثابتة</span><span><span class="checkbox"></span>تساوي صفراً</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">3</span>أكمل الجمل بالكلمة المناسبة (متوازيان / متعامدان):</h4>
+      <p>1) خطّا السكة الحديدية .......... لأنهما لا يلتقيان أبداً.</p>
+      <p>2) ضلعا زاوية الغرفة القائمة .......... لأنهما يكوّنان زاوية 90°.</p>
+      <p>3) حرف "T" يتكوّن من مستقيمين .......... .</p>
+      <p>4) سطرا الكراسة .......... لأن المسافة بينهما ثابتة.</p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">4</span>باستعمال مسطرتك وكوسك، ارسم مستقيماً (د2) يمرّ من النقطة A ويوازي المستقيم (د1) المرسوم أدناه:</h4>
+      <div class="construct-box">
+        <svg width="260" height="140" viewBox="0 0 260 140">
+          <line x1="20" y1="90" x2="240" y2="90" stroke="#1c2b3a" stroke-width="2.5"/>
+          <text x="20" y="82" font-size="13" font-family="Noto Naskh Arabic, serif" fill="#2f5f8a">(د1)</text>
+          <circle cx="150" cy="35" r="3" fill="#e07b39"/>
+          <text x="158" y="32" font-size="13" font-family="Noto Naskh Arabic, serif" fill="#e07b39">A</text>
+        </svg>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">5</span>وضعية-مشكلة:</h4>
+      <p>علمتَ أن المستقيم (AB) عمودي على المستقيم (CD)، وأن المستقيم (CD) موازٍ للمستقيم (EF).</p>
+      <p>ما العلاقة بين المستقيمين (AB) و(EF)؟ علّل جوابك بالاعتماد على الخاصية المدروسة.</p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== CORRIGE ===================== -->
+  <div class="corrige-wrapper">
+    <p class="corrige-flag">✂ يمكن طي هذه الصفحة أو إخفاؤها (اضغط على العنوان أدناه) قبل إنجاز التمارين ✂</p>
+    <details class="corrige">
+      <summary>التصحيح الكامل</summary>
+
+      <h4>تصحيح النشاط التطبيقي</h4>
+      <div class="corrige-item">1) (د1) و(د2) غير متوازيين تماماً في الرسم (يظهر تباعد طفيف)، لكن التحقق الفعلي يتم بالكوس والمسطرة على الرسم الأصلي.</div>
+      <div class="corrige-item">2) يتحقق المتعلم(ة) بنفسه باستعمال الكوس الحقيقي؛ حسب الرسم، (د1) و(د3) متعامدان تقريباً.</div>
+      <p style="font-size:13px;color:var(--ink-soft);">(الهدف من هذا النشاط هو التمرّن الفعلي على استعمال الأداة، والنتيجة الدقيقة تعتمد على القياس الفعلي بالمسطرة والكوس على الورقة المطبوعة)</p>
+
+      <h4>تصحيح التمرين 1 (تحديد العلاقة)</h4>
+      <div class="corrige-item">الشكل 1: متوازيان &nbsp;|&nbsp; الشكل 2: متعامدان &nbsp;|&nbsp; الشكل 3: لا متوازيان ولا متعامدان &nbsp;|&nbsp; الشكل 4: متوازيان</div>
+
+      <h4>تصحيح التمرين 2 (الاختيار من متعدد)</h4>
+      <div class="corrige-item">1) لا يلتقيان مهما امتدّا &nbsp;|&nbsp; 2) ⊥ &nbsp;|&nbsp; 3) الكوس &nbsp;|&nbsp; 4) (د1) // (د2) &nbsp;|&nbsp; 5) تبقى ثابتة</div>
+
+      <h4>تصحيح التمرين 3 (إكمال الجمل)</h4>
+      <div class="corrige-item">1) متوازيان &nbsp;|&nbsp; 2) متعامدان &nbsp;|&nbsp; 3) متعامدين &nbsp;|&nbsp; 4) متوازيان</div>
+
+      <h4>تصحيح التمرين 4 (الرسم)</h4>
+      <div class="corrige-item">يتحقق الأستاذ(ة) من أن المستقيم (د2) المرسوم يمرّ فعلاً من النقطة A وموازٍ تماماً للمستقيم (د1) (باستعمال طريقة الكوس والمسطرة المشروحة في الدرس).</div>
+
+      <h4>تصحيح التمرين 5 (وضعية-مشكلة)</h4>
+      <div class="corrige-item">بما أن (AB) ⊥ (CD) وأن (CD) // (EF)، فإن (AB) عمودي أيضاً على (EF)، وذلك تطبيقاً للخاصية: "إذا كان مستقيم عمودياً على أحد مستقيمين متوازيين، فهو عمودي على المستقيم الآخر كذلك". إذن: (AB) ⊥ (EF).</div>
+    </details>
+  </div>
+
+  <p class="footer-note">فيشة تعلّم ذاتي — الرياضيات — السادسة ابتدائي — التوازي والتعامد</p>
+</div>
+</body>
+</html>

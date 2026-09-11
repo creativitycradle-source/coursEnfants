@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>المخاليط</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#122430; --ink-soft:#3f5866;
+    --paper:#f6fafb; --panel:#ffffff; --line:#cfe1e6;
+    --cyan:#1c7fa0; --cyan-soft:#dcf0f7;
+    --navy:#1f3b52; --navy-soft:#dfe7ee;
+    --amber:#d99a2b; --amber-soft:#faf0da;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#dbe8ec;font-family:'Noto Naskh Arabic','Amiri',serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .sheet{max-width:880px;margin:24px auto;background:var(--paper);padding:38px 44px 50px;border:1px solid var(--line);box-shadow:0 4px 24px rgba(0,0,0,.12);}
+
+  .masthead{display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:3px solid var(--ink);padding-bottom:16px;margin-bottom:22px;}
+  .masthead-text h1{font-family:'Amiri',serif;font-weight:700;font-size:30px;margin:0 0 6px;color:var(--navy);}
+  .masthead-text .subtitle{font-size:15px;color:var(--ink-soft);margin:0;}
+  .flask-icon{width:52px;height:60px;flex-shrink:0;}
+
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+  .meta-chip{border:1px solid var(--line);background:var(--panel);border-radius:3px;padding:6px 12px;font-size:13.5px;color:var(--ink-soft);}
+  .meta-chip b{color:var(--ink);font-weight:600;}
+
+  section{margin-bottom:28px;}
+  h2.section-title{font-family:'Amiri',serif;font-size:21px;font-weight:700;color:var(--cyan);border-bottom:2px solid var(--cyan);padding-bottom:6px;margin:0 0 14px;display:flex;align-items:baseline;gap:8px;}
+  h3.sub-title{font-size:17px;font-weight:700;color:var(--amber);margin:20px 0 8px;}
+  p{line-height:2;font-size:15.5px;margin:0 0 10px;}
+
+  .objectif-box{background:var(--amber-soft);border-right:4px solid var(--amber);padding:14px 18px;border-radius:2px;font-size:15.5px;line-height:1.9;}
+
+  .rule-box{background:var(--panel);border:1px solid var(--line);border-right:4px solid var(--cyan);padding:14px 18px;border-radius:2px;margin:10px 0 16px;}
+  .rule-box p:last-child{margin-bottom:0;}
+  .rule-box ul,.rule-box ol{margin:6px 0;padding-inline-start:22px;}
+  .rule-box li{margin-bottom:8px;line-height:1.9;}
+
+  .type-grid{display:flex;flex-wrap:wrap;gap:16px;margin:10px 0 16px;}
+  .type-card{flex:1 1 220px;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:12px;text-align:center;}
+  .type-card svg{width:80px;height:80px;}
+  .type-card .name{font-weight:700;color:var(--navy);font-size:15.5px;margin-top:4px;}
+  .type-card .ex{font-size:13px;color:var(--ink-soft);}
+
+  table.data-table{width:100%;border-collapse:collapse;margin:8px 0 18px;font-size:15px;}
+  table.data-table th{background:var(--cyan);color:#fff;padding:8px 10px;font-weight:600;font-size:14px;}
+  table.data-table td{border:1px solid var(--line);padding:9px 10px;background:var(--panel);text-align:center;}
+  table.data-table tr:nth-child(even) td{background:#eaf4f8;}
+
+  .method-grid{display:flex;flex-wrap:wrap;gap:14px;margin:10px 0 16px;}
+  .method-card{flex:1 1 240px;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:12px 16px;}
+  .method-card .head{font-weight:700;color:var(--cyan);font-size:15.5px;margin-bottom:4px;}
+  .method-card p{margin:2px 0 0;font-size:14px;color:var(--ink-soft);line-height:1.85;}
+
+  .activity-box{background:var(--panel);border:1.5px solid var(--amber);border-radius:3px;padding:16px 20px;}
+  .activity-box .task-label{display:inline-block;background:var(--amber);color:#fff;font-size:12.5px;padding:3px 10px;border-radius:2px;margin-bottom:8px;}
+  .step{display:flex;gap:10px;margin-bottom:8px;align-items:flex-start;}
+  .step-num{flex-shrink:0;width:22px;height:22px;border-radius:50%;background:var(--amber);color:#fff;font-size:12.5px;display:flex;align-items:center;justify-content:center;font-weight:700;}
+
+  .exercise{border:1px solid var(--line);border-radius:3px;padding:16px 20px;margin-bottom:16px;background:var(--panel);}
+  .exercise-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:var(--ink);color:var(--paper);border-radius:50%;font-size:14px;font-weight:700;margin-inline-end:8px;}
+  .exercise h4{margin:0 0 10px;font-size:16.5px;display:flex;align-items:center;}
+  .fill-line{border-bottom:1px dotted var(--ink-soft);display:inline-block;min-width:100px;height:1.6em;}
+  .word-chip{display:inline-block;background:var(--paper);border:1px solid var(--line);border-radius:3px;padding:3px 12px;margin:3px 4px;font-size:16px;}
+  .qcm-item{margin-bottom:10px;}
+  .qcm-item p{margin-bottom:4px;font-weight:600;}
+  .qcm-options{display:flex;flex-wrap:wrap;gap:14px;font-size:14.5px;}
+  .qcm-options span{display:flex;align-items:center;gap:5px;}
+  .checkbox{width:13px;height:13px;border:1.4px solid var(--ink-soft);display:inline-block;border-radius:2px;}
+  .match-cols{display:flex;justify-content:space-between;gap:40px;margin-top:8px;}
+  .match-cols ul{list-style:none;padding:0;margin:0;}
+  .match-cols li{border:1px solid var(--line);background:var(--paper);padding:6px 14px;margin-bottom:10px;border-radius:3px;font-size:15px;}
+  .scenario-box{background:#eaf4f8;border:1px solid var(--line);padding:12px 16px;font-size:15.5px;line-height:2.1;margin-bottom:10px;}
+
+  .corrige-wrapper{page-break-before:always;padding-top:6px;}
+  .corrige-flag{text-align:center;font-size:13px;color:var(--ink-soft);margin-bottom:10px;border-top:1px dashed var(--ink-soft);padding-top:14px;}
+  details.corrige{border:2px dashed var(--navy);border-radius:4px;background:#f4f7f9;padding:6px 20px 18px;}
+  details.corrige > summary{cursor:pointer;font-family:'Amiri',serif;font-weight:700;font-size:19px;color:var(--navy);padding:14px 0;list-style:none;}
+  details.corrige > summary::-webkit-details-marker{display:none;}
+  details.corrige > summary::before{content:"✂ ";}
+  details.corrige > summary::after{content:"— اضغط لإظهار الحل / إخفائه";font-family:'Noto Naskh Arabic',serif;font-weight:400;font-size:13px;color:var(--ink-soft);margin-inline-start:8px;}
+  .corrige h4{color:var(--navy);margin:16px 0 8px;font-size:16px;}
+  .corrige-item{margin-bottom:8px;font-size:15px;line-height:1.9;}
+  .corrige table.data-table th{background:var(--navy);}
+
+  .footer-note{margin-top:30px;text-align:center;font-size:12px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:10px;}
+
+  @media print{
+    body{background:#fff;}
+    .sheet{box-shadow:none;border:none;margin:0;max-width:100%;padding:14px 6px;}
+    details.corrige{border-color:#000;}
+  }
+  @page{size:A4;margin:14mm;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="masthead-text">
+      <h1>المخاليطُ</h1>
+      <p class="subtitle">الفيزياء والكيمياء — عالم المادة</p>
+    </div>
+    <svg class="flask-icon" viewBox="0 0 44 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M17 4h10v14l10 26a3 3 0 0 1-3 4H10a3 3 0 0 1-3-4l10-26z" fill="none" stroke="#1f3b52" stroke-width="2.5"/>
+      <path d="M10 34h24l3 8a3 3 0 0 1-3 4H10a3 3 0 0 1-3-4z" fill="#1c7fa0" opacity="0.8"/>
+      <circle cx="18" cy="40" r="1.6" fill="#d99a2b"/><circle cx="24" cy="43" r="1.6" fill="#d99a2b"/><circle cx="21" cy="37" r="1.6" fill="#d99a2b"/>
+    </svg>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta-chip">المستوى: <b>الأولى إعدادي (1AC)</b></div>
+    <div class="meta-chip">المادة: <b>الفيزياء والكيمياء</b></div>
+    <div class="meta-chip">مدة الحصة: <b>ساعة واحدة</b></div>
+    <div class="meta-chip">نوع الوثيقة: <b>فيشة تعلّم ذاتي</b></div>
+  </div>
+
+  <!-- ===================== OBJECTIF ===================== -->
+  <section>
+    <h2 class="section-title">🎯 الهدف من الدرس</h2>
+    <div class="objectif-box">
+      يتمكّن المتعلم(ة) في نهاية هذا الدرس من: تعريف المخلوط والتمييز بين المخلوط المتجانس وغير المتجانس، وتحديد مكونات المحلول (المذيب والمذاب)، وتوظيف طرق الفصل المناسبة (الترشيح، الترسيب، التبخير) لفصل مكونات مخلوط.
+    </div>
+  </section>
+
+  <!-- ===================== COURS ===================== -->
+  <section>
+    <h2 class="section-title">📘 الدرس</h2>
+
+    <h3 class="sub-title">1) تعريف المخلوط</h3>
+    <div class="rule-box">
+      <p><b>المخلوط</b> ينتج عن جمع مادتين أو أكثر معاً دون حدوث تفاعل كيميائي بينهما، أي أن كل مادة تحتفظ بخصائصها الأصلية داخل المخلوط.</p>
+    </div>
+
+    <h3 class="sub-title">2) أنواع المخاليط</h3>
+    <div class="rule-box">
+      <p>تُصنَّف المخاليط إلى نوعين رئيسيين حسب إمكانية تمييز مكوناتها بالعين المجردة:</p>
+    </div>
+    <div class="type-grid">
+      <div class="type-card">
+        <svg viewBox="0 0 80 80"><rect x="10" y="10" width="60" height="60" rx="6" fill="#dcf0f7"/></svg>
+        <div class="name">مخلوط متجانس</div>
+        <div class="ex">لا يمكن تمييز مكوناته بالعين المجردة. مثال: ماء + سكر، ماء + ملح، الهواء</div>
+      </div>
+      <div class="type-card">
+        <svg viewBox="0 0 80 80"><rect x="10" y="10" width="60" height="60" rx="6" fill="#dcf0f7"/><circle cx="25" cy="25" r="4" fill="#8a5a34"/><circle cx="45" cy="20" r="3" fill="#8a5a34"/><circle cx="60" cy="35" r="4" fill="#8a5a34"/><circle cx="30" cy="50" r="3.5" fill="#8a5a34"/><circle cx="55" cy="55" r="4" fill="#8a5a34"/><circle cx="20" cy="60" r="3" fill="#8a5a34"/></svg>
+        <div class="name">مخلوط غير متجانس</div>
+        <div class="ex">يمكن تمييز مكوناته بالعين المجردة. مثال: ماء + رمل، ماء + زيت، ماء + طحين</div>
+      </div>
+    </div>
+
+    <h3 class="sub-title">3) المحلول: المذيب والمذاب</h3>
+    <div class="rule-box">
+      <p><b>المحلول</b> نوع خاص من المخلوط المتجانس، يتكوّن من عنصرين:</p>
+      <ul>
+        <li><b>المذيب:</b> المادة الموجودة بكمية أكبر، وتذوب فيها المادة الأخرى (غالباً الماء).</li>
+        <li><b>المذاب:</b> المادة التي تذوب في المذيب وتختفي عن الرؤية.</li>
+      </ul>
+      <p>مثال: في محلول الماء المالح، الماء هو <b>المذيب</b>، والملح هو <b>المذاب</b>.</p>
+    </div>
+
+    <h3 class="sub-title">4) طرق فصل مكونات المخاليط</h3>
+    <div class="method-grid">
+      <div class="method-card">
+        <div class="head">1) الترشيح (Filtration)</div>
+        <p>تُستعمل لفصل مكوّن صلب غير ذائب عن سائل في مخلوط غير متجانس، باستعمال ورق الترشيح. مثال: فصل الرمل عن الماء.</p>
+      </div>
+      <div class="method-card">
+        <div class="head">2) الترسيب (Décantation)</div>
+        <p>تُستعمل لفصل سائلين غير قابلين للامتزاج (يشكّلان طبقتين منفصلتين)، بترك المخلوط يستقر ثم فصل الطبقتين. مثال: فصل الزيت عن الماء.</p>
+      </div>
+      <div class="method-card">
+        <div class="head">3) التبخير (Évaporation)</div>
+        <p>تُستعمل لفصل مادة صلبة مذابة (مذاب) عن مذيبها في محلول، بتسخين المحلول حتى يتبخّر المذيب ويبقى المذاب الصلب. مثال: استخلاص الملح من ماء البحر.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-title">5) جدول تلخيصي</h3>
+    <table class="data-table" style="text-align:right;">
+      <tr><th>نوع المخلوط</th><th>مثال</th><th>طريقة الفصل المناسبة</th></tr>
+      <tr><td>غير متجانس (صلب + سائل)</td><td>ماء + رمل</td><td>الترشيح</td></tr>
+      <tr><td>غير متجانس (سائلان غير ممتزجين)</td><td>ماء + زيت</td><td>الترسيب</td></tr>
+      <tr><td>متجانس (محلول)</td><td>ماء + ملح</td><td>التبخير</td></tr>
+    </table>
+  </section>
+
+  <!-- ===================== ACTIVITE ===================== -->
+  <section>
+    <h2 class="section-title">🔬 نشاط تطبيقي</h2>
+    <div class="activity-box">
+      <span class="task-label">فصل مخلوط مكوَّن من ماء ورمل وملح</span>
+      <p>لديك مخلوط يحتوي على ماء ورمل وملح مذاب معاً. صف الخطوات اللازمة لفصل هذه المكونات الثلاثة عن بعضها البعض:</p>
+      <div class="step"><span class="step-num">1</span><span>أولاً، نستعمل <b>الترشيح</b> لفصل الرمل (غير ذائب) عن السائل (الماء + الملح المذاب). ماذا نسمي السائل الذي يمر عبر ورق الترشيح؟ <span class="fill-line" style="min-width:150px;"></span></p></div>
+      <div class="step"><span class="step-num">2</span><span>ثانياً، نُسخّن السائل المتبقي (ماء + ملح) حتى يتبخر الماء بالكامل. ما اسم هذه الطريقة؟ وما الذي يبقى في الإناء بعد التسخين؟</span></div>
+      <p style="margin-right:32px;"><span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== EXERCICES ===================== -->
+  <section>
+    <h2 class="section-title">📝 تمارين للتدرّب</h2>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">1</span>صنّف المخاليط التالية إلى (متجانس / غير متجانس):</h4>
+      <p>
+        <span class="word-chip">ماء + سكر</span>
+        <span class="word-chip">ماء + رمل</span>
+        <span class="word-chip">ماء + زيت</span>
+        <span class="word-chip">الهواء</span>
+        <span class="word-chip">ماء + ملح</span>
+        <span class="word-chip">ماء + طحين</span>
+      </p>
+      <table class="data-table">
+        <tr><th>متجانس</th><th>غير متجانس</th></tr>
+        <tr><td style="height:60px;"></td><td></td></tr>
+      </table>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">2</span>اختر الإجابة الصحيحة:</h4>
+      <div class="qcm-item">
+        <p>1) المخلوط الذي لا يمكن تمييز مكوناته بالعين المجردة يسمى:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>متجانس</span><span><span class="checkbox"></span>غير متجانس</span><span><span class="checkbox"></span>محلول مركَّز</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>2) لفصل الرمل عن الماء نستعمل:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>الترسيب</span><span><span class="checkbox"></span>الترشيح</span><span><span class="checkbox"></span>التبخير</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>3) لاستخلاص الملح من ماء البحر نستعمل:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>الترشيح</span><span><span class="checkbox"></span>الترسيب</span><span><span class="checkbox"></span>التبخير</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>4) في محلول ماء + سكر، السكر يسمى:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>المذيب</span><span><span class="checkbox"></span>المذاب</span><span><span class="checkbox"></span>الراسب</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>5) لفصل الزيت عن الماء (غير قابلين للامتزاج) نستعمل:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>الترشيح</span><span><span class="checkbox"></span>الترسيب</span><span><span class="checkbox"></span>التبخير</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">3</span>صل كل مخلوط بطريقة الفصل المناسبة له:</h4>
+      <div class="match-cols">
+        <ul>
+          <li>أ) ماء + رمل</li>
+          <li>ب) ماء + زيت</li>
+          <li>ج) ماء + ملح مذاب</li>
+        </ul>
+        <ul>
+          <li>1) التبخير</li>
+          <li>2) الترشيح</li>
+          <li>3) الترسيب</li>
+        </ul>
+      </div>
+      <p style="margin-top:10px;">الإجابة: أ - .......... &nbsp; ب - .......... &nbsp; ج - ..........</p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">4</span>حدّد المذيب والمذاب في كل محلول من المحاليل التالية:</h4>
+      <table class="data-table">
+        <tr><th>المحلول</th><th>المذيب</th><th>المذاب</th></tr>
+        <tr><td>شاي محلّى بالسكر</td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+        <tr><td>ماء البحر</td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+        <tr><td>عصير مركَّز مخفَّف بالماء</td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+      </table>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">5</span>مسألة تطبيقية:</h4>
+      <div class="scenario-box">
+        لديك مخلوط يحتوي على زيت ورمل وماء معاً في وعاء واحد.
+      </div>
+      <p>اقترح خطوات فصل هذا المخلوط الثلاثي إلى مكوناته الثلاثة (الزيت، الرمل، الماء)، مع ذكر طريقة الفصل المستعملة في كل خطوة.</p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== CORRIGE ===================== -->
+  <div class="corrige-wrapper">
+    <p class="corrige-flag">✂ يمكن طي هذه الصفحة أو إخفاؤها (اضغط على العنوان أدناه) قبل إنجاز التمارين ✂</p>
+    <details class="corrige">
+      <summary>التصحيح الكامل</summary>
+
+      <h4>تصحيح النشاط التطبيقي</h4>
+      <div class="corrige-item">1) السائل الذي يمر عبر ورق الترشيح يسمى "الراشح" (وهو محلول الماء والملح).</div>
+      <div class="corrige-item">2) الطريقة هي <b>التبخير</b>: نُسخّن الراشح حتى يتبخّر الماء بالكامل، ويبقى الملح الصلب في قاع الإناء.</div>
+
+      <h4>تصحيح التمرين 1 (التصنيف)</h4>
+      <div class="corrige-item"><b>متجانس:</b> ماء + سكر، الهواء، ماء + ملح</div>
+      <div class="corrige-item"><b>غير متجانس:</b> ماء + رمل، ماء + زيت، ماء + طحين</div>
+
+      <h4>تصحيح التمرين 2 (الاختيار من متعدد)</h4>
+      <div class="corrige-item">1) متجانس &nbsp;|&nbsp; 2) الترشيح &nbsp;|&nbsp; 3) التبخير &nbsp;|&nbsp; 4) المذاب &nbsp;|&nbsp; 5) الترسيب</div>
+
+      <h4>تصحيح التمرين 3 (الربط)</h4>
+      <div class="corrige-item">أ - 2 (ماء+رمل ← الترشيح) &nbsp;|&nbsp; ب - 3 (ماء+زيت ← الترسيب) &nbsp;|&nbsp; ج - 1 (ماء+ملح ← التبخير)</div>
+
+      <h4>تصحيح التمرين 4 (المذيب والمذاب)</h4>
+      <table class="data-table">
+        <tr><th>المحلول</th><th>المذيب</th><th>المذاب</th></tr>
+        <tr><td>شاي محلّى بالسكر</td><td>الشاي (الماء)</td><td>السكر</td></tr>
+        <tr><td>ماء البحر</td><td>الماء</td><td>الملح</td></tr>
+        <tr><td>عصير مركَّز مخفَّف</td><td>الماء</td><td>مسحوق/مركَّز العصير</td></tr>
+      </table>
+
+      <h4>تصحيح التمرين 5 (المسألة التطبيقية)</h4>
+      <div class="corrige-item">الخطوة الأولى: نستعمل <b>الترشيح</b> لفصل الرمل (المكوّن الصلب) عن السائلين (الزيت والماء).</div>
+      <div class="corrige-item">الخطوة الثانية: نترك السائل الناتج (زيت + ماء) يستقر، ثم نستعمل <b>الترسيب</b> لفصل طبقة الزيت عن طبقة الماء، لأنهما غير قابلين للامتزاج.</div>
+    </details>
+  </div>
+
+  <p class="footer-note">فيشة تعلّم ذاتي — الفيزياء والكيمياء — الأولى إعدادي — المخاليط</p>
+</div>
+</body>
+</html>

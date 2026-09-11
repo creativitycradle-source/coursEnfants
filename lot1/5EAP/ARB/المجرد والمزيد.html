@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>المجرد والمزيد</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#20261f; --ink-soft:#4a4238;
+    --paper:#faf8f1; --panel:#ffffff; --line:#d8d0bd;
+    --gold:#a1731f; --gold-soft:#f1e6c9;
+    --teal:#2f6a5d; --teal-soft:#e5efe9;
+    --root:#a83a2c; --root-soft:#fbe7e2;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#e9e4d6;font-family:'Noto Naskh Arabic','Amiri',serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .sheet{max-width:860px;margin:24px auto;background:var(--paper);padding:38px 44px 50px;border:1px solid var(--line);box-shadow:0 4px 24px rgba(0,0,0,.12);}
+
+  .masthead{display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:3px solid var(--ink);padding-bottom:16px;margin-bottom:22px;}
+  .masthead-text h1{font-family:'Amiri',serif;font-weight:700;font-size:30px;margin:0 0 6px;}
+  .masthead-text .subtitle{font-size:15px;color:var(--ink-soft);margin:0;}
+  .balance-icon{width:60px;height:60px;flex-shrink:0;}
+
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+  .meta-chip{border:1px solid var(--line);background:var(--panel);border-radius:3px;padding:6px 12px;font-size:13.5px;color:var(--ink-soft);}
+  .meta-chip b{color:var(--ink);font-weight:600;}
+
+  section{margin-bottom:28px;}
+  h2.section-title{font-family:'Amiri',serif;font-size:21px;font-weight:700;color:var(--teal);border-bottom:2px solid var(--teal);padding-bottom:6px;margin:0 0 14px;display:flex;align-items:baseline;gap:8px;}
+  h3.sub-title{font-size:17px;font-weight:700;color:var(--gold);margin:20px 0 8px;}
+  p{line-height:2;font-size:15.5px;margin:0 0 10px;}
+
+  .objectif-box{background:var(--gold-soft);border-right:4px solid var(--gold);padding:14px 18px;border-radius:2px;font-size:15.5px;line-height:1.9;}
+
+  .rule-box{background:var(--panel);border:1px solid var(--line);border-right:4px solid var(--teal);padding:14px 18px;border-radius:2px;margin:10px 0 16px;}
+  .rule-box p:last-child{margin-bottom:0;}
+  .rule-box ul,.rule-box ol{margin:6px 0;padding-inline-start:22px;}
+  .rule-box li{margin-bottom:6px;line-height:1.85;}
+
+  .type-grid{display:flex;flex-wrap:wrap;gap:16px;margin:10px 0 16px;}
+  .type-card{flex:1 1 260px;border-radius:8px;padding:14px 16px;}
+  .type-card.mujarrad{background:var(--teal-soft);border:1px solid var(--teal);}
+  .type-card.mazid{background:var(--root-soft);border:1px solid var(--root);}
+  .type-card .head{font-weight:700;font-size:16px;margin-bottom:6px;}
+  .type-card.mujarrad .head{color:var(--teal);}
+  .type-card.mazid .head{color:var(--root);}
+  .type-card p{margin:0;font-size:14.5px;line-height:1.85;}
+
+  .legend{display:flex;gap:22px;flex-wrap:wrap;font-size:13.5px;color:var(--ink-soft);margin:8px 0 14px;}
+  .legend span.swatch{display:inline-block;width:12px;height:12px;border-radius:2px;margin-inline-end:5px;vertical-align:-1px;}
+  .swatch.root-sw{background:var(--root);}
+  .swatch.added-sw{background:var(--teal);}
+  .root-letter{color:var(--ink);font-weight:700;}
+  .added-letter{color:var(--root);font-weight:700;}
+
+  table.data-table{width:100%;border-collapse:collapse;margin:8px 0 18px;font-size:15px;}
+  table.data-table th{background:var(--teal);color:#fff;padding:8px 10px;font-weight:600;font-size:14px;}
+  table.data-table td{border:1px solid var(--line);padding:9px 10px;background:var(--panel);text-align:center;}
+  table.data-table tr:nth-child(even) td{background:#f4f1e7;}
+  .fiil-tag{font-family:'Amiri',serif;font-weight:700;color:var(--gold);font-size:16px;}
+
+  .highlight-box{background:var(--teal-soft);border:1px dashed var(--teal);padding:14px 18px;border-radius:2px;margin:14px 0;font-size:15px;line-height:1.9;}
+  .highlight-box .letters-row{font-size:20px;font-weight:700;color:var(--teal);letter-spacing:2px;margin-top:6px;}
+
+  .activity-box{background:var(--panel);border:1.5px solid var(--gold);border-radius:3px;padding:16px 20px;}
+  .activity-box .task-label{display:inline-block;background:var(--gold);color:#fff;font-size:12.5px;padding:3px 10px;border-radius:2px;margin-bottom:8px;}
+
+  .exercise{border:1px solid var(--line);border-radius:3px;padding:16px 20px;margin-bottom:16px;background:var(--panel);}
+  .exercise-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:var(--ink);color:var(--paper);border-radius:50%;font-size:14px;font-weight:700;margin-inline-end:8px;}
+  .exercise h4{margin:0 0 10px;font-size:16.5px;display:flex;align-items:center;}
+  .fill-line{border-bottom:1px dotted var(--ink-soft);display:inline-block;min-width:100px;height:1.6em;}
+  .word-chip{display:inline-block;background:var(--paper);border:1px solid var(--line);border-radius:3px;padding:3px 12px;margin:3px 4px;font-size:16px;}
+  .qcm-item{margin-bottom:10px;}
+  .qcm-item p{margin-bottom:4px;font-weight:600;}
+  .qcm-options{display:flex;flex-wrap:wrap;gap:14px;font-size:14.5px;}
+  .qcm-options span{display:flex;align-items:center;gap:5px;}
+  .checkbox{width:13px;height:13px;border:1.4px solid var(--ink-soft);display:inline-block;border-radius:2px;}
+  .choice-parens{color:var(--root);font-weight:600;}
+
+  .corrige-wrapper{page-break-before:always;padding-top:6px;}
+  .corrige-flag{text-align:center;font-size:13px;color:var(--ink-soft);margin-bottom:10px;border-top:1px dashed var(--ink-soft);padding-top:14px;}
+  details.corrige{border:2px dashed var(--root);border-radius:4px;background:#fffaf8;padding:6px 20px 18px;}
+  details.corrige > summary{cursor:pointer;font-family:'Amiri',serif;font-weight:700;font-size:19px;color:var(--root);padding:14px 0;list-style:none;}
+  details.corrige > summary::-webkit-details-marker{display:none;}
+  details.corrige > summary::before{content:"✂ ";}
+  details.corrige > summary::after{content:"— اضغط لإظهار الحل / إخفائه";font-family:'Noto Naskh Arabic',serif;font-weight:400;font-size:13px;color:var(--ink-soft);margin-inline-start:8px;}
+  .corrige h4{color:var(--root);margin:16px 0 8px;font-size:16px;}
+  .corrige-item{margin-bottom:8px;font-size:15px;line-height:1.9;}
+  .corrige table.data-table th{background:var(--root);}
+
+  .footer-note{margin-top:30px;text-align:center;font-size:12px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:10px;}
+
+  @media print{
+    body{background:#fff;}
+    .sheet{box-shadow:none;border:none;margin:0;max-width:100%;padding:14px 6px;}
+    details.corrige{border-color:#000;}
+  }
+  @page{size:A4;margin:14mm;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="masthead-text">
+      <h1>الفعلُ المجرَّدُ والفعلُ المزيدُ</h1>
+      <p class="subtitle">مادة اللغة العربية — الصرف</p>
+    </div>
+    <svg class="balance-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="32" y1="6" x2="32" y2="46" stroke="#a1731f" stroke-width="2.5"/>
+      <line x1="10" y1="16" x2="54" y2="16" stroke="#20261f" stroke-width="2.5"/>
+      <path d="M10 16 L4 30 A9 9 0 0 0 16 30 Z" stroke="#2f6a5d" stroke-width="2" fill="none"/>
+      <path d="M54 16 L48 30 A9 9 0 0 0 60 30 Z" stroke="#2f6a5d" stroke-width="2" fill="none"/>
+      <circle cx="32" cy="14" r="3" fill="#a1731f"/>
+      <line x1="20" y1="52" x2="44" y2="52" stroke="#20261f" stroke-width="3" stroke-linecap="round"/>
+      <line x1="32" y1="46" x2="32" y2="52" stroke="#20261f" stroke-width="2.5"/>
+    </svg>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta-chip">المستوى: <b>الخامسة ابتدائي (5AEP)</b></div>
+    <div class="meta-chip">المادة: <b>اللغة العربية — الصرف والتحويل</b></div>
+    <div class="meta-chip">مدة الحصة: <b>ساعة واحدة</b></div>
+    <div class="meta-chip">نوع الوثيقة: <b>فيشة تعلّم ذاتي</b></div>
+  </div>
+
+  <!-- ===================== OBJECTIF ===================== -->
+  <section>
+    <h2 class="section-title">🎯 الهدف من الدرس</h2>
+    <div class="objectif-box">
+      يتمكّن المتعلم(ة) في نهاية هذا الدرس من: تعريف الفعل المجرَّد والفعل المزيد، والتمييز بينهما بمقارنة عدد حروف الفعل بعدد حروف أصله، وتحديد الحرف أو الحروف الزائدة في الفعل المزيد، وتوظيف ذلك في أمثلة وجمل بسيطة.
+    </div>
+  </section>
+
+  <!-- ===================== COURS ===================== -->
+  <section>
+    <h2 class="section-title">📘 الدرس</h2>
+
+    <h3 class="sub-title">1) الفعل المجرَّد والفعل المزيد</h3>
+    <div class="type-grid">
+      <div class="type-card mujarrad">
+        <div class="head">الفعل المجرَّد</div>
+        <p>هو الفعل الذي تتكوّن حروفه <b>كلّها من أصله</b>، دون أي زيادة عليها. غالباً ما يتكوّن من 3 حروف.</p>
+        <p style="margin-top:6px;">مثال: <span class="fiil-tag">كَتَبَ</span> (ك ت ب) — <span class="fiil-tag">جَلَسَ</span> (ج ل س) — <span class="fiil-tag">خَرَجَ</span> (خ ر ج)</p>
+      </div>
+      <div class="type-card mazid">
+        <div class="head">الفعل المزيد</div>
+        <p>هو الفعل الذي زِيدَ على حروفه الأصلية <b>حرف واحد أو أكثر</b>، فأصبح عدد حروفه أكبر من عدد حروف أصله.</p>
+        <p style="margin-top:6px;">مثال: <span class="fiil-tag">أَخْرَجَ</span> (أصله خَرَجَ + الهمزة) — <span class="fiil-tag">تَعَلَّمَ</span> (أصله عَلِمَ + التاء)</p>
+      </div>
+    </div>
+
+    <h3 class="sub-title">2) كيف نميّز بين الفعل المجرَّد والفعل المزيد؟</h3>
+    <div class="rule-box">
+      <p>نتبع الخطوات التالية:</p>
+      <ol>
+        <li>نبحث عن <b>أصل الفعل</b> (الفعل الأبسط الذي يعطي معنى الكلمة الأساسي).</li>
+        <li>نعدّ حروف الفعل المعطى، ونعدّ حروف أصله.</li>
+        <li>إذا <b>تساوى</b> العددان، فالفعل <b>مجرَّد</b>. وإذا <b>زاد</b> عدد حروف الفعل المعطى عن عدد حروف أصله، فالفعل <b>مزيد</b>.</li>
+      </ol>
+    </div>
+    <div class="highlight-box">
+      مثال: الفعل <b>اسْتَخْرَجَ</b> — أصله <b>خَرَجَ</b> (3 حروف: خ ر ج). لكن "اسْتَخْرَجَ" يتكوّن من 6 حروف. إذن هناك زيادة، فالفعل <b>مزيد</b>.
+      <div class="letters-row">خ ر ج ← اسْتَخْرَجَ</div>
+    </div>
+
+    <h3 class="sub-title">3) حروف الزيادة</h3>
+    <div class="rule-box">
+      <p>الحروف التي يمكن أن تُزاد على الفعل المجرَّد يجمعها المتعلمون في عبارة سهلة الحفظ:</p>
+      <p style="text-align:center;font-size:19px;font-weight:700;color:var(--teal);">سَأَلْتُمُونِيها</p>
+      <p style="text-align:center;font-size:14px;">(س - أ - ل - ت - م - و - ن - ي - ه - ا)</p>
+    </div>
+
+    <h3 class="sub-title">4) أمثلة مقارنة</h3>
+    <table class="data-table" style="text-align:right;">
+      <tr><th>الفعل المجرَّد</th><th>عدد الحروف</th><th>الفعل المزيد المقابل</th><th>عدد الحروف</th></tr>
+      <tr><td>خَرَجَ</td><td>3</td><td>أَخْرَجَ</td><td>4</td></tr>
+      <tr><td>عَلِمَ</td><td>3</td><td>تَعَلَّمَ</td><td>5</td></tr>
+      <tr><td>كَتَبَ</td><td>3</td><td>اكْتَتَبَ</td><td>5</td></tr>
+      <tr><td>جَمَعَ</td><td>3</td><td>اجْتَمَعَ</td><td>5</td></tr>
+      <tr><td>كَسَرَ</td><td>3</td><td>انْكَسَرَ</td><td>5</td></tr>
+    </table>
+  </section>
+
+  <!-- ===================== ACTIVITE ===================== -->
+  <section>
+    <h2 class="section-title">✏️ نشاط تطبيقي</h2>
+    <div class="activity-box">
+      <span class="task-label">عمل جماعي مع الأستاذ(ة)</span>
+      <p>عُدَّ حروف كل فعل من الأفعال التالية، وقارنها بعدد حروف أصلها، ثم حدّد إن كان الفعل مجرَّداً أو مزيداً. لاحظ المثال الأول المُنجَز:</p>
+      <table class="data-table" style="text-align:right;">
+        <tr><th>الفعل</th><th>أصله</th><th>عدد حروف الفعل</th><th>مجرَّد أم مزيد؟</th></tr>
+        <tr><td>اسْتَغْفَرَ</td><td>غَفَرَ</td><td>6</td><td>مزيد</td></tr>
+        <tr><td>فَهِمَ</td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+        <tr><td>سافَرَ</td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+        <tr><td>دَخَلَ</td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+        <tr><td>انْطَلَقَ</td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===================== EXERCICES ===================== -->
+  <section>
+    <h2 class="section-title">📝 تمارين للتدرّب</h2>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">1</span>صنّف الأفعال التالية إلى (مجرَّد / مزيد):</h4>
+      <p>
+        <span class="word-chip">كَتَبَ</span>
+        <span class="word-chip">أَخْرَجَ</span>
+        <span class="word-chip">لَعِبَ</span>
+        <span class="word-chip">تَعَلَّمَ</span>
+        <span class="word-chip">جَلَسَ</span>
+        <span class="word-chip">اسْتَخْرَجَ</span>
+        <span class="word-chip">فَهِمَ</span>
+        <span class="word-chip">انْكَسَرَ</span>
+      </p>
+      <table class="data-table">
+        <tr><th>مجرَّد</th><th>مزيد</th></tr>
+        <tr><td style="height:60px;"></td><td></td></tr>
+      </table>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">2</span>عُدَّ حروف كل فعل، وحدّد إن كان مجرَّداً أم مزيداً:</h4>
+      <table class="data-table">
+        <tr><th>الفعل</th><th>عدد الحروف</th><th>مجرَّد أم مزيد؟</th></tr>
+        <tr><td>فَتَحَ</td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+        <tr><td>اسْتَفْتَحَ</td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+        <tr><td>شَرِبَ</td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+        <tr><td>تَشارَبَ</td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+      </table>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">3</span>اختر الإجابة الصحيحة:</h4>
+      <div class="qcm-item">
+        <p>1) الفعل المجرَّد هو الفعل الذي:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>حروفه كلّها أصلية</span><span><span class="checkbox"></span>زِيدَ عليه حرف</span><span><span class="checkbox"></span>لا يُصرَّف</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>2) الفعل "تَعَلَّمَ" أصله:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>عَلِمَ</span><span><span class="checkbox"></span>عَلَّمَ</span><span><span class="checkbox"></span>تَعَلَّمَ نفسه</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>3) عبارة "سألتمونيها" تساعدنا على تذكّر:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>حروف الزيادة</span><span><span class="checkbox"></span>الحروف الأصلية فقط</span><span><span class="checkbox"></span>حروف الهجاء كلّها</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>4) الفعل "جَلَسَ" هو فعل:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>مجرَّد</span><span><span class="checkbox"></span>مزيد بحرف</span><span><span class="checkbox"></span>مزيد بحرفين</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>5) عندما يزيد عدد حروف الفعل عن عدد حروف أصله، فإن الفعل يكون:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>مجرَّداً</span><span><span class="checkbox"></span>مزيداً</span><span><span class="checkbox"></span>ناقصاً</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">4</span>أعِد كل فعل مزيد إلى أصله المجرَّد:</h4>
+      <table class="data-table">
+        <tr><th>الفعل المزيد</th><th>أصله المجرَّد</th></tr>
+        <tr><td>أَجْلَسَ</td><td><span class="fill-line"></span></td></tr>
+        <tr><td>تَعَلَّمَ</td><td><span class="fill-line"></span></td></tr>
+        <tr><td>انْكَسَرَ</td><td><span class="fill-line"></span></td></tr>
+        <tr><td>اجْتَهَدَ</td><td><span class="fill-line"></span></td></tr>
+      </table>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">5</span>أكمل كل جملة بالفعل المناسب من بين القوسين:</h4>
+      <p>1) <span class="choice-parens">(خَرَجَ / أَخْرَجَ)</span> التلميذُ من القسم بهدوء.</p>
+      <p>2) <span class="choice-parens">(عَلِمَ / تَعَلَّمَ)</span> أخي القراءةَ في مدة قصيرة.</p>
+      <p>3) <span class="choice-parens">(كَسَرَ / انْكَسَرَ)</span> الزجاجُ بعد سقوطه.</p>
+      <p>4) <span class="choice-parens">(جَمَعَ / اجْتَمَعَ)</span> التلاميذُ في الساحة.</p>
+    </div>
+  </section>
+
+  <!-- ===================== CORRIGE ===================== -->
+  <div class="corrige-wrapper">
+    <p class="corrige-flag">✂ يمكن طي هذه الصفحة أو إخفاؤها (اضغط على العنوان أدناه) قبل إنجاز التمارين ✂</p>
+    <details class="corrige">
+      <summary>التصحيح الكامل</summary>
+
+      <h4>تصحيح النشاط التطبيقي</h4>
+      <table class="data-table">
+        <tr><th>الفعل</th><th>أصله</th><th>عدد الحروف</th><th>النوع</th></tr>
+        <tr><td>فَهِمَ</td><td>فَهِمَ</td><td>3</td><td>مجرَّد</td></tr>
+        <tr><td>سافَرَ</td><td>سَفَرَ</td><td>4</td><td>مزيد</td></tr>
+        <tr><td>دَخَلَ</td><td>دَخَلَ</td><td>3</td><td>مجرَّد</td></tr>
+        <tr><td>انْطَلَقَ</td><td>طَلَقَ</td><td>5</td><td>مزيد</td></tr>
+      </table>
+
+      <h4>تصحيح التمرين 1 (التصنيف)</h4>
+      <div class="corrige-item"><b>مجرَّد:</b> كَتَبَ، لَعِبَ، جَلَسَ، فَهِمَ</div>
+      <div class="corrige-item"><b>مزيد:</b> أَخْرَجَ، تَعَلَّمَ، اسْتَخْرَجَ، انْكَسَرَ</div>
+
+      <h4>تصحيح التمرين 2 (عدّ الحروف)</h4>
+      <table class="data-table">
+        <tr><th>الفعل</th><th>عدد الحروف</th><th>النوع</th></tr>
+        <tr><td>فَتَحَ</td><td>3</td><td>مجرَّد</td></tr>
+        <tr><td>اسْتَفْتَحَ</td><td>6</td><td>مزيد</td></tr>
+        <tr><td>شَرِبَ</td><td>3</td><td>مجرَّد</td></tr>
+        <tr><td>تَشارَبَ</td><td>5</td><td>مزيد</td></tr>
+      </table>
+
+      <h4>تصحيح التمرين 3 (الاختيار من متعدد)</h4>
+      <div class="corrige-item">1) حروفه كلّها أصلية &nbsp;|&nbsp; 2) عَلِمَ &nbsp;|&nbsp; 3) حروف الزيادة &nbsp;|&nbsp; 4) مجرَّد &nbsp;|&nbsp; 5) مزيداً</div>
+
+      <h4>تصحيح التمرين 4 (الرد إلى المجرَّد)</h4>
+      <div class="corrige-item">أَجْلَسَ ← جَلَسَ &nbsp;|&nbsp; تَعَلَّمَ ← عَلِمَ &nbsp;|&nbsp; انْكَسَرَ ← كَسَرَ &nbsp;|&nbsp; اجْتَهَدَ ← جَهَدَ</div>
+
+      <h4>تصحيح التمرين 5 (إكمال الجمل)</h4>
+      <div class="corrige-item">1) خَرَجَ &nbsp;|&nbsp; 2) تَعَلَّمَ &nbsp;|&nbsp; 3) انْكَسَرَ &nbsp;|&nbsp; 4) اجْتَمَعَ</div>
+    </details>
+  </div>
+
+  <p class="footer-note">فيشة تعلّم ذاتي — اللغة العربية — الخامسة ابتدائي — الفعل المجرَّد والفعل المزيد</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>الجهاز التنفسي</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#20301f; --ink-soft:#4c5a48;
+    --paper:#f8faf4; --panel:#ffffff; --line:#d7e0cd;
+    --leaf:#3f7d3a; --leaf-soft:#e3f0df;
+    --sky:#2f7ea8; --sky-soft:#deeef6;
+    --coral:#c15a4a; --coral-soft:#f5e0dc;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#e4e9dc;font-family:'Noto Naskh Arabic','Amiri',serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .sheet{max-width:880px;margin:24px auto;background:var(--paper);padding:38px 44px 50px;border:1px solid var(--line);box-shadow:0 4px 24px rgba(0,0,0,.12);}
+
+  .masthead{display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:3px solid var(--ink);padding-bottom:16px;margin-bottom:22px;}
+  .masthead-text h1{font-family:'Amiri',serif;font-weight:700;font-size:30px;margin:0 0 6px;color:var(--sky);}
+  .masthead-text .subtitle{font-size:15px;color:var(--ink-soft);margin:0;}
+  .lung-icon{width:58px;height:58px;flex-shrink:0;}
+
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+  .meta-chip{border:1px solid var(--line);background:var(--panel);border-radius:3px;padding:6px 12px;font-size:13.5px;color:var(--ink-soft);}
+  .meta-chip b{color:var(--ink);font-weight:600;}
+
+  section{margin-bottom:28px;}
+  h2.section-title{font-family:'Amiri',serif;font-size:21px;font-weight:700;color:var(--sky);border-bottom:2px solid var(--sky);padding-bottom:6px;margin:0 0 14px;display:flex;align-items:baseline;gap:8px;}
+  h3.sub-title{font-size:17px;font-weight:700;color:var(--leaf);margin:20px 0 8px;}
+  p{line-height:2;font-size:15.5px;margin:0 0 10px;}
+
+  .objectif-box{background:var(--sky-soft);border-right:4px solid var(--sky);padding:14px 18px;border-radius:2px;font-size:15.5px;line-height:1.9;}
+
+  .rule-box{background:var(--panel);border:1px solid var(--line);border-right:4px solid var(--leaf);padding:14px 18px;border-radius:2px;margin:10px 0 16px;}
+  .rule-box p:last-child{margin-bottom:0;}
+  .rule-box ul,.rule-box ol{margin:6px 0;padding-inline-start:22px;}
+  .rule-box li{margin-bottom:6px;line-height:1.85;}
+
+  .organ-diagram{display:flex;justify-content:center;margin:14px 0;}
+
+  table.data-table{width:100%;border-collapse:collapse;margin:8px 0 18px;font-size:15px;}
+  table.data-table th{background:var(--sky);color:#fff;padding:8px 10px;font-weight:600;font-size:14px;}
+  table.data-table td{border:1px solid var(--line);padding:9px 10px;background:var(--panel);}
+  table.data-table tr:nth-child(even) td{background:#eef3e8;}
+
+  .breath-grid{display:flex;flex-wrap:wrap;gap:16px;margin:10px 0 16px;}
+  .breath-card{flex:1 1 240px;border-radius:8px;padding:14px 16px;}
+  .breath-card.in{background:var(--sky-soft);border:1px solid var(--sky);}
+  .breath-card.out{background:var(--coral-soft);border:1px solid var(--coral);}
+  .breath-card .head{font-weight:700;font-size:16px;margin-bottom:6px;}
+  .breath-card.in .head{color:var(--sky);}
+  .breath-card.out .head{color:var(--coral);}
+  .breath-card p{margin:0;font-size:14.5px;line-height:1.85;}
+
+  .activity-box{background:var(--panel);border:1.5px solid var(--coral);border-radius:3px;padding:16px 20px;}
+  .activity-box .task-label{display:inline-block;background:var(--coral);color:#fff;font-size:12.5px;padding:3px 10px;border-radius:2px;margin-bottom:8px;}
+  .step{display:flex;gap:10px;margin-bottom:8px;align-items:flex-start;}
+  .step-num{flex-shrink:0;width:22px;height:22px;border-radius:50%;background:var(--coral);color:#fff;font-size:12.5px;display:flex;align-items:center;justify-content:center;font-weight:700;}
+
+  .exercise{border:1px solid var(--line);border-radius:3px;padding:16px 20px;margin-bottom:16px;background:var(--panel);}
+  .exercise-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:var(--ink);color:var(--paper);border-radius:50%;font-size:14px;font-weight:700;margin-inline-end:8px;}
+  .exercise h4{margin:0 0 10px;font-size:16.5px;display:flex;align-items:center;}
+  .fill-line{border-bottom:1px dotted var(--ink-soft);display:inline-block;min-width:120px;height:1.6em;}
+  .word-chip{display:inline-block;background:var(--paper);border:1px solid var(--line);border-radius:3px;padding:3px 12px;margin:3px 4px;font-size:16px;}
+  .qcm-item{margin-bottom:10px;}
+  .qcm-item p{margin-bottom:4px;font-weight:600;}
+  .qcm-options{display:flex;flex-wrap:wrap;gap:14px;font-size:14.5px;}
+  .qcm-options span{display:flex;align-items:center;gap:5px;}
+  .checkbox{width:13px;height:13px;border:1.4px solid var(--ink-soft);display:inline-block;border-radius:2px;}
+  .match-cols{display:flex;justify-content:space-between;gap:40px;margin-top:8px;}
+  .match-cols ul{list-style:none;padding:0;margin:0;}
+  .match-cols li{border:1px solid var(--line);background:var(--paper);padding:6px 14px;margin-bottom:10px;border-radius:3px;font-size:15px;}
+  .order-list{display:flex;flex-direction:column;gap:8px;}
+  .order-item{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:6px;padding:8px 12px;background:var(--paper);}
+  .order-item .num-box{width:32px;height:32px;border:2px dashed var(--ink-soft);border-radius:6px;flex-shrink:0;}
+  .scenario-box{background:#eef3e8;border:1px solid var(--line);padding:12px 16px;font-size:15.5px;line-height:2.1;margin-bottom:10px;}
+
+  .corrige-wrapper{page-break-before:always;padding-top:6px;}
+  .corrige-flag{text-align:center;font-size:13px;color:var(--ink-soft);margin-bottom:10px;border-top:1px dashed var(--ink-soft);padding-top:14px;}
+  details.corrige{border:2px dashed var(--leaf);border-radius:4px;background:#f5faf3;padding:6px 20px 18px;}
+  details.corrige > summary{cursor:pointer;font-family:'Amiri',serif;font-weight:700;font-size:19px;color:var(--leaf);padding:14px 0;list-style:none;}
+  details.corrige > summary::-webkit-details-marker{display:none;}
+  details.corrige > summary::before{content:"✂ ";}
+  details.corrige > summary::after{content:"— اضغط لإظهار الحل / إخفائه";font-family:'Noto Naskh Arabic',serif;font-weight:400;font-size:13px;color:var(--ink-soft);margin-inline-start:8px;}
+  .corrige h4{color:var(--leaf);margin:16px 0 8px;font-size:16px;}
+  .corrige-item{margin-bottom:8px;font-size:15px;line-height:1.9;}
+  .corrige table.data-table th{background:var(--leaf);}
+
+  .footer-note{margin-top:30px;text-align:center;font-size:12px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:10px;}
+
+  @media print{
+    body{background:#fff;}
+    .sheet{box-shadow:none;border:none;margin:0;max-width:100%;padding:14px 6px;}
+    details.corrige{border-color:#000;}
+  }
+  @page{size:A4;margin:14mm;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="masthead-text">
+      <h1>الجهازُ التنفسيُّ</h1>
+      <p class="subtitle">النشاط العلمي — جسم الإنسان</p>
+    </div>
+    <svg class="lung-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="32" y1="8" x2="32" y2="26" stroke="#2f7ea8" stroke-width="3"/>
+      <path d="M32 26c-4 -6 -16 -6 -18 4 -3 12 4 22 12 20 4 -1 6 -8 6 -16z" fill="#2f7ea8" opacity="0.85"/>
+      <path d="M32 26c4 -6 16 -6 18 4 3 12 -4 22 -12 20 -4 -1 -6 -8 -6 -16z" fill="#3f7d3a" opacity="0.85"/>
+    </svg>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta-chip">المستوى: <b>الخامسة ابتدائي (5AEP)</b></div>
+    <div class="meta-chip">المادة: <b>النشاط العلمي</b></div>
+    <div class="meta-chip">مدة الحصة: <b>ساعة واحدة</b></div>
+    <div class="meta-chip">نوع الوثيقة: <b>فيشة تعلّم ذاتي</b></div>
+  </div>
+
+  <!-- ===================== OBJECTIF ===================== -->
+  <section>
+    <h2 class="section-title">🎯 الهدف من الدرس</h2>
+    <div class="objectif-box">
+      يتمكّن المتعلم(ة) في نهاية هذا الدرس من: تحديد مكونات الجهاز التنفسي ووظيفة كل عضو من أعضائه، وتفسير حركتَي الشهيق والزفير، والتعرّف على قواعد الحفاظ على صحة الجهاز التنفسي.
+    </div>
+  </section>
+
+  <!-- ===================== COURS ===================== -->
+  <section>
+    <h2 class="section-title">📘 الدرس</h2>
+
+    <h3 class="sub-title">1) أهمية التنفس</h3>
+    <div class="rule-box">
+      <p>التنفس وظيفة حيوية ضرورية للإنسان، تسمح بإدخال <b>الأكسجين</b> اللازم لخلايا الجسم لإنتاج الطاقة، وطرح <b>ثاني أكسيد الكربون</b> الناتج عن نشاط الخلايا.</p>
+    </div>
+
+    <h3 class="sub-title">2) مكونات الجهاز التنفسي</h3>
+    <div class="organ-diagram">
+      <svg width="220" height="300" viewBox="0 0 220 300" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="110" cy="28" rx="30" ry="20" fill="#dcf0f7" stroke="#2f7ea8" stroke-width="2.5"/>
+        <text x="110" y="33" text-anchor="middle" font-size="13" font-weight="700" fill="#1f3b52">1</text>
+        <ellipse cx="110" cy="60" rx="18" ry="10" fill="#e3f0df" stroke="#3f7d3a" stroke-width="2"/>
+        <text x="110" y="64" text-anchor="middle" font-size="12" font-weight="700" fill="#20301f">2</text>
+        <rect x="98" y="72" width="24" height="16" rx="4" fill="#f5e0dc" stroke="#c15a4a" stroke-width="2"/>
+        <text x="110" y="84" text-anchor="middle" font-size="12" font-weight="700" fill="#7a2f22">3</text>
+        <rect x="102" y="90" width="16" height="55" fill="#deeef6" stroke="#2f7ea8" stroke-width="2"/>
+        <text x="110" y="120" text-anchor="middle" font-size="12" font-weight="700" fill="#1f3b52">4</text>
+        <path d="M110 145 L70 175 M110 145 L150 175" stroke="#2f7ea8" stroke-width="6" stroke-linecap="round"/>
+        <text x="60" y="180" font-size="12" font-weight="700" fill="#1f3b52">5</text>
+        <ellipse cx="65" cy="220" rx="35" ry="55" fill="#e3f0df" stroke="#3f7d3a" stroke-width="2.5"/>
+        <ellipse cx="155" cy="220" rx="35" ry="55" fill="#e3f0df" stroke="#3f7d3a" stroke-width="2.5"/>
+        <text x="65" y="225" text-anchor="middle" font-size="13" font-weight="700" fill="#20301f">6</text>
+        <text x="155" y="225" text-anchor="middle" font-size="13" font-weight="700" fill="#20301f">6</text>
+      </svg>
+    </div>
+    <table class="data-table">
+      <tr><th>الرقم</th><th>العضو</th><th>الدور</th></tr>
+      <tr><td>1</td><td>الأنف</td><td>تنقية وترطيب وتدفئة الهواء المستنشَق.</td></tr>
+      <tr><td>2</td><td>البلعوم</td><td>ممر مشترك للهواء نحو الحنجرة.</td></tr>
+      <tr><td>3</td><td>الحنجرة</td><td>تحتوي الأحبال الصوتية، وتمرّر الهواء نحو القصبة الهوائية.</td></tr>
+      <tr><td>4</td><td>القصبة الهوائية</td><td>أنبوب ينقل الهواء نحو الرئتين.</td></tr>
+      <tr><td>5</td><td>الشعبتان الهوائيتان</td><td>تتفرّعان داخل كل رئة لتوزيع الهواء.</td></tr>
+      <tr><td>6</td><td>الرئتان</td><td>مكان تبادل الغازات بين الهواء والدم (عبر الحويصلات الهوائية).</td></tr>
+    </table>
+
+    <h3 class="sub-title">3) حركتا الشهيق والزفير</h3>
+    <div class="breath-grid">
+      <div class="breath-card in">
+        <div class="head">الشهيق (دخول الهواء)</div>
+        <p>يتّسع القفص الصدري، وينخفض الحجاب الحاجز، فيدخل الهواء الغني بالأكسجين إلى الرئتين.</p>
+      </div>
+      <div class="breath-card out">
+        <div class="head">الزفير (خروج الهواء)</div>
+        <p>يضيق القفص الصدري، ويرتفع الحجاب الحاجز، فيخرج الهواء المحمّل بثاني أكسيد الكربون من الرئتين.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-title">4) تبادل الغازات في الرئتين</h3>
+    <div class="rule-box">
+      <p>تحتوي الرئتان على ملايين الأكياس الصغيرة تسمى <b>الحويصلات الهوائية</b>، وهي محاطة بأوعية دموية دقيقة. عند وصول الهواء إليها، ينتقل غاز <b>الأكسجين</b> من الهواء إلى الدم، بينما ينتقل غاز <b>ثاني أكسيد الكربون</b> من الدم إلى الهواء ليُطرح عند الزفير.</p>
+    </div>
+
+    <h3 class="sub-title">5) قواعد الحفاظ على صحة الجهاز التنفسي</h3>
+    <div class="rule-box">
+      <ul>
+        <li>تجنّب التدخين والأماكن المليئة بالدخان.</li>
+        <li>تجنّب الأماكن الملوثة أو المزدحمة بالغبار.</li>
+        <li>التنفس عبر الأنف وليس عبر الفم (لتنقية الهواء وترطيبه).</li>
+        <li>ممارسة الرياضة بانتظام لتقوية الرئتين.</li>
+        <li>تهوية المنازل والأقسام بشكل جيد ومنتظم.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===================== ACTIVITE ===================== -->
+  <section>
+    <h2 class="section-title">🔬 نشاط تطبيقي</h2>
+    <div class="activity-box">
+      <span class="task-label">ملاحظة حركة القفص الصدري</span>
+      <div class="step"><span class="step-num">1</span><span>ضع يدك على صدرك، وتنفّس بشكل طبيعي وهادئ.</span></div>
+      <div class="step"><span class="step-num">2</span><span>لاحظ حركة صدرك أثناء الشهيق (استنشاق الهواء) وأثناء الزفير (إخراج الهواء).</span></div>
+      <div class="step"><span class="step-num">3</span><span>خذ نفساً عميقاً وطويلاً، ثم أخرج الهواء ببطء، ولاحظ الفرق في اتساع صدرك.</span></div>
+      <p>1) ماذا لاحظت على صدرك أثناء الشهيق؟ <span class="fill-line" style="min-width:100%;"></span></p>
+      <p>2) ماذا لاحظت على صدرك أثناء الزفير؟ <span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== EXERCICES ===================== -->
+  <section>
+    <h2 class="section-title">📝 تمارين للتدرّب</h2>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">1</span>رتّب أعضاء الجهاز التنفسي التالية حسب مسار الهواء (من 1 إلى 5):</h4>
+      <div class="order-list">
+        <div class="order-item"><div class="num-box"></div><span>القصبة الهوائية</span></div>
+        <div class="order-item"><div class="num-box"></div><span>الأنف</span></div>
+        <div class="order-item"><div class="num-box"></div><span>الرئتان</span></div>
+        <div class="order-item"><div class="num-box"></div><span>الحنجرة</span></div>
+        <div class="order-item"><div class="num-box"></div><span>البلعوم</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">2</span>صل كل عضو بوظيفته المناسبة:</h4>
+      <div class="match-cols">
+        <ul>
+          <li>أ) الأنف</li>
+          <li>ب) القصبة الهوائية</li>
+          <li>ج) الرئتان</li>
+          <li>د) الحنجرة</li>
+        </ul>
+        <ul>
+          <li>1) تحتوي الأحبال الصوتية</li>
+          <li>2) تنقية وترطيب الهواء</li>
+          <li>3) نقل الهواء نحو الرئتين</li>
+          <li>4) تبادل الغازات مع الدم</li>
+        </ul>
+      </div>
+      <p style="margin-top:10px;">الإجابة: أ - .......... &nbsp; ب - .......... &nbsp; ج - .......... &nbsp; د - ..........</p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">3</span>اختر الإجابة الصحيحة:</h4>
+      <div class="qcm-item">
+        <p>1) الغاز الذي يحتاجه الجسم عند التنفس هو:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>الأكسجين</span><span><span class="checkbox"></span>ثاني أكسيد الكربون</span><span><span class="checkbox"></span>النيتروجين</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>2) يتم تبادل الغازات بين الهواء والدم في:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>الأنف</span><span><span class="checkbox"></span>الحويصلات الهوائية</span><span><span class="checkbox"></span>الحنجرة</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>3) أثناء الشهيق، القفص الصدري:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>يتّسع</span><span><span class="checkbox"></span>يضيق</span><span><span class="checkbox"></span>لا يتحرك</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>4) الأفضل صحياً أن نتنفس عبر:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>الفم</span><span><span class="checkbox"></span>الأنف</span><span><span class="checkbox"></span>لا فرق</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>5) من عوامل الحفاظ على صحة الجهاز التنفسي:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>التدخين</span><span><span class="checkbox"></span>تجنّب الأماكن الملوثة</span><span><span class="checkbox"></span>إغلاق النوافذ دائماً</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">4</span>صنّف الحركات التالية إلى (شهيق / زفير):</h4>
+      <p>
+        <span class="word-chip">يتّسع القفص الصدري</span>
+        <span class="word-chip">ينخفض الحجاب الحاجز</span>
+        <span class="word-chip">يخرج الهواء المحمّل بثاني أكسيد الكربون</span>
+        <span class="word-chip">يضيق القفص الصدري</span>
+        <span class="word-chip">يدخل الهواء الغني بالأكسجين</span>
+      </p>
+      <table class="data-table">
+        <tr><th>شهيق</th><th>زفير</th></tr>
+        <tr><td style="height:60px;"></td><td></td></tr>
+      </table>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">5</span>وضعية-مشكلة:</h4>
+      <div class="scenario-box">
+        يدخّن جار عائلة أحمد بكثرة داخل بيته، وأحياناً يلعب أحمد بالقرب منه.
+      </div>
+      <p>1) ما تأثير التدخين على صحة الجهاز التنفسي للمدخِّن ومن حوله؟</p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+      <p>2) اقترح نصيحتين للحفاظ على صحة الجهاز التنفسي في هذه الحالة.</p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== CORRIGE ===================== -->
+  <div class="corrige-wrapper">
+    <p class="corrige-flag">✂ يمكن طي هذه الصفحة أو إخفاؤها (اضغط على العنوان أدناه) قبل إنجاز التمارين ✂</p>
+    <details class="corrige">
+      <summary>التصحيح الكامل</summary>
+
+      <h4>تصحيح النشاط التطبيقي</h4>
+      <div class="corrige-item">1) أثناء الشهيق، يتّسع الصدر ويرتفع قليلاً.</div>
+      <div class="corrige-item">2) أثناء الزفير، يضيق الصدر وينخفض قليلاً.</div>
+
+      <h4>تصحيح التمرين 1 (الترتيب)</h4>
+      <div class="corrige-item">1) الأنف &nbsp;→&nbsp; 2) البلعوم &nbsp;→&nbsp; 3) الحنجرة &nbsp;→&nbsp; 4) القصبة الهوائية &nbsp;→&nbsp; 5) الرئتان</div>
+
+      <h4>تصحيح التمرين 2 (الربط)</h4>
+      <div class="corrige-item">أ - 2 (الأنف ← تنقية الهواء) &nbsp;|&nbsp; ب - 3 (القصبة الهوائية ← نقل الهواء) &nbsp;|&nbsp; ج - 4 (الرئتان ← تبادل الغازات) &nbsp;|&nbsp; د - 1 (الحنجرة ← الأحبال الصوتية)</div>
+
+      <h4>تصحيح التمرين 3 (الاختيار من متعدد)</h4>
+      <div class="corrige-item">1) الأكسجين &nbsp;|&nbsp; 2) الحويصلات الهوائية &nbsp;|&nbsp; 3) يتّسع &nbsp;|&nbsp; 4) الأنف &nbsp;|&nbsp; 5) تجنّب الأماكن الملوثة</div>
+
+      <h4>تصحيح التمرين 4 (التصنيف)</h4>
+      <div class="corrige-item"><b>شهيق:</b> يتّسع القفص الصدري، ينخفض الحجاب الحاجز، يدخل الهواء الغني بالأكسجين</div>
+      <div class="corrige-item"><b>زفير:</b> يخرج الهواء المحمّل بثاني أكسيد الكربون، يضيق القفص الصدري</div>
+
+      <h4>تصحيح التمرين 5 (وضعية-مشكلة)</h4>
+      <div class="corrige-item">1) يضرّ التدخين برئتَي المدخِّن نفسه، ويؤذي أيضاً من حوله (التدخين السلبي)، إذ يستنشقون دخاناً يحتوي على مواد ضارة تُتلف الجهاز التنفسي تدريجياً وتسبّب أمراضاً تنفسية.</div>
+      <div class="corrige-item">2) يمكن اقتراح: الابتعاد عن أماكن التدخين وعدم اللعب بالقرب منها، وتهوية المكان جيداً، وتوعية الجار بمخاطر التدخين على الأطفال.</div>
+    </details>
+  </div>
+
+  <p class="footer-note">فيشة تعلّم ذاتي — النشاط العلمي — الخامسة ابتدائي — الجهاز التنفسي</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>إعراب الأفعال الخمسة</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#20261f; --ink-soft:#4a4238;
+    --paper:#faf8f1; --panel:#ffffff; --line:#d8d0bd;
+    --gold:#a1731f; --gold-soft:#f1e6c9;
+    --teal:#2f6a5d; --teal-soft:#e5efe9;
+    --root:#a83a2c; --root-soft:#fbe7e2;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#e9e4d6;font-family:'Noto Naskh Arabic','Amiri',serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .sheet{max-width:860px;margin:24px auto;background:var(--paper);padding:38px 44px 50px;border:1px solid var(--line);box-shadow:0 4px 24px rgba(0,0,0,.12);}
+
+  .masthead{display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:3px solid var(--ink);padding-bottom:16px;margin-bottom:22px;}
+  .masthead-text h1{font-family:'Amiri',serif;font-weight:700;font-size:30px;margin:0 0 6px;}
+  .masthead-text .subtitle{font-size:15px;color:var(--ink-soft);margin:0;}
+  .balance-icon{width:60px;height:60px;flex-shrink:0;}
+
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+  .meta-chip{border:1px solid var(--line);background:var(--panel);border-radius:3px;padding:6px 12px;font-size:13.5px;color:var(--ink-soft);}
+  .meta-chip b{color:var(--ink);font-weight:600;}
+
+  section{margin-bottom:28px;}
+  h2.section-title{font-family:'Amiri',serif;font-size:21px;font-weight:700;color:var(--teal);border-bottom:2px solid var(--teal);padding-bottom:6px;margin:0 0 14px;display:flex;align-items:baseline;gap:8px;}
+  h3.sub-title{font-size:17px;font-weight:700;color:var(--gold);margin:20px 0 8px;}
+  p{line-height:2;font-size:15.5px;margin:0 0 10px;}
+
+  .objectif-box{background:var(--gold-soft);border-right:4px solid var(--gold);padding:14px 18px;border-radius:2px;font-size:15.5px;line-height:1.9;}
+
+  .rule-box{background:var(--panel);border:1px solid var(--line);border-right:4px solid var(--teal);padding:14px 18px;border-radius:2px;margin:10px 0 16px;}
+  .rule-box p:last-child{margin-bottom:0;}
+  .rule-box ul,.rule-box ol{margin:6px 0;padding-inline-start:22px;}
+  .rule-box li{margin-bottom:6px;line-height:1.85;}
+
+  table.data-table{width:100%;border-collapse:collapse;margin:8px 0 18px;font-size:15px;}
+  table.data-table th{background:var(--teal);color:#fff;padding:8px 10px;font-weight:600;font-size:14px;}
+  table.data-table td{border:1px solid var(--line);padding:9px 10px;background:var(--panel);text-align:center;}
+  table.data-table tr:nth-child(even) td{background:#f4f1e7;}
+  .fiil-tag{font-family:'Amiri',serif;font-weight:700;color:var(--gold);font-size:16px;}
+
+  .legend{display:flex;gap:22px;flex-wrap:wrap;font-size:13.5px;color:var(--ink-soft);margin:8px 0 14px;}
+  .legend span.swatch{display:inline-block;width:12px;height:12px;border-radius:2px;margin-inline-end:5px;vertical-align:-1px;}
+  .swatch.rafaa-sw{background:var(--teal);}
+  .swatch.nasb-sw{background:var(--root);}
+  .noon-rafaa{color:var(--teal);font-weight:700;}
+  .noon-hadhf{color:var(--root);font-weight:700;text-decoration:line-through;}
+
+  .state-grid{display:flex;flex-wrap:wrap;gap:14px;margin:10px 0 16px;}
+  .state-card{flex:1 1 220px;border-radius:8px;padding:12px 16px;}
+  .state-card.rafaa{background:var(--teal-soft);border:1px solid var(--teal);}
+  .state-card.nasb{background:var(--root-soft);border:1px solid var(--root);}
+  .state-card .head{font-weight:700;font-size:15.5px;margin-bottom:4px;}
+  .state-card.rafaa .head{color:var(--teal);}
+  .state-card.nasb .head{color:var(--root);}
+  .state-card p{margin:2px 0 0;font-size:14.5px;line-height:1.85;}
+
+  .activity-box{background:var(--panel);border:1.5px solid var(--gold);border-radius:3px;padding:16px 20px;}
+  .activity-box .task-label{display:inline-block;background:var(--gold);color:#fff;font-size:12.5px;padding:3px 10px;border-radius:2px;margin-bottom:8px;}
+
+  .exercise{border:1px solid var(--line);border-radius:3px;padding:16px 20px;margin-bottom:16px;background:var(--panel);}
+  .exercise-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:var(--ink);color:var(--paper);border-radius:50%;font-size:14px;font-weight:700;margin-inline-end:8px;}
+  .exercise h4{margin:0 0 10px;font-size:16.5px;display:flex;align-items:center;}
+  .fill-line{border-bottom:1px dotted var(--ink-soft);display:inline-block;min-width:110px;height:1.6em;}
+  .word-chip{display:inline-block;background:var(--paper);border:1px solid var(--line);border-radius:3px;padding:3px 12px;margin:3px 4px;font-size:16px;}
+  .qcm-item{margin-bottom:10px;}
+  .qcm-item p{margin-bottom:4px;font-weight:600;}
+  .qcm-options{display:flex;flex-wrap:wrap;gap:14px;font-size:14.5px;}
+  .qcm-options span{display:flex;align-items:center;gap:5px;}
+  .checkbox{width:13px;height:13px;border:1.4px solid var(--ink-soft);display:inline-block;border-radius:2px;}
+
+  .corrige-wrapper{page-break-before:always;padding-top:6px;}
+  .corrige-flag{text-align:center;font-size:13px;color:var(--ink-soft);margin-bottom:10px;border-top:1px dashed var(--ink-soft);padding-top:14px;}
+  details.corrige{border:2px dashed var(--root);border-radius:4px;background:#fffaf8;padding:6px 20px 18px;}
+  details.corrige > summary{cursor:pointer;font-family:'Amiri',serif;font-weight:700;font-size:19px;color:var(--root);padding:14px 0;list-style:none;}
+  details.corrige > summary::-webkit-details-marker{display:none;}
+  details.corrige > summary::before{content:"✂ ";}
+  details.corrige > summary::after{content:"— اضغط لإظهار الحل / إخفائه";font-family:'Noto Naskh Arabic',serif;font-weight:400;font-size:13px;color:var(--ink-soft);margin-inline-start:8px;}
+  .corrige h4{color:var(--root);margin:16px 0 8px;font-size:16px;}
+  .corrige-item{margin-bottom:8px;font-size:15px;line-height:1.9;}
+  .corrige table.data-table th{background:var(--root);}
+
+  .footer-note{margin-top:30px;text-align:center;font-size:12px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:10px;}
+
+  @media print{
+    body{background:#fff;}
+    .sheet{box-shadow:none;border:none;margin:0;max-width:100%;padding:14px 6px;}
+    details.corrige{border-color:#000;}
+  }
+  @page{size:A4;margin:14mm;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="masthead-text">
+      <h1>إعرابُ الأفعالِ الخمسةِ</h1>
+      <p class="subtitle">مادة اللغة العربية — القواعد (النحو)</p>
+    </div>
+    <svg class="balance-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="32" y1="6" x2="32" y2="46" stroke="#a1731f" stroke-width="2.5"/>
+      <line x1="10" y1="16" x2="54" y2="16" stroke="#20261f" stroke-width="2.5"/>
+      <path d="M10 16 L4 30 A9 9 0 0 0 16 30 Z" stroke="#2f6a5d" stroke-width="2" fill="none"/>
+      <path d="M54 16 L48 30 A9 9 0 0 0 60 30 Z" stroke="#2f6a5d" stroke-width="2" fill="none"/>
+      <circle cx="32" cy="14" r="3" fill="#a1731f"/>
+      <line x1="20" y1="52" x2="44" y2="52" stroke="#20261f" stroke-width="3" stroke-linecap="round"/>
+      <line x1="32" y1="46" x2="32" y2="52" stroke="#20261f" stroke-width="2.5"/>
+    </svg>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta-chip">المستوى: <b>الخامسة ابتدائي (5AEP)</b></div>
+    <div class="meta-chip">المادة: <b>اللغة العربية — القواعد</b></div>
+    <div class="meta-chip">مدة الحصة: <b>ساعة واحدة</b></div>
+    <div class="meta-chip">نوع الوثيقة: <b>فيشة تعلّم ذاتي</b></div>
+  </div>
+
+  <!-- ===================== OBJECTIF ===================== -->
+  <section>
+    <h2 class="section-title">🎯 الهدف من الدرس</h2>
+    <div class="objectif-box">
+      يتمكّن المتعلم(ة) في نهاية هذا الدرس من: تعريف الأفعال الخمسة والتعرّف على صيغها الخمس، وتمييز حالات إعرابها الثلاث (الرفع بثبوت النون، والنصب والجزم بحذف النون)، وتوظيف ذلك في جمل صحيحة.
+    </div>
+  </section>
+
+  <!-- ===================== COURS ===================== -->
+  <section>
+    <h2 class="section-title">📘 الدرس</h2>
+
+    <h3 class="sub-title">1) تعريف الأفعال الخمسة</h3>
+    <div class="rule-box">
+      <p><b>الأفعال الخمسة</b> هي كل فعل مضارع اتّصل بآخره واحد من هذه الأحرف الثلاثة:</p>
+      <ul>
+        <li><b>ألف الاثنين</b> (تدل على شخصين): يلعبانِ، تلعبانِ</li>
+        <li><b>واو الجماعة</b> (تدل على جماعة الذكور): يلعبونَ، تلعبونَ</li>
+        <li><b>ياء المخاطبة</b> (تُخاطَب بها الأنثى المفردة): تلعبينَ</li>
+      </ul>
+    </div>
+
+    <h3 class="sub-title">2) الصيغ الخمس</h3>
+    <table class="data-table">
+      <tr><th>الضمير</th><th>الفعل (مثال: يلعب)</th><th>الحرف المتّصل</th></tr>
+      <tr><td>هما (مذكران)</td><td class="fiil-tag">يلعبانِ</td><td>ألف الاثنين</td></tr>
+      <tr><td>أنتما / هما (مؤنثتان)</td><td class="fiil-tag">تلعبانِ</td><td>ألف الاثنين</td></tr>
+      <tr><td>هم</td><td class="fiil-tag">يلعبونَ</td><td>واو الجماعة</td></tr>
+      <tr><td>أنتم</td><td class="fiil-tag">تلعبونَ</td><td>واو الجماعة</td></tr>
+      <tr><td>أنتِ</td><td class="fiil-tag">تلعبينَ</td><td>ياء المخاطبة</td></tr>
+    </table>
+
+    <h3 class="sub-title">3) إعراب الأفعال الخمسة</h3>
+    <div class="rule-box">
+      <p>تختلف الأفعال الخمسة عن باقي الأفعال المضارعة في علامة إعرابها:</p>
+    </div>
+    <div class="state-grid">
+      <div class="state-card rafaa">
+        <div class="head">حالة الرفع</div>
+        <p>تُرفع بـ<b>ثبوت النون</b> (تبقى النون ظاهرة في آخر الفعل).</p>
+        <p style="margin-top:6px;">مثال: الولدان <span class="noon-rafaa">يلعبانِ</span> بالكرة.</p>
+      </div>
+      <div class="state-card nasb">
+        <div class="head">حالتا النصب والجزم</div>
+        <p>تُنصب وتُجزم كلتاهما بـ<b>حذف النون</b> من آخر الفعل.</p>
+        <p style="margin-top:6px;">النصب: لن <span class="noon-hadhf">يلعبوا</span> اليوم.<br>الجزم: لم <span class="noon-hadhf">يلعبوا</span> أمس.</p>
+      </div>
+    </div>
+    <div class="legend">
+      <span><span class="swatch rafaa-sw"></span>النون ثابتة = مرفوع</span>
+      <span><span class="swatch nasb-sw"></span>النون محذوفة = منصوب أو مجزوم</span>
+    </div>
+
+    <h3 class="sub-title">4) أمثلة شاملة</h3>
+    <table class="data-table" style="text-align:right;">
+      <tr><th>الجملة</th><th>الفعل</th><th>الحالة الإعرابية</th></tr>
+      <tr><td>التلاميذُ يجتهدونَ في دروسهم.</td><td>يجتهدونَ</td><td>مرفوع بثبوت النون</td></tr>
+      <tr><td>يجب أن يجتهدوا أكثر.</td><td>يجتهدوا</td><td>منصوب بحذف النون</td></tr>
+      <tr><td>لم يجتهدوا أمس.</td><td>يجتهدوا</td><td>مجزوم بحذف النون</td></tr>
+      <tr><td>أنتِ تقرئينَ كتاباً جميلاً.</td><td>تقرئينَ</td><td>مرفوع بثبوت النون</td></tr>
+    </table>
+  </section>
+
+  <!-- ===================== ACTIVITE ===================== -->
+  <section>
+    <h2 class="section-title">✏️ نشاط تطبيقي</h2>
+    <div class="activity-box">
+      <span class="task-label">عمل جماعي مع الأستاذ(ة)</span>
+      <p>حدّد في كل جملة الفعل من الأفعال الخمسة، وبيّن حالته الإعرابية (مرفوع / منصوب / مجزوم) بالاعتماد على وجود النون أو حذفها. لاحظ المثال الأول المُنجَز:</p>
+      <table class="data-table" style="text-align:right;">
+        <tr><th>الجملة</th><th>الفعل</th><th>الحالة الإعرابية</th></tr>
+        <tr><td>الطالبان يذاكرانِ دروسهما.</td><td>يذاكرانِ</td><td>مرفوع بثبوت النون</td></tr>
+        <tr><td>لن يتأخروا عن الموعد.</td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+        <tr><td>لم تكتبي الواجب بعد.</td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+        <tr><td>الفلاحان يزرعانِ الحقل.</td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===================== EXERCICES ===================== -->
+  <section>
+    <h2 class="section-title">📝 تمارين للتدرّب</h2>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">1</span>ميّز الأفعال الخمسة من بين الأفعال التالية:</h4>
+      <p>
+        <span class="word-chip">يلعبانِ</span>
+        <span class="word-chip">يكتبُ</span>
+        <span class="word-chip">يذهبونَ</span>
+        <span class="word-chip">تسافرينَ</span>
+        <span class="word-chip">يجلسُ</span>
+        <span class="word-chip">تفهمانِ</span>
+      </p>
+      <table class="data-table">
+        <tr><th>أفعال خمسة</th><th>ليست من الأفعال الخمسة</th></tr>
+        <tr><td style="height:60px;"></td><td></td></tr>
+      </table>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">2</span>صنّف الأفعال الخمسة التالية حسب الحرف المتّصل بها (ألف الاثنين / واو الجماعة / ياء المخاطبة):</h4>
+      <p>
+        <span class="word-chip">يكتبانِ</span>
+        <span class="word-chip">يسافرونَ</span>
+        <span class="word-chip">تقرئينَ</span>
+        <span class="word-chip">تجتهدانِ</span>
+        <span class="word-chip">يلعبونَ</span>
+      </p>
+      <table class="data-table">
+        <tr><th>ألف الاثنين</th><th>واو الجماعة</th><th>ياء المخاطبة</th></tr>
+        <tr><td style="height:60px;"></td><td></td><td></td></tr>
+      </table>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">3</span>حدّد الفعل من الأفعال الخمسة في كل جملة، واذكر حالته الإعرابية:</h4>
+      <p>1) الولدان يلعبانِ بالكرة. <span class="fill-line" style="min-width:60%;"></span></p>
+      <p>2) لن يلعبا غداً. <span class="fill-line" style="min-width:60%;"></span></p>
+      <p>3) لم يفهموا الدرسَ. <span class="fill-line" style="min-width:60%;"></span></p>
+      <p>4) أنتِ تجتهدينَ كثيراً. <span class="fill-line" style="min-width:60%;"></span></p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">4</span>اختر الإجابة الصحيحة:</h4>
+      <div class="qcm-item">
+        <p>1) الأفعال الخمسة هي كل فعل مضارع اتصل بـ:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>تاء التأنيث</span><span><span class="checkbox"></span>ألف الاثنين أو واو الجماعة أو ياء المخاطبة</span><span><span class="checkbox"></span>نون النسوة</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>2) تُرفع الأفعال الخمسة بـ:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>الضمة</span><span><span class="checkbox"></span>ثبوت النون</span><span><span class="checkbox"></span>السكون</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>3) تُنصب الأفعال الخمسة بـ:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>الفتحة</span><span><span class="checkbox"></span>حذف النون</span><span><span class="checkbox"></span>ثبوت النون</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>4) الفعل "يكتبونَ" من الأفعال الخمسة لاتصاله بـ:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>ألف الاثنين</span><span><span class="checkbox"></span>واو الجماعة</span><span><span class="checkbox"></span>ياء المخاطبة</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>5) في جملة "لم يلعبا"، الفعل "يلعبا" حالته الإعرابية:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>مرفوع</span><span><span class="checkbox"></span>منصوب</span><span><span class="checkbox"></span>مجزوم</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">5</span>أكمل كل جملة بالفعل بين القوسين مضبوطاً حسب الحالة الإعرابية المطلوبة:</h4>
+      <p>1) الولدان <span style="color:var(--root);">(يذهب)</span> .......... إلى المدرسة كل يوم. <i>(مرفوع)</i></p>
+      <p>2) يجب أن <span style="color:var(--root);">(يجتهد)</span> .......... التلاميذُ. <i>(منصوب)</i></p>
+      <p>3) لم <span style="color:var(--root);">(يفهم)</span> .......... الطالبان الدرسَ. <i>(مجزوم)</i></p>
+      <p>4) أنتِ <span style="color:var(--root);">(يكتب)</span> .......... رسالةً جميلةً. <i>(مرفوع)</i></p>
+    </div>
+  </section>
+
+  <!-- ===================== CORRIGE ===================== -->
+  <div class="corrige-wrapper">
+    <p class="corrige-flag">✂ يمكن طي هذه الصفحة أو إخفاؤها (اضغط على العنوان أدناه) قبل إنجاز التمارين ✂</p>
+    <details class="corrige">
+      <summary>التصحيح الكامل</summary>
+
+      <h4>تصحيح النشاط التطبيقي</h4>
+      <table class="data-table" style="text-align:right;">
+        <tr><th>الجملة</th><th>الفعل</th><th>الحالة الإعرابية</th></tr>
+        <tr><td>لن يتأخروا عن الموعد.</td><td>يتأخروا</td><td>منصوب بحذف النون</td></tr>
+        <tr><td>لم تكتبي الواجب بعد.</td><td>تكتبي</td><td>مجزوم بحذف النون</td></tr>
+        <tr><td>الفلاحان يزرعانِ الحقل.</td><td>يزرعانِ</td><td>مرفوع بثبوت النون</td></tr>
+      </table>
+
+      <h4>تصحيح التمرين 1 (التمييز)</h4>
+      <div class="corrige-item"><b>أفعال خمسة:</b> يلعبانِ، يذهبونَ، تسافرينَ، تفهمانِ</div>
+      <div class="corrige-item"><b>ليست من الأفعال الخمسة:</b> يكتبُ، يجلسُ</div>
+
+      <h4>تصحيح التمرين 2 (التصنيف)</h4>
+      <div class="corrige-item"><b>ألف الاثنين:</b> يكتبانِ، تجتهدانِ</div>
+      <div class="corrige-item"><b>واو الجماعة:</b> يسافرونَ، يلعبونَ</div>
+      <div class="corrige-item"><b>ياء المخاطبة:</b> تقرئينَ</div>
+
+      <h4>تصحيح التمرين 3 (الإعراب في الجمل)</h4>
+      <div class="corrige-item">1) يلعبانِ: مرفوع بثبوت النون.</div>
+      <div class="corrige-item">2) يلعبا: منصوب بحذف النون.</div>
+      <div class="corrige-item">3) يفهموا: مجزوم بحذف النون.</div>
+      <div class="corrige-item">4) تجتهدينَ: مرفوع بثبوت النون.</div>
+
+      <h4>تصحيح التمرين 4 (الاختيار من متعدد)</h4>
+      <div class="corrige-item">1) ألف الاثنين أو واو الجماعة أو ياء المخاطبة &nbsp;|&nbsp; 2) ثبوت النون &nbsp;|&nbsp; 3) حذف النون &nbsp;|&nbsp; 4) واو الجماعة &nbsp;|&nbsp; 5) مجزوم</div>
+
+      <h4>تصحيح التمرين 5 (الإكمال)</h4>
+      <div class="corrige-item">1) يذهبانِ &nbsp;|&nbsp; 2) يجتهدوا &nbsp;|&nbsp; 3) يفهما &nbsp;|&nbsp; 4) تكتبينَ</div>
+    </details>
+  </div>
+
+  <p class="footer-note">فيشة تعلّم ذاتي — اللغة العربية — الخامسة ابتدائي — إعراب الأفعال الخمسة</p>
+</div>
+</body>
+</html>

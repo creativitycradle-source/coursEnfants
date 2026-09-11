@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>الأعداد الصحيحة الطبيعية - مجموع وجداء وفرق</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1c2b3a; --ink-soft:#4d5f70;
+    --paper:#f7f9fb; --panel:#ffffff; --line:#c9d6e0;
+    --blue:#2f5f8a; --blue-soft:#e2ecf3;
+    --orange:#e07b39; --orange-soft:#fbe8d8;
+    --green:#3a8f6b; --green-soft:#e1f2ea;
+    --rose:#b1553f; --rose-soft:#f7e3dc;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#dde6ec;color:var(--ink);font-family:'Noto Naskh Arabic','Amiri',serif;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .sheet{
+    max-width:880px;margin:24px auto;background:
+      repeating-linear-gradient(0deg, transparent 0 27px, rgba(47,95,138,.06) 27px 28px),
+      repeating-linear-gradient(90deg, transparent 0 27px, rgba(47,95,138,.06) 27px 28px),
+      var(--paper);
+    padding:38px 44px 50px;border:1px solid var(--line);box-shadow:0 4px 24px rgba(0,0,0,.12);
+  }
+
+  .masthead{display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:3px solid var(--ink);padding-bottom:16px;margin-bottom:22px;}
+  .masthead-text h1{font-family:'Amiri',serif;font-weight:700;font-size:25px;margin:0 0 6px;color:var(--blue);line-height:1.35;}
+  .masthead-text .subtitle{font-size:15px;color:var(--ink-soft);margin:0;}
+  .op-icon{width:60px;height:60px;flex-shrink:0;}
+
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+  .meta-chip{border:1px solid var(--line);background:var(--panel);border-radius:3px;padding:6px 12px;font-size:13.5px;color:var(--ink-soft);}
+  .meta-chip b{color:var(--ink);font-weight:600;}
+
+  section{margin-bottom:28px;}
+  h2.section-title{font-family:'Amiri',serif;font-size:21px;font-weight:700;color:var(--blue);border-bottom:2px solid var(--blue);padding-bottom:6px;margin:0 0 14px;display:flex;align-items:baseline;gap:8px;}
+  h3.sub-title{font-size:17px;font-weight:700;color:var(--orange);margin:20px 0 8px;}
+  p{line-height:2;font-size:15.5px;margin:0 0 10px;}
+
+  .objectif-box{background:var(--orange-soft);border-right:4px solid var(--orange);padding:14px 18px;border-radius:2px;font-size:15.5px;line-height:1.9;}
+
+  .rule-box{background:var(--panel);border:1px solid var(--line);border-right:4px solid var(--blue);padding:14px 18px;border-radius:2px;margin:10px 0 16px;}
+  .rule-box p:last-child{margin-bottom:0;}
+  .rule-box ul,.rule-box ol{margin:6px 0;padding-inline-start:22px;}
+  .rule-box li{margin-bottom:6px;line-height:1.85;}
+
+  .op-card{border-radius:8px;padding:14px 18px;margin:10px 0 16px;}
+  .op-card.plus{background:var(--green-soft);border:1px solid var(--green);}
+  .op-card.minus{background:var(--rose-soft);border:1px solid var(--rose);}
+  .op-card.times{background:var(--blue-soft);border:1px solid var(--blue);}
+  .op-card .head{font-weight:700;font-size:16px;margin-bottom:4px;}
+  .op-card.plus .head{color:var(--green);}
+  .op-card.minus .head{color:var(--rose);}
+  .op-card.times .head{color:var(--blue);}
+
+  .column-op{font-family:'Amiri',serif;font-size:20px;text-align:left;direction:ltr;background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:10px 18px;display:inline-block;margin:8px 10px 8px 0;line-height:1.6;}
+  .column-op .line{border-top:2px solid var(--ink);margin-top:2px;padding-top:2px;}
+
+  table.data-table{width:100%;border-collapse:collapse;margin:8px 0 18px;font-size:15px;}
+  table.data-table th{background:var(--blue);color:#fff;padding:8px 10px;font-weight:600;font-size:14px;}
+  table.data-table td{border:1px solid var(--line);padding:9px 10px;background:var(--panel);text-align:center;}
+  table.data-table tr:nth-child(even) td{background:#eef3f7;}
+
+  .activity-box{background:var(--panel);border:1.5px solid var(--orange);border-radius:3px;padding:16px 20px;}
+  .activity-box .task-label{display:inline-block;background:var(--orange);color:#fff;font-size:12.5px;padding:3px 10px;border-radius:2px;margin-bottom:8px;}
+
+  .exercise{border:1px solid var(--line);border-radius:3px;padding:16px 20px;margin-bottom:16px;background:var(--panel);}
+  .exercise-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:var(--ink);color:var(--paper);border-radius:50%;font-size:14px;font-weight:700;margin-inline-end:8px;}
+  .exercise h4{margin:0 0 10px;font-size:16.5px;display:flex;align-items:center;}
+  .fill-line{border-bottom:1px dotted var(--ink-soft);display:inline-block;min-width:120px;height:1.6em;}
+  .op-grid{display:flex;flex-wrap:wrap;gap:14px;}
+  .qcm-item{margin-bottom:10px;}
+  .qcm-item p{margin-bottom:4px;font-weight:600;}
+  .qcm-options{display:flex;flex-wrap:wrap;gap:14px;font-size:14.5px;}
+  .qcm-options span{display:flex;align-items:center;gap:5px;}
+  .checkbox{width:13px;height:13px;border:1.4px solid var(--ink-soft);display:inline-block;border-radius:2px;}
+  .scenario-box{background:#eef3f7;border:1px solid var(--line);padding:12px 16px;font-size:15.5px;line-height:2.1;margin-bottom:10px;}
+
+  .corrige-wrapper{page-break-before:always;padding-top:6px;}
+  .corrige-flag{text-align:center;font-size:13px;color:var(--ink-soft);margin-bottom:10px;border-top:1px dashed var(--ink-soft);padding-top:14px;}
+  details.corrige{border:2px dashed var(--green);border-radius:4px;background:#f7fcfa;padding:6px 20px 18px;}
+  details.corrige > summary{cursor:pointer;font-family:'Amiri',serif;font-weight:700;font-size:19px;color:var(--green);padding:14px 0;list-style:none;}
+  details.corrige > summary::-webkit-details-marker{display:none;}
+  details.corrige > summary::before{content:"✂ ";}
+  details.corrige > summary::after{content:"— اضغط لإظهار الحل / إخفائه";font-family:'Noto Naskh Arabic',serif;font-weight:400;font-size:13px;color:var(--ink-soft);margin-inline-start:8px;}
+  .corrige h4{color:var(--green);margin:16px 0 8px;font-size:16px;}
+  .corrige-item{margin-bottom:8px;font-size:15px;line-height:1.9;}
+  .corrige table.data-table th{background:var(--green);}
+
+  .footer-note{margin-top:30px;text-align:center;font-size:12px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:10px;}
+
+  @media print{
+    body{background:#fff;}
+    .sheet{box-shadow:none;border:none;margin:0;max-width:100%;padding:14px 6px;background:var(--paper);}
+    details.corrige{border-color:#000;}
+  }
+  @page{size:A4;margin:14mm;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="masthead-text">
+      <h1>الأعدادُ الصحيحةُ الطبيعيةُ: مجموعٌ وجداءٌ وفرقٌ</h1>
+      <p class="subtitle">الرياضيات — الأعداد والحساب</p>
+    </div>
+    <svg class="op-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="10" y1="16" x2="22" y2="16" stroke="#3a8f6b" stroke-width="3"/><line x1="16" y1="10" x2="16" y2="22" stroke="#3a8f6b" stroke-width="3"/>
+      <line x1="28" y1="32" x2="40" y2="32" stroke="#b1553f" stroke-width="3"/>
+      <line x1="44" y1="10" x2="54" y2="20" stroke="#2f5f8a" stroke-width="3"/><line x1="54" y1="10" x2="44" y2="20" stroke="#2f5f8a" stroke-width="3"/>
+      <circle cx="16" cy="48" r="3" fill="#1c2b3a"/><circle cx="30" cy="48" r="3" fill="#1c2b3a"/><circle cx="44" cy="48" r="3" fill="#1c2b3a"/>
+    </svg>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta-chip">المستوى: <b>الخامسة ابتدائي (5AEP)</b></div>
+    <div class="meta-chip">المادة: <b>الرياضيات — الأعداد والحساب</b></div>
+    <div class="meta-chip">مدة الحصة: <b>ساعة واحدة</b></div>
+    <div class="meta-chip">نوع الوثيقة: <b>فيشة تعلّم ذاتي</b></div>
+  </div>
+
+  <!-- ===================== OBJECTIF ===================== -->
+  <section>
+    <h2 class="section-title">🎯 الهدف من الدرس</h2>
+    <div class="objectif-box">
+      يتمكّن المتعلم(ة) في نهاية هذا الدرس من: إجراء عمليات الجمع والطرح والضرب على الأعداد الصحيحة الطبيعية بالعمود، وتوظيف خصائص هذه العمليات (الإبدال والتجميع والتوزيع)، وحل مسائل تطبيقية تدمج العمليات الثلاث.
+    </div>
+  </section>
+
+  <!-- ===================== COURS ===================== -->
+  <section>
+    <h2 class="section-title">📘 الدرس</h2>
+
+    <h3 class="sub-title">1) الجمع (المجموع)</h3>
+    <div class="op-card plus">
+      <div class="head">➕ الجمع</div>
+      <p>يُسمى كل عدد نجمعه <b>حدّاً</b>، والنتيجة تسمى <b>المجموع</b>. للجمع خاصيتان مهمتان:</p>
+      <ul>
+        <li><b>خاصية الإبدال:</b> يمكن تبديل ترتيب الحدود دون أن يتغيّر المجموع: a + b = b + a</li>
+        <li><b>خاصية التجميع:</b> يمكن تجميع الحدود بطرق مختلفة دون أن يتغيّر المجموع: (a+b)+c = a+(b+c)</li>
+      </ul>
+    </div>
+    <p>لجمع عددين كبيرين، نستعمل <b>الجمع بالعمود</b>: نرتّب الأعداد منزلةً بمنزلة (آحاد تحت آحاد، عشرات تحت عشرات...)، ونجمع من اليمين إلى اليسار، ونحتفظ بالزائد إن وُجد.</p>
+    <div class="column-op">
+      &nbsp;&nbsp;4568<br>
+      +2754<br>
+      <span class="line">7322</span>
+    </div>
+
+    <h3 class="sub-title">2) الطرح (الفرق)</h3>
+    <div class="op-card minus">
+      <div class="head">➖ الطرح</div>
+      <p>في عملية الطرح، يُسمى العدد الأول <b>المطروح منه</b>، والعدد الثاني <b>المطروح</b>، والنتيجة تسمى <b>الفرق</b>. لإجراء الطرح، يجب أن يكون المطروح منه <b>أكبر من أو يساوي</b> المطروح.</p>
+    </div>
+    <p>نستعمل <b>الطرح بالعمود</b>: نرتّب العددين منزلةً بمنزلة، ونطرح من اليمين إلى اليسار، ونستعير (نستلف) من المنزلة التالية عند الحاجة.</p>
+    <div class="column-op">
+      &nbsp;&nbsp;8342<br>
+      −5675<br>
+      <span class="line">2667</span>
+    </div>
+
+    <h3 class="sub-title">3) الضرب (الجداء)</h3>
+    <div class="op-card times">
+      <div class="head">✖️ الضرب</div>
+      <p>يُسمى كل عدد نضربه <b>عاملاً</b>، والنتيجة تسمى <b>الجداء</b>. للضرب ثلاث خصائص مهمة:</p>
+      <ul>
+        <li><b>خاصية الإبدال:</b> a × b = b × a</li>
+        <li><b>خاصية التجميع:</b> (a×b)×c = a×(b×c)</li>
+        <li><b>خاصية التوزيع</b> (توزيع الضرب على الجمع): a×(b+c) = (a×b)+(a×c)</li>
+      </ul>
+    </div>
+    <p>نستعمل <b>الضرب بالعمود</b>: نضرب العامل الأول في كل رقم من أرقام العامل الثاني بدءاً من الآحاد، ثم نجمع النتائج الجزئية.</p>
+    <div class="column-op">
+      &nbsp;&nbsp;234<br>
+      &nbsp;&nbsp;×6<br>
+      <span class="line">1404</span>
+    </div>
+
+    <h3 class="sub-title">4) جدول تلخيصي للمصطلحات والخصائص</h3>
+    <table class="data-table" style="text-align:right;">
+      <tr><th>العملية</th><th>المصطلحات</th><th>الخصائص</th></tr>
+      <tr><td>الجمع</td><td>حدّان → مجموع</td><td>الإبدال، التجميع</td></tr>
+      <tr><td>الطرح</td><td>مطروح منه ومطروح → فرق</td><td>يشترط: المطروح منه ≥ المطروح</td></tr>
+      <tr><td>الضرب</td><td>عاملان → جداء</td><td>الإبدال، التجميع، التوزيع على الجمع</td></tr>
+    </table>
+  </section>
+
+  <!-- ===================== ACTIVITE ===================== -->
+  <section>
+    <h2 class="section-title">✏️ نشاط تطبيقي</h2>
+    <div class="activity-box">
+      <span class="task-label">مسألة من الحياة اليومية</span>
+      <p>اشترت أسرة 3 كراسي بثمن 150 درهماً للكرسي الواحد، وطاولةً واحدة بثمن 420 درهماً.</p>
+      <p>1) احسب ثمن الكراسي الثلاثة (عملية ضرب): <span class="fill-line" style="min-width:200px;"></span></p>
+      <p>2) احسب المجموع الكلي للمشتريات (عملية جمع): <span class="fill-line" style="min-width:200px;"></span></p>
+      <p>3) إذا دفعت الأسرة بورقة نقدية من 1000 درهم، فكم سيتبقى لها؟ (عملية طرح): <span class="fill-line" style="min-width:200px;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== EXERCICES ===================== -->
+  <section>
+    <h2 class="section-title">📝 تمارين للتدرّب</h2>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">1</span>احسب المجاميع التالية بالعمود:</h4>
+      <div class="op-grid">
+        <div>4568 + 2754 = <span class="fill-line"></span></div>
+        <div>12456 + 8675 = <span class="fill-line"></span></div>
+        <div>35908 + 47386 = <span class="fill-line"></span></div>
+        <div>156 + 2897 = <span class="fill-line"></span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">2</span>احسب الفروق التالية بالعمود:</h4>
+      <div class="op-grid">
+        <div>8342 − 5675 = <span class="fill-line"></span></div>
+        <div>15000 − 6458 = <span class="fill-line"></span></div>
+        <div>40203 − 18456 = <span class="fill-line"></span></div>
+        <div>7002 − 3985 = <span class="fill-line"></span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">3</span>احسب الجداءات التالية:</h4>
+      <div class="op-grid">
+        <div>234 × 6 = <span class="fill-line"></span></div>
+        <div>47 × 23 = <span class="fill-line"></span></div>
+        <div>156 × 34 = <span class="fill-line"></span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">4</span>اختر الإجابة الصحيحة:</h4>
+      <div class="qcm-item">
+        <p>1) خاصية الإبدال في الجمع تعني:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>a+b = b+a</span><span><span class="checkbox"></span>a+b = b−a</span><span><span class="checkbox"></span>لا خاصية لها</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>2) لإجراء عملية الطرح a − b يجب أن يكون:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>a أكبر من أو يساوي b</span><span><span class="checkbox"></span>a أصغر من b</span><span><span class="checkbox"></span>لا شرط لذلك</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>3) حاصل ضرب أي عدد في الصفر يساوي:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>العدد نفسه</span><span><span class="checkbox"></span>صفر</span><span><span class="checkbox"></span>واحد</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>4) في العلاقة 3×(4+5) = 3×4 + 3×5، هذه الخاصية تسمى:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>التوزيع</span><span><span class="checkbox"></span>الإبدال</span><span><span class="checkbox"></span>التجميع</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>5) ناتج عملية الطرح يسمى:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>مجموعاً</span><span><span class="checkbox"></span>فرقاً</span><span><span class="checkbox"></span>جداءً</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">5</span>مسألة تطبيقية:</h4>
+      <div class="scenario-box">
+        يملك فلاح 45 صندوقاً من التفاح، في كل صندوق 24 كيلوغراماً. باع منها 500 كيلوغرام في السوق.
+      </div>
+      <p>1) احسب الكتلة الكلية للتفاح (عملية ضرب).</p>
+      <p><span class="fill-line" style="min-width:60%;"></span></p>
+      <p>2) احسب الكمية المتبقية بعد البيع (عملية طرح).</p>
+      <p><span class="fill-line" style="min-width:60%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== CORRIGE ===================== -->
+  <div class="corrige-wrapper">
+    <p class="corrige-flag">✂ يمكن طي هذه الصفحة أو إخفاؤها (اضغط على العنوان أدناه) قبل إنجاز التمارين ✂</p>
+    <details class="corrige">
+      <summary>التصحيح الكامل</summary>
+
+      <h4>تصحيح النشاط التطبيقي</h4>
+      <div class="corrige-item">1) ثمن الكراسي = 150 × 3 = 450 درهماً</div>
+      <div class="corrige-item">2) المجموع الكلي = 450 + 420 = 870 درهماً</div>
+      <div class="corrige-item">3) الباقي = 1000 − 870 = 130 درهماً</div>
+
+      <h4>تصحيح التمرين 1 (الجمع)</h4>
+      <div class="corrige-item">4568+2754=7322 &nbsp;|&nbsp; 12456+8675=21131 &nbsp;|&nbsp; 35908+47386=83294 &nbsp;|&nbsp; 156+2897=3053</div>
+
+      <h4>تصحيح التمرين 2 (الطرح)</h4>
+      <div class="corrige-item">8342−5675=2667 &nbsp;|&nbsp; 15000−6458=8542 &nbsp;|&nbsp; 40203−18456=21747 &nbsp;|&nbsp; 7002−3985=3017</div>
+
+      <h4>تصحيح التمرين 3 (الضرب)</h4>
+      <div class="corrige-item">234×6=1404 &nbsp;|&nbsp; 47×23=1081 &nbsp;|&nbsp; 156×34=5304</div>
+
+      <h4>تصحيح التمرين 4 (الاختيار من متعدد)</h4>
+      <div class="corrige-item">1) a+b=b+a &nbsp;|&nbsp; 2) a أكبر من أو يساوي b &nbsp;|&nbsp; 3) صفر &nbsp;|&nbsp; 4) التوزيع &nbsp;|&nbsp; 5) فرقاً</div>
+
+      <h4>تصحيح التمرين 5 (المسألة التطبيقية)</h4>
+      <div class="corrige-item">1) الكتلة الكلية = 45 × 24 = 1080 كيلوغراماً</div>
+      <div class="corrige-item">2) الكمية المتبقية = 1080 − 500 = 580 كيلوغراماً</div>
+    </details>
+  </div>
+
+  <p class="footer-note">فيشة تعلّم ذاتي — الرياضيات — الخامسة ابتدائي — الأعداد الصحيحة الطبيعية: مجموع وجداء وفرق</p>
+</div>
+</body>
+</html>

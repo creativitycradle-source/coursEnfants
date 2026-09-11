@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>التمييز الملفوظ والملحوظ - المستثنى بإلا</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#241f33; --ink-soft:#54506a;
+    --paper:#faf8f5; --panel:#ffffff; --line:#ddd4e6;
+    --indigo:#4b3f8f; --indigo-soft:#e9e5f7;
+    --rose:#b1553f; --rose-soft:#f7e3dc;
+    --gold:#af8a2e; --gold-soft:#f4ecd2;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#e8e3ee;font-family:'Noto Naskh Arabic','Amiri',serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .sheet{max-width:880px;margin:24px auto;background:var(--paper);padding:38px 44px 50px;border:1px solid var(--line);box-shadow:0 4px 24px rgba(0,0,0,.12);}
+
+  .masthead{display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:3px solid var(--ink);padding-bottom:16px;margin-bottom:22px;}
+  .masthead-text h1{font-family:'Amiri',serif;font-weight:700;font-size:26px;margin:0 0 6px;color:var(--indigo);line-height:1.35;}
+  .masthead-text .subtitle{font-size:15px;color:var(--ink-soft);margin:0;}
+  .link-icon{width:58px;height:58px;flex-shrink:0;}
+
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+  .meta-chip{border:1px solid var(--line);background:var(--panel);border-radius:3px;padding:6px 12px;font-size:13.5px;color:var(--ink-soft);}
+  .meta-chip b{color:var(--ink);font-weight:600;}
+
+  section{margin-bottom:28px;}
+  h2.section-title{font-family:'Amiri',serif;font-size:21px;font-weight:700;color:var(--indigo);border-bottom:2px solid var(--indigo);padding-bottom:6px;margin:0 0 14px;display:flex;align-items:baseline;gap:8px;}
+  h3.sub-title{font-size:17px;font-weight:700;color:var(--rose);margin:20px 0 8px;}
+  p{line-height:2;font-size:15.5px;margin:0 0 10px;}
+
+  .objectif-box{background:var(--gold-soft);border-right:4px solid var(--gold);padding:14px 18px;border-radius:2px;font-size:15.5px;line-height:1.9;}
+
+  .rule-box{background:var(--panel);border:1px solid var(--line);border-right:4px solid var(--indigo);padding:14px 18px;border-radius:2px;margin:10px 0 16px;}
+  .rule-box p:last-child{margin-bottom:0;}
+  .rule-box ul,.rule-box ol{margin:6px 0;padding-inline-start:22px;}
+  .rule-box li{margin-bottom:6px;line-height:1.85;}
+
+  .type-grid{display:flex;flex-wrap:wrap;gap:16px;margin:10px 0 16px;}
+  .type-card{flex:1 1 260px;border-radius:8px;padding:14px 16px;}
+  .type-card.malfoudh{background:var(--indigo-soft);border:1px solid var(--indigo);}
+  .type-card.malhoudh{background:var(--rose-soft);border:1px solid var(--rose);}
+  .type-card .head{font-weight:700;font-size:16px;margin-bottom:6px;}
+  .type-card.malfoudh .head{color:var(--indigo);}
+  .type-card.malhoudh .head{color:var(--rose);}
+  .type-card p{margin:0;font-size:14.5px;line-height:1.85;}
+
+  table.data-table{width:100%;border-collapse:collapse;margin:8px 0 18px;font-size:15px;}
+  table.data-table th{background:var(--indigo);color:#fff;padding:8px 10px;font-weight:600;font-size:14px;}
+  table.data-table td{border:1px solid var(--line);padding:9px 10px;background:var(--panel);text-align:center;}
+  table.data-table tr:nth-child(even) td{background:#f2effa;}
+  .tag{font-weight:700;color:var(--rose);}
+
+  .case-grid{display:flex;flex-wrap:wrap;gap:14px;margin:10px 0 16px;}
+  .case-card{flex:1 1 250px;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:12px 16px;}
+  .case-card .head{font-weight:700;color:var(--indigo);font-size:15px;margin-bottom:4px;}
+  .case-card p{margin:2px 0 0;font-size:14px;color:var(--ink-soft);line-height:1.85;}
+
+  .activity-box{background:var(--panel);border:1.5px solid var(--gold);border-radius:3px;padding:16px 20px;}
+  .activity-box .task-label{display:inline-block;background:var(--gold);color:#fff;font-size:12.5px;padding:3px 10px;border-radius:2px;margin-bottom:8px;}
+
+  .exercise{border:1px solid var(--line);border-radius:3px;padding:16px 20px;margin-bottom:16px;background:var(--panel);}
+  .exercise-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:var(--ink);color:var(--paper);border-radius:50%;font-size:14px;font-weight:700;margin-inline-end:8px;}
+  .exercise h4{margin:0 0 10px;font-size:16.5px;display:flex;align-items:center;}
+  .fill-line{border-bottom:1px dotted var(--ink-soft);display:inline-block;min-width:110px;height:1.6em;}
+  .qcm-item{margin-bottom:10px;}
+  .qcm-item p{margin-bottom:4px;font-weight:600;}
+  .qcm-options{display:flex;flex-wrap:wrap;gap:14px;font-size:14.5px;}
+  .qcm-options span{display:flex;align-items:center;gap:5px;}
+  .checkbox{width:13px;height:13px;border:1.4px solid var(--ink-soft);display:inline-block;border-radius:2px;}
+
+  .corrige-wrapper{page-break-before:always;padding-top:6px;}
+  .corrige-flag{text-align:center;font-size:13px;color:var(--ink-soft);margin-bottom:10px;border-top:1px dashed var(--ink-soft);padding-top:14px;}
+  details.corrige{border:2px dashed var(--rose);border-radius:4px;background:#fdf7f5;padding:6px 20px 18px;}
+  details.corrige > summary{cursor:pointer;font-family:'Amiri',serif;font-weight:700;font-size:19px;color:var(--rose);padding:14px 0;list-style:none;}
+  details.corrige > summary::-webkit-details-marker{display:none;}
+  details.corrige > summary::before{content:"✂ ";}
+  details.corrige > summary::after{content:"— اضغط لإظهار الحل / إخفائه";font-family:'Noto Naskh Arabic',serif;font-weight:400;font-size:13px;color:var(--ink-soft);margin-inline-start:8px;}
+  .corrige h4{color:var(--rose);margin:16px 0 8px;font-size:16px;}
+  .corrige-item{margin-bottom:8px;font-size:15px;line-height:1.9;}
+  .corrige table.data-table th{background:var(--rose);}
+
+  .footer-note{margin-top:30px;text-align:center;font-size:12px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:10px;}
+
+  @media print{
+    body{background:#fff;}
+    .sheet{box-shadow:none;border:none;margin:0;max-width:100%;padding:14px 6px;}
+    details.corrige{border-color:#000;}
+  }
+  @page{size:A4;margin:14mm;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="masthead-text">
+      <h1>التمييزُ الملفوظُ والملحوظُ — المستثنى بإلّا</h1>
+      <p class="subtitle">مادة اللغة العربية — القواعد (النحو)</p>
+    </div>
+    <svg class="link-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="6" y="26" width="22" height="14" rx="7" fill="none" stroke="#4b3f8f" stroke-width="3"/>
+      <rect x="36" y="26" width="22" height="14" rx="7" fill="none" stroke="#b1553f" stroke-width="3"/>
+      <line x1="24" y1="33" x2="40" y2="33" stroke="#af8a2e" stroke-width="3"/>
+    </svg>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta-chip">المستوى: <b>الخامسة ابتدائي (5AEP)</b></div>
+    <div class="meta-chip">المادة: <b>اللغة العربية — القواعد</b></div>
+    <div class="meta-chip">مدة الحصة: <b>ساعة واحدة</b></div>
+    <div class="meta-chip">نوع الوثيقة: <b>فيشة تعلّم ذاتي</b></div>
+  </div>
+
+  <!-- ===================== OBJECTIF ===================== -->
+  <section>
+    <h2 class="section-title">🎯 الهدف من الدرس</h2>
+    <div class="objectif-box">
+      يتمكّن المتعلم(ة) في نهاية هذا الدرس من: التمييز بين التمييز الملفوظ والتمييز الملحوظ في جمل معطاة، والتعرّف على المستثنى بـ"إلّا" وتحديد حالاته الإعرابية الثلاث، وتوظيف ذلك في جمل من إنشائه.
+    </div>
+  </section>
+
+  <!-- ===================== COURS ===================== -->
+  <section>
+    <h2 class="section-title">📘 الدرس</h2>
+
+    <h3 class="sub-title">القسم الأول: التمييز الملفوظ والملحوظ</h3>
+    <div class="rule-box">
+      <p><b>التمييز</b> اسم نكرة منصوب يأتي لتوضيح وإزالة الغموض عن كلام سابق مبهم (عدد، مقياس، أو مقارنة).</p>
+    </div>
+    <div class="type-grid">
+      <div class="type-card malfoudh">
+        <div class="head">التمييز الملفوظ</div>
+        <p>يأتي بعد <b>عدد</b> أو <b>مقياس</b> (وزن، كيل، مساحة) مذكور صراحةً في الجملة.</p>
+        <p style="margin-top:6px;">أمثلة: اشتريتُ عشرين <span class="tag">كتاباً</span>. — عندي كيلوغرامٌ <span class="tag">عسلاً</span>. — اشتريتُ متراً <span class="tag">قماشاً</span>.</p>
+      </div>
+      <div class="type-card malhoudh">
+        <div class="head">التمييز الملحوظ</div>
+        <p>يوضح <b>مقارنة أو تفضيلاً</b> بين شيئين، ولا يُذكر بعد عدد أو مقياس، بل يُفهم من معنى الجملة (يُلاحَظ).</p>
+        <p style="margin-top:6px;">أمثلة: محمدٌ أكثر <span class="tag">نشاطاً</span> من أخيه. — الزهرةُ أجملُ <span class="tag">رائحةً</span>.</p>
+      </div>
+    </div>
+    <table class="data-table">
+      <tr><th>النوع</th><th>يأتي بعد</th><th>مثال</th></tr>
+      <tr><td>ملفوظ</td><td>عدد أو مقياس مذكور</td><td>عندي ثلاثون <span class="tag">تلميذاً</span></td></tr>
+      <tr><td>ملحوظ</td><td>مقارنة أو تفضيل مفهوم من السياق</td><td>أخي أطولُ <span class="tag">قامةً</span> مني</td></tr>
+    </table>
+
+    <h3 class="sub-title">القسم الثاني: المستثنى بـ"إلّا"</h3>
+    <div class="rule-box">
+      <p><b>الاستثناء</b> هو إخراج اسم (يسمى <b>المستثنى</b>) من حكم اسم آخر سبقه (يسمى <b>المستثنى منه</b>) بواسطة أداة استثناء، أشهرها <b>إلّا</b>.</p>
+    </div>
+    <div class="case-grid">
+      <div class="case-card">
+        <div class="head">1) كلام تامّ مثبت</div>
+        <p>يُذكر المستثنى منه، ولا يسبق الكلام نفي. المستثنى هنا <b>واجب النصب</b>.</p>
+        <p style="margin-top:6px;">مثال: حضر التلاميذُ إلّا <span class="tag">تلميذاً</span>.</p>
+      </div>
+      <div class="case-card">
+        <div class="head">2) كلام تامّ منفي</div>
+        <p>يُذكر المستثنى منه، ويسبق الكلام نفي. يجوز نصب المستثنى، أو إتباعه (كبدل) لإعراب المستثنى منه.</p>
+        <p style="margin-top:6px;">مثال: ما حضر التلاميذُ إلّا <span class="tag">تلميذاً</span> / إلّا <span class="tag">تلميذٌ</span>.</p>
+      </div>
+      <div class="case-card">
+        <div class="head">3) كلام ناقص منفي</div>
+        <p>لا يُذكر المستثنى منه، فيُعرب المستثنى حسب موقعه في الجملة (كأنّ "إلّا" لا وجود لها).</p>
+        <p style="margin-top:6px;">مثال: ما حضر إلّا <span class="tag">تلميذٌ</span>. (فاعل مرفوع)</p>
+      </div>
+    </div>
+
+    <h3 class="sub-title">جدول تلخيصي</h3>
+    <table class="data-table" style="text-align:right;">
+      <tr><th>حالة الكلام</th><th>حكم المستثنى</th><th>مثال</th></tr>
+      <tr><td>تامّ مثبت</td><td>واجب النصب</td><td>نجح التلاميذُ إلّا خالداً</td></tr>
+      <tr><td>تامّ منفي</td><td>جائز النصب أو الإتباع (بدل)</td><td>ما نجح التلاميذُ إلّا خالداً/خالدٌ</td></tr>
+      <tr><td>ناقص منفي</td><td>يُعرب حسب موقعه في الجملة</td><td>ما نجح إلّا خالدٌ (فاعل)</td></tr>
+    </table>
+  </section>
+
+  <!-- ===================== ACTIVITE ===================== -->
+  <section>
+    <h2 class="section-title">✏️ نشاط تطبيقي</h2>
+    <div class="activity-box">
+      <span class="task-label">عمل جماعي مع الأستاذ(ة)</span>
+      <p>حدّد نوع التمييز أو حالة المستثنى في كل جملة من الجمل التالية:</p>
+      <table class="data-table" style="text-align:right;">
+        <tr><th>الجملة</th><th>التحليل</th></tr>
+        <tr><td>اشتريتُ خمسةَ أقلامٍ.</td><td>تمييز ملفوظ</td></tr>
+        <tr><td>سميرةُ أكثرُ ذكاءً من صديقاتها.</td><td><span class="fill-line"></span></td></tr>
+        <tr><td>حضر المعلمون إلّا معلماً.</td><td><span class="fill-line"></span></td></tr>
+        <tr><td>ما جاء إلّا خالدٌ.</td><td><span class="fill-line"></span></td></tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===================== EXERCICES ===================== -->
+  <section>
+    <h2 class="section-title">📝 تمارين للتدرّب</h2>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">1</span>حدّد نوع التمييز في كل جملة (ملفوظ / ملحوظ):</h4>
+      <p>1) اشتريتُ عشرين كتاباً. <span class="fill-line"></span></p>
+      <p>2) الحديقةُ أجملُ منظراً. <span class="fill-line"></span></p>
+      <p>3) عندي كيلوغرامٌ عسلاً. <span class="fill-line"></span></p>
+      <p>4) أخي أكثرُ ذكاءً مني. <span class="fill-line"></span></p>
+      <p>5) اشتريتُ متراً قماشاً. <span class="fill-line"></span></p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">2</span>أعرب المستثنى في كل جملة، وبيّن حالة الكلام (تامّ مثبت / تامّ منفي / ناقص منفي):</h4>
+      <p>1) حضر الطلابُ إلّا طالباً. <span class="fill-line" style="min-width:60%;"></span></p>
+      <p>2) ما حضر الطلابُ إلّا طالبٌ. <span class="fill-line" style="min-width:60%;"></span></p>
+      <p>3) ما حضر إلّا طالبٌ. <span class="fill-line" style="min-width:60%;"></span></p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">3</span>أكمل كل جملة بتمييز مناسب من النوع المطلوب بين قوسين:</h4>
+      <p>1) عندي خمسةُ .......... <i>(تمييز ملفوظ)</i></p>
+      <p>2) سعيدٌ أكثرُ .......... من صديقه. <i>(تمييز ملحوظ)</i></p>
+      <p>3) اشترى أبي عشرَ .......... <i>(تمييز ملفوظ)</i></p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">4</span>اختر الإجابة الصحيحة:</h4>
+      <div class="qcm-item">
+        <p>1) التمييز الذي يأتي بعد عدد أو مقياس يسمى:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>ملفوظاً</span><span><span class="checkbox"></span>ملحوظاً</span><span><span class="checkbox"></span>منصوباً فقط</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>2) "أخي أطولُ قامةً مني" التمييز فيها:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>ملفوظ</span><span><span class="checkbox"></span>ملحوظ</span><span><span class="checkbox"></span>ليس تمييزاً</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>3) حكم المستثنى في الكلام التامّ المثبت:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>واجب النصب</span><span><span class="checkbox"></span>جائز النصب أو البدل</span><span><span class="checkbox"></span>يُعرب حسب موقعه</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>4) في جملة "ما حضر إلّا خالدٌ" فإن "خالد" يُعرب:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>مستثنى منصوباً</span><span><span class="checkbox"></span>فاعلاً مرفوعاً</span><span><span class="checkbox"></span>مفعولاً به</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>5) أداة الاستثناء الأكثر شيوعاً هي:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>إلّا</span><span><span class="checkbox"></span>لكن</span><span><span class="checkbox"></span>غير</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">5</span>أكمل كل جملة بالمستثنى المناسب:</h4>
+      <p>1) نجح التلاميذُ إلّا .......... <i>(انصب المستثنى)</i></p>
+      <p>2) ما نجح إلّا .......... <i>(أعربه حسب موقعه في الجملة)</i></p>
+      <p>3) ما نجح التلاميذُ إلّا .......... <i>(النصب أو الإتباع جائزان)</i></p>
+    </div>
+  </section>
+
+  <!-- ===================== CORRIGE ===================== -->
+  <div class="corrige-wrapper">
+    <p class="corrige-flag">✂ يمكن طي هذه الصفحة أو إخفاؤها (اضغط على العنوان أدناه) قبل إنجاز التمارين ✂</p>
+    <details class="corrige">
+      <summary>التصحيح الكامل</summary>
+
+      <h4>تصحيح النشاط التطبيقي</h4>
+      <div class="corrige-item">سميرةُ أكثرُ ذكاءً... ← تمييز ملحوظ</div>
+      <div class="corrige-item">حضر المعلمون إلّا معلماً ← مستثنى واجب النصب (كلام تامّ مثبت)</div>
+      <div class="corrige-item">ما جاء إلّا خالدٌ ← فاعل مرفوع (كلام ناقص منفي)</div>
+
+      <h4>تصحيح التمرين 1 (نوع التمييز)</h4>
+      <div class="corrige-item">1) ملفوظ &nbsp;|&nbsp; 2) ملحوظ &nbsp;|&nbsp; 3) ملفوظ &nbsp;|&nbsp; 4) ملحوظ &nbsp;|&nbsp; 5) ملفوظ</div>
+
+      <h4>تصحيح التمرين 2 (إعراب المستثنى)</h4>
+      <div class="corrige-item">1) طالباً: مستثنى منصوب وجوباً (كلام تامّ مثبت).</div>
+      <div class="corrige-item">2) طالبٌ: بدل مرفوع تبعاً للمستثنى منه (أو يجوز طالباً منصوباً) — كلام تامّ منفي.</div>
+      <div class="corrige-item">3) طالبٌ: فاعل مرفوع (كلام ناقص منفي).</div>
+
+      <h4>تصحيح التمرين 3 (الإكمال - نموذج)</h4>
+      <div class="corrige-item">1) عندي خمسةُ <b>كتبٍ</b>. (تمييز ملفوظ)</div>
+      <div class="corrige-item">2) سعيدٌ أكثرُ <b>اجتهاداً</b> من صديقه. (تمييز ملحوظ)</div>
+      <div class="corrige-item">3) اشترى أبي عشرَ <b>دجاجاتٍ</b>. (تمييز ملفوظ)</div>
+      <p style="font-size:13.5px;color:var(--ink-soft);">(أمثلة للاسترشاد، ويُقبل كل جواب سليم يطابق النوع المطلوب)</p>
+
+      <h4>تصحيح التمرين 4 (الاختيار من متعدد)</h4>
+      <div class="corrige-item">1) ملفوظاً &nbsp;|&nbsp; 2) ملحوظ &nbsp;|&nbsp; 3) واجب النصب &nbsp;|&nbsp; 4) فاعلاً مرفوعاً &nbsp;|&nbsp; 5) إلّا</div>
+
+      <h4>تصحيح التمرين 5 (إكمال بالمستثنى)</h4>
+      <div class="corrige-item">1) نجح التلاميذُ إلّا <b>تلميذاً</b>.</div>
+      <div class="corrige-item">2) ما نجح إلّا <b>تلميذٌ</b>. (فاعل مرفوع)</div>
+      <div class="corrige-item">3) ما نجح التلاميذُ إلّا <b>تلميذٌ</b> (بدل) أو <b>تلميذاً</b> (نصب على الاستثناء) — كلاهما صحيح.</div>
+    </details>
+  </div>
+
+  <p class="footer-note">فيشة تعلّم ذاتي — اللغة العربية — الخامسة ابتدائي — التمييز الملفوظ والملحوظ - المستثنى بإلّا</p>
+</div>
+</body>
+</html>

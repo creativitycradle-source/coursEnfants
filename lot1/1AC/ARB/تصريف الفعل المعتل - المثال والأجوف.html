@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>تصريف الفعل المعتل: المثال والأجوف</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#20261f; --ink-soft:#4a4238;
+    --paper:#faf8f1; --panel:#ffffff; --line:#d8d0bd;
+    --gold:#a1731f; --gold-soft:#f1e6c9;
+    --teal:#2f6a5d; --teal-soft:#e5efe9;
+    --root:#a83a2c; --root-soft:#fbe7e2;
+    --purple:#5b4b8a; --purple-soft:#ece7f5;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#e9e4d6;font-family:'Noto Naskh Arabic','Amiri',serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .sheet{max-width:880px;margin:24px auto;background:var(--paper);padding:38px 44px 50px;border:1px solid var(--line);box-shadow:0 4px 24px rgba(0,0,0,.12);}
+
+  .masthead{display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:3px solid var(--ink);padding-bottom:16px;margin-bottom:22px;}
+  .masthead-text h1{font-family:'Amiri',serif;font-weight:700;font-size:27px;margin:0 0 6px;line-height:1.3;}
+  .masthead-text .subtitle{font-size:15px;color:var(--ink-soft);margin:0;}
+  .lesson-tag{display:inline-block;background:var(--purple);color:#fff;font-size:12px;padding:3px 12px;border-radius:12px;margin-bottom:6px;}
+  .balance-icon{width:60px;height:60px;flex-shrink:0;}
+
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+  .meta-chip{border:1px solid var(--line);background:var(--panel);border-radius:3px;padding:6px 12px;font-size:13.5px;color:var(--ink-soft);}
+  .meta-chip b{color:var(--ink);font-weight:600;}
+
+  section{margin-bottom:28px;}
+  h2.section-title{font-family:'Amiri',serif;font-size:21px;font-weight:700;color:var(--teal);border-bottom:2px solid var(--teal);padding-bottom:6px;margin:0 0 14px;display:flex;align-items:baseline;gap:8px;}
+  h3.sub-title{font-size:17px;font-weight:700;color:var(--gold);margin:20px 0 8px;}
+  p{line-height:2;font-size:15.5px;margin:0 0 10px;}
+
+  .objectif-box{background:var(--gold-soft);border-right:4px solid var(--gold);padding:14px 18px;border-radius:2px;font-size:15.5px;line-height:1.9;}
+
+  .rule-box{background:var(--panel);border:1px solid var(--line);border-right:4px solid var(--teal);padding:14px 18px;border-radius:2px;margin:10px 0 16px;}
+  .rule-box p:last-child{margin-bottom:0;}
+  .rule-box ul{margin:6px 0;padding-inline-start:22px;}
+  .rule-box li{margin-bottom:6px;line-height:1.85;}
+
+  .type-grid{display:flex;flex-wrap:wrap;gap:14px;margin:10px 0 16px;}
+  .type-card{flex:1 1 250px;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:12px 16px;}
+  .type-card .head{font-weight:700;font-size:15.5px;color:var(--teal);margin-bottom:4px;}
+  .type-card p{margin:2px 0 0;font-size:14px;color:var(--ink-soft);line-height:1.85;}
+
+  table.data-table{width:100%;border-collapse:collapse;margin:8px 0 18px;font-size:15px;}
+  table.data-table th{background:var(--teal);color:#fff;padding:8px 10px;font-weight:600;font-size:14px;}
+  table.data-table td{border:1px solid var(--line);padding:9px 10px;background:var(--panel);text-align:center;}
+  table.data-table tr:nth-child(even) td{background:#f4f1e7;}
+  .fiil-tag{font-family:'Amiri',serif;font-weight:700;color:var(--gold);font-size:16px;}
+  .fak-alif{color:var(--root);font-weight:700;}
+  .baqi{color:var(--teal);font-weight:700;}
+
+  .legend{display:flex;gap:22px;flex-wrap:wrap;font-size:13.5px;color:var(--ink-soft);margin:8px 0 14px;}
+  .legend span.swatch{display:inline-block;width:12px;height:12px;border-radius:2px;margin-inline-end:5px;vertical-align:-1px;}
+  .swatch.fak-sw{background:var(--root);}
+  .swatch.baqi-sw{background:var(--teal);}
+
+  .activity-box{background:var(--panel);border:1.5px solid var(--gold);border-radius:3px;padding:16px 20px;}
+  .activity-box .task-label{display:inline-block;background:var(--gold);color:#fff;font-size:12.5px;padding:3px 10px;border-radius:2px;margin-bottom:8px;}
+
+  .exercise{border:1px solid var(--line);border-radius:3px;padding:16px 20px;margin-bottom:16px;background:var(--panel);}
+  .exercise-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:var(--ink);color:var(--paper);border-radius:50%;font-size:14px;font-weight:700;margin-inline-end:8px;}
+  .exercise h4{margin:0 0 10px;font-size:16.5px;display:flex;align-items:center;}
+  .fill-line{border-bottom:1px dotted var(--ink-soft);display:inline-block;min-width:120px;height:1.6em;}
+  .word-chip{display:inline-block;background:var(--paper);border:1px solid var(--line);border-radius:3px;padding:3px 12px;margin:3px 4px;font-size:16px;}
+  .qcm-item{margin-bottom:10px;}
+  .qcm-item p{margin-bottom:4px;font-weight:600;}
+  .qcm-options{display:flex;flex-wrap:wrap;gap:14px;font-size:14.5px;}
+  .qcm-options span{display:flex;align-items:center;gap:5px;}
+  .checkbox{width:13px;height:13px;border:1.4px solid var(--ink-soft);display:inline-block;border-radius:2px;}
+
+  .corrige-wrapper{page-break-before:always;padding-top:6px;}
+  .corrige-flag{text-align:center;font-size:13px;color:var(--ink-soft);margin-bottom:10px;border-top:1px dashed var(--ink-soft);padding-top:14px;}
+  details.corrige{border:2px dashed var(--root);border-radius:4px;background:#fffaf8;padding:6px 20px 18px;}
+  details.corrige > summary{cursor:pointer;font-family:'Amiri',serif;font-weight:700;font-size:19px;color:var(--root);padding:14px 0;list-style:none;}
+  details.corrige > summary::-webkit-details-marker{display:none;}
+  details.corrige > summary::before{content:"✂ ";}
+  details.corrige > summary::after{content:"— اضغط لإظهار الحل / إخفائه";font-family:'Noto Naskh Arabic',serif;font-weight:400;font-size:13px;color:var(--ink-soft);margin-inline-start:8px;}
+  .corrige h4{color:var(--root);margin:16px 0 8px;font-size:16px;}
+  .corrige-item{margin-bottom:8px;font-size:15px;line-height:1.9;}
+  .corrige table.data-table th{background:var(--root);}
+
+  .footer-note{margin-top:30px;text-align:center;font-size:12px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:10px;}
+
+  @media print{
+    body{background:#fff;}
+    .sheet{box-shadow:none;border:none;margin:0;max-width:100%;padding:14px 6px;}
+    details.corrige{border-color:#000;}
+  }
+  @page{size:A4;margin:14mm;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="masthead-text">
+      <span class="lesson-tag">الدرس الرابع — سلسلة الصرف</span>
+      <h1>تصريفُ الفعلِ المعتلِّ: المثالُ والأجوفُ</h1>
+      <p class="subtitle">مادة اللغة العربية — قواعد الصرف</p>
+    </div>
+    <svg class="balance-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="32" y1="6" x2="32" y2="46" stroke="#a1731f" stroke-width="2.5"/>
+      <line x1="10" y1="16" x2="54" y2="16" stroke="#20261f" stroke-width="2.5"/>
+      <path d="M10 16 L4 30 A9 9 0 0 0 16 30 Z" stroke="#2f6a5d" stroke-width="2" fill="none"/>
+      <path d="M54 16 L48 30 A9 9 0 0 0 60 30 Z" stroke="#2f6a5d" stroke-width="2" fill="none"/>
+      <circle cx="32" cy="14" r="3" fill="#a1731f"/>
+      <line x1="20" y1="52" x2="44" y2="52" stroke="#20261f" stroke-width="3" stroke-linecap="round"/>
+      <line x1="32" y1="46" x2="32" y2="52" stroke="#20261f" stroke-width="2.5"/>
+    </svg>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta-chip">المستوى: <b>الأولى إعدادي (1AC)</b></div>
+    <div class="meta-chip">المادة: <b>اللغة العربية — الصرف والتحويل</b></div>
+    <div class="meta-chip">مدة الحصة: <b>ساعة واحدة</b></div>
+    <div class="meta-chip">نوع الوثيقة: <b>فيشة تعلّم ذاتي</b></div>
+  </div>
+
+  <!-- ===================== OBJECTIF ===================== -->
+  <section>
+    <h2 class="section-title">🎯 الهدف من الدرس</h2>
+    <div class="objectif-box">
+      يتمكّن المتعلم(ة) في نهاية هذا الدرس من: تعريف الفعل المعتل وتصنيفه، والتمييز بين الفعل المثال والفعل الأجوف، وتصريف كل نوع في الماضي مع مختلف الضمائر، وتطبيق قاعدة حذف ألف الفعل الأجوف عند الاقتضاء.
+    </div>
+  </section>
+
+  <!-- ===================== COURS ===================== -->
+  <section>
+    <h2 class="section-title">📘 الدرس</h2>
+
+    <h3 class="sub-title">1) تعريف الفعل المعتل</h3>
+    <div class="rule-box">
+      <p><b>الفعل المعتل</b> هو كل فعل كان أحد حروفه الأصلية حرف علة (و - ا - ي). ويُصنَّف حسب موقع حرف العلة إلى ثلاثة أنواع:</p>
+    </div>
+    <div class="type-grid">
+      <div class="type-card"><div class="head">1) المثال</div><p>حرف العلة في فائه (أول حرف). مثال: وَعَدَ، وَجَدَ، وَقَفَ.</p></div>
+      <div class="type-card"><div class="head">2) الأجوف</div><p>حرف العلة في عينه (وسطه)، ويظهر ألفاً. مثال: قالَ، باعَ، نامَ.</p></div>
+      <div class="type-card"><div class="head">3) الناقص</div><p>حرف العلة في لامه (آخره). مثال: دَعا، رَمى. (يُدرَس في درس مستقل)</p></div>
+    </div>
+    <p style="font-size:14px;color:var(--ink-soft);margin-top:-8px;">سنتناول في هذا الدرس النوعين الأول والثاني: <b>المثال</b> و<b>الأجوف</b>.</p>
+
+    <h3 class="sub-title">2) تصريف الفعل المثال</h3>
+    <div class="rule-box">
+      <p>الفعل المثال (مثل: وَعَدَ) يُصرَّف في الماضي <b>بشكل طبيعي دون أي تغيير</b> في حرف العلة (الواو أو الياء)، تماماً كالفعل الصحيح.</p>
+    </div>
+    <table class="data-table">
+      <tr><th>الضمير</th><th>أنا</th><th>أنتَ</th><th>هو</th><th>هي</th><th>نحن</th><th>هم</th></tr>
+      <tr><td>وَعَدَ</td><td class="fiil-tag">وَعَدْتُ</td><td class="fiil-tag">وَعَدْتَ</td><td class="fiil-tag">وَعَدَ</td><td class="fiil-tag">وَعَدَتْ</td><td class="fiil-tag">وَعَدْنا</td><td class="fiil-tag">وَعَدوا</td></tr>
+    </table>
+    <p style="font-size:14px;color:var(--ink-soft);margin-top:-8px;"><b>توسّع:</b> رغم عدم تأثّر الفعل المثال في الماضي، فإن حرف العلة (الواو) قد يُحذف في المضارع لبعض الأفعال المثال الواوية، مثل: وَعَدَ ← يَعِدُ (حُذفت الواو)، وَقَفَ ← يَقِفُ. هذا سيُدرَس بتفصيل أكبر عند دراسة تصريف المضارع.</p>
+
+    <h3 class="sub-title">3) تصريف الفعل الأجوف</h3>
+    <div class="rule-box">
+      <p>الفعل الأجوف عينه في الأصل حرف علة متحرك (واو أو ياء)، لكنه انقلب <b>ألفاً</b> في صيغة الماضي. مثال: <b>قالَ</b> أصله <b>قَوَلَ</b>، و<b>باعَ</b> أصله <b>بَيَعَ</b>.</p>
+      <p><b>القاعدة:</b> عندما يُسنَد الفعل الأجوف إلى <b>تاء الفاعل</b> (تُ، تَ، تِ...)، أو <b>نا الفاعلين</b>، أو <b>نون النسوة</b>، تُحذف الألف (عين الفعل) <span class="fak-alif">ويُعوَّض عنها بحركة قصيرة</span> تدل على أصلها: <b>ضمة</b> إن كان أصلها واواً، و<b>كسرة</b> إن كان أصلها ياءً. أما مع باقي الضمائر (هو، هي، هما، هم) فتبقى <span class="baqi">الألف كما هي</span>.</p>
+    </div>
+    <div class="legend">
+      <span><span class="swatch fak-sw"></span>الألف محذوفة (استُبدلت بحركة قصيرة)</span>
+      <span><span class="swatch baqi-sw"></span>الألف باقية</span>
+    </div>
+    <table class="data-table">
+      <tr><th>الضمير</th><th>أنا</th><th>أنتَ</th><th>أنتِ</th><th>هو</th><th>هي</th><th>هما (م)</th><th>نحن</th><th>هم</th><th>هنّ</th></tr>
+      <tr>
+        <td>قالَ (أصله واوي)</td>
+        <td class="fak-alif">قُلْتُ</td><td class="fak-alif">قُلْتَ</td><td class="fak-alif">قُلْتِ</td>
+        <td class="baqi">قالَ</td><td class="baqi">قالَتْ</td><td class="baqi">قالا</td>
+        <td class="fak-alif">قُلْنا</td><td class="baqi">قالوا</td><td class="fak-alif">قُلْنَ</td>
+      </tr>
+      <tr>
+        <td>باعَ (أصله يائي)</td>
+        <td class="fak-alif">بِعْتُ</td><td class="fak-alif">بِعْتَ</td><td class="fak-alif">بِعْتِ</td>
+        <td class="baqi">باعَ</td><td class="baqi">باعَتْ</td><td class="baqi">باعا</td>
+        <td class="fak-alif">بِعْنا</td><td class="baqi">باعوا</td><td class="fak-alif">بِعْنَ</td>
+      </tr>
+    </table>
+    <p style="font-size:14px;color:var(--ink-soft);margin-top:-8px;">لاحظ التشابه مع قاعدة فكّ الإدغام في الفعل المضعّف: نفس الضمائر (تاء الفاعل، نا، نون النسوة) هي التي تستوجب التغيير، بينما تبقى باقي الصيغ دون تغيير.</p>
+
+    <h3 class="sub-title">4) جدول تلخيصي</h3>
+    <table class="data-table" style="text-align:right;">
+      <tr><th>النوع</th><th>موقع حرف العلة</th><th>مثال</th><th>خاصية عند التصريف في الماضي</th></tr>
+      <tr><td>المثال</td><td>الفاء (أول حرف)</td><td>وَعَدَ، وَجَدَ</td><td>لا يطرأ عليه أي تغيير</td></tr>
+      <tr><td>الأجوف</td><td>العين (وسط الفعل)</td><td>قالَ، باعَ، نامَ</td><td>تُحذف الألف مع تاء الفاعل/نا/نون النسوة</td></tr>
+    </table>
+  </section>
+
+  <!-- ===================== ACTIVITE ===================== -->
+  <section>
+    <h2 class="section-title">✏️ نشاط تطبيقي</h2>
+    <div class="activity-box">
+      <span class="task-label">عمل جماعي مع الأستاذ(ة)</span>
+      <p>أكمل تصريف الفعل الأجوف <b>"نامَ"</b> (أصله نَوِمَ) مع الضمائر التالية، منتبهاً لقاعدة حذف الألف:</p>
+      <table class="data-table">
+        <tr><th>الضمير</th><th>الفعل المصرَّف</th></tr>
+        <tr><td>أنا</td><td class="fiil-tag">نِمْتُ</td></tr>
+        <tr><td>أنتِ</td><td><span class="fill-line"></span></td></tr>
+        <tr><td>هو</td><td><span class="fill-line"></span></td></tr>
+        <tr><td>نحن</td><td><span class="fill-line"></span></td></tr>
+        <tr><td>هم (واو الجماعة)</td><td><span class="fill-line"></span></td></tr>
+        <tr><td>هنّ</td><td><span class="fill-line"></span></td></tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===================== EXERCICES ===================== -->
+  <section>
+    <h2 class="section-title">📝 تمارين للتدرّب</h2>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">1</span>صنّف الأفعال التالية إلى (مثال / أجوف):</h4>
+      <p>
+        <span class="word-chip">وَعَدَ</span>
+        <span class="word-chip">قالَ</span>
+        <span class="word-chip">وَصَلَ</span>
+        <span class="word-chip">باعَ</span>
+        <span class="word-chip">وَجَدَ</span>
+        <span class="word-chip">نامَ</span>
+        <span class="word-chip">خافَ</span>
+        <span class="word-chip">وَقَفَ</span>
+      </p>
+      <table class="data-table">
+        <tr><th>مثال</th><th>أجوف</th></tr>
+        <tr><td style="height:60px;"></td><td></td></tr>
+      </table>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">2</span>صرِّف الفعل المثال "وَجَدَ" مع الضمائر الآتية:</h4>
+      <table class="data-table">
+        <tr><th>الضمير</th><th>الفعل المصرَّف</th></tr>
+        <tr><td>أنا</td><td><span class="fill-line" style="min-width:150px;"></span></td></tr>
+        <tr><td>أنتَ</td><td><span class="fill-line" style="min-width:150px;"></span></td></tr>
+        <tr><td>هي</td><td><span class="fill-line" style="min-width:150px;"></span></td></tr>
+        <tr><td>نحن</td><td><span class="fill-line" style="min-width:150px;"></span></td></tr>
+        <tr><td>هم</td><td><span class="fill-line" style="min-width:150px;"></span></td></tr>
+      </table>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">3</span>صرِّف الفعل الأجوف "خافَ" مع الضمائر التي تستوجب حذف الألف:</h4>
+      <table class="data-table">
+        <tr><th>الضمير</th><th>الفعل المصرَّف (بعد حذف الألف)</th></tr>
+        <tr><td>أنا</td><td><span class="fill-line" style="min-width:150px;"></span></td></tr>
+        <tr><td>أنتِ</td><td><span class="fill-line" style="min-width:150px;"></span></td></tr>
+        <tr><td>نحن</td><td><span class="fill-line" style="min-width:150px;"></span></td></tr>
+        <tr><td>هنّ</td><td><span class="fill-line" style="min-width:150px;"></span></td></tr>
+      </table>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">4</span>اختر الإجابة الصحيحة:</h4>
+      <div class="qcm-item">
+        <p>1) الفعل "وَصَلَ" يُصنَّف ضمن:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>المثال</span><span><span class="checkbox"></span>الأجوف</span><span><span class="checkbox"></span>الناقص</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>2) تُحذف ألف الفعل الأجوف عند اتصاله بـ:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>واو الجماعة</span><span><span class="checkbox"></span>تاء الفاعل</span><span><span class="checkbox"></span>ألف الاثنين</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>3) أصل الفعل "قالَ" هو:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>قَوَلَ</span><span><span class="checkbox"></span>قَيَلَ</span><span><span class="checkbox"></span>قَوَّلَ</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>4) الفعل "باعَ" مع ضمير "أنتم" يُصرَّف:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>بِعْتم</span><span><span class="checkbox"></span>باعتم</span><span><span class="checkbox"></span>بايعتم</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>5) الفعل المثال يتميّز بوجود حرف العلة في:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>أول الفعل</span><span><span class="checkbox"></span>وسط الفعل</span><span><span class="checkbox"></span>آخر الفعل</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">5</span>حدِّد إن كانت الجملة صحيحة أم خاطئة من حيث تصريف الفعل الأجوف، وصحِّح الخطأ:</h4>
+      <p>1) أنا قالتُ الحقيقةَ لصديقي. <span class="fill-line" style="min-width:60%;"></span></p>
+      <p>2) نحن بِعْنا البيتَ القديم. <span class="fill-line" style="min-width:60%;"></span></p>
+      <p>3) أنتِ نامتِ مبكراً أمس. <span class="fill-line" style="min-width:60%;"></span></p>
+      <p>4) هنّ خِفْنَ من الظلام. <span class="fill-line" style="min-width:60%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== CORRIGE ===================== -->
+  <div class="corrige-wrapper">
+    <p class="corrige-flag">✂ يمكن طي هذه الصفحة أو إخفاؤها (اضغط على العنوان أدناه) قبل إنجاز التمارين ✂</p>
+    <details class="corrige">
+      <summary>التصحيح الكامل</summary>
+
+      <h4>تصحيح النشاط التطبيقي (نامَ)</h4>
+      <table class="data-table">
+        <tr><th>الضمير</th><th>الفعل</th></tr>
+        <tr><td>أنتِ</td><td>نِمْتِ</td></tr>
+        <tr><td>هو</td><td>نامَ</td></tr>
+        <tr><td>نحن</td><td>نِمْنا</td></tr>
+        <tr><td>هم</td><td>ناموا</td></tr>
+        <tr><td>هنّ</td><td>نِمْنَ</td></tr>
+      </table>
+
+      <h4>تصحيح التمرين 1 (التصنيف)</h4>
+      <div class="corrige-item"><b>مثال:</b> وَعَدَ، وَصَلَ، وَجَدَ، وَقَفَ</div>
+      <div class="corrige-item"><b>أجوف:</b> قالَ، باعَ، نامَ، خافَ</div>
+
+      <h4>تصحيح التمرين 2 (تصريف وَجَدَ)</h4>
+      <div class="corrige-item">أنا: وَجَدْتُ &nbsp;|&nbsp; أنتَ: وَجَدْتَ &nbsp;|&nbsp; هي: وَجَدَتْ &nbsp;|&nbsp; نحن: وَجَدْنا &nbsp;|&nbsp; هم: وَجَدوا</div>
+
+      <h4>تصحيح التمرين 3 (تصريف خافَ)</h4>
+      <div class="corrige-item">أنا: خِفْتُ &nbsp;|&nbsp; أنتِ: خِفْتِ &nbsp;|&nbsp; نحن: خِفْنا &nbsp;|&nbsp; هنّ: خِفْنَ</div>
+
+      <h4>تصحيح التمرين 4 (الاختيار من متعدد)</h4>
+      <div class="corrige-item">1) المثال &nbsp;|&nbsp; 2) تاء الفاعل &nbsp;|&nbsp; 3) قَوَلَ &nbsp;|&nbsp; 4) بِعْتم &nbsp;|&nbsp; 5) أول الفعل</div>
+
+      <h4>تصحيح التمرين 5 (تصحيح الأخطاء)</h4>
+      <div class="corrige-item">1) خطأ: الصواب "أنا قُلْتُ الحقيقةَ لصديقي" (يجب حذف الألف مع تاء الفاعل).</div>
+      <div class="corrige-item">2) صحيح: "نحن بِعْنا البيتَ القديم" (حُذفت الألف مع نا الفاعلين).</div>
+      <div class="corrige-item">3) خطأ: الصواب "أنتِ نِمْتِ مبكراً أمس" (يجب حذف الألف مع تاء الفاعل).</div>
+      <div class="corrige-item">4) صحيح: "هنّ خِفْنَ من الظلام" (حُذفت الألف مع نون النسوة).</div>
+    </details>
+  </div>
+
+  <p class="footer-note">فيشة تعلّم ذاتي — اللغة العربية — الأولى إعدادي — تصريف الفعل المعتل</p>
+</div>
+</body>
+</html>

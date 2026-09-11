@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>التغذية عند الإنسان والحيوان والنباتات</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#20301f; --ink-soft:#4c5a48;
+    --paper:#f8faf4; --panel:#ffffff; --line:#d7e0cd;
+    --leaf:#3f7d3a; --leaf-soft:#e3f0df;
+    --sky:#2f7ea8; --sky-soft:#deeef6;
+    --amber:#c98a2e; --amber-soft:#f6e9d3;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#e4e9dc;font-family:'Noto Naskh Arabic','Amiri',serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .sheet{max-width:880px;margin:24px auto;background:var(--paper);padding:38px 44px 50px;border:1px solid var(--line);box-shadow:0 4px 24px rgba(0,0,0,.12);}
+
+  .masthead{display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:3px solid var(--ink);padding-bottom:16px;margin-bottom:22px;}
+  .masthead-text h1{font-family:'Amiri',serif;font-weight:700;font-size:25px;margin:0 0 6px;color:var(--leaf);line-height:1.35;}
+  .masthead-text .subtitle{font-size:15px;color:var(--ink-soft);margin:0;}
+  .leaf-icon{width:56px;height:56px;flex-shrink:0;}
+
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+  .meta-chip{border:1px solid var(--line);background:var(--panel);border-radius:3px;padding:6px 12px;font-size:13.5px;color:var(--ink-soft);}
+  .meta-chip b{color:var(--ink);font-weight:600;}
+
+  section{margin-bottom:28px;}
+  h2.section-title{font-family:'Amiri',serif;font-size:21px;font-weight:700;color:var(--sky);border-bottom:2px solid var(--sky);padding-bottom:6px;margin:0 0 14px;display:flex;align-items:baseline;gap:8px;}
+  h3.sub-title{font-size:17px;font-weight:700;color:var(--amber);margin:20px 0 8px;}
+  p{line-height:2;font-size:15.5px;margin:0 0 10px;}
+
+  .objectif-box{background:var(--sky-soft);border-right:4px solid var(--sky);padding:14px 18px;border-radius:2px;font-size:15.5px;line-height:1.9;}
+
+  .rule-box{background:var(--panel);border:1px solid var(--line);border-right:4px solid var(--leaf);padding:14px 18px;border-radius:2px;margin:10px 0 16px;}
+  .rule-box p:last-child{margin-bottom:0;}
+  .rule-box ul,.rule-box ol{margin:6px 0;padding-inline-start:22px;}
+  .rule-box li{margin-bottom:6px;line-height:1.85;}
+
+  .type-grid{display:flex;flex-wrap:wrap;gap:14px;margin:10px 0 16px;}
+  .type-card{flex:1 1 200px;border-radius:8px;padding:12px 16px;}
+  .type-card.hetero{background:var(--amber-soft);border:1px solid var(--amber);}
+  .type-card.auto{background:var(--leaf-soft);border:1px solid var(--leaf);}
+  .type-card .head{font-weight:700;font-size:15.5px;margin-bottom:4px;}
+  .type-card.hetero .head{color:var(--amber);}
+  .type-card.auto .head{color:var(--leaf);}
+  .type-card p{margin:0;font-size:14px;color:var(--ink-soft);line-height:1.85;}
+
+  .diet-grid{display:flex;flex-wrap:wrap;gap:12px;margin:10px 0 16px;}
+  .diet-card{flex:1 1 150px;text-align:center;border:1px solid var(--line);border-radius:8px;padding:10px;background:var(--panel);}
+  .diet-card .lbl{font-size:13px;font-weight:700;margin-top:4px;color:var(--ink);}
+
+  .photo-diagram{display:flex;justify-content:center;margin:14px 0;}
+
+  table.data-table{width:100%;border-collapse:collapse;margin:8px 0 18px;font-size:15px;}
+  table.data-table th{background:var(--sky);color:#fff;padding:8px 10px;font-weight:600;font-size:14px;}
+  table.data-table td{border:1px solid var(--line);padding:9px 10px;background:var(--panel);}
+  table.data-table tr:nth-child(even) td{background:#eef3e8;}
+
+  .activity-box{background:var(--panel);border:1.5px solid var(--amber);border-radius:3px;padding:16px 20px;}
+  .activity-box .task-label{display:inline-block;background:var(--amber);color:#fff;font-size:12.5px;padding:3px 10px;border-radius:2px;margin-bottom:8px;}
+
+  .exercise{border:1px solid var(--line);border-radius:3px;padding:16px 20px;margin-bottom:16px;background:var(--panel);}
+  .exercise-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:var(--ink);color:var(--paper);border-radius:50%;font-size:14px;font-weight:700;margin-inline-end:8px;}
+  .exercise h4{margin:0 0 10px;font-size:16.5px;display:flex;align-items:center;}
+  .fill-line{border-bottom:1px dotted var(--ink-soft);display:inline-block;min-width:120px;height:1.6em;}
+  .word-chip{display:inline-block;background:var(--paper);border:1px solid var(--line);border-radius:3px;padding:3px 12px;margin:3px 4px;font-size:16px;}
+  .qcm-item{margin-bottom:10px;}
+  .qcm-item p{margin-bottom:4px;font-weight:600;}
+  .qcm-options{display:flex;flex-wrap:wrap;gap:14px;font-size:14.5px;}
+  .qcm-options span{display:flex;align-items:center;gap:5px;}
+  .checkbox{width:13px;height:13px;border:1.4px solid var(--ink-soft);display:inline-block;border-radius:2px;}
+  .match-cols{display:flex;justify-content:space-between;gap:40px;margin-top:8px;}
+  .match-cols ul{list-style:none;padding:0;margin:0;}
+  .match-cols li{border:1px solid var(--line);background:var(--paper);padding:6px 14px;margin-bottom:10px;border-radius:3px;font-size:15px;}
+  .scenario-box{background:#eef3e8;border:1px solid var(--line);padding:12px 16px;font-size:15.5px;line-height:2.1;margin-bottom:10px;}
+
+  .corrige-wrapper{page-break-before:always;padding-top:6px;}
+  .corrige-flag{text-align:center;font-size:13px;color:var(--ink-soft);margin-bottom:10px;border-top:1px dashed var(--ink-soft);padding-top:14px;}
+  details.corrige{border:2px dashed var(--amber);border-radius:4px;background:#fdf8ee;padding:6px 20px 18px;}
+  details.corrige > summary{cursor:pointer;font-family:'Amiri',serif;font-weight:700;font-size:19px;color:var(--amber);padding:14px 0;list-style:none;}
+  details.corrige > summary::-webkit-details-marker{display:none;}
+  details.corrige > summary::before{content:"✂ ";}
+  details.corrige > summary::after{content:"— اضغط لإظهار الحل / إخفائه";font-family:'Noto Naskh Arabic',serif;font-weight:400;font-size:13px;color:var(--ink-soft);margin-inline-start:8px;}
+  .corrige h4{color:var(--amber);margin:16px 0 8px;font-size:16px;}
+  .corrige-item{margin-bottom:8px;font-size:15px;line-height:1.9;}
+  .corrige table.data-table th{background:var(--amber);}
+
+  .footer-note{margin-top:30px;text-align:center;font-size:12px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:10px;}
+
+  @media print{
+    body{background:#fff;}
+    .sheet{box-shadow:none;border:none;margin:0;max-width:100%;padding:14px 6px;}
+    details.corrige{border-color:#000;}
+  }
+  @page{size:A4;margin:14mm;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="masthead-text">
+      <h1>التغذيةُ عندَ الإنسانِ والحيوانِ والنباتاتِ</h1>
+      <p class="subtitle">علوم الحياة والأرض — عالم الأحياء</p>
+    </div>
+    <svg class="leaf-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M32 8c16 4 22 20 14 34C38 56 20 54 14 40 8 26 16 12 32 8z" fill="#3f7d3a" opacity="0.85"/>
+      <path d="M32 12c0 16 0 28 0 40" stroke="#e4e9dc" stroke-width="2"/>
+    </svg>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta-chip">المستوى: <b>الأولى إعدادي (1AC)</b></div>
+    <div class="meta-chip">المادة: <b>علوم الحياة والأرض (SVT)</b></div>
+    <div class="meta-chip">مدة الحصة: <b>ساعة إلى ساعة ونصف</b></div>
+    <div class="meta-chip">نوع الوثيقة: <b>فيشة تعلّم ذاتي</b></div>
+  </div>
+
+  <!-- ===================== OBJECTIF ===================== -->
+  <section>
+    <h2 class="section-title">🎯 الهدف من الدرس</h2>
+    <div class="objectif-box">
+      يتمكّن المتعلم(ة) في نهاية هذا الدرس من: تعريف التغذية، والتمييز بين التغذية الذاتية (عند النباتات) والتغذية غير الذاتية (عند الإنسان والحيوان)، وتحديد شروط ومدخلات ومخرجات عملية التركيب الضوئي، وتصنيف الحيوانات حسب نظامها الغذائي.
+    </div>
+  </section>
+
+  <!-- ===================== COURS ===================== -->
+  <section>
+    <h2 class="section-title">📘 الدرس</h2>
+
+    <h3 class="sub-title">1) مفهوم التغذية</h3>
+    <div class="rule-box">
+      <p><b>التغذية</b> هي مجموعة العمليات التي يحصل بها الكائن الحي على المواد الضرورية لنموه وحيويته وإنتاج الطاقة اللازمة لأداء وظائفه.</p>
+    </div>
+
+    <h3 class="sub-title">2) نمطا التغذية</h3>
+    <div class="type-grid">
+      <div class="type-card hetero">
+        <div class="head">التغذية غير الذاتية (عند الإنسان والحيوان)</div>
+        <p>يعتمد الإنسان والحيوان على مواد عضوية جاهزة (نباتات أو حيوانات أخرى) كمصدر لغذائهما، عبر <b>الجهاز الهضمي</b>: تناول الطعام، هضمه، امتصاص المغذيات، وإخراج الفضلات.</p>
+      </div>
+      <div class="type-card auto">
+        <div class="head">التغذية الذاتية (عند النباتات الخضراء)</div>
+        <p>تصنع النباتات الخضراء غذاءها بنفسها انطلاقاً من مواد بسيطة (ماء وثاني أكسيد الكربون) وبفضل ضوء الشمس، بواسطة عملية تُسمى <b>التركيب الضوئي</b>.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-title">3) تصنيف الحيوانات حسب نظامها الغذائي</h3>
+    <div class="diet-grid">
+      <div class="diet-card">🐰🐄🦌<div class="lbl">عاشبة (تتغذى على النباتات)</div></div>
+      <div class="diet-card">🦁🐺🦅<div class="lbl">آكلة لحوم (تتغذى على حيوانات)</div></div>
+      <div class="diet-card">🐻🐔👤<div class="lbl">آكلة كل شيء (نباتات وحيوانات)</div></div>
+    </div>
+
+    <h3 class="sub-title">4) التركيب الضوئي عند النبات</h3>
+    <div class="rule-box">
+      <p>تمتصّ النباتات الخضراء <b>الماء</b> عبر جذورها، وتمتصّ <b>ثاني أكسيد الكربون</b> من الهواء عبر أوراقها، وباستعمال <b>ضوء الشمس</b> كمصدر للطاقة، تُحوِّل هذه المواد إلى <b>مادة عضوية</b> (سكريات) تُغذّي النبات، وتُطرح <b>الأكسجين</b> إلى الهواء كناتج ثانوي.</p>
+    </div>
+    <div class="photo-diagram">
+      <svg width="360" height="180" viewBox="0 0 360 180" xmlns="http://www.w3.org/2000/svg">
+        <path d="M180 30c-28 6-40 30-30 55 8 20 30 25 30 25s22-5 30-25c10-25-2-49-30-55z" fill="#3f7d3a" opacity="0.85"/>
+        <line x1="180" y1="110" x2="180" y2="165" stroke="#8a5a34" stroke-width="4"/>
+        <path d="M170 165c-15 5-25 -5 -20 -12" stroke="#8a5a34" stroke-width="3" fill="none"/>
+        <path d="M190 165c15 5 25 -5 20 -12" stroke="#8a5a34" stroke-width="3" fill="none"/>
+        <circle cx="60" cy="30" r="18" fill="#e3b23c"/>
+        <line x1="60" y1="4" x2="60" y2="-4" stroke="#e3b23c" stroke-width="2"/>
+        <text x="60" y="60" text-anchor="middle" font-size="11" font-family="Noto Naskh Arabic, serif" fill="#8a6a1e">ضوء الشمس</text>
+        <path d="M75 40 L150 65" stroke="#e3b23c" stroke-width="2" marker-end="url(#pa1)"/>
+        <text x="50" y="120" text-anchor="middle" font-size="11" font-family="Noto Naskh Arabic, serif" fill="#2f7ea8">ثاني أكسيد الكربون</text>
+        <path d="M80 110 L155 95" stroke="#2f7ea8" stroke-width="2" marker-end="url(#pa2)"/>
+        <text x="180" y="185" text-anchor="middle" font-size="11" font-family="Noto Naskh Arabic, serif" fill="#2f7ea8">الماء (من الجذور)</text>
+        <text x="300" y="60" text-anchor="middle" font-size="11" font-family="Noto Naskh Arabic, serif" fill="#3f7d3a">أكسجين (يُطرح)</text>
+        <path d="M245 65 L290 55" stroke="#3f7d3a" stroke-width="2" marker-end="url(#pa3)"/>
+        <text x="300" y="110" text-anchor="middle" font-size="11" font-family="Noto Naskh Arabic, serif" fill="#8a6a1e">مادة عضوية (غذاء)</text>
+        <path d="M225 95 L285 105" stroke="#8a6a1e" stroke-width="2" marker-end="url(#pa4)"/>
+        <defs>
+          <marker id="pa1" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#e3b23c"/></marker>
+          <marker id="pa2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2f7ea8"/></marker>
+          <marker id="pa3" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#3f7d3a"/></marker>
+          <marker id="pa4" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#8a6a1e"/></marker>
+        </defs>
+      </svg>
+    </div>
+
+    <h3 class="sub-title">5) جدول مقارن</h3>
+    <table class="data-table">
+      <tr><th>المعيار</th><th>الإنسان والحيوان</th><th>النبات الأخضر</th></tr>
+      <tr><td>نوع التغذية</td><td>غير ذاتية</td><td>ذاتية</td></tr>
+      <tr><td>مصدر الغذاء</td><td>مواد عضوية جاهزة (نباتات/حيوانات)</td><td>يصنعه بنفسه (ماء + CO₂ + ضوء)</td></tr>
+      <tr><td>الجهاز/الوسيلة المسؤولة</td><td>الجهاز الهضمي</td><td>الأوراق والجذور</td></tr>
+    </table>
+
+    <h3 class="sub-title">6) أهمية التغذية السليمة</h3>
+    <div class="rule-box">
+      <p>تحتاج جميع الكائنات الحية (بغضّ النظر عن نمط تغذيتها) إلى تغذية سليمة ومتوازنة لضمان نموها الطبيعي، وحيويتها، ومقاومتها للأمراض.</p>
+    </div>
+  </section>
+
+  <!-- ===================== ACTIVITE ===================== -->
+  <section>
+    <h2 class="section-title">🔬 نشاط تطبيقي</h2>
+    <div class="activity-box">
+      <span class="task-label">تجربة أهمية الضوء للنبات</span>
+      <p>وُضع نبات "أ" في مكان مضاء بضوء الشمس، ووُضع نبات "ب" مطابق له تماماً في الظلام التام، وذلك لمدة أسبوع كامل مع سقي منتظم لكليهما.</p>
+      <p>النتيجة: نما النبات "أ" بشكل جيد واحتفظ بلونه الأخضر، بينما ذبل النبات "ب" وبدأ يصفرّ تدريجياً.</p>
+      <p>1) فسّر هذه النتيجة بالاعتماد على معطيات الدرس.</p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+      <p>2) ما هو العامل الذي أثبتت هذه التجربة أهميته لعملية التركيب الضوئي؟</p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== EXERCICES ===================== -->
+  <section>
+    <h2 class="section-title">📝 تمارين للتدرّب</h2>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">1</span>صنّف الحيوانات التالية حسب نظامها الغذائي (عاشبة / آكلة لحوم / آكلة كل شيء):</h4>
+      <p>
+        <span class="word-chip">الأرنب</span>
+        <span class="word-chip">الأسد</span>
+        <span class="word-chip">الإنسان</span>
+        <span class="word-chip">البقرة</span>
+        <span class="word-chip">الذئب</span>
+        <span class="word-chip">الدجاجة</span>
+        <span class="word-chip">الغزال</span>
+        <span class="word-chip">الدب</span>
+      </p>
+      <table class="data-table">
+        <tr><th>عاشبة</th><th>آكلة لحوم</th><th>آكلة كل شيء</th></tr>
+        <tr><td style="height:60px;"></td><td></td><td></td></tr>
+      </table>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">2</span>أكمل الجدول التالي بمدخلات ومخرجات عملية التركيب الضوئي:</h4>
+      <table class="data-table">
+        <tr><th>المدخلات (ما يأخذه النبات)</th><th>المخرجات (ما ينتجه النبات)</th></tr>
+        <tr>
+          <td>
+            الماء (من ..........)<br>
+            .......... (من الهواء عبر الأوراق)<br>
+            .......... (كمصدر للطاقة)
+          </td>
+          <td>
+            .......... (يُطرح إلى الهواء)<br>
+            .......... (تغذية النبات)
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">3</span>اختر الإجابة الصحيحة:</h4>
+      <div class="qcm-item">
+        <p>1) التغذية الذاتية هي:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>تغذية الكائن بصنع غذائه بنفسه</span><span><span class="checkbox"></span>تغذية الكائن بأكل كائنات أخرى</span><span><span class="checkbox"></span>تغذية الكائن بدون ماء</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>2) تُصنَّف النباتات الخضراء ضمن الكائنات:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>ذاتية التغذية</span><span><span class="checkbox"></span>غير ذاتية التغذية</span><span><span class="checkbox"></span>لا تتغذى</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>3) تحتاج عملية التركيب الضوئي بشكل أساسي إلى:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>الماء وثاني أكسيد الكربون وضوء الشمس</span><span><span class="checkbox"></span>الماء فقط</span><span><span class="checkbox"></span>الهواء فقط</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>4) من نواتج التركيب الضوئي:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>الأكسجين والمادة العضوية</span><span><span class="checkbox"></span>ثاني أكسيد الكربون فقط</span><span><span class="checkbox"></span>الماء فقط</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>5) الحيوان الذي يتغذى على النباتات فقط يُسمّى:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>عاشباً</span><span><span class="checkbox"></span>آكل لحوم</span><span><span class="checkbox"></span>آكل كل شيء</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">4</span>صل كل نوع تغذية بالكائن المناسب له:</h4>
+      <div class="match-cols">
+        <ul>
+          <li>أ) التغذية الذاتية</li>
+          <li>ب) التغذية غير الذاتية</li>
+        </ul>
+        <ul>
+          <li>1) الإنسان والحيوان</li>
+          <li>2) النبات الأخضر</li>
+        </ul>
+      </div>
+      <p style="margin-top:10px;">الإجابة: أ - .......... &nbsp; ب - ..........</p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">5</span>وضعية-مشكلة:</h4>
+      <div class="scenario-box">
+        يحتاج الإنسان إلى تناول الطعام عدة مرات يومياً، بينما لا يحتاج النبات الأخضر إلى تناول أي طعام جاهز رغم أنه كائن حي أيضاً.
+      </div>
+      <p>فسّر هذا الاختلاف بالاعتماد على نمط التغذية عند كل من الإنسان والنبات.</p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== CORRIGE ===================== -->
+  <div class="corrige-wrapper">
+    <p class="corrige-flag">✂ يمكن طي هذه الصفحة أو إخفاؤها (اضغط على العنوان أدناه) قبل إنجاز التمارين ✂</p>
+    <details class="corrige">
+      <summary>التصحيح الكامل</summary>
+
+      <h4>تصحيح النشاط التطبيقي</h4>
+      <div class="corrige-item">1) نما النبات "أ" جيداً لأنه استفاد من ضوء الشمس اللازم لعملية التركيب الضوئي، فتمكّن من صنع غذائه العضوي بشكل طبيعي. أما النبات "ب" فلم يحصل على الضوء، فلم يتمكن من إجراء التركيب الضوئي، وبالتالي لم يصنع غذاءه، مما أدّى إلى ذبوله واصفراره.</div>
+      <div class="corrige-item">2) أثبتت هذه التجربة أهمية <b>ضوء الشمس</b> كعامل أساسي وضروري لإتمام عملية التركيب الضوئي عند النبات.</div>
+
+      <h4>تصحيح التمرين 1 (التصنيف)</h4>
+      <div class="corrige-item"><b>عاشبة:</b> الأرنب، البقرة، الغزال</div>
+      <div class="corrige-item"><b>آكلة لحوم:</b> الأسد، الذئب</div>
+      <div class="corrige-item"><b>آكلة كل شيء:</b> الإنسان، الدجاجة، الدب</div>
+
+      <h4>تصحيح التمرين 2 (مدخلات ومخرجات التركيب الضوئي)</h4>
+      <table class="data-table">
+        <tr><th>المدخلات</th><th>المخرجات</th></tr>
+        <tr><td>الماء (من الجذور)<br>ثاني أكسيد الكربون (من الهواء)<br>ضوء الشمس (الطاقة)</td><td>الأكسجين (يُطرح)<br>المادة العضوية (تغذية النبات)</td></tr>
+      </table>
+
+      <h4>تصحيح التمرين 3 (الاختيار من متعدد)</h4>
+      <div class="corrige-item">1) تغذية الكائن بصنع غذائه بنفسه &nbsp;|&nbsp; 2) ذاتية التغذية &nbsp;|&nbsp; 3) الماء وثاني أكسيد الكربون وضوء الشمس &nbsp;|&nbsp; 4) الأكسجين والمادة العضوية &nbsp;|&nbsp; 5) عاشباً</div>
+
+      <h4>تصحيح التمرين 4 (الربط)</h4>
+      <div class="corrige-item">أ - 2 (التغذية الذاتية ← النبات الأخضر) &nbsp;|&nbsp; ب - 1 (التغذية غير الذاتية ← الإنسان والحيوان)</div>
+
+      <h4>تصحيح التمرين 5 (وضعية-مشكلة)</h4>
+      <div class="corrige-item">يحتاج الإنسان لتناول الطعام لأنه كائن غير ذاتي التغذية، أي لا يستطيع صنع غذائه بنفسه، فيعتمد على مواد عضوية جاهزة من النباتات أو الحيوانات. أما النبات الأخضر فهو ذاتي التغذية، إذ يصنع غذاءه بنفسه انطلاقاً من الماء وثاني أكسيد الكربون وضوء الشمس عبر عملية التركيب الضوئي، لذلك لا يحتاج إلى تناول طعام جاهز.</div>
+    </details>
+  </div>
+
+  <p class="footer-note">فيشة تعلّم ذاتي — علوم الحياة والأرض — الأولى إعدادي — التغذية عند الإنسان والحيوان والنباتات</p>
+</div>
+</body>
+</html>

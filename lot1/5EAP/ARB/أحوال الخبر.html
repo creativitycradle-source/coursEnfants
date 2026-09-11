@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>أحوال الخبر</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#241f33; --ink-soft:#54506a;
+    --paper:#faf8f5; --panel:#ffffff; --line:#ddd4e6;
+    --indigo:#4b3f8f; --indigo-soft:#e9e5f7;
+    --rose:#b1553f; --rose-soft:#f7e3dc;
+    --gold:#af8a2e; --gold-soft:#f4ecd2;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#e8e3ee;font-family:'Noto Naskh Arabic','Amiri',serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .sheet{max-width:880px;margin:24px auto;background:var(--paper);padding:38px 44px 50px;border:1px solid var(--line);box-shadow:0 4px 24px rgba(0,0,0,.12);}
+
+  .masthead{display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:3px solid var(--ink);padding-bottom:16px;margin-bottom:22px;}
+  .masthead-text h1{font-family:'Amiri',serif;font-weight:700;font-size:30px;margin:0 0 6px;color:var(--indigo);}
+  .masthead-text .subtitle{font-size:15px;color:var(--ink-soft);margin:0;}
+  .link-icon{width:58px;height:58px;flex-shrink:0;}
+
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+  .meta-chip{border:1px solid var(--line);background:var(--panel);border-radius:3px;padding:6px 12px;font-size:13.5px;color:var(--ink-soft);}
+  .meta-chip b{color:var(--ink);font-weight:600;}
+
+  section{margin-bottom:28px;}
+  h2.section-title{font-family:'Amiri',serif;font-size:21px;font-weight:700;color:var(--indigo);border-bottom:2px solid var(--indigo);padding-bottom:6px;margin:0 0 14px;display:flex;align-items:baseline;gap:8px;}
+  h3.sub-title{font-size:17px;font-weight:700;color:var(--rose);margin:20px 0 8px;}
+  p{line-height:2;font-size:15.5px;margin:0 0 10px;}
+
+  .objectif-box{background:var(--gold-soft);border-right:4px solid var(--gold);padding:14px 18px;border-radius:2px;font-size:15.5px;line-height:1.9;}
+
+  .rule-box{background:var(--panel);border:1px solid var(--line);border-right:4px solid var(--indigo);padding:14px 18px;border-radius:2px;margin:10px 0 16px;}
+  .rule-box p:last-child{margin-bottom:0;}
+  .rule-box ul{margin:6px 0;padding-inline-start:22px;}
+  .rule-box li{margin-bottom:6px;line-height:1.85;}
+
+  .type-grid{display:flex;flex-wrap:wrap;gap:14px;margin:10px 0 16px;}
+  .type-card{flex:1 1 250px;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:12px 16px;}
+  .type-card .head{font-weight:700;font-size:15.5px;color:var(--indigo);margin-bottom:4px;}
+  .type-card .example{font-size:15px;margin-top:4px;}
+  .type-card .khabar{color:var(--rose);font-weight:700;text-decoration:underline;text-decoration-color:var(--gold);}
+  .type-card .mubtada{color:var(--indigo);font-weight:700;}
+
+  table.data-table{width:100%;border-collapse:collapse;margin:8px 0 18px;font-size:15px;}
+  table.data-table th{background:var(--indigo);color:#fff;padding:8px 10px;font-weight:600;font-size:14px;}
+  table.data-table td{border:1px solid var(--line);padding:9px 10px;background:var(--panel);text-align:center;}
+  table.data-table tr:nth-child(even) td{background:#f2effa;}
+
+  .activity-box{background:var(--panel);border:1.5px solid var(--gold);border-radius:3px;padding:16px 20px;}
+  .activity-box .task-label{display:inline-block;background:var(--gold);color:#fff;font-size:12.5px;padding:3px 10px;border-radius:2px;margin-bottom:8px;}
+
+  .exercise{border:1px solid var(--line);border-radius:3px;padding:16px 20px;margin-bottom:16px;background:var(--panel);}
+  .exercise-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:var(--ink);color:var(--paper);border-radius:50%;font-size:14px;font-weight:700;margin-inline-end:8px;}
+  .exercise h4{margin:0 0 10px;font-size:16.5px;display:flex;align-items:center;}
+  .fill-line{border-bottom:1px dotted var(--ink-soft);display:inline-block;min-width:120px;height:1.6em;}
+  .qcm-item{margin-bottom:10px;}
+  .qcm-item p{margin-bottom:4px;font-weight:600;}
+  .qcm-options{display:flex;flex-wrap:wrap;gap:14px;font-size:14.5px;}
+  .qcm-options span{display:flex;align-items:center;gap:5px;}
+  .checkbox{width:13px;height:13px;border:1.4px solid var(--ink-soft);display:inline-block;border-radius:2px;}
+
+  .corrige-wrapper{page-break-before:always;padding-top:6px;}
+  .corrige-flag{text-align:center;font-size:13px;color:var(--ink-soft);margin-bottom:10px;border-top:1px dashed var(--ink-soft);padding-top:14px;}
+  details.corrige{border:2px dashed var(--rose);border-radius:4px;background:#fdf7f5;padding:6px 20px 18px;}
+  details.corrige > summary{cursor:pointer;font-family:'Amiri',serif;font-weight:700;font-size:19px;color:var(--rose);padding:14px 0;list-style:none;}
+  details.corrige > summary::-webkit-details-marker{display:none;}
+  details.corrige > summary::before{content:"✂ ";}
+  details.corrige > summary::after{content:"— اضغط لإظهار الحل / إخفائه";font-family:'Noto Naskh Arabic',serif;font-weight:400;font-size:13px;color:var(--ink-soft);margin-inline-start:8px;}
+  .corrige h4{color:var(--rose);margin:16px 0 8px;font-size:16px;}
+  .corrige-item{margin-bottom:8px;font-size:15px;line-height:1.9;}
+  .corrige table.data-table th{background:var(--rose);}
+
+  .footer-note{margin-top:30px;text-align:center;font-size:12px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:10px;}
+
+  @media print{
+    body{background:#fff;}
+    .sheet{box-shadow:none;border:none;margin:0;max-width:100%;padding:14px 6px;}
+    details.corrige{border-color:#000;}
+  }
+  @page{size:A4;margin:14mm;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="masthead-text">
+      <h1>أحوالُ الخبرِ</h1>
+      <p class="subtitle">مادة اللغة العربية — القواعد</p>
+    </div>
+    <svg class="link-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="6" y="26" width="22" height="14" rx="7" fill="none" stroke="#4b3f8f" stroke-width="3"/>
+      <rect x="36" y="26" width="22" height="14" rx="7" fill="none" stroke="#b1553f" stroke-width="3"/>
+      <line x1="24" y1="33" x2="40" y2="33" stroke="#af8a2e" stroke-width="3"/>
+    </svg>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta-chip">المستوى: <b>الخامسة ابتدائي (5AEP)</b></div>
+    <div class="meta-chip">المادة: <b>اللغة العربية — القواعد</b></div>
+    <div class="meta-chip">مدة الحصة: <b>ساعة واحدة</b></div>
+    <div class="meta-chip">نوع الوثيقة: <b>فيشة تعلّم ذاتي</b></div>
+  </div>
+
+  <!-- ===================== OBJECTIF ===================== -->
+  <section>
+    <h2 class="section-title">🎯 الهدف من الدرس</h2>
+    <div class="objectif-box">
+      يتمكّن المتعلم(ة) في نهاية هذا الدرس من: التعرّف على أحوال الخبر الأربعة (المفرد، الجملة الفعلية، الجملة الاسمية، شبه الجملة)، وتمييز نوع الخبر في جمل معطاة، وتوظيف كل نوع في جمل من إنشائه.
+    </div>
+  </section>
+
+  <!-- ===================== COURS ===================== -->
+  <section>
+    <h2 class="section-title">📘 الدرس</h2>
+
+    <h3 class="sub-title">1) تذكير: الجملة الاسمية</h3>
+    <div class="rule-box">
+      <p>تتكوّن <b>الجملة الاسمية</b> من ركنين أساسيين: <b>المبتدأ</b> (اسم يقع غالباً في بداية الجملة ونتحدث عنه)، و<b>الخبر</b> (الذي يكمل معنى الجملة ويخبرنا عن المبتدأ). مثال: "الجوُّ جميلٌ" — الجوُّ: مبتدأ، جميلٌ: خبر.</p>
+    </div>
+
+    <h3 class="sub-title">2) أحوال الخبر (أنواعه)</h3>
+    <div class="rule-box">
+      <p>يأتي الخبر في اللغة العربية على أربع حالات:</p>
+    </div>
+
+    <div class="type-grid">
+      <div class="type-card">
+        <div class="head">1) خبر مفرد</div>
+        <p>كلمة واحدة (ليست جملة ولا شبه جملة)، غالباً اسم أو صفة.</p>
+        <div class="example"><span class="mubtada">الجوُّ</span> <span class="khabar">جميلٌ</span>.</div>
+      </div>
+      <div class="type-card">
+        <div class="head">2) خبر جملة فعلية</div>
+        <p>جملة تبدأ بفعل، وتحتوي على ضمير (رابط) يعود على المبتدأ.</p>
+        <div class="example"><span class="mubtada">الطائرُ</span> <span class="khabar">يُغرِّدُ</span>.</div>
+      </div>
+      <div class="type-card">
+        <div class="head">3) خبر جملة اسمية</div>
+        <p>جملة تبدأ باسم، وتحتوي غالباً على ضمير متصل يعود على المبتدأ.</p>
+        <div class="example"><span class="mubtada">المدرسةُ</span> <span class="khabar">ساحتُها واسعةٌ</span>.</div>
+      </div>
+      <div class="type-card">
+        <div class="head">4) خبر شبه جملة</div>
+        <p>جار ومجرور، أو ظرف (مكان أو زمان).</p>
+        <div class="example"><span class="mubtada">الكتابُ</span> <span class="khabar">على الطاولةِ</span>.</div>
+      </div>
+    </div>
+
+    <h3 class="sub-title">3) ملاحظة مهمة: الرابط في خبر الجملة</h3>
+    <div class="rule-box">
+      <p>عندما يكون الخبر جملة (فعلية أو اسمية)، يجب أن تحتوي هذه الجملة على <b>رابط</b> يربطها بالمبتدأ، وغالباً ما يكون هذا الرابط <b>ضميراً</b> يعود على المبتدأ (ظاهراً أو مستتراً). مثال: "المدرسةُ ساحتُها واسعةٌ" — الضمير "ها" في "ساحتُها" يعود على "المدرسة" ويربط الجملة بها.</p>
+    </div>
+
+    <h3 class="sub-title">4) جدول تلخيصي</h3>
+    <table class="data-table" style="text-align:right;">
+      <tr><th>نوع الخبر</th><th>مثال</th></tr>
+      <tr><td>مفرد</td><td>القمرُ منيرٌ.</td></tr>
+      <tr><td>جملة فعلية</td><td>الأمُّ تطبخُ الطعامَ.</td></tr>
+      <tr><td>جملة اسمية</td><td>الحديقةُ أشجارُها كثيرةٌ.</td></tr>
+      <tr><td>شبه جملة (جار ومجرور)</td><td>القلمُ في المحفظةِ.</td></tr>
+      <tr><td>شبه جملة (ظرف)</td><td>الاجتماعُ بعد الظهرِ.</td></tr>
+    </table>
+  </section>
+
+  <!-- ===================== ACTIVITE ===================== -->
+  <section>
+    <h2 class="section-title">✏️ نشاط تطبيقي</h2>
+    <div class="activity-box">
+      <span class="task-label">عمل جماعي مع الأستاذ(ة)</span>
+      <p>صنّف الجمل التالية حسب نوع الخبر فيها. لاحظ المثال الأول المُنجَز:</p>
+      <table class="data-table" style="text-align:right;">
+        <tr><th>الجملة</th><th>نوع الخبر</th></tr>
+        <tr><td>السماءُ صافيةٌ.</td><td>مفرد</td></tr>
+        <tr><td>الفلاحُ يحرثُ أرضَه.</td><td><span class="fill-line"></span></td></tr>
+        <tr><td>البستانُ أزهارُه ملوّنةٌ.</td><td><span class="fill-line"></span></td></tr>
+        <tr><td>الهاتفُ بجانب الحاسوبِ.</td><td><span class="fill-line"></span></td></tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===================== EXERCICES ===================== -->
+  <section>
+    <h2 class="section-title">📝 تمارين للتدرّب</h2>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">1</span>حدّد نوع الخبر في كل جملة (مفرد / جملة فعلية / جملة اسمية / شبه جملة):</h4>
+      <p>1) الحديقةُ جميلةٌ. <span class="fill-line"></span></p>
+      <p>2) الطائرُ يُغرِّدُ فوق الشجرةِ. <span class="fill-line"></span></p>
+      <p>3) الكتابُ فوق الطاولةِ. <span class="fill-line"></span></p>
+      <p>4) المدرسةُ ساحتُها واسعةٌ. <span class="fill-line"></span></p>
+      <p>5) القمرُ منيرٌ. <span class="fill-line"></span></p>
+      <p>6) الأمُّ تطبخُ الطعامَ. <span class="fill-line"></span></p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">2</span>اختر الإجابة الصحيحة:</h4>
+      <div class="qcm-item">
+        <p>1) الخبر في جملة "السماءُ صافيةٌ" هو:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>مفرد</span><span><span class="checkbox"></span>جملة</span><span><span class="checkbox"></span>شبه جملة</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>2) "الطلابُ يدرسون بجدٍّ" الخبر فيها جملة:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>فعلية</span><span><span class="checkbox"></span>اسمية</span><span><span class="checkbox"></span>شبه جملة</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>3) "الحقيبةُ داخل الغرفةِ" الخبر فيها:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>شبه جملة</span><span><span class="checkbox"></span>مفرد</span><span><span class="checkbox"></span>جملة فعلية</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>4) "البستانُ أزهارُه ملوّنةٌ" الخبر فيها جملة:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>فعلية</span><span><span class="checkbox"></span>اسمية</span><span><span class="checkbox"></span>مفرد</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>5) الرابط الذي يربط جملة الخبر بالمبتدأ غالباً يكون:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>حرف جر</span><span><span class="checkbox"></span>ضميراً يعود على المبتدأ</span><span><span class="checkbox"></span>فعل أمر</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">3</span>أكمل كل جملة بخبر من النوع المطلوب بين قوسين:</h4>
+      <p>1) الجوُّ .......... <i>(خبر مفرد)</i></p>
+      <p>2) الطفلُ .......... <i>(خبر جملة فعلية)</i></p>
+      <p>3) البيتُ .......... <i>(خبر جملة اسمية)</i></p>
+      <p>4) الكتابُ .......... <i>(خبر شبه جملة)</i></p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">4</span>استخرج المبتدأ والخبر من كل جملة، وحدّد نوع الخبر:</h4>
+      <p>1) النجاحُ حليفُ المجتهدين.</p>
+      <p>المبتدأ: <span class="fill-line"></span> &nbsp; الخبر: <span class="fill-line"></span> &nbsp; النوع: <span class="fill-line"></span></p>
+      <p>2) الفلاحُ يحرثُ أرضَه.</p>
+      <p>المبتدأ: <span class="fill-line"></span> &nbsp; الخبر: <span class="fill-line"></span> &nbsp; النوع: <span class="fill-line"></span></p>
+      <p>3) المكتبةُ رفوفُها مرتبةٌ.</p>
+      <p>المبتدأ: <span class="fill-line"></span> &nbsp; الخبر: <span class="fill-line"></span> &nbsp; النوع: <span class="fill-line"></span></p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">5</span>اكتب أربع جمل من إنشائك، كل جملة بخبر من نوع مختلف من الأنواع الأربعة المدروسة، وحدّد نوع الخبر بعد كل جملة:</h4>
+      <p>1) <span class="fill-line" style="min-width:100%;"></span></p>
+      <p>2) <span class="fill-line" style="min-width:100%;"></span></p>
+      <p>3) <span class="fill-line" style="min-width:100%;"></span></p>
+      <p>4) <span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== CORRIGE ===================== -->
+  <div class="corrige-wrapper">
+    <p class="corrige-flag">✂ يمكن طي هذه الصفحة أو إخفاؤها (اضغط على العنوان أدناه) قبل إنجاز التمارين ✂</p>
+    <details class="corrige">
+      <summary>التصحيح الكامل</summary>
+
+      <h4>تصحيح النشاط التطبيقي</h4>
+      <div class="corrige-item">الفلاحُ يحرثُ أرضَه ← جملة فعلية</div>
+      <div class="corrige-item">البستانُ أزهارُه ملوّنةٌ ← جملة اسمية</div>
+      <div class="corrige-item">الهاتفُ بجانب الحاسوبِ ← شبه جملة</div>
+
+      <h4>تصحيح التمرين 1 (تحديد نوع الخبر)</h4>
+      <div class="corrige-item">1) مفرد &nbsp;|&nbsp; 2) جملة فعلية &nbsp;|&nbsp; 3) شبه جملة &nbsp;|&nbsp; 4) جملة اسمية &nbsp;|&nbsp; 5) مفرد &nbsp;|&nbsp; 6) جملة فعلية</div>
+
+      <h4>تصحيح التمرين 2 (الاختيار من متعدد)</h4>
+      <div class="corrige-item">1) مفرد &nbsp;|&nbsp; 2) فعلية &nbsp;|&nbsp; 3) شبه جملة &nbsp;|&nbsp; 4) اسمية &nbsp;|&nbsp; 5) ضميراً يعود على المبتدأ</div>
+
+      <h4>تصحيح التمرين 3 (الإكمال - نموذج)</h4>
+      <div class="corrige-item">1) الجوُّ <b>معتدلٌ</b>. (خبر مفرد)</div>
+      <div class="corrige-item">2) الطفلُ <b>يلعبُ في الحديقةِ</b>. (خبر جملة فعلية)</div>
+      <div class="corrige-item">3) البيتُ <b>حديقتُه جميلةٌ</b>. (خبر جملة اسمية)</div>
+      <div class="corrige-item">4) الكتابُ <b>فوق الرفِّ</b>. (خبر شبه جملة)</div>
+      <p style="font-size:13.5px;color:var(--ink-soft);">(هذه أمثلة للاسترشاد، ويُقبل كل جواب سليم لغوياً يطابق النوع المطلوب)</p>
+
+      <h4>تصحيح التمرين 4 (الاستخراج)</h4>
+      <div class="corrige-item">1) المبتدأ: النجاحُ — الخبر: حليفُ المجتهدين — النوع: مفرد.</div>
+      <div class="corrige-item">2) المبتدأ: الفلاحُ — الخبر: يحرثُ أرضَه — النوع: جملة فعلية.</div>
+      <div class="corrige-item">3) المبتدأ: المكتبةُ — الخبر: رفوفُها مرتبةٌ — النوع: جملة اسمية.</div>
+
+      <h4>تصحيح التمرين 5 (إنشاء نموذجي)</h4>
+      <div class="corrige-item">1) الحديقةُ واسعةٌ. (خبر مفرد)</div>
+      <div class="corrige-item">2) الولدُ يقرأُ كتاباً. (خبر جملة فعلية)</div>
+      <div class="corrige-item">3) الفصلُ نوافذُه مفتوحةٌ. (خبر جملة اسمية)</div>
+      <div class="corrige-item">4) الحقيبةُ خلف الباب. (خبر شبه جملة)</div>
+      <p style="font-size:13.5px;color:var(--ink-soft);">(أمثلة للاسترشاد فقط، ويُقبل كل جواب سليم يوظّف الأنواع الأربعة بشكل صحيح)</p>
+    </details>
+  </div>
+
+  <p class="footer-note">فيشة تعلّم ذاتي — اللغة العربية — الخامسة ابتدائي — أحوال الخبر</p>
+</div>
+</body>
+</html>

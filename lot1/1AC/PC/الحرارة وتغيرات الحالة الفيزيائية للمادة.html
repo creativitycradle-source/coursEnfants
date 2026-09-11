@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>الحرارة وتغيرات الحالة الفيزيائية للمادة</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#122430; --ink-soft:#3f5866;
+    --paper:#f6fafb; --panel:#ffffff; --line:#cfe1e6;
+    --cyan:#1c7fa0; --cyan-soft:#dcf0f7;
+    --navy:#1f3b52; --navy-soft:#dfe7ee;
+    --amber:#d99a2b; --amber-soft:#faf0da;
+    --red:#c15a45;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#dbe8ec;font-family:'Noto Naskh Arabic','Amiri',serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .sheet{max-width:880px;margin:24px auto;background:var(--paper);padding:38px 44px 50px;border:1px solid var(--line);box-shadow:0 4px 24px rgba(0,0,0,.12);}
+
+  .masthead{display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:3px solid var(--ink);padding-bottom:16px;margin-bottom:22px;}
+  .masthead-text h1{font-family:'Amiri',serif;font-weight:700;font-size:25px;margin:0 0 6px;color:var(--navy);line-height:1.35;}
+  .masthead-text .subtitle{font-size:15px;color:var(--ink-soft);margin:0;}
+  .therm-icon{width:40px;height:60px;flex-shrink:0;}
+
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+  .meta-chip{border:1px solid var(--line);background:var(--panel);border-radius:3px;padding:6px 12px;font-size:13.5px;color:var(--ink-soft);}
+  .meta-chip b{color:var(--ink);font-weight:600;}
+
+  section{margin-bottom:28px;}
+  h2.section-title{font-family:'Amiri',serif;font-size:21px;font-weight:700;color:var(--cyan);border-bottom:2px solid var(--cyan);padding-bottom:6px;margin:0 0 14px;display:flex;align-items:baseline;gap:8px;}
+  h3.sub-title{font-size:17px;font-weight:700;color:var(--amber);margin:20px 0 8px;}
+  p{line-height:2;font-size:15.5px;margin:0 0 10px;}
+
+  .objectif-box{background:var(--amber-soft);border-right:4px solid var(--amber);padding:14px 18px;border-radius:2px;font-size:15.5px;line-height:1.9;}
+
+  .rule-box{background:var(--panel);border:1px solid var(--line);border-right:4px solid var(--cyan);padding:14px 18px;border-radius:2px;margin:10px 0 16px;}
+  .rule-box p:last-child{margin-bottom:0;}
+  .rule-box ul,.rule-box ol{margin:6px 0;padding-inline-start:22px;}
+  .rule-box li{margin-bottom:8px;line-height:1.9;}
+
+  table.data-table{width:100%;border-collapse:collapse;margin:8px 0 18px;font-size:15px;}
+  table.data-table th{background:var(--cyan);color:#fff;padding:8px 10px;font-weight:600;font-size:14px;}
+  table.data-table td{border:1px solid var(--line);padding:9px 10px;background:var(--panel);text-align:center;}
+  table.data-table tr:nth-child(even) td{background:#eaf4f8;}
+
+  .graph-wrap{display:flex;justify-content:center;margin:14px 0;}
+
+  .activity-box{background:var(--panel);border:1.5px solid var(--amber);border-radius:3px;padding:16px 20px;}
+  .activity-box .task-label{display:inline-block;background:var(--amber);color:#fff;font-size:12.5px;padding:3px 10px;border-radius:2px;margin-bottom:8px;}
+
+  .exercise{border:1px solid var(--line);border-radius:3px;padding:16px 20px;margin-bottom:16px;background:var(--panel);}
+  .exercise-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:var(--ink);color:var(--paper);border-radius:50%;font-size:14px;font-weight:700;margin-inline-end:8px;}
+  .exercise h4{margin:0 0 10px;font-size:16.5px;display:flex;align-items:center;}
+  .fill-line{border-bottom:1px dotted var(--ink-soft);display:inline-block;min-width:100px;height:1.6em;}
+  .word-chip{display:inline-block;background:var(--paper);border:1px solid var(--line);border-radius:3px;padding:3px 12px;margin:3px 4px;font-size:16px;}
+  .qcm-item{margin-bottom:10px;}
+  .qcm-item p{margin-bottom:4px;font-weight:600;}
+  .qcm-options{display:flex;flex-wrap:wrap;gap:14px;font-size:14.5px;}
+  .qcm-options span{display:flex;align-items:center;gap:5px;}
+  .checkbox{width:13px;height:13px;border:1.4px solid var(--ink-soft);display:inline-block;border-radius:2px;}
+  .scenario-box{background:#eaf4f8;border:1px solid var(--line);padding:12px 16px;font-size:15.5px;line-height:2.1;margin-bottom:10px;}
+
+  .corrige-wrapper{page-break-before:always;padding-top:6px;}
+  .corrige-flag{text-align:center;font-size:13px;color:var(--ink-soft);margin-bottom:10px;border-top:1px dashed var(--ink-soft);padding-top:14px;}
+  details.corrige{border:2px dashed var(--navy);border-radius:4px;background:#f4f7f9;padding:6px 20px 18px;}
+  details.corrige > summary{cursor:pointer;font-family:'Amiri',serif;font-weight:700;font-size:19px;color:var(--navy);padding:14px 0;list-style:none;}
+  details.corrige > summary::-webkit-details-marker{display:none;}
+  details.corrige > summary::before{content:"✂ ";}
+  details.corrige > summary::after{content:"— اضغط لإظهار الحل / إخفائه";font-family:'Noto Naskh Arabic',serif;font-weight:400;font-size:13px;color:var(--ink-soft);margin-inline-start:8px;}
+  .corrige h4{color:var(--navy);margin:16px 0 8px;font-size:16px;}
+  .corrige-item{margin-bottom:8px;font-size:15px;line-height:1.9;}
+  .corrige table.data-table th{background:var(--navy);}
+
+  .footer-note{margin-top:30px;text-align:center;font-size:12px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:10px;}
+
+  @media print{
+    body{background:#fff;}
+    .sheet{box-shadow:none;border:none;margin:0;max-width:100%;padding:14px 6px;}
+    details.corrige{border-color:#000;}
+  }
+  @page{size:A4;margin:14mm;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="masthead-text">
+      <h1>الحرارةُ وتغيراتُ الحالةِ الفيزيائيةِ للمادةِ</h1>
+      <p class="subtitle">الفيزياء والكيمياء — عالم المادة</p>
+    </div>
+    <svg class="therm-icon" viewBox="0 0 40 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="15" y="6" width="10" height="34" rx="5" fill="none" stroke="#1f3b52" stroke-width="2.5"/>
+      <circle cx="20" cy="48" r="10" fill="#c15a45"/>
+      <rect x="17" y="22" width="6" height="24" fill="#c15a45"/>
+      <line x1="27" y1="14" x2="31" y2="14" stroke="#1f3b52" stroke-width="1.5"/>
+      <line x1="27" y1="24" x2="31" y2="24" stroke="#1f3b52" stroke-width="1.5"/>
+      <line x1="27" y1="34" x2="31" y2="34" stroke="#1f3b52" stroke-width="1.5"/>
+    </svg>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta-chip">المستوى: <b>الأولى إعدادي (1AC)</b></div>
+    <div class="meta-chip">المادة: <b>الفيزياء والكيمياء</b></div>
+    <div class="meta-chip">مدة الحصة: <b>ساعة واحدة</b></div>
+    <div class="meta-chip">نوع الوثيقة: <b>فيشة تعلّم ذاتي</b></div>
+  </div>
+
+  <!-- ===================== OBJECTIF ===================== -->
+  <section>
+    <h2 class="section-title">🎯 الهدف من الدرس</h2>
+    <div class="objectif-box">
+      يتمكّن المتعلم(ة) في نهاية هذا الدرس من: التمييز بين الحرارة ودرجة الحرارة، وتفسير دور الحرارة في تغيير حالة المادة، وتحديد درجتَي الانصهار والغليان كخاصيتين مميزتين لكل مادة نقية، وقراءة وتفسير منحنى تسخين مادة.
+    </div>
+  </section>
+
+  <!-- ===================== COURS ===================== -->
+  <section>
+    <h2 class="section-title">📘 الدرس</h2>
+
+    <h3 class="sub-title">1) الحرارة ودرجة الحرارة</h3>
+    <div class="rule-box">
+      <p><b>الحرارة</b> شكل من أشكال الطاقة، تنتقل تلقائياً من الجسم الأسخن إلى الجسم الأبرد. أما <b>درجة الحرارة</b> فهي مقدار يدلّ على مدى سخونة أو برودة جسم ما، وتُقاس بجهاز يسمى <b>الترمومتر (المقياس الحراري)</b> بوحدة <b>الدرجة المئوية (°C)</b>.</p>
+    </div>
+
+    <h3 class="sub-title">2) انتقال الحرارة والتوازن الحراري</h3>
+    <div class="rule-box">
+      <p>عند تلامس جسمين مختلفَي درجة الحرارة، تنتقل الحرارة من الجسم الأسخن إلى الجسم الأبرد، حتى تتساوى درجتا حرارتهما، فيصلان إلى ما يسمى <b>التوازن الحراري</b>. مثال: عند وضع مكعب ثلج في كوب ماء دافئ، تنتقل الحرارة من الماء إلى الثلج فيذوب، وتنخفض تدريجياً درجة حرارة الماء.</p>
+    </div>
+
+    <h3 class="sub-title">3) تأثير الحرارة على حالة المادة</h3>
+    <div class="rule-box">
+      <p>عندما تكتسب مادة صلبة أو سائلة حرارة (بالتسخين)، فإن ذلك قد يؤدي إلى:</p>
+      <ul>
+        <li>ارتفاع درجة حرارتها (إذا بقيت في نفس الحالة).</li>
+        <li>أو تغيّر حالتها الفيزيائية (انصهار أو تبخّر) إذا وصلت درجة حرارة معينة.</li>
+      </ul>
+      <p>وعندما تفقد مادة حرارة (بالتبريد)، فإن ذلك قد يؤدي إلى انخفاض درجة حرارتها، أو تغيّر حالتها (تجمّد أو تكاثف).</p>
+    </div>
+
+    <h3 class="sub-title">4) درجة الانصهار ودرجة الغليان</h3>
+    <div class="rule-box">
+      <p><b>درجة الانصهار</b> هي درجة الحرارة التي تنتقل عندها مادة معينة من الحالة الصلبة إلى الحالة السائلة. <b>درجة الغليان</b> هي درجة الحرارة التي تنتقل عندها من الحالة السائلة إلى الحالة الغازية (بشكل سريع في كامل السائل، وليس فقط عند السطح). وتُعتبر هاتان الدرجتان خاصيتين مميِّزتين لكل مادة نقية، تختلفان من مادة إلى أخرى.</p>
+    </div>
+    <table class="data-table">
+      <tr><th>المادة</th><th>درجة الانصهار (°C)</th><th>درجة الغليان (°C)</th></tr>
+      <tr><td>الماء</td><td>0</td><td>100</td></tr>
+      <tr><td>الكحول الإيثيلي</td><td>−114</td><td>78</td></tr>
+      <tr><td>الزئبق</td><td>−39</td><td>357</td></tr>
+      <tr><td>الحديد</td><td>1538</td><td>2862</td></tr>
+    </table>
+
+    <h3 class="sub-title">5) منحنى تسخين مادة نقية (مثال: الماء)</h3>
+    <div class="rule-box">
+      <p>عند تسخين قطعة ثلج بانتظام حتى تتحوّل إلى بخار ماء، تتغيّر درجة حرارتها كما يوضحه المنحنى التالي:</p>
+    </div>
+    <div class="graph-wrap">
+      <svg width="420" height="260" viewBox="0 0 420 260" xmlns="http://www.w3.org/2000/svg">
+        <line x1="50" y1="230" x2="400" y2="230" stroke="#122430" stroke-width="2"/>
+        <line x1="50" y1="230" x2="50" y2="20" stroke="#122430" stroke-width="2"/>
+        <text x="380" y="248" font-size="12" fill="#122430">الزمن (دقائق)</text>
+        <text x="10" y="20" font-size="12" fill="#122430">°C</text>
+        <line x1="45" y1="150" x2="400" y2="150" stroke="#cfe1e6" stroke-width="1" stroke-dasharray="3 3"/>
+        <text x="20" y="154" font-size="11" fill="#1c7fa0">0</text>
+        <line x1="45" y1="60" x2="400" y2="60" stroke="#cfe1e6" stroke-width="1" stroke-dasharray="3 3"/>
+        <text x="12" y="64" font-size="11" fill="#c15a45">100</text>
+        <path d="M50 200 L90 150 L160 150 L220 60 L300 60 L360 25"
+              fill="none" stroke="#1f3b52" stroke-width="3"/>
+        <text x="55" y="215" font-size="10" fill="#122430">صلبة</text>
+        <text x="110" y="145" font-size="10" fill="#1c7fa0">انصهار (ثابتة)</text>
+        <text x="185" y="105" font-size="10" fill="#122430">سائلة</text>
+        <text x="240" y="55" font-size="10" fill="#c15a45">غليان (ثابتة)</text>
+        <text x="335" y="45" font-size="10" fill="#122430">غازية</text>
+      </svg>
+    </div>
+    <p style="font-size:14px;color:var(--ink-soft);margin-top:-8px;">لاحظ أن درجة الحرارة تبقى <b>ثابتة</b> أثناء تغيّر الحالة (عند 0°C أثناء الانصهار، وعند 100°C أثناء الغليان)، رغم استمرار التسخين. تُستَغَل الحرارة المُكتسَبة خلال هذه المراحل في تغيير الحالة، وليس في رفع درجة الحرارة.</p>
+  </section>
+
+  <!-- ===================== ACTIVITE ===================== -->
+  <section>
+    <h2 class="section-title">🔬 نشاط تطبيقي</h2>
+    <div class="activity-box">
+      <span class="task-label">تحليل منحنى التسخين</span>
+      <p>بالاعتماد على منحنى تسخين الماء الموضّح في الدرس، أجب عن الأسئلة التالية:</p>
+      <p>1) ما هي درجة انصهار الماء حسب المنحنى؟ <span class="fill-line"></span></p>
+      <p>2) ما هي درجة غليان الماء حسب المنحنى؟ <span class="fill-line"></span></p>
+      <p>3) ما حالة الماء الفيزيائية في الجزء الأول من المنحنى (قبل الوصول إلى 0°C)؟ <span class="fill-line"></span></p>
+      <p>4) لماذا تبقى درجة الحرارة ثابتة عند 100°C رغم استمرار التسخين؟</p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== EXERCICES ===================== -->
+  <section>
+    <h2 class="section-title">📝 تمارين للتدرّب</h2>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">1</span>صنّف الأحداث التالية حسب ما إذا كانت المادة "تكتسب حرارة" أو "تفقد حرارة":</h4>
+      <p>
+        <span class="word-chip">انصهار الثلج</span>
+        <span class="word-chip">تجمّد الماء</span>
+        <span class="word-chip">تبخّر العرق</span>
+        <span class="word-chip">تكاثف بخار الماء</span>
+      </p>
+      <table class="data-table">
+        <tr><th>تكتسب حرارة</th><th>تفقد حرارة</th></tr>
+        <tr><td style="height:60px;"></td><td></td></tr>
+      </table>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">2</span>اختر الإجابة الصحيحة:</h4>
+      <div class="qcm-item">
+        <p>1) تُقاس درجة الحرارة بجهاز يسمى:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>البارومتر</span><span><span class="checkbox"></span>الترمومتر</span><span><span class="checkbox"></span>الميزان</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>2) تنتقل الحرارة تلقائياً:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>من البارد إلى الساخن</span><span><span class="checkbox"></span>من الساخن إلى البارد</span><span><span class="checkbox"></span>لا تنتقل أبداً</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>3) درجة انصهار الماء تساوي:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>0°C</span><span><span class="checkbox"></span>100°C</span><span><span class="checkbox"></span>50°C</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>4) أثناء تغيّر الحالة الفيزيائية لمادة نقية، تبقى درجة الحرارة:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>ترتفع باستمرار</span><span><span class="checkbox"></span>ثابتة</span><span><span class="checkbox"></span>تنخفض فجأة</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>5) درجتا الانصهار والغليان لمادة معينة تُعتبران:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>متشابهتين عند كل المواد</span><span><span class="checkbox"></span>خاصيتين مميِّزتين لكل مادة</span><span><span class="checkbox"></span>غير قابلتين للقياس</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">3</span>بالاعتماد على جدول درجات الانصهار والغليان في الدرس، أجب:</h4>
+      <p>1) أيّ مادة من بين المذكورة تكون في حالة صلبة في درجة حرارة الغرفة (حوالي 20°C)؟</p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+      <p>2) أيّ مادة من بين المذكورة تكون في حالة سائلة في درجة حرارة الغرفة؟</p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">4</span>حلّل منحنى التسخين التالي لمادة مجهولة، ثم أجب:</h4>
+      <div class="graph-wrap">
+        <svg width="380" height="220" viewBox="0 0 380 220">
+          <line x1="45" y1="195" x2="360" y2="195" stroke="#122430" stroke-width="2"/>
+          <line x1="45" y1="195" x2="45" y2="20" stroke="#122430" stroke-width="2"/>
+          <line x1="40" y1="130" x2="360" y2="130" stroke="#cfe1e6" stroke-dasharray="3 3"/>
+          <text x="12" y="134" font-size="11" fill="#1c7fa0">40°C</text>
+          <line x1="40" y1="55" x2="360" y2="55" stroke="#cfe1e6" stroke-dasharray="3 3"/>
+          <text x="5" y="59" font-size="11" fill="#c15a45">150°C</text>
+          <path d="M45 175 L80 130 L140 130 L200 55 L260 55 L320 30" fill="none" stroke="#1f3b52" stroke-width="3"/>
+        </svg>
+      </div>
+      <p>1) ما درجة انصهار هذه المادة؟ <span class="fill-line"></span></p>
+      <p>2) ما درجة غليانها؟ <span class="fill-line"></span></p>
+      <p>3) في أي حالة تكون هذه المادة بين درجتَي 40°C و150°C؟ <span class="fill-line"></span></p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">5</span>وضعية-مشكلة:</h4>
+      <div class="scenario-box">
+        وضعت تلميذة إناءً به ماء على موقد مشتعل، ولاحظت أن درجة حرارة الماء ترتفع تدريجياً حتى تصل إلى 100°C، ثم تبقى ثابتة عند هذه القيمة طيلة مدة الغليان رغم استمرار تشغيل الموقد.
+      </div>
+      <p>فسّري لماذا لا ترتفع درجة حرارة الماء فوق 100°C أثناء الغليان، رغم استمرار إمداد الماء بالحرارة من الموقد.</p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== CORRIGE ===================== -->
+  <div class="corrige-wrapper">
+    <p class="corrige-flag">✂ يمكن طي هذه الصفحة أو إخفاؤها (اضغط على العنوان أدناه) قبل إنجاز التمارين ✂</p>
+    <details class="corrige">
+      <summary>التصحيح الكامل</summary>
+
+      <h4>تصحيح النشاط التطبيقي</h4>
+      <div class="corrige-item">1) درجة الانصهار = 0°C &nbsp;|&nbsp; 2) درجة الغليان = 100°C &nbsp;|&nbsp; 3) الماء في حالة صلبة (ثلج) قبل الوصول إلى 0°C.</div>
+      <div class="corrige-item">4) لأن الحرارة المُكتسَبة عند 100°C تُستعمَل بالكامل في تحويل الماء من الحالة السائلة إلى الحالة الغازية (الغليان)، وليس في رفع درجة الحرارة، فتبقى درجة الحرارة ثابتة طيلة مدة الغليان.</div>
+
+      <h4>تصحيح التمرين 1 (التصنيف)</h4>
+      <div class="corrige-item"><b>تكتسب حرارة:</b> انصهار الثلج، تبخّر العرق</div>
+      <div class="corrige-item"><b>تفقد حرارة:</b> تجمّد الماء، تكاثف بخار الماء</div>
+
+      <h4>تصحيح التمرين 2 (الاختيار من متعدد)</h4>
+      <div class="corrige-item">1) الترمومتر &nbsp;|&nbsp; 2) من الساخن إلى البارد &nbsp;|&nbsp; 3) 0°C &nbsp;|&nbsp; 4) ثابتة &nbsp;|&nbsp; 5) خاصيتين مميِّزتين لكل مادة</div>
+
+      <h4>تصحيح التمرين 3 (قراءة الجدول)</h4>
+      <div class="corrige-item">1) الحديد يكون صلباً في درجة حرارة الغرفة (درجة انصهاره 1538°C وهي أعلى بكثير من 20°C).</div>
+      <div class="corrige-item">2) الماء والزئبق يكونان سائلين في درجة حرارة الغرفة (كلاهما انصهر عند درجة أقل من 20°C ولم يبلغ بعد درجة غليانه).</div>
+
+      <h4>تصحيح التمرين 4 (تحليل منحنى)</h4>
+      <div class="corrige-item">1) درجة الانصهار = 40°C &nbsp;|&nbsp; 2) درجة الغليان = 150°C &nbsp;|&nbsp; 3) بين 40°C و150°C تكون المادة في الحالة السائلة.</div>
+
+      <h4>تصحيح التمرين 5 (وضعية-مشكلة)</h4>
+      <div class="corrige-item">لا ترتفع درجة حرارة الماء فوق 100°C أثناء الغليان لأن كامل الحرارة الممتصة من الموقد في هذه المرحلة تُستَهلَك في تحويل الماء السائل إلى بخار ماء (تغيير الحالة)، وليس في رفع درجة حرارته؛ لذلك تبقى درجة الحرارة ثابتة عند 100°C طيلة استمرار عملية الغليان.</div>
+    </details>
+  </div>
+
+  <p class="footer-note">فيشة تعلّم ذاتي — الفيزياء والكيمياء — الأولى إعدادي — الحرارة وتغيرات الحالة الفيزيائية للمادة</p>
+</div>
+</body>
+</html>

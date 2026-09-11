@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>العمليات على الأعداد ذات الكتابة الكسرية</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#241f38; --ink-soft:#524d68;
+    --paper:#faf9fd; --panel:#ffffff; --line:#dcd6ea;
+    --violet:#5b4b9e; --violet-soft:#ece7f8;
+    --amber:#c98a2e; --amber-soft:#f6e9d3;
+    --teal:#2f7d72; --teal-soft:#dff0ec;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#e6e2ee;font-family:'Noto Naskh Arabic','Amiri',serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .sheet{max-width:900px;margin:24px auto;background:var(--paper);padding:38px 44px 50px;border:1px solid var(--line);box-shadow:0 4px 24px rgba(0,0,0,.12);}
+
+  .masthead{display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:3px solid var(--ink);padding-bottom:16px;margin-bottom:22px;}
+  .masthead-text h1{font-family:'Amiri',serif;font-weight:700;font-size:27px;margin:0 0 6px;color:var(--violet);line-height:1.3;}
+  .masthead-text .subtitle{font-size:15px;color:var(--ink-soft);margin:0;}
+  .frac-icon{width:60px;height:60px;flex-shrink:0;}
+
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+  .meta-chip{border:1px solid var(--line);background:var(--panel);border-radius:3px;padding:6px 12px;font-size:13.5px;color:var(--ink-soft);}
+  .meta-chip b{color:var(--ink);font-weight:600;}
+
+  section{margin-bottom:28px;}
+  h2.section-title{font-family:'Amiri',serif;font-size:21px;font-weight:700;color:var(--violet);border-bottom:2px solid var(--violet);padding-bottom:6px;margin:0 0 14px;display:flex;align-items:baseline;gap:8px;}
+  h3.sub-title{font-size:17px;font-weight:700;color:var(--amber);margin:20px 0 8px;}
+  p{line-height:2;font-size:15.5px;margin:0 0 10px;}
+
+  .objectif-box{background:var(--amber-soft);border-right:4px solid var(--amber);padding:14px 18px;border-radius:2px;font-size:15.5px;line-height:1.9;}
+
+  .rule-box{background:var(--panel);border:1px solid var(--line);border-right:4px solid var(--violet);padding:14px 18px;border-radius:2px;margin:10px 0 16px;}
+  .rule-box p:last-child{margin-bottom:0;}
+  .rule-box ul,.rule-box ol{margin:6px 0;padding-inline-start:22px;}
+  .rule-box li{margin-bottom:8px;line-height:1.9;}
+
+  /* fraction visual */
+  .frac{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;font-size:15px;line-height:1.15;margin:0 3px;}
+  .frac .num, .frac .den{padding:0 5px;}
+  .frac .num{border-bottom:1.6px solid currentColor;}
+  .op{font-weight:700;margin:0 4px;}
+  .result-tag{color:var(--teal);font-weight:700;}
+
+  .example-box{background:var(--violet-soft);border:1px dashed var(--violet);padding:12px 18px;border-radius:2px;margin:10px 0;font-size:15.5px;line-height:2.2;}
+
+  table.data-table{width:100%;border-collapse:collapse;margin:8px 0 18px;font-size:15px;}
+  table.data-table th{background:var(--violet);color:#fff;padding:8px 10px;font-weight:600;font-size:14px;}
+  table.data-table td{border:1px solid var(--line);padding:9px 10px;background:var(--panel);text-align:center;}
+  table.data-table tr:nth-child(even) td{background:#f2effa;}
+
+  .activity-box{background:var(--panel);border:1.5px solid var(--amber);border-radius:3px;padding:16px 20px;}
+  .activity-box .task-label{display:inline-block;background:var(--amber);color:#fff;font-size:12.5px;padding:3px 10px;border-radius:2px;margin-bottom:8px;}
+
+  .exercise{border:1px solid var(--line);border-radius:3px;padding:16px 20px;margin-bottom:16px;background:var(--panel);}
+  .exercise-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:var(--ink);color:var(--paper);border-radius:50%;font-size:14px;font-weight:700;margin-inline-end:8px;}
+  .exercise h4{margin:0 0 10px;font-size:16.5px;display:flex;align-items:center;}
+  .fill-line{border-bottom:1px dotted var(--ink-soft);display:inline-block;min-width:100px;height:1.6em;}
+  .op-grid{display:flex;flex-wrap:wrap;gap:20px;}
+  .op-item{display:flex;align-items:center;gap:6px;font-size:16px;}
+  .qcm-item{margin-bottom:10px;}
+  .qcm-item p{margin-bottom:4px;font-weight:600;}
+  .qcm-options{display:flex;flex-wrap:wrap;gap:14px;font-size:14.5px;align-items:center;}
+  .qcm-options span{display:flex;align-items:center;gap:5px;}
+  .checkbox{width:13px;height:13px;border:1.4px solid var(--ink-soft);display:inline-block;border-radius:2px;}
+  .scenario-box{background:#f2effa;border:1px solid var(--line);padding:12px 16px;font-size:15.5px;line-height:2.1;margin-bottom:10px;}
+
+  .corrige-wrapper{page-break-before:always;padding-top:6px;}
+  .corrige-flag{text-align:center;font-size:13px;color:var(--ink-soft);margin-bottom:10px;border-top:1px dashed var(--ink-soft);padding-top:14px;}
+  details.corrige{border:2px dashed var(--teal);border-radius:4px;background:#f5fbf9;padding:6px 20px 18px;}
+  details.corrige > summary{cursor:pointer;font-family:'Amiri',serif;font-weight:700;font-size:19px;color:var(--teal);padding:14px 0;list-style:none;}
+  details.corrige > summary::-webkit-details-marker{display:none;}
+  details.corrige > summary::before{content:"✂ ";}
+  details.corrige > summary::after{content:"— اضغط لإظهار الحل / إخفائه";font-family:'Noto Naskh Arabic',serif;font-weight:400;font-size:13px;color:var(--ink-soft);margin-inline-start:8px;}
+  .corrige h4{color:var(--teal);margin:16px 0 8px;font-size:16px;}
+  .corrige-item{margin-bottom:10px;font-size:15px;line-height:2.1;}
+  .corrige table.data-table th{background:var(--teal);}
+
+  .footer-note{margin-top:30px;text-align:center;font-size:12px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:10px;}
+
+  @media print{
+    body{background:#fff;}
+    .sheet{box-shadow:none;border:none;margin:0;max-width:100%;padding:14px 6px;}
+    details.corrige{border-color:#000;}
+  }
+  @page{size:A4;margin:14mm;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="masthead-text">
+      <h1>العملياتُ على الأعدادِ ذاتِ الكتابةِ الكسريةِ</h1>
+      <p class="subtitle">الرياضيات — الأعداد والحساب</p>
+    </div>
+    <svg class="frac-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <text x="14" y="26" font-family="Georgia, serif" font-size="20" font-weight="700" fill="#5b4b9e">3</text>
+      <line x1="8" y1="32" x2="30" y2="32" stroke="#5b4b9e" stroke-width="2.5"/>
+      <text x="14" y="52" font-family="Georgia, serif" font-size="20" font-weight="700" fill="#5b4b9e">4</text>
+      <text x="36" y="42" font-family="Georgia, serif" font-size="22" font-weight="700" fill="#c98a2e">+</text>
+    </svg>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta-chip">المستوى: <b>الأولى إعدادي (1AC)</b></div>
+    <div class="meta-chip">المادة: <b>الرياضيات — الأعداد والحساب</b></div>
+    <div class="meta-chip">مدة الحصة: <b>ساعة إلى ساعة ونصف</b></div>
+    <div class="meta-chip">نوع الوثيقة: <b>فيشة تعلّم ذاتي</b></div>
+  </div>
+
+  <!-- ===================== OBJECTIF ===================== -->
+  <section>
+    <h2 class="section-title">🎯 الهدف من الدرس</h2>
+    <div class="objectif-box">
+      يتمكّن المتعلم(ة) في نهاية هذا الدرس من: تبسيط كسر إلى أبسط صورة، وإجراء عمليات الجمع والطرح على كسور بنفس المقام أو بمقامات مختلفة، وضرب وقسمة كسرين مع تبسيط النتيجة، وتوظيف هذه العمليات لحل مسائل من الحياة اليومية.
+    </div>
+  </section>
+
+  <!-- ===================== COURS ===================== -->
+  <section>
+    <h2 class="section-title">📘 الدرس</h2>
+
+    <h3 class="sub-title">1) تذكير: الكسور المتساوية وتبسيط كسر</h3>
+    <div class="rule-box">
+      <p>لتبسيط كسر، نقسم بسطه ومقامه على نفس العدد (قاسم مشترك بينهما) حتى نصل إلى أبسط صورة ممكنة.</p>
+      <div class="example-box">
+        مثال: <span class="frac"><span class="num">8</span><span class="den">12</span></span> = <span class="frac"><span class="num">8 ÷ 4</span><span class="den">12 ÷ 4</span></span> = <span class="frac"><span class="num">2</span><span class="den">3</span></span>
+      </div>
+    </div>
+
+    <h3 class="sub-title">2) جمع وطرح الكسور</h3>
+    <div class="rule-box">
+      <p><b>أ) كسور لها نفس المقام:</b> نجمع (أو نطرح) البسطين، ونحتفظ بنفس المقام.</p>
+    </div>
+    <div class="example-box">
+      <span class="frac"><span class="num">3</span><span class="den">7</span></span> <span class="op">+</span> <span class="frac"><span class="num">2</span><span class="den">7</span></span> <span class="op">=</span> <span class="frac"><span class="num">3 + 2</span><span class="den">7</span></span> <span class="op">=</span> <span class="frac result-tag"><span class="num">5</span><span class="den">7</span></span>
+    </div>
+    <div class="rule-box">
+      <p><b>ب) كسور بمقامات مختلفة:</b> نوحّد المقامات أولاً (بضرب المقامين ببعضهما، أو باستعمال مضاعف مشترك لهما)، ثم نجمع (أو نطرح) البسطين.</p>
+    </div>
+    <div class="example-box">
+      <span class="frac"><span class="num">1</span><span class="den">2</span></span> <span class="op">+</span> <span class="frac"><span class="num">1</span><span class="den">3</span></span> <span class="op">=</span> <span class="frac"><span class="num">3</span><span class="den">6</span></span> <span class="op">+</span> <span class="frac"><span class="num">2</span><span class="den">6</span></span> <span class="op">=</span> <span class="frac result-tag"><span class="num">5</span><span class="den">6</span></span>
+    </div>
+    <p style="font-size:14px;color:var(--ink-soft);margin-top:-8px;">لتوحيد المقامين 2 و3، ضربناهما ببعضهما فحصلنا على المقام المشترك 6، ثم وسّعنا كل كسر بالعدد المناسب.</p>
+
+    <h3 class="sub-title">3) ضرب كسرين</h3>
+    <div class="rule-box">
+      <p>لضرب كسرين، نضرب البسط في البسط، والمقام في المقام، ثم نبسّط الناتج إن أمكن.</p>
+    </div>
+    <div class="example-box">
+      <span class="frac"><span class="num">2</span><span class="den">3</span></span> <span class="op">×</span> <span class="frac"><span class="num">3</span><span class="den">5</span></span> <span class="op">=</span> <span class="frac"><span class="num">2 × 3</span><span class="den">3 × 5</span></span> <span class="op">=</span> <span class="frac"><span class="num">6</span><span class="den">15</span></span> <span class="op">=</span> <span class="frac result-tag"><span class="num">2</span><span class="den">5</span></span>
+    </div>
+
+    <h3 class="sub-title">4) قسمة كسرين</h3>
+    <div class="rule-box">
+      <p>لقسمة كسر على كسر، نضرب الكسر الأول في <b>مقلوب</b> الكسر الثاني. (مقلوب الكسر <span class="frac"><span class="num">a</span><span class="den">b</span></span> هو <span class="frac"><span class="num">b</span><span class="den">a</span></span>)</p>
+    </div>
+    <div class="example-box">
+      <span class="frac"><span class="num">2</span><span class="den">3</span></span> <span class="op">÷</span> <span class="frac"><span class="num">4</span><span class="den">5</span></span> <span class="op">=</span> <span class="frac"><span class="num">2</span><span class="den">3</span></span> <span class="op">×</span> <span class="frac"><span class="num">5</span><span class="den">4</span></span> <span class="op">=</span> <span class="frac"><span class="num">10</span><span class="den">12</span></span> <span class="op">=</span> <span class="frac result-tag"><span class="num">5</span><span class="den">6</span></span>
+    </div>
+
+    <h3 class="sub-title">5) جدول تلخيصي</h3>
+    <table class="data-table">
+      <tr><th>العملية</th><th>القاعدة</th></tr>
+      <tr><td>الجمع/الطرح (نفس المقام)</td><td>نجمع/نطرح البسطين، ونحتفظ بالمقام</td></tr>
+      <tr><td>الجمع/الطرح (مقامات مختلفة)</td><td>نوحّد المقامات أولاً، ثم نجمع/نطرح البسطين</td></tr>
+      <tr><td>الضرب</td><td>بسط × بسط، ومقام × مقام</td></tr>
+      <tr><td>القسمة</td><td>نضرب الكسر الأول في مقلوب الكسر الثاني</td></tr>
+    </table>
+  </section>
+
+  <!-- ===================== ACTIVITE ===================== -->
+  <section>
+    <h2 class="section-title">✏️ نشاط تطبيقي</h2>
+    <div class="activity-box">
+      <span class="task-label">مسألة من الحياة اليومية</span>
+      <p>اشترت فاطمة <span class="frac"><span class="num">3</span><span class="den">4</span></span> كلغ من التفاح، و<span class="frac"><span class="num">1</span><span class="den">2</span></span> كلغ من الموز. أكملْ الحل خطوة بخطوة:</p>
+      <p><b>1) ما وزن الفواكه الذي اشترته فاطمة بالكلغ؟</b></p>
+      <p>الوزن الكلي = <span class="frac"><span class="num">3</span><span class="den">4</span></span> + <span class="frac"><span class="num">1</span><span class="den">2</span></span> = <span class="frac"><span class="num">3</span><span class="den">4</span></span> + <span class="frac"><span class="num">.....</span><span class="den">4</span></span> = <span class="frac"><span class="num">.....</span><span class="den">4</span></span> كلغ</p>
+      <p><b>2) إذا أكلت العائلة <span class="frac"><span class="num">1</span><span class="den">3</span></span> كلغ من هذه الفواكه، كم بقي منها؟</b></p>
+      <p>الكمية المتبقية = <span class="frac"><span class="num">.....</span><span class="den">4</span></span> − <span class="frac"><span class="num">1</span><span class="den">3</span></span> = <span class="fill-line" style="min-width:200px;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== EXERCICES ===================== -->
+  <section>
+    <h2 class="section-title">📝 تمارين للتدرّب</h2>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">1</span>بسّط الكسور التالية إلى أبسط صورة:</h4>
+      <div class="op-grid">
+        <div class="op-item"><span class="frac"><span class="num">6</span><span class="den">8</span></span> = <span class="fill-line"></span></div>
+        <div class="op-item"><span class="frac"><span class="num">4</span><span class="den">10</span></span> = <span class="fill-line"></span></div>
+        <div class="op-item"><span class="frac"><span class="num">9</span><span class="den">12</span></span> = <span class="fill-line"></span></div>
+        <div class="op-item"><span class="frac"><span class="num">14</span><span class="den">21</span></span> = <span class="fill-line"></span></div>
+        <div class="op-item"><span class="frac"><span class="num">15</span><span class="den">25</span></span> = <span class="fill-line"></span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">2</span>احسب (كسور بنفس المقام):</h4>
+      <div class="op-grid">
+        <div class="op-item"><span class="frac"><span class="num">2</span><span class="den">7</span></span> + <span class="frac"><span class="num">3</span><span class="den">7</span></span> = <span class="fill-line"></span></div>
+        <div class="op-item"><span class="frac"><span class="num">5</span><span class="den">9</span></span> − <span class="frac"><span class="num">2</span><span class="den">9</span></span> = <span class="fill-line"></span></div>
+        <div class="op-item"><span class="frac"><span class="num">4</span><span class="den">11</span></span> + <span class="frac"><span class="num">6</span><span class="den">11</span></span> = <span class="fill-line"></span></div>
+        <div class="op-item"><span class="frac"><span class="num">7</span><span class="den">8</span></span> − <span class="frac"><span class="num">3</span><span class="den">8</span></span> = <span class="fill-line"></span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">3</span>احسب (كسور بمقامات مختلفة، وحِّد المقامات أولاً):</h4>
+      <div class="op-grid">
+        <div class="op-item"><span class="frac"><span class="num">1</span><span class="den">2</span></span> + <span class="frac"><span class="num">1</span><span class="den">3</span></span> = <span class="fill-line"></span></div>
+        <div class="op-item"><span class="frac"><span class="num">2</span><span class="den">3</span></span> + <span class="frac"><span class="num">1</span><span class="den">4</span></span> = <span class="fill-line"></span></div>
+        <div class="op-item"><span class="frac"><span class="num">3</span><span class="den">4</span></span> − <span class="frac"><span class="num">1</span><span class="den">6</span></span> = <span class="fill-line"></span></div>
+        <div class="op-item"><span class="frac"><span class="num">5</span><span class="den">6</span></span> − <span class="frac"><span class="num">1</span><span class="den">2</span></span> = <span class="fill-line"></span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">4</span>احسب حاصل الضرب مع التبسيط:</h4>
+      <div class="op-grid">
+        <div class="op-item"><span class="frac"><span class="num">2</span><span class="den">3</span></span> × <span class="frac"><span class="num">3</span><span class="den">5</span></span> = <span class="fill-line"></span></div>
+        <div class="op-item"><span class="frac"><span class="num">4</span><span class="den">7</span></span> × <span class="frac"><span class="num">1</span><span class="den">2</span></span> = <span class="fill-line"></span></div>
+        <div class="op-item"><span class="frac"><span class="num">3</span><span class="den">4</span></span> × <span class="frac"><span class="num">2</span><span class="den">9</span></span> = <span class="fill-line"></span></div>
+        <div class="op-item"><span class="frac"><span class="num">5</span><span class="den">6</span></span> × <span class="frac"><span class="num">3</span><span class="den">10</span></span> = <span class="fill-line"></span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">5</span>احسب حاصل القسمة:</h4>
+      <div class="op-grid">
+        <div class="op-item"><span class="frac"><span class="num">2</span><span class="den">3</span></span> ÷ <span class="frac"><span class="num">4</span><span class="den">5</span></span> = <span class="fill-line"></span></div>
+        <div class="op-item"><span class="frac"><span class="num">3</span><span class="den">4</span></span> ÷ <span class="frac"><span class="num">1</span><span class="den">2</span></span> = <span class="fill-line"></span></div>
+        <div class="op-item"><span class="frac"><span class="num">5</span><span class="den">8</span></span> ÷ <span class="frac"><span class="num">5</span><span class="den">6</span></span> = <span class="fill-line"></span></div>
+        <div class="op-item"><span class="frac"><span class="num">1</span><span class="den">3</span></span> ÷ <span class="frac"><span class="num">2</span><span class="den">9</span></span> = <span class="fill-line"></span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">6</span>اختر الإجابة الصحيحة:</h4>
+      <div class="qcm-item">
+        <p>1) <span class="frac"><span class="num">1</span><span class="den">2</span></span> + <span class="frac"><span class="num">1</span><span class="den">2</span></span> يساوي:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>1</span><span><span class="checkbox"></span><span class="frac"><span class="num">2</span><span class="den">4</span></span></span><span><span class="checkbox"></span><span class="frac"><span class="num">1</span><span class="den">4</span></span></span></div>
+      </div>
+      <div class="qcm-item">
+        <p>2) مقلوب الكسر <span class="frac"><span class="num">3</span><span class="den">5</span></span> هو:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span><span class="frac"><span class="num">5</span><span class="den">3</span></span></span><span><span class="checkbox"></span><span class="frac"><span class="num">3</span><span class="den">5</span></span></span><span><span class="checkbox"></span><span class="frac"><span class="num">-3</span><span class="den">5</span></span></span></div>
+      </div>
+      <div class="qcm-item">
+        <p>3) <span class="frac"><span class="num">2</span><span class="den">3</span></span> × <span class="frac"><span class="num">3</span><span class="den">4</span></span> يساوي:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span><span class="frac"><span class="num">1</span><span class="den">2</span></span></span><span><span class="checkbox"></span><span class="frac"><span class="num">5</span><span class="den">7</span></span></span><span><span class="checkbox"></span><span class="frac"><span class="num">6</span><span class="den">7</span></span></span></div>
+      </div>
+      <div class="qcm-item">
+        <p>4) لجمع كسرين بمقامين مختلفين، يجب أولاً:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>جمع البسطين مباشرة</span><span><span class="checkbox"></span>توحيد المقامين</span><span><span class="checkbox"></span>ضرب البسطين</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>5) <span class="frac"><span class="num">4</span><span class="den">9</span></span> ÷ <span class="frac"><span class="num">2</span><span class="den">3</span></span> يساوي:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span><span class="frac"><span class="num">2</span><span class="den">3</span></span></span><span><span class="checkbox"></span><span class="frac"><span class="num">8</span><span class="den">27</span></span></span><span><span class="checkbox"></span><span class="frac"><span class="num">1</span><span class="den">2</span></span></span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">7</span>حدِّد الخطأ في كل عملية، ثم صحِّحه:</h4>
+      <p>1) <span class="frac"><span class="num">1</span><span class="den">2</span></span> + <span class="frac"><span class="num">1</span><span class="den">3</span></span> = <span class="frac"><span class="num">2</span><span class="den">5</span></span> (خطأ) — الصواب: <span class="fill-line"></span></p>
+      <p>2) <span class="frac"><span class="num">2</span><span class="den">5</span></span> × <span class="frac"><span class="num">3</span><span class="den">4</span></span> = <span class="frac"><span class="num">6</span><span class="den">9</span></span> (خطأ) — الصواب: <span class="fill-line"></span></p>
+      <p>3) <span class="frac"><span class="num">5</span><span class="den">6</span></span> − <span class="frac"><span class="num">1</span><span class="den">6</span></span> = <span class="frac"><span class="num">4</span><span class="den">12</span></span> (خطأ) — الصواب: <span class="fill-line"></span></p>
+      <p>4) <span class="frac"><span class="num">3</span><span class="den">4</span></span> ÷ <span class="frac"><span class="num">1</span><span class="den">2</span></span> = <span class="frac"><span class="num">3</span><span class="den">8</span></span> (خطأ) — الصواب: <span class="fill-line"></span></p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">8</span>مسألة تطبيقية:</h4>
+      <div class="scenario-box">
+        يملك أحمد قطعة أرض مساحتها 1 هكتار. زرع <span class="frac"><span class="num">2</span><span class="den">5</span></span> منها بالقمح، و<span class="frac"><span class="num">1</span><span class="den">4</span></span> منها بالشعير.
+      </div>
+      <p>1) ما الكسر الذي يمثّل المساحة الإجمالية المزروعة (قمح + شعير)؟</p>
+      <p><span class="fill-line" style="min-width:60%;"></span></p>
+      <p>2) ما الكسر المتبقي غير المزروع من الأرض؟</p>
+      <p><span class="fill-line" style="min-width:60%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== CORRIGE ===================== -->
+  <div class="corrige-wrapper">
+    <p class="corrige-flag">✂ يمكن طي هذه الصفحة أو إخفاؤها (اضغط على العنوان أدناه) قبل إنجاز التمارين ✂</p>
+    <details class="corrige">
+      <summary>التصحيح الكامل</summary>
+
+      <h4>تصحيح النشاط التطبيقي</h4>
+      <div class="corrige-item">1) <span class="frac"><span class="num">3</span><span class="den">4</span></span> + <span class="frac"><span class="num">1</span><span class="den">2</span></span> = <span class="frac"><span class="num">3</span><span class="den">4</span></span> + <span class="frac"><span class="num">2</span><span class="den">4</span></span> = <span class="frac"><span class="num">5</span><span class="den">4</span></span> كلغ</div>
+      <div class="corrige-item">2) <span class="frac"><span class="num">5</span><span class="den">4</span></span> − <span class="frac"><span class="num">1</span><span class="den">3</span></span> = <span class="frac"><span class="num">15</span><span class="den">12</span></span> − <span class="frac"><span class="num">4</span><span class="den">12</span></span> = <span class="frac"><span class="num">11</span><span class="den">12</span></span> كلغ</div>
+
+      <h4>تصحيح التمرين 1 (تبسيط الكسور)</h4>
+      <div class="corrige-item"><span class="frac"><span class="num">6</span><span class="den">8</span></span>=<span class="frac"><span class="num">3</span><span class="den">4</span></span> &nbsp;|&nbsp; <span class="frac"><span class="num">4</span><span class="den">10</span></span>=<span class="frac"><span class="num">2</span><span class="den">5</span></span> &nbsp;|&nbsp; <span class="frac"><span class="num">9</span><span class="den">12</span></span>=<span class="frac"><span class="num">3</span><span class="den">4</span></span> &nbsp;|&nbsp; <span class="frac"><span class="num">14</span><span class="den">21</span></span>=<span class="frac"><span class="num">2</span><span class="den">3</span></span> &nbsp;|&nbsp; <span class="frac"><span class="num">15</span><span class="den">25</span></span>=<span class="frac"><span class="num">3</span><span class="den">5</span></span></div>
+
+      <h4>تصحيح التمرين 2 (نفس المقام)</h4>
+      <div class="corrige-item"><span class="frac"><span class="num">2</span><span class="den">7</span></span>+<span class="frac"><span class="num">3</span><span class="den">7</span></span>=<span class="frac"><span class="num">5</span><span class="den">7</span></span> &nbsp;|&nbsp; <span class="frac"><span class="num">5</span><span class="den">9</span></span>−<span class="frac"><span class="num">2</span><span class="den">9</span></span>=<span class="frac"><span class="num">3</span><span class="den">9</span></span>=<span class="frac"><span class="num">1</span><span class="den">3</span></span> &nbsp;|&nbsp; <span class="frac"><span class="num">4</span><span class="den">11</span></span>+<span class="frac"><span class="num">6</span><span class="den">11</span></span>=<span class="frac"><span class="num">10</span><span class="den">11</span></span> &nbsp;|&nbsp; <span class="frac"><span class="num">7</span><span class="den">8</span></span>−<span class="frac"><span class="num">3</span><span class="den">8</span></span>=<span class="frac"><span class="num">4</span><span class="den">8</span></span>=<span class="frac"><span class="num">1</span><span class="den">2</span></span></div>
+
+      <h4>تصحيح التمرين 3 (مقامات مختلفة)</h4>
+      <div class="corrige-item"><span class="frac"><span class="num">1</span><span class="den">2</span></span>+<span class="frac"><span class="num">1</span><span class="den">3</span></span>=<span class="frac"><span class="num">5</span><span class="den">6</span></span> &nbsp;|&nbsp; <span class="frac"><span class="num">2</span><span class="den">3</span></span>+<span class="frac"><span class="num">1</span><span class="den">4</span></span>=<span class="frac"><span class="num">11</span><span class="den">12</span></span> &nbsp;|&nbsp; <span class="frac"><span class="num">3</span><span class="den">4</span></span>−<span class="frac"><span class="num">1</span><span class="den">6</span></span>=<span class="frac"><span class="num">7</span><span class="den">12</span></span> &nbsp;|&nbsp; <span class="frac"><span class="num">5</span><span class="den">6</span></span>−<span class="frac"><span class="num">1</span><span class="den">2</span></span>=<span class="frac"><span class="num">2</span><span class="den">6</span></span>=<span class="frac"><span class="num">1</span><span class="den">3</span></span></div>
+
+      <h4>تصحيح التمرين 4 (الضرب)</h4>
+      <div class="corrige-item"><span class="frac"><span class="num">2</span><span class="den">3</span></span>×<span class="frac"><span class="num">3</span><span class="den">5</span></span>=<span class="frac"><span class="num">6</span><span class="den">15</span></span>=<span class="frac"><span class="num">2</span><span class="den">5</span></span> &nbsp;|&nbsp; <span class="frac"><span class="num">4</span><span class="den">7</span></span>×<span class="frac"><span class="num">1</span><span class="den">2</span></span>=<span class="frac"><span class="num">4</span><span class="den">14</span></span>=<span class="frac"><span class="num">2</span><span class="den">7</span></span> &nbsp;|&nbsp; <span class="frac"><span class="num">3</span><span class="den">4</span></span>×<span class="frac"><span class="num">2</span><span class="den">9</span></span>=<span class="frac"><span class="num">6</span><span class="den">36</span></span>=<span class="frac"><span class="num">1</span><span class="den">6</span></span> &nbsp;|&nbsp; <span class="frac"><span class="num">5</span><span class="den">6</span></span>×<span class="frac"><span class="num">3</span><span class="den">10</span></span>=<span class="frac"><span class="num">15</span><span class="den">60</span></span>=<span class="frac"><span class="num">1</span><span class="den">4</span></span></div>
+
+      <h4>تصحيح التمرين 5 (القسمة)</h4>
+      <div class="corrige-item"><span class="frac"><span class="num">2</span><span class="den">3</span></span>÷<span class="frac"><span class="num">4</span><span class="den">5</span></span>=<span class="frac"><span class="num">10</span><span class="den">12</span></span>=<span class="frac"><span class="num">5</span><span class="den">6</span></span> &nbsp;|&nbsp; <span class="frac"><span class="num">3</span><span class="den">4</span></span>÷<span class="frac"><span class="num">1</span><span class="den">2</span></span>=<span class="frac"><span class="num">6</span><span class="den">4</span></span>=<span class="frac"><span class="num">3</span><span class="den">2</span></span> &nbsp;|&nbsp; <span class="frac"><span class="num">5</span><span class="den">8</span></span>÷<span class="frac"><span class="num">5</span><span class="den">6</span></span>=<span class="frac"><span class="num">30</span><span class="den">40</span></span>=<span class="frac"><span class="num">3</span><span class="den">4</span></span> &nbsp;|&nbsp; <span class="frac"><span class="num">1</span><span class="den">3</span></span>÷<span class="frac"><span class="num">2</span><span class="den">9</span></span>=<span class="frac"><span class="num">9</span><span class="den">6</span></span>=<span class="frac"><span class="num">3</span><span class="den">2</span></span></div>
+
+      <h4>تصحيح التمرين 6 (الاختيار من متعدد)</h4>
+      <div class="corrige-item">1) 1 &nbsp;|&nbsp; 2) <span class="frac"><span class="num">5</span><span class="den">3</span></span> &nbsp;|&nbsp; 3) <span class="frac"><span class="num">1</span><span class="den">2</span></span> &nbsp;|&nbsp; 4) توحيد المقامين &nbsp;|&nbsp; 5) <span class="frac"><span class="num">2</span><span class="den">3</span></span></div>
+
+      <h4>تصحيح التمرين 7 (تصحيح الأخطاء)</h4>
+      <div class="corrige-item">1) الخطأ: جمع البسط مع البسط والمقام مع المقام مباشرة دون توحيد المقامات. الصواب: <span class="frac"><span class="num">1</span><span class="den">2</span></span>+<span class="frac"><span class="num">1</span><span class="den">3</span></span>=<span class="frac"><span class="num">5</span><span class="den">6</span></span></div>
+      <div class="corrige-item">2) الخطأ: 5×4 لا تساوي 9. الصواب: <span class="frac"><span class="num">2</span><span class="den">5</span></span>×<span class="frac"><span class="num">3</span><span class="den">4</span></span>=<span class="frac"><span class="num">6</span><span class="den">20</span></span>=<span class="frac"><span class="num">3</span><span class="den">10</span></span></div>
+      <div class="corrige-item">3) الخطأ: عند نفس المقام يبقى المقام كما هو. الصواب: <span class="frac"><span class="num">5</span><span class="den">6</span></span>−<span class="frac"><span class="num">1</span><span class="den">6</span></span>=<span class="frac"><span class="num">4</span><span class="den">6</span></span>=<span class="frac"><span class="num">2</span><span class="den">3</span></span></div>
+      <div class="corrige-item">4) الخطأ: القسمة تتم بضرب الكسر الأول في مقلوب الثاني وليس بقسمة البسط على البسط والمقام على المقام. الصواب: <span class="frac"><span class="num">3</span><span class="den">4</span></span>÷<span class="frac"><span class="num">1</span><span class="den">2</span></span>=<span class="frac"><span class="num">3</span><span class="den">4</span></span>×<span class="frac"><span class="num">2</span><span class="den">1</span></span>=<span class="frac"><span class="num">6</span><span class="den">4</span></span>=<span class="frac"><span class="num">3</span><span class="den">2</span></span></div>
+
+      <h4>تصحيح التمرين 8 (المسألة التطبيقية)</h4>
+      <div class="corrige-item">1) المساحة المزروعة = <span class="frac"><span class="num">2</span><span class="den">5</span></span> + <span class="frac"><span class="num">1</span><span class="den">4</span></span> = <span class="frac"><span class="num">8</span><span class="den">20</span></span> + <span class="frac"><span class="num">5</span><span class="den">20</span></span> = <span class="frac"><span class="num">13</span><span class="den">20</span></span> من الهكتار.</div>
+      <div class="corrige-item">2) المساحة المتبقية = 1 − <span class="frac"><span class="num">13</span><span class="den">20</span></span> = <span class="frac"><span class="num">20</span><span class="den">20</span></span> − <span class="frac"><span class="num">13</span><span class="den">20</span></span> = <span class="frac"><span class="num">7</span><span class="den">20</span></span> من الهكتار.</div>
+    </details>
+  </div>
+
+  <p class="footer-note">فيشة تعلّم ذاتي — الرياضيات — الأولى إعدادي — العمليات على الأعداد ذات الكتابة الكسرية</p>
+</div>
+</body>
+</html>
