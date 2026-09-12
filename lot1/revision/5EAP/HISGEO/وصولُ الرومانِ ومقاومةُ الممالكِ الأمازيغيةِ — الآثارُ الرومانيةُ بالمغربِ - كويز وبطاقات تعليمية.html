@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>وصولُ الرومانِ ومقاومةُ الممالكِ الأمازيغيةِ — الآثارُ الرومانيةُ بالمغربِ - كويز وبطاقات تعليمية</title>
+<style>
+  :root{
+    --primary:#2563eb;
+    --primary-dark:#1e40af;
+    --green:#16a34a;
+    --red:#dc2626;
+    --bg:#f8fafc;
+    --card:#ffffff;
+    --text:#1e293b;
+    --muted:#64748b;
+    --border:#e2e8f0;
+  }
+  *{box-sizing:border-box;}
+  body{
+    font-family:"Segoe UI", Tahoma, Arial, sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    margin:0;
+    padding:20px;
+    direction:rtl;
+  }
+  .wrap{max-width:720px;margin:0 auto;}
+  h1{
+    text-align:center;
+    color:var(--primary-dark);
+    font-size:1.5em;
+    margin-bottom:4px;
+  }
+  .subtitle{
+    text-align:center;
+    color:var(--muted);
+    margin-bottom:24px;
+    font-size:0.95em;
+  }
+  .tabs{
+    display:flex;
+    gap:8px;
+    margin-bottom:20px;
+    justify-content:center;
+  }
+  .tab-btn{
+    padding:10px 24px;
+    border-radius:999px;
+    border:2px solid var(--primary);
+    background:white;
+    color:var(--primary);
+    font-weight:bold;
+    cursor:pointer;
+    font-size:1em;
+  }
+  .tab-btn.active{
+    background:var(--primary);
+    color:white;
+  }
+  .panel{display:none;}
+  .panel.active{display:block;}
+
+  .quiz-card{
+    background:var(--card);
+    border-radius:16px;
+    padding:24px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.06);
+    border:1px solid var(--border);
+  }
+  .progress{
+    text-align:center;
+    color:var(--muted);
+    margin-bottom:14px;
+    font-size:0.95em;
+  }
+  .question{
+    font-size:1.15em;
+    font-weight:bold;
+    margin-bottom:18px;
+    line-height:1.6;
+  }
+  .options{display:flex;flex-direction:column;gap:10px;}
+  .option{
+    padding:14px 16px;
+    border:2px solid var(--border);
+    border-radius:10px;
+    cursor:pointer;
+    background:white;
+    font-size:1em;
+    transition:all .15s;
+  }
+  .option:hover{border-color:var(--primary);}
+  .option.correct{
+    background:#dcfce7;
+    border-color:var(--green);
+    color:#14532d;
+    font-weight:bold;
+  }
+  .option.incorrect{
+    background:#fee2e2;
+    border-color:var(--red);
+    color:#7f1d1d;
+    font-weight:bold;
+  }
+  .option.disabled{pointer-events:none;}
+  .feedback{
+    margin-top:16px;
+    padding:14px;
+    border-radius:10px;
+    background:#f1f5f9;
+    line-height:1.6;
+    display:none;
+  }
+  .feedback.show{display:block;}
+  .feedback .verdict{font-weight:bold;}
+  .nav-row{
+    display:flex;
+    justify-content:space-between;
+    margin-top:20px;
+  }
+  .nav-btn{
+    padding:10px 20px;
+    border-radius:8px;
+    border:none;
+    background:var(--primary);
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+    font-size:1em;
+  }
+  .nav-btn:disabled{background:#cbd5e1;cursor:not-allowed;}
+  .result-screen{text-align:center;padding:20px;}
+  .result-score{font-size:2.4em;font-weight:bold;color:var(--primary-dark);margin:10px 0;}
+  .restart-btn{
+    margin-top:16px;
+    padding:12px 28px;
+    background:var(--green);
+    color:white;
+    border:none;
+    border-radius:10px;
+    font-size:1.05em;
+    font-weight:bold;
+    cursor:pointer;
+  }
+
+  .flash-wrap{text-align:center;}
+  .flash-counter{color:var(--muted);margin-bottom:14px;}
+  .flashcard{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:16px;
+    min-height:260px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:30px;
+    cursor:pointer;
+    box-shadow:0 2px 10px rgba(0,0,0,0.06);
+    font-size:1.05em;
+    line-height:1.8;
+  }
+  .flash-face{width:100%;}
+  .flash-face.answer{color:var(--green);font-weight:bold;}
+  .flash-nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:18px;
+  }
+  .flash-tap{
+    text-align:center;
+    color:var(--muted);
+    font-size:0.85em;
+    margin-top:8px;
+  }
+  .empty-note{
+    text-align:center;
+    color:var(--muted);
+    padding:30px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>وصولُ الرومانِ ومقاومةُ الممالكِ الأمازيغيةِ — الآثارُ الرومانيةُ بالمغربِ</h1>
+  <div class="subtitle">الاجتماعيات — التاريخ — السادسة ابتدائي (6AEP)</div>
+
+  <div class="tabs">
+    <button class="tab-btn active" id="tabQuizBtn" onclick="showTab('quiz')">📝 كويز</button>
+    <button class="tab-btn" id="tabFlashBtn" onclick="showTab('flash')">🃏 بطاقات تعليمية</button>
+  </div>
+
+  <div class="panel active" id="quizPanel">
+    <div class="quiz-card" id="quizCard"></div>
+  </div>
+
+  <div class="panel" id="flashPanel">
+    <div class="flash-wrap">
+      <div class="flash-counter" id="flashCounter"></div>
+      <div class="flashcard" id="flashcard" onclick="flipCard()"></div>
+      <div class="flash-tap">اضغط على البطاقة لرؤية الإجابة</div>
+      <div class="flash-nav">
+        <button class="nav-btn" id="flashPrev" onclick="prevFlash()">◀ السابقة</button>
+        <button class="nav-btn" id="flashNext" onclick="nextFlash()">التالية ▶</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const questions = [{"q": "مملكة موريطانيا الطنجية كانت مملكة", "options": ["رومانية", "أمازيغية", "فرعونية"], "correct": 1, "explanation": "الإجابة الصحيحة: أمازيغية"}, {"q": "ضمّ الرومان موريطانيا الطنجية إلى إمبراطوريتهم في", "options": ["القرن الأول الميلادي", "القرن العاشر الميلادي", "القرن الخامس قبل الميلاد"], "correct": 0, "explanation": "الإجابة الصحيحة: القرن الأول الميلادي"}, {"q": "أشهر موقع أثري روماني بالمغرب هو", "options": ["شالة", "وليلي", "الأوداية"], "correct": 1, "explanation": "الإجابة الصحيحة: وليلي"}, {"q": "لم يستطع الرومان السيطرة الكاملة على المغرب بسبب", "options": ["مقاومة القبائل الأمازيغية في الجبال", "عدم رغبتهم في ذلك", "ضعف جيشهم"], "correct": 0, "explanation": "الإجابة الصحيحة: مقاومة القبائل الأمازيغية في الجبال"}, {"q": "من معالم موقع وليلي الأثري", "options": ["الفسيفساء وقوس النصر", "الأهرامات", "البرج المائل"], "correct": 0, "explanation": "الإجابة الصحيحة: الفسيفساء وقوس النصر"}];
+const flashcards = [{"front": "الممالك الأمازيغية القديمة بالمغرب", "back": "سكن الأمازيغ شمال إفريقيا منذ القدم، وأسّسوا ممالك مستقلة قبل وصول الرومان، أشهرها بشمال المغرب مملكة موريطانيا الطنجية ، التي حكمها ملوك أمازيغ لفترات طويلة، وكانت لها حضارة وتنظيم خاص بها"}, {"front": "وصول الرومان إلى المغرب", "back": "توسّعت الإمبراطورية الرومانية في حوض البحر الأبيض المتوسط، ووصلت إلى شمال إفريقيا. حوالي سنة 42 ميلادية ، ضمّ الرومان مملكة موريطانيا الطنجية إلى إمبراطوريتهم، وأصبحت تُدار كولاية رومانية تخضع لحاكم يُعيَّن من روما"}, {"front": "مقاومة القبائل الأمازيغية", "back": "رغم سيطرة الرومان على المناطق الساحلية والسهلية، لم يتمكنوا من إخضاع كل أراضي المغرب. فقد بقيت قبائل أمازيغية عديدة في المناطق الجبلية (جبال الأطلس والريف) خارج النفوذ الروماني، وقاومت محاولات التوسّع نحو الداخل، محافظة بذلك على استقلالها وثقافتها"}, {"front": "الآثار الرومانية بالمغرب", "back": "🏛️ وليلي (بالقرب من مكناس) أشهر موقع أثري روماني بالمغرب، يضمّ بقايا معابد، وقوس النصر، ولوحات فسيفساء (موزاييك) ملوّنة، ومنازل فخمة كانت لأثرياء العصر الروماني. 🏛️ ليكسوس (بالقرب من العرائش) مدينة أثرية قديمة تقع على ساحل المحيط الأطلسي، تعود إلى عصور سابقة للرومان واستمر استعما"}, {"front": "أهمية هذه الآثار اليوم", "back": "تساعدنا هذه الآثار على فهم طريقة عيش سكان المغرب في العصور القديمة، والتعرّف على مظاهر التمازج الحضاري بين الأمازيغ والرومان، وهي اليوم شاهدة على عمق تاريخ المغرب وتنوّع حضاراته"}];
+
+let current = 0, score = 0, answered = false;
+
+function showTab(tab){
+  document.getElementById('tabQuizBtn').classList.toggle('active', tab==='quiz');
+  document.getElementById('tabFlashBtn').classList.toggle('active', tab==='flash');
+  document.getElementById('quizPanel').classList.toggle('active', tab==='quiz');
+  document.getElementById('flashPanel').classList.toggle('active', tab==='flash');
+}
+
+function renderQuiz(){
+  const card = document.getElementById('quizCard');
+  if(questions.length === 0){
+    card.innerHTML = '<div class="empty-note">لا توجد أسئلة اختيار من متعدد قابلة للاستخراج التلقائي من هذه الفيشة.</div>';
+    return;
+  }
+  if(current >= questions.length){
+    card.innerHTML = `
+      <div class="result-screen">
+        <div>🎉 انتهى الكويز!</div>
+        <div class="result-score">${score} / ${questions.length}</div>
+        <div>${score === questions.length ? 'ممتاز! نتيجة كاملة 🌟' : (score >= questions.length*0.6 ? 'جيد جدًا، استمر في المراجعة 👍' : 'راجع الدرس وأعد المحاولة 💪')}</div>
+        <button class="restart-btn" onclick="restartQuiz()">إعادة الكويز</button>
+      </div>`;
+    return;
+  }
+  const item = questions[current];
+  answered = false;
+  card.innerHTML = `
+    <div class="progress">السؤال ${current+1} من ${questions.length} — النقاط: ${score}</div>
+    <div class="question">${item.q}</div>
+    <div class="options" id="optionsBox"></div>
+    <div class="feedback" id="feedback"></div>
+    <div class="nav-row">
+      <button class="nav-btn" id="nextBtn" disabled onclick="nextQuestion()">التالي ▶</button>
+    </div>
+  `;
+  const optBox = document.getElementById('optionsBox');
+  item.options.forEach((opt, i) => {
+    const div = document.createElement('div');
+    div.className = 'option';
+    div.textContent = opt;
+    div.onclick = () => selectOption(i);
+    optBox.appendChild(div);
+  });
+}
+
+function selectOption(i){
+  if(answered) return;
+  answered = true;
+  const item = questions[current];
+  const opts = document.querySelectorAll('#optionsBox .option');
+  opts.forEach((el, idx) => {
+    el.classList.add('disabled');
+    if(idx === item.correct) el.classList.add('correct');
+    else if(idx === i) el.classList.add('incorrect');
+  });
+  const fb = document.getElementById('feedback');
+  const isCorrect = i === item.correct;
+  if(isCorrect) score++;
+  fb.className = 'feedback show';
+  fb.innerHTML = `<span class="verdict">${isCorrect ? '✅ صحيح!' : '❌ غير صحيح.'}</span><br>${item.explanation}`;
+  document.getElementById('nextBtn').disabled = false;
+}
+
+function nextQuestion(){
+  current++;
+  renderQuiz();
+}
+
+function restartQuiz(){
+  current = 0; score = 0;
+  renderQuiz();
+}
+
+let flashIndex = 0, flipped = false;
+
+function renderFlash(){
+  if(flashcards.length === 0){
+    document.getElementById('flashCounter').textContent = '';
+    document.getElementById('flashcard').innerHTML = '<div class="empty-note">لا توجد بطاقات قابلة للاستخراج التلقائي من هذه الفيشة.</div>';
+    document.getElementById('flashPrev').disabled = true;
+    document.getElementById('flashNext').disabled = true;
+    return;
+  }
+  const item = flashcards[flashIndex];
+  document.getElementById('flashCounter').textContent = `البطاقة ${flashIndex+1} من ${flashcards.length}`;
+  const box = document.getElementById('flashcard');
+  flipped = false;
+  box.innerHTML = `<div class="flash-face">${item.front}</div>`;
+  document.getElementById('flashPrev').disabled = flashIndex === 0;
+  document.getElementById('flashNext').disabled = flashIndex === flashcards.length - 1;
+}
+
+function flipCard(){
+  if(flashcards.length === 0) return;
+  const item = flashcards[flashIndex];
+  flipped = !flipped;
+  const box = document.getElementById('flashcard');
+  box.innerHTML = flipped
+    ? `<div class="flash-face answer">${item.back}</div>`
+    : `<div class="flash-face">${item.front}</div>`;
+}
+
+function nextFlash(){
+  if(flashIndex < flashcards.length - 1){ flashIndex++; renderFlash(); }
+}
+function prevFlash(){
+  if(flashIndex > 0){ flashIndex--; renderFlash(); }
+}
+
+renderQuiz();
+renderFlash();
+</script>
+</body>
+</html>
