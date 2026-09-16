@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>الإعراب والبناء</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#241f33; --ink-soft:#54506a;
+    --paper:#faf8f5; --panel:#ffffff; --line:#ddd4e6;
+    --indigo:#4b3f8f; --indigo-soft:#e9e5f7;
+    --rose:#b1553f; --rose-soft:#f7e3dc;
+    --gold:#af8a2e; --gold-soft:#f4ecd2;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#e8e3ee;font-family:'Noto Naskh Arabic','Amiri',serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .sheet{max-width:880px;margin:24px auto;background:var(--paper);padding:38px 44px 50px;border:1px solid var(--line);box-shadow:0 4px 24px rgba(0,0,0,.12);}
+
+  .masthead{display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:3px solid var(--ink);padding-bottom:16px;margin-bottom:22px;}
+  .masthead-text h1{font-family:'Amiri',serif;font-weight:700;font-size:30px;margin:0 0 6px;color:var(--indigo);}
+  .masthead-text .subtitle{font-size:15px;color:var(--ink-soft);margin:0;}
+  .link-icon{width:58px;height:58px;flex-shrink:0;}
+
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+  .meta-chip{border:1px solid var(--line);background:var(--panel);border-radius:3px;padding:6px 12px;font-size:13.5px;color:var(--ink-soft);}
+  .meta-chip b{color:var(--ink);font-weight:600;}
+
+  section{margin-bottom:28px;}
+  h2.section-title{font-family:'Amiri',serif;font-size:21px;font-weight:700;color:var(--indigo);border-bottom:2px solid var(--indigo);padding-bottom:6px;margin:0 0 14px;display:flex;align-items:baseline;gap:8px;}
+  h3.sub-title{font-size:17px;font-weight:700;color:var(--rose);margin:20px 0 8px;}
+  p{line-height:2;font-size:15.5px;margin:0 0 10px;}
+
+  .objectif-box{background:var(--gold-soft);border-right:4px solid var(--gold);padding:14px 18px;border-radius:2px;font-size:15.5px;line-height:1.9;}
+
+  .rule-box{background:var(--panel);border:1px solid var(--line);border-right:4px solid var(--indigo);padding:14px 18px;border-radius:2px;margin:10px 0 16px;}
+  .rule-box p:last-child{margin-bottom:0;}
+  .rule-box ul,.rule-box ol{margin:6px 0;padding-inline-start:22px;}
+  .rule-box li{margin-bottom:6px;line-height:1.85;}
+
+  .type-grid{display:flex;flex-wrap:wrap;gap:16px;margin:10px 0 16px;}
+  .type-card{flex:1 1 260px;border-radius:8px;padding:14px 16px;}
+  .type-card.mubalag{background:var(--indigo-soft);border:1px solid var(--indigo);}
+  .type-card.mabni{background:var(--rose-soft);border:1px solid var(--rose);}
+  .type-card .head{font-weight:700;font-size:16px;margin-bottom:6px;}
+  .type-card.mubalag .head{color:var(--indigo);}
+  .type-card.mabni .head{color:var(--rose);}
+  .type-card p{margin:0;font-size:14.5px;line-height:1.85;}
+  .tag{font-weight:700;color:var(--rose);text-decoration:underline;text-decoration-color:var(--gold);}
+
+  .example-box{background:var(--indigo-soft);border:1px dashed var(--indigo);padding:12px 18px;border-radius:2px;margin:10px 0;font-size:15.5px;line-height:1.95;}
+
+  table.data-table{width:100%;border-collapse:collapse;margin:8px 0 18px;font-size:15px;}
+  table.data-table th{background:var(--indigo);color:#fff;padding:8px 10px;font-weight:600;font-size:14px;}
+  table.data-table td{border:1px solid var(--line);padding:9px 10px;background:var(--panel);text-align:center;}
+  table.data-table tr:nth-child(even) td{background:#f2effa;}
+
+  .activity-box{background:var(--panel);border:1.5px solid var(--gold);border-radius:3px;padding:16px 20px;}
+  .activity-box .task-label{display:inline-block;background:var(--gold);color:#fff;font-size:12.5px;padding:3px 10px;border-radius:2px;margin-bottom:8px;}
+
+  .exercise{border:1px solid var(--line);border-radius:3px;padding:16px 20px;margin-bottom:16px;background:var(--panel);}
+  .exercise-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:var(--ink);color:var(--paper);border-radius:50%;font-size:14px;font-weight:700;margin-inline-end:8px;}
+  .exercise h4{margin:0 0 10px;font-size:16.5px;display:flex;align-items:center;}
+  .fill-line{border-bottom:1px dotted var(--ink-soft);display:inline-block;min-width:110px;height:1.6em;}
+  .word-chip{display:inline-block;background:var(--paper);border:1px solid var(--line);border-radius:3px;padding:3px 12px;margin:3px 4px;font-size:16px;}
+  .qcm-item{margin-bottom:10px;}
+  .qcm-item p{margin-bottom:4px;font-weight:600;}
+  .qcm-options{display:flex;flex-wrap:wrap;gap:14px;font-size:14.5px;}
+  .qcm-options span{display:flex;align-items:center;gap:5px;}
+  .checkbox{width:13px;height:13px;border:1.4px solid var(--ink-soft);display:inline-block;border-radius:2px;}
+  .scenario-box{background:#f2effa;border:1px solid var(--line);padding:12px 16px;font-size:15.5px;line-height:2.1;margin-bottom:10px;}
+
+  .corrige-wrapper{page-break-before:always;padding-top:6px;}
+  .corrige-flag{text-align:center;font-size:13px;color:var(--ink-soft);margin-bottom:10px;border-top:1px dashed var(--ink-soft);padding-top:14px;}
+  details.corrige{border:2px dashed var(--rose);border-radius:4px;background:#fdf7f5;padding:6px 20px 18px;}
+  details.corrige > summary{cursor:pointer;font-family:'Amiri',serif;font-weight:700;font-size:19px;color:var(--rose);padding:14px 0;list-style:none;}
+  details.corrige > summary::-webkit-details-marker{display:none;}
+  details.corrige > summary::before{content:"✂ ";}
+  details.corrige > summary::after{content:"— اضغط لإظهار الحل / إخفائه";font-family:'Noto Naskh Arabic',serif;font-weight:400;font-size:13px;color:var(--ink-soft);margin-inline-start:8px;}
+  .corrige h4{color:var(--rose);margin:16px 0 8px;font-size:16px;}
+  .corrige-item{margin-bottom:8px;font-size:15px;line-height:1.9;}
+  .corrige table.data-table th{background:var(--rose);}
+
+  .footer-note{margin-top:30px;text-align:center;font-size:12px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:10px;}
+
+  @media print{
+    body{background:#fff;}
+    .sheet{box-shadow:none;border:none;margin:0;max-width:100%;padding:14px 6px;}
+    details.corrige{border-color:#000;}
+  }
+  @page{size:A4;margin:14mm;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="masthead-text">
+      <h1>الإعرابُ والبناءُ</h1>
+      <p class="subtitle">مادة اللغة العربية — القواعد (النحو)</p>
+    </div>
+    <svg class="link-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="6" y="26" width="22" height="14" rx="7" fill="none" stroke="#4b3f8f" stroke-width="3"/>
+      <rect x="36" y="26" width="22" height="14" rx="7" fill="none" stroke="#b1553f" stroke-width="3"/>
+      <line x1="24" y1="33" x2="40" y2="33" stroke="#af8a2e" stroke-width="3"/>
+    </svg>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta-chip">المستوى: <b>الأولى إعدادي (1AC)</b></div>
+    <div class="meta-chip">المادة: <b>اللغة العربية — القواعد</b></div>
+    <div class="meta-chip">مدة الحصة: <b>ساعة إلى ساعة ونصف</b></div>
+    <div class="meta-chip">نوع الوثيقة: <b>فيشة تعلّم ذاتي</b></div>
+  </div>
+
+  <!-- ===================== OBJECTIF ===================== -->
+  <section>
+    <h2 class="section-title">🎯 الهدف من الدرس</h2>
+    <div class="objectif-box">
+      يتمكّن المتعلم(ة) في نهاية هذا الدرس من: تعريف الإعراب والبناء، والتمييز بين الكلمة المعربة والكلمة المبنية، وتحديد أنواع الكلمات المعربة والمبنية (أسماء وأفعال وحروف) في جمل معطاة، والتعرّف على علامات الإعراب الأصلية.
+    </div>
+  </section>
+
+  <!-- ===================== COURS ===================== -->
+  <section>
+    <h2 class="section-title">📘 الدرس</h2>
+
+    <h3 class="sub-title">1) تعريف الإعراب</h3>
+    <div class="rule-box">
+      <p><b>الإعراب</b> تغيّر آخر الكلمة (حركتها الإعرابية) بحسب موقعها في الجملة (فاعل، مفعول به، مضاف إليه...). تُسمّى الكلمة التي يحدث فيها هذا التغيّر كلمة <b>معربة</b>.</p>
+    </div>
+    <div class="example-box">
+      مثال: كلمة "<b>القلم</b>" في ثلاث جمل مختلفة:
+      <ol style="margin-top:6px;">
+        <li>سقط <span class="tag">القلمُ</span>. (فاعل، مرفوع بالضمة)</li>
+        <li>أخذتُ <span class="tag">القلمَ</span>. (مفعول به، منصوب بالفتحة)</li>
+        <li>كتبتُ بـ<span class="tag">القلمِ</span>. (اسم مجرور، مجرور بالكسرة)</li>
+      </ol>
+      لاحظ أن حركة آخر الكلمة تغيّرت (ضمة، فتحة، كسرة) حسب موقعها في كل جملة: إذن "القلم" كلمة <b>معربة</b>.
+    </div>
+
+    <h3 class="sub-title">2) تعريف البناء</h3>
+    <div class="rule-box">
+      <p><b>البناء</b> ثبوت آخر الكلمة على حالة واحدة (حركة أو سكون)، <b>مهما تغيّر موقعها</b> في الجملة. تُسمّى الكلمة التي لا يتغيّر آخرها كلمة <b>مبنية</b>.</p>
+    </div>
+    <div class="example-box">
+      مثال: كلمة "<b>هذا</b>" في ثلاث جمل مختلفة:
+      <ol style="margin-top:6px;">
+        <li><span class="tag">هذا</span> كتابٌ. (مبتدأ)</li>
+        <li>رأيتُ <span class="tag">هذا</span>. (مفعول به)</li>
+        <li>نظرتُ إلى <span class="tag">هذا</span>. (اسم مجرور)</li>
+      </ol>
+      لاحظ أن آخر الكلمة "هذا" لم يتغيّر رغم تغيّر موقعها في كل جملة: إذن "هذا" كلمة <b>مبنية</b>.
+    </div>
+
+    <h3 class="sub-title">3) الكلمات المعربة</h3>
+    <div class="type-grid">
+      <div class="type-card mubalag">
+        <div class="head">الأسماء المعربة</div>
+        <p>معظم الأسماء الظاهرة (كتابٌ، القلمُ، الطالبُ، مدرسةٌ...).</p>
+      </div>
+      <div class="type-card mubalag">
+        <div class="head">الفعل المضارع</div>
+        <p>معرب دائماً، ما لم تتصل به نون التوكيد أو نون النسوة.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-title">4) الكلمات المبنية</h3>
+    <div class="rule-box">
+      <ul>
+        <li><b>الحروف:</b> جميعها مبنية (في، على، من، إلى، لا، هل...).</li>
+        <li><b>الفعل الماضي:</b> مبني دائماً (على الفتح غالباً، أو الضم أو السكون حسب حالته).</li>
+        <li><b>فعل الأمر:</b> مبني دائماً.</li>
+        <li><b>الضمائر:</b> أنا، أنتَ، هو، هي، نحن...</li>
+        <li><b>أسماء الإشارة:</b> هذا، هذه، ذلك، أولئك...</li>
+        <li><b>الأسماء الموصولة:</b> الذي، التي، الذين...</li>
+        <li><b>أسماء الاستفهام:</b> من، ماذا، متى، كيف...</li>
+      </ul>
+    </div>
+
+    <h3 class="sub-title">5) علامات الإعراب الأصلية</h3>
+    <table class="data-table">
+      <tr><th>الحالة الإعرابية</th><th>العلامة الأصلية</th></tr>
+      <tr><td>الرفع</td><td>الضمة</td></tr>
+      <tr><td>النصب</td><td>الفتحة</td></tr>
+      <tr><td>الجر</td><td>الكسرة</td></tr>
+      <tr><td>الجزم</td><td>السكون</td></tr>
+    </table>
+  </section>
+
+  <!-- ===================== ACTIVITE ===================== -->
+  <section>
+    <h2 class="section-title">✏️ نشاط تطبيقي</h2>
+    <div class="activity-box">
+      <span class="task-label">تحديد المعرب والمبني في جملة</span>
+      <p>لاحظ الجملة التالية: "<b>إن الذي زارَنا أمسِ هو صديقي المخلصُ</b>"، ثم أجب:</p>
+      <p>1) استخرج من الجملة كلمة معربة، وبيّن نوعها (اسم أم فعل مضارع).</p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+      <p>2) استخرج من الجملة كلمة مبنية، وبيّن نوعها (ضمير، اسم موصول، فعل ماضٍ...).</p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== EXERCICES ===================== -->
+  <section>
+    <h2 class="section-title">📝 تمارين للتدرّب</h2>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">1</span>صنّف الكلمات التالية إلى (معربة / مبنية):</h4>
+      <p>
+        <span class="word-chip">كتابٌ</span>
+        <span class="word-chip">هذا</span>
+        <span class="word-chip">يكتبُ</span>
+        <span class="word-chip">في</span>
+        <span class="word-chip">كتبَ</span>
+        <span class="word-chip">الذي</span>
+        <span class="word-chip">القلمُ</span>
+        <span class="word-chip">أنتَ</span>
+      </p>
+      <table class="data-table">
+        <tr><th>معربة</th><th>مبنية</th></tr>
+        <tr><td style="height:60px;"></td><td></td></tr>
+      </table>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">2</span>لاحظ الجمل الثلاث التالية، ثم أجب:</h4>
+      <p>1) سقط <b>القلمُ</b>. &nbsp; 2) أخذتُ <b>القلمَ</b>. &nbsp; 3) كتبتُ بـ<b>القلمِ</b>.</p>
+      <p>ما هي حركة آخر كلمة "القلم" في كل جملة؟ <span class="fill-line" style="min-width:100%;"></span></p>
+      <p>ولماذا تُعتبر هذه الكلمة معربة؟ <span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">3</span>اختر الإجابة الصحيحة:</h4>
+      <div class="qcm-item">
+        <p>1) الإعراب هو:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>تغيّر آخر الكلمة حسب موقعها في الجملة</span><span><span class="checkbox"></span>ثبات آخر الكلمة دائماً</span><span><span class="checkbox"></span>حذف آخر الكلمة</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>2) البناء هو:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>ثبوت آخر الكلمة على حالة واحدة مهما تغيّر موقعها</span><span><span class="checkbox"></span>تغيّر آخر الكلمة باستمرار</span><span><span class="checkbox"></span>عدم وجود حركة أصلاً</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>3) الفعل الماضي يكون:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>معرباً دائماً</span><span><span class="checkbox"></span>مبنياً دائماً</span><span><span class="checkbox"></span>معرباً أحياناً فقط</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>4) الفعل المضارع يكون:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>معرباً (ما لم تتصل به نون التوكيد أو النسوة)</span><span><span class="checkbox"></span>مبنياً دائماً</span><span><span class="checkbox"></span>لا يُعرَب أبداً</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>5) من الأسماء المبنية:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>أسماء الإشارة</span><span><span class="checkbox"></span>أغلب الأسماء الظاهرة</span><span><span class="checkbox"></span>الفاعل دائماً</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">4</span>صنّف الأفعال التالية إلى (معرب / مبني):</h4>
+      <table class="data-table">
+        <tr><th>الفعل</th><th>النوع</th></tr>
+        <tr><td>يكتبُ</td><td><span class="fill-line"></span></td></tr>
+        <tr><td>كتبَ</td><td><span class="fill-line"></span></td></tr>
+        <tr><td>اكتبْ</td><td><span class="fill-line"></span></td></tr>
+        <tr><td>سيذهبُ</td><td><span class="fill-line"></span></td></tr>
+      </table>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">5</span>اقرأ النص التالي، ثم استخرج منه كلمتين معربتين وكلمتين مبنيتين، مع بيان نوع كل واحدة:</h4>
+      <div class="scenario-box">
+        جاء الطالبُ المجتهدُ الذي حصل على الجائزة. إنه سعيدٌ بهذا النجاح.
+      </div>
+      <p>كلمتان معربتان: <span class="fill-line" style="min-width:100%;"></span></p>
+      <p>كلمتان مبنيتان: <span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== CORRIGE ===================== -->
+  <div class="corrige-wrapper">
+    <p class="corrige-flag">✂ يمكن طي هذه الصفحة أو إخفاؤها (اضغط على العنوان أدناه) قبل إنجاز التمارين ✂</p>
+    <details class="corrige">
+      <summary>التصحيح الكامل</summary>
+
+      <h4>تصحيح النشاط التطبيقي</h4>
+      <div class="corrige-item">1) كلمة معربة: "صديقي" أو "المخلصُ" (اسم معرب، تتغير حركة آخره حسب موقعه).</div>
+      <div class="corrige-item">2) كلمة مبنية: "الذي" (اسم موصول مبني) أو "هو" (ضمير منفصل مبني).</div>
+
+      <h4>تصحيح التمرين 1 (التصنيف)</h4>
+      <div class="corrige-item"><b>معربة:</b> كتابٌ، يكتبُ، القلمُ</div>
+      <div class="corrige-item"><b>مبنية:</b> هذا، في، كتبَ، الذي، أنتَ</div>
+
+      <h4>تصحيح التمرين 2 (حركة كلمة القلم)</h4>
+      <div class="corrige-item">الحركات: ضمة (في الجملة الأولى)، فتحة (في الثانية)، كسرة (في الثالثة).</div>
+      <div class="corrige-item">تُعتبر معربة لأن حركة آخرها تتغيّر بحسب موقعها في الجملة (فاعل، مفعول به، اسم مجرور).</div>
+
+      <h4>تصحيح التمرين 3 (الاختيار من متعدد)</h4>
+      <div class="corrige-item">1) تغيّر آخر الكلمة حسب موقعها في الجملة &nbsp;|&nbsp; 2) ثبوت آخر الكلمة على حالة واحدة مهما تغيّر موقعها &nbsp;|&nbsp; 3) مبنياً دائماً &nbsp;|&nbsp; 4) معرباً (ما لم تتصل بنون التوكيد أو النسوة) &nbsp;|&nbsp; 5) أسماء الإشارة</div>
+
+      <h4>تصحيح التمرين 4 (تصنيف الأفعال)</h4>
+      <div class="corrige-item">يكتبُ: معرب &nbsp;|&nbsp; كتبَ: مبني &nbsp;|&nbsp; اكتبْ: مبني &nbsp;|&nbsp; سيذهبُ: معرب</div>
+
+      <h4>تصحيح التمرين 5 (الاستخراج من النص)</h4>
+      <div class="corrige-item"><b>كلمتان معربتان:</b> الطالبُ (اسم، فاعل مرفوع)، المجتهدُ (اسم، نعت مرفوع).</div>
+      <div class="corrige-item"><b>كلمتان مبنيتان:</b> الذي (اسم موصول مبني)، هذا (اسم إشارة مبني) — أو "إنه" التي تحتوي ضميراً متصلاً مبنياً.</div>
+    </details>
+  </div>
+
+  <p class="footer-note">فيشة تعلّم ذاتي — اللغة العربية — الأولى إعدادي — الإعراب والبناء</p>
+</div>
+</body>
+</html>
