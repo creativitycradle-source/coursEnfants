@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>الأسماء المعربة والأسماء المبنية</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#241f33; --ink-soft:#54506a;
+    --paper:#faf8f5; --panel:#ffffff; --line:#ddd4e6;
+    --indigo:#4b3f8f; --indigo-soft:#e9e5f7;
+    --rose:#b1553f; --rose-soft:#f7e3dc;
+    --gold:#af8a2e; --gold-soft:#f4ecd2;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#e8e3ee;font-family:'Noto Naskh Arabic','Amiri',serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .sheet{max-width:880px;margin:24px auto;background:var(--paper);padding:38px 44px 50px;border:1px solid var(--line);box-shadow:0 4px 24px rgba(0,0,0,.12);}
+
+  .masthead{display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:3px solid var(--ink);padding-bottom:16px;margin-bottom:22px;}
+  .masthead-text h1{font-family:'Amiri',serif;font-weight:700;font-size:27px;margin:0 0 6px;color:var(--indigo);}
+  .masthead-text .subtitle{font-size:15px;color:var(--ink-soft);margin:0;}
+  .link-icon{width:58px;height:58px;flex-shrink:0;}
+
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+  .meta-chip{border:1px solid var(--line);background:var(--panel);border-radius:3px;padding:6px 12px;font-size:13.5px;color:var(--ink-soft);}
+  .meta-chip b{color:var(--ink);font-weight:600;}
+
+  section{margin-bottom:28px;}
+  h2.section-title{font-family:'Amiri',serif;font-size:21px;font-weight:700;color:var(--indigo);border-bottom:2px solid var(--indigo);padding-bottom:6px;margin:0 0 14px;display:flex;align-items:baseline;gap:8px;}
+  h3.sub-title{font-size:17px;font-weight:700;color:var(--rose);margin:20px 0 8px;}
+  p{line-height:2;font-size:15.5px;margin:0 0 10px;}
+
+  .objectif-box{background:var(--gold-soft);border-right:4px solid var(--gold);padding:14px 18px;border-radius:2px;font-size:15.5px;line-height:1.9;}
+
+  .rule-box{background:var(--panel);border:1px solid var(--line);border-right:4px solid var(--indigo);padding:14px 18px;border-radius:2px;margin:10px 0 16px;}
+  .rule-box p:last-child{margin-bottom:0;}
+  .rule-box ul,.rule-box ol{margin:6px 0;padding-inline-start:22px;}
+  .rule-box li{margin-bottom:6px;line-height:1.85;}
+
+  .type-grid{display:flex;flex-wrap:wrap;gap:16px;margin:10px 0 16px;}
+  .type-card{flex:1 1 260px;border-radius:8px;padding:14px 16px;}
+  .type-card.mabni{background:var(--rose-soft);border:1px solid var(--rose);}
+  .type-card.murab{background:var(--indigo-soft);border:1px solid var(--indigo);}
+  .type-card .head{font-weight:700;font-size:16px;margin-bottom:6px;}
+  .type-card.mabni .head{color:var(--rose);}
+  .type-card.murab .head{color:var(--indigo);}
+  .type-card p{margin:0;font-size:14.5px;line-height:1.85;}
+  .tag{font-weight:700;color:var(--rose);text-decoration:underline;text-decoration-color:var(--gold);}
+
+  .note-box{font-size:13.5px;color:var(--ink-soft);background:#f2effa;border-radius:4px;padding:8px 14px;margin-bottom:16px;}
+
+  table.data-table{width:100%;border-collapse:collapse;margin:8px 0 18px;font-size:15px;}
+  table.data-table th{background:var(--indigo);color:#fff;padding:8px 10px;font-weight:600;font-size:14px;}
+  table.data-table td{border:1px solid var(--line);padding:9px 10px;background:var(--panel);text-align:center;}
+  table.data-table tr:nth-child(even) td{background:#f2effa;}
+
+  .activity-box{background:var(--panel);border:1.5px solid var(--gold);border-radius:3px;padding:16px 20px;}
+  .activity-box .task-label{display:inline-block;background:var(--gold);color:#fff;font-size:12.5px;padding:3px 10px;border-radius:2px;margin-bottom:8px;}
+
+  .exercise{border:1px solid var(--line);border-radius:3px;padding:16px 20px;margin-bottom:16px;background:var(--panel);}
+  .exercise-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:var(--ink);color:var(--paper);border-radius:50%;font-size:14px;font-weight:700;margin-inline-end:8px;}
+  .exercise h4{margin:0 0 10px;font-size:16.5px;display:flex;align-items:center;}
+  .fill-line{border-bottom:1px dotted var(--ink-soft);display:inline-block;min-width:110px;height:1.6em;}
+  .word-chip{display:inline-block;background:var(--paper);border:1px solid var(--line);border-radius:3px;padding:3px 12px;margin:3px 4px;font-size:16px;}
+  .qcm-item{margin-bottom:10px;}
+  .qcm-item p{margin-bottom:4px;font-weight:600;}
+  .qcm-options{display:flex;flex-wrap:wrap;gap:14px;font-size:14.5px;}
+  .qcm-options span{display:flex;align-items:center;gap:5px;}
+  .checkbox{width:13px;height:13px;border:1.4px solid var(--ink-soft);display:inline-block;border-radius:2px;}
+  .scenario-box{background:#f2effa;border:1px solid var(--line);padding:12px 16px;font-size:15.5px;line-height:2.1;margin-bottom:10px;}
+
+  .corrige-wrapper{page-break-before:always;padding-top:6px;}
+  .corrige-flag{text-align:center;font-size:13px;color:var(--ink-soft);margin-bottom:10px;border-top:1px dashed var(--ink-soft);padding-top:14px;}
+  details.corrige{border:2px dashed var(--rose);border-radius:4px;background:#fdf7f5;padding:6px 20px 18px;}
+  details.corrige > summary{cursor:pointer;font-family:'Amiri',serif;font-weight:700;font-size:19px;color:var(--rose);padding:14px 0;list-style:none;}
+  details.corrige > summary::-webkit-details-marker{display:none;}
+  details.corrige > summary::before{content:"✂ ";}
+  details.corrige > summary::after{content:"— اضغط لإظهار الحل / إخفائه";font-family:'Noto Naskh Arabic',serif;font-weight:400;font-size:13px;color:var(--ink-soft);margin-inline-start:8px;}
+  .corrige h4{color:var(--rose);margin:16px 0 8px;font-size:16px;}
+  .corrige-item{margin-bottom:8px;font-size:15px;line-height:1.9;}
+  .corrige table.data-table th{background:var(--rose);}
+
+  .footer-note{margin-top:30px;text-align:center;font-size:12px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:10px;}
+
+  @media print{
+    body{background:#fff;}
+    .sheet{box-shadow:none;border:none;margin:0;max-width:100%;padding:14px 6px;}
+    details.corrige{border-color:#000;}
+  }
+  @page{size:A4;margin:14mm;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="masthead-text">
+      <h1>الأسماءُ المعربةُ والأسماءُ المبنيةُ</h1>
+      <p class="subtitle">مادة اللغة العربية — القواعد (النحو)</p>
+    </div>
+    <svg class="link-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="6" y="26" width="22" height="14" rx="7" fill="none" stroke="#4b3f8f" stroke-width="3"/>
+      <rect x="36" y="26" width="22" height="14" rx="7" fill="none" stroke="#b1553f" stroke-width="3"/>
+      <line x1="24" y1="33" x2="40" y2="33" stroke="#af8a2e" stroke-width="3"/>
+    </svg>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta-chip">المستوى: <b>الأولى إعدادي (1AC)</b></div>
+    <div class="meta-chip">المادة: <b>اللغة العربية — القواعد</b></div>
+    <div class="meta-chip">مدة الحصة: <b>ساعة إلى ساعة ونصف</b></div>
+    <div class="meta-chip">نوع الوثيقة: <b>فيشة تعلّم ذاتي</b></div>
+  </div>
+
+  <div class="note-box">💡 هذا الدرس يُعمِّق درس "الإعراب والبناء" السابق، بالتركيز خصيصاً على الأسماء.</div>
+
+  <!-- ===================== OBJECTIF ===================== -->
+  <section>
+    <h2 class="section-title">🎯 الهدف من الدرس</h2>
+    <div class="objectif-box">
+      يتمكّن المتعلم(ة) في نهاية هذا الدرس من: التمييز بين الاسم المعرب والاسم المبني، وتحديد فئات الأسماء المبنية الرئيسية (الضمائر، أسماء الإشارة، الأسماء الموصولة، أسماء الاستفهام والشرط)، وتحديد حالة البناء لكل اسم مبني، ومعرفة الاستثناء المتعلق بمثنى أسماء الإشارة والموصولة.
+    </div>
+  </section>
+
+  <!-- ===================== COURS ===================== -->
+  <section>
+    <h2 class="section-title">📘 الدرس</h2>
+
+    <h3 class="sub-title">1) تذكير: الاسم المعرب والاسم المبني</h3>
+    <div class="rule-box">
+      <p><b>الاسم المعرب</b> اسم تتغيّر حركة آخره بحسب موقعه الإعرابي في الجملة (رفعاً، نصباً، جراً).</p>
+      <p><b>الاسم المبني</b> اسم يلزم حالة واحدة في آخره (حركة أو سكون)، مهما تغيّر موقعه الإعرابي في الجملة.</p>
+    </div>
+
+    <h3 class="sub-title">2) فئات الأسماء المبنية</h3>
+    <div class="type-grid">
+      <div class="type-card mabni">
+        <div class="head">الضمائر</div>
+        <p>جميع الضمائر مبنية: أنا، أنتَ، هو، هي، نحن، هم...</p>
+      </div>
+      <div class="type-card mabni">
+        <div class="head">أسماء الإشارة</div>
+        <p>هذا، هذه، ذلك، تلك، هؤلاء، أولئك...</p>
+      </div>
+      <div class="type-card mabni">
+        <div class="head">الأسماء الموصولة</div>
+        <p>الذي، التي، الذين، اللاتي...</p>
+      </div>
+      <div class="type-card mabni">
+        <div class="head">أسماء الاستفهام</div>
+        <p>من، ماذا، متى، أين، كيف، كم...</p>
+      </div>
+      <div class="type-card mabni">
+        <div class="head">أسماء الشرط</div>
+        <p>من، ما، مهما، حيثما، أينما...</p>
+      </div>
+      <div class="type-card mabni">
+        <div class="head">بعض الظروف</div>
+        <p>الآن، حيث، إذ...</p>
+      </div>
+    </div>
+
+    <h3 class="sub-title">3) استثناء مهم: مثنى أسماء الإشارة والموصولة</h3>
+    <div class="rule-box">
+      <p>رغم أن أسماء الإشارة والأسماء الموصولة مبنية في حالتَي المفرد والجمع، فإن <b>صيغة المثنى</b> منها تكون <b>معربة</b>، وتُعرَب إعراب المثنى (بالألف رفعاً، وبالياء نصباً وجراً).</p>
+      <p style="text-align:center;font-weight:700;color:var(--indigo);">هذان (رفعاً) / هذينِ (نصباً وجراً) — اللذانِ (رفعاً) / اللذينِ (نصباً وجراً)</p>
+    </div>
+
+    <h3 class="sub-title">4) الأسماء المعربة</h3>
+    <div class="rule-box">
+      <p>تُعتبر معظم الأسماء الظاهرة <b>معربة</b>: الاسم المفرد (كتابٌ)، المثنى (كتابانِ)، جمع المذكر السالم (المعلمونَ)، جمع المؤنث السالم (المعلماتُ)، جمع التكسير (كُتُبٌ)، وكل اسم يحمل نون التنوين.</p>
+    </div>
+
+    <h3 class="sub-title">5) جدول حالات البناء مع أمثلة</h3>
+    <table class="data-table">
+      <tr><th>الاسم المبني</th><th>حالة البناء</th></tr>
+      <tr><td>أنا</td><td>مبني على السكون</td></tr>
+      <tr><td>هو</td><td>مبني على الفتح</td></tr>
+      <tr><td>نحن</td><td>مبني على الضم</td></tr>
+      <tr><td>هذا</td><td>مبني على السكون</td></tr>
+      <tr><td>هؤلاء</td><td>مبني على الكسر</td></tr>
+      <tr><td>الذي</td><td>مبني على السكون</td></tr>
+      <tr><td>الذين</td><td>مبني على الفتح</td></tr>
+      <tr><td>من (استفهام أو شرط)</td><td>مبني على السكون</td></tr>
+      <tr><td>حيث</td><td>مبني على الضم</td></tr>
+    </table>
+  </section>
+
+  <!-- ===================== ACTIVITE ===================== -->
+  <section>
+    <h2 class="section-title">✏️ نشاط تطبيقي</h2>
+    <div class="activity-box">
+      <span class="task-label">تصنيف أسماء وتحديد حالة البناء</span>
+      <p>أكمل الجدول التالي بتحديد إن كان كل اسم معرباً أو مبنياً، وإذا كان مبنياً اذكر حالة بنائه:</p>
+      <table class="data-table">
+        <tr><th>الاسم</th><th>معرب / مبني</th><th>حالة البناء (إن وُجدت)</th></tr>
+        <tr><td>مدرسةٌ</td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+        <tr><td>أنتَ</td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+        <tr><td>هذه</td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+        <tr><td>الطلابُ</td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===================== EXERCICES ===================== -->
+  <section>
+    <h2 class="section-title">📝 تمارين للتدرّب</h2>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">1</span>صنّف الأسماء التالية إلى (معرب / مبني):</h4>
+      <p>
+        <span class="word-chip">كتابٌ</span>
+        <span class="word-chip">أنا</span>
+        <span class="word-chip">الذي</span>
+        <span class="word-chip">مدرسةٌ</span>
+        <span class="word-chip">هذا</span>
+        <span class="word-chip">من</span>
+        <span class="word-chip">الطلابُ</span>
+        <span class="word-chip">هؤلاء</span>
+      </p>
+      <table class="data-table">
+        <tr><th>معرب</th><th>مبني</th></tr>
+        <tr><td style="height:60px;"></td><td></td></tr>
+      </table>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">2</span>حدّد حالة البناء (سكون / فتح / ضم / كسر) لكل اسم مبني من الأسماء التالية:</h4>
+      <table class="data-table">
+        <tr><th>أنا</th><th>هو</th><th>نحن</th><th>هذا</th><th>هؤلاء</th><th>الذين</th></tr>
+        <tr><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+      </table>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">3</span>اختر الإجابة الصحيحة:</h4>
+      <div class="qcm-item">
+        <p>1) الاسم المبني هو:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>اسم تتغيّر حركة آخره حسب موقعه</span><span><span class="checkbox"></span>اسم يلزم حالة واحدة في آخره مهما تغيّر موقعه</span><span><span class="checkbox"></span>اسم لا حركة له أبداً</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>2) الضمائر جميعها:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>معربة</span><span><span class="checkbox"></span>مبنية</span><span><span class="checkbox"></span>بعضها معرب وبعضها مبني</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>3) أسماء الإشارة (في حالتَي المفرد والجمع) تكون:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>معربة</span><span><span class="checkbox"></span>مبنية</span><span><span class="checkbox"></span>تختلف حسب الجملة</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>4) مثنى اسم الإشارة (هذان/هاتان) يكون:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>معرباً</span><span><span class="checkbox"></span>مبنياً</span><span><span class="checkbox"></span>لا يوجد له مثنى</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>5) أسماء الاستفهام مثل (من، ماذا، متى) تكون:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>معربة</span><span><span class="checkbox"></span>مبنية</span><span><span class="checkbox"></span>نوعان حسب السياق</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">4</span>صنّف الأسماء التالية إلى (مفرد مبني / مثنى معرب):</h4>
+      <p>
+        <span class="word-chip">الذي</span>
+        <span class="word-chip">اللذان</span>
+        <span class="word-chip">هذا</span>
+        <span class="word-chip">هذان</span>
+        <span class="word-chip">التي</span>
+        <span class="word-chip">اللتان</span>
+      </p>
+      <table class="data-table">
+        <tr><th>مفرد مبني</th><th>مثنى معرب</th></tr>
+        <tr><td style="height:60px;"></td><td></td></tr>
+      </table>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">5</span>اقرأ الجملة التالية، ثم استخرج منها اسمين مبنيين واسمين معربين، مع بيان نوع كل واحد:</h4>
+      <div class="scenario-box">
+        الذي نجح هو الطالبُ المجتهدُ الذي ذاكر دروسَه جيداً.
+      </div>
+      <p>اسمان مبنيان: <span class="fill-line" style="min-width:100%;"></span></p>
+      <p>اسمان معربان: <span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== CORRIGE ===================== -->
+  <div class="corrige-wrapper">
+    <p class="corrige-flag">✂ يمكن طي هذه الصفحة أو إخفاؤها (اضغط على العنوان أدناه) قبل إنجاز التمارين ✂</p>
+    <details class="corrige">
+      <summary>التصحيح الكامل</summary>
+
+      <h4>تصحيح النشاط التطبيقي</h4>
+      <table class="data-table">
+        <tr><th>الاسم</th><th>معرب/مبني</th><th>حالة البناء</th></tr>
+        <tr><td>مدرسةٌ</td><td>معرب</td><td>—</td></tr>
+        <tr><td>أنتَ</td><td>مبني</td><td>مبني على الفتح</td></tr>
+        <tr><td>هذه</td><td>مبني</td><td>مبني على السكون</td></tr>
+        <tr><td>الطلابُ</td><td>معرب</td><td>—</td></tr>
+      </table>
+
+      <h4>تصحيح التمرين 1 (التصنيف)</h4>
+      <div class="corrige-item"><b>معرب:</b> كتابٌ، مدرسةٌ، الطلابُ</div>
+      <div class="corrige-item"><b>مبني:</b> أنا، الذي، هذا، من، هؤلاء</div>
+
+      <h4>تصحيح التمرين 2 (حالة البناء)</h4>
+      <div class="corrige-item">أنا: السكون &nbsp;|&nbsp; هو: الفتح &nbsp;|&nbsp; نحن: الضم &nbsp;|&nbsp; هذا: السكون &nbsp;|&nbsp; هؤلاء: الكسر &nbsp;|&nbsp; الذين: الفتح</div>
+
+      <h4>تصحيح التمرين 3 (الاختيار من متعدد)</h4>
+      <div class="corrige-item">1) اسم يلزم حالة واحدة في آخره مهما تغيّر موقعه &nbsp;|&nbsp; 2) مبنية &nbsp;|&nbsp; 3) مبنية &nbsp;|&nbsp; 4) معرباً &nbsp;|&nbsp; 5) مبنية</div>
+
+      <h4>تصحيح التمرين 4 (مفرد مبني / مثنى معرب)</h4>
+      <div class="corrige-item"><b>مفرد مبني:</b> الذي، هذا، التي</div>
+      <div class="corrige-item"><b>مثنى معرب:</b> اللذان، هذان، اللتان</div>
+
+      <h4>تصحيح التمرين 5 (الاستخراج من الجملة)</h4>
+      <div class="corrige-item"><b>اسمان مبنيان:</b> الذي (اسم موصول، مبني على السكون) — تكرّر مرتين في الجملة.</div>
+      <div class="corrige-item"><b>اسمان معربان:</b> الطالبُ (اسم معرب، خبر مرفوع)، المجتهدُ (اسم معرب، نعت مرفوع) — ويمكن أيضاً اعتبار "دروسَه" اسماً معرباً (مفعول به منصوب).</div>
+    </details>
+  </div>
+
+  <p class="footer-note">فيشة تعلّم ذاتي — اللغة العربية — الأولى إعدادي — الأسماء المعربة والأسماء المبنية</p>
+</div>
+</body>
+</html>
