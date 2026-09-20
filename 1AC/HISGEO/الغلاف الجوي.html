@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>الغلاف الجوي</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#132a3a; --ink-soft:#3d5766;
+    --paper:#f4fafd; --panel:#ffffff; --line:#cfe3ee;
+    --sky:#2f7ea8; --sky-soft:#deeef6;
+    --amber:#d99a2b; --amber-soft:#f8edd6;
+    --violet:#5c4d8f; --violet-soft:#eae5f5;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#dbe9f0;font-family:'Noto Naskh Arabic','Amiri',serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .sheet{max-width:880px;margin:24px auto;background:var(--paper);padding:38px 44px 50px;border:1px solid var(--line);box-shadow:0 4px 24px rgba(0,0,0,.12);}
+
+  .masthead{display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:3px solid var(--ink);padding-bottom:16px;margin-bottom:22px;}
+  .masthead-text h1{font-family:'Amiri',serif;font-weight:700;font-size:30px;margin:0 0 6px;color:var(--sky);}
+  .masthead-text .subtitle{font-size:15px;color:var(--ink-soft);margin:0;}
+  .sky-icon{width:60px;height:56px;flex-shrink:0;}
+
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+  .meta-chip{border:1px solid var(--line);background:var(--panel);border-radius:3px;padding:6px 12px;font-size:13.5px;color:var(--ink-soft);}
+  .meta-chip b{color:var(--ink);font-weight:600;}
+
+  section{margin-bottom:28px;}
+  h2.section-title{font-family:'Amiri',serif;font-size:21px;font-weight:700;color:var(--violet);border-bottom:2px solid var(--violet);padding-bottom:6px;margin:0 0 14px;display:flex;align-items:baseline;gap:8px;}
+  h3.sub-title{font-size:17px;font-weight:700;color:var(--amber);margin:20px 0 8px;}
+  p{line-height:2;font-size:15.5px;margin:0 0 10px;}
+
+  .objectif-box{background:var(--amber-soft);border-right:4px solid var(--amber);padding:14px 18px;border-radius:2px;font-size:15.5px;line-height:1.9;}
+
+  .rule-box{background:var(--panel);border:1px solid var(--line);border-right:4px solid var(--sky);padding:14px 18px;border-radius:2px;margin:10px 0 16px;}
+  .rule-box p:last-child{margin-bottom:0;}
+  .rule-box ul,.rule-box ol{margin:6px 0;padding-inline-start:22px;}
+  .rule-box li{margin-bottom:6px;line-height:1.85;}
+
+  .gas-grid{display:flex;flex-wrap:wrap;gap:12px;margin:10px 0 16px;}
+  .gas-card{flex:1 1 150px;text-align:center;border:1px solid var(--line);border-radius:8px;padding:12px;background:var(--panel);}
+  .gas-card .pct{font-size:22px;font-weight:700;color:var(--sky);}
+  .gas-card .lbl{font-size:13px;color:var(--ink-soft);margin-top:2px;}
+
+  .layers-wrap{display:flex;justify-content:center;margin:16px 0;}
+
+  table.data-table{width:100%;border-collapse:collapse;margin:8px 0 18px;font-size:15px;}
+  table.data-table th{background:var(--violet);color:#fff;padding:8px 10px;font-weight:600;font-size:14px;}
+  table.data-table td{border:1px solid var(--line);padding:9px 10px;background:var(--panel);}
+  table.data-table tr:nth-child(even) td{background:#eef5fa;}
+
+  .activity-box{background:var(--panel);border:1.5px solid var(--amber);border-radius:3px;padding:16px 20px;}
+  .activity-box .task-label{display:inline-block;background:var(--amber);color:#fff;font-size:12.5px;padding:3px 10px;border-radius:2px;margin-bottom:8px;}
+
+  .exercise{border:1px solid var(--line);border-radius:3px;padding:16px 20px;margin-bottom:16px;background:var(--panel);}
+  .exercise-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:var(--ink);color:var(--paper);border-radius:50%;font-size:14px;font-weight:700;margin-inline-end:8px;}
+  .exercise h4{margin:0 0 10px;font-size:16.5px;display:flex;align-items:center;}
+  .fill-line{border-bottom:1px dotted var(--ink-soft);display:inline-block;min-width:100px;height:1.6em;}
+  .qcm-item{margin-bottom:10px;}
+  .qcm-item p{margin-bottom:4px;font-weight:600;}
+  .qcm-options{display:flex;flex-wrap:wrap;gap:14px;font-size:14.5px;}
+  .qcm-options span{display:flex;align-items:center;gap:5px;}
+  .checkbox{width:13px;height:13px;border:1.4px solid var(--ink-soft);display:inline-block;border-radius:2px;}
+  .match-cols{display:flex;justify-content:space-between;gap:40px;margin-top:8px;}
+  .match-cols ul{list-style:none;padding:0;margin:0;}
+  .match-cols li{border:1px solid var(--line);background:var(--paper);padding:6px 14px;margin-bottom:10px;border-radius:3px;font-size:15px;}
+  .order-list{display:flex;flex-direction:column;gap:8px;}
+  .order-item{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:6px;padding:8px 12px;background:var(--paper);}
+  .order-item .num-box{width:32px;height:32px;border:2px dashed var(--ink-soft);border-radius:6px;flex-shrink:0;}
+
+  .corrige-wrapper{page-break-before:always;padding-top:6px;}
+  .corrige-flag{text-align:center;font-size:13px;color:var(--ink-soft);margin-bottom:10px;border-top:1px dashed var(--ink-soft);padding-top:14px;}
+  details.corrige{border:2px dashed var(--sky);border-radius:4px;background:#f2f9fc;padding:6px 20px 18px;}
+  details.corrige > summary{cursor:pointer;font-family:'Amiri',serif;font-weight:700;font-size:19px;color:var(--sky);padding:14px 0;list-style:none;}
+  details.corrige > summary::-webkit-details-marker{display:none;}
+  details.corrige > summary::before{content:"✂ ";}
+  details.corrige > summary::after{content:"— اضغط لإظهار الحل / إخفائه";font-family:'Noto Naskh Arabic',serif;font-weight:400;font-size:13px;color:var(--ink-soft);margin-inline-start:8px;}
+  .corrige h4{color:var(--sky);margin:16px 0 8px;font-size:16px;}
+  .corrige-item{margin-bottom:8px;font-size:15px;line-height:1.9;}
+  .corrige table.data-table th{background:var(--sky);}
+
+  .footer-note{margin-top:30px;text-align:center;font-size:12px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:10px;}
+
+  @media print{
+    body{background:#fff;}
+    .sheet{box-shadow:none;border:none;margin:0;max-width:100%;padding:14px 6px;}
+    details.corrige{border-color:#000;}
+  }
+  @page{size:A4;margin:14mm;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="masthead-text">
+      <h1>الغلافُ الجويُّ</h1>
+      <p class="subtitle">الاجتماعيات — الجغرافيا: الأرض ومكوناتها</p>
+    </div>
+    <svg class="sky-icon" viewBox="0 0 64 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="32" cy="30" r="14" fill="#2f7ea8"/>
+      <path d="M8 30a24 20 0 0 1 48 0" stroke="#5c4d8f" stroke-width="2.5" fill="none"/>
+      <path d="M2 40a20 15 0 0 1 60 0" stroke="#d99a2b" stroke-width="2" fill="none" stroke-dasharray="4 3"/>
+    </svg>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta-chip">المستوى: <b>الأولى إعدادي (1AC)</b></div>
+    <div class="meta-chip">المادة: <b>الاجتماعيات — الجغرافيا</b></div>
+    <div class="meta-chip">مدة الحصة: <b>ساعة إلى ساعة ونصف</b></div>
+    <div class="meta-chip">نوع الوثيقة: <b>فيشة تعلّم ذاتي</b></div>
+  </div>
+
+  <!-- ===================== OBJECTIF ===================== -->
+  <section>
+    <h2 class="section-title">🎯 الهدف من الدرس</h2>
+    <div class="objectif-box">
+      يتمكّن المتعلم(ة) في نهاية هذا الدرس من: تعريف الغلاف الجوي وتحديد الغازات المكوّنة له، والتعرّف على طبقاته الخمس وخاصية كل طبقة، وتفسير أهمية الغلاف الجوي بالنسبة للحياة على سطح الأرض.
+    </div>
+  </section>
+
+  <!-- ===================== COURS ===================== -->
+  <section>
+    <h2 class="section-title">📘 الدرس</h2>
+
+    <h3 class="sub-title">1) تعريف الغلاف الجوي</h3>
+    <div class="rule-box">
+      <p><b>الغلاف الجوي</b> طبقة غازية تحيط بالكرة الأرضية من جميع الجهات، وتلتصق بها بفعل الجاذبية الأرضية، وتلعب دوراً أساسياً في استمرار الحياة على سطحها.</p>
+    </div>
+
+    <h3 class="sub-title">2) تركيب الغلاف الجوي</h3>
+    <div class="gas-grid">
+      <div class="gas-card"><div class="pct">78%</div><div class="lbl">النيتروجين</div></div>
+      <div class="gas-card"><div class="pct">21%</div><div class="lbl">الأكسجين</div></div>
+      <div class="gas-card"><div class="pct">1%</div><div class="lbl">غازات أخرى (ثاني أكسيد الكربون، الأرغون، بخار الماء...)</div></div>
+    </div>
+
+    <h3 class="sub-title">3) طبقات الغلاف الجوي</h3>
+    <div class="layers-wrap">
+      <svg width="260" height="320" viewBox="0 0 260 320" xmlns="http://www.w3.org/2000/svg">
+        <rect x="20" y="10" width="220" height="40" fill="#eae5f5" stroke="#5c4d8f" stroke-width="1.5"/>
+        <text x="130" y="34" text-anchor="middle" font-size="13" font-family="Noto Naskh Arabic, serif" fill="#5c4d8f">الإكزوسفير</text>
+        <rect x="20" y="50" width="220" height="50" fill="#fbe4d3" stroke="#d99a2b" stroke-width="1.5"/>
+        <text x="130" y="79" text-anchor="middle" font-size="13" font-family="Noto Naskh Arabic, serif" fill="#8a6a1e">الثيرموسفير</text>
+        <rect x="20" y="100" width="220" height="50" fill="#f6ded0" stroke="#c1493a" stroke-width="1.5"/>
+        <text x="130" y="129" text-anchor="middle" font-size="13" font-family="Noto Naskh Arabic, serif" fill="#8a3226">الميزوسفير</text>
+        <rect x="20" y="150" width="220" height="70" fill="#deeef6" stroke="#2f7ea8" stroke-width="1.5"/>
+        <text x="130" y="189" text-anchor="middle" font-size="13" font-family="Noto Naskh Arabic, serif" fill="#1f5670">الستراتوسفير (طبقة الأوزون)</text>
+        <rect x="20" y="220" width="220" height="60" fill="#e3f0df" stroke="#3f7d3a" stroke-width="1.5"/>
+        <text x="130" y="253" text-anchor="middle" font-size="13" font-family="Noto Naskh Arabic, serif" fill="#20301f">التروبوسفير</text>
+        <ellipse cx="130" cy="300" rx="60" ry="14" fill="#3f7d3a"/>
+        <text x="130" y="304" text-anchor="middle" font-size="11" font-family="Noto Naskh Arabic, serif" fill="#fff">سطح الأرض</text>
+      </svg>
+    </div>
+    <table class="data-table">
+      <tr><th>الطبقة</th><th>الخاصية المميّزة</th></tr>
+      <tr><td>التروبوسفير</td><td>أقرب طبقة لسطح الأرض، فيها تتشكل الظواهر الجوية (الرياح، الأمطار، الغيوم).</td></tr>
+      <tr><td>الستراتوسفير</td><td>تحتوي على طبقة الأوزون التي تحمي الأرض من الأشعة فوق البنفسجية الضارة.</td></tr>
+      <tr><td>الميزوسفير</td><td>تحترق فيها معظم النيازك القادمة من الفضاء.</td></tr>
+      <tr><td>الثيرموسفير</td><td>طبقة شديدة الحرارة، توجد بها الأقمار الصناعية.</td></tr>
+      <tr><td>الإكزوسفير</td><td>الطبقة الخارجية، تُشكّل حد الغلاف الجوي مع الفضاء الخارجي.</td></tr>
+    </table>
+
+    <h3 class="sub-title">4) أهمية الغلاف الجوي</h3>
+    <div class="rule-box">
+      <ul>
+        <li>يوفّر <b>الأكسجين</b> الضروري لتنفّس الكائنات الحية.</li>
+        <li>يحمي الأرض من <b>الأشعة فوق البنفسجية</b> الضارة (بفضل طبقة الأوزون) ومن معظم <b>النيازك</b>.</li>
+        <li>يساعد على تنظيم <b>درجة حرارة</b> الأرض، ويحافظ على دفء مناسب للحياة.</li>
+        <li>مكان تشكّل <b>الظواهر الجوية</b> (الرياح، الأمطار، الغيوم) الضرورية لدورة الماء في الطبيعة.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===================== ACTIVITE ===================== -->
+  <section>
+    <h2 class="section-title">✏️ نشاط تطبيقي</h2>
+    <div class="activity-box">
+      <span class="task-label">رسم طبقات الغلاف الجوي</span>
+      <p>ارسم في دفترك مخططاً بسيطاً على شكل طبقات فوق بعضها، مبتدئاً من سطح الأرض، واكتب في كل طبقة اسمها بالترتيب الصحيح من الأقرب إلى الأرض إلى الأبعد عنها.</p>
+      <p>ثم اكتب بجانب كل طبقة خاصية واحدة تميّزها (كما ورد في الدرس).</p>
+    </div>
+  </section>
+
+  <!-- ===================== EXERCICES ===================== -->
+  <section>
+    <h2 class="section-title">📝 تمارين للتدرّب</h2>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">1</span>رتّب طبقات الغلاف الجوي التالية من الأقرب إلى الأرض إلى الأبعد عنها (من 1 إلى 5):</h4>
+      <div class="order-list">
+        <div class="order-item"><div class="num-box"></div><span>الثيرموسفير</span></div>
+        <div class="order-item"><div class="num-box"></div><span>التروبوسفير</span></div>
+        <div class="order-item"><div class="num-box"></div><span>الإكزوسفير</span></div>
+        <div class="order-item"><div class="num-box"></div><span>الستراتوسفير</span></div>
+        <div class="order-item"><div class="num-box"></div><span>الميزوسفير</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">2</span>صل كل طبقة بخاصيتها المميّزة:</h4>
+      <div class="match-cols">
+        <ul>
+          <li>أ) التروبوسفير</li>
+          <li>ب) الستراتوسفير</li>
+          <li>ج) الميزوسفير</li>
+          <li>د) الثيرموسفير</li>
+        </ul>
+        <ul>
+          <li>1) توجد بها الأقمار الصناعية</li>
+          <li>2) تحترق فيها معظم النيازك</li>
+          <li>3) فيها تتشكل الظواهر الجوية</li>
+          <li>4) تحتوي على طبقة الأوزون</li>
+        </ul>
+      </div>
+      <p style="margin-top:10px;">الإجابة: أ - .......... &nbsp; ب - .......... &nbsp; ج - .......... &nbsp; د - ..........</p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">3</span>اختر الإجابة الصحيحة:</h4>
+      <div class="qcm-item">
+        <p>1) الغلاف الجوي هو:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>الطبقة الغازية المحيطة بالأرض</span><span><span class="checkbox"></span>طبقة صخرية</span><span><span class="checkbox"></span>طبقة مائية</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>2) الغاز الأكثر نسبة في الغلاف الجوي هو:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>الأكسجين</span><span><span class="checkbox"></span>النيتروجين</span><span><span class="checkbox"></span>ثاني أكسيد الكربون</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>3) الطبقة التي تحدث فيها الظواهر الجوية هي:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>التروبوسفير</span><span><span class="checkbox"></span>الستراتوسفير</span><span><span class="checkbox"></span>الثيرموسفير</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>4) طبقة الأوزون توجد في:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>التروبوسفير</span><span><span class="checkbox"></span>الستراتوسفير</span><span><span class="checkbox"></span>الإكزوسفير</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>5) تحترق معظم النيازك في طبقة:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>الميزوسفير</span><span><span class="checkbox"></span>الثيرموسفير</span><span><span class="checkbox"></span>الإكزوسفير</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">4</span>أكمل الجمل التالية بالمعطى المناسب:</h4>
+      <p>1) يشكّل النيتروجين حوالي .......... % من الغلاف الجوي.</p>
+      <p>2) يشكّل الأكسجين حوالي .......... % من الغلاف الجوي.</p>
+      <p>3) تحمي طبقة .......... الأرض من الأشعة فوق البنفسجية الضارة.</p>
+      <p>4) توجد الأقمار الصناعية في طبقة .......... </p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">5</span>سؤال تحليلي:</h4>
+      <p>ماذا سيحدث لو اختفت طبقة الأوزون من الغلاف الجوي؟ اذكر نتيجتين محتملتين بالاعتماد على معطيات الدرس.</p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== CORRIGE ===================== -->
+  <div class="corrige-wrapper">
+    <p class="corrige-flag">✂ يمكن طي هذه الصفحة أو إخفاؤها (اضغط على العنوان أدناه) قبل إنجاز التمارين ✂</p>
+    <details class="corrige">
+      <summary>التصحيح الكامل</summary>
+
+      <h4>تصحيح النشاط التطبيقي</h4>
+      <div class="corrige-item">يتحقق الأستاذ(ة) من أن المتعلم(ة) رسم الطبقات الخمس بالترتيب الصحيح من الأسفل إلى الأعلى: التروبوسفير، الستراتوسفير، الميزوسفير، الثيرموسفير، الإكزوسفير، مع ذكر خاصية صحيحة لكل طبقة.</div>
+
+      <h4>تصحيح التمرين 1 (الترتيب)</h4>
+      <div class="corrige-item">1) التروبوسفير &nbsp;→&nbsp; 2) الستراتوسفير &nbsp;→&nbsp; 3) الميزوسفير &nbsp;→&nbsp; 4) الثيرموسفير &nbsp;→&nbsp; 5) الإكزوسفير</div>
+
+      <h4>تصحيح التمرين 2 (الربط)</h4>
+      <div class="corrige-item">أ - 3 (التروبوسفير ← الظواهر الجوية) &nbsp;|&nbsp; ب - 4 (الستراتوسفير ← طبقة الأوزون) &nbsp;|&nbsp; ج - 2 (الميزوسفير ← احتراق النيازك) &nbsp;|&nbsp; د - 1 (الثيرموسفير ← الأقمار الصناعية)</div>
+
+      <h4>تصحيح التمرين 3 (الاختيار من متعدد)</h4>
+      <div class="corrige-item">1) الطبقة الغازية المحيطة بالأرض &nbsp;|&nbsp; 2) النيتروجين &nbsp;|&nbsp; 3) التروبوسفير &nbsp;|&nbsp; 4) الستراتوسفير &nbsp;|&nbsp; 5) الميزوسفير</div>
+
+      <h4>تصحيح التمرين 4 (إكمال الجمل)</h4>
+      <div class="corrige-item">1) 78% &nbsp;|&nbsp; 2) 21% &nbsp;|&nbsp; 3) الأوزون (الستراتوسفير) &nbsp;|&nbsp; 4) الثيرموسفير</div>
+
+      <h4>تصحيح التمرين 5 (السؤال التحليلي)</h4>
+      <div class="corrige-item">1) ستصل كميات أكبر من الأشعة فوق البنفسجية الضارة إلى سطح الأرض، مما قد يضرّ بصحة الكائنات الحية (كأمراض الجلد والعيون).</div>
+      <div class="corrige-item">2) قد يتأثر التوازن البيئي والمناخي على كوكب الأرض بشكل عام، نظراً للدور الوقائي المهم الذي تلعبه طبقة الأوزون.</div>
+    </details>
+  </div>
+
+  <p class="footer-note">فيشة تعلّم ذاتي — الاجتماعيات (الجغرافيا) — الأولى إعدادي — الغلاف الجوي</p>
+</div>
+</body>
+</html>
