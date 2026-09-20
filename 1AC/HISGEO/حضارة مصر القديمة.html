@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>حضارة مصر القديمة</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#2c2417; --ink-soft:#5c5140;
+    --paper:#f8f2e2; --panel:#fffcf5; --line:#ddccaa;
+    --clay:#b5652f; --clay-soft:#f3e0cc;
+    --bronze:#8a6a1e; --bronze-soft:#f0e6c4;
+    --lapis:#2c5c78; --lapis-soft:#dfeaf0;
+    --leaf:#3f7d3a; --leaf-soft:#e3f0df;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#e3d8bd;font-family:'Noto Naskh Arabic','Amiri',serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .sheet{max-width:880px;margin:24px auto;background:var(--paper);padding:38px 44px 50px;border:1px solid var(--line);box-shadow:0 4px 24px rgba(0,0,0,.12);}
+
+  .masthead{display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:3px solid var(--ink);padding-bottom:16px;margin-bottom:22px;}
+  .masthead-text h1{font-family:'Amiri',serif;font-weight:700;font-size:30px;margin:0 0 6px;color:var(--clay);}
+  .masthead-text .subtitle{font-size:15px;color:var(--ink-soft);margin:0;}
+  .pyramid-icon{width:58px;height:52px;flex-shrink:0;}
+
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+  .meta-chip{border:1px solid var(--line);background:var(--panel);border-radius:3px;padding:6px 12px;font-size:13.5px;color:var(--ink-soft);}
+  .meta-chip b{color:var(--ink);font-weight:600;}
+
+  section{margin-bottom:28px;}
+  h2.section-title{font-family:'Amiri',serif;font-size:21px;font-weight:700;color:var(--lapis);border-bottom:2px solid var(--lapis);padding-bottom:6px;margin:0 0 14px;display:flex;align-items:baseline;gap:8px;}
+  h3.sub-title{font-size:17px;font-weight:700;color:var(--clay);margin:20px 0 8px;}
+  p{line-height:2;font-size:15.5px;margin:0 0 10px;}
+
+  .objectif-box{background:var(--bronze-soft);border-right:4px solid var(--bronze);padding:14px 18px;border-radius:2px;font-size:15.5px;line-height:1.9;}
+
+  .rule-box{background:var(--panel);border:1px solid var(--line);border-right:4px solid var(--lapis);padding:14px 18px;border-radius:2px;margin:10px 0 16px;}
+  .rule-box p:last-child{margin-bottom:0;}
+  .rule-box ul,.rule-box ol{margin:6px 0;padding-inline-start:22px;}
+  .rule-box li{margin-bottom:6px;line-height:1.85;}
+
+  .god-grid{display:flex;flex-wrap:wrap;gap:14px;margin:10px 0 16px;}
+  .god-card{flex:1 1 180px;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:12px 16px;text-align:center;}
+  .god-card .name{font-weight:700;color:var(--clay);font-size:15.5px;margin-bottom:4px;}
+  .god-card p{margin:0;font-size:13.5px;color:var(--ink-soft);}
+
+  .achieve-grid{display:flex;flex-wrap:wrap;gap:14px;margin:10px 0 16px;}
+  .achieve-card{flex:1 1 220px;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:12px 16px;}
+  .achieve-card .head{font-weight:700;color:var(--lapis);font-size:15.5px;margin-bottom:4px;}
+  .achieve-card p{margin:0;font-size:14px;color:var(--ink-soft);line-height:1.8;}
+
+  table.data-table{width:100%;border-collapse:collapse;margin:8px 0 18px;font-size:15px;}
+  table.data-table th{background:var(--lapis);color:#fff;padding:8px 10px;font-weight:600;font-size:14px;}
+  table.data-table td{border:1px solid var(--line);padding:9px 10px;background:var(--panel);}
+  table.data-table tr:nth-child(even) td{background:#f2e9d3;}
+
+  .activity-box{background:var(--panel);border:1.5px solid var(--bronze);border-radius:3px;padding:16px 20px;}
+  .activity-box .task-label{display:inline-block;background:var(--bronze);color:#fff;font-size:12.5px;padding:3px 10px;border-radius:2px;margin-bottom:8px;}
+  .id-card{background:var(--lapis-soft);border:1px dashed var(--lapis);border-radius:6px;padding:14px 18px;margin-top:10px;}
+  .id-row{display:flex;gap:10px;margin-bottom:8px;font-size:14.5px;}
+  .id-row b{white-space:nowrap;}
+
+  .exercise{border:1px solid var(--line);border-radius:3px;padding:16px 20px;margin-bottom:16px;background:var(--panel);}
+  .exercise-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:var(--ink);color:var(--paper);border-radius:50%;font-size:14px;font-weight:700;margin-inline-end:8px;}
+  .exercise h4{margin:0 0 10px;font-size:16.5px;display:flex;align-items:center;}
+  .fill-line{border-bottom:1px dotted var(--ink-soft);display:inline-block;min-width:110px;height:1.6em;}
+  .word-chip{display:inline-block;background:var(--paper);border:1px solid var(--line);border-radius:3px;padding:3px 12px;margin:3px 4px;font-size:15px;}
+  .qcm-item{margin-bottom:10px;}
+  .qcm-item p{margin-bottom:4px;font-weight:600;}
+  .qcm-options{display:flex;flex-wrap:wrap;gap:14px;font-size:14.5px;}
+  .qcm-options span{display:flex;align-items:center;gap:5px;}
+  .checkbox{width:13px;height:13px;border:1.4px solid var(--ink-soft);display:inline-block;border-radius:2px;}
+  .match-cols{display:flex;justify-content:space-between;gap:40px;margin-top:8px;}
+  .match-cols ul{list-style:none;padding:0;margin:0;}
+  .match-cols li{border:1px solid var(--line);background:var(--paper);padding:6px 14px;margin-bottom:10px;border-radius:3px;font-size:15px;}
+
+  .corrige-wrapper{page-break-before:always;padding-top:6px;}
+  .corrige-flag{text-align:center;font-size:13px;color:var(--ink-soft);margin-bottom:10px;border-top:1px dashed var(--ink-soft);padding-top:14px;}
+  details.corrige{border:2px dashed var(--clay);border-radius:4px;background:#fdf6ef;padding:6px 20px 18px;}
+  details.corrige > summary{cursor:pointer;font-family:'Amiri',serif;font-weight:700;font-size:19px;color:var(--clay);padding:14px 0;list-style:none;}
+  details.corrige > summary::-webkit-details-marker{display:none;}
+  details.corrige > summary::before{content:"✂ ";}
+  details.corrige > summary::after{content:"— اضغط لإظهار الحل / إخفائه";font-family:'Noto Naskh Arabic',serif;font-weight:400;font-size:13px;color:var(--ink-soft);margin-inline-start:8px;}
+  .corrige h4{color:var(--clay);margin:16px 0 8px;font-size:16px;}
+  .corrige-item{margin-bottom:8px;font-size:15px;line-height:1.9;}
+  .corrige table.data-table th{background:var(--clay);}
+
+  .footer-note{margin-top:30px;text-align:center;font-size:12px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:10px;}
+
+  @media print{
+    body{background:#fff;}
+    .sheet{box-shadow:none;border:none;margin:0;max-width:100%;padding:14px 6px;}
+    details.corrige{border-color:#000;}
+  }
+  @page{size:A4;margin:14mm;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="masthead-text">
+      <h1>حضارةُ مصرَ القديمةِ</h1>
+      <p class="subtitle">الاجتماعيات — التاريخ: حضارات الشرق القديم</p>
+    </div>
+    <svg class="pyramid-icon" viewBox="0 0 64 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M32 6 L58 50 L6 50 Z" fill="#b5652f"/>
+      <path d="M32 6 L44 50 L32 50 Z" fill="#8a6a1e" opacity="0.6"/>
+      <circle cx="14" cy="20" r="6" fill="#e3b23c"/>
+    </svg>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta-chip">المستوى: <b>الأولى إعدادي (1AC)</b></div>
+    <div class="meta-chip">المادة: <b>الاجتماعيات — التاريخ</b></div>
+    <div class="meta-chip">مدة الحصة: <b>ساعة إلى ساعة ونصف</b></div>
+    <div class="meta-chip">نوع الوثيقة: <b>فيشة تعلّم ذاتي</b></div>
+  </div>
+
+  <!-- ===================== OBJECTIF ===================== -->
+  <section>
+    <h2 class="section-title">🎯 الهدف من الدرس</h2>
+    <div class="objectif-box">
+      يتمكّن المتعلم(ة) في نهاية هذا الدرس من: تحديد الإطار الزمني والمكاني لحضارة مصر القديمة، وتفسير أهمية نهر النيل بالنسبة لها، والتعرّف على نظامها السياسي وديانتها وكتابتها، وتحديد أهم إنجازاتها الحضارية والمعمارية.
+    </div>
+  </section>
+
+  <!-- ===================== COURS ===================== -->
+  <section>
+    <h2 class="section-title">📘 الدرس</h2>
+
+    <h3 class="sub-title">1) الإطار الزمني والمكاني</h3>
+    <div class="rule-box">
+      <p>نشأت حضارة مصر القديمة على ضفاف <b>نهر النيل</b> بشمال إفريقيا (مصر الحالية)، منذ حوالي <b>3000 سنة قبل الميلاد</b>، واستمرت آلاف السنين، وتُعتبر من أقدم الحضارات وأعرقها في التاريخ الإنساني.</p>
+    </div>
+
+    <h3 class="sub-title">2) أهمية نهر النيل: "مصر هبة النيل"</h3>
+    <div class="rule-box">
+      <p>يُعتبر نهر النيل شريان الحياة بالنسبة لمصر القديمة، فقد كان فيضانه السنوي يجلب <b>الطمي الخصب</b> الذي يُغذّي الأراضي الزراعية، كما كان طريقاً مهماً لل<b>تنقل والتجارة</b> بين مختلف مناطق البلاد. لهذا السبب يُقال إن "<b>مصر هبة النيل</b>".</p>
+    </div>
+
+    <h3 class="sub-title">3) النظام السياسي: الفراعنة</h3>
+    <div class="rule-box">
+      <p>حكم مصر القديمة ملوك يُسمَّون <b>الفراعنة</b>، وكان يُعتقد أن للفرعون صلة بالآلهة، وله سلطة مطلقة على شؤون البلاد، يساعده في الحكم <b>كهنة</b> (لشؤون الدين) و<b>وزراء وكتّاب</b> (لتدبير الشؤون الإدارية).</p>
+    </div>
+
+    <h3 class="sub-title">4) الكتابة الهيروغليفية</h3>
+    <div class="rule-box">
+      <p>ابتكر المصريون القدماء نوعاً من الكتابة يُسمّى <b>الكتابة الهيروغليفية</b>، وهي كتابة تعتمد على رموز ورسوم، ودوّنوها على <b>ورق البردي</b>، المصنوع من نبات البردي الذي كان ينمو بكثرة على ضفاف النيل.</p>
+    </div>
+
+    <h3 class="sub-title">5) الديانة والتحنيط</h3>
+    <div class="rule-box">
+      <p>آمن المصريون القدماء بتعدد الآلهة، وكانت لكل إله وظيفة أو مجال خاص به. كما آمنوا بـ<b>الحياة بعد الموت</b>، ولذلك مارسوا <b>التحنيط</b>: عملية للحفاظ على جسد المتوفى دون أن يتحلّل، اعتقاداً منهم بأن الروح ستعود إليه في العالم الآخر.</p>
+    </div>
+    <div class="god-grid">
+      <div class="god-card"><div class="name">رع</div><p>إله الشمس</p></div>
+      <div class="god-card"><div class="name">أوزيريس</div><p>إله الموتى والعالم الآخر</p></div>
+      <div class="god-card"><div class="name">إيزيس</div><p>ربّة السحر والأمومة</p></div>
+    </div>
+
+    <h3 class="sub-title">6) أهم الإنجازات الحضارية</h3>
+    <div class="achieve-grid">
+      <div class="achieve-card"><div class="head">🔺 الأهرامات</div><p>مقابر ضخمة للفراعنة، أشهرها أهرامات الجيزة، وأكبرها هرم خوفو.</p></div>
+      <div class="achieve-card"><div class="head">🗿 تمثال أبو الهول</div><p>تمثال ضخم بجسد أسد ورأس إنسان، يقع بالقرب من أهرامات الجيزة.</p></div>
+      <div class="achieve-card"><div class="head">🏛️ المعابد الكبرى</div><p>كمعبدَي الكرنك والأقصر، خُصِّصت لعبادة الآلهة.</p></div>
+      <div class="achieve-card"><div class="head">📅 التقويم الشمسي</div><p>ابتكر المصريون القدماء تقويماً يعتمد على دورة الشمس، من أقدم التقاويم في التاريخ.</p></div>
+    </div>
+  </section>
+
+  <!-- ===================== ACTIVITE ===================== -->
+  <section>
+    <h2 class="section-title">🗂️ نشاط تطبيقي</h2>
+    <div class="activity-box">
+      <span class="task-label">بطاقة تعريف بحضارة مصر القديمة</span>
+      <p>أكمل بطاقة التعريف التالية بالاعتماد على معطيات الدرس:</p>
+      <div class="id-card">
+        <div class="id-row"><b>الموقع الجغرافي:</b> <span class="fill-line" style="min-width:250px;"></span></div>
+        <div class="id-row"><b>الفترة الزمنية (تقريباً):</b> <span class="fill-line" style="min-width:250px;"></span></div>
+        <div class="id-row"><b>النهر المرتبط بها:</b> <span class="fill-line" style="min-width:250px;"></span></div>
+        <div class="id-row"><b>حكامها:</b> <span class="fill-line" style="min-width:250px;"></span></div>
+        <div class="id-row"><b>أشهر إنجاز معماري:</b> <span class="fill-line" style="min-width:100%;"></span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== EXERCICES ===================== -->
+  <section>
+    <h2 class="section-title">📝 تمارين للتدرّب</h2>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">1</span>أكمل الجمل التالية بالمعطى المناسب:</h4>
+      <p>1) قامت حضارة مصر القديمة على ضفاف نهر .......... </p>
+      <p>2) كان يحكم مصر القديمة ملوك يُسمَّون .......... </p>
+      <p>3) اخترع المصريون القدماء الكتابة .......... ودوّنوها على ورق .......... </p>
+      <p>4) مارس المصريون القدماء .......... للحفاظ على أجساد موتاهم، إيماناً منهم بـ .......... </p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">2</span>صل كل إله بمجاله:</h4>
+      <div class="match-cols">
+        <ul>
+          <li>أ) رع</li>
+          <li>ب) أوزيريس</li>
+          <li>ج) إيزيس</li>
+        </ul>
+        <ul>
+          <li>1) ربّة السحر والأمومة</li>
+          <li>2) إله الشمس</li>
+          <li>3) إله الموتى والعالم الآخر</li>
+        </ul>
+      </div>
+      <p style="margin-top:10px;">الإجابة: أ - .......... &nbsp; ب - .......... &nbsp; ج - ..........</p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">3</span>اختر الإجابة الصحيحة:</h4>
+      <div class="qcm-item">
+        <p>1) نشأت حضارة مصر القديمة على ضفاف نهر:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>النيل</span><span><span class="checkbox"></span>دجلة</span><span><span class="checkbox"></span>الفرات</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>2) حكم مصر القديمة ملوك يُسمَّون:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>الفراعنة</span><span><span class="checkbox"></span>القياصرة</span><span><span class="checkbox"></span>السلاطين</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>3) الكتابة التي اخترعها المصريون القدماء تُسمّى:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>المسمارية</span><span><span class="checkbox"></span>الهيروغليفية</span><span><span class="checkbox"></span>الأبجدية</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>4) كانت الأهرامات تُستعمل كـ:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>معابد للعبادة</span><span><span class="checkbox"></span>مقابر للفراعنة</span><span><span class="checkbox"></span>مخازن للحبوب</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>5) مارس المصريون القدماء التحنيط لأنهم آمنوا بـ:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>الحياة بعد الموت</span><span><span class="checkbox"></span>انعدام الروح</span><span><span class="checkbox"></span>عدم أهمية الجسد</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">4</span>صنّف العناصر التالية إلى (إنجاز معماري / معتقد ديني / نظام سياسي):</h4>
+      <p>
+        <span class="word-chip">الأهرامات</span>
+        <span class="word-chip">تعدد الآلهة</span>
+        <span class="word-chip">حكم الفراعنة</span>
+        <span class="word-chip">أبو الهول</span>
+        <span class="word-chip">التحنيط</span>
+        <span class="word-chip">معبد الكرنك</span>
+      </p>
+      <table class="data-table">
+        <tr><th>إنجاز معماري</th><th>معتقد ديني</th><th>نظام سياسي</th></tr>
+        <tr><td style="height:60px;"></td><td></td><td></td></tr>
+      </table>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">5</span>سؤال تحليلي:</h4>
+      <p>لماذا يُقال إن "مصر هبة النيل"؟ اذكر سببين اثنين بالاعتماد على معطيات الدرس.</p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== CORRIGE ===================== -->
+  <div class="corrige-wrapper">
+    <p class="corrige-flag">✂ يمكن طي هذه الصفحة أو إخفاؤها (اضغط على العنوان أدناه) قبل إنجاز التمارين ✂</p>
+    <details class="corrige">
+      <summary>التصحيح الكامل</summary>
+
+      <h4>تصحيح النشاط التطبيقي</h4>
+      <div class="corrige-item"><b>الموقع الجغرافي:</b> شمال إفريقيا، على ضفاف نهر النيل (مصر الحالية)</div>
+      <div class="corrige-item"><b>الفترة الزمنية:</b> منذ حوالي 3000 سنة قبل الميلاد</div>
+      <div class="corrige-item"><b>النهر المرتبط بها:</b> نهر النيل</div>
+      <div class="corrige-item"><b>حكامها:</b> الفراعنة</div>
+      <div class="corrige-item"><b>أشهر إنجاز معماري:</b> الأهرامات (كأهرامات الجيزة وهرم خوفو)</div>
+
+      <h4>تصحيح التمرين 1 (إكمال الجمل)</h4>
+      <div class="corrige-item">1) النيل &nbsp;|&nbsp; 2) الفراعنة &nbsp;|&nbsp; 3) الهيروغليفية / البردي &nbsp;|&nbsp; 4) التحنيط / الحياة بعد الموت</div>
+
+      <h4>تصحيح التمرين 2 (الربط)</h4>
+      <div class="corrige-item">أ - 2 (رع ← إله الشمس) &nbsp;|&nbsp; ب - 3 (أوزيريس ← إله الموتى والعالم الآخر) &nbsp;|&nbsp; ج - 1 (إيزيس ← ربّة السحر والأمومة)</div>
+
+      <h4>تصحيح التمرين 3 (الاختيار من متعدد)</h4>
+      <div class="corrige-item">1) النيل &nbsp;|&nbsp; 2) الفراعنة &nbsp;|&nbsp; 3) الهيروغليفية &nbsp;|&nbsp; 4) مقابر للفراعنة &nbsp;|&nbsp; 5) الحياة بعد الموت</div>
+
+      <h4>تصحيح التمرين 4 (التصنيف)</h4>
+      <div class="corrige-item"><b>إنجاز معماري:</b> الأهرامات، أبو الهول، معبد الكرنك</div>
+      <div class="corrige-item"><b>معتقد ديني:</b> تعدد الآلهة، التحنيط</div>
+      <div class="corrige-item"><b>نظام سياسي:</b> حكم الفراعنة</div>
+
+      <h4>تصحيح التمرين 5 (السؤال التحليلي)</h4>
+      <div class="corrige-item">1) كان فيضان النيل السنوي يجلب الطمي الخصب الذي يُغذّي الأراضي الزراعية، مما جعل الزراعة ممكنة رغم محيط صحراوي جاف.</div>
+      <div class="corrige-item">2) كان النيل طريقاً مهماً للتنقل والتجارة بين مختلف مناطق البلاد، مما ساهم في ازدهار الحضارة المصرية القديمة.</div>
+    </details>
+  </div>
+
+  <p class="footer-note">فيشة تعلّم ذاتي — الاجتماعيات (التاريخ) — الأولى إعدادي — حضارة مصر القديمة</p>
+</div>
+</body>
+</html>
