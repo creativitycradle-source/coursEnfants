@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>أتعرف تضاريس المغرب من الخريطة الطبوغرافية وأتعلم رسم مقطع طبوغرافي</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#2c2417; --ink-soft:#5c5140;
+    --paper:#f8f2e2; --panel:#fffcf5; --line:#ddccaa;
+    --navy:#2b4a63; --navy-soft:#e1eaf0;
+    --terra:#bd5b34; --terra-soft:#f5e0d2;
+    --gold:#af8b2e;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#e5dcc4;font-family:'Noto Naskh Arabic','Amiri',serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .sheet{max-width:880px;margin:24px auto;background:var(--paper);padding:38px 44px 50px;border:1px solid var(--line);box-shadow:0 4px 24px rgba(0,0,0,.12);}
+
+  .masthead{display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:3px solid var(--ink);padding-bottom:16px;margin-bottom:22px;}
+  .masthead-text h1{font-family:'Amiri',serif;font-weight:700;font-size:21px;margin:0 0 6px;color:var(--navy);line-height:1.45;}
+  .masthead-text .subtitle{font-size:15px;color:var(--ink-soft);margin:0;}
+  .mountain-icon{width:58px;height:52px;flex-shrink:0;}
+
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+  .meta-chip{border:1px solid var(--line);background:var(--panel);border-radius:3px;padding:6px 12px;font-size:13.5px;color:var(--ink-soft);}
+  .meta-chip b{color:var(--ink);font-weight:600;}
+
+  section{margin-bottom:28px;}
+  h2.section-title{font-family:'Amiri',serif;font-size:21px;font-weight:700;color:var(--navy);border-bottom:2px solid var(--navy);padding-bottom:6px;margin:0 0 14px;display:flex;align-items:baseline;gap:8px;}
+  h3.sub-title{font-size:17px;font-weight:700;color:var(--terra);margin:20px 0 8px;}
+  p{line-height:2;font-size:15.5px;margin:0 0 10px;}
+
+  .objectif-box{background:var(--terra-soft);border-right:4px solid var(--terra);padding:14px 18px;border-radius:2px;font-size:15.5px;line-height:1.9;}
+
+  .rule-box{background:var(--panel);border:1px solid var(--line);border-right:4px solid var(--navy);padding:14px 18px;border-radius:2px;margin:10px 0 16px;}
+  .rule-box p:last-child{margin-bottom:0;}
+  .rule-box ul,.rule-box ol{margin:6px 0;padding-inline-start:22px;}
+  .rule-box li{margin-bottom:6px;line-height:1.85;}
+
+  table.data-table{width:100%;border-collapse:collapse;margin:8px 0 18px;font-size:15px;}
+  table.data-table th{background:var(--navy);color:#fff;padding:8px 10px;font-weight:600;font-size:14px;}
+  table.data-table td{border:1px solid var(--line);padding:9px 10px;background:var(--panel);text-align:center;}
+  table.data-table tr:nth-child(even) td{background:#f2ead6;}
+
+  .map-wrap{display:flex;justify-content:center;margin:16px 0;}
+  .profile-wrap{display:flex;justify-content:center;margin:16px 0;}
+
+  .activity-box{background:var(--panel);border:1.5px solid var(--terra);border-radius:3px;padding:16px 20px;}
+  .activity-box .task-label{display:inline-block;background:var(--terra);color:#fff;font-size:12.5px;padding:3px 10px;border-radius:2px;margin-bottom:8px;}
+
+  .exercise{border:1px solid var(--line);border-radius:3px;padding:16px 20px;margin-bottom:16px;background:var(--panel);}
+  .exercise-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:var(--ink);color:var(--paper);border-radius:50%;font-size:14px;font-weight:700;margin-inline-end:8px;}
+  .exercise h4{margin:0 0 10px;font-size:16.5px;display:flex;align-items:center;}
+  .fill-line{border-bottom:1px dotted var(--ink-soft);display:inline-block;min-width:120px;height:1.6em;}
+  .word-chip{display:inline-block;background:var(--paper);border:1px solid var(--line);border-radius:3px;padding:3px 12px;margin:3px 4px;font-size:15px;}
+  .qcm-item{margin-bottom:10px;}
+  .qcm-item p{margin-bottom:4px;font-weight:600;}
+  .qcm-options{display:flex;flex-wrap:wrap;gap:14px;font-size:14.5px;}
+  .qcm-options span{display:flex;align-items:center;gap:5px;}
+  .checkbox{width:13px;height:13px;border:1.4px solid var(--ink-soft);display:inline-block;border-radius:2px;}
+  .order-list{display:flex;flex-direction:column;gap:8px;}
+  .order-item{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:6px;padding:8px 12px;background:var(--paper);}
+  .order-item .num-box{width:32px;height:32px;border:2px dashed var(--ink-soft);border-radius:6px;flex-shrink:0;}
+
+  .corrige-wrapper{page-break-before:always;padding-top:6px;}
+  .corrige-flag{text-align:center;font-size:13px;color:var(--ink-soft);margin-bottom:10px;border-top:1px dashed var(--ink-soft);padding-top:14px;}
+  details.corrige{border:2px dashed var(--terra);border-radius:4px;background:#fdf5f0;padding:6px 20px 18px;}
+  details.corrige > summary{cursor:pointer;font-family:'Amiri',serif;font-weight:700;font-size:19px;color:var(--terra);padding:14px 0;list-style:none;}
+  details.corrige > summary::-webkit-details-marker{display:none;}
+  details.corrige > summary::before{content:"✂ ";}
+  details.corrige > summary::after{content:"— اضغط لإظهار الحل / إخفائه";font-family:'Noto Naskh Arabic',serif;font-weight:400;font-size:13px;color:var(--ink-soft);margin-inline-start:8px;}
+  .corrige h4{color:var(--terra);margin:16px 0 8px;font-size:16px;}
+  .corrige-item{margin-bottom:8px;font-size:15px;line-height:1.9;}
+  .corrige table.data-table th{background:var(--terra);}
+
+  .footer-note{margin-top:30px;text-align:center;font-size:12px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:10px;}
+
+  @media print{
+    body{background:#fff;}
+    .sheet{box-shadow:none;border:none;margin:0;max-width:100%;padding:14px 6px;}
+    details.corrige{border-color:#000;}
+  }
+  @page{size:A4;margin:14mm;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="masthead-text">
+      <h1>أتعرّفُ تضاريسَ المغربِ انطلاقاً من الخريطةِ الطبوغرافيةِ وأتعلّمُ رسمَ مقطعٍ طبوغرافيٍّ</h1>
+      <p class="subtitle">الاجتماعيات — الجغرافيا: قراءة الخرائط</p>
+    </div>
+    <svg class="mountain-icon" viewBox="0 0 64 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M4 50L22 18l10 14 6-8 22 26z" fill="#2b4a63" opacity="0.9"/>
+      <path d="M22 18l4 6-4 5-4-5z" fill="#fff"/>
+    </svg>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta-chip">المستوى: <b>السادسة ابتدائي (6AEP)</b></div>
+    <div class="meta-chip">المادة: <b>الاجتماعيات — الجغرافيا</b></div>
+    <div class="meta-chip">مدة الحصة: <b>ساعة إلى ساعة ونصف</b></div>
+    <div class="meta-chip">نوع الوثيقة: <b>فيشة تعلّم ذاتي</b></div>
+  </div>
+
+  <!-- ===================== OBJECTIF ===================== -->
+  <section>
+    <h2 class="section-title">🎯 الهدف من الدرس</h2>
+    <div class="objectif-box">
+      يتمكّن المتعلم(ة) في نهاية هذا الدرس من: التعرّف على التضاريس الكبرى للمغرب، وقراءة خريطة طبوغرافية بسيطة باستعمال المنحنيات المستوية، والتمييز بين المناطق شديدة الانحدار والمناطق اللطيفة الانحدار، وتعلّم خطوات رسم مقطع طبوغرافي بسيط.
+    </div>
+  </section>
+
+  <!-- ===================== COURS ===================== -->
+  <section>
+    <h2 class="section-title">📘 الدرس</h2>
+
+    <h3 class="sub-title">1) تذكير: التضاريس الكبرى للمغرب</h3>
+    <table class="data-table">
+      <tr><th>نوع التضاريس</th><th>أمثلة من المغرب</th></tr>
+      <tr><td>الجبال</td><td>جبال الريف، الأطلس المتوسط، الأطلس الكبير، الأطلس الصغير</td></tr>
+      <tr><td>الهضاب</td><td>الهضبة الوسطى (بين فاس ومكناس)</td></tr>
+      <tr><td>السهول</td><td>سهل الغرب، سهل الشاوية، سهل سوس</td></tr>
+      <tr><td>الصحراء</td><td>مناطق جنوب المغرب (كمنطقة مرزوكة)</td></tr>
+    </table>
+
+    <h3 class="sub-title">2) ما هي الخريطة الطبوغرافية؟</h3>
+    <div class="rule-box">
+      <p><b>الخريطة الطبوغرافية</b> خريطة تمثّل تضاريس منطقة معينة باستعمال خطوط منحنية تسمى <b>المنحنيات المستوية (خطوط التسوية)</b>. كل منحنى مستوٍ يربط بين جميع النقط التي لها <b>نفس الارتفاع</b> عن مستوى سطح البحر، ويُكتب رقم بجانبه يدلّ على هذا الارتفاع بالمتر.</p>
+    </div>
+
+    <h3 class="sub-title">3) كيف نقرأ خريطة طبوغرافية؟</h3>
+    <div class="rule-box">
+      <ul>
+        <li>كل منحنى مستوٍ يمثّل ارتفاعاً معيناً (مثلاً كل 100 متر).</li>
+        <li>كلما <b>تقاربت</b> المنحنيات المستوية من بعضها، دلّ ذلك على <b>انحدار شديد</b> (منطقة جبلية وعرة).</li>
+        <li>كلما <b>تباعدت</b> المنحنيات المستوية، دلّ ذلك على <b>انحدار لطيف</b> (منطقة سهلية أو هضبية).</li>
+      </ul>
+    </div>
+    <div class="map-wrap">
+      <svg width="330" height="330" viewBox="0 0 330 330" xmlns="http://www.w3.org/2000/svg">
+        <rect x="5" y="5" width="320" height="320" fill="#f3e9d2" stroke="#ddccaa" stroke-width="2"/>
+        <circle cx="165" cy="165" r="130" fill="none" stroke="#2b4a63" stroke-width="2"/>
+        <text x="165" y="42" text-anchor="middle" font-size="12" fill="#2b4a63" font-family="Noto Naskh Arabic, serif">100م</text>
+        <circle cx="165" cy="165" r="100" fill="none" stroke="#2b4a63" stroke-width="2"/>
+        <text x="165" y="72" text-anchor="middle" font-size="12" fill="#2b4a63" font-family="Noto Naskh Arabic, serif">200م</text>
+        <circle cx="165" cy="165" r="72" fill="none" stroke="#2b4a63" stroke-width="2"/>
+        <text x="165" y="100" text-anchor="middle" font-size="12" fill="#2b4a63" font-family="Noto Naskh Arabic, serif">300م</text>
+        <circle cx="165" cy="165" r="48" fill="none" stroke="#2b4a63" stroke-width="2"/>
+        <text x="165" y="124" text-anchor="middle" font-size="11" fill="#2b4a63" font-family="Noto Naskh Arabic, serif">400م</text>
+        <circle cx="165" cy="165" r="28" fill="none" stroke="#bd5b34" stroke-width="2.5"/>
+        <text x="165" y="163" text-anchor="middle" font-size="11" fill="#bd5b34" font-family="Noto Naskh Arabic, serif">500م</text>
+        <line x1="25" y1="165" x2="305" y2="165" stroke="#af8b2e" stroke-width="2.5" stroke-dasharray="6 3"/>
+        <circle cx="25" cy="165" r="4" fill="#af8b2e"/><text x="25" y="185" text-anchor="middle" font-size="13" font-weight="700" fill="#af8b2e">A</text>
+        <circle cx="305" cy="165" r="4" fill="#af8b2e"/><text x="305" y="185" text-anchor="middle" font-size="13" font-weight="700" fill="#af8b2e">B</text>
+      </svg>
+    </div>
+    <p style="text-align:center;font-size:14px;color:var(--ink-soft);margin-top:-8px;">لاحظ أن المنحنيات تتقارب أكثر كلما اقتربنا من القمة (وسط الخريطة)، مما يدلّ على انحدار أشد في الأعلى.</p>
+
+    <h3 class="sub-title">4) المقطع الطبوغرافي</h3>
+    <div class="rule-box">
+      <p><b>المقطع الطبوغرافي</b> رسم يمثّل شكل سطح الأرض على طول خط مستقيم يمرّ عبر الخريطة، كما لو أننا "قطعنا" الأرض بسكين ونظرنا إلى شكلها من الجانب. يساعدنا هذا الرسم على تخيّل ارتفاعات وانخفاضات التضاريس بوضوح.</p>
+    </div>
+
+    <h3 class="sub-title">5) خطوات رسم مقطع طبوغرافي بسيط</h3>
+    <div class="rule-box">
+      <ol>
+        <li>نرسم خطاً مستقيماً (AB) على الخريطة الطبوغرافية يمرّ بالمنطقة المراد دراستها.</li>
+        <li>نحدّد نقط تقاطع هذا الخط مع كل منحنى مستوٍ، ونسجّل ارتفاع كل نقطة.</li>
+        <li>نرسم محورين: <b>محور أفقي</b> يمثّل المسافة على طول الخط (AB)، و<b>محور عمودي</b> يمثّل الارتفاع بالمتر.</li>
+        <li>ننقل كل نقطة من الخريطة إلى الرسم البياني حسب مسافتها وارتفاعها.</li>
+        <li>نصل النقط ببعضها البعض بخط منحنٍ، فنحصل على شكل المقطع الطبوغرافي.</li>
+      </ol>
+    </div>
+    <div class="profile-wrap">
+      <svg width="360" height="160" viewBox="0 0 360 160">
+        <line x1="40" y1="130" x2="340" y2="130" stroke="#2c2417" stroke-width="2"/>
+        <line x1="40" y1="130" x2="40" y2="20" stroke="#2c2417" stroke-width="2"/>
+        <text x="340" y="148" font-size="11" font-family="Noto Naskh Arabic, serif">المسافة</text>
+        <text x="15" y="20" font-size="11" font-family="Noto Naskh Arabic, serif">الارتفاع</text>
+        <path d="M40 120 L100 90 L180 30 L260 85 L340 120" fill="none" stroke="#bd5b34" stroke-width="3"/>
+        <circle cx="40" cy="120" r="3" fill="#af8b2e"/><circle cx="100" cy="90" r="3" fill="#af8b2e"/>
+        <circle cx="180" cy="30" r="3" fill="#af8b2e"/><circle cx="260" cy="85" r="3" fill="#af8b2e"/><circle cx="340" cy="120" r="3" fill="#af8b2e"/>
+        <text x="40" y="142" text-anchor="middle" font-size="11">A</text>
+        <text x="180" y="142" text-anchor="middle" font-size="11">القمة</text>
+        <text x="340" y="142" text-anchor="middle" font-size="11">B</text>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ===================== ACTIVITE ===================== -->
+  <section>
+    <h2 class="section-title">✏️ نشاط تطبيقي</h2>
+    <div class="activity-box">
+      <span class="task-label">قراءة خريطة طبوغرافية</span>
+      <p>بالاعتماد على خريطة التلة الموضّحة في الدرس (المنحنيات المستوية من 100 إلى 500 متر)، أجب عن الأسئلة التالية:</p>
+      <p>1) ما هو الارتفاع التقريبي لقمة التلة؟ <span class="fill-line"></span></p>
+      <p>2) هل المنحدرات بالقرب من القمة شديدة الانحدار أم لطيفة الانحدار؟ علّل جوابك.</p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+      <p>3) ما هو الارتفاع التقريبي لكل من النقطتين A وB الموجودتين على حافة الخريطة؟</p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== EXERCICES ===================== -->
+  <section>
+    <h2 class="section-title">📝 تمارين للتدرّب</h2>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">1</span>صنّف التضاريس التالية حسب نوعها، مع ذكر مثال من المغرب لكل واحدة:</h4>
+      <p>
+        <span class="word-chip">جبال الأطلس الكبير</span>
+        <span class="word-chip">سهل الغرب</span>
+        <span class="word-chip">صحراء مرزوكة</span>
+        <span class="word-chip">الهضبة الوسطى</span>
+        <span class="word-chip">جبال الريف</span>
+        <span class="word-chip">سهل سوس</span>
+      </p>
+      <table class="data-table">
+        <tr><th>جبال</th><th>هضاب</th><th>سهول</th><th>صحراء</th></tr>
+        <tr><td style="height:60px;"></td><td></td><td></td><td></td></tr>
+      </table>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">2</span>لاحظ من جديد خريطة التلة في الدرس، وأجب:</h4>
+      <p>1) في أي جزء من الخريطة تكون المنحنيات المستوية أكثر تباعداً: بالقرب من القمة أم بعيداً عنها؟</p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+      <p>2) ماذا يدلّ هذا التباعد على طبيعة الانحدار في تلك المنطقة؟</p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">3</span>اختر الإجابة الصحيحة:</h4>
+      <div class="qcm-item">
+        <p>1) الخط الذي يربط نقطاً لها نفس الارتفاع في الخريطة الطبوغرافية يسمى:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>خط الاستواء</span><span><span class="checkbox"></span>منحنى مستوٍ</span><span><span class="checkbox"></span>خط الطول</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>2) كلما تقاربت المنحنيات المستوية، دلّ ذلك على:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>انحدار شديد</span><span><span class="checkbox"></span>انحدار لطيف</span><span><span class="checkbox"></span>مستوى ثابت تماماً</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>3) المقطع الطبوغرافي يمثّل:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>شكل سطح الأرض على طول خط معيّن</span><span><span class="checkbox"></span>عدد السكان في منطقة</span><span><span class="checkbox"></span>كمية الأمطار السنوية</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>4) تقع الهضبة الوسطى بالمغرب بالقرب من مدينتَي:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>فاس ومكناس</span><span><span class="checkbox"></span>الرباط والدار البيضاء</span><span><span class="checkbox"></span>أكادير والعيون</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>5) تُعتبر جبال الأطلس الكبير من:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>أعلى السلاسل الجبلية بالمغرب</span><span><span class="checkbox"></span>السهول الساحلية</span><span><span class="checkbox"></span>الهضاب المنخفضة</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">4</span>رتّب خطوات رسم المقطع الطبوغرافي التالية (من 1 إلى 5):</h4>
+      <div class="order-list">
+        <div class="order-item"><div class="num-box"></div><span>نصل النقط ببعضها للحصول على شكل المقطع</span></div>
+        <div class="order-item"><div class="num-box"></div><span>نرسم خطاً مستقيماً (AB) على الخريطة</span></div>
+        <div class="order-item"><div class="num-box"></div><span>ننقل كل نقطة إلى الرسم حسب مسافتها وارتفاعها</span></div>
+        <div class="order-item"><div class="num-box"></div><span>نرسم محورين: أفقي للمسافة وعمودي للارتفاع</span></div>
+        <div class="order-item"><div class="num-box"></div><span>نحدّد نقط تقاطع الخط مع كل منحنى مستوٍ ونسجّل ارتفاعها</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">5</span>مسألة تطبيقية: ارسم مقطعاً طبوغرافياً بسيطاً باستعمال المعطيات التالية:</h4>
+      <table class="data-table">
+        <tr><th>النقطة</th><th>المسافة من A (كم)</th><th>الارتفاع (م)</th></tr>
+        <tr><td>A</td><td>0</td><td>100</td></tr>
+        <tr><td>B</td><td>2</td><td>300</td></tr>
+        <tr><td>C</td><td>4</td><td>500</td></tr>
+        <tr><td>D</td><td>6</td><td>250</td></tr>
+        <tr><td>E</td><td>8</td><td>100</td></tr>
+      </table>
+      <p>ارسم النقط الخمس على الشبكة التالية، ثم صلها ببعضها للحصول على المقطع الطبوغرافي:</p>
+      <svg width="360" height="180" viewBox="0 0 360 180">
+        <line x1="40" y1="150" x2="340" y2="150" stroke="#2c2417" stroke-width="2"/>
+        <line x1="40" y1="150" x2="40" y2="15" stroke="#2c2417" stroke-width="2"/>
+        <text x="340" y="168" font-size="11" font-family="Noto Naskh Arabic, serif">المسافة (كم)</text>
+        <text x="15" y="15" font-size="11" font-family="Noto Naskh Arabic, serif">الارتفاع (م)</text>
+        <line x1="40" y1="120" x2="340" y2="120" stroke="#ddccaa" stroke-dasharray="2 3"/><text x="20" y="124" font-size="9">100</text>
+        <line x1="40" y1="90" x2="340" y2="90" stroke="#ddccaa" stroke-dasharray="2 3"/><text x="20" y="94" font-size="9">200</text>
+        <line x1="40" y1="60" x2="340" y2="60" stroke="#ddccaa" stroke-dasharray="2 3"/><text x="20" y="64" font-size="9">300</text>
+        <line x1="40" y1="30" x2="340" y2="30" stroke="#ddccaa" stroke-dasharray="2 3"/><text x="20" y="34" font-size="9">400</text>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ===================== CORRIGE ===================== -->
+  <div class="corrige-wrapper">
+    <p class="corrige-flag">✂ يمكن طي هذه الصفحة أو إخفاؤها (اضغط على العنوان أدناه) قبل إنجاز التمارين ✂</p>
+    <details class="corrige">
+      <summary>التصحيح الكامل</summary>
+
+      <h4>تصحيح النشاط التطبيقي</h4>
+      <div class="corrige-item">1) الارتفاع التقريبي لقمة التلة: أكثر من 500 متر (المنحنى الأخير المرسوم).</div>
+      <div class="corrige-item">2) المنحدرات بالقرب من القمة شديدة الانحدار، لأن المنحنيات المستوية هناك متقاربة جداً.</div>
+      <div class="corrige-item">3) النقطتان A وB تقعان خارج المنحنى الأول (100م)، إذن ارتفاعهما أقل من 100 متر تقريباً.</div>
+
+      <h4>تصحيح التمرين 1 (التصنيف)</h4>
+      <div class="corrige-item"><b>جبال:</b> جبال الأطلس الكبير، جبال الريف</div>
+      <div class="corrige-item"><b>هضاب:</b> الهضبة الوسطى</div>
+      <div class="corrige-item"><b>سهول:</b> سهل الغرب، سهل سوس</div>
+      <div class="corrige-item"><b>صحراء:</b> صحراء مرزوكة</div>
+
+      <h4>تصحيح التمرين 2 (قراءة الخريطة)</h4>
+      <div class="corrige-item">1) تكون المنحنيات أكثر تباعداً بعيداً عن القمة (عند حواف الخريطة).</div>
+      <div class="corrige-item">2) يدلّ هذا التباعد على انحدار لطيف (منطقة أقرب إلى السهل أو قاعدة التلة).</div>
+
+      <h4>تصحيح التمرين 3 (الاختيار من متعدد)</h4>
+      <div class="corrige-item">1) منحنى مستوٍ &nbsp;|&nbsp; 2) انحدار شديد &nbsp;|&nbsp; 3) شكل سطح الأرض على طول خط معيّن &nbsp;|&nbsp; 4) فاس ومكناس &nbsp;|&nbsp; 5) أعلى السلاسل الجبلية بالمغرب</div>
+
+      <h4>تصحيح التمرين 4 (ترتيب الخطوات)</h4>
+      <div class="corrige-item">1) نرسم خطاً مستقيماً (AB) على الخريطة &nbsp;→&nbsp; 2) نحدّد نقط التقاطع ونسجّل الارتفاعات &nbsp;→&nbsp; 3) نرسم محورين (المسافة والارتفاع) &nbsp;→&nbsp; 4) ننقل كل نقطة إلى الرسم &nbsp;→&nbsp; 5) نصل النقط ببعضها</div>
+
+      <h4>تصحيح التمرين 5 (رسم المقطع الطبوغرافي)</h4>
+      <div class="corrige-item">يتحقق الأستاذ(ة) من أن المتعلم(ة) وضع النقط الخمس بشكل صحيح حسب المسافة والارتفاع المعطَيين (A منخفضة، ثم ترتفع تدريجياً حتى C، ثم تنخفض مجدداً نحو E)، وأن شكل المقطع الناتج يشبه قمة جبل واحدة بين A وE.</div>
+    </details>
+  </div>
+
+  <p class="footer-note">فيشة تعلّم ذاتي — الاجتماعيات (الجغرافيا) — السادسة ابتدائي — تضاريس المغرب من الخريطة الطبوغرافية والمقطع الطبوغرافي</p>
+</div>
+</body>
+</html>
