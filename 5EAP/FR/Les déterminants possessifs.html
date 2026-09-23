@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Les déterminants possessifs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#233043; --ink-soft:#5a6478;
+    --paper:#f7fafc; --panel:#ffffff; --line:#d9e3ee;
+    --sky:#2f7bb5; --sky-soft:#e0eefa;
+    --sun:#e0a63a; --sun-soft:#fbeeda;
+    --coral:#d3654f; --coral-soft:#f8e1dc;
+    --leaf:#3f9d6e; --leaf-soft:#e1f3ea;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#e3edf5;font-family:'Nunito',sans-serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .sheet{max-width:860px;margin:24px auto;background:var(--paper);padding:36px 42px 48px;border:1px solid var(--line);box-shadow:0 4px 24px rgba(0,0,0,.12);border-radius:6px;}
+
+  .masthead{display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:3px solid var(--ink);padding-bottom:16px;margin-bottom:22px;}
+  .masthead-text h1{font-family:'Baloo 2',cursive;font-weight:800;font-size:30px;margin:0 0 6px;color:var(--sky);}
+  .masthead-text .subtitle{font-size:15px;color:var(--ink-soft);margin:0;}
+  .star-icon{width:58px;height:58px;flex-shrink:0;}
+
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+  .meta-chip{border:1px solid var(--line);background:var(--panel);border-radius:20px;padding:6px 14px;font-size:13.5px;color:var(--ink-soft);}
+  .meta-chip b{color:var(--ink);font-weight:700;}
+
+  section{margin-bottom:28px;}
+  h2.section-title{font-family:'Baloo 2',cursive;font-size:22px;font-weight:700;color:var(--sky);border-bottom:3px solid var(--sky-soft);padding-bottom:6px;margin:0 0 14px;display:flex;align-items:center;gap:8px;}
+  h3.sub-title{font-size:17px;font-weight:700;color:var(--coral);margin:20px 0 8px;font-family:'Baloo 2',cursive;}
+  p{line-height:1.85;font-size:15.5px;margin:0 0 10px;}
+
+  .objectif-box{background:var(--sun-soft);border-right:5px solid var(--sun);border-radius:10px;padding:14px 18px;font-size:15.5px;line-height:1.85;}
+
+  .rule-box{background:var(--panel);border:1px solid var(--line);border-right:5px solid var(--sky);padding:14px 18px;border-radius:10px;margin:10px 0 16px;}
+  .rule-box p:last-child{margin-bottom:0;}
+  .rule-box ul,.rule-box ol{margin:6px 0;padding-inline-start:22px;}
+  .rule-box li{margin-bottom:6px;line-height:1.8;}
+
+  table.data-table{width:100%;border-collapse:collapse;margin:8px 0 18px;font-size:15px;}
+  table.data-table th{background:var(--sky);color:#fff;padding:9px 10px;font-weight:700;font-size:14px;}
+  table.data-table td{border:1px solid var(--line);padding:9px 10px;background:var(--panel);text-align:center;}
+  table.data-table tr:nth-child(even) td{background:var(--sky-soft);}
+
+  .example-box{background:var(--leaf-soft);border:1px dashed var(--leaf);padding:12px 18px;border-radius:8px;margin:10px 0;font-size:15px;line-height:1.9;}
+
+  .activity-box{background:var(--panel);border:2px solid var(--sun);border-radius:10px;padding:16px 20px;}
+  .activity-box .task-label{display:inline-block;background:var(--sun);color:#fff;font-size:12.5px;padding:3px 12px;border-radius:14px;margin-bottom:8px;font-weight:700;}
+
+  .exercise{border:1px solid var(--line);border-radius:10px;padding:16px 20px;margin-bottom:16px;background:var(--panel);}
+  .exercise-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:var(--coral);color:#fff;border-radius:50%;font-size:14px;font-weight:700;margin-inline-end:8px;}
+  .exercise h4{margin:0 0 10px;font-size:16.5px;display:flex;align-items:center;font-family:'Baloo 2',cursive;}
+  .fill-line{border-bottom:2px dotted var(--ink-soft);display:inline-block;min-width:90px;height:1.6em;}
+  .qcm-item{margin-bottom:10px;}
+  .qcm-item p{margin-bottom:4px;font-weight:700;}
+  .qcm-options{display:flex;flex-wrap:wrap;gap:14px;font-size:14.5px;}
+  .qcm-options span{display:flex;align-items:center;gap:5px;}
+  .checkbox{width:13px;height:13px;border:1.4px solid var(--ink-soft);display:inline-block;border-radius:3px;}
+
+  .corrige-wrapper{page-break-before:always;padding-top:6px;}
+  .corrige-flag{text-align:center;font-size:13px;color:var(--ink-soft);margin-bottom:10px;border-top:1px dashed var(--ink-soft);padding-top:14px;}
+  details.corrige{border:2px dashed var(--coral);border-radius:10px;background:#fdf3f1;padding:6px 20px 18px;}
+  details.corrige > summary{cursor:pointer;font-family:'Baloo 2',cursive;font-weight:700;font-size:19px;color:var(--coral);padding:14px 0;list-style:none;}
+  details.corrige > summary::-webkit-details-marker{display:none;}
+  details.corrige > summary::before{content:"✂ ";}
+  details.corrige > summary::after{content:" — clique pour afficher / masquer la correction";font-family:'Nunito',sans-serif;font-weight:400;font-size:13px;color:var(--ink-soft);margin-left:8px;}
+  .corrige h4{color:var(--coral);margin:16px 0 8px;font-size:16px;font-family:'Baloo 2',cursive;}
+  .corrige-item{margin-bottom:8px;font-size:15px;line-height:1.85;}
+  .corrige table.data-table th{background:var(--coral);}
+
+  .footer-note{margin-top:30px;text-align:center;font-size:12px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:10px;}
+
+  @media print{
+    body{background:#fff;}
+    .sheet{box-shadow:none;border:none;margin:0;max-width:100%;padding:14px 6px;}
+    details.corrige{border-color:#000;}
+  }
+  @page{size:A4;margin:14mm;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="masthead-text">
+      <h1>Les déterminants possessifs</h1>
+      <p class="subtitle">Français — Grammaire</p>
+    </div>
+    <svg class="star-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="32" cy="32" r="26" fill="#e0a63a" opacity="0.15"/>
+      <path d="M20 40c0-8 5-14 12-14s12 6 12 14" stroke="#2f7bb5" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <circle cx="32" cy="20" r="6" fill="#d3654f"/>
+    </svg>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta-chip">Niveau : <b>4ème année primaire</b></div>
+    <div class="meta-chip">Matière : <b>Français — Grammaire</b></div>
+    <div class="meta-chip">Durée : <b>45 min à 1h</b></div>
+    <div class="meta-chip">Type : <b>Fiche d'auto-apprentissage</b></div>
+  </div>
+
+  <!-- ===================== OBJECTIF ===================== -->
+  <section>
+    <h2 class="section-title">🎯 Objectif de la séance</h2>
+    <div class="objectif-box">
+      À la fin de cette séance, l'élève sera capable de : reconnaître un déterminant possessif dans une phrase, choisir le déterminant possessif qui convient selon le possesseur (je, tu, il...) et le nom qui suit, et appliquer la règle particulière devant un nom féminin singulier commençant par une voyelle ou un h muet.
+    </div>
+  </section>
+
+  <!-- ===================== COURS ===================== -->
+  <section>
+    <h2 class="section-title">📘 Le cours</h2>
+
+    <h3 class="sub-title">1) Qu'est-ce qu'un déterminant possessif ?</h3>
+    <div class="rule-box">
+      <p>Un <b>déterminant possessif</b> est un petit mot placé devant un nom pour indiquer <b>à qui appartient</b> quelque chose (la possession). Il remplace un article (le, la, les...).</p>
+    </div>
+    <div class="example-box">
+      Exemple : <i>le</i> cartable → <b>mon</b> cartable (le cartable qui m'appartient)
+    </div>
+
+    <h3 class="sub-title">2) Tableau des déterminants possessifs</h3>
+    <table class="data-table">
+      <tr><th>Possesseur</th><th>Masculin singulier</th><th>Féminin singulier</th><th>Pluriel</th></tr>
+      <tr><td>je</td><td>mon</td><td>ma</td><td>mes</td></tr>
+      <tr><td>tu</td><td>ton</td><td>ta</td><td>tes</td></tr>
+      <tr><td>il / elle</td><td>son</td><td>sa</td><td>ses</td></tr>
+      <tr><td>nous</td><td colspan="2">notre</td><td>nos</td></tr>
+      <tr><td>vous</td><td colspan="2">votre</td><td>vos</td></tr>
+      <tr><td>ils / elles</td><td colspan="2">leur</td><td>leurs</td></tr>
+    </table>
+
+    <h3 class="sub-title">3) Des exemples pour bien comprendre</h3>
+    <div class="example-box">
+      <b>mon</b> livre — <b>ma</b> trousse — <b>mes</b> crayons<br>
+      <b>ton</b> cahier — <b>ta</b> règle — <b>tes</b> stylos<br>
+      <b>son</b> sac — <b>sa</b> gomme — <b>ses</b> feutres<br>
+      <b>notre</b> classe — <b>nos</b> cahiers<br>
+      <b>votre</b> maison — <b>vos</b> jouets<br>
+      <b>leur</b> voiture — <b>leurs</b> enfants
+    </div>
+
+    <h3 class="sub-title">4) Une règle particulière à retenir !</h3>
+    <div class="rule-box">
+      <p>Devant un nom <b>féminin singulier</b> qui commence par une <b>voyelle</b> (a, e, i, o, u) ou un <b>h muet</b>, on utilise <b>mon, ton, son</b> à la place de <i>ma, ta, sa</i>, pour que la phrase soit plus facile à prononcer.</p>
+    </div>
+    <div class="example-box">
+      ❌ ma amie &nbsp; → &nbsp; ✅ <b>mon</b> amie<br>
+      ❌ ta école &nbsp; → &nbsp; ✅ <b>ton</b> école<br>
+      ❌ sa histoire &nbsp; → &nbsp; ✅ <b>son</b> histoire
+    </div>
+  </section>
+
+  <!-- ===================== ACTIVITE ===================== -->
+  <section>
+    <h2 class="section-title">✏️ Activité pratique</h2>
+    <div class="activity-box">
+      <span class="task-label">Complète avec le bon déterminant possessif</span>
+      <p>1) Sara range .......... cartable. (Sara → elle)</p>
+      <p>2) Nous aimons .......... école.</p>
+      <p>3) Les enfants jouent avec .......... ballons. (les enfants → ils)</p>
+      <p>4) Tu as oublié .......... trousse.</p>
+      <p>5) J'ai perdu .......... crayon.</p>
+    </div>
+  </section>
+
+  <!-- ===================== EXERCICES ===================== -->
+  <section>
+    <h2 class="section-title">📝 Exercices d'entraînement</h2>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">1</span>Complète avec le déterminant possessif qui convient (je / tu / il / elle) :</h4>
+      <p>1) J'ai rangé .......... chambre.</p>
+      <p>2) Tu as pris .......... livre.</p>
+      <p>3) Il a oublié .......... cartable.</p>
+      <p>4) Elle porte .......... manteau rouge.</p>
+      <p>5) J'ai perdu .......... stylo.</p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">2</span>Complète avec le déterminant possessif qui convient (nous / vous / ils / elles) :</h4>
+      <p>1) Nous préparons .......... exposé.</p>
+      <p>2) Vous avez oublié .......... affaires.</p>
+      <p>3) Les élèves rangent .......... cahiers.</p>
+      <p>4) Nous aimons .......... maîtresse.</p>
+      <p>5) Vous avez fini .......... devoirs.</p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">3</span>Choisis la bonne réponse :</h4>
+      <div class="qcm-item">
+        <p>1) Le déterminant possessif indique :</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>la possession</span><span><span class="checkbox"></span>le nombre</span><span><span class="checkbox"></span>la couleur</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>2) Devant « amie » (féminin, commence par une voyelle), on utilise :</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>ma</span><span><span class="checkbox"></span>mon</span><span><span class="checkbox"></span>ta</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>3) Pour « nous » + un nom pluriel, on utilise :</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>notre</span><span><span class="checkbox"></span>nos</span><span><span class="checkbox"></span>leur</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>4) « Ils ont oublié .......... cahiers. » Le mot manquant est :</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>leur</span><span><span class="checkbox"></span>leurs</span><span><span class="checkbox"></span>son</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>5) « Tu as perdu .......... gomme. » Le mot manquant est :</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>ton</span><span><span class="checkbox"></span>ta</span><span><span class="checkbox"></span>tes</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">4</span>Corrige les erreurs dans les phrases suivantes :</h4>
+      <p>1) Ma amie habite près de chez moi. → <span class="fill-line" style="min-width:60%;"></span></p>
+      <p>2) Ta école est très grande. → <span class="fill-line" style="min-width:60%;"></span></p>
+      <p>3) Sa histoire est passionnante. → <span class="fill-line" style="min-width:60%;"></span></p>
+      <p>4) Ma orange est mûre. → <span class="fill-line" style="min-width:60%;"></span></p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">5</span>Remplace les mots soulignés par le déterminant possessif qui convient :</h4>
+      <p>1) C'est <u>le cahier de Sara</u>. → C'est .......... cahier.</p>
+      <p>2) Ce sont <u>les crayons de Karim</u>. → Ce sont .......... crayons.</p>
+      <p>3) C'est <u>la maison de mes parents</u>. → C'est .......... maison.</p>
+      <p>4) Ce sont <u>les livres de notre classe</u>. → Ce sont .......... livres.</p>
+    </div>
+  </section>
+
+  <!-- ===================== CORRIGE ===================== -->
+  <div class="corrige-wrapper">
+    <p class="corrige-flag">✂ Tu peux replier ou masquer cette section (clique sur le titre ci-dessous) avant de faire les exercices ✂</p>
+    <details class="corrige">
+      <summary>Correction complète</summary>
+
+      <h4>Correction de l'activité pratique</h4>
+      <div class="corrige-item">1) Sara range <b>son</b> cartable. &nbsp;|&nbsp; 2) Nous aimons <b>notre</b> école. &nbsp;|&nbsp; 3) Les enfants jouent avec <b>leurs</b> ballons. &nbsp;|&nbsp; 4) Tu as oublié <b>ta</b> trousse. &nbsp;|&nbsp; 5) J'ai perdu <b>mon</b> crayon.</div>
+
+      <h4>Correction de l'exercice 1</h4>
+      <div class="corrige-item">1) <b>ma</b> chambre &nbsp;|&nbsp; 2) <b>ton</b> livre &nbsp;|&nbsp; 3) <b>son</b> cartable &nbsp;|&nbsp; 4) <b>son</b> manteau &nbsp;|&nbsp; 5) <b>mon</b> stylo</div>
+
+      <h4>Correction de l'exercice 2</h4>
+      <div class="corrige-item">1) <b>notre</b> exposé &nbsp;|&nbsp; 2) <b>vos</b> affaires &nbsp;|&nbsp; 3) <b>leurs</b> cahiers &nbsp;|&nbsp; 4) <b>notre</b> maîtresse &nbsp;|&nbsp; 5) <b>vos</b> devoirs</div>
+
+      <h4>Correction de l'exercice 3 (QCM)</h4>
+      <div class="corrige-item">1) la possession &nbsp;|&nbsp; 2) mon &nbsp;|&nbsp; 3) nos &nbsp;|&nbsp; 4) leurs &nbsp;|&nbsp; 5) ta</div>
+
+      <h4>Correction de l'exercice 4 (correction des erreurs)</h4>
+      <div class="corrige-item">1) <b>Mon</b> amie habite près de chez moi.</div>
+      <div class="corrige-item">2) <b>Ton</b> école est très grande.</div>
+      <div class="corrige-item">3) <b>Son</b> histoire est passionnante.</div>
+      <div class="corrige-item">4) <b>Mon</b> orange est mûre.</div>
+
+      <h4>Correction de l'exercice 5 (remplacement)</h4>
+      <div class="corrige-item">1) C'est <b>son</b> cahier. &nbsp;|&nbsp; 2) Ce sont <b>ses</b> crayons. &nbsp;|&nbsp; 3) C'est <b>leur</b> maison. &nbsp;|&nbsp; 4) Ce sont <b>nos</b> livres.</div>
+    </details>
+  </div>
+
+  <p class="footer-note">Fiche d'auto-apprentissage — Français — 4ème année primaire — Les déterminants possessifs</p>
+</div>
+</body>
+</html>
