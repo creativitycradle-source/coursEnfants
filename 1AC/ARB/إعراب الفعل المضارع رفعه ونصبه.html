@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>إعراب الفعل المضارع – رفعه ونصبه</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#241f33; --ink-soft:#54506a;
+    --paper:#faf8f5; --panel:#ffffff; --line:#ddd4e6;
+    --indigo:#4b3f8f; --indigo-soft:#e9e5f7;
+    --rose:#b1553f; --rose-soft:#f7e3dc;
+    --gold:#af8a2e; --gold-soft:#f4ecd2;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#e8e3ee;font-family:'Noto Naskh Arabic','Amiri',serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .sheet{max-width:880px;margin:24px auto;background:var(--paper);padding:38px 44px 50px;border:1px solid var(--line);box-shadow:0 4px 24px rgba(0,0,0,.12);}
+
+  .masthead{display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:3px solid var(--ink);padding-bottom:16px;margin-bottom:22px;}
+  .masthead-text h1{font-family:'Amiri',serif;font-weight:700;font-size:25px;margin:0 0 6px;color:var(--indigo);line-height:1.4;}
+  .masthead-text .subtitle{font-size:15px;color:var(--ink-soft);margin:0;}
+  .link-icon{width:58px;height:58px;flex-shrink:0;}
+
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+  .meta-chip{border:1px solid var(--line);background:var(--panel);border-radius:3px;padding:6px 12px;font-size:13.5px;color:var(--ink-soft);}
+  .meta-chip b{color:var(--ink);font-weight:600;}
+
+  section{margin-bottom:28px;}
+  h2.section-title{font-family:'Amiri',serif;font-size:21px;font-weight:700;color:var(--indigo);border-bottom:2px solid var(--indigo);padding-bottom:6px;margin:0 0 14px;display:flex;align-items:baseline;gap:8px;}
+  h3.sub-title{font-size:17px;font-weight:700;color:var(--rose);margin:20px 0 8px;}
+  p{line-height:2;font-size:15.5px;margin:0 0 10px;}
+
+  .objectif-box{background:var(--gold-soft);border-right:4px solid var(--gold);padding:14px 18px;border-radius:2px;font-size:15.5px;line-height:1.9;}
+
+  .rule-box{background:var(--panel);border:1px solid var(--line);border-right:4px solid var(--indigo);padding:14px 18px;border-radius:2px;margin:10px 0 16px;}
+  .rule-box p:last-child{margin-bottom:0;}
+  .rule-box ul,.rule-box ol{margin:6px 0;padding-inline-start:22px;}
+  .rule-box li{margin-bottom:6px;line-height:1.85;}
+
+  .letters-row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:10px 0 16px;}
+  .letter-chip{background:var(--rose-soft);border:1px solid var(--rose);border-radius:6px;padding:6px 16px;font-weight:700;color:var(--rose);font-size:17px;}
+
+  table.data-table{width:100%;border-collapse:collapse;margin:8px 0 18px;font-size:15px;}
+  table.data-table th{background:var(--indigo);color:#fff;padding:8px 10px;font-weight:600;font-size:14px;}
+  table.data-table td{border:1px solid var(--line);padding:9px 10px;background:var(--panel);text-align:center;}
+  table.data-table tr:nth-child(even) td{background:#f2effa;}
+
+  .activity-box{background:var(--panel);border:1.5px solid var(--gold);border-radius:3px;padding:16px 20px;}
+  .activity-box .task-label{display:inline-block;background:var(--gold);color:#fff;font-size:12.5px;padding:3px 10px;border-radius:2px;margin-bottom:8px;}
+
+  .exercise{border:1px solid var(--line);border-radius:3px;padding:16px 20px;margin-bottom:16px;background:var(--panel);}
+  .exercise-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:var(--ink);color:var(--paper);border-radius:50%;font-size:14px;font-weight:700;margin-inline-end:8px;}
+  .exercise h4{margin:0 0 10px;font-size:16.5px;display:flex;align-items:center;}
+  .fill-line{border-bottom:1px dotted var(--ink-soft);display:inline-block;min-width:110px;height:1.6em;}
+  .word-chip{display:inline-block;background:var(--paper);border:1px solid var(--line);border-radius:3px;padding:3px 12px;margin:3px 4px;font-size:16px;}
+  .qcm-item{margin-bottom:10px;}
+  .qcm-item p{margin-bottom:4px;font-weight:600;}
+  .qcm-options{display:flex;flex-wrap:wrap;gap:14px;font-size:14.5px;}
+  .qcm-options span{display:flex;align-items:center;gap:5px;}
+  .checkbox{width:13px;height:13px;border:1.4px solid var(--ink-soft);display:inline-block;border-radius:2px;}
+  .scenario-box{background:#f2effa;border:1px solid var(--line);padding:12px 16px;font-size:15.5px;line-height:2.1;margin-bottom:10px;}
+
+  .corrige-wrapper{page-break-before:always;padding-top:6px;}
+  .corrige-flag{text-align:center;font-size:13px;color:var(--ink-soft);margin-bottom:10px;border-top:1px dashed var(--ink-soft);padding-top:14px;}
+  details.corrige{border:2px dashed var(--rose);border-radius:4px;background:#fdf7f5;padding:6px 20px 18px;}
+  details.corrige > summary{cursor:pointer;font-family:'Amiri',serif;font-weight:700;font-size:19px;color:var(--rose);padding:14px 0;list-style:none;}
+  details.corrige > summary::-webkit-details-marker{display:none;}
+  details.corrige > summary::before{content:"✂ ";}
+  details.corrige > summary::after{content:"— اضغط لإظهار الحل / إخفائه";font-family:'Noto Naskh Arabic',serif;font-weight:400;font-size:13px;color:var(--ink-soft);margin-inline-start:8px;}
+  .corrige h4{color:var(--rose);margin:16px 0 8px;font-size:16px;}
+  .corrige-item{margin-bottom:8px;font-size:15px;line-height:1.9;}
+  .corrige table.data-table th{background:var(--rose);}
+
+  .footer-note{margin-top:30px;text-align:center;font-size:12px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:10px;}
+
+  @media print{
+    body{background:#fff;}
+    .sheet{box-shadow:none;border:none;margin:0;max-width:100%;padding:14px 6px;}
+    details.corrige{border-color:#000;}
+  }
+  @page{size:A4;margin:14mm;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="masthead-text">
+      <h1>إعرابُ الفعلِ المضارعِ — رفعُهُ ونصبُهُ</h1>
+      <p class="subtitle">مادة اللغة العربية — القواعد (النحو)</p>
+    </div>
+    <svg class="link-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="6" y="26" width="22" height="14" rx="7" fill="none" stroke="#4b3f8f" stroke-width="3"/>
+      <rect x="36" y="26" width="22" height="14" rx="7" fill="none" stroke="#b1553f" stroke-width="3"/>
+      <line x1="24" y1="33" x2="40" y2="33" stroke="#af8a2e" stroke-width="3"/>
+    </svg>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta-chip">المستوى: <b>الأولى إعدادي (1AC)</b></div>
+    <div class="meta-chip">المادة: <b>اللغة العربية — القواعد</b></div>
+    <div class="meta-chip">مدة الحصة: <b>ساعة إلى ساعة ونصف</b></div>
+    <div class="meta-chip">نوع الوثيقة: <b>فيشة تعلّم ذاتي</b></div>
+  </div>
+
+  <!-- ===================== OBJECTIF ===================== -->
+  <section>
+    <h2 class="section-title">🎯 الهدف من الدرس</h2>
+    <div class="objectif-box">
+      يتمكّن المتعلم(ة) في نهاية هذا الدرس من: تحديد حالتَي رفع ونصب الفعل المضارع، وتحديد علامة الإعراب المناسبة لكل حالة (الضمة الظاهرة أو المقدرة، ثبوت النون، الفتحة الظاهرة أو المقدرة، حذف النون)، وتوظيف حروف النصب في جمل مفيدة.
+    </div>
+  </section>
+
+  <!-- ===================== COURS ===================== -->
+  <section>
+    <h2 class="section-title">📘 الدرس</h2>
+
+    <h3 class="sub-title">1) تذكير</h3>
+    <div class="rule-box">
+      <p>رأينا في الدرس السابق أن <b>الفعل المضارع معرب</b> في الأصل، ويكون <b>مرفوعاً</b> إذا لم يسبقه ناصب أو جازم، أو <b>منصوباً</b> إذا سبقه حرف نصب، أو <b>مجزوماً</b> إذا سبقه حرف جزم. سنتناول في هذا الدرس حالتَي الرفع والنصب.</p>
+    </div>
+
+    <h3 class="sub-title">2) رفع الفعل المضارع</h3>
+    <div class="rule-box">
+      <p>الأصل في الفعل المضارع أن يكون <b>مرفوعاً</b>، ما لم يسبقه ناصب أو جازم.</p>
+    </div>
+    <table class="data-table">
+      <tr><th>حالة الفعل</th><th>علامة الرفع</th><th>مثال</th></tr>
+      <tr><td>صحيح الآخر، لم يتصل بشيء</td><td>الضمة الظاهرة</td><td>يكتبُ الطالبُ الدرسَ.</td></tr>
+      <tr><td>معتل الآخر</td><td>الضمة المقدرة</td><td>يسعى الطالبُ إلى النجاح.</td></tr>
+      <tr><td>من الأفعال الخمسة (اتصل بألف الاثنين، واو الجماعة، أو ياء المخاطبة)</td><td>ثبوت النون</td><td>الطالبانِ يكتبانِ. / الطلابُ يكتبونَ. / أنتِ تكتبينَ.</td></tr>
+    </table>
+
+    <h3 class="sub-title">3) نصب الفعل المضارع</h3>
+    <div class="rule-box">
+      <p>يُنصب الفعل المضارع إذا سبقه حرف من <b>حروف النصب</b> التالية:</p>
+    </div>
+    <div class="letters-row">
+      <span class="letter-chip">أنْ</span>
+      <span class="letter-chip">لنْ</span>
+      <span class="letter-chip">كي</span>
+      <span class="letter-chip">إذَنْ</span>
+      <span class="letter-chip">لام التعليل</span>
+    </div>
+    <p style="font-size:14px;color:var(--ink-soft);text-align:center;margin-top:-8px;">أمثلة: أريد <b>أنْ</b> أنجحَ — <b>لنْ</b> أتأخرَ عن الدرس — ذاكرتُ <b>كي</b> أنجحَ</p>
+    <table class="data-table">
+      <tr><th>حالة الفعل</th><th>علامة النصب</th><th>مثال</th></tr>
+      <tr><td>صحيح الآخر</td><td>الفتحة الظاهرة</td><td>لن يكتبَ الطالبُ الدرسَ.</td></tr>
+      <tr><td>معتل الآخر بالألف</td><td>الفتحة المقدرة</td><td>لن يسعى الكسولُ إلى النجاح.</td></tr>
+      <tr><td>من الأفعال الخمسة</td><td>حذف النون</td><td>لن يكتبا. / لن يكتبوا. / لن تكتبي.</td></tr>
+    </table>
+
+    <h3 class="sub-title">4) جدول مقارن</h3>
+    <table class="data-table" style="text-align:right;">
+      <tr><th>الحالة الإعرابية</th><th>علامة الفعل الصحيح</th><th>علامة الفعل من الأفعال الخمسة</th></tr>
+      <tr><td>الرفع</td><td>الضمة (ظاهرة أو مقدرة)</td><td>ثبوت النون</td></tr>
+      <tr><td>النصب</td><td>الفتحة (ظاهرة أو مقدرة)</td><td>حذف النون</td></tr>
+    </table>
+  </section>
+
+  <!-- ===================== ACTIVITE ===================== -->
+  <section>
+    <h2 class="section-title">✏️ نشاط تطبيقي</h2>
+    <div class="activity-box">
+      <span class="task-label">تحديد حالة الفعل المضارع وعلامته</span>
+      <p>لاحظ الجمل التالية، وحدّد في كل جملة حالة الفعل المضارع (رفع أو نصب) وعلامة إعرابه:</p>
+      <table class="data-table">
+        <tr><th>الجملة</th><th>الحالة</th><th>العلامة</th></tr>
+        <tr><td>يلعبُ الأطفالُ في الحديقة.</td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+        <tr><td>لن يهملَ التلميذُ واجباته.</td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+        <tr><td>الطالبتانِ تجتهدانِ في دروسهما.</td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===================== EXERCICES ===================== -->
+  <section>
+    <h2 class="section-title">📝 تمارين للتدرّب</h2>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">1</span>حدّد حالة إعراب الفعل المضارع (رفع / نصب) في كل جملة، مع بيان العلامة:</h4>
+      <p>1) يذهبُ التلميذُ إلى المدرسة. <span class="fill-line"></span></p>
+      <p>2) لن يتأخرَ التلميذُ عن الدرس. <span class="fill-line"></span></p>
+      <p>3) الطالبانِ يجتهدانِ في دروسهما. <span class="fill-line"></span></p>
+      <p>4) يريد أن ينجحَ في الامتحان. <span class="fill-line"></span></p>
+      <p>5) يسعى الفلاحُ إلى تحسين محصوله. <span class="fill-line"></span></p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">2</span>أدخل "لن" على الأفعال التالية، وغيّر حالتها إلى النصب:</h4>
+      <p>1) يلعبُ الأولادُ. ← <span class="fill-line" style="min-width:60%;"></span></p>
+      <p>2) يكتبونَ الواجب. ← <span class="fill-line" style="min-width:60%;"></span></p>
+      <p>3) تكتبينَ الرسالة. ← <span class="fill-line" style="min-width:60%;"></span></p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">3</span>اختر الإجابة الصحيحة:</h4>
+      <div class="qcm-item">
+        <p>1) الأصل في الفعل المضارع أن يكون:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>مرفوعاً إذا لم يسبقه ناصب أو جازم</span><span><span class="checkbox"></span>منصوباً دائماً</span><span><span class="checkbox"></span>مجزوماً دائماً</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>2) علامة رفع الفعل المضارع الصحيح الآخر هي:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>الفتحة الظاهرة</span><span><span class="checkbox"></span>الضمة الظاهرة</span><span><span class="checkbox"></span>السكون</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>3) علامة رفع الفعل المضارع من الأفعال الخمسة هي:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>حذف النون</span><span><span class="checkbox"></span>ثبوت النون</span><span><span class="checkbox"></span>الضمة الظاهرة</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>4) من حروف نصب الفعل المضارع:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>لنْ</span><span><span class="checkbox"></span>لمْ</span><span><span class="checkbox"></span>لا الناهية</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>5) علامة نصب الفعل المضارع من الأفعال الخمسة هي:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>ثبوت النون</span><span><span class="checkbox"></span>حذف النون</span><span><span class="checkbox"></span>الفتحة الظاهرة</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">4</span>صنّف الأفعال التالية حسب علامة إعرابها:</h4>
+      <p>
+        <span class="word-chip">يلعبُ</span>
+        <span class="word-chip">لن يسعى</span>
+        <span class="word-chip">يكتبانِ</span>
+        <span class="word-chip">لن يكتبَ</span>
+        <span class="word-chip">لن يكتبوا</span>
+        <span class="word-chip">يرمي</span>
+      </p>
+      <table class="data-table">
+        <tr><th>ضمة ظاهرة</th><th>ضمة مقدرة</th><th>ثبوت النون</th><th>فتحة ظاهرة</th><th>فتحة مقدرة</th><th>حذف النون</th></tr>
+        <tr><td style="height:60px;"></td><td></td><td></td><td></td><td></td><td></td></tr>
+      </table>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">5</span>أعرب الفعل المضارع الموجود في كل جملة إعراباً بسيطاً (النوع، الحالة، وعلامة الإعراب):</h4>
+      <div class="scenario-box">
+        1) يذاكرُ الطالبُ دروسَه كل يوم.
+      </div>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+      <div class="scenario-box">
+        2) كي تنجحَ في حياتك، يجب أن تجتهد.
+      </div>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== CORRIGE ===================== -->
+  <div class="corrige-wrapper">
+    <p class="corrige-flag">✂ يمكن طي هذه الصفحة أو إخفاؤها (اضغط على العنوان أدناه) قبل إنجاز التمارين ✂</p>
+    <details class="corrige">
+      <summary>التصحيح الكامل</summary>
+
+      <h4>تصحيح النشاط التطبيقي</h4>
+      <table class="data-table">
+        <tr><th>الجملة</th><th>الحالة</th><th>العلامة</th></tr>
+        <tr><td>يلعبُ الأطفالُ في الحديقة.</td><td>رفع</td><td>الضمة الظاهرة</td></tr>
+        <tr><td>لن يهملَ التلميذُ واجباته.</td><td>نصب</td><td>الفتحة الظاهرة</td></tr>
+        <tr><td>الطالبتانِ تجتهدانِ في دروسهما.</td><td>رفع</td><td>ثبوت النون</td></tr>
+      </table>
+
+      <h4>تصحيح التمرين 1 (تحديد الحالة والعلامة)</h4>
+      <div class="corrige-item">1) يذهبُ: رفع، الضمة الظاهرة &nbsp;|&nbsp; 2) يتأخرَ: نصب، الفتحة الظاهرة &nbsp;|&nbsp; 3) يجتهدانِ: رفع، ثبوت النون &nbsp;|&nbsp; 4) ينجحَ: نصب، الفتحة الظاهرة &nbsp;|&nbsp; 5) يسعى: رفع، الضمة المقدرة</div>
+
+      <h4>تصحيح التمرين 2 (إدخال "لن")</h4>
+      <div class="corrige-item">1) لن يلعبَ الأولادُ. &nbsp;|&nbsp; 2) لن يكتبوا الواجب. &nbsp;|&nbsp; 3) لن تكتبي الرسالة.</div>
+
+      <h4>تصحيح التمرين 3 (الاختيار من متعدد)</h4>
+      <div class="corrige-item">1) مرفوعاً إذا لم يسبقه ناصب أو جازم &nbsp;|&nbsp; 2) الضمة الظاهرة &nbsp;|&nbsp; 3) ثبوت النون &nbsp;|&nbsp; 4) لنْ &nbsp;|&nbsp; 5) حذف النون</div>
+
+      <h4>تصحيح التمرين 4 (التصنيف)</h4>
+      <div class="corrige-item"><b>ضمة ظاهرة:</b> يلعبُ &nbsp;|&nbsp; <b>ضمة مقدرة:</b> يرمي &nbsp;|&nbsp; <b>ثبوت النون:</b> يكتبانِ</div>
+      <div class="corrige-item"><b>فتحة ظاهرة:</b> لن يكتبَ &nbsp;|&nbsp; <b>فتحة مقدرة:</b> لن يسعى &nbsp;|&nbsp; <b>حذف النون:</b> لن يكتبوا</div>
+
+      <h4>تصحيح التمرين 5 (الإعراب)</h4>
+      <div class="corrige-item">1) "يذاكرُ": فعل مضارع مرفوع، وعلامة رفعه الضمة الظاهرة.</div>
+      <div class="corrige-item">2) "تنجحَ": فعل مضارع منصوب بـ"كي"، وعلامة نصبه الفتحة الظاهرة.</div>
+    </details>
+  </div>
+
+  <p class="footer-note">فيشة تعلّم ذاتي — اللغة العربية — الأولى إعدادي — إعراب الفعل المضارع: رفعه ونصبه</p>
+</div>
+</body>
+</html>
