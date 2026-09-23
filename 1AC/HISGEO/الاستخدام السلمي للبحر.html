@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>الاستخدام السلمي للبحر</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0f2a3a; --ink-soft:#3a5666;
+    --paper:#f3fafc; --panel:#ffffff; --line:#cfe6ee;
+    --sea:#1f6f8b; --sea-soft:#dcedf3;
+    --sand:#c9963a; --sand-soft:#f6ecd6;
+    --coral:#c1584a; --coral-soft:#f6e0dc;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#d7e9ee;font-family:'Noto Naskh Arabic','Amiri',serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .sheet{max-width:880px;margin:24px auto;background:var(--paper);padding:38px 44px 50px;border:1px solid var(--line);box-shadow:0 4px 24px rgba(0,0,0,.12);}
+
+  .masthead{display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:3px solid var(--ink);padding-bottom:16px;margin-bottom:22px;}
+  .masthead-text h1{font-family:'Amiri',serif;font-weight:700;font-size:26px;margin:0 0 6px;color:var(--sea);}
+  .masthead-text .subtitle{font-size:15px;color:var(--ink-soft);margin:0;}
+  .wave-icon{width:60px;height:52px;flex-shrink:0;}
+
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+  .meta-chip{border:1px solid var(--line);background:var(--panel);border-radius:3px;padding:6px 12px;font-size:13.5px;color:var(--ink-soft);}
+  .meta-chip b{color:var(--ink);font-weight:600;}
+
+  section{margin-bottom:28px;}
+  h2.section-title{font-family:'Amiri',serif;font-size:21px;font-weight:700;color:var(--sea);border-bottom:2px solid var(--sea);padding-bottom:6px;margin:0 0 14px;display:flex;align-items:baseline;gap:8px;}
+  h3.sub-title{font-size:17px;font-weight:700;color:var(--sand);margin:20px 0 8px;}
+  p{line-height:2;font-size:15.5px;margin:0 0 10px;}
+
+  .objectif-box{background:var(--sand-soft);border-right:4px solid var(--sand);padding:14px 18px;border-radius:2px;font-size:15.5px;line-height:1.9;}
+
+  .rule-box{background:var(--panel);border:1px solid var(--line);border-right:4px solid var(--sea);padding:14px 18px;border-radius:2px;margin:10px 0 16px;}
+  .rule-box p:last-child{margin-bottom:0;}
+  .rule-box ul,.rule-box ol{margin:6px 0;padding-inline-start:22px;}
+  .rule-box li{margin-bottom:6px;line-height:1.85;}
+
+  .zone-diagram{display:flex;justify-content:center;margin:16px 0;overflow-x:auto;}
+
+  .use-grid{display:flex;flex-wrap:wrap;gap:14px;margin:10px 0 16px;}
+  .use-card{flex:1 1 200px;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:12px 16px;}
+  .use-card .head{font-weight:700;color:var(--sea);font-size:15.5px;margin-bottom:4px;}
+  .use-card p{margin:0;font-size:14px;color:var(--ink-soft);line-height:1.85;}
+
+  table.data-table{width:100%;border-collapse:collapse;margin:8px 0 18px;font-size:15px;}
+  table.data-table th{background:var(--sea);color:#fff;padding:8px 10px;font-weight:600;font-size:14px;}
+  table.data-table td{border:1px solid var(--line);padding:9px 10px;background:var(--panel);}
+  table.data-table tr:nth-child(even) td{background:#eaf4f8;}
+
+  .activity-box{background:var(--panel);border:1.5px solid var(--sand);border-radius:3px;padding:16px 20px;}
+  .activity-box .task-label{display:inline-block;background:var(--sand);color:#fff;font-size:12.5px;padding:3px 10px;border-radius:2px;margin-bottom:8px;}
+
+  .exercise{border:1px solid var(--line);border-radius:3px;padding:16px 20px;margin-bottom:16px;background:var(--panel);}
+  .exercise-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:var(--ink);color:var(--paper);border-radius:50%;font-size:14px;font-weight:700;margin-inline-end:8px;}
+  .exercise h4{margin:0 0 10px;font-size:16.5px;display:flex;align-items:center;}
+  .fill-line{border-bottom:1px dotted var(--ink-soft);display:inline-block;min-width:110px;height:1.6em;}
+  .qcm-item{margin-bottom:10px;}
+  .qcm-item p{margin-bottom:4px;font-weight:600;}
+  .qcm-options{display:flex;flex-wrap:wrap;gap:14px;font-size:14.5px;}
+  .qcm-options span{display:flex;align-items:center;gap:5px;}
+  .checkbox{width:13px;height:13px;border:1.4px solid var(--ink-soft);display:inline-block;border-radius:2px;}
+  .match-cols{display:flex;justify-content:space-between;gap:40px;margin-top:8px;}
+  .match-cols ul{list-style:none;padding:0;margin:0;}
+  .match-cols li{border:1px solid var(--line);background:var(--paper);padding:6px 14px;margin-bottom:10px;border-radius:3px;font-size:15px;}
+
+  .corrige-wrapper{page-break-before:always;padding-top:6px;}
+  .corrige-flag{text-align:center;font-size:13px;color:var(--ink-soft);margin-bottom:10px;border-top:1px dashed var(--ink-soft);padding-top:14px;}
+  details.corrige{border:2px dashed var(--coral);border-radius:4px;background:#fdf5f3;padding:6px 20px 18px;}
+  details.corrige > summary{cursor:pointer;font-family:'Amiri',serif;font-weight:700;font-size:19px;color:var(--coral);padding:14px 0;list-style:none;}
+  details.corrige > summary::-webkit-details-marker{display:none;}
+  details.corrige > summary::before{content:"✂ ";}
+  details.corrige > summary::after{content:"— اضغط لإظهار الحل / إخفائه";font-family:'Noto Naskh Arabic',serif;font-weight:400;font-size:13px;color:var(--ink-soft);margin-inline-start:8px;}
+  .corrige h4{color:var(--coral);margin:16px 0 8px;font-size:16px;}
+  .corrige-item{margin-bottom:8px;font-size:15px;line-height:1.9;}
+  .corrige table.data-table th{background:var(--coral);}
+
+  .footer-note{margin-top:30px;text-align:center;font-size:12px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:10px;}
+
+  @media print{
+    body{background:#fff;}
+    .sheet{box-shadow:none;border:none;margin:0;max-width:100%;padding:14px 6px;}
+    details.corrige{border-color:#000;}
+  }
+  @page{size:A4;margin:14mm;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="masthead-text">
+      <h1>الاستخدامُ السلميُّ للبحرِ</h1>
+      <p class="subtitle">الاجتماعيات — الجغرافيا: البحار والمحيطات</p>
+    </div>
+    <svg class="wave-icon" viewBox="0 0 64 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M4 36c8-8 16 8 24 0s16 8 24 0" stroke="#1f6f8b" stroke-width="3" fill="none"/>
+      <path d="M4 46c8-8 16 8 24 0s16 8 24 0" stroke="#c9963a" stroke-width="2.5" fill="none"/>
+      <path d="M22 10 L30 26 L14 26 Z" fill="#c1584a" opacity="0.8"/>
+    </svg>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta-chip">المستوى: <b>الأولى إعدادي (1AC)</b></div>
+    <div class="meta-chip">المادة: <b>الاجتماعيات — الجغرافيا</b></div>
+    <div class="meta-chip">مدة الحصة: <b>ساعة إلى ساعة ونصف</b></div>
+    <div class="meta-chip">نوع الوثيقة: <b>فيشة تعلّم ذاتي</b></div>
+  </div>
+
+  <!-- ===================== OBJECTIF ===================== -->
+  <section>
+    <h2 class="section-title">🎯 الهدف من الدرس</h2>
+    <div class="objectif-box">
+      يتمكّن المتعلم(ة) في نهاية هذا الدرس من: التعرّف على المجالات البحرية القانونية (المياه الإقليمية، المنطقة الاقتصادية الخالصة، أعالي البحار)، وتحديد أهم الاستخدامات السلمية للبحر، وإدراك أهمية التعاون الدولي في الاستغلال السلمي والمستدام للموارد البحرية.
+    </div>
+  </section>
+
+  <!-- ===================== COURS ===================== -->
+  <section>
+    <h2 class="section-title">📘 الدرس</h2>
+
+    <h3 class="sub-title">1) أهمية البحار والمحيطات</h3>
+    <div class="rule-box">
+      <p>تُغطّي البحار والمحيطات أكثر من <b>70%</b> من سطح الكرة الأرضية، وتُشكّل مصدراً غنياً بالموارد الطبيعية، وطريقاً أساسياً للتجارة والتنقل بين مختلف دول العالم.</p>
+    </div>
+
+    <h3 class="sub-title">2) المجالات البحرية</h3>
+    <div class="zone-diagram">
+      <svg width="480" height="150" viewBox="0 0 480 150">
+        <rect x="0" y="60" width="480" height="90" fill="#dcedf3"/>
+        <rect x="380" y="20" width="60" height="40" fill="#c9963a"/>
+        <text x="410" y="45" text-anchor="middle" font-size="11" font-family="Noto Naskh Arabic, serif" fill="#fff">اليابسة</text>
+        <rect x="320" y="60" width="60" height="90" fill="#1f6f8b" opacity="0.55"/>
+        <text x="350" y="140" text-anchor="middle" font-size="10" font-family="Noto Naskh Arabic, serif" fill="#0f2a3a">مياه إقليمية (12 ميلاً)</text>
+        <rect x="120" y="60" width="200" height="90" fill="#1f6f8b" opacity="0.3"/>
+        <text x="220" y="140" text-anchor="middle" font-size="10" font-family="Noto Naskh Arabic, serif" fill="#0f2a3a">المنطقة الاقتصادية الخالصة (200 ميل)</text>
+        <rect x="0" y="60" width="120" height="90" fill="#1f6f8b" opacity="0.12"/>
+        <text x="60" y="100" text-anchor="middle" font-size="10" font-family="Noto Naskh Arabic, serif" fill="#0f2a3a">أعالي البحار</text>
+      </svg>
+    </div>
+    <table class="data-table">
+      <tr><th>المجال البحري</th><th>المسافة من الساحل</th><th>الحقوق</th></tr>
+      <tr><td>المياه الإقليمية</td><td>حتى 12 ميلاً بحرياً</td><td>سيادة كاملة للدولة الساحلية، كأنها جزء من أراضيها.</td></tr>
+      <tr><td>المنطقة الاقتصادية الخالصة</td><td>حتى 200 ميل بحري</td><td>حق الدولة الساحلية في استغلال الموارد (الصيد، النفط، الغاز...).</td></tr>
+      <tr><td>أعالي البحار</td><td>خارج 200 ميل بحري</td><td>مياه دولية مشتركة، حرية الملاحة والصيد لجميع الدول.</td></tr>
+    </table>
+
+    <h3 class="sub-title">3) الاستخدامات السلمية للبحر</h3>
+    <div class="use-grid">
+      <div class="use-card"><div class="head">🐟 الصيد البحري</div><p>مصدر غذاء ودخل مهم لسكان المناطق الساحلية.</p></div>
+      <div class="use-card"><div class="head">🚢 النقل البحري والملاحة</div><p>أكبر وسيلة لنقل البضائع بين القارات عبر الموانئ والسفن التجارية.</p></div>
+      <div class="use-card"><div class="head">🏖️ السياحة الشاطئية</div><p>الشواطئ والمنتجعات البحرية تجذب السياح وتنشّط الاقتصاد المحلي.</p></div>
+      <div class="use-card"><div class="head">⛽ استغلال الموارد الطبيعية</div><p>استخراج النفط والغاز والمعادن من قاع البحر.</p></div>
+      <div class="use-card"><div class="head">🔬 البحث العلمي البحري</div><p>دراسة الكائنات البحرية والمناخ للحفاظ على البيئة البحرية.</p></div>
+    </div>
+
+    <h3 class="sub-title">4) أهمية الاستخدام السلمي والتعاون الدولي</h3>
+    <div class="rule-box">
+      <p>يُساهم الاستخدام السلمي للبحر (بدل استخدامه لأغراض صراعية) في تعزيز <b>التعاون الدولي</b> بين الدول، وضمان <b>التنمية المستدامة</b> للموارد البحرية، وحماية <b>البيئة البحرية</b> من التلوث والاستغلال المفرط.</p>
+    </div>
+
+    <h3 class="sub-title">5) مثال من المغرب</h3>
+    <div class="rule-box">
+      <p>يتوفّر المغرب على <b>واجهتين بحريتين</b>: الواجهة المتوسطية (حيث يقع ميناء طنجة المتوسط، من أهم الموانئ بإفريقيا والبحر الأبيض المتوسط)، والواجهة الأطلسية (حيث تقع موانئ الدار البيضاء وأكادير). ويُعتبر القطاع الصيدي مورداً اقتصادياً مهماً بالنسبة للمغرب.</p>
+    </div>
+  </section>
+
+  <!-- ===================== ACTIVITE ===================== -->
+  <section>
+    <h2 class="section-title">✏️ نشاط تطبيقي</h2>
+    <div class="activity-box">
+      <span class="task-label">تصنيف الاستخدامات البحرية</span>
+      <p>أكمل الجدول التالي بربط كل استخدام من استخدامات البحر بمثال ملموس مناسب له:</p>
+      <table class="data-table">
+        <tr><th>الاستخدام</th><th>مثال ملموس</th></tr>
+        <tr><td>النقل البحري</td><td><span class="fill-line" style="min-width:100%;"></span></td></tr>
+        <tr><td>الصيد البحري</td><td><span class="fill-line" style="min-width:100%;"></span></td></tr>
+        <tr><td>السياحة الشاطئية</td><td><span class="fill-line" style="min-width:100%;"></span></td></tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===================== EXERCICES ===================== -->
+  <section>
+    <h2 class="section-title">📝 تمارين للتدرّب</h2>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">1</span>صل كل مجال بحري بالمسافة التي يمتد إليها من الساحل:</h4>
+      <div class="match-cols">
+        <ul>
+          <li>أ) المياه الإقليمية</li>
+          <li>ب) المنطقة الاقتصادية الخالصة</li>
+          <li>ج) أعالي البحار</li>
+        </ul>
+        <ul>
+          <li>1) حتى 200 ميل بحري</li>
+          <li>2) خارج 200 ميل بحري</li>
+          <li>3) حتى 12 ميلاً بحرياً</li>
+        </ul>
+      </div>
+      <p style="margin-top:10px;">الإجابة: أ - .......... &nbsp; ب - .......... &nbsp; ج - ..........</p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">2</span>صل كل استخدام بمثاله المناسب:</h4>
+      <div class="match-cols">
+        <ul>
+          <li>أ) النقل البحري</li>
+          <li>ب) الصيد البحري</li>
+          <li>ج) البحث العلمي</li>
+          <li>د) استغلال الموارد</li>
+        </ul>
+        <ul>
+          <li>1) استخراج النفط من قاع البحر</li>
+          <li>2) دراسة تأثير المناخ على الشعاب المرجانية</li>
+          <li>3) سفن الحاويات تنقل البضائع بين الموانئ</li>
+          <li>4) قوارب الصيادين تصطاد السمك</li>
+        </ul>
+      </div>
+      <p style="margin-top:10px;">الإجابة: أ - .......... &nbsp; ب - .......... &nbsp; ج - .......... &nbsp; د - ..........</p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">3</span>اختر الإجابة الصحيحة:</h4>
+      <div class="qcm-item">
+        <p>1) تمتد المياه الإقليمية من الساحل حتى:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>12 ميلاً بحرياً</span><span><span class="checkbox"></span>200 ميل بحري</span><span><span class="checkbox"></span>1000 ميل بحري</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>2) في المنطقة الاقتصادية الخالصة، تملك الدولة الساحلية حق:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>استغلال الموارد</span><span><span class="checkbox"></span>السيادة الكاملة كاليابسة</span><span><span class="checkbox"></span>لا شيء</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>3) أعالي البحار هي مياه:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>خاصة بدولة واحدة</span><span><span class="checkbox"></span>دولية مشتركة بين جميع الدول</span><span><span class="checkbox"></span>محظورة على الجميع</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>4) من الاستخدامات السلمية للبحر:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>الصيد والنقل والسياحة</span><span><span class="checkbox"></span>الحروب البحرية</span><span><span class="checkbox"></span>التلوث المتعمد</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>5) للمغرب واجهتان بحريتان هما:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>المتوسطية والأطلسية</span><span><span class="checkbox"></span>الهندية والأطلسية</span><span><span class="checkbox"></span>الأطلسية فقط</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">4</span>أكمل الجمل التالية بالمعطى المناسب:</h4>
+      <p>1) تمتد المنطقة الاقتصادية الخالصة حتى .......... ميل بحري من الساحل.</p>
+      <p>2) يُعتبر ميناء .......... من أهم الموانئ المغربية على الواجهة المتوسطية.</p>
+      <p>3) يوفّر .......... البحري مصدر غذاء ودخل مهم للسكان الساحليين.</p>
+      <p>4) يجب أن يكون استخدام البحر .......... ومتعاوناً بين الدول للحفاظ على موارده.</p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">5</span>سؤال تحليلي:</h4>
+      <p>لماذا من المهم أن يكون استخدام البحر سلمياً وتعاونياً بين الدول، وليس مصدراً للنزاعات؟ اذكر سببين اثنين.</p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== CORRIGE ===================== -->
+  <div class="corrige-wrapper">
+    <p class="corrige-flag">✂ يمكن طي هذه الصفحة أو إخفاؤها (اضغط على العنوان أدناه) قبل إنجاز التمارين ✂</p>
+    <details class="corrige">
+      <summary>التصحيح الكامل</summary>
+
+      <h4>تصحيح النشاط التطبيقي</h4>
+      <div class="corrige-item"><b>النقل البحري:</b> سفن الحاويات تنقل البضائع بين الموانئ العالمية.</div>
+      <div class="corrige-item"><b>الصيد البحري:</b> قوارب الصيادين تصطاد الأسماك وتسوّقها.</div>
+      <div class="corrige-item"><b>السياحة الشاطئية:</b> الفنادق والمنتجعات المقامة على الشواطئ لاستقبال السياح.</div>
+
+      <h4>تصحيح التمرين 1 (المجالات البحرية)</h4>
+      <div class="corrige-item">أ - 3 (المياه الإقليمية ← 12 ميلاً بحرياً) &nbsp;|&nbsp; ب - 1 (المنطقة الاقتصادية الخالصة ← 200 ميل بحري) &nbsp;|&nbsp; ج - 2 (أعالي البحار ← خارج 200 ميل)</div>
+
+      <h4>تصحيح التمرين 2 (الربط بالأمثلة)</h4>
+      <div class="corrige-item">أ - 3 (النقل البحري ← سفن الحاويات) &nbsp;|&nbsp; ب - 4 (الصيد البحري ← قوارب الصيادين) &nbsp;|&nbsp; ج - 2 (البحث العلمي ← دراسة الشعاب المرجانية) &nbsp;|&nbsp; د - 1 (استغلال الموارد ← استخراج النفط)</div>
+
+      <h4>تصحيح التمرين 3 (الاختيار من متعدد)</h4>
+      <div class="corrige-item">1) 12 ميلاً بحرياً &nbsp;|&nbsp; 2) استغلال الموارد &nbsp;|&nbsp; 3) دولية مشتركة بين جميع الدول &nbsp;|&nbsp; 4) الصيد والنقل والسياحة &nbsp;|&nbsp; 5) المتوسطية والأطلسية</div>
+
+      <h4>تصحيح التمرين 4 (إكمال الجمل)</h4>
+      <div class="corrige-item">1) 200 &nbsp;|&nbsp; 2) طنجة المتوسط &nbsp;|&nbsp; 3) الصيد &nbsp;|&nbsp; 4) سلمياً</div>
+
+      <h4>تصحيح التمرين 5 (السؤال التحليلي)</h4>
+      <div class="corrige-item">1) يضمن التعاون السلمي استغلالاً عادلاً ومستداماً لموارد البحر لصالح جميع الدول، خاصة أن كثيراً من هذه الموارد مشتركة أو تحتاج جهوداً دولية مشتركة لحمايتها.</div>
+      <div class="corrige-item">2) يساعد التعاون على حماية البيئة البحرية من التلوث والاستغلال المفرط، بينما قد تؤدي النزاعات إلى إهمال هذه الحماية أو حتى الإضرار المتعمد بالموارد البحرية.</div>
+    </details>
+  </div>
+
+  <p class="footer-note">فيشة تعلّم ذاتي — الاجتماعيات (الجغرافيا) — الأولى إعدادي — الاستخدام السلمي للبحر</p>
+</div>
+</body>
+</html>
