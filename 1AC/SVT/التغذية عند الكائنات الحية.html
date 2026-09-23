@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>التغذية عند الكائنات الحية</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#20301f; --ink-soft:#4c5a48;
+    --paper:#f8faf4; --panel:#ffffff; --line:#d7e0cd;
+    --leaf:#3f7d3a; --leaf-soft:#e3f0df;
+    --sky:#2f7ea8; --sky-soft:#deeef6;
+    --amber:#c98a2e; --amber-soft:#f6e9d3;
+    --coral:#c1493a; --coral-soft:#fbe0d8;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#e4e9dc;font-family:'Noto Naskh Arabic','Amiri',serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .sheet{max-width:900px;margin:24px auto;background:var(--paper);padding:38px 44px 50px;border:1px solid var(--line);box-shadow:0 4px 24px rgba(0,0,0,.12);}
+
+  .masthead{display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:3px solid var(--ink);padding-bottom:16px;margin-bottom:22px;}
+  .masthead-text h1{font-family:'Amiri',serif;font-weight:700;font-size:27px;margin:0 0 6px;color:var(--leaf);}
+  .masthead-text .subtitle{font-size:15px;color:var(--ink-soft);margin:0;}
+  .leaf-icon{width:56px;height:56px;flex-shrink:0;}
+
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+  .meta-chip{border:1px solid var(--line);background:var(--panel);border-radius:3px;padding:6px 12px;font-size:13.5px;color:var(--ink-soft);}
+  .meta-chip b{color:var(--ink);font-weight:600;}
+
+  section{margin-bottom:26px;}
+  h2.section-title{font-family:'Amiri',serif;font-size:20px;font-weight:700;color:var(--sky);border-bottom:2px solid var(--sky);padding-bottom:6px;margin:0 0 14px;display:flex;align-items:baseline;gap:8px;}
+  h3.sub-title{font-size:16.5px;font-weight:700;color:var(--amber);margin:18px 0 8px;}
+  h4.part-title{font-size:15px;font-weight:700;color:var(--coral);margin:14px 0 6px;}
+  p{line-height:1.95;font-size:15px;margin:0 0 9px;}
+
+  .objectif-box{background:var(--sky-soft);border-right:4px solid var(--sky);padding:14px 18px;border-radius:2px;font-size:15px;line-height:1.9;}
+
+  .rule-box{background:var(--panel);border:1px solid var(--line);border-right:4px solid var(--leaf);padding:12px 16px;border-radius:2px;margin:8px 0 14px;}
+  .rule-box p:last-child{margin-bottom:0;}
+  .rule-box ul,.rule-box ol{margin:6px 0;padding-inline-start:22px;}
+  .rule-box li{margin-bottom:5px;line-height:1.8;font-size:14.5px;}
+
+  .diet-grid{display:flex;flex-wrap:wrap;gap:12px;margin:10px 0 14px;}
+  .diet-card{flex:1 1 250px;border-radius:8px;padding:11px 14px;}
+  .diet-card.herbi{background:var(--leaf-soft);border:1px solid var(--leaf);}
+  .diet-card.carni{background:var(--coral-soft);border:1px solid var(--coral);}
+  .diet-card.omni{background:var(--amber-soft);border:1px solid var(--amber);}
+  .diet-card .head{font-weight:700;font-size:14.5px;margin-bottom:4px;}
+  .diet-card.herbi .head{color:var(--leaf);}
+  .diet-card.carni .head{color:var(--coral);}
+  .diet-card.omni .head{color:var(--amber);}
+  .diet-card p{margin:0;font-size:13px;color:var(--ink-soft);line-height:1.75;}
+  .diet-card ul{margin:4px 0 0;padding-inline-start:18px;}
+  .diet-card li{font-size:12.5px;margin-bottom:2px;}
+
+  table.data-table{width:100%;border-collapse:collapse;margin:8px 0 16px;font-size:14px;}
+  table.data-table th{background:var(--sky);color:#fff;padding:7px 8px;font-weight:600;font-size:13px;}
+  table.data-table td{border:1px solid var(--line);padding:7px 8px;background:var(--panel);text-align:center;}
+  table.data-table tr:nth-child(even) td{background:#eef3e8;}
+
+  .formula-box{background:var(--leaf);color:#fff;text-align:center;padding:12px;border-radius:6px;font-size:16px;font-weight:700;margin:8px 0 14px;direction:ltr;}
+
+  .activity-box{background:var(--panel);border:1.5px solid var(--amber);border-radius:3px;padding:14px 18px;}
+  .activity-box .task-label{display:inline-block;background:var(--amber);color:#fff;font-size:12px;padding:3px 10px;border-radius:2px;margin-bottom:8px;}
+
+  .exercise{border:1px solid var(--line);border-radius:3px;padding:14px 18px;margin-bottom:14px;background:var(--panel);}
+  .exercise-num{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;background:var(--ink);color:var(--paper);border-radius:50%;font-size:13px;font-weight:700;margin-inline-end:8px;}
+  .exercise h4{margin:0 0 9px;font-size:15.5px;display:flex;align-items:center;}
+  .fill-line{border-bottom:1px dotted var(--ink-soft);display:inline-block;min-width:110px;height:1.5em;}
+  .word-chip{display:inline-block;background:var(--paper);border:1px solid var(--line);border-radius:3px;padding:3px 10px;margin:2px 3px;font-size:14.5px;}
+  .qcm-item{margin-bottom:9px;}
+  .qcm-item p{margin-bottom:4px;font-weight:600;}
+  .qcm-options{display:flex;flex-wrap:wrap;gap:12px;font-size:13.5px;}
+  .qcm-options span{display:flex;align-items:center;gap:5px;}
+  .checkbox{width:12px;height:12px;border:1.4px solid var(--ink-soft);display:inline-block;border-radius:2px;}
+  .scenario-box{background:#eef3e8;border:1px solid var(--line);padding:10px 14px;font-size:14.5px;line-height:1.95;margin-bottom:8px;}
+
+  .corrige-wrapper{page-break-before:always;padding-top:6px;}
+  .corrige-flag{text-align:center;font-size:12.5px;color:var(--ink-soft);margin-bottom:10px;border-top:1px dashed var(--ink-soft);padding-top:14px;}
+  details.corrige{border:2px dashed var(--amber);border-radius:4px;background:#fdf8ee;padding:6px 20px 18px;}
+  details.corrige > summary{cursor:pointer;font-family:'Amiri',serif;font-weight:700;font-size:18px;color:var(--amber);padding:12px 0;list-style:none;}
+  details.corrige > summary::-webkit-details-marker{display:none;}
+  details.corrige > summary::before{content:"✂ ";}
+  details.corrige > summary::after{content:"— اضغط لإظهار الحل / إخفائه";font-family:'Noto Naskh Arabic',serif;font-weight:400;font-size:12.5px;color:var(--ink-soft);margin-inline-start:8px;}
+  .corrige h4{color:var(--amber);margin:14px 0 6px;font-size:15px;}
+  .corrige-item{margin-bottom:7px;font-size:14px;line-height:1.85;}
+  .corrige table.data-table th{background:var(--amber);}
+
+  .footer-note{margin-top:26px;text-align:center;font-size:11.5px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:10px;}
+
+  @media print{
+    body{background:#fff;}
+    .sheet{box-shadow:none;border:none;margin:0;max-width:100%;padding:14px 6px;}
+    details.corrige{border-color:#000;}
+  }
+  @page{size:A4;margin:13mm;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="masthead-text">
+      <h1>التغذيةُ عند الكائناتِ الحيةِ</h1>
+      <p class="subtitle">علوم الحياة والأرض — الأنظمة الغذائية والتركيب الضوئي</p>
+    </div>
+    <svg class="leaf-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M32 8c16 4 22 20 14 34C38 56 20 54 14 40 8 26 16 12 32 8z" fill="#3f7d3a" opacity="0.85"/>
+      <path d="M32 12c0 16 0 28 0 40" stroke="#e4e9dc" stroke-width="2"/>
+    </svg>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta-chip">المستوى: <b>الأولى إعدادي (1AC)</b></div>
+    <div class="meta-chip">المادة: <b>علوم الحياة والأرض (SVT)</b></div>
+    <div class="meta-chip">الحصص: <b>9 - 10 - 11</b></div>
+    <div class="meta-chip">نوع الوثيقة: <b>فيشة تعلّم ذاتي شاملة</b></div>
+  </div>
+
+  <!-- ===================== OBJECTIF ===================== -->
+  <section>
+    <h2 class="section-title">🎯 الهدف من الدرس</h2>
+    <div class="objectif-box">
+      يتمكّن المتعلم(ة) في نهاية هذا الدرس من: تحديد الأنظمة الغذائية عند الحيوانات (عاشب، آكل لحوم، آكل كل شيء) وتخصصاتها الدقيقة، ووصف تجهيزات الأسنان والجهاز الهضمي عند الإنسان ومقارنتها بين العاشب وآكل اللحوم، وتحديد الاحتياجات الغذائية للنباتات الخضراء، وتفسير آلية التركيب الضوئي وتبادل الغازات عند النبات.
+    </div>
+  </section>
+
+  <!-- ===================== COURS ===================== -->
+  <section>
+    <h2 class="section-title">📘 القسم الأول: الأنظمة الغذائية عند الحيوانات</h2>
+
+    <h3 class="sub-title">1) تعريف النظام الغذائي</h3>
+    <div class="rule-box">
+      <p><b>النظام الغذائي</b> هو مجموع الأغذية التي يتغذّى عليها حيوان معين. لمعرفة النظام الغذائي لحيوان، يمكن الاعتماد على: الملاحظة المباشرة أثناء الأكل، ملاحظة آثار وجبته، فحص محتوى أنبوبه الهضمي، أو تحليل فضلاته.</p>
+    </div>
+
+    <h3 class="sub-title">2) الأنظمة الغذائية الثلاثة الكبرى</h3>
+    <div class="diet-grid">
+      <div class="diet-card herbi">
+        <div class="head">🌿 النظام العاشب (النباتي)</div>
+        <p>يتغذّى على النباتات أو موادّ نباتية (الرحيق، النسغ). مثال: الأرنب، الجرادة.</p>
+        <ul>
+          <li>عاشب: يتغذّى على العشب فقط (البقرة)</li>
+          <li>حبوبي: يتغذّى على الحبوب فقط (بعض الطيور)</li>
+          <li>فاكهي: يتغذّى على الفواكه فقط (القرد)</li>
+          <li>رحيقي: يتغذّى على رحيق الأزهار (الطائر الطنان)</li>
+        </ul>
+      </div>
+      <div class="diet-card carni">
+        <div class="head">🍖 النظام آكل اللحوم</div>
+        <p>يتغذّى على موادّ حيوانية. مثال: البومة، الفهد، الحيّة.</p>
+        <ul>
+          <li>حشري: يتغذّى على الحشرات فقط (السنونو)</li>
+          <li>سمكي: يتغذّى على الأسماك فقط (الصقر الصياد)</li>
+          <li>جيفي: يتغذّى على جثث الحيوانات (النسر)</li>
+        </ul>
+      </div>
+      <div class="diet-card omni">
+        <div class="head">🍽️ النظام آكل كل شيء</div>
+        <p>يتغذّى على موادّ حيوانية ونباتية معاً. مثال: الدب، الثعلب، الإنسان.</p>
+        <ul>
+          <li>عوالقي: يتغذّى على العوالق النباتية والحيوانية (الحوت)</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2 class="section-title">📘 القسم الثاني: النظام آكل كل شيء عند الإنسان</h2>
+    <div class="rule-box">
+      <p>تغذية الإنسان متنوعة جداً (موادّ حيوانية ونباتية معاً)، وهذا يميّزه بنظام غذائي <b>آكل كل شيء</b>، يستلزم توفّر أعضاء متكيّفة مع هذا التنوّع.</p>
+    </div>
+
+    <h3 class="sub-title">1) أنواع الأسنان عند الإنسان</h3>
+    <table class="data-table">
+      <tr><th>نوع السن</th><th>الشكل</th><th>الوظيفة</th></tr>
+      <tr><td>القواطع</td><td>كالشفرة</td><td>قطع الأطعمة</td></tr>
+      <tr><td>الأنياب</td><td>مدببة</td><td>تمزيق الأطعمة</td></tr>
+      <tr><td>الضواحك</td><td>مسطحة</td><td>طحن الأطعمة</td></tr>
+      <tr><td>الأرحاء (النواجذ)</td><td>عريضة ومسطحة</td><td>طحن الأطعمة</td></tr>
+    </table>
+    <p style="font-size:13.5px;color:var(--ink-soft);">الصيغة السنية عند الطفل: (2ق+1ن+2ض)/(2ق+1ن+2ض) = 20 سناً — عند البالغ: (2ق+1ن+2ض+3ر)/(2ق+1ن+2ض+3ر) = 32 سناً.</p>
+
+    <h3 class="sub-title">2) العضلات الماضغة</h3>
+    <div class="rule-box">
+      <p>ترتبط كل فك بعضلات ماضغة (كالعضلة الصدغية والعضلة الماضغة)، يسمح انقباضها وانبساطها بتحريك الفك السفلي في جميع الاتجاهات بفضل <b>اللقمة الفكية</b> (منطقة اتصال الفك السفلي بالفك العلوي)، مما يمكّننا من مضغ الطعام.</p>
+    </div>
+
+    <h3 class="sub-title">3) الجهاز الهضمي عند الإنسان</h3>
+    <div class="rule-box">
+      <p>يسمح الأنبوب الهضمي عند الإنسان بهضم الأطعمة ثم امتصاص المغذيات. يتكوّن من: الفم، المريء، المعدة، الأمعاء الدقيقة، والأمعاء الغليظة. يبلغ طول الأنبوب الهضمي (من الفم إلى الشرج) أكثر من <b>10 أمتار</b>، أي ما يعادل 6 إلى 8 أضعاف طول جسم الإنسان.</p>
+    </div>
+    <table class="data-table">
+      <tr><th>العضو</th><th>خاصيته</th><th>الفعل الذي يتعرّض له الطعام</th></tr>
+      <tr><td>الفم</td><td>تجويف يحتوي على أسنان</td><td>طحن الأطعمة</td></tr>
+      <tr><td>المريء</td><td>ممر للعبور</td><td>—</td></tr>
+      <tr><td>المعدة</td><td>تجويف واحد</td><td>عصر وتفكيك الأطعمة إلى مغذيات</td></tr>
+      <tr><td>الأمعاء الدقيقة</td><td>أنبوب طويل (8 أمتار)</td><td>امتصاص المغذيات</td></tr>
+      <tr><td>الأمعاء الغليظة</td><td>مكان تجمّع الفضلات</td><td>امتصاص الماء</td></tr>
+    </table>
+
+    <h2 class="section-title">📘 القسم الثالث: مقارنة بين العاشب وآكل اللحوم</h2>
+    <p style="font-size:13.5px;color:var(--ink-soft);">مثال: الأرنب (عاشب) والقط (آكل لحوم)</p>
+
+    <h3 class="sub-title">1) مقارنة الأسنان</h3>
+    <div class="rule-box">
+      <p><b>الأرنب:</b> 28 سناً، لا يملك أنياباً، وتساعده القواطع على قبض الأطعمة وقطعها.</p>
+      <p><b>القط:</b> 30 سناً، له أنياب طويلة لقتل الفريسة وحملها، وأرحاء حادة (كواسر) لتقطيع اللحم، بينما تساعده الأنياب على قبض الطعام.</p>
+    </div>
+
+    <h3 class="sub-title">2) مقارنة الأنبوب الهضمي</h3>
+    <table class="data-table">
+      <tr><th>العضو</th><th>الأرنب (عاشب)</th><th>القط (آكل لحوم)</th></tr>
+      <tr><td>المريء</td><td colspan="2">متقاربان في الحجم تقريباً</td></tr>
+      <tr><td>المعدة</td><td>متطوّرة</td><td>صغيرة</td></tr>
+      <tr><td>الأمعاء الدقيقة</td><td>طويلة</td><td>قصيرة</td></tr>
+      <tr><td>الأمعاء الغليظة</td><td>طويلة</td><td>قصيرة</td></tr>
+      <tr><td>الأعور</td><td>كبير</td><td>صغير جداً</td></tr>
+      <tr><td>سرعة الهضم</td><td>بطيئة</td><td>سريعة</td></tr>
+    </table>
+    <p style="font-size:13.5px;color:var(--ink-soft);">خلاصة: يتميّز العاشب بقواطع متطوّرة وأنبوب هضمي طويل يناسب هضم النباتات الليفية، بينما يتميّز آكل اللحوم بأنياب وأرحاء متطوّرة وأنبوب هضمي قصير يناسب هضم اللحوم السريع.</p>
+
+    <h2 class="section-title">📘 القسم الرابع: الاحتياجات الغذائية للنباتات الخضراء</h2>
+
+    <h4 class="part-title">أ) الحاجة إلى الماء</h4>
+    <div class="rule-box">
+      <p>وُضع نبات دون ماء وآخر مع ماء. <b>الملاحظة:</b> بعد ساعات قليلة، ذبل النبات المحروم من الماء، أما الآخر فبقي سليماً. <b>الاستنتاج:</b> تحتاج النباتات إلى الماء لتعيش وتنمو.</p>
+    </div>
+
+    <h4 class="part-title">ب) الحاجة إلى الأملاح المعدنية</h4>
+    <div class="rule-box">
+      <p>وُضع نبتا شعير متماثلان في أنبوبَي اختبار: الأنبوب 1 بماء منزوع المعادن (بدون أملاح)، والأنبوب 2 (شاهد) بماء منزوع المعادن مع أملاح معدنية. <b>الملاحظة:</b> غياب الأملاح المعدنية يُبطئ ثم يوقف نمو الشعير. <b>الاستنتاج:</b> الأملاح المعدنية عناصر غذائية ضرورية لنمو النبات الطبيعي.</p>
+    </div>
+
+    <h4 class="part-title">ج) منطقة الشعيرات الجذرية</h4>
+    <div class="rule-box">
+      <p>تتكوّن جذور النبات من 3 مناطق: <b>المنطقة الفلينية</b> (الجزء العلوي)، <b>المنطقة الشعرية</b> (غنية بالشعيرات الماصّة)، و<b>القلنسوة</b> (غطاء واقٍ). تُعتبر <b>المنطقة الشعرية</b> المسؤولة عن امتصاص الماء والأملاح المعدنية.</p>
+    </div>
+
+    <h4 class="part-title">د) الحاجة إلى ثاني أكسيد الكربون والضوء</h4>
+    <div class="rule-box">
+      <p>وُضع نبات في الظلام وآخر في الضوء؛ ونبات دون CO₂ وآخر بـCO₂. <b>الملاحظة:</b> النبات المحروم من الضوء أو من CO₂ لا ينمو بشكل جيد. <b>الاستنتاج:</b> يحتاج النبات الأخضر إلى الضوء وثاني أكسيد الكربون من الهواء.</p>
+    </div>
+
+    <h4 class="part-title">هـ) خلاصة</h4>
+    <div class="rule-box">
+      <p>لينمو النبات، يحتاج إلى: امتصاص <b>الماء والأملاح المعدنية</b> عبر الجذور (على مستوى الشعيرات الماصّة)، وامتصاص <b>ثاني أكسيد الكربون</b> عبر الأوراق، والتعرّض <b>للضوء</b>. يُشكّل الماء والأملاح الممتصّة <b>النسغ الخام</b> الذي يسري من الجذور إلى كل أعضاء النبات عبر أوعية ناقلة.</p>
+    </div>
+
+    <h2 class="section-title">📘 القسم الخامس: التبادلات الغازية وإنتاج المادة العضوية</h2>
+
+    <h3 class="sub-title">1) التبادلات الغازية</h3>
+    <div class="rule-box">
+      <p>تُدعى النباتات الخضراء "الكلوروفيلية" لاحتوائها على مادة خضراء. تُجري هذه النباتات ظاهرة تُسمّى <b>التركيب الضوئي</b>، تنتج عنها دخول ثاني أكسيد الكربون وخروج الأكسجين. في غياب الضوء، تقوم النباتات فقط بتبادلات غازية تنفسية.</p>
+    </div>
+
+    <h3 class="sub-title">2) الثغور: بوابة تبادل الغازات</h3>
+    <div class="rule-box">
+      <p>يدخل ثاني أكسيد الكربون إلى النبات عبر <b>الثغور</b>، وهي فتحات دقيقة على الأوراق يمكنها الانفتاح والانغلاق للسماح بمرور الغازات. تُغلق النباتُ ثغورها ليلاً (لاستحالة التركيب الضوئي بدون ضوء)، وكذلك عند ارتفاع الحرارة (للحد من فقدان الماء).</p>
+    </div>
+
+    <h3 class="sub-title">3) إنتاج المادة العضوية والبلاستيدات الخضراء</h3>
+    <div class="rule-box">
+      <p><b>النشأ</b> سكّر (مادة سكرية) يُشكّل المادة العضوية عند النباتات، يُصنَّع على مستوى الأوراق بفضل التركيب الضوئي. تحتوي خلايا الأوراق والسيقان على عُضيّات خاصة تُسمّى <b>البلاستيدات الخضراء</b>، وهي تحتوي على صباغ أخضر يُسمّى <b>اليخضور (الكلوروفيل)</b>، وهي مكان حدوث عملية التركيب الضوئي.</p>
+    </div>
+    <div class="formula-box">6 CO₂ + 6 H₂O ⟶ C₆H₁₂O₆ + 6 O₂</div>
+
+    <h3 class="sub-title">4) نظاما النقل في النبات</h3>
+    <div class="rule-box">
+      <p>يملك النبات نظامَي نقل متعاكسين: <b>النسغ الخام</b> ينقل الماء والأملاح المعدنية من الجذور إلى الأوراق، و<b>النسغ الناضج</b> ينقل المادة العضوية من الأوراق إلى باقي أعضاء النبات.</p>
+      <p><b>محرك الدورة — النتح:</b> على مستوى الأوراق، يخرج الماء عبر الثغور (ظاهرة النتح)، مما يُحدث شفطاً للسوائل من الجذر حتى الأوراق، فيرتفع النسغ.</p>
+    </div>
+
+    <h3 class="sub-title">5) تخزين المادة العضوية</h3>
+    <div class="rule-box">
+      <p>تُخزَّن المادة العضوية في أعضاء الاحتياط كالثمار والدرنات والبذور، على شكل: <b>دهنيات</b> (كبذور دوّار الشمس)، أو <b>سكريات</b> (كالبطاطس وحبوب القمح والذرة).</p>
+    </div>
+  </section>
+
+  <!-- ===================== ACTIVITE ===================== -->
+  <section>
+    <h2 class="section-title">🔬 نشاط تطبيقي</h2>
+    <div class="activity-box">
+      <span class="task-label">خلاصة تركيبية: الأنظمة الغذائية الثلاثة</span>
+      <p>أكمل الجدول التالي بذكر خاصية مميّزة واحدة على الأقل (نوع الأسنان أو طول الأنبوب الهضمي) لكل نظام غذائي:</p>
+      <table class="data-table">
+        <tr><th>النظام الغذائي</th><th>خاصية الأسنان</th><th>خاصية الأنبوب الهضمي</th></tr>
+        <tr><td>آكل كل شيء (Omnivore)</td><td><span class="fill-line" style="min-width:100%;"></span></td><td><span class="fill-line" style="min-width:100%;"></span></td></tr>
+        <tr><td>عاشب (Herbivore)</td><td><span class="fill-line" style="min-width:100%;"></span></td><td><span class="fill-line" style="min-width:100%;"></span></td></tr>
+        <tr><td>آكل لحوم (Carnivore)</td><td><span class="fill-line" style="min-width:100%;"></span></td><td><span class="fill-line" style="min-width:100%;"></span></td></tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===================== EXERCICES ===================== -->
+  <section>
+    <h2 class="section-title">📝 تمارين للتدرّب</h2>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">1</span>صنّف الحيوانات التالية حسب نظامها الغذائي (عاشب/آكل لحوم/آكل كل شيء)، ثم حدّد التخصص الدقيق إن أمكن:</h4>
+      <p>
+        <span class="word-chip">الأرنب</span>
+        <span class="word-chip">حمامة تتغذى فقط على الحبوب</span>
+        <span class="word-chip">قرد يتغذى بالفواكه</span>
+        <span class="word-chip">طائر طنان يتغذى بالرحيق</span>
+        <span class="word-chip">الأسد</span>
+        <span class="word-chip">سنونو يتغذى بالحشرات فقط</span>
+        <span class="word-chip">نسر يتغذى بجثث الحيوانات</span>
+        <span class="word-chip">الدب</span>
+        <span class="word-chip">الإنسان</span>
+      </p>
+      <table class="data-table">
+        <tr><th>عاشب</th><th>آكل لحوم</th><th>آكل كل شيء</th></tr>
+        <tr><td style="height:60px;"></td><td></td><td></td></tr>
+      </table>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">2</span>أكمل جدول المقارنة بين الأرنب (عاشب) والقط (آكل لحوم):</h4>
+      <table class="data-table">
+        <tr><th>المعيار</th><th>الأرنب</th><th>القط</th></tr>
+        <tr><td>عدد الأسنان</td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+        <tr><td>وجود الأنياب</td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+        <tr><td>طول الأمعاء الدقيقة</td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+        <tr><td>سرعة الهضم</td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+      </table>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">3</span>اختر الإجابة الصحيحة:</h4>
+      <div class="qcm-item">
+        <p>1) النظام الغذائي الذي يعتمد على موادّ حيوانية ونباتية معاً يُسمّى:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>عاشب</span><span><span class="checkbox"></span>آكل لحوم</span><span><span class="checkbox"></span>آكل كل شيء</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>2) عدد أسنان الإنسان البالغ هو:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>20 سناً</span><span><span class="checkbox"></span>28 سناً</span><span><span class="checkbox"></span>32 سناً</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>3) منطقة الجذر المسؤولة عن امتصاص الماء والأملاح المعدنية هي:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>المنطقة الفلينية</span><span><span class="checkbox"></span>المنطقة الشعرية</span><span><span class="checkbox"></span>القلنسوة</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>4) تدخل الغازات إلى النبات وتخرج منه عبر:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>الجذور</span><span><span class="checkbox"></span>الثغور</span><span><span class="checkbox"></span>الساق</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>5) النسغ الذي ينقل المادة العضوية من الأوراق إلى باقي أعضاء النبات يُسمّى:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>النسغ الخام</span><span><span class="checkbox"></span>النسغ الناضج</span><span><span class="checkbox"></span>لا اسم له</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">4</span>لاحظ التجربة التالية، ثم أجب:</h4>
+      <div class="scenario-box">
+        وُضعت نبتتا شعير متماثلتان في أنبوبَي اختبار: الأنبوب 1 يحتوي على ماء منزوع المعادن فقط، والأنبوب 2 (شاهد) يحتوي على ماء منزوع المعادن مع أملاح معدنية. بعد أيام، لوحظ أن نمو النبتة في الأنبوب 1 كان ضعيفاً جداً مقارنة بالأنبوب 2.
+      </div>
+      <p>1) ما هو العامل الذي تم اختباره في هذه التجربة؟ <span class="fill-line" style="min-width:100%;"></span></p>
+      <p>2) ما هو الاستنتاج الذي يمكن استخلاصه؟ <span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">5</span>أكمل معادلة التركيب الضوئي، ثم أجب عن الأسئلة:</h4>
+      <p>....... CO₂ + ....... H₂O &nbsp;⟶&nbsp; ....... + ....... O₂</p>
+      <p>1) أين تحدث عملية التركيب الضوئي داخل خلايا النبات؟ <span class="fill-line" style="min-width:100%;"></span></p>
+      <p>2) ما اسم الصباغ الأخضر المسؤول عن امتصاص الضوء؟ <span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== CORRIGE ===================== -->
+  <div class="corrige-wrapper">
+    <p class="corrige-flag">✂ يمكن طي هذه الصفحة أو إخفاؤها (اضغط على العنوان أدناه) قبل إنجاز التمارين ✂</p>
+    <details class="corrige">
+      <summary>التصحيح الكامل</summary>
+
+      <h4>تصحيح النشاط التطبيقي</h4>
+      <table class="data-table">
+        <tr><th>النظام الغذائي</th><th>خاصية الأسنان</th><th>خاصية الأنبوب الهضمي</th></tr>
+        <tr><td>آكل كل شيء</td><td>دِنتة كاملة (قواطع، أنياب، ضواحك، أرحاء)</td><td>حركة حرّة للفك السفلي بفضل اللقمة الفكية</td></tr>
+        <tr><td>عاشب</td><td>قواطع متطوّرة، لا أنياب</td><td>أنبوب هضمي طويل</td></tr>
+        <tr><td>آكل لحوم</td><td>أنياب متطوّرة، أرحاء حادة (كواسر)</td><td>أنبوب هضمي قصير</td></tr>
+      </table>
+
+      <h4>تصحيح التمرين 1 (تصنيف الأنظمة الغذائية)</h4>
+      <div class="corrige-item"><b>عاشب:</b> الأرنب (عاشب عام)، حمامة (حبوبي)، قرد (فاكهي)، طائر طنان (رحيقي)</div>
+      <div class="corrige-item"><b>آكل لحوم:</b> الأسد (آكل لحوم عام)، سنونو (حشري)، نسر (جيفي)</div>
+      <div class="corrige-item"><b>آكل كل شيء:</b> الدب، الإنسان</div>
+
+      <h4>تصحيح التمرين 2 (مقارنة الأرنب والقط)</h4>
+      <table class="data-table">
+        <tr><th>المعيار</th><th>الأرنب</th><th>القط</th></tr>
+        <tr><td>عدد الأسنان</td><td>28</td><td>30</td></tr>
+        <tr><td>وجود الأنياب</td><td>لا يوجد</td><td>موجودة وطويلة</td></tr>
+        <tr><td>طول الأمعاء الدقيقة</td><td>طويلة</td><td>قصيرة</td></tr>
+        <tr><td>سرعة الهضم</td><td>بطيئة</td><td>سريعة</td></tr>
+      </table>
+
+      <h4>تصحيح التمرين 3 (الاختيار من متعدد)</h4>
+      <div class="corrige-item">1) آكل كل شيء &nbsp;|&nbsp; 2) 32 سناً &nbsp;|&nbsp; 3) المنطقة الشعرية &nbsp;|&nbsp; 4) الثغور &nbsp;|&nbsp; 5) النسغ الناضج</div>
+
+      <h4>تصحيح التمرين 4 (تجربة الأملاح المعدنية)</h4>
+      <div class="corrige-item">1) العامل المختبَر هو وجود أو غياب <b>الأملاح المعدنية</b> في الماء المقدَّم للنبتة.</div>
+      <div class="corrige-item">2) الأملاح المعدنية ضرورية لنمو النبات بشكل طبيعي؛ غيابها يُبطئ ثم يوقف النمو.</div>
+
+      <h4>تصحيح التمرين 5 (معادلة التركيب الضوئي)</h4>
+      <div class="corrige-item">المعادلة الكاملة: <b>6 CO₂ + 6 H₂O ⟶ C₆H₁₂O₆ + 6 O₂</b></div>
+      <div class="corrige-item">1) تحدث عملية التركيب الضوئي داخل <b>البلاستيدات الخضراء</b>.</div>
+      <div class="corrige-item">2) الصباغ الأخضر يُسمّى <b>اليخضور (الكلوروفيل)</b>.</div>
+    </details>
+  </div>
+
+  <p class="footer-note">فيشة تعلّم ذاتي — علوم الحياة والأرض — الأولى إعدادي — التغذية عند الكائنات الحية (الحصص 9-10-11)</p>
+</div>
+</body>
+</html>
