@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>الألف اللينة: مقصورة وممدودة</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#241f33; --ink-soft:#54506a;
+    --paper:#faf8f5; --panel:#ffffff; --line:#ddd4e6;
+    --indigo:#4b3f8f; --indigo-soft:#e9e5f7;
+    --rose:#b1553f; --rose-soft:#f7e3dc;
+    --gold:#af8a2e; --gold-soft:#f4ecd2;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#e8e3ee;font-family:'Noto Naskh Arabic','Amiri',serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .sheet{max-width:900px;margin:24px auto;background:var(--paper);padding:38px 44px 50px;border:1px solid var(--line);box-shadow:0 4px 24px rgba(0,0,0,.12);}
+
+  .masthead{display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:3px solid var(--ink);padding-bottom:16px;margin-bottom:22px;}
+  .masthead-text h1{font-family:'Amiri',serif;font-weight:700;font-size:28px;margin:0 0 6px;color:var(--indigo);}
+  .masthead-text .subtitle{font-size:15px;color:var(--ink-soft);margin:0;}
+  .alif-icon{width:52px;height:56px;flex-shrink:0;}
+
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+  .meta-chip{border:1px solid var(--line);background:var(--panel);border-radius:3px;padding:6px 12px;font-size:13.5px;color:var(--ink-soft);}
+  .meta-chip b{color:var(--ink);font-weight:600;}
+
+  section{margin-bottom:26px;}
+  h2.section-title{font-family:'Amiri',serif;font-size:21px;font-weight:700;color:var(--indigo);border-bottom:2px solid var(--indigo);padding-bottom:6px;margin:0 0 14px;display:flex;align-items:baseline;gap:8px;}
+  h3.sub-title{font-size:17px;font-weight:700;color:var(--rose);margin:18px 0 8px;}
+  p{line-height:1.95;font-size:15.5px;margin:0 0 9px;}
+
+  .objectif-box{background:var(--gold-soft);border-right:4px solid var(--gold);padding:14px 18px;border-radius:2px;font-size:15.5px;line-height:1.9;}
+
+  .rule-box{background:var(--panel);border:1px solid var(--line);border-right:4px solid var(--indigo);padding:12px 18px;border-radius:2px;margin:8px 0 14px;}
+  .rule-box p:last-child{margin-bottom:0;}
+  .rule-box ul,.rule-box ol{margin:6px 0;padding-inline-start:22px;}
+  .rule-box li{margin-bottom:5px;line-height:1.85;}
+
+  .type-grid{display:flex;flex-wrap:wrap;gap:16px;margin:10px 0 14px;}
+  .type-card{flex:1 1 260px;border-radius:8px;padding:12px 16px;}
+  .type-card.mad{background:var(--indigo-soft);border:1px solid var(--indigo);}
+  .type-card.maq{background:var(--rose-soft);border:1px solid var(--rose);}
+  .type-card .head{font-weight:700;font-size:16px;margin-bottom:6px;}
+  .type-card.mad .head{color:var(--indigo);}
+  .type-card.maq .head{color:var(--rose);}
+  .type-card p{margin:0;font-size:14px;line-height:1.85;}
+  .big-alif{font-family:'Amiri',serif;font-weight:700;font-size:26px;text-align:center;}
+
+  table.data-table{width:100%;border-collapse:collapse;margin:8px 0 16px;font-size:14.5px;}
+  table.data-table th{background:var(--indigo);color:#fff;padding:7px 9px;font-weight:600;font-size:13.5px;}
+  table.data-table td{border:1px solid var(--line);padding:7px 9px;background:var(--panel);text-align:center;}
+  table.data-table tr:nth-child(even) td{background:#f2effa;}
+
+  .activity-box{background:var(--panel);border:1.5px solid var(--gold);border-radius:3px;padding:16px 20px;}
+  .activity-box .task-label{display:inline-block;background:var(--gold);color:#fff;font-size:12.5px;padding:3px 10px;border-radius:2px;margin-bottom:8px;}
+
+  .exercise{border:1px solid var(--line);border-radius:3px;padding:14px 18px;margin-bottom:14px;background:var(--panel);}
+  .exercise-num{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;background:var(--ink);color:var(--paper);border-radius:50%;font-size:13px;font-weight:700;margin-inline-end:8px;}
+  .exercise h4{margin:0 0 9px;font-size:15.5px;display:flex;align-items:center;}
+  .fill-line{border-bottom:1px dotted var(--ink-soft);display:inline-block;min-width:80px;height:1.5em;}
+  .word-chip{display:inline-block;background:var(--paper);border:1px solid var(--line);border-radius:3px;padding:3px 11px;margin:2px 3px;font-size:15px;}
+  .qcm-item{margin-bottom:9px;}
+  .qcm-item p{margin-bottom:4px;font-weight:600;}
+  .qcm-options{display:flex;flex-wrap:wrap;gap:12px;font-size:13.5px;}
+  .qcm-options span{display:flex;align-items:center;gap:5px;}
+  .checkbox{width:12px;height:12px;border:1.4px solid var(--ink-soft);display:inline-block;border-radius:2px;}
+  .op-grid{display:flex;flex-wrap:wrap;gap:16px;}
+  .op-item{display:flex;align-items:center;gap:6px;font-size:15px;}
+
+  .corrige-wrapper{page-break-before:always;padding-top:6px;}
+  .corrige-flag{text-align:center;font-size:12.5px;color:var(--ink-soft);margin-bottom:10px;border-top:1px dashed var(--ink-soft);padding-top:14px;}
+  details.corrige{border:2px dashed var(--rose);border-radius:4px;background:#fdf7f5;padding:6px 20px 18px;}
+  details.corrige > summary{cursor:pointer;font-family:'Amiri',serif;font-weight:700;font-size:18px;color:var(--rose);padding:12px 0;list-style:none;}
+  details.corrige > summary::-webkit-details-marker{display:none;}
+  details.corrige > summary::before{content:"✂ ";}
+  details.corrige > summary::after{content:"— اضغط لإظهار الحل / إخفائه";font-family:'Noto Naskh Arabic',serif;font-weight:400;font-size:12.5px;color:var(--ink-soft);margin-inline-start:8px;}
+  .corrige h4{color:var(--rose);margin:14px 0 6px;font-size:15px;}
+  .corrige-item{margin-bottom:7px;font-size:14px;line-height:1.85;}
+  .corrige table.data-table th{background:var(--rose);}
+
+  .footer-note{margin-top:26px;text-align:center;font-size:11.5px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:10px;}
+
+  @media print{
+    body{background:#fff;}
+    .sheet{box-shadow:none;border:none;margin:0;max-width:100%;padding:14px 6px;}
+    details.corrige{border-color:#000;}
+  }
+  @page{size:A4;margin:13mm;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="masthead-text">
+      <h1>الألفُ اللينةُ: مقصورةٌ وممدودةٌ</h1>
+      <p class="subtitle">مادة اللغة العربية — الإملاء</p>
+    </div>
+    <svg class="alif-icon" viewBox="0 0 48 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="16" y1="6" x2="16" y2="50" stroke="#4b3f8f" stroke-width="3"/>
+      <path d="M32 6 L38 20 L26 20 Z" fill="#b1553f"/>
+      <line x1="32" y1="20" x2="32" y2="50" stroke="#b1553f" stroke-width="3"/>
+    </svg>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta-chip">المستوى: <b>الخامسة ابتدائي (5AEP)</b></div>
+    <div class="meta-chip">المادة: <b>اللغة العربية — الإملاء</b></div>
+    <div class="meta-chip">مدة الحصة: <b>ساعة إلى ساعة ونصف</b></div>
+    <div class="meta-chip">نوع الوثيقة: <b>فيشة تعلّم ذاتي</b></div>
+  </div>
+
+  <!-- ===================== OBJECTIF ===================== -->
+  <section>
+    <h2 class="section-title">🎯 الهدف من الدرس</h2>
+    <div class="objectif-box">
+      يتمكّن المتعلم(ة) في نهاية هذا الدرس من: التعرّف على الألف اللينة وصورتيها (الممدودة والمقصورة)، وتمييز كتابة الألف اللينة في الأفعال والأسماء الثلاثية بالرجوع إلى المضارع أو المثنى، وتحديد كتابتها في الأفعال والأسماء الزائدة عن ثلاثة أحرف.
+    </div>
+  </section>
+
+  <!-- ===================== COURS ===================== -->
+  <section>
+    <h2 class="section-title">📘 الدرس</h2>
+
+    <h3 class="sub-title">1) تعريف الألف اللينة</h3>
+    <div class="rule-box">
+      <p><b>الألف اللينة</b> ألف تُكتب في آخر بعض الكلمات، ولها صورتان في الكتابة:</p>
+    </div>
+    <div class="type-grid">
+      <div class="type-card mad">
+        <div class="head">الألف الممدودة (الطويلة)</div>
+        <div class="big-alif">ا</div>
+        <p>مثال: دعا، عصا، سما</p>
+      </div>
+      <div class="type-card maq">
+        <div class="head">الألف المقصورة (القصيرة)</div>
+        <div class="big-alif">ى</div>
+        <p>مثال: رمى، فتى، هدى</p>
+      </div>
+    </div>
+
+    <h3 class="sub-title">2) الألف اللينة في الفعل الثلاثي</h3>
+    <div class="rule-box">
+      <p>لمعرفة نوع الألف اللينة في فعل ثلاثي، <b>نردّه إلى المضارع</b>:</p>
+      <ul>
+        <li>إذا كان المضارع بـ<b>واو</b> ⟵ تُكتب الألف <b>ممدودة (ا)</b>. مثال: دعا ⟵ يدعو</li>
+        <li>إذا كان المضارع بـ<b>ياء</b> ⟵ تُكتب الألف <b>مقصورة (ى)</b>. مثال: رمى ⟵ يرمي</li>
+      </ul>
+    </div>
+    <table class="data-table">
+      <tr><th>الفعل</th><th>المضارع</th><th>نوع الألف</th></tr>
+      <tr><td>دعا</td><td>يدعو</td><td>ممدودة (ا)</td></tr>
+      <tr><td>غزا</td><td>يغزو</td><td>ممدودة (ا)</td></tr>
+      <tr><td>رمى</td><td>يرمي</td><td>مقصورة (ى)</td></tr>
+      <tr><td>بنى</td><td>يبني</td><td>مقصورة (ى)</td></tr>
+    </table>
+
+    <h3 class="sub-title">3) الألف اللينة في الفعل الزائد عن ثلاثة أحرف</h3>
+    <div class="rule-box">
+      <p>تُكتب الألف اللينة <b>مقصورة (ى)</b> غالباً في الأفعال الزائدة عن ثلاثة أحرف.</p>
+      <p style="text-align:center;font-weight:700;color:var(--indigo);">أعطى — استدعى — ارتقى — اهتدى</p>
+    </div>
+
+    <h3 class="sub-title">4) الألف اللينة في الاسم الثلاثي</h3>
+    <div class="rule-box">
+      <p>لمعرفة نوع الألف اللينة في اسم ثلاثي، <b>نردّه إلى المثنى</b>:</p>
+      <ul>
+        <li>إذا ظهرت <b>واواً</b> في المثنى ⟵ تُكتب الألف <b>ممدودة (ا)</b>. مثال: عصا ⟵ عصوان</li>
+        <li>إذا ظهرت <b>ياءً</b> في المثنى ⟵ تُكتب الألف <b>مقصورة (ى)</b>. مثال: فتى ⟵ فتيان</li>
+      </ul>
+    </div>
+    <table class="data-table">
+      <tr><th>الاسم</th><th>المثنى</th><th>نوع الألف</th></tr>
+      <tr><td>عصا</td><td>عصوان</td><td>ممدودة (ا)</td></tr>
+      <tr><td>قفا</td><td>قفوان</td><td>ممدودة (ا)</td></tr>
+      <tr><td>فتى</td><td>فتيان</td><td>مقصورة (ى)</td></tr>
+      <tr><td>ندى</td><td>نديان</td><td>مقصورة (ى)</td></tr>
+    </table>
+
+    <h3 class="sub-title">5) الألف اللينة في الاسم الزائد عن ثلاثة أحرف</h3>
+    <div class="rule-box">
+      <p>تُكتب الألف اللينة <b>مقصورة (ى)</b> غالباً في الأسماء الزائدة عن ثلاثة أحرف.</p>
+      <p style="text-align:center;font-weight:700;color:var(--indigo);">مستشفى — منتدى — ملتقى — مصطفى</p>
+    </div>
+
+    <h3 class="sub-title">6) جدول ملخّص</h3>
+    <table class="data-table">
+      <tr><th>الكلمة</th><th>القاعدة</th><th>نوع الألف</th></tr>
+      <tr><td>فعل ثلاثي</td><td>مضارعه بواو</td><td>ممدودة (ا)</td></tr>
+      <tr><td>فعل ثلاثي</td><td>مضارعه بياء</td><td>مقصورة (ى)</td></tr>
+      <tr><td>فعل زائد عن 3 أحرف</td><td>—</td><td>مقصورة (ى) غالباً</td></tr>
+      <tr><td>اسم ثلاثي</td><td>مثناه بواو</td><td>ممدودة (ا)</td></tr>
+      <tr><td>اسم ثلاثي</td><td>مثناه بياء</td><td>مقصورة (ى)</td></tr>
+      <tr><td>اسم زائد عن 3 أحرف</td><td>—</td><td>مقصورة (ى) غالباً</td></tr>
+    </table>
+  </section>
+
+  <!-- ===================== ACTIVITE ===================== -->
+  <section>
+    <h2 class="section-title">✏️ نشاط تطبيقي</h2>
+    <div class="activity-box">
+      <span class="task-label">تحديد نوع الألف اللينة</span>
+      <p>أكمل الجدول التالي بردّ كل كلمة إلى المضارع (للأفعال) أو المثنى (للأسماء)، ثم حدّد نوع الألف اللينة:</p>
+      <table class="data-table">
+        <tr><th>الكلمة</th><th>المضارع أو المثنى</th><th>نوع الألف</th></tr>
+        <tr><td>سما (فعل)</td><td><span class="fill-line" style="min-width:100%;"></span></td><td><span class="fill-line"></span></td></tr>
+        <tr><td>مشى (فعل)</td><td><span class="fill-line" style="min-width:100%;"></span></td><td><span class="fill-line"></span></td></tr>
+        <tr><td>رحى (اسم)</td><td><span class="fill-line" style="min-width:100%;"></span></td><td><span class="fill-line"></span></td></tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===================== EXERCICES ===================== -->
+  <section>
+    <h2 class="section-title">📝 تمارين للتدرّب</h2>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">1</span>صنّف الأفعال التالية إلى (ممدودة / مقصورة) بالاعتماد على مضارعها المذكور بين قوسين:</h4>
+      <div class="op-grid">
+        <div class="op-item">دعا (يدعو) → <span class="fill-line"></span></div>
+        <div class="op-item">رمى (يرمي) → <span class="fill-line"></span></div>
+        <div class="op-item">غزا (يغزو) → <span class="fill-line"></span></div>
+        <div class="op-item">بنى (يبني) → <span class="fill-line"></span></div>
+        <div class="op-item">مشى (يمشي) → <span class="fill-line"></span></div>
+        <div class="op-item">عفا (يعفو) → <span class="fill-line"></span></div>
+        <div class="op-item">قضى (يقضي) → <span class="fill-line"></span></div>
+        <div class="op-item">سما (يسمو) → <span class="fill-line"></span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">2</span>صنّف الأسماء التالية إلى (ممدودة / مقصورة) بالاعتماد على مثناها المذكور بين قوسين:</h4>
+      <div class="op-grid">
+        <div class="op-item">عصا (عصوان) → <span class="fill-line"></span></div>
+        <div class="op-item">فتى (فتيان) → <span class="fill-line"></span></div>
+        <div class="op-item">قفا (قفوان) → <span class="fill-line"></span></div>
+        <div class="op-item">ندى (نديان) → <span class="fill-line"></span></div>
+        <div class="op-item">رحى (رحيان) → <span class="fill-line"></span></div>
+        <div class="op-item">خطا (خطوان) → <span class="fill-line"></span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">3</span>حدّد نوع الألف اللينة في الأفعال الزائدة عن ثلاثة أحرف التالية:</h4>
+      <div class="op-grid">
+        <div class="op-item">أعطى → <span class="fill-line"></span></div>
+        <div class="op-item">استدعى → <span class="fill-line"></span></div>
+        <div class="op-item">ارتقى → <span class="fill-line"></span></div>
+        <div class="op-item">اهتدى → <span class="fill-line"></span></div>
+        <div class="op-item">استوفى → <span class="fill-line"></span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">4</span>حدّد نوع الألف اللينة في الأسماء الزائدة عن ثلاثة أحرف التالية:</h4>
+      <div class="op-grid">
+        <div class="op-item">مستشفى → <span class="fill-line"></span></div>
+        <div class="op-item">منتدى → <span class="fill-line"></span></div>
+        <div class="op-item">ملتقى → <span class="fill-line"></span></div>
+        <div class="op-item">مرتضى → <span class="fill-line"></span></div>
+        <div class="op-item">مصطفى → <span class="fill-line"></span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">5</span>اختر الإجابة الصحيحة:</h4>
+      <div class="qcm-item">
+        <p>1) الألف اللينة هي الألف التي تُكتب:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>في أول الكلمة</span><span><span class="checkbox"></span>في آخر الكلمة</span><span><span class="checkbox"></span>في وسط الكلمة</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>2) تُكتب الألف اللينة ممدودة "ا" في الفعل الثلاثي إذا كان مضارعه:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>بواو</span><span><span class="checkbox"></span>بياء</span><span><span class="checkbox"></span>بألف</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>3) تُكتب الألف اللينة مقصورة "ى" في الفعل الثلاثي إذا كان مضارعه:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>بواو</span><span><span class="checkbox"></span>بياء</span><span><span class="checkbox"></span>بألف</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>4) الألف اللينة في الفعل الزائد عن ثلاثة أحرف تُكتب غالباً:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>ممدودة</span><span><span class="checkbox"></span>مقصورة</span><span><span class="checkbox"></span>بدون ألف</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>5) لمعرفة نوع الألف اللينة في اسم ثلاثي، نردّه إلى:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>الجمع</span><span><span class="checkbox"></span>المثنى</span><span><span class="checkbox"></span>الفعل</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">6</span>أكمل الجمل التالية بالألف اللينة الصحيحة (ا أو ى):</h4>
+      <p>1) دع.... الطفل والديه إلى الحفل.</p>
+      <p>2) رم.... اللاعب الكرة بقوة.</p>
+      <p>3) بن.... العمال منزلاً جديداً.</p>
+      <p>4) عف.... المعلم عن تلميذه المخطئ.</p>
+      <p>5) زار المريض المستشف....</p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">7</span>صحّح الأخطاء الإملائية في الكلمات التالية:</h4>
+      <div class="op-grid">
+        <div class="op-item">دعى ← <span class="fill-line"></span></div>
+        <div class="op-item">رما ← <span class="fill-line"></span></div>
+        <div class="op-item">الفتا ← <span class="fill-line"></span></div>
+        <div class="op-item">العصى ← <span class="fill-line"></span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">8</span>وظّف الفعلين "دعا" و"رمى" كلاً في جملة مفيدة، ثم اكتب مضارع كل فعل لتبرير كتابة الألف اللينة فيه:</h4>
+      <p>دعا: <span class="fill-line" style="min-width:100%;"></span></p>
+      <p>المضارع: <span class="fill-line" style="min-width:60%;"></span></p>
+      <p>رمى: <span class="fill-line" style="min-width:100%;"></span></p>
+      <p>المضارع: <span class="fill-line" style="min-width:60%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== CORRIGE ===================== -->
+  <div class="corrige-wrapper">
+    <p class="corrige-flag">✂ يمكن طي هذه الصفحة أو إخفاؤها (اضغط على العنوان أدناه) قبل إنجاز التمارين ✂</p>
+    <details class="corrige">
+      <summary>التصحيح الكامل</summary>
+
+      <h4>تصحيح النشاط التطبيقي</h4>
+      <table class="data-table">
+        <tr><th>الكلمة</th><th>المضارع/المثنى</th><th>نوع الألف</th></tr>
+        <tr><td>سما</td><td>يسمو</td><td>ممدودة (ا)</td></tr>
+        <tr><td>مشى</td><td>يمشي</td><td>مقصورة (ى)</td></tr>
+        <tr><td>رحى</td><td>رحيان</td><td>مقصورة (ى)</td></tr>
+      </table>
+
+      <h4>تصحيح التمرين 1 (الأفعال الثلاثية)</h4>
+      <div class="corrige-item">دعا: ممدودة &nbsp;|&nbsp; رمى: مقصورة &nbsp;|&nbsp; غزا: ممدودة &nbsp;|&nbsp; بنى: مقصورة &nbsp;|&nbsp; مشى: مقصورة &nbsp;|&nbsp; عفا: ممدودة &nbsp;|&nbsp; قضى: مقصورة &nbsp;|&nbsp; سما: ممدودة</div>
+
+      <h4>تصحيح التمرين 2 (الأسماء الثلاثية)</h4>
+      <div class="corrige-item">عصا: ممدودة &nbsp;|&nbsp; فتى: مقصورة &nbsp;|&nbsp; قفا: ممدودة &nbsp;|&nbsp; ندى: مقصورة &nbsp;|&nbsp; رحى: مقصورة &nbsp;|&nbsp; خطا: ممدودة</div>
+
+      <h4>تصحيح التمرين 3 (الأفعال الزائدة)</h4>
+      <div class="corrige-item">جميعها مقصورة: أعطى، استدعى، ارتقى، اهتدى، استوفى</div>
+
+      <h4>تصحيح التمرين 4 (الأسماء الزائدة)</h4>
+      <div class="corrige-item">جميعها مقصورة: مستشفى، منتدى، ملتقى، مرتضى، مصطفى</div>
+
+      <h4>تصحيح التمرين 5 (الاختيار من متعدد)</h4>
+      <div class="corrige-item">1) في آخر الكلمة &nbsp;|&nbsp; 2) بواو &nbsp;|&nbsp; 3) بياء &nbsp;|&nbsp; 4) مقصورة &nbsp;|&nbsp; 5) المثنى</div>
+
+      <h4>تصحيح التمرين 6 (إكمال الجمل)</h4>
+      <div class="corrige-item">1) دع<b>ا</b> &nbsp;|&nbsp; 2) رم<b>ى</b> &nbsp;|&nbsp; 3) بن<b>ى</b> &nbsp;|&nbsp; 4) عف<b>ا</b> &nbsp;|&nbsp; 5) المستشف<b>ى</b></div>
+
+      <h4>تصحيح التمرين 7 (تصحيح الأخطاء)</h4>
+      <div class="corrige-item">دعى ← <b>دعا</b> &nbsp;|&nbsp; رما ← <b>رمى</b> &nbsp;|&nbsp; الفتا ← <b>الفتى</b> &nbsp;|&nbsp; العصى ← <b>العصا</b></div>
+
+      <h4>تصحيح التمرين 8 (التوظيف في جملة)</h4>
+      <div class="corrige-item">مثال: دعا الأبُ أبناءه إلى المائدة. — المضارع: يدعو (بواو) ← الألف ممدودة.</div>
+      <div class="corrige-item">مثال: رمى الصيادُ شبكته في البحر. — المضارع: يرمي (بياء) ← الألف مقصورة.</div>
+    </details>
+  </div>
+
+  <p class="footer-note">فيشة تعلّم ذاتي — اللغة العربية — الخامسة ابتدائي — الألف اللينة: مقصورة وممدودة</p>
+</div>
+</body>
+</html>
