@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>التاء المربوطة والتاء المبسوطة</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#241f33; --ink-soft:#54506a;
+    --paper:#faf8f5; --panel:#ffffff; --line:#ddd4e6;
+    --indigo:#4b3f8f; --indigo-soft:#e9e5f7;
+    --rose:#b1553f; --rose-soft:#f7e3dc;
+    --gold:#af8a2e; --gold-soft:#f4ecd2;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#e8e3ee;font-family:'Noto Naskh Arabic','Amiri',serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .sheet{max-width:900px;margin:24px auto;background:var(--paper);padding:38px 44px 50px;border:1px solid var(--line);box-shadow:0 4px 24px rgba(0,0,0,.12);}
+
+  .masthead{display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:3px solid var(--ink);padding-bottom:16px;margin-bottom:22px;}
+  .masthead-text h1{font-family:'Amiri',serif;font-weight:700;font-size:27px;margin:0 0 6px;color:var(--indigo);}
+  .masthead-text .subtitle{font-size:15px;color:var(--ink-soft);margin:0;}
+  .taa-icon{width:56px;height:56px;flex-shrink:0;}
+
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+  .meta-chip{border:1px solid var(--line);background:var(--panel);border-radius:3px;padding:6px 12px;font-size:13.5px;color:var(--ink-soft);}
+  .meta-chip b{color:var(--ink);font-weight:600;}
+
+  section{margin-bottom:26px;}
+  h2.section-title{font-family:'Amiri',serif;font-size:21px;font-weight:700;color:var(--indigo);border-bottom:2px solid var(--indigo);padding-bottom:6px;margin:0 0 14px;display:flex;align-items:baseline;gap:8px;}
+  h3.sub-title{font-size:17px;font-weight:700;color:var(--rose);margin:18px 0 8px;}
+  p{line-height:1.95;font-size:15.5px;margin:0 0 9px;}
+
+  .objectif-box{background:var(--gold-soft);border-right:4px solid var(--gold);padding:14px 18px;border-radius:2px;font-size:15.5px;line-height:1.9;}
+
+  .rule-box{background:var(--panel);border:1px solid var(--line);border-right:4px solid var(--indigo);padding:12px 18px;border-radius:2px;margin:8px 0 14px;}
+  .rule-box p:last-child{margin-bottom:0;}
+  .rule-box ul,.rule-box ol{margin:6px 0;padding-inline-start:22px;}
+  .rule-box li{margin-bottom:5px;line-height:1.85;}
+
+  .important-box{background:var(--rose-soft);border:2px solid var(--rose);border-radius:6px;padding:12px 18px;margin:10px 0 16px;}
+  .important-box b{color:var(--rose);}
+
+  .type-grid{display:flex;flex-wrap:wrap;gap:16px;margin:10px 0 14px;}
+  .type-card{flex:1 1 260px;border-radius:8px;padding:12px 16px;}
+  .type-card.marbouta{background:var(--indigo-soft);border:1px solid var(--indigo);}
+  .type-card.mabsouta{background:var(--rose-soft);border:1px solid var(--rose);}
+  .type-card .head{font-weight:700;font-size:16px;margin-bottom:6px;}
+  .type-card.marbouta .head{color:var(--indigo);}
+  .type-card.mabsouta .head{color:var(--rose);}
+  .type-card p{margin:0;font-size:14px;line-height:1.85;}
+  .big-taa{font-family:'Amiri',serif;font-weight:700;font-size:26px;text-align:center;}
+
+  table.data-table{width:100%;border-collapse:collapse;margin:8px 0 16px;font-size:14.5px;}
+  table.data-table th{background:var(--indigo);color:#fff;padding:7px 9px;font-weight:600;font-size:13.5px;}
+  table.data-table td{border:1px solid var(--line);padding:7px 9px;background:var(--panel);text-align:center;}
+  table.data-table tr:nth-child(even) td{background:#f2effa;}
+
+  .activity-box{background:var(--panel);border:1.5px solid var(--gold);border-radius:3px;padding:16px 20px;}
+  .activity-box .task-label{display:inline-block;background:var(--gold);color:#fff;font-size:12.5px;padding:3px 10px;border-radius:2px;margin-bottom:8px;}
+
+  .exercise{border:1px solid var(--line);border-radius:3px;padding:14px 18px;margin-bottom:14px;background:var(--panel);}
+  .exercise-num{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;background:var(--ink);color:var(--paper);border-radius:50%;font-size:13px;font-weight:700;margin-inline-end:8px;}
+  .exercise h4{margin:0 0 9px;font-size:15.5px;display:flex;align-items:center;}
+  .fill-line{border-bottom:1px dotted var(--ink-soft);display:inline-block;min-width:80px;height:1.5em;}
+  .word-chip{display:inline-block;background:var(--paper);border:1px solid var(--line);border-radius:3px;padding:3px 11px;margin:2px 3px;font-size:15px;}
+  .qcm-item{margin-bottom:9px;}
+  .qcm-item p{margin-bottom:4px;font-weight:600;}
+  .qcm-options{display:flex;flex-wrap:wrap;gap:12px;font-size:13.5px;}
+  .qcm-options span{display:flex;align-items:center;gap:5px;}
+  .checkbox{width:12px;height:12px;border:1.4px solid var(--ink-soft);display:inline-block;border-radius:2px;}
+  .op-grid{display:flex;flex-wrap:wrap;gap:16px;}
+  .op-item{display:flex;align-items:center;gap:6px;font-size:15px;}
+
+  .corrige-wrapper{page-break-before:always;padding-top:6px;}
+  .corrige-flag{text-align:center;font-size:12.5px;color:var(--ink-soft);margin-bottom:10px;border-top:1px dashed var(--ink-soft);padding-top:14px;}
+  details.corrige{border:2px dashed var(--rose);border-radius:4px;background:#fdf7f5;padding:6px 20px 18px;}
+  details.corrige > summary{cursor:pointer;font-family:'Amiri',serif;font-weight:700;font-size:18px;color:var(--rose);padding:12px 0;list-style:none;}
+  details.corrige > summary::-webkit-details-marker{display:none;}
+  details.corrige > summary::before{content:"✂ ";}
+  details.corrige > summary::after{content:"— اضغط لإظهار الحل / إخفائه";font-family:'Noto Naskh Arabic',serif;font-weight:400;font-size:12.5px;color:var(--ink-soft);margin-inline-start:8px;}
+  .corrige h4{color:var(--rose);margin:14px 0 6px;font-size:15px;}
+  .corrige-item{margin-bottom:7px;font-size:14px;line-height:1.85;}
+  .corrige table.data-table th{background:var(--rose);}
+
+  .footer-note{margin-top:26px;text-align:center;font-size:11.5px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:10px;}
+
+  @media print{
+    body{background:#fff;}
+    .sheet{box-shadow:none;border:none;margin:0;max-width:100%;padding:14px 6px;}
+    details.corrige{border-color:#000;}
+  }
+  @page{size:A4;margin:13mm;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="masthead-text">
+      <h1>التاءُ المربوطةُ والتاءُ المبسوطةُ</h1>
+      <p class="subtitle">مادة اللغة العربية — الإملاء</p>
+    </div>
+    <svg class="taa-icon" viewBox="0 0 48 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="24" cy="20" r="14" fill="none" stroke="#4b3f8f" stroke-width="3"/>
+      <circle cx="19" cy="16" r="2" fill="#4b3f8f"/><circle cx="29" cy="16" r="2" fill="#4b3f8f"/>
+      <line x1="10" y1="44" x2="38" y2="44" stroke="#b1553f" stroke-width="3"/>
+      <circle cx="16" cy="38" r="2" fill="#b1553f"/><circle cx="32" cy="38" r="2" fill="#b1553f"/>
+    </svg>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta-chip">المستوى: <b>الخامسة ابتدائي (5AEP)</b></div>
+    <div class="meta-chip">المادة: <b>اللغة العربية — الإملاء</b></div>
+    <div class="meta-chip">مدة الحصة: <b>ساعة إلى ساعة ونصف</b></div>
+    <div class="meta-chip">نوع الوثيقة: <b>فيشة تعلّم ذاتي</b></div>
+  </div>
+
+  <!-- ===================== OBJECTIF ===================== -->
+  <section>
+    <h2 class="section-title">🎯 الهدف من الدرس</h2>
+    <div class="objectif-box">
+      يتمكّن المتعلم(ة) في نهاية هذا الدرس من: التعرّف على التاء المربوطة والتاء المبسوطة، والتمييز بينهما بالاعتماد على النطق عند الوقف، وتحديد مواضع كتابة كل واحدة منهما في الأسماء والأفعال.
+    </div>
+  </section>
+
+  <!-- ===================== COURS ===================== -->
+  <section>
+    <h2 class="section-title">📘 الدرس</h2>
+
+    <h3 class="sub-title">1) تعريف التاءين</h3>
+    <div class="type-grid">
+      <div class="type-card marbouta">
+        <div class="head">التاء المربوطة</div>
+        <div class="big-taa">ة</div>
+        <p>تُنطق <b>هاءً</b> عند الوقف (التوقف عن القراءة). مثال: مدرسة، وردة</p>
+      </div>
+      <div class="type-card mabsouta">
+        <div class="head">التاء المبسوطة (المفتوحة)</div>
+        <div class="big-taa">ت</div>
+        <p>تُنطق <b>تاءً</b> عند الوقف أيضاً. مثال: بيت، صوت</p>
+      </div>
+    </div>
+
+    <h3 class="sub-title">2) القاعدة العملية للتمييز بينهما</h3>
+    <div class="rule-box">
+      <p>لمعرفة نوع التاء في كلمة ما، <b>نقف عليها</b> (نتوقف عن القراءة عندها) ونستمع إلى صوتها:</p>
+      <ul>
+        <li>إذا نُطقت <b>هاءً</b> عند الوقف ⟵ فهي <b>تاء مربوطة (ة)</b>. مثال: مدرسة ⟵ "مدرسه"</li>
+        <li>إذا بقيت تُنطق <b>تاءً</b> عند الوقف ⟵ فهي <b>تاء مبسوطة (ت)</b>. مثال: بيت ⟵ "بيت"</li>
+      </ul>
+    </div>
+
+    <h3 class="sub-title">3) مواضع كتابة التاء المربوطة (ة)</h3>
+    <div class="rule-box">
+      <ul>
+        <li>في آخر معظم الأسماء المؤنثة: مدرسةٌ، حديقةٌ، وردةٌ، سيارةٌ</li>
+        <li>في آخر صفة المؤنث: كبيرةٌ، جميلةٌ، طويلةٌ</li>
+      </ul>
+    </div>
+
+    <h3 class="sub-title">4) مواضع كتابة التاء المبسوطة (ت)</h3>
+    <div class="rule-box">
+      <ul>
+        <li>في آخر معظم الأسماء المذكرة: بيتٌ، صوتٌ، وقتٌ، زيتٌ</li>
+        <li>في بعض الأسماء المؤنثة التي لا تنتهي بتاء مربوطة: بنتٌ</li>
+        <li>في آخر جمع المؤنث السالم: معلماتٌ، طالباتٌ، مسلماتٌ</li>
+      </ul>
+    </div>
+
+    <div class="important-box">
+      <p>⚠️ <b>قاعدة مهمة جداً:</b> تُكتب تاء <b>الفعل الماضي</b> دائماً <b>مبسوطة (ت)</b>، سواء كانت تاء الفاعل (كتبْـتُ) أو تاء التأنيث الساكنة (كتبَـتْ). <b>لا تُكتب أبداً تاء مربوطة في الأفعال.</b></p>
+    </div>
+
+    <h3 class="sub-title">5) جدول مقارن بالأمثلة</h3>
+    <table class="data-table">
+      <tr><th>تاء مربوطة (ة)</th><th>تاء مبسوطة (ت)</th></tr>
+      <tr><td>مدرسة</td><td>بيت</td></tr>
+      <tr><td>وردة</td><td>صوت</td></tr>
+      <tr><td>حديقة</td><td>وقت</td></tr>
+      <tr><td>طاولة</td><td>بنت</td></tr>
+      <tr><td>—</td><td>معلماتٌ (جمع)</td></tr>
+      <tr><td>—</td><td>كتبَتْ (فعل)</td></tr>
+    </table>
+  </section>
+
+  <!-- ===================== ACTIVITE ===================== -->
+  <section>
+    <h2 class="section-title">✏️ نشاط تطبيقي</h2>
+    <div class="activity-box">
+      <span class="task-label">الوقف على الكلمات</span>
+      <p>انطق الكلمات التالية بالوقف (توقف عندها)، ثم حدّد نوع التاء في كل واحدة:</p>
+      <table class="data-table">
+        <tr><th>الكلمة</th><th>النطق عند الوقف</th><th>نوع التاء</th></tr>
+        <tr><td>غرفة</td><td><span class="fill-line" style="min-width:100%;"></span></td><td><span class="fill-line"></span></td></tr>
+        <tr><td>نبات</td><td><span class="fill-line" style="min-width:100%;"></span></td><td><span class="fill-line"></span></td></tr>
+        <tr><td>طالبات</td><td><span class="fill-line" style="min-width:100%;"></span></td><td><span class="fill-line"></span></td></tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===================== EXERCICES ===================== -->
+  <section>
+    <h2 class="section-title">📝 تمارين للتدرّب</h2>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">1</span>صنّف الكلمات التالية إلى (تاء مربوطة / تاء مبسوطة):</h4>
+      <p>
+        <span class="word-chip">مدرسة</span>
+        <span class="word-chip">بيت</span>
+        <span class="word-chip">وردة</span>
+        <span class="word-chip">صوت</span>
+        <span class="word-chip">طاولة</span>
+        <span class="word-chip">وقت</span>
+        <span class="word-chip">حديقة</span>
+        <span class="word-chip">بنت</span>
+      </p>
+      <table class="data-table">
+        <tr><th>تاء مربوطة (ة)</th><th>تاء مبسوطة (ت)</th></tr>
+        <tr><td style="height:60px;"></td><td></td></tr>
+      </table>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">2</span>أضف التاء المناسبة (ة أو ت) لإكمال الكلمات الناقصة:</h4>
+      <p>1) اشتريتُ ورد.... جميلة.</p>
+      <p>2) جلستُ على كرسي البي....</p>
+      <p>3) لعبتْ الطفلةُ في الحديق....</p>
+      <p>4) اشتريتُ زجاجة زي....</p>
+      <p>5) كتبَـ.... الطالبةُ الدرسَ.</p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">3</span>اختر الإجابة الصحيحة:</h4>
+      <div class="qcm-item">
+        <p>1) التاء المربوطة تُنطق عند الوقف:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>تاءً</span><span><span class="checkbox"></span>هاءً</span><span><span class="checkbox"></span>لا تُنطق</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>2) التاء المبسوطة تُنطق عند الوقف:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>تاءً</span><span><span class="checkbox"></span>هاءً</span><span><span class="checkbox"></span>لا تُنطق</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>3) تُكتب تاء الفعل الماضي دائماً:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>مربوطة</span><span><span class="checkbox"></span>مبسوطة</span><span><span class="checkbox"></span>حسب الفعل</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>4) كلمة "بنت" تُكتب بتاء:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>مربوطة</span><span><span class="checkbox"></span>مبسوطة</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>5) جمع المؤنث السالم (كمعلمات) يُكتب بتاء:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>مربوطة</span><span><span class="checkbox"></span>مبسوطة</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">4</span>ميّز نوع التاء في الأفعال التالية، وبيّن السبب:</h4>
+      <div class="op-grid">
+        <div class="op-item">كتبَتْ → <span class="fill-line"></span></div>
+        <div class="op-item">ذهبَتْ → <span class="fill-line"></span></div>
+        <div class="op-item">كتبْتُ → <span class="fill-line"></span></div>
+        <div class="op-item">لعبَتْ → <span class="fill-line"></span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">5</span>صنّف الكلمات التالية إلى ثلاث مجموعات: (أسماء مؤنثة بتاء مربوطة / أسماء مذكرة بتاء مبسوطة / جموع مؤنث سالم بتاء مبسوطة):</h4>
+      <p>
+        <span class="word-chip">مدرسة</span>
+        <span class="word-chip">بيت</span>
+        <span class="word-chip">معلمات</span>
+        <span class="word-chip">وردة</span>
+        <span class="word-chip">صوت</span>
+        <span class="word-chip">طالبات</span>
+      </p>
+      <table class="data-table">
+        <tr><th>مؤنث بتاء مربوطة</th><th>مذكر بتاء مبسوطة</th><th>جمع مؤنث سالم</th></tr>
+        <tr><td style="height:60px;"></td><td></td><td></td></tr>
+      </table>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">6</span>صحّح الأخطاء الإملائية في الكلمات التالية:</h4>
+      <div class="op-grid">
+        <div class="op-item">مدرست ← <span class="fill-line"></span></div>
+        <div class="op-item">بيتة ← <span class="fill-line"></span></div>
+        <div class="op-item">معلماة ← <span class="fill-line"></span></div>
+        <div class="op-item">وردت ← <span class="fill-line"></span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">7</span>أكمل الجمل التالية بالكلمة المناسبة من القائمة: (مدرسة — بيت — طالبات — وردة)</h4>
+      <p>1) ذهب التلاميذ إلى .......... </p>
+      <p>2) نام الطفل في .......... </p>
+      <p>3) اجتهدت ال.......... في دروسهن.</p>
+      <p>4) قطفتُ .......... حمراء من الحديقة.</p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">8</span>اكتب 3 جمل مفيدة، تحتوي كل جملة على كلمة واحدة بتاء مربوطة وكلمة واحدة بتاء مبسوطة:</h4>
+      <p>1) <span class="fill-line" style="min-width:100%;"></span></p>
+      <p>2) <span class="fill-line" style="min-width:100%;"></span></p>
+      <p>3) <span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== CORRIGE ===================== -->
+  <div class="corrige-wrapper">
+    <p class="corrige-flag">✂ يمكن طي هذه الصفحة أو إخفاؤها (اضغط على العنوان أدناه) قبل إنجاز التمارين ✂</p>
+    <details class="corrige">
+      <summary>التصحيح الكامل</summary>
+
+      <h4>تصحيح النشاط التطبيقي</h4>
+      <table class="data-table">
+        <tr><th>الكلمة</th><th>النطق عند الوقف</th><th>نوع التاء</th></tr>
+        <tr><td>غرفة</td><td>غرفه</td><td>مربوطة (ة)</td></tr>
+        <tr><td>نبات</td><td>نبات</td><td>مبسوطة (ت)</td></tr>
+        <tr><td>طالبات</td><td>طالبات</td><td>مبسوطة (ت)</td></tr>
+      </table>
+
+      <h4>تصحيح التمرين 1 (التصنيف)</h4>
+      <div class="corrige-item"><b>تاء مربوطة:</b> مدرسة، وردة، طاولة، حديقة</div>
+      <div class="corrige-item"><b>تاء مبسوطة:</b> بيت، صوت، وقت، بنت</div>
+
+      <h4>تصحيح التمرين 2 (إكمال الكلمات)</h4>
+      <div class="corrige-item">1) ورد<b>ة</b> &nbsp;|&nbsp; 2) البي<b>ت</b> &nbsp;|&nbsp; 3) الحديق<b>ة</b> &nbsp;|&nbsp; 4) زي<b>ت</b> &nbsp;|&nbsp; 5) كتبَـ<b>ت</b></div>
+
+      <h4>تصحيح التمرين 3 (الاختيار من متعدد)</h4>
+      <div class="corrige-item">1) هاءً &nbsp;|&nbsp; 2) تاءً &nbsp;|&nbsp; 3) مبسوطة &nbsp;|&nbsp; 4) مبسوطة &nbsp;|&nbsp; 5) مبسوطة</div>
+
+      <h4>تصحيح التمرين 4 (تاء الأفعال)</h4>
+      <div class="corrige-item">جميعها مبسوطة (ت): كتبَتْ (تاء تأنيث ساكنة) — ذهبَتْ (تاء تأنيث ساكنة) — كتبْتُ (تاء الفاعل) — لعبَتْ (تاء تأنيث ساكنة). الفعل الماضي لا يُكتب أبداً بتاء مربوطة.</div>
+
+      <h4>تصحيح التمرين 5 (التصنيف الثلاثي)</h4>
+      <div class="corrige-item"><b>مؤنث بتاء مربوطة:</b> مدرسة، وردة</div>
+      <div class="corrige-item"><b>مذكر بتاء مبسوطة:</b> بيت، صوت</div>
+      <div class="corrige-item"><b>جمع مؤنث سالم:</b> معلمات، طالبات</div>
+
+      <h4>تصحيح التمرين 6 (تصحيح الأخطاء)</h4>
+      <div class="corrige-item">مدرست ← <b>مدرسة</b> &nbsp;|&nbsp; بيتة ← <b>بيت</b> &nbsp;|&nbsp; معلماة ← <b>معلمات</b> &nbsp;|&nbsp; وردت ← <b>وردة</b></div>
+
+      <h4>تصحيح التمرين 7 (إكمال الجمل)</h4>
+      <div class="corrige-item">1) مدرسة &nbsp;|&nbsp; 2) بيت &nbsp;|&nbsp; 3) طالبات &nbsp;|&nbsp; 4) وردة</div>
+
+      <h4>تصحيح التمرين 8 (التوظيف في جمل)</h4>
+      <div class="corrige-item">مثال: ذهبتْ البنتُ إلى المدرسةِ حاملةً حقيبتها. (تحتوي على "البنت" بتاء مبسوطة و"المدرسة" بتاء مربوطة). يتحقق الأستاذ(ة) من صحة الجمل المقترحة من المتعلم(ة).</div>
+    </details>
+  </div>
+
+  <p class="footer-note">فيشة تعلّم ذاتي — اللغة العربية — الخامسة ابتدائي — التاء المربوطة والتاء المبسوطة</p>
+</div>
+</body>
+</html>
