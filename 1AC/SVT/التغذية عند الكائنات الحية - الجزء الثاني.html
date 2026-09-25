@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>التغذية عند الكائنات الحية - الجزء الثاني</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#20301f; --ink-soft:#4c5a48;
+    --paper:#f8faf4; --panel:#ffffff; --line:#d7e0cd;
+    --leaf:#3f7d3a; --leaf-soft:#e3f0df;
+    --sky:#2f7ea8; --sky-soft:#deeef6;
+    --amber:#c98a2e; --amber-soft:#f6e9d3;
+    --coral:#c1493a; --coral-soft:#fbe0d8;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#e4e9dc;font-family:'Noto Naskh Arabic','Amiri',serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .sheet{max-width:900px;margin:24px auto;background:var(--paper);padding:38px 44px 50px;border:1px solid var(--line);box-shadow:0 4px 24px rgba(0,0,0,.12);}
+
+  .masthead{display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:3px solid var(--ink);padding-bottom:16px;margin-bottom:22px;}
+  .masthead-text h1{font-family:'Amiri',serif;font-weight:700;font-size:25px;margin:0 0 6px;color:var(--leaf);line-height:1.4;}
+  .masthead-text .subtitle{font-size:15px;color:var(--ink-soft);margin:0;}
+  .leaf-icon{width:56px;height:56px;flex-shrink:0;}
+
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+  .meta-chip{border:1px solid var(--line);background:var(--panel);border-radius:3px;padding:6px 12px;font-size:13.5px;color:var(--ink-soft);}
+  .meta-chip b{color:var(--ink);font-weight:600;}
+
+  section{margin-bottom:26px;}
+  h2.section-title{font-family:'Amiri',serif;font-size:20px;font-weight:700;color:var(--sky);border-bottom:2px solid var(--sky);padding-bottom:6px;margin:0 0 14px;display:flex;align-items:baseline;gap:8px;}
+  h3.sub-title{font-size:16.5px;font-weight:700;color:var(--amber);margin:18px 0 8px;}
+  p{line-height:1.95;font-size:15px;margin:0 0 9px;}
+
+  .objectif-box{background:var(--sky-soft);border-right:4px solid var(--sky);padding:14px 18px;border-radius:2px;font-size:15px;line-height:1.9;}
+
+  .rule-box{background:var(--panel);border:1px solid var(--line);border-right:4px solid var(--leaf);padding:12px 16px;border-radius:2px;margin:8px 0 14px;}
+  .rule-box p:last-child{margin-bottom:0;}
+  .rule-box ul,.rule-box ol{margin:6px 0;padding-inline-start:22px;}
+  .rule-box li{margin-bottom:5px;line-height:1.8;font-size:14.5px;}
+
+  .animal-grid{display:flex;flex-wrap:wrap;gap:14px;margin:10px 0 14px;}
+  .animal-card{flex:1 1 300px;border-radius:8px;padding:12px 16px;}
+  .animal-card.herbi{background:var(--leaf-soft);border:1px solid var(--leaf);}
+  .animal-card.carni{background:var(--coral-soft);border:1px solid var(--coral);}
+  .animal-card .head{font-weight:700;font-size:15.5px;margin-bottom:4px;}
+  .animal-card.herbi .head{color:var(--leaf);}
+  .animal-card.carni .head{color:var(--coral);}
+  .animal-card p{margin:0 0 4px;font-size:13.5px;color:var(--ink-soft);line-height:1.8;}
+  .formula{direction:ltr;text-align:center;font-weight:700;color:var(--ink);background:var(--panel);border:1px dashed var(--line);border-radius:4px;padding:6px;margin:6px 0;font-size:14px;}
+
+  .diet-grid{display:flex;flex-wrap:wrap;gap:12px;margin:10px 0 14px;}
+  .diet-card{flex:1 1 250px;border-radius:8px;padding:11px 14px;}
+  .diet-card.omni{background:var(--amber-soft);border:1px solid var(--amber);}
+  .diet-card.herbi2{background:var(--leaf-soft);border:1px solid var(--leaf);}
+  .diet-card.carni2{background:var(--coral-soft);border:1px solid var(--coral);}
+  .diet-card .head{font-weight:700;font-size:14.5px;margin-bottom:4px;}
+  .diet-card.omni .head{color:var(--amber);}
+  .diet-card.herbi2 .head{color:var(--leaf);}
+  .diet-card.carni2 .head{color:var(--coral);}
+  .diet-card ul{margin:4px 0 0;padding-inline-start:18px;}
+  .diet-card li{font-size:12.5px;margin-bottom:2px;color:var(--ink-soft);}
+
+  table.data-table{width:100%;border-collapse:collapse;margin:8px 0 16px;font-size:14px;}
+  table.data-table th{background:var(--sky);color:#fff;padding:7px 8px;font-weight:600;font-size:13px;}
+  table.data-table td{border:1px solid var(--line);padding:7px 8px;background:var(--panel);text-align:center;}
+  table.data-table tr:nth-child(even) td{background:#eef3e8;}
+
+  .activity-box{background:var(--panel);border:1.5px solid var(--amber);border-radius:3px;padding:14px 18px;}
+  .activity-box .task-label{display:inline-block;background:var(--amber);color:#fff;font-size:12px;padding:3px 10px;border-radius:2px;margin-bottom:8px;}
+
+  .exercise{border:1px solid var(--line);border-radius:3px;padding:14px 18px;margin-bottom:14px;background:var(--panel);}
+  .exercise-num{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;background:var(--ink);color:var(--paper);border-radius:50%;font-size:13px;font-weight:700;margin-inline-end:8px;}
+  .exercise h4{margin:0 0 9px;font-size:15.5px;display:flex;align-items:center;}
+  .fill-line{border-bottom:1px dotted var(--ink-soft);display:inline-block;min-width:110px;height:1.5em;}
+  .qcm-item{margin-bottom:9px;}
+  .qcm-item p{margin-bottom:4px;font-weight:600;}
+  .qcm-options{display:flex;flex-wrap:wrap;gap:12px;font-size:13.5px;}
+  .qcm-options span{display:flex;align-items:center;gap:5px;}
+  .checkbox{width:12px;height:12px;border:1.4px solid var(--ink-soft);display:inline-block;border-radius:2px;}
+
+  .corrige-wrapper{page-break-before:always;padding-top:6px;}
+  .corrige-flag{text-align:center;font-size:12.5px;color:var(--ink-soft);margin-bottom:10px;border-top:1px dashed var(--ink-soft);padding-top:14px;}
+  details.corrige{border:2px dashed var(--amber);border-radius:4px;background:#fdf8ee;padding:6px 20px 18px;}
+  details.corrige > summary{cursor:pointer;font-family:'Amiri',serif;font-weight:700;font-size:18px;color:var(--amber);padding:12px 0;list-style:none;}
+  details.corrige > summary::-webkit-details-marker{display:none;}
+  details.corrige > summary::before{content:"✂ ";}
+  details.corrige > summary::after{content:"— اضغط لإظهار الحل / إخفائه";font-family:'Noto Naskh Arabic',serif;font-weight:400;font-size:12.5px;color:var(--ink-soft);margin-inline-start:8px;}
+  .corrige h4{color:var(--amber);margin:14px 0 6px;font-size:15px;}
+  .corrige-item{margin-bottom:7px;font-size:14px;line-height:1.85;}
+  .corrige table.data-table th{background:var(--amber);}
+
+  .footer-note{margin-top:26px;text-align:center;font-size:11.5px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:10px;}
+
+  @media print{
+    body{background:#fff;}
+    .sheet{box-shadow:none;border:none;margin:0;max-width:100%;padding:14px 6px;}
+    details.corrige{border-color:#000;}
+  }
+  @page{size:A4;margin:13mm;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="masthead-text">
+      <h1>التغذيةُ عند الكائناتِ الحيةِ — الجزءُ الثاني</h1>
+      <p class="subtitle">علوم الحياة والأرض — مقارنة الأنظمة الغذائية: العاشب وآكل اللحوم</p>
+    </div>
+    <svg class="leaf-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M32 8c16 4 22 20 14 34C38 56 20 54 14 40 8 26 16 12 32 8z" fill="#3f7d3a" opacity="0.85"/>
+      <path d="M32 12c0 16 0 28 0 40" stroke="#e4e9dc" stroke-width="2"/>
+    </svg>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta-chip">المستوى: <b>الأولى إعدادي (1AC)</b></div>
+    <div class="meta-chip">المادة: <b>علوم الحياة والأرض (SVT)</b></div>
+    <div class="meta-chip">الحصة: <b>10 (الجزء الثاني)</b></div>
+    <div class="meta-chip">نوع الوثيقة: <b>فيشة تعلّم ذاتي</b></div>
+  </div>
+
+  <!-- ===================== OBJECTIF ===================== -->
+  <section>
+    <h2 class="section-title">🎯 الهدف من الدرس</h2>
+    <div class="objectif-box">
+      يتمكّن المتعلم(ة) في نهاية هذا الدرس من: مقارنة أسنان العاشب (الأرنب) وآكل اللحوم (القط) وتحديد وظيفة كل نوع سن، ومقارنة الأنبوب الهضمي بينهما، وربط خصائص كل نظام غذائي (آكل كل شيء، عاشب، آكل لحوم) بتجهيزات الجسم المناسبة له.
+    </div>
+  </section>
+
+  <!-- ===================== COURS ===================== -->
+  <section>
+    <h2 class="section-title">📘 الدرس</h2>
+
+    <h3 class="sub-title">1) تذكير</h3>
+    <div class="rule-box">
+      <p>رأينا في الجزء الأول أن الأنظمة الغذائية عند الحيوانات ثلاثة: <b>عاشب</b> (نباتي)، <b>آكل لحوم</b>، و<b>آكل كل شيء</b>. سنقارن الآن بين مثالين متعاكسين: <b>الأرنب</b> (عاشب) و<b>القط</b> (آكل لحوم)، لنفهم كيف تتكيّف أعضاء الجسم مع نوع الغذاء.</p>
+    </div>
+
+    <h3 class="sub-title">2) مقارنة الأسنان</h3>
+    <div class="animal-grid">
+      <div class="animal-card herbi">
+        <div class="head">🐰 دِنتة الأرنب (عاشب)</div>
+        <p>يملك الأرنب 28 سناً: الفك العلوي (4 قواطع + 12 رحى: 6 ضواحك و6 أرحاء)، والفك السفلي (2 قاطعتان + 10 رحى: 4 ضواحك و6 أرحاء). <b>لا يملك الأرنب أنياباً</b>. تسمح له القواطع بقبض الأطعمة وقطعها.</p>
+        <div class="formula">(2ق+0ن+3ض+3ر) / (1ق+0ن+2ض+3ر) = 28</div>
+      </div>
+      <div class="animal-card carni">
+        <div class="head">🐱 دِنتة القط (آكل لحوم)</div>
+        <p>يتغذّى القط على لحوم فرائسه، ويملك عضلات قوية بالساقين ومخالب قابلة للسحب. تتكوّن دِنتته من قواطع قصيرة، وأنياب طويلة لقتل الفريسة وحملها، وأرحاء حادة (كواسر) لتقطيع اللحم.</p>
+        <div class="formula">(3ق+1ن+3ض+1ر) / (3ق+1ن+2ض+1ر) = 30</div>
+      </div>
+    </div>
+
+    <h3 class="sub-title">3) مقارنة الأنبوب الهضمي</h3>
+    <div class="rule-box">
+      <p><b>الأرنب:</b> يملك أنبوباً هضمياً طويلاً ومتطوراً: مريء صغير، معدة كبيرة، أمعاء دقيقة طويلة، وأمعاء غليظة يبلغ طولها 10 أضعاف طول جسمه، تنتهي بأعورٍ (caecum) كبير الحجم. الهضم عنده <b>بطيء</b>.</p>
+      <p><b>القط:</b> يملك أنبوباً هضمياً قصيراً وبسيطاً: مريء عريض، معدة صغيرة، أمعاء دقيقة قصيرة، وأمعاء غليظة يبلغ طولها 3 أضعاف طول جسمه فقط. الهضم عنده <b>سريع</b>.</p>
+    </div>
+    <table class="data-table">
+      <tr><th>العضو</th><th>الأرنب (عاشب)</th><th>القط (آكل لحوم)</th></tr>
+      <tr><td>المريء</td><td colspan="2">متقاربان في الحجم تقريباً</td></tr>
+      <tr><td>المعدة</td><td>متطوّرة (كبيرة)</td><td>صغيرة</td></tr>
+      <tr><td>الأمعاء الدقيقة</td><td>طويلة</td><td>قصيرة</td></tr>
+      <tr><td>الأمعاء الغليظة</td><td>طويلة (×10 طول الجسم)</td><td>قصيرة (×3 طول الجسم)</td></tr>
+      <tr><td>الأعور (Caecum)</td><td>كبير الحجم</td><td>صغير جداً</td></tr>
+      <tr><td>سرعة الهضم</td><td>بطيئة</td><td>سريعة</td></tr>
+    </table>
+
+    <h3 class="sub-title">4) خلاصة</h3>
+    <div class="rule-box">
+      <p>عند الأرنب، تسمح <b>القواطع</b> بقبض الأطعمة وقطعها. عند القط، تسمح <b>الأنياب</b> بقبض الأطعمة، بينما تسمح <b>الأرحاء الكاسرة</b> بتقطيع اللحم.</p>
+    </div>
+
+    <h3 class="sub-title">5) تركيب شامل: الأنظمة الغذائية الثلاثة</h3>
+    <div class="diet-grid">
+      <div class="diet-card omni">
+        <div class="head">آكل كل شيء</div>
+        <ul>
+          <li>دِنتة كاملة (كل أنواع الأسنان)</li>
+          <li>حركة حرّة للفك السفلي</li>
+        </ul>
+      </div>
+      <div class="diet-card herbi2">
+        <div class="head">عاشب</div>
+        <ul>
+          <li>قواطع متطوّرة</li>
+          <li>أنبوب هضمي طويل</li>
+        </ul>
+      </div>
+      <div class="diet-card carni2">
+        <div class="head">آكل لحوم</div>
+        <ul>
+          <li>أنياب متطوّرة، أسنان حادة</li>
+          <li>أنبوب هضمي قصير</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ACTIVITE ===================== -->
+  <section>
+    <h2 class="section-title">🔬 نشاط تطبيقي</h2>
+    <div class="activity-box">
+      <span class="task-label">مقارنة عملية بين حيوانين من محيطي</span>
+      <p>اختر حيواناً عاشباً وحيواناً آكلاً للحوم من محيطك أو مما تعرفه (غير الأرنب والقط)، وحاول أن تصف (بالاعتماد على معلومات الدرس والملاحظة أو البحث):</p>
+      <p>الحيوان العاشب المختار: <span class="fill-line" style="min-width:60%;"></span> — خاصية في أسنانه أو جهازه الهضمي: <span class="fill-line" style="min-width:100%;"></span></p>
+      <p>الحيوان آكل اللحوم المختار: <span class="fill-line" style="min-width:60%;"></span> — خاصية في أسنانه أو جهازه الهضمي: <span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== EXERCICES ===================== -->
+  <section>
+    <h2 class="section-title">📝 تمارين للتدرّب</h2>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">1</span>أكمل جدول مقارنة الأسنان بين الأرنب والقط:</h4>
+      <table class="data-table">
+        <tr><th>المعيار</th><th>الأرنب (عاشب)</th><th>القط (آكل لحوم)</th></tr>
+        <tr><td>عدد الأسنان</td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+        <tr><td>وجود الأنياب</td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+        <tr><td>دور القواطع أو الأنياب</td><td><span class="fill-line" style="min-width:100%;"></span></td><td><span class="fill-line" style="min-width:100%;"></span></td></tr>
+        <tr><td>نوع الأرحاء</td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+      </table>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">2</span>باستعمال الصيغتين السنيتين التاليتين، احسب عدد أسنان كل حيوان:</h4>
+      <p>الأرنب: (2ق+0ن+3ض+3ر) / (1ق+0ن+2ض+3ر) = <span class="fill-line"></span></p>
+      <p>القط: (3ق+1ن+3ض+1ر) / (3ق+1ن+2ض+1ر) = <span class="fill-line"></span></p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">3</span>اختر الإجابة الصحيحة:</h4>
+      <div class="qcm-item">
+        <p>1) لا يملك الأرنب (عاشب) أسنان:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>القواطع</span><span><span class="checkbox"></span>الأنياب</span><span><span class="checkbox"></span>الأرحاء</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>2) تُستعمل أنياب القط لـ:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>طحن الأطعمة</span><span><span class="checkbox"></span>قتل الفريسة وحملها</span><span><span class="checkbox"></span>لا شيء</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>3) تبلغ الأمعاء الغليظة عند الأرنب مقارنة بجسمه:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>3 أضعاف</span><span><span class="checkbox"></span>10 أضعاف</span><span><span class="checkbox"></span>نفس الطول</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>4) سرعة الهضم عند القط (آكل لحوم) تكون:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>بطيئة</span><span><span class="checkbox"></span>سريعة</span><span><span class="checkbox"></span>متوسطة</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>5) الأعور (caecum) عند القط يكون:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>كبيراً جداً</span><span><span class="checkbox"></span>صغيراً جداً</span><span><span class="checkbox"></span>غير موجود إطلاقاً</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">4</span>أكمل جدول مقارنة الأنبوب الهضمي:</h4>
+      <table class="data-table">
+        <tr><th>العضو</th><th>الأرنب</th><th>القط</th></tr>
+        <tr><td>المعدة</td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+        <tr><td>الأمعاء الدقيقة</td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+        <tr><td>الأمعاء الغليظة</td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+        <tr><td>سرعة الهضم</td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+      </table>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">5</span>أكمل المخطط التركيبي التالي بخاصيتَي الأسنان والأنبوب الهضمي لكل نظام غذائي:</h4>
+      <table class="data-table">
+        <tr><th>النظام الغذائي</th><th>خاصية الأسنان</th><th>خاصية الأنبوب الهضمي</th></tr>
+        <tr><td>آكل كل شيء</td><td><span class="fill-line" style="min-width:100%;"></span></td><td><span class="fill-line" style="min-width:100%;"></span></td></tr>
+        <tr><td>عاشب</td><td><span class="fill-line" style="min-width:100%;"></span></td><td><span class="fill-line" style="min-width:100%;"></span></td></tr>
+        <tr><td>آكل لحوم</td><td><span class="fill-line" style="min-width:100%;"></span></td><td><span class="fill-line" style="min-width:100%;"></span></td></tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===================== CORRIGE ===================== -->
+  <div class="corrige-wrapper">
+    <p class="corrige-flag">✂ يمكن طي هذه الصفحة أو إخفاؤها (اضغط على العنوان أدناه) قبل إنجاز التمارين ✂</p>
+    <details class="corrige">
+      <summary>التصحيح الكامل</summary>
+
+      <h4>تصحيح النشاط التطبيقي</h4>
+      <div class="corrige-item">يتحقق الأستاذ(ة) من صحة الحيوانات المقترحة ومطابقة الخصائص المذكورة لنوعها الغذائي (عاشب: أسنان طاحنة/أمعاء طويلة؛ آكل لحوم: أنياب/أمعاء قصيرة).</div>
+
+      <h4>تصحيح التمرين 1 (مقارنة الأسنان)</h4>
+      <table class="data-table">
+        <tr><th>المعيار</th><th>الأرنب</th><th>القط</th></tr>
+        <tr><td>عدد الأسنان</td><td>28</td><td>30</td></tr>
+        <tr><td>وجود الأنياب</td><td>لا يوجد</td><td>موجودة وطويلة</td></tr>
+        <tr><td>الدور</td><td>القواطع: قبض وقطع الأطعمة</td><td>الأنياب: قبض الفريسة وقتلها</td></tr>
+        <tr><td>نوع الأرحاء</td><td>طاحنة (ضواحك وأرحاء مسطحة)</td><td>حادة (كواسر لتقطيع اللحم)</td></tr>
+      </table>
+
+      <h4>تصحيح التمرين 2 (الصيغة السنية)</h4>
+      <div class="corrige-item">الأرنب: 28 سناً &nbsp;|&nbsp; القط: 30 سناً</div>
+
+      <h4>تصحيح التمرين 3 (الاختيار من متعدد)</h4>
+      <div class="corrige-item">1) الأنياب &nbsp;|&nbsp; 2) قتل الفريسة وحملها &nbsp;|&nbsp; 3) 10 أضعاف &nbsp;|&nbsp; 4) سريعة &nbsp;|&nbsp; 5) صغيراً جداً</div>
+
+      <h4>تصحيح التمرين 4 (مقارنة الأنبوب الهضمي)</h4>
+      <table class="data-table">
+        <tr><th>العضو</th><th>الأرنب</th><th>القط</th></tr>
+        <tr><td>المعدة</td><td>متطوّرة (كبيرة)</td><td>صغيرة</td></tr>
+        <tr><td>الأمعاء الدقيقة</td><td>طويلة</td><td>قصيرة</td></tr>
+        <tr><td>الأمعاء الغليظة</td><td>طويلة (×10 الجسم)</td><td>قصيرة (×3 الجسم)</td></tr>
+        <tr><td>سرعة الهضم</td><td>بطيئة</td><td>سريعة</td></tr>
+      </table>
+
+      <h4>تصحيح التمرين 5 (المخطط التركيبي)</h4>
+      <table class="data-table">
+        <tr><th>النظام الغذائي</th><th>خاصية الأسنان</th><th>خاصية الأنبوب الهضمي</th></tr>
+        <tr><td>آكل كل شيء</td><td>دِنتة كاملة (كل الأنواع)، حركة حرّة للفك السفلي</td><td>متوسط الطول، متكيّف مع تنوّع الغذاء</td></tr>
+        <tr><td>عاشب</td><td>قواطع متطوّرة، لا أنياب</td><td>طويل ومتطوّر (أعور كبير)</td></tr>
+        <tr><td>آكل لحوم</td><td>أنياب متطوّرة، أرحاء حادة (كواسر)</td><td>قصير وبسيط (أعور صغير)</td></tr>
+      </table>
+    </details>
+  </div>
+
+  <p class="footer-note">فيشة تعلّم ذاتي — علوم الحياة والأرض — الأولى إعدادي — التغذية عند الكائنات الحية (الجزء الثاني)</p>
+</div>
+</body>
+</html>
