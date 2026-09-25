@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>التغذية عند الكائنات الحية - الجزء الأول</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#20301f; --ink-soft:#4c5a48;
+    --paper:#f8faf4; --panel:#ffffff; --line:#d7e0cd;
+    --leaf:#3f7d3a; --leaf-soft:#e3f0df;
+    --sky:#2f7ea8; --sky-soft:#deeef6;
+    --amber:#c98a2e; --amber-soft:#f6e9d3;
+    --coral:#c1493a; --coral-soft:#fbe0d8;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#e4e9dc;font-family:'Noto Naskh Arabic','Amiri',serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .sheet{max-width:900px;margin:24px auto;background:var(--paper);padding:38px 44px 50px;border:1px solid var(--line);box-shadow:0 4px 24px rgba(0,0,0,.12);}
+
+  .masthead{display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:3px solid var(--ink);padding-bottom:16px;margin-bottom:22px;}
+  .masthead-text h1{font-family:'Amiri',serif;font-weight:700;font-size:25px;margin:0 0 6px;color:var(--leaf);line-height:1.4;}
+  .masthead-text .subtitle{font-size:15px;color:var(--ink-soft);margin:0;}
+  .leaf-icon{width:56px;height:56px;flex-shrink:0;}
+
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+  .meta-chip{border:1px solid var(--line);background:var(--panel);border-radius:3px;padding:6px 12px;font-size:13.5px;color:var(--ink-soft);}
+  .meta-chip b{color:var(--ink);font-weight:600;}
+
+  section{margin-bottom:26px;}
+  h2.section-title{font-family:'Amiri',serif;font-size:20px;font-weight:700;color:var(--sky);border-bottom:2px solid var(--sky);padding-bottom:6px;margin:0 0 14px;display:flex;align-items:baseline;gap:8px;}
+  h3.sub-title{font-size:16.5px;font-weight:700;color:var(--amber);margin:18px 0 8px;}
+  p{line-height:1.95;font-size:15px;margin:0 0 9px;}
+
+  .objectif-box{background:var(--sky-soft);border-right:4px solid var(--sky);padding:14px 18px;border-radius:2px;font-size:15px;line-height:1.9;}
+
+  .rule-box{background:var(--panel);border:1px solid var(--line);border-right:4px solid var(--leaf);padding:12px 16px;border-radius:2px;margin:8px 0 14px;}
+  .rule-box p:last-child{margin-bottom:0;}
+  .rule-box ul,.rule-box ol{margin:6px 0;padding-inline-start:22px;}
+  .rule-box li{margin-bottom:5px;line-height:1.8;font-size:14.5px;}
+
+  .diet-grid{display:flex;flex-wrap:wrap;gap:12px;margin:10px 0 14px;}
+  .diet-card{flex:1 1 250px;border-radius:8px;padding:11px 14px;}
+  .diet-card.herbi{background:var(--leaf-soft);border:1px solid var(--leaf);}
+  .diet-card.carni{background:var(--coral-soft);border:1px solid var(--coral);}
+  .diet-card.omni{background:var(--amber-soft);border:1px solid var(--amber);}
+  .diet-card .head{font-weight:700;font-size:14.5px;margin-bottom:4px;}
+  .diet-card.herbi .head{color:var(--leaf);}
+  .diet-card.carni .head{color:var(--coral);}
+  .diet-card.omni .head{color:var(--amber);}
+  .diet-card p{margin:0;font-size:13px;color:var(--ink-soft);line-height:1.75;}
+  .diet-card ul{margin:4px 0 0;padding-inline-start:18px;}
+  .diet-card li{font-size:12.5px;margin-bottom:2px;}
+
+  .rumin-grid{display:flex;flex-wrap:wrap;gap:14px;margin:10px 0 14px;}
+  .rumin-card{flex:1 1 260px;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:12px 16px;}
+  .rumin-card .head{font-weight:700;color:var(--sky);font-size:15px;margin-bottom:4px;}
+  .rumin-card p{margin:0;font-size:13.5px;color:var(--ink-soft);line-height:1.8;}
+
+  table.data-table{width:100%;border-collapse:collapse;margin:8px 0 16px;font-size:14px;}
+  table.data-table th{background:var(--sky);color:#fff;padding:7px 8px;font-weight:600;font-size:13px;}
+  table.data-table td{border:1px solid var(--line);padding:7px 8px;background:var(--panel);text-align:center;}
+  table.data-table tr:nth-child(even) td{background:#eef3e8;}
+
+  .activity-box{background:var(--panel);border:1.5px solid var(--amber);border-radius:3px;padding:14px 18px;}
+  .activity-box .task-label{display:inline-block;background:var(--amber);color:#fff;font-size:12px;padding:3px 10px;border-radius:2px;margin-bottom:8px;}
+
+  .exercise{border:1px solid var(--line);border-radius:3px;padding:14px 18px;margin-bottom:14px;background:var(--panel);}
+  .exercise-num{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;background:var(--ink);color:var(--paper);border-radius:50%;font-size:13px;font-weight:700;margin-inline-end:8px;}
+  .exercise h4{margin:0 0 9px;font-size:15.5px;display:flex;align-items:center;}
+  .fill-line{border-bottom:1px dotted var(--ink-soft);display:inline-block;min-width:110px;height:1.5em;}
+  .word-chip{display:inline-block;background:var(--paper);border:1px solid var(--line);border-radius:3px;padding:3px 10px;margin:2px 3px;font-size:14.5px;}
+  .qcm-item{margin-bottom:9px;}
+  .qcm-item p{margin-bottom:4px;font-weight:600;}
+  .qcm-options{display:flex;flex-wrap:wrap;gap:12px;font-size:13.5px;}
+  .qcm-options span{display:flex;align-items:center;gap:5px;}
+  .checkbox{width:12px;height:12px;border:1.4px solid var(--ink-soft);display:inline-block;border-radius:2px;}
+  .scenario-box{background:#eef3e8;border:1px solid var(--line);padding:10px 14px;font-size:14.5px;line-height:1.95;margin-bottom:8px;}
+
+  .corrige-wrapper{page-break-before:always;padding-top:6px;}
+  .corrige-flag{text-align:center;font-size:12.5px;color:var(--ink-soft);margin-bottom:10px;border-top:1px dashed var(--ink-soft);padding-top:14px;}
+  details.corrige{border:2px dashed var(--amber);border-radius:4px;background:#fdf8ee;padding:6px 20px 18px;}
+  details.corrige > summary{cursor:pointer;font-family:'Amiri',serif;font-weight:700;font-size:18px;color:var(--amber);padding:12px 0;list-style:none;}
+  details.corrige > summary::-webkit-details-marker{display:none;}
+  details.corrige > summary::before{content:"✂ ";}
+  details.corrige > summary::after{content:"— اضغط لإظهار الحل / إخفائه";font-family:'Noto Naskh Arabic',serif;font-weight:400;font-size:12.5px;color:var(--ink-soft);margin-inline-start:8px;}
+  .corrige h4{color:var(--amber);margin:14px 0 6px;font-size:15px;}
+  .corrige-item{margin-bottom:7px;font-size:14px;line-height:1.85;}
+  .corrige table.data-table th{background:var(--amber);}
+
+  .footer-note{margin-top:26px;text-align:center;font-size:11.5px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:10px;}
+
+  @media print{
+    body{background:#fff;}
+    .sheet{box-shadow:none;border:none;margin:0;max-width:100%;padding:14px 6px;}
+    details.corrige{border-color:#000;}
+  }
+  @page{size:A4;margin:13mm;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="masthead-text">
+      <h1>التغذيةُ عند الكائناتِ الحيةِ — الجزءُ الأولُ</h1>
+      <p class="subtitle">علوم الحياة والأرض — الأنظمة الغذائية عند الحيوانات والإنسان</p>
+    </div>
+    <svg class="leaf-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M32 8c16 4 22 20 14 34C38 56 20 54 14 40 8 26 16 12 32 8z" fill="#3f7d3a" opacity="0.85"/>
+      <path d="M32 12c0 16 0 28 0 40" stroke="#e4e9dc" stroke-width="2"/>
+    </svg>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta-chip">المستوى: <b>الأولى إعدادي (1AC)</b></div>
+    <div class="meta-chip">المادة: <b>علوم الحياة والأرض (SVT)</b></div>
+    <div class="meta-chip">الحصة: <b>9 (الجزء الأول)</b></div>
+    <div class="meta-chip">نوع الوثيقة: <b>فيشة تعلّم ذاتي</b></div>
+  </div>
+
+  <!-- ===================== OBJECTIF ===================== -->
+  <section>
+    <h2 class="section-title">🎯 الهدف من الدرس</h2>
+    <div class="objectif-box">
+      يتمكّن المتعلم(ة) في نهاية هذا الدرس من: تعريف النظام الغذائي وتحديد طرق التعرّف عليه، وتحديد الأنظمة الغذائية الثلاثة الكبرى عند الحيوانات وتخصصاتها الدقيقة، والتمييز بين العواشب المجترّة وغير المجترّة، ووصف خصائص النظام الغذائي "آكل كل شيء" عند الإنسان (الأسنان، العضلات الماضغة، الجهاز الهضمي).
+    </div>
+  </section>
+
+  <!-- ===================== COURS ===================== -->
+  <section>
+    <h2 class="section-title">📘 الدرس</h2>
+
+    <h3 class="sub-title">1) مقدمة</h3>
+    <div class="rule-box">
+      <p>لكي يعيش الحيوان وينمو، يجب أن يتغذّى. <b>النظام الغذائي</b> لحيوان هو مجموع الأغذية التي يتناولها من محيطه. تختلف النباتات الخضراء عن الحيوانات في تغذيتها، إذ تصنع النباتات غذاءها بنفسها انطلاقاً من عناصر معدنية (ثاني أكسيد الكربون، الماء، الأملاح المعدنية) وبفضل الضوء، بينما تحتاج الحيوانات إلى التغذّي على كائنات حية أخرى (مادة عضوية).</p>
+    </div>
+
+    <h3 class="sub-title">2) كيف نتعرّف على النظام الغذائي لحيوان؟</h3>
+    <div class="rule-box">
+      <ul>
+        <li><b>الملاحظة المباشرة</b> للحيوان أثناء تناوله الطعام.</li>
+        <li><b>ملاحظة آثار وجبته</b> (بقايا الطعام).</li>
+        <li><b>فحص محتوى أنبوبه الهضمي</b>.</li>
+        <li><b>تحليل فضلاته</b>.</li>
+      </ul>
+    </div>
+
+    <h3 class="sub-title">3) الأنظمة الغذائية الثلاثة الكبرى</h3>
+    <div class="diet-grid">
+      <div class="diet-card herbi">
+        <div class="head">🌿 النظام النباتي (Phytophages)</div>
+        <p>يتغذّى على النباتات أو موادّ نباتية (النسغ، الرحيق). مثال: الأرنب، الجرادة.</p>
+        <ul>
+          <li>عاشب: يتغذّى على العشب فقط (البقرة)</li>
+          <li>حبوبي: يتغذّى على الحبوب فقط (بعض الطيور)</li>
+          <li>فاكهي: يتغذّى على الفواكه فقط (القرد)</li>
+          <li>رحيقي: يتغذّى على رحيق الأزهار (الطائر الطنان)</li>
+        </ul>
+      </div>
+      <div class="diet-card carni">
+        <div class="head">🍖 النظام آكل اللحوم (Zoophages)</div>
+        <p>يتغذّى على موادّ حيوانية. مثال: البومة، الفهد، الحية.</p>
+        <ul>
+          <li>حشري: يتغذّى على الحشرات فقط (السنونو)</li>
+          <li>سمكي: يتغذّى على الأسماك فقط (الصقر الصياد)</li>
+          <li>جيفي: يتغذّى على جثث الحيوانات (النسر)</li>
+        </ul>
+      </div>
+      <div class="diet-card omni">
+        <div class="head">🍽️ النظام آكل كل شيء</div>
+        <p>يتغذّى على موادّ حيوانية ونباتية معاً. مثال: الدب، الثعلب، الإنسان.</p>
+        <ul>
+          <li>عوالقي: يتغذّى على العوالق النباتية والحيوانية (الحوت)</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="sub-title">4) العواشب المجترّة وغير المجترّة</h3>
+    <div class="rumin-grid">
+      <div class="rumin-card">
+        <div class="head">🐄 حيوانات مجترّة</div>
+        <p>معدتها مكوّنة من <b>4 حجرات</b>. مثال: البقرة، الغنم، الماعز.</p>
+      </div>
+      <div class="rumin-card">
+        <div class="head">🐇 حيوانات غير مجترّة</div>
+        <p>لها <b>معدة واحدة</b> فقط. مثال: الأرنب.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-title">5) النظام آكل كل شيء عند الإنسان</h3>
+    <div class="rule-box">
+      <p>تغذية الإنسان متنوّعة جداً (موادّ حيوانية ونباتية معاً)، ويستلزم هذا التنوّع توفّر أعضاء متكيّفة.</p>
+    </div>
+
+    <h4 style="font-size:14.5px;font-weight:700;color:var(--coral);margin:10px 0 5px;">أ) أنواع الأسنان</h4>
+    <table class="data-table">
+      <tr><th>نوع السن</th><th>الشكل</th><th>الوظيفة</th></tr>
+      <tr><td>القواطع</td><td>كالشفرة</td><td>قطع الأطعمة</td></tr>
+      <tr><td>الأنياب</td><td>مدببة</td><td>تمزيق الأطعمة</td></tr>
+      <tr><td>الضواحك</td><td>مسطحة</td><td>طحن الأطعمة</td></tr>
+      <tr><td>الأرحاء</td><td>عريضة ومسطحة</td><td>طحن الأطعمة</td></tr>
+    </table>
+    <p style="font-size:13px;color:var(--ink-soft);">الصيغة السنية عند الطفل: (2ق+1ن+2ض)/(2ق+1ن+2ض) = 20 سناً — عند البالغ: (2ق+1ن+2ض+3ر)/(2ق+1ن+2ض+3ر) = 32 سناً.</p>
+
+    <h4 style="font-size:14.5px;font-weight:700;color:var(--coral);margin:10px 0 5px;">ب) العضلات الماضغة</h4>
+    <div class="rule-box">
+      <p>ترتبط كل فك بعضلات ماضغة (العضلة الصدغية والعضلة الماضغة). تسمح انقباضاتها للفك السفلي بالتحرّك في جميع الاتجاهات بفضل <b>اللقمة الفكية</b> (منطقة اتصال الفكّين)، مما يمكّننا من مضغ الطعام حركةً علوية-سفلية ويمنى-يسرى.</p>
+    </div>
+
+    <h4 style="font-size:14.5px;font-weight:700;color:var(--coral);margin:10px 0 5px;">ج) الجهاز الهضمي عند الإنسان</h4>
+    <div class="rule-box">
+      <p>يتكوّن الأنبوب الهضمي من: الفم، المريء، المعدة، الأمعاء الدقيقة، والأمعاء الغليظة. طوله (من الفم إلى الشرج) أكثر من <b>10 أمتار</b>، أي ما يعادل 6 إلى 8 أضعاف طول جسم الإنسان.</p>
+    </div>
+    <table class="data-table">
+      <tr><th>العضو</th><th>خاصيته</th><th>الفعل على الطعام</th></tr>
+      <tr><td>الفم</td><td>تجويف بأسنان</td><td>طحن الأطعمة</td></tr>
+      <tr><td>المريء</td><td>ممر للعبور</td><td>—</td></tr>
+      <tr><td>المعدة</td><td>تجويف واحد</td><td>عصر وتفكيك إلى مغذيات</td></tr>
+      <tr><td>الأمعاء الدقيقة</td><td>أنبوب طويل (8م)</td><td>امتصاص المغذيات</td></tr>
+      <tr><td>الأمعاء الغليظة</td><td>تجمّع الفضلات</td><td>امتصاص الماء</td></tr>
+    </table>
+
+    <h3 class="sub-title">6) خلاصة</h3>
+    <div class="rule-box">
+      <p>يتميّز النظام الغذائي "آكل كل شيء" عند الإنسان بـ: <b>دنتة كاملة</b> (يملك جميع أنواع الأسنان الأربعة)، و<b>حركة حرّة للفك السفلي</b> بفضل شكل اللقمة الفكية والعضلات الماضغة، مما يسمح له بمضغ وهضم مختلف أنواع الأطعمة.</p>
+    </div>
+  </section>
+
+  <!-- ===================== ACTIVITE ===================== -->
+  <section>
+    <h2 class="section-title">🔬 نشاط تطبيقي</h2>
+    <div class="activity-box">
+      <span class="task-label">التعرّف على النظام الغذائي بالملاحظة</span>
+      <p>أكمل الجدول التالي بتحديد الطريقة الأنسب للتعرّف على النظام الغذائي في كل حالة، والنظام الغذائي المحتمل:</p>
+      <table class="data-table">
+        <tr><th>الحالة الملاحظة</th><th>الطريقة المستعملة</th><th>النظام الغذائي المحتمل</th></tr>
+        <tr><td>وُجدت بقايا عظام في فضلات حيوان</td><td><span class="fill-line" style="min-width:100%;"></span></td><td><span class="fill-line" style="min-width:100%;"></span></td></tr>
+        <tr><td>شوهد طائر وهو يلتقط الحبوب من الأرض</td><td><span class="fill-line" style="min-width:100%;"></span></td><td><span class="fill-line" style="min-width:100%;"></span></td></tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===================== EXERCICES ===================== -->
+  <section>
+    <h2 class="section-title">📝 تمارين للتدرّب</h2>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">1</span>صنّف الحيوانات التالية حسب نظامها الغذائي، ثم حدّد التخصص الدقيق إن أمكن:</h4>
+      <p>
+        <span class="word-chip">الأرنب</span>
+        <span class="word-chip">حمامة تتغذى فقط على الحبوب</span>
+        <span class="word-chip">قرد يتغذى بالفواكه</span>
+        <span class="word-chip">طائر طنان يتغذى بالرحيق</span>
+        <span class="word-chip">بومة</span>
+        <span class="word-chip">سنونو يتغذى بالحشرات فقط</span>
+        <span class="word-chip">نسر يتغذى بجثث الحيوانات</span>
+        <span class="word-chip">دب</span>
+        <span class="word-chip">الإنسان</span>
+      </p>
+      <table class="data-table">
+        <tr><th>نباتي</th><th>آكل لحوم</th><th>آكل كل شيء</th></tr>
+        <tr><td style="height:60px;"></td><td></td><td></td></tr>
+      </table>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">2</span>صنّف الحيوانات التالية إلى (مجترّة / غير مجترّة)، مع ذكر عدد حجرات معدتها:</h4>
+      <table class="data-table">
+        <tr><th>البقرة</th><th>الأرنب</th><th>الغنم</th><th>الماعز</th></tr>
+        <tr><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+      </table>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">3</span>اختر الإجابة الصحيحة:</h4>
+      <div class="qcm-item">
+        <p>1) النظام الغذائي هو:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>مجموع الأغذية التي يتغذّى عليها حيوان</span><span><span class="checkbox"></span>نوع واحد من الغذاء فقط</span><span><span class="checkbox"></span>كمية الغذاء اليومية</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>2) الحيوانات التي تتغذى على النباتات فقط تُسمّى:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>عاشبة (نباتية)</span><span><span class="checkbox"></span>زوopages</span><span><span class="checkbox"></span>آكلة كل شيء</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>3) تتكوّن معدة البقرة (حيوان مجترّ) من:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>حجرة واحدة</span><span><span class="checkbox"></span>4 حجرات</span><span><span class="checkbox"></span>حجرتين</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>4) الأسنان التي تخدم في تقطيع الأطعمة (كالشفرة) هي:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>القواطع</span><span><span class="checkbox"></span>الأنياب</span><span><span class="checkbox"></span>الأرحاء</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>5) عدد أسنان الإنسان البالغ هو:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>20</span><span><span class="checkbox"></span>28</span><span><span class="checkbox"></span>32</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">4</span>أكمل الصيغة السنية الناقصة:</h4>
+      <p>عند الطفل: (2ق + .......... ن + .......... ض) / (2ق + 1ن + 2ض) = 20 سناً</p>
+      <p>عند البالغ: (2ق + 1ن + 2ض + .......... ر) / (2ق + 1ن + 2ض + 3ر) = .......... سناً</p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">5</span>وضعية-مشكلة:</h4>
+      <div class="scenario-box">
+        لاحظ تلميذ فضلات حيوان في الغابة، فوجدها تحتوي على بقايا عظام وشعر حيوانات أخرى فقط، دون أي أثر لبقايا نباتية.
+      </div>
+      <p>1) ما هو النظام الغذائي المحتمل لهذا الحيوان؟ علّل جوابك.</p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+      <p>2) اقترح طريقتين أخريين (غير تحليل الفضلات) يمكن استعمالهما للتأكد من هذا الاستنتاج.</p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== CORRIGE ===================== -->
+  <div class="corrige-wrapper">
+    <p class="corrige-flag">✂ يمكن طي هذه الصفحة أو إخفاؤها (اضغط على العنوان أدناه) قبل إنجاز التمارين ✂</p>
+    <details class="corrige">
+      <summary>التصحيح الكامل</summary>
+
+      <h4>تصحيح النشاط التطبيقي</h4>
+      <table class="data-table">
+        <tr><th>الحالة</th><th>الطريقة</th><th>النظام الغذائي المحتمل</th></tr>
+        <tr><td>بقايا عظام في الفضلات</td><td>تحليل الفضلات</td><td>آكل لحوم</td></tr>
+        <tr><td>طائر يلتقط الحبوب</td><td>الملاحظة المباشرة</td><td>نباتي (حبوبي)</td></tr>
+      </table>
+
+      <h4>تصحيح التمرين 1 (تصنيف الأنظمة الغذائية)</h4>
+      <div class="corrige-item"><b>نباتي:</b> الأرنب، الحمامة (حبوبي)، القرد (فاكهي)، الطائر الطنان (رحيقي)</div>
+      <div class="corrige-item"><b>آكل لحوم:</b> البومة، السنونو (حشري)، النسر (جيفي)</div>
+      <div class="corrige-item"><b>آكل كل شيء:</b> الدب، الإنسان</div>
+
+      <h4>تصحيح التمرين 2 (المجترّة وغير المجترّة)</h4>
+      <div class="corrige-item">البقرة: مجترّة (4 حجرات) &nbsp;|&nbsp; الأرنب: غير مجترّ (حجرة واحدة) &nbsp;|&nbsp; الغنم: مجترّة (4 حجرات) &nbsp;|&nbsp; الماعز: مجترّة (4 حجرات)</div>
+
+      <h4>تصحيح التمرين 3 (الاختيار من متعدد)</h4>
+      <div class="corrige-item">1) مجموع الأغذية التي يتغذّى عليها حيوان &nbsp;|&nbsp; 2) عاشبة (نباتية) &nbsp;|&nbsp; 3) 4 حجرات &nbsp;|&nbsp; 4) القواطع &nbsp;|&nbsp; 5) 32</div>
+
+      <h4>تصحيح التمرين 4 (الصيغة السنية)</h4>
+      <div class="corrige-item">عند الطفل: (2ق+<b>1</b>ن+<b>2</b>ض)/(2ق+1ن+2ض) = 20 سناً</div>
+      <div class="corrige-item">عند البالغ: (2ق+1ن+2ض+<b>3</b>ر)/(2ق+1ن+2ض+3ر) = <b>32</b> سناً</div>
+
+      <h4>تصحيح التمرين 5 (وضعية-مشكلة)</h4>
+      <div class="corrige-item">1) النظام الغذائي المحتمل: آكل لحوم، لأن فضلاته تحتوي فقط على بقايا حيوانية (عظام وشعر) دون أي بقايا نباتية.</div>
+      <div class="corrige-item">2) يمكن استعمال: الملاحظة المباشرة للحيوان أثناء الأكل، أو فحص محتوى أنبوبه الهضمي.</div>
+    </details>
+  </div>
+
+  <p class="footer-note">فيشة تعلّم ذاتي — علوم الحياة والأرض — الأولى إعدادي — التغذية عند الكائنات الحية (الجزء الأول)</p>
+</div>
+</body>
+</html>
