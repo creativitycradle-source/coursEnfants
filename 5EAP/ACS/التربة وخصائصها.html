@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>التربة وخصائصها</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#2e2318; --ink-soft:#5c4f3f;
+    --paper:#f9f4ea; --panel:#ffffff; --line:#e0d2b8;
+    --brown:#8a5a34; --brown-soft:#f0e0cc;
+    --leaf:#3f7d3a; --leaf-soft:#e3f0df;
+    --amber:#c98a2e; --amber-soft:#f6e9d3;
+    --clay:#b5652f; --clay-soft:#f3e0cc;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#e6dcc6;font-family:'Noto Naskh Arabic','Amiri',serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .sheet{max-width:900px;margin:24px auto;background:var(--paper);padding:38px 44px 50px;border:1px solid var(--line);box-shadow:0 4px 24px rgba(0,0,0,.12);}
+
+  .masthead{display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:3px solid var(--ink);padding-bottom:16px;margin-bottom:22px;}
+  .masthead-text h1{font-family:'Amiri',serif;font-weight:700;font-size:29px;margin:0 0 6px;color:var(--brown);}
+  .masthead-text .subtitle{font-size:15px;color:var(--ink-soft);margin:0;}
+  .soil-icon{width:58px;height:52px;flex-shrink:0;}
+
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+  .meta-chip{border:1px solid var(--line);background:var(--panel);border-radius:3px;padding:6px 12px;font-size:13.5px;color:var(--ink-soft);}
+  .meta-chip b{color:var(--ink);font-weight:600;}
+
+  section{margin-bottom:26px;}
+  h2.section-title{font-family:'Amiri',serif;font-size:20px;font-weight:700;color:var(--leaf);border-bottom:2px solid var(--leaf);padding-bottom:6px;margin:0 0 14px;display:flex;align-items:baseline;gap:8px;}
+  h3.sub-title{font-size:16.5px;font-weight:700;color:var(--clay);margin:18px 0 8px;}
+  p{line-height:1.95;font-size:15px;margin:0 0 9px;}
+
+  .objectif-box{background:var(--amber-soft);border-right:4px solid var(--amber);padding:14px 18px;border-radius:2px;font-size:15px;line-height:1.9;}
+
+  .rule-box{background:var(--panel);border:1px solid var(--line);border-right:4px solid var(--brown);padding:12px 16px;border-radius:2px;margin:8px 0 14px;}
+  .rule-box p:last-child{margin-bottom:0;}
+  .rule-box ul,.rule-box ol{margin:6px 0;padding-inline-start:22px;}
+  .rule-box li{margin-bottom:5px;line-height:1.8;font-size:14.5px;}
+
+  .compo-grid{display:flex;flex-wrap:wrap;gap:12px;margin:10px 0 14px;}
+  .compo-card{flex:1 1 150px;text-align:center;border:1px solid var(--line);border-radius:8px;padding:10px;background:var(--panel);}
+  .compo-card .lbl{font-size:13px;font-weight:700;margin-top:4px;color:var(--ink);}
+
+  .soil-grid{display:flex;flex-wrap:wrap;gap:14px;margin:10px 0 14px;}
+  .soil-card{flex:1 1 240px;border-radius:8px;padding:12px 16px;}
+  .soil-card.sandy{background:var(--amber-soft);border:1px solid var(--amber);}
+  .soil-card.clayey{background:var(--clay-soft);border:1px solid var(--clay);}
+  .soil-card.loamy{background:var(--leaf-soft);border:1px solid var(--leaf);}
+  .soil-card .head{font-weight:700;font-size:15px;margin-bottom:4px;}
+  .soil-card.sandy .head{color:var(--amber);}
+  .soil-card.clayey .head{color:var(--clay);}
+  .soil-card.loamy .head{color:var(--leaf);}
+  .soil-card p{margin:0;font-size:13.5px;color:var(--ink-soft);line-height:1.8;}
+
+  table.data-table{width:100%;border-collapse:collapse;margin:8px 0 16px;font-size:14px;}
+  table.data-table th{background:var(--leaf);color:#fff;padding:7px 8px;font-weight:600;font-size:13px;}
+  table.data-table td{border:1px solid var(--line);padding:7px 8px;background:var(--panel);text-align:center;}
+  table.data-table tr:nth-child(even) td{background:#f2ead6;}
+
+  .activity-box{background:var(--panel);border:1.5px solid var(--amber);border-radius:3px;padding:14px 18px;}
+  .activity-box .task-label{display:inline-block;background:var(--amber);color:#fff;font-size:12px;padding:3px 10px;border-radius:2px;margin-bottom:8px;}
+
+  .exercise{border:1px solid var(--line);border-radius:3px;padding:14px 18px;margin-bottom:14px;background:var(--panel);}
+  .exercise-num{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;background:var(--ink);color:var(--paper);border-radius:50%;font-size:13px;font-weight:700;margin-inline-end:8px;}
+  .exercise h4{margin:0 0 9px;font-size:15.5px;display:flex;align-items:center;}
+  .fill-line{border-bottom:1px dotted var(--ink-soft);display:inline-block;min-width:100px;height:1.5em;}
+  .qcm-item{margin-bottom:9px;}
+  .qcm-item p{margin-bottom:4px;font-weight:600;}
+  .qcm-options{display:flex;flex-wrap:wrap;gap:12px;font-size:13.5px;}
+  .qcm-options span{display:flex;align-items:center;gap:5px;}
+  .checkbox{width:12px;height:12px;border:1.4px solid var(--ink-soft);display:inline-block;border-radius:2px;}
+  .match-cols{display:flex;justify-content:space-between;gap:40px;margin-top:8px;}
+  .match-cols ul{list-style:none;padding:0;margin:0;}
+  .match-cols li{border:1px solid var(--line);background:var(--paper);padding:6px 14px;margin-bottom:10px;border-radius:3px;font-size:15px;}
+  .order-list{display:flex;flex-direction:column;gap:8px;}
+  .order-item{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:6px;padding:8px 12px;background:var(--paper);}
+  .order-item .num-box{width:32px;height:32px;border:2px dashed var(--ink-soft);border-radius:6px;flex-shrink:0;}
+  .tf-item{display:flex;justify-content:space-between;align-items:center;border:1px solid var(--line);border-radius:6px;padding:8px 12px;margin-bottom:8px;background:var(--paper);}
+  .tf-boxes{display:flex;gap:10px;}
+  .tf-box{width:22px;height:22px;border:1.5px solid var(--ink-soft);border-radius:3px;display:inline-flex;align-items:center;justify-content:center;font-size:11px;}
+  .scenario-box{background:#f2ead6;border:1px solid var(--line);padding:10px 14px;font-size:14.5px;line-height:1.95;margin-bottom:8px;}
+
+  .corrige-wrapper{page-break-before:always;padding-top:6px;}
+  .corrige-flag{text-align:center;font-size:12.5px;color:var(--ink-soft);margin-bottom:10px;border-top:1px dashed var(--ink-soft);padding-top:14px;}
+  details.corrige{border:2px dashed var(--clay);border-radius:4px;background:#fdf6ef;padding:6px 20px 18px;}
+  details.corrige > summary{cursor:pointer;font-family:'Amiri',serif;font-weight:700;font-size:18px;color:var(--clay);padding:12px 0;list-style:none;}
+  details.corrige > summary::-webkit-details-marker{display:none;}
+  details.corrige > summary::before{content:"✂ ";}
+  details.corrige > summary::after{content:"— اضغط لإظهار الحل / إخفائه";font-family:'Noto Naskh Arabic',serif;font-weight:400;font-size:12.5px;color:var(--ink-soft);margin-inline-start:8px;}
+  .corrige h4{color:var(--clay);margin:14px 0 6px;font-size:15px;}
+  .corrige-item{margin-bottom:7px;font-size:14px;line-height:1.85;}
+  .corrige table.data-table th{background:var(--clay);}
+
+  .footer-note{margin-top:26px;text-align:center;font-size:11.5px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:10px;}
+
+  @media print{
+    body{background:#fff;}
+    .sheet{box-shadow:none;border:none;margin:0;max-width:100%;padding:14px 6px;}
+    details.corrige{border-color:#000;}
+  }
+  @page{size:A4;margin:13mm;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="masthead-text">
+      <h1>التربةُ وخصائصُها</h1>
+      <p class="subtitle">النشاط العلمي — علوم الأرض</p>
+    </div>
+    <svg class="soil-icon" viewBox="0 0 64 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="6" y="28" width="52" height="22" fill="#8a5a34"/>
+      <circle cx="16" cy="36" r="2.5" fill="#f0e0cc"/>
+      <circle cx="28" cy="42" r="2" fill="#f0e0cc"/>
+      <circle cx="40" cy="34" r="3" fill="#f0e0cc"/>
+      <circle cx="50" cy="44" r="2" fill="#f0e0cc"/>
+      <path d="M18 28c0-8 5-14 10-14s10 6 10 14" stroke="#3f7d3a" stroke-width="2.5" fill="none"/>
+    </svg>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta-chip">المستوى: <b>الخامسة ابتدائي (5AEP)</b></div>
+    <div class="meta-chip">المادة: <b>النشاط العلمي</b></div>
+    <div class="meta-chip">مدة الحصة: <b>ساعة إلى ساعة ونصف</b></div>
+    <div class="meta-chip">نوع الوثيقة: <b>فيشة تعلّم ذاتي</b></div>
+  </div>
+
+  <!-- ===================== OBJECTIF ===================== -->
+  <section>
+    <h2 class="section-title">🎯 الهدف من الدرس</h2>
+    <div class="objectif-box">
+      يتمكّن المتعلم(ة) في نهاية هذا الدرس من: تعريف التربة وتحديد مكوناتها، والتمييز بين أنواع التربة الثلاثة الرئيسية (الرملية، الطينية، الغرينية) حسب خصائصها (النفاذية والاحتفاظ بالماء)، وإدراك أهمية التربة وضرورة الحفاظ عليها.
+    </div>
+  </section>
+
+  <!-- ===================== COURS ===================== -->
+  <section>
+    <h2 class="section-title">📘 الدرس</h2>
+
+    <h3 class="sub-title">1) تعريف التربة</h3>
+    <div class="rule-box">
+      <p><b>التربة</b> هي الطبقة السطحية التي تغطي سطح الأرض، تتكوّن من مزيج من حبيبات معدنية ومادة عضوية وماء وهواء.</p>
+    </div>
+
+    <h3 class="sub-title">2) مكونات التربة</h3>
+    <div class="compo-grid">
+      <div class="compo-card">🪨<div class="lbl">حبيبات معدنية (رمل، طين، غرين)</div></div>
+      <div class="compo-card">🍂<div class="lbl">مادة عضوية (الدبال)</div></div>
+      <div class="compo-card">💧<div class="lbl">الماء</div></div>
+      <div class="compo-card">💨<div class="lbl">الهواء</div></div>
+      <div class="compo-card">🐛<div class="lbl">كائنات حية (ديدان، بكتيريا)</div></div>
+    </div>
+    <p style="font-size:13.5px;color:var(--ink-soft);">يُسمّى مزيج البقايا النباتية والحيوانية المتحللة في التربة <b>الدبال (Humus)</b>، وهو يُغني التربة ويجعلها أكثر خصوبة.</p>
+
+    <h3 class="sub-title">3) أنواع التربة</h3>
+    <div class="soil-grid">
+      <div class="soil-card sandy">
+        <div class="head">التربة الرملية</div>
+        <p>غنية بحبيبات الرمل الكبيرة. نفاذيتها للماء <b>عالية</b> (يمر الماء عبرها بسرعة)، لكنها <b>فقيرة</b> بالمواد العضوية.</p>
+      </div>
+      <div class="soil-card clayey">
+        <div class="head">التربة الطينية</div>
+        <p>غنية بحبيبات الطين الدقيقة جداً. تحتفظ بالماء لفترة <b>طويلة</b> (نفاذية ضعيفة)، وقد تُغرق جذور النباتات إن لم تُعالَج.</p>
+      </div>
+      <div class="soil-card loamy">
+        <div class="head">التربة الغرينية (الطميية)</div>
+        <p>مزيج متوازن بين الرمل والطين والدبال. تُعتبر <b>الأنسب للزراعة</b> بفضل توازنها بين النفاذية والاحتفاظ بالماء.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-title">4) خاصية النفاذية</h3>
+    <div class="rule-box">
+      <p><b>النفاذية</b> هي قدرة التربة على السماح بمرور الماء عبرها. تختلف النفاذية حسب نوع التربة: كلما كانت حبيبات التربة كبيرة (كالرمل)، كانت النفاذية أعلى؛ وكلما كانت الحبيبات دقيقة (كالطين)، كانت النفاذية أضعف.</p>
+    </div>
+
+    <h3 class="sub-title">5) أهمية التربة والحفاظ عليها</h3>
+    <div class="rule-box">
+      <ul>
+        <li>تُعتبر التربة أساس <b>الزراعة</b> ونمو النباتات، إذ توفّر الماء والأملاح المعدنية لجذورها.</li>
+        <li>تُشكّل موطناً للعديد من <b>الكائنات الحية</b> (ديدان الأرض، الحشرات، البكتيريا).</li>
+        <li>يجب الحفاظ عليها من <b>التلوث</b> (النفايات، المبيدات) ومن <b>التعرية</b> (الانجراف بفعل الماء أو الرياح).</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===================== ACTIVITE ===================== -->
+  <section>
+    <h2 class="section-title">🔬 نشاط تطبيقي</h2>
+    <div class="activity-box">
+      <span class="task-label">تجربة قياس نفاذية التربة</span>
+      <p>أحضر عينتين متساويتين من التربة: تربة رملية وتربة طينية، ضع كل عينة في قمع فوق كأس فارغة، ثم صبّ كمية متساوية من الماء على كل عينة في نفس الوقت. سجّل ملاحظاتك:</p>
+      <table class="data-table">
+        <tr><th>نوع التربة</th><th>الزمن الذي استغرقه الماء للنفاذ</th><th>الاستنتاج</th></tr>
+        <tr><td>تربة رملية</td><td><span class="fill-line" style="min-width:100%;"></span></td><td><span class="fill-line" style="min-width:100%;"></span></td></tr>
+        <tr><td>تربة طينية</td><td><span class="fill-line" style="min-width:100%;"></span></td><td><span class="fill-line" style="min-width:100%;"></span></td></tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===================== EXERCICES ===================== -->
+  <section>
+    <h2 class="section-title">📝 تمارين للتدرّب</h2>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">1</span>أكمل الجمل التالية بالمعطى المناسب:</h4>
+      <p>1) تتكوّن التربة من حبيبات .......... ومادة .......... وماء وهواء.</p>
+      <p>2) تُسمّى المادة العضوية المتحللة في التربة .......... </p>
+      <p>3) التربة .......... تسمح بمرور الماء بسرعة كبيرة، بينما تحتفظ التربة .......... بالماء لفترة أطول.</p>
+      <p>4) التربة .......... هي الأنسب للزراعة لأنها متوازنة.</p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">2</span>أكمل الجدول التالي بخصائص كل نوع من أنواع التربة:</h4>
+      <table class="data-table">
+        <tr><th>نوع التربة</th><th>النفاذية</th><th>الاحتفاظ بالماء</th><th>ملاءمتها للزراعة</th></tr>
+        <tr><td>رملية</td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+        <tr><td>طينية</td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+        <tr><td>غرينية</td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+      </table>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">3</span>اختر الإجابة الصحيحة:</h4>
+      <div class="qcm-item">
+        <p>1) التربة هي:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>الطبقة السطحية لسطح الأرض</span><span><span class="checkbox"></span>طبقة صخرية عميقة</span><span><span class="checkbox"></span>طبقة مائية</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>2) المادة العضوية المتحللة في التربة تُسمى:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>الرمل</span><span><span class="checkbox"></span>الدبال</span><span><span class="checkbox"></span>الطين</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>3) التربة التي تسمح بمرور الماء بسرعة كبيرة هي:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>الرملية</span><span><span class="checkbox"></span>الطينية</span><span><span class="checkbox"></span>الغرينية</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>4) التربة الأنسب للزراعة هي:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>الرملية</span><span><span class="checkbox"></span>الطينية</span><span><span class="checkbox"></span>الغرينية</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>5) من الكائنات الحية التي تعيش في التربة:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>ديدان الأرض</span><span><span class="checkbox"></span>الأسماك</span><span><span class="checkbox"></span>الطيور</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">4</span>صل كل نوع تربة بخاصيته المميّزة:</h4>
+      <div class="match-cols">
+        <ul>
+          <li>أ) التربة الرملية</li>
+          <li>ب) التربة الطينية</li>
+          <li>ج) التربة الغرينية</li>
+        </ul>
+        <ul>
+          <li>1) توازن ممتاز وخصوبة عالية</li>
+          <li>2) نفاذية عالية وفقر بالمواد العضوية</li>
+          <li>3) احتفاظ عالٍ بالماء ونفاذية ضعيفة</li>
+        </ul>
+      </div>
+      <p style="margin-top:10px;">الإجابة: أ - .......... &nbsp; ب - .......... &nbsp; ج - ..........</p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">5</span>رتّب خطوات تجربة قياس نفاذية التربة التالية (من 1 إلى 5):</h4>
+      <div class="order-list">
+        <div class="order-item"><div class="num-box"></div><span>نقارن ونستنتج أي تربة أكثر نفاذية</span></div>
+        <div class="order-item"><div class="num-box"></div><span>نحضر عينتين متساويتين من نوعين مختلفين من التربة</span></div>
+        <div class="order-item"><div class="num-box"></div><span>نقيس الزمن الذي استغرقه الماء للنفاذ في كل عينة</span></div>
+        <div class="order-item"><div class="num-box"></div><span>نضع كل عينة في قمع فوق كأس فارغة</span></div>
+        <div class="order-item"><div class="num-box"></div><span>نصبّ كمية متساوية من الماء على كل عينة في نفس الوقت</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">6</span>حدّد صحيح أو خطأ لكل عبارة:</h4>
+      <div class="tf-item"><span>تتكوّن التربة من مكوّن واحد فقط.</span><div class="tf-boxes"><span class="tf-box">✓</span><span class="tf-box">✗</span></div></div>
+      <div class="tf-item"><span>الدبال هو بقايا نباتية وحيوانية متحللة.</span><div class="tf-boxes"><span class="tf-box">✓</span><span class="tf-box">✗</span></div></div>
+      <div class="tf-item"><span>التربة الرملية تحتفظ بالماء لفترة طويلة.</span><div class="tf-boxes"><span class="tf-box">✓</span><span class="tf-box">✗</span></div></div>
+      <div class="tf-item"><span>التربة الغرينية هي الأنسب للزراعة عموماً.</span><div class="tf-boxes"><span class="tf-box">✓</span><span class="tf-box">✗</span></div></div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">7</span>مسألة تطبيقية:</h4>
+      <div class="scenario-box">
+        يريد فلاح أن يزرع أرضاً جديدة، فحلّل عينة من ترابها فوجدها تحتفظ بالماء لفترة طويلة جداً وتصبح طينية لزجة عند البلل.
+      </div>
+      <p>1) ما نوع هذه التربة على الأرجح؟ <span class="fill-line" style="min-width:60%;"></span></p>
+      <p>2) ما المشكلة التي قد تواجه هذا الفلاح عند الزراعة في هذه التربة إن لم يعالجها؟</p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">8</span>سؤال تحليلي:</h4>
+      <p>لماذا يجب الحفاظ على التربة من التلوث والتعرية (الانجراف)؟ اذكر سببين اثنين.</p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== CORRIGE ===================== -->
+  <div class="corrige-wrapper">
+    <p class="corrige-flag">✂ يمكن طي هذه الصفحة أو إخفاؤها (اضغط على العنوان أدناه) قبل إنجاز التمارين ✂</p>
+    <details class="corrige">
+      <summary>التصحيح الكامل</summary>
+
+      <h4>تصحيح النشاط التطبيقي</h4>
+      <div class="corrige-item">تربة رملية: يمرّ الماء عبرها بسرعة (زمن قصير) — الاستنتاج: نفاذيتها عالية.</div>
+      <div class="corrige-item">تربة طينية: يستغرق الماء وقتاً أطول للنفاذ (أو لا ينفذ) — الاستنتاج: نفاذيتها ضعيفة، وتحتفظ بالماء.</div>
+
+      <h4>تصحيح التمرين 1 (إكمال الجمل)</h4>
+      <div class="corrige-item">1) معدنية / عضوية &nbsp;|&nbsp; 2) الدبال &nbsp;|&nbsp; 3) الرملية / الطينية &nbsp;|&nbsp; 4) الغرينية</div>
+
+      <h4>تصحيح التمرين 2 (جدول الخصائص)</h4>
+      <table class="data-table">
+        <tr><th>نوع التربة</th><th>النفاذية</th><th>الاحتفاظ بالماء</th><th>ملاءمتها للزراعة</th></tr>
+        <tr><td>رملية</td><td>عالية</td><td>ضعيف</td><td>ضعيفة</td></tr>
+        <tr><td>طينية</td><td>ضعيفة</td><td>عالٍ</td><td>متوسطة</td></tr>
+        <tr><td>غرينية</td><td>متوسطة</td><td>متوسط</td><td>ممتازة</td></tr>
+      </table>
+
+      <h4>تصحيح التمرين 3 (الاختيار من متعدد)</h4>
+      <div class="corrige-item">1) الطبقة السطحية لسطح الأرض &nbsp;|&nbsp; 2) الدبال &nbsp;|&nbsp; 3) الرملية &nbsp;|&nbsp; 4) الغرينية &nbsp;|&nbsp; 5) ديدان الأرض</div>
+
+      <h4>تصحيح التمرين 4 (الربط)</h4>
+      <div class="corrige-item">أ - 2 (الرملية ← نفاذية عالية) &nbsp;|&nbsp; ب - 3 (الطينية ← احتفاظ عالٍ بالماء) &nbsp;|&nbsp; ج - 1 (الغرينية ← توازن وخصوبة)</div>
+
+      <h4>تصحيح التمرين 5 (ترتيب التجربة)</h4>
+      <div class="corrige-item">1) نحضر عينتين متساويتين &nbsp;→&nbsp; 2) نضع كل عينة في قمع فوق كأس &nbsp;→&nbsp; 3) نصبّ كمية متساوية من الماء &nbsp;→&nbsp; 4) نقيس زمن النفاذ &nbsp;→&nbsp; 5) نقارن ونستنتج</div>
+
+      <h4>تصحيح التمرين 6 (صحيح/خطأ)</h4>
+      <div class="corrige-item">1) خطأ &nbsp;|&nbsp; 2) صحيح &nbsp;|&nbsp; 3) خطأ &nbsp;|&nbsp; 4) صحيح</div>
+
+      <h4>تصحيح التمرين 7 (المسألة التطبيقية)</h4>
+      <div class="corrige-item">1) تربة طينية.</div>
+      <div class="corrige-item">2) قد تتجمّع المياه ولا تُصرَّف بشكل جيد، مما قد يُغرق جذور النباتات ويُضعف نموها، ويحتاج الفلاح لمعالجتها (كخلطها برمل أو دبال) لتحسين نفاذيتها.</div>
+
+      <h4>تصحيح التمرين 8 (السؤال التحليلي)</h4>
+      <div class="corrige-item">1) لأن التربة أساس الزراعة، والتلوث والتعرية يُفقدانها خصوبتها ويجعلانها غير صالحة لنمو النباتات.</div>
+      <div class="corrige-item">2) لأن التربة موطن للعديد من الكائنات الحية، وحمايتها تحمي التوازن الطبيعي وتضمن استمرار الموارد الغذائية للأجيال القادمة.</div>
+    </details>
+  </div>
+
+  <p class="footer-note">فيشة تعلّم ذاتي — النشاط العلمي — الخامسة ابتدائي — التربة وخصائصها</p>
+</div>
+</body>
+</html>
