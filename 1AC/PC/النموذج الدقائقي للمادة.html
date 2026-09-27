@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>النموذج الدقائقي للمادة</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1c1f33; --ink-soft:#4b4f6a;
+    --paper:#f6f7fb; --panel:#ffffff; --line:#d6d9ea;
+    --indigo:#3f4d9e; --indigo-soft:#e6e9f7;
+    --teal:#1f7a7a; --teal-soft:#dcf0f0;
+    --amber:#c98a2e; --amber-soft:#f6e9d3;
+    --rose:#b1553f; --rose-soft:#f7e3dc;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#e3e5f0;font-family:'Noto Naskh Arabic','Amiri',serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .sheet{max-width:900px;margin:24px auto;background:var(--paper);padding:38px 44px 50px;border:1px solid var(--line);box-shadow:0 4px 24px rgba(0,0,0,.12);}
+
+  .masthead{display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:3px solid var(--ink);padding-bottom:16px;margin-bottom:22px;}
+  .masthead-text h1{font-family:'Amiri',serif;font-weight:700;font-size:26px;margin:0 0 6px;color:var(--indigo);}
+  .masthead-text .subtitle{font-size:15px;color:var(--ink-soft);margin:0;}
+  .particle-icon{width:58px;height:52px;flex-shrink:0;}
+
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+  .meta-chip{border:1px solid var(--line);background:var(--panel);border-radius:3px;padding:6px 12px;font-size:13.5px;color:var(--ink-soft);}
+  .meta-chip b{color:var(--ink);font-weight:600;}
+
+  section{margin-bottom:28px;}
+  h2.section-title{font-family:'Amiri',serif;font-size:21px;font-weight:700;color:var(--teal);border-bottom:2px solid var(--teal);padding-bottom:6px;margin:0 0 14px;display:flex;align-items:baseline;gap:8px;}
+  h3.sub-title{font-size:17px;font-weight:700;color:var(--amber);margin:20px 0 8px;}
+  p{line-height:2;font-size:15.5px;margin:0 0 10px;}
+
+  .objectif-box{background:var(--amber-soft);border-right:4px solid var(--amber);padding:14px 18px;border-radius:2px;font-size:15.5px;line-height:1.9;}
+
+  .rule-box{background:var(--panel);border:1px solid var(--line);border-right:4px solid var(--indigo);padding:14px 18px;border-radius:2px;margin:10px 0 16px;}
+  .rule-box p:last-child{margin-bottom:0;}
+  .rule-box ul,.rule-box ol{margin:6px 0;padding-inline-start:22px;}
+  .rule-box li{margin-bottom:6px;line-height:1.85;}
+
+  .state-grid{display:flex;flex-wrap:wrap;gap:14px;margin:10px 0 16px;}
+  .state-card{flex:1 1 250px;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:10px;text-align:center;}
+  .state-card svg{width:100%;max-width:160px;height:auto;}
+  .state-card .name{font-weight:700;color:var(--indigo);font-size:15px;margin-top:6px;}
+  .state-card p{margin:4px 0 0;font-size:13px;color:var(--ink-soft);line-height:1.7;}
+
+  table.data-table{width:100%;border-collapse:collapse;margin:8px 0 18px;font-size:15px;}
+  table.data-table th{background:var(--indigo);color:#fff;padding:8px 10px;font-weight:600;font-size:14px;}
+  table.data-table td{border:1px solid var(--line);padding:9px 10px;background:var(--panel);text-align:center;}
+  table.data-table tr:nth-child(even) td{background:#eef0f8;}
+
+  .activity-box{background:var(--panel);border:1.5px solid var(--amber);border-radius:3px;padding:16px 20px;}
+  .activity-box .task-label{display:inline-block;background:var(--amber);color:#fff;font-size:12.5px;padding:3px 10px;border-radius:2px;margin-bottom:8px;}
+
+  .exercise{border:1px solid var(--line);border-radius:3px;padding:16px 20px;margin-bottom:16px;background:var(--panel);}
+  .exercise-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:var(--ink);color:var(--paper);border-radius:50%;font-size:14px;font-weight:700;margin-inline-end:8px;}
+  .exercise h4{margin:0 0 10px;font-size:16.5px;display:flex;align-items:center;}
+  .fill-line{border-bottom:1px dotted var(--ink-soft);display:inline-block;min-width:110px;height:1.6em;}
+  .word-chip{display:inline-block;background:var(--paper);border:1px solid var(--line);border-radius:3px;padding:3px 12px;margin:3px 4px;font-size:15px;}
+  .qcm-item{margin-bottom:10px;}
+  .qcm-item p{margin-bottom:4px;font-weight:600;}
+  .qcm-options{display:flex;flex-wrap:wrap;gap:14px;font-size:14.5px;}
+  .qcm-options span{display:flex;align-items:center;gap:5px;}
+  .checkbox{width:13px;height:13px;border:1.4px solid var(--ink-soft);display:inline-block;border-radius:2px;}
+  .tf-item{display:flex;justify-content:space-between;align-items:center;border:1px solid var(--line);border-radius:6px;padding:8px 12px;margin-bottom:8px;background:var(--paper);}
+  .tf-boxes{display:flex;gap:10px;}
+  .tf-box{width:24px;height:24px;border:1.5px solid var(--ink-soft);border-radius:3px;display:inline-flex;align-items:center;justify-content:center;font-size:11px;}
+  .scenario-box{background:#eef0f8;border:1px solid var(--line);padding:12px 16px;font-size:15.5px;line-height:2.1;margin-bottom:10px;}
+
+  .corrige-wrapper{page-break-before:always;padding-top:6px;}
+  .corrige-flag{text-align:center;font-size:13px;color:var(--ink-soft);margin-bottom:10px;border-top:1px dashed var(--ink-soft);padding-top:14px;}
+  details.corrige{border:2px dashed var(--rose);border-radius:4px;background:#fdf7f5;padding:6px 20px 18px;}
+  details.corrige > summary{cursor:pointer;font-family:'Amiri',serif;font-weight:700;font-size:19px;color:var(--rose);padding:14px 0;list-style:none;}
+  details.corrige > summary::-webkit-details-marker{display:none;}
+  details.corrige > summary::before{content:"✂ ";}
+  details.corrige > summary::after{content:"— اضغط لإظهار الحل / إخفائه";font-family:'Noto Naskh Arabic',serif;font-weight:400;font-size:13px;color:var(--ink-soft);margin-inline-start:8px;}
+  .corrige h4{color:var(--rose);margin:16px 0 8px;font-size:16px;}
+  .corrige-item{margin-bottom:8px;font-size:15px;line-height:1.9;}
+  .corrige table.data-table th{background:var(--rose);}
+
+  .footer-note{margin-top:30px;text-align:center;font-size:12px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:10px;}
+
+  @media print{
+    body{background:#fff;}
+    .sheet{box-shadow:none;border:none;margin:0;max-width:100%;padding:14px 6px;}
+    details.corrige{border-color:#000;}
+  }
+  @page{size:A4;margin:14mm;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="masthead-text">
+      <h1>النموذجُ الدقائقيُّ للمادةِ</h1>
+      <p class="subtitle">الفيزياء والكيمياء — المادة وخصائصها</p>
+    </div>
+    <svg class="particle-icon" viewBox="0 0 64 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="14" cy="14" r="5" fill="#3f4d9e"/>
+      <circle cx="30" cy="14" r="5" fill="#3f4d9e"/>
+      <circle cx="46" cy="14" r="5" fill="#3f4d9e"/>
+      <circle cx="18" cy="34" r="4" fill="#1f7a7a"/>
+      <circle cx="34" cy="30" r="4" fill="#1f7a7a"/>
+      <circle cx="10" cy="46" r="3" fill="#c98a2e"/>
+      <circle cx="50" cy="42" r="3" fill="#c98a2e"/>
+    </svg>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta-chip">المستوى: <b>الأولى إعدادي (1AC)</b></div>
+    <div class="meta-chip">المادة: <b>الفيزياء والكيمياء</b></div>
+    <div class="meta-chip">مدة الحصة: <b>ساعة إلى ساعة ونصف</b></div>
+    <div class="meta-chip">نوع الوثيقة: <b>فيشة تعلّم ذاتي</b></div>
+  </div>
+
+  <!-- ===================== OBJECTIF ===================== -->
+  <section>
+    <h2 class="section-title">🎯 الهدف من الدرس</h2>
+    <div class="objectif-box">
+      يتمكّن المتعلم(ة) في نهاية هذا الدرس من: التعرّف على النموذج الدقائقي للمادة، ووصف ترتيب وحركة الدقائق في الحالات الفيزيائية الثلاث (صلبة، سائلة، غازية)، وتوظيف هذا النموذج لتفسير خصائص المادة (الشكل، الحجم، الانضغاطية) وظاهرة التمدد الحراري.
+    </div>
+  </section>
+
+  <!-- ===================== COURS ===================== -->
+  <section>
+    <h2 class="section-title">📘 الدرس</h2>
+
+    <h3 class="sub-title">1) مقدمة: المادة مكوّنة من دقائق</h3>
+    <div class="rule-box">
+      <p>تتكوّن كل مادة، سواء كانت صلبة أو سائلة أو غازية، من <b>دقائق</b> صغيرة جداً، غير مرئية بالعين المجردة ولا حتى بالمجهر العادي. لتفسير خصائص المادة وسلوكها، يعتمد العلماء على تصوّر يُسمى <b>النموذج الدقائقي للمادة</b>.</p>
+    </div>
+
+    <h3 class="sub-title">2) فرضيات النموذج الدقائقي</h3>
+    <div class="rule-box">
+      <ul>
+        <li>تتكوّن المادة من <b>دقائق</b> صغيرة جداً.</li>
+        <li>توجد <b>فراغات</b> بين هذه الدقائق (فراغات صغيرة جداً أو كبيرة حسب حالة المادة).</li>
+        <li>الدقائق في <b>حركة مستمرة</b>، وتختلف سرعة هذه الحركة حسب الحالة ودرجة الحرارة.</li>
+      </ul>
+    </div>
+
+    <h3 class="sub-title">3) ترتيب وحركة الدقائق حسب حالة المادة</h3>
+    <div class="state-grid">
+      <div class="state-card">
+        <svg viewBox="0 0 120 100">
+          <circle cx="25" cy="25" r="7" fill="#3f4d9e"/><circle cx="55" cy="25" r="7" fill="#3f4d9e"/><circle cx="85" cy="25" r="7" fill="#3f4d9e"/>
+          <circle cx="25" cy="50" r="7" fill="#3f4d9e"/><circle cx="55" cy="50" r="7" fill="#3f4d9e"/><circle cx="85" cy="50" r="7" fill="#3f4d9e"/>
+          <circle cx="25" cy="75" r="7" fill="#3f4d9e"/><circle cx="55" cy="75" r="7" fill="#3f4d9e"/><circle cx="85" cy="75" r="7" fill="#3f4d9e"/>
+        </svg>
+        <div class="name">الحالة الصلبة</div>
+        <p>دقائق متراصة ومرتبة بانتظام، تهتز في مكانها فقط.</p>
+      </div>
+      <div class="state-card">
+        <svg viewBox="0 0 120 100">
+          <circle cx="20" cy="30" r="7" fill="#1f7a7a"/><circle cx="45" cy="20" r="7" fill="#1f7a7a"/><circle cx="75" cy="28" r="7" fill="#1f7a7a"/>
+          <circle cx="30" cy="55" r="7" fill="#1f7a7a"/><circle cx="60" cy="50" r="7" fill="#1f7a7a"/><circle cx="90" cy="58" r="7" fill="#1f7a7a"/>
+          <circle cx="18" cy="78" r="7" fill="#1f7a7a"/><circle cx="50" cy="80" r="7" fill="#1f7a7a"/><circle cx="82" cy="75" r="7" fill="#1f7a7a"/>
+        </svg>
+        <div class="name">الحالة السائلة</div>
+        <p>دقائق متقاربة لكن غير مرتبة، تنزلق فوق بعضها.</p>
+      </div>
+      <div class="state-card">
+        <svg viewBox="0 0 120 100">
+          <circle cx="15" cy="20" r="6" fill="#c98a2e"/><circle cx="70" cy="15" r="6" fill="#c98a2e"/><circle cx="100" cy="45" r="6" fill="#c98a2e"/>
+          <circle cx="40" cy="55" r="6" fill="#c98a2e"/><circle cx="10" cy="80" r="6" fill="#c98a2e"/><circle cx="90" cy="85" r="6" fill="#c98a2e"/>
+          <circle cx="60" cy="90" r="6" fill="#c98a2e"/>
+        </svg>
+        <div class="name">الحالة الغازية</div>
+        <p>دقائق متباعدة جداً، في حركة سريعة وعشوائية.</p>
+      </div>
+    </div>
+    <table class="data-table">
+      <tr><th>الحالة</th><th>ترتيب الدقائق</th><th>حركة الدقائق</th><th>الخاصية الناتجة</th></tr>
+      <tr><td>صلبة</td><td>متراصة ومرتبة بانتظام</td><td>اهتزاز في المكان</td><td>شكل ثابت وحجم ثابت</td></tr>
+      <tr><td>سائلة</td><td>متقاربة، غير مرتبة</td><td>انزلاق فوق بعضها</td><td>حجم ثابت، شكل متغير</td></tr>
+      <tr><td>غازية</td><td>متباعدة جداً</td><td>حركة سريعة عشوائية</td><td>لا شكل ولا حجم ثابتين</td></tr>
+    </table>
+
+    <h3 class="sub-title">4) تفسير خصائص المادة بالنموذج الدقائقي</h3>
+    <div class="rule-box">
+      <p><b>الانضغاطية:</b> يمكن ضغط <b>الغازات</b> بسهولة، لأن الفراغات بين دقائقها كبيرة جداً. أما <b>السوائل والمواد الصلبة</b> فيصعب ضغطها، لأن دقائقها متقاربة جداً ولا تترك فراغاً كافياً.</p>
+    </div>
+
+    <h3 class="sub-title">5) تفسير التمدد الحراري وتغيرات الحالة</h3>
+    <div class="rule-box">
+      <p>عند <b>تسخين</b> مادة، تهتز أو تتحرك دقائقها بشكل أكبر وتبتعد قليلاً عن بعضها، فيزداد حجم المادة قليلاً: هذا ما يُسمى <b>التمدد الحراري</b>.</p>
+      <p>عند تغيّر حالة المادة (كالانصهار أو التبخر)، <b>لا تتغير طبيعة الدقائق نفسها</b>، بل يتغيّر فقط <b>ترتيبها وحركتها</b>. مثال: عند انصهار الجليد، تنتقل الدقائق من ترتيب منتظم (صلب) إلى ترتيب غير منتظم مع حركة أكبر (سائل)، لكنها تبقى نفس دقائق الماء.</p>
+    </div>
+  </section>
+
+  <!-- ===================== ACTIVITE ===================== -->
+  <section>
+    <h2 class="section-title">✏️ نشاط تطبيقي</h2>
+    <div class="activity-box">
+      <span class="task-label">رسم ترتيب الدقائق</span>
+      <p>ارسم في دفترك ثلاثة مربعات، ومثّل داخل كل واحد ترتيب دقائق الماء في إحدى حالاته الثلاث (جليد صلب، ماء سائل، بخار ماء)، باستعمال نقط تمثّل الدقائق، مع مراعاة التباعد والترتيب المناسبين لكل حالة.</p>
+    </div>
+  </section>
+
+  <!-- ===================== EXERCICES ===================== -->
+  <section>
+    <h2 class="section-title">📝 تمارين للتدرّب</h2>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">1</span>صنّف الخاصيات التالية حسب الحالة المناسبة (صلبة / سائلة / غازية):</h4>
+      <p>
+        <span class="word-chip">شكل ثابت وحجم ثابت</span>
+        <span class="word-chip">حجم ثابت وشكل متغير</span>
+        <span class="word-chip">لا شكل ولا حجم ثابتين</span>
+        <span class="word-chip">قابلية انضغاط عالية</span>
+        <span class="word-chip">دقائق متراصة ومرتبة</span>
+      </p>
+      <table class="data-table">
+        <tr><th>صلبة</th><th>سائلة</th><th>غازية</th></tr>
+        <tr><td style="height:60px;"></td><td></td><td></td></tr>
+      </table>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">2</span>أكمل الجدول التالي بوصف ترتيب وحركة الدقائق في كل حالة:</h4>
+      <table class="data-table">
+        <tr><th>الحالة</th><th>ترتيب الدقائق</th><th>حركة الدقائق</th></tr>
+        <tr><td>صلبة</td><td><span class="fill-line" style="min-width:100%;"></span></td><td><span class="fill-line" style="min-width:100%;"></span></td></tr>
+        <tr><td>سائلة</td><td><span class="fill-line" style="min-width:100%;"></span></td><td><span class="fill-line" style="min-width:100%;"></span></td></tr>
+        <tr><td>غازية</td><td><span class="fill-line" style="min-width:100%;"></span></td><td><span class="fill-line" style="min-width:100%;"></span></td></tr>
+      </table>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">3</span>اختر الإجابة الصحيحة:</h4>
+      <div class="qcm-item">
+        <p>1) النموذج الدقائقي يفترض أن المادة مكوّنة من:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>دقائق صغيرة جداً</span><span><span class="checkbox"></span>سائل متجانس</span><span><span class="checkbox"></span>فراغ فقط</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>2) في الحالة الصلبة، الدقائق:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>متراصة ومرتبة</span><span><span class="checkbox"></span>متباعدة جداً</span><span><span class="checkbox"></span>متحركة بسرعة كبيرة</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>3) في الحالة الغازية، الدقائق:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>متلاصقة</span><span><span class="checkbox"></span>متباعدة جداً</span><span><span class="checkbox"></span>ثابتة تماماً</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>4) يمكن ضغط الغازات بسهولة لأن دقائقها:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>متباعدة جداً</span><span><span class="checkbox"></span>متراصة جداً</span><span><span class="checkbox"></span>غير موجودة</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>5) عند تسخين مادة، تتحرك دقائقها:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>بشكل أكبر وتبتعد قليلاً</span><span><span class="checkbox"></span>تتوقف عن الحركة</span><span><span class="checkbox"></span>تختفي</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">4</span>فسّر بالنموذج الدقائقي: لماذا يمكن ضغط الهواء الموجود في مضخة دراجة، بينما لا يمكن ضغط الماء بنفس الطريقة؟</h4>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">5</span>فسّر بالنموذج الدقائقي: لماذا يتمدد قضيب معدني عند تسخينه؟</h4>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">6</span>حدّد صحيح أو خطأ لكل عبارة:</h4>
+      <div class="tf-item"><span>الدقائق في الحالة الصلبة لا تتحرك إطلاقاً.</span><div class="tf-boxes"><span class="tf-box">✓</span><span class="tf-box">✗</span></div></div>
+      <div class="tf-item"><span>تتغيّر طبيعة الدقائق نفسها عند تغيّر حالة المادة.</span><div class="tf-boxes"><span class="tf-box">✓</span><span class="tf-box">✗</span></div></div>
+      <div class="tf-item"><span>الدقائق في الحالة الغازية متباعدة جداً عن بعضها.</span><div class="tf-boxes"><span class="tf-box">✓</span><span class="tf-box">✗</span></div></div>
+      <div class="tf-item"><span>يمكن ضغط السوائل بسهولة كبيرة.</span><div class="tf-boxes"><span class="tf-box">✓</span><span class="tf-box">✗</span></div></div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">7</span>صف (بالكلمات) كيف ترسم ترتيب الدقائق في كل حالة من حالات الماء الثلاث (جليد، ماء سائل، بخار ماء):</h4>
+      <p>جليد (صلب): <span class="fill-line" style="min-width:100%;"></span></p>
+      <p>ماء (سائل): <span class="fill-line" style="min-width:100%;"></span></p>
+      <p>بخار (غاز): <span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">8</span>مسألة تطبيقية:</h4>
+      <div class="scenario-box">
+        سُخّنت قطعة من الثلج (حالة صلبة) تدريجياً حتى انصهرت وتحوّلت إلى ماء سائل.
+      </div>
+      <p>فسّر بالنموذج الدقائقي ما يحدث لترتيب وحركة دقائق الماء خلال هذا التغيّر.</p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== CORRIGE ===================== -->
+  <div class="corrige-wrapper">
+    <p class="corrige-flag">✂ يمكن طي هذه الصفحة أو إخفاؤها (اضغط على العنوان أدناه) قبل إنجاز التمارين ✂</p>
+    <details class="corrige">
+      <summary>التصحيح الكامل</summary>
+
+      <h4>تصحيح التمرين 1 (التصنيف)</h4>
+      <div class="corrige-item"><b>صلبة:</b> شكل ثابت وحجم ثابت، دقائق متراصة ومرتبة</div>
+      <div class="corrige-item"><b>سائلة:</b> حجم ثابت وشكل متغير</div>
+      <div class="corrige-item"><b>غازية:</b> لا شكل ولا حجم ثابتين، قابلية انضغاط عالية</div>
+
+      <h4>تصحيح التمرين 2 (جدول الترتيب والحركة)</h4>
+      <table class="data-table">
+        <tr><th>الحالة</th><th>ترتيب الدقائق</th><th>حركة الدقائق</th></tr>
+        <tr><td>صلبة</td><td>متراصة ومرتبة بانتظام</td><td>اهتزاز في المكان</td></tr>
+        <tr><td>سائلة</td><td>متقاربة، غير مرتبة</td><td>انزلاق فوق بعضها</td></tr>
+        <tr><td>غازية</td><td>متباعدة جداً</td><td>حركة سريعة وعشوائية</td></tr>
+      </table>
+
+      <h4>تصحيح التمرين 3 (الاختيار من متعدد)</h4>
+      <div class="corrige-item">1) دقائق صغيرة جداً &nbsp;|&nbsp; 2) متراصة ومرتبة &nbsp;|&nbsp; 3) متباعدة جداً &nbsp;|&nbsp; 4) متباعدة جداً &nbsp;|&nbsp; 5) بشكل أكبر وتبتعد قليلاً</div>
+
+      <h4>تصحيح التمرين 4 (تفسير الانضغاطية)</h4>
+      <div class="corrige-item">دقائق الهواء (غاز) متباعدة جداً عن بعضها، وتترك فراغات كبيرة يمكن تقليصها بالضغط. أما دقائق الماء (سائل) فمتقاربة جداً ولا تترك فراغاً كافياً، لذلك يصعب ضغطه.</div>
+
+      <h4>تصحيح التمرين 5 (تفسير التمدد الحراري)</h4>
+      <div class="corrige-item">عند تسخين القضيب المعدني، تهتز دقائقه بشكل أكبر وتبتعد قليلاً عن بعضها البعض، مما يؤدي إلى زيادة طفيفة في حجم القضيب (تمدده).</div>
+
+      <h4>تصحيح التمرين 6 (صحيح/خطأ)</h4>
+      <div class="corrige-item">1) خطأ (تهتز في مكانها) &nbsp;|&nbsp; 2) خطأ (يتغيّر ترتيبها وحركتها فقط) &nbsp;|&nbsp; 3) صحيح &nbsp;|&nbsp; 4) خطأ (يصعب ضغط السوائل)</div>
+
+      <h4>تصحيح التمرين 7 (وصف الرسم)</h4>
+      <div class="corrige-item">جليد: نقط متراصة ومرتبة في صفوف منتظمة ومتلاصقة.</div>
+      <div class="corrige-item">ماء سائل: نقط متقاربة لكن غير مرتبة في صفوف منتظمة.</div>
+      <div class="corrige-item">بخار: نقط قليلة ومتباعدة جداً عن بعضها، موزّعة بشكل عشوائي.</div>
+
+      <h4>تصحيح التمرين 8 (المسألة التطبيقية)</h4>
+      <div class="corrige-item">خلال الانصهار، تنتقل دقائق الماء من ترتيب منتظم ومتراصّ (في الحالة الصلبة) إلى ترتيب غير منتظم مع تباعد أكبر وحركة انزلاقية (في الحالة السائلة). تبقى الدقائق نفسها (دقائق الماء)، ولا يتغيّر سوى ترتيبها وحركتها.</div>
+    </details>
+  </div>
+
+  <p class="footer-note">فيشة تعلّم ذاتي — الفيزياء والكيمياء — الأولى إعدادي — النموذج الدقائقي للمادة</p>
+</div>
+</body>
+</html>
