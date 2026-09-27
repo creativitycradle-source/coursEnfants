@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>التدرب على تمثيل البنية السكانية والكثافة السكانية</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#173028; --ink-soft:#48594f;
+    --paper:#f5faf6; --panel:#ffffff; --line:#cfe0d5;
+    --teal:#1f7a63; --teal-soft:#dcf0e6;
+    --gold:#c08a2e; --gold-soft:#f6ecd4;
+    --sky:#2f6f9e; --sky-soft:#deeef6;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#e4e9dc;font-family:'Noto Naskh Arabic','Amiri',serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .sheet{max-width:900px;margin:24px auto;background:var(--paper);padding:38px 44px 50px;border:1px solid var(--line);box-shadow:0 4px 24px rgba(0,0,0,.12);}
+
+  .masthead{display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:3px solid var(--ink);padding-bottom:16px;margin-bottom:22px;}
+  .masthead-text h1{font-family:'Amiri',serif;font-weight:700;font-size:22px;margin:0 0 6px;color:var(--teal);line-height:1.45;}
+  .masthead-text .subtitle{font-size:15px;color:var(--ink-soft);margin:0;}
+  .pyr-icon{width:56px;height:52px;flex-shrink:0;}
+
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+  .meta-chip{border:1px solid var(--line);background:var(--panel);border-radius:3px;padding:6px 12px;font-size:13.5px;color:var(--ink-soft);}
+  .meta-chip b{color:var(--ink);font-weight:600;}
+
+  section{margin-bottom:28px;}
+  h2.section-title{font-family:'Amiri',serif;font-size:21px;font-weight:700;color:var(--sky);border-bottom:2px solid var(--sky);padding-bottom:6px;margin:0 0 14px;display:flex;align-items:baseline;gap:8px;}
+  h3.sub-title{font-size:17px;font-weight:700;color:var(--gold);margin:20px 0 8px;}
+  p{line-height:2;font-size:15.5px;margin:0 0 10px;}
+
+  .objectif-box{background:var(--gold-soft);border-right:4px solid var(--gold);padding:14px 18px;border-radius:2px;font-size:15.5px;line-height:1.9;}
+
+  .rule-box{background:var(--panel);border:1px solid var(--line);border-right:4px solid var(--teal);padding:14px 18px;border-radius:2px;margin:10px 0 16px;}
+  .rule-box p:last-child{margin-bottom:0;}
+  .rule-box ul,.rule-box ol{margin:6px 0;padding-inline-start:22px;}
+  .rule-box li{margin-bottom:6px;line-height:1.85;}
+
+  .formula-box{background:var(--teal);color:#fff;text-align:center;padding:12px;border-radius:6px;font-size:16px;font-weight:700;margin:8px 0 16px;}
+
+  .pyramid-wrap{display:flex;justify-content:center;margin:16px 0;}
+  .map-wrap{display:flex;justify-content:center;margin:16px 0;}
+
+  table.data-table{width:100%;border-collapse:collapse;margin:8px 0 18px;font-size:15px;}
+  table.data-table th{background:var(--sky);color:#fff;padding:8px 10px;font-weight:600;font-size:14px;}
+  table.data-table td{border:1px solid var(--line);padding:9px 10px;background:var(--panel);text-align:center;}
+  table.data-table tr:nth-child(even) td{background:#eef6f0;}
+
+  .activity-box{background:var(--panel);border:1.5px solid var(--gold);border-radius:3px;padding:16px 20px;}
+  .activity-box .task-label{display:inline-block;background:var(--gold);color:#fff;font-size:12.5px;padding:3px 10px;border-radius:2px;margin-bottom:8px;}
+
+  .exercise{border:1px solid var(--line);border-radius:3px;padding:16px 20px;margin-bottom:16px;background:var(--panel);}
+  .exercise-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:var(--ink);color:var(--paper);border-radius:50%;font-size:14px;font-weight:700;margin-inline-end:8px;}
+  .exercise h4{margin:0 0 10px;font-size:16.5px;display:flex;align-items:center;}
+  .fill-line{border-bottom:1px dotted var(--ink-soft);display:inline-block;min-width:120px;height:1.6em;}
+  .qcm-item{margin-bottom:10px;}
+  .qcm-item p{margin-bottom:4px;font-weight:600;}
+  .qcm-options{display:flex;flex-wrap:wrap;gap:14px;font-size:14.5px;}
+  .qcm-options span{display:flex;align-items:center;gap:5px;}
+  .checkbox{width:13px;height:13px;border:1.4px solid var(--ink-soft);display:inline-block;border-radius:2px;}
+  .scenario-box{background:#eef6f0;border:1px solid var(--line);padding:12px 16px;font-size:15.5px;line-height:2.1;margin-bottom:10px;}
+
+  .corrige-wrapper{page-break-before:always;padding-top:6px;}
+  .corrige-flag{text-align:center;font-size:13px;color:var(--ink-soft);margin-bottom:10px;border-top:1px dashed var(--ink-soft);padding-top:14px;}
+  details.corrige{border:2px dashed var(--sky);border-radius:4px;background:#f2f9fc;padding:6px 20px 18px;}
+  details.corrige > summary{cursor:pointer;font-family:'Amiri',serif;font-weight:700;font-size:19px;color:var(--sky);padding:14px 0;list-style:none;}
+  details.corrige > summary::-webkit-details-marker{display:none;}
+  details.corrige > summary::before{content:"✂ ";}
+  details.corrige > summary::after{content:"— اضغط لإظهار الحل / إخفائه";font-family:'Noto Naskh Arabic',serif;font-weight:400;font-size:13px;color:var(--ink-soft);margin-inline-start:8px;}
+  .corrige h4{color:var(--sky);margin:16px 0 8px;font-size:16px;}
+  .corrige-item{margin-bottom:8px;font-size:15px;line-height:1.9;}
+  .corrige table.data-table th{background:var(--sky);}
+
+  .footer-note{margin-top:30px;text-align:center;font-size:12px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:10px;}
+
+  @media print{
+    body{background:#fff;}
+    .sheet{box-shadow:none;border:none;margin:0;max-width:100%;padding:14px 6px;}
+    details.corrige{border-color:#000;}
+  }
+  @page{size:A4;margin:14mm;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="masthead-text">
+      <h1>التدرّبُ على تمثيلِ البنيةِ السكانيةِ والكثافةِ السكانيةِ</h1>
+      <p class="subtitle">الاجتماعيات — الجغرافيا: منهجية تمثيل معطيات السكان</p>
+    </div>
+    <svg class="pyr-icon" viewBox="0 0 64 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="26" y="6" width="12" height="8" fill="#2f6f9e"/>
+      <rect x="20" y="16" width="24" height="8" fill="#2f6f9e"/>
+      <rect x="12" y="26" width="40" height="8" fill="#1f7a63"/>
+      <rect x="6" y="36" width="52" height="8" fill="#1f7a63"/>
+      <rect x="2" y="46" width="60" height="7" fill="#c08a2e"/>
+    </svg>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta-chip">المستوى: <b>الأولى إعدادي (1AC)</b></div>
+    <div class="meta-chip">المادة: <b>الاجتماعيات — الجغرافيا</b></div>
+    <div class="meta-chip">مدة الحصة: <b>ساعة إلى ساعة ونصف</b></div>
+    <div class="meta-chip">نوع الوثيقة: <b>فيشة تعلّم ذاتي (منهجية)</b></div>
+  </div>
+
+  <!-- ===================== OBJECTIF ===================== -->
+  <section>
+    <h2 class="section-title">🎯 الهدف من الدرس</h2>
+    <div class="objectif-box">
+      يتمكّن المتعلم(ة) في نهاية هذا الدرس من: التعرّف على هرم الأعمار كأداة لتمثيل البنية السكانية وقراءته، وحساب الكثافة السكانية لمنطقة معينة، والتدرّب على تمثيل الكثافة السكانية على خريطة باستعمال درجات الألوان.
+    </div>
+  </section>
+
+  <!-- ===================== COURS ===================== -->
+  <section>
+    <h2 class="section-title">📘 الدرس</h2>
+
+    <h3 class="sub-title">1) هرم الأعمار: تمثيل البنية السكانية</h3>
+    <div class="rule-box">
+      <p><b>هرم الأعمار</b> رسم بياني يمثّل توزيع سكان بلد أو منطقة معينة حسب <b>الفئات العمرية</b> (من الأصغر في الأسفل إلى الأكبر في الأعلى) وحسب <b>الجنس</b> (الذكور عادة على جهة، والإناث على الجهة الأخرى).</p>
+    </div>
+    <div class="pyramid-wrap">
+      <svg width="320" height="220" viewBox="0 0 320 220">
+        <line x1="160" y1="10" x2="160" y2="210" stroke="#173028" stroke-width="1.5"/>
+        <text x="80" y="205" text-anchor="middle" font-size="11" font-family="Noto Naskh Arabic, serif" fill="#2f6f9e">ذكور</text>
+        <text x="240" y="205" text-anchor="middle" font-size="11" font-family="Noto Naskh Arabic, serif" fill="#c08a2e">إناث</text>
+        <rect x="140" y="15" width="20" height="18" fill="#2f6f9e"/><rect x="160" y="15" width="18" height="18" fill="#c08a2e"/>
+        <rect x="125" y="35" width="35" height="18" fill="#2f6f9e"/><rect x="160" y="35" width="33" height="18" fill="#c08a2e"/>
+        <rect x="110" y="55" width="50" height="18" fill="#2f6f9e"/><rect x="160" y="55" width="48" height="18" fill="#c08a2e"/>
+        <rect x="90" y="75" width="70" height="18" fill="#2f6f9e"/><rect x="160" y="75" width="68" height="18" fill="#c08a2e"/>
+        <rect x="60" y="95" width="100" height="18" fill="#2f6f9e"/><rect x="160" y="95" width="98" height="18" fill="#c08a2e"/>
+        <rect x="30" y="115" width="130" height="18" fill="#2f6f9e"/><rect x="160" y="115" width="128" height="18" fill="#c08a2e"/>
+        <rect x="15" y="135" width="145" height="18" fill="#2f6f9e"/><rect x="160" y="135" width="143" height="18" fill="#c08a2e"/>
+        <text x="160" y="30" text-anchor="middle" font-size="9" fill="#fff">+70</text>
+        <text x="160" y="70" text-anchor="middle" font-size="9" fill="#fff">40-49</text>
+        <text x="160" y="110" text-anchor="middle" font-size="9" fill="#fff">10-19</text>
+        <text x="160" y="148" text-anchor="middle" font-size="9" fill="#fff">0-9</text>
+      </svg>
+    </div>
+    <div class="rule-box">
+      <p><b>قراءة هرم الأعمار:</b> إذا كانت <b>قاعدة الهرم عريضة</b> (نسبة كبيرة من الأطفال والشباب)، دلّ ذلك على <b>مجتمع فتي</b> ومعدل ولادات مرتفع. أما إذا كانت <b>القاعدة ضيقة والقمة عريضة نسبياً</b>، دلّ ذلك على <b>مجتمع مسنّ</b> ومعدل ولادات منخفض.</p>
+    </div>
+
+    <h3 class="sub-title">2) الكثافة السكانية</h3>
+    <div class="rule-box">
+      <p><b>الكثافة السكانية</b> عدد السكان الذين يعيشون في وحدة مساحة معينة (عادة كيلومتر مربع واحد).</p>
+    </div>
+    <div class="formula-box">الكثافة السكانية = عدد السكان ÷ المساحة (كم²)</div>
+    <p style="font-size:14px;color:var(--ink-soft);margin-top:-8px;">تُقاس الكثافة السكانية بوحدة: <b>نسمة/كم²</b>. مثال: إذا كان عدد سكان منطقة 500 000 نسمة ومساحتها 1000 كم²، فإن كثافتها = 500 000 ÷ 1000 = 500 نسمة/كم².</p>
+
+    <h3 class="sub-title">3) تصنيف مستويات الكثافة السكانية</h3>
+    <table class="data-table">
+      <tr><th>المستوى</th><th>الكثافة (نسمة/كم²)</th></tr>
+      <tr><td>كثافة منخفضة</td><td>أقل من 10</td></tr>
+      <tr><td>كثافة متوسطة</td><td>من 10 إلى 100</td></tr>
+      <tr><td>كثافة عالية</td><td>أكثر من 100</td></tr>
+    </table>
+
+    <h3 class="sub-title">4) تمثيل الكثافة السكانية على خريطة</h3>
+    <div class="rule-box">
+      <p>تُمثَّل الكثافة السكانية على الخرائط باستعمال <b>درجات الألوان</b> (خريطة مدرّجة الألوان): كلما كان اللون <b>أغمق</b>، دلّ ذلك على كثافة سكانية <b>أعلى</b>، وكلما كان اللون <b>أفتح</b>، دلّ على كثافة <b>أقل</b>.</p>
+    </div>
+    <div class="map-wrap">
+      <svg width="280" height="120" viewBox="0 0 280 120">
+        <rect x="10" y="10" width="80" height="100" fill="#c6e5d5" stroke="#173028" stroke-width="1"/>
+        <text x="50" y="65" text-anchor="middle" font-size="10" font-family="Noto Naskh Arabic, serif">منخفضة</text>
+        <rect x="100" y="10" width="80" height="100" fill="#5fb08a" stroke="#173028" stroke-width="1"/>
+        <text x="140" y="65" text-anchor="middle" font-size="10" font-family="Noto Naskh Arabic, serif" fill="#fff">متوسطة</text>
+        <rect x="190" y="10" width="80" height="100" fill="#1f7a63" stroke="#173028" stroke-width="1"/>
+        <text x="230" y="65" text-anchor="middle" font-size="10" font-family="Noto Naskh Arabic, serif" fill="#fff">عالية</text>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ===================== ACTIVITE ===================== -->
+  <section>
+    <h2 class="section-title">✏️ نشاط تطبيقي</h2>
+    <div class="activity-box">
+      <span class="task-label">حساب وتصنيف الكثافة السكانية</span>
+      <p>أكمل الجدول التالي بحساب الكثافة السكانية لكل منطقة، ثم صنّفها حسب مستواها (منخفضة/متوسطة/عالية):</p>
+      <table class="data-table">
+        <tr><th>المنطقة</th><th>عدد السكان</th><th>المساحة (كم²)</th><th>الكثافة</th><th>المستوى</th></tr>
+        <tr><td>منطقة أ</td><td>300 000</td><td>500</td><td><span class="fill-line" style="min-width:100%;"></span></td><td><span class="fill-line" style="min-width:100%;"></span></td></tr>
+        <tr><td>منطقة ب</td><td>80 000</td><td>16 000</td><td><span class="fill-line" style="min-width:100%;"></span></td><td><span class="fill-line" style="min-width:100%;"></span></td></tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===================== EXERCICES ===================== -->
+  <section>
+    <h2 class="section-title">📝 تمارين للتدرّب</h2>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">1</span>أكمل الجمل التالية بالمعطى المناسب:</h4>
+      <p>1) يُمثّل .......... توزيع السكان حسب الفئات العمرية والجنس.</p>
+      <p>2) تدلّ القاعدة العريضة لهرم الأعمار على مجتمع .......... </p>
+      <p>3) تُحسب الكثافة السكانية بقسمة .......... على .......... </p>
+      <p>4) تُستعمل درجات .......... لتمثيل الكثافة السكانية على الخرائط.</p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">2</span>احسب الكثافة السكانية للمناطق التالية:</h4>
+      <table class="data-table">
+        <tr><th>المنطقة</th><th>عدد السكان</th><th>المساحة (كم²)</th><th>الكثافة (نسمة/كم²)</th></tr>
+        <tr><td>منطقة أ</td><td>500 000</td><td>1000</td><td><span class="fill-line" style="min-width:100%;"></span></td></tr>
+        <tr><td>منطقة ب</td><td>200 000</td><td>20 000</td><td><span class="fill-line" style="min-width:100%;"></span></td></tr>
+        <tr><td>منطقة ج</td><td>50 000</td><td>100 000</td><td><span class="fill-line" style="min-width:100%;"></span></td></tr>
+      </table>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">3</span>اختر الإجابة الصحيحة:</h4>
+      <div class="qcm-item">
+        <p>1) هرم الأعمار يمثّل:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>توزيع السكان حسب الأعمار والجنس</span><span><span class="checkbox"></span>توزيع الثروة</span><span><span class="checkbox"></span>توزيع الأمطار</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>2) القاعدة العريضة لهرم الأعمار تدلّ على:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>مجتمع فتي (شبابي)</span><span><span class="checkbox"></span>مجتمع مسنّ</span><span><span class="checkbox"></span>مجتمع مستقر عددياً</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>3) الكثافة السكانية تُحسب بـ:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>عدد السكان × المساحة</span><span><span class="checkbox"></span>عدد السكان ÷ المساحة</span><span><span class="checkbox"></span>المساحة ÷ عدد السكان</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>4) تُقاس الكثافة السكانية بوحدة:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>نسمة/كم²</span><span><span class="checkbox"></span>كم² فقط</span><span><span class="checkbox"></span>نسمة فقط</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>5) اللون الأغمق على خريطة الكثافة السكانية يدلّ على:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>كثافة منخفضة</span><span><span class="checkbox"></span>كثافة عالية</span><span><span class="checkbox"></span>غياب السكان</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">4</span>صنّف الكثافات التي حسبتها في التمرين الثاني إلى (منخفضة / متوسطة / عالية):</h4>
+      <table class="data-table">
+        <tr><th>منخفضة (أقل من 10)</th><th>متوسطة (10 - 100)</th><th>عالية (أكثر من 100)</th></tr>
+        <tr><td style="height:60px;"></td><td></td><td></td></tr>
+      </table>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">5</span>لاحظ الوصف التالي لهرم أعمار أحد البلدان:</h4>
+      <div class="scenario-box">
+        يُظهر هرم أعمار هذا البلد قاعدة عريضة جداً تضمّ نسبة كبيرة من الأطفال والشباب، بينما تضيق القمة تدريجياً كلما تقدّمنا في السن.
+      </div>
+      <p>1) ما نوع المجتمع الذي يمثّله هذا الهرم؟ فتي أم مسنّ؟</p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+      <p>2) ماذا يدلّ ذلك على معدل الولادات في هذا البلد؟</p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== CORRIGE ===================== -->
+  <div class="corrige-wrapper">
+    <p class="corrige-flag">✂ يمكن طي هذه الصفحة أو إخفاؤها (اضغط على العنوان أدناه) قبل إنجاز التمارين ✂</p>
+    <details class="corrige">
+      <summary>التصحيح الكامل</summary>
+
+      <h4>تصحيح النشاط التطبيقي</h4>
+      <div class="corrige-item">منطقة أ: الكثافة = 300 000 ÷ 500 = <b>600 نسمة/كم²</b> — المستوى: عالية</div>
+      <div class="corrige-item">منطقة ب: الكثافة = 80 000 ÷ 16 000 = <b>5 نسمة/كم²</b> — المستوى: منخفضة</div>
+
+      <h4>تصحيح التمرين 1 (إكمال الجمل)</h4>
+      <div class="corrige-item">1) هرم الأعمار &nbsp;|&nbsp; 2) فتي (شبابي) &nbsp;|&nbsp; 3) عدد السكان / المساحة &nbsp;|&nbsp; 4) الألوان</div>
+
+      <h4>تصحيح التمرين 2 (حساب الكثافة)</h4>
+      <div class="corrige-item">منطقة أ: 500 000 ÷ 1000 = <b>500 نسمة/كم²</b></div>
+      <div class="corrige-item">منطقة ب: 200 000 ÷ 20 000 = <b>10 نسمة/كم²</b></div>
+      <div class="corrige-item">منطقة ج: 50 000 ÷ 100 000 = <b>0.5 نسمة/كم²</b></div>
+
+      <h4>تصحيح التمرين 3 (الاختيار من متعدد)</h4>
+      <div class="corrige-item">1) توزيع السكان حسب الأعمار والجنس &nbsp;|&nbsp; 2) مجتمع فتي &nbsp;|&nbsp; 3) عدد السكان ÷ المساحة &nbsp;|&nbsp; 4) نسمة/كم² &nbsp;|&nbsp; 5) كثافة عالية</div>
+
+      <h4>تصحيح التمرين 4 (التصنيف)</h4>
+      <div class="corrige-item"><b>منخفضة:</b> منطقة ج (0.5) &nbsp;|&nbsp; <b>متوسطة:</b> منطقة ب (10) &nbsp;|&nbsp; <b>عالية:</b> منطقة أ (500)</div>
+
+      <h4>تصحيح التمرين 5 (قراءة هرم الأعمار)</h4>
+      <div class="corrige-item">1) يمثّل هذا الهرم مجتمعاً <b>فتياً</b> (شبابياً)، بدليل قاعدته العريضة.</div>
+      <div class="corrige-item">2) يدلّ ذلك على أن معدل الولادات في هذا البلد <b>مرتفع</b>.</div>
+    </details>
+  </div>
+
+  <p class="footer-note">فيشة تعلّم ذاتي — الاجتماعيات (الجغرافيا) — الأولى إعدادي — التدرب على تمثيل البنية السكانية والكثافة السكانية</p>
+</div>
+</body>
+</html>
