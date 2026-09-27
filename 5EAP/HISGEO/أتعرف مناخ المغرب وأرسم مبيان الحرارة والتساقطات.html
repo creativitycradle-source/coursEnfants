@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>أتعرف مناخ المغرب وأرسم مبيان الحرارة والتساقطات</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1f2a33; --ink-soft:#4c5a63;
+    --paper:#f5f9fb; --panel:#ffffff; --line:#cfe0e8;
+    --sky:#2f7ea8; --sky-soft:#deeef6;
+    --amber:#d99a2b; --amber-soft:#f8edd6;
+    --terra:#bd5b34; --terra-soft:#f5e0d2;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#dbe9ee;font-family:'Noto Naskh Arabic','Amiri',serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .sheet{max-width:900px;margin:24px auto;background:var(--paper);padding:38px 44px 50px;border:1px solid var(--line);box-shadow:0 4px 24px rgba(0,0,0,.12);}
+
+  .masthead{display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:3px solid var(--ink);padding-bottom:16px;margin-bottom:22px;}
+  .masthead-text h1{font-family:'Amiri',serif;font-weight:700;font-size:22px;margin:0 0 6px;color:var(--sky);line-height:1.45;}
+  .masthead-text .subtitle{font-size:15px;color:var(--ink-soft);margin:0;}
+  .climate-icon{width:60px;height:52px;flex-shrink:0;}
+
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+  .meta-chip{border:1px solid var(--line);background:var(--panel);border-radius:3px;padding:6px 12px;font-size:13.5px;color:var(--ink-soft);}
+  .meta-chip b{color:var(--ink);font-weight:600;}
+
+  section{margin-bottom:28px;}
+  h2.section-title{font-family:'Amiri',serif;font-size:21px;font-weight:700;color:var(--terra);border-bottom:2px solid var(--terra);padding-bottom:6px;margin:0 0 14px;display:flex;align-items:baseline;gap:8px;}
+  h3.sub-title{font-size:17px;font-weight:700;color:var(--amber);margin:20px 0 8px;}
+  p{line-height:2;font-size:15.5px;margin:0 0 10px;}
+
+  .objectif-box{background:var(--amber-soft);border-right:4px solid var(--amber);padding:14px 18px;border-radius:2px;font-size:15.5px;line-height:1.9;}
+
+  .rule-box{background:var(--panel);border:1px solid var(--line);border-right:4px solid var(--sky);padding:14px 18px;border-radius:2px;margin:10px 0 16px;}
+  .rule-box p:last-child{margin-bottom:0;}
+  .rule-box ul,.rule-box ol{margin:6px 0;padding-inline-start:22px;}
+  .rule-box li{margin-bottom:6px;line-height:1.85;}
+
+  .climate-grid{display:flex;flex-wrap:wrap;gap:12px;margin:10px 0 16px;}
+  .climate-card{flex:1 1 170px;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:10px 12px;}
+  .climate-card .head{font-weight:700;color:var(--sky);font-size:14px;margin-bottom:3px;}
+  .climate-card p{margin:0;font-size:12.5px;color:var(--ink-soft);line-height:1.7;}
+
+  .chart-wrap{display:flex;justify-content:center;margin:16px 0;}
+
+  table.data-table{width:100%;border-collapse:collapse;margin:8px 0 18px;font-size:14px;}
+  table.data-table th{background:var(--sky);color:#fff;padding:7px 8px;font-weight:600;font-size:13px;}
+  table.data-table td{border:1px solid var(--line);padding:7px 8px;background:var(--panel);text-align:center;}
+  table.data-table tr:nth-child(even) td{background:#eaf4f8;}
+
+  .activity-box{background:var(--panel);border:1.5px solid var(--amber);border-radius:3px;padding:16px 20px;}
+  .activity-box .task-label{display:inline-block;background:var(--amber);color:#fff;font-size:12.5px;padding:3px 10px;border-radius:2px;margin-bottom:8px;}
+
+  .exercise{border:1px solid var(--line);border-radius:3px;padding:16px 20px;margin-bottom:16px;background:var(--panel);}
+  .exercise-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:var(--ink);color:var(--paper);border-radius:50%;font-size:14px;font-weight:700;margin-inline-end:8px;}
+  .exercise h4{margin:0 0 10px;font-size:16.5px;display:flex;align-items:center;}
+  .fill-line{border-bottom:1px dotted var(--ink-soft);display:inline-block;min-width:110px;height:1.6em;}
+  .qcm-item{margin-bottom:10px;}
+  .qcm-item p{margin-bottom:4px;font-weight:600;}
+  .qcm-options{display:flex;flex-wrap:wrap;gap:14px;font-size:14.5px;}
+  .qcm-options span{display:flex;align-items:center;gap:5px;}
+  .checkbox{width:13px;height:13px;border:1.4px solid var(--ink-soft);display:inline-block;border-radius:2px;}
+  .match-cols{display:flex;justify-content:space-between;gap:40px;margin-top:8px;}
+  .match-cols ul{list-style:none;padding:0;margin:0;}
+  .match-cols li{border:1px solid var(--line);background:var(--paper);padding:6px 14px;margin-bottom:10px;border-radius:3px;font-size:15px;}
+  .scenario-box{background:#eaf4f8;border:1px solid var(--line);padding:12px 16px;font-size:15.5px;line-height:2.1;margin-bottom:10px;}
+
+  .corrige-wrapper{page-break-before:always;padding-top:6px;}
+  .corrige-flag{text-align:center;font-size:13px;color:var(--ink-soft);margin-bottom:10px;border-top:1px dashed var(--ink-soft);padding-top:14px;}
+  details.corrige{border:2px dashed var(--terra);border-radius:4px;background:#fdf5f0;padding:6px 20px 18px;}
+  details.corrige > summary{cursor:pointer;font-family:'Amiri',serif;font-weight:700;font-size:19px;color:var(--terra);padding:14px 0;list-style:none;}
+  details.corrige > summary::-webkit-details-marker{display:none;}
+  details.corrige > summary::before{content:"✂ ";}
+  details.corrige > summary::after{content:"— اضغط لإظهار الحل / إخفائه";font-family:'Noto Naskh Arabic',serif;font-weight:400;font-size:13px;color:var(--ink-soft);margin-inline-start:8px;}
+  .corrige h4{color:var(--terra);margin:16px 0 8px;font-size:16px;}
+  .corrige-item{margin-bottom:8px;font-size:15px;line-height:1.9;}
+  .corrige table.data-table th{background:var(--terra);}
+
+  .footer-note{margin-top:30px;text-align:center;font-size:12px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:10px;}
+
+  @media print{
+    body{background:#fff;}
+    .sheet{box-shadow:none;border:none;margin:0;max-width:100%;padding:14px 6px;}
+    details.corrige{border-color:#000;}
+  }
+  @page{size:A4;margin:14mm;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="masthead-text">
+      <h1>أتعرّفُ مناخَ المغربِ وأرسمُ مبياناً للحرارةِ والتساقطاتِ</h1>
+      <p class="subtitle">الاجتماعيات — الجغرافيا: مناخ المغرب</p>
+    </div>
+    <svg class="climate-icon" viewBox="0 0 64 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="20" cy="18" r="10" fill="#d99a2b"/>
+      <path d="M8 40c8-8 16 6 24 0s16 6 24 0" stroke="#2f7ea8" stroke-width="3" fill="none"/>
+      <line x1="20" y1="4" x2="20" y2="-2" stroke="#d99a2b" stroke-width="2"/>
+    </svg>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta-chip">المستوى: <b>الخامسة ابتدائي (5AEP)</b></div>
+    <div class="meta-chip">المادة: <b>الاجتماعيات — الجغرافيا</b></div>
+    <div class="meta-chip">مدة الحصة: <b>ساعة إلى ساعة ونصف</b></div>
+    <div class="meta-chip">نوع الوثيقة: <b>فيشة تعلّم ذاتي</b></div>
+  </div>
+
+  <!-- ===================== OBJECTIF ===================== -->
+  <section>
+    <h2 class="section-title">🎯 الهدف من الدرس</h2>
+    <div class="objectif-box">
+      يتمكّن المتعلم(ة) في نهاية هذا الدرس من: التعرّف على عناصر المناخ الأساسية وتنوّع المناخ بالمغرب، وتعلّم خطوات رسم مبيان مناخي (الحرارة والتساقطات) لمنطقة معينة، وقراءة هذا المبيان لاستخراج معطيات مناخية.
+    </div>
+  </section>
+
+  <!-- ===================== COURS ===================== -->
+  <section>
+    <h2 class="section-title">📘 الدرس</h2>
+
+    <h3 class="sub-title">1) تذكير: ما هو المناخ؟</h3>
+    <div class="rule-box">
+      <p><b>المناخ</b> هو الحالة العامة للجو في منطقة معينة، تُلاحَظ على مدى سنوات طويلة (على عكس <b>الطقس</b> الذي يتغيّر يومياً). يتكوّن المناخ من عنصرين أساسيين: <b>درجة الحرارة</b> و<b>التساقطات</b> (الأمطار).</p>
+    </div>
+
+    <h3 class="sub-title">2) تنوّع مناخ المغرب</h3>
+    <div class="climate-grid">
+      <div class="climate-card"><div class="head">مناخ متوسطي</div><p>السواحل الشمالية (طنجة، الريف): شتاء ممطر معتدل، صيف حار جاف.</p></div>
+      <div class="climate-card"><div class="head">مناخ محيطي</div><p>السواحل الأطلسية: معتدل طوال السنة.</p></div>
+      <div class="climate-card"><div class="head">مناخ قاري</div><p>المناطق الداخلية والهضاب: تفاوت حراري كبير بين الفصول.</p></div>
+      <div class="climate-card"><div class="head">مناخ جبلي</div><p>جبال الأطلس: بارد وثلجي شتاءً.</p></div>
+      <div class="climate-card"><div class="head">مناخ صحراوي</div><p>جنوب شرق المغرب: حار جاف، قليل الأمطار.</p></div>
+    </div>
+
+    <h3 class="sub-title">3) المبيان المناخي: تعريفه ومكوناته</h3>
+    <div class="rule-box">
+      <p><b>المبيان المناخي</b> رسم بياني يجمع بين تمثيلين في آن واحد: <b>أعمدة</b> تمثّل كمية التساقطات الشهرية (بالمليمتر)، و<b>منحنى</b> يمثّل درجة الحرارة الشهرية (بالدرجة المئوية)، على مدار أشهر السنة (من يناير إلى دجنبر).</p>
+    </div>
+
+    <h3 class="sub-title">4) خطوات رسم المبيان المناخي</h3>
+    <div class="rule-box">
+      <ol>
+        <li>نرسم محوراً أفقياً نكتب عليه الأشهر (يناير إلى دجنبر).</li>
+        <li>نرسم محوراً عمودياً على اليسار لتدريج <b>التساقطات</b> (بالمليمتر).</li>
+        <li>نرسم محوراً عمودياً آخر على اليمين لتدريج <b>الحرارة</b> (بالدرجة المئوية).</li>
+        <li>نرسم <b>عموداً</b> لكل شهر يمثّل كمية التساقطات فيه.</li>
+        <li>نضع <b>نقطة</b> لكل شهر تمثّل درجة الحرارة، ثم نصل النقط ببعضها بخط منحنٍ.</li>
+      </ol>
+    </div>
+
+    <h3 class="sub-title">5) مثال: مبيان مناخي لمدينة الرباط</h3>
+    <table class="data-table">
+      <tr><th>الشهر</th><th>يناير</th><th>مارس</th><th>ماي</th><th>يوليوز</th><th>شتنبر</th><th>نونبر</th></tr>
+      <tr><td>الحرارة (°م)</td><td>12</td><td>15</td><td>18</td><td>23</td><td>22</td><td>15</td></tr>
+      <tr><td>التساقطات (ملم)</td><td>77</td><td>58</td><td>27</td><td>1</td><td>13</td><td>96</td></tr>
+    </table>
+    <div class="chart-wrap">
+      <svg width="480" height="220" viewBox="0 0 480 220">
+        <line x1="50" y1="180" x2="450" y2="180" stroke="#1f2a33" stroke-width="1.5"/>
+        <line x1="50" y1="20" x2="50" y2="180" stroke="#2f7ea8" stroke-width="1.5"/>
+        <line x1="450" y1="20" x2="450" y2="180" stroke="#bd5b34" stroke-width="1.5"/>
+        <text x="20" y="20" font-size="10" fill="#2f7ea8">ملم</text>
+        <text x="455" y="20" font-size="10" fill="#bd5b34">°م</text>
+        <!-- bars precipitation (scaled /1.2) -->
+        <rect x="60" y="116" width="20" height="64" fill="#2f7ea8" opacity="0.7"/><text x="70" y="195" font-size="9" text-anchor="middle">ين</text>
+        <rect x="130" y="132" width="20" height="48" fill="#2f7ea8" opacity="0.7"/><text x="140" y="195" font-size="9" text-anchor="middle">مار</text>
+        <rect x="200" y="158" width="20" height="22" fill="#2f7ea8" opacity="0.7"/><text x="210" y="195" font-size="9" text-anchor="middle">ماي</text>
+        <rect x="270" y="179" width="20" height="1" fill="#2f7ea8" opacity="0.7"/><text x="280" y="195" font-size="9" text-anchor="middle">يول</text>
+        <rect x="340" y="169" width="20" height="11" fill="#2f7ea8" opacity="0.7"/><text x="350" y="195" font-size="9" text-anchor="middle">شت</text>
+        <rect x="410" y="100" width="20" height="80" fill="#2f7ea8" opacity="0.7"/><text x="420" y="195" font-size="9" text-anchor="middle">نون</text>
+        <!-- temperature curve (scale: 12->150,15->138,18->126,23->106,22->110,15->138) -->
+        <polyline points="70,150 140,138 210,126 280,106 350,110 420,138" fill="none" stroke="#bd5b34" stroke-width="2.5"/>
+        <circle cx="70" cy="150" r="3" fill="#bd5b34"/><circle cx="140" cy="138" r="3" fill="#bd5b34"/>
+        <circle cx="210" cy="126" r="3" fill="#bd5b34"/><circle cx="280" cy="106" r="3" fill="#bd5b34"/>
+        <circle cx="350" cy="110" r="3" fill="#bd5b34"/><circle cx="420" cy="138" r="3" fill="#bd5b34"/>
+      </svg>
+    </div>
+
+    <h3 class="sub-title">6) قراءة المبيان المناخي</h3>
+    <div class="rule-box">
+      <p>من خلال المبيان، يمكن تحديد: <b>أحرّ شهر</b> (أعلى نقطة في المنحنى)، <b>أبرد شهر</b> (أدنى نقطة)، <b>أكثر شهر تساقطاً</b> (أطول عمود)، و<b>أقل شهر تساقطاً</b> (أقصر عمود).</p>
+    </div>
+  </section>
+
+  <!-- ===================== ACTIVITE ===================== -->
+  <section>
+    <h2 class="section-title">✏️ نشاط تطبيقي</h2>
+    <div class="activity-box">
+      <span class="task-label">رسم مبيان مناخي</span>
+      <p>بالاعتماد على معطيات مدينة الرباط الكاملة التالية، ارسم في دفترك مبياناً مناخياً كاملاً (12 شهراً) متّبعاً الخطوات المذكورة في الدرس:</p>
+      <table class="data-table">
+        <tr><th>الشهر</th><th>ين</th><th>فب</th><th>مار</th><th>أبر</th><th>ماي</th><th>يون</th><th>يول</th><th>غشت</th><th>شت</th><th>أكت</th><th>نون</th><th>دج</th></tr>
+        <tr><td>الحرارة</td><td>12</td><td>13</td><td>15</td><td>16</td><td>18</td><td>21</td><td>23</td><td>24</td><td>22</td><td>19</td><td>15</td><td>13</td></tr>
+        <tr><td>التساقطات</td><td>77</td><td>66</td><td>58</td><td>48</td><td>27</td><td>6</td><td>1</td><td>2</td><td>13</td><td>66</td><td>96</td><td>90</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===================== EXERCICES ===================== -->
+  <section>
+    <h2 class="section-title">📝 تمارين للتدرّب</h2>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">1</span>أكمل الجمل التالية بالمعطى المناسب:</h4>
+      <p>1) يتكوّن المناخ من عنصرين أساسيين هما .......... و.......... </p>
+      <p>2) يُمثَّل عنصر التساقطات في المبيان المناخي بواسطة .......... ، ويُمثَّل عنصر الحرارة بواسطة .......... </p>
+      <p>3) يسود المناخ .......... في جبال الأطلس، بينما يسود المناخ .......... جنوب شرق المغرب.</p>
+      <p>4) المحور الأفقي في المبيان المناخي يمثّل .......... السنة.</p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">2</span>صل كل نوع مناخ بالمنطقة المناسبة له بالمغرب:</h4>
+      <div class="match-cols">
+        <ul>
+          <li>أ) مناخ متوسطي</li>
+          <li>ب) مناخ جبلي</li>
+          <li>ج) مناخ صحراوي</li>
+          <li>د) مناخ محيطي</li>
+        </ul>
+        <ul>
+          <li>1) السواحل الأطلسية</li>
+          <li>2) جنوب شرق المغرب</li>
+          <li>3) جبال الأطلس</li>
+          <li>4) السواحل الشمالية (طنجة، الريف)</li>
+        </ul>
+      </div>
+      <p style="margin-top:10px;">الإجابة: أ - .......... &nbsp; ب - .......... &nbsp; ج - .......... &nbsp; د - ..........</p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">3</span>اختر الإجابة الصحيحة:</h4>
+      <div class="qcm-item">
+        <p>1) المناخ يختلف عن الطقس لأنه:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>يُلاحَظ على مدى سنوات طويلة</span><span><span class="checkbox"></span>يتغيّر كل يوم</span><span><span class="checkbox"></span>لا علاقة له بالحرارة</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>2) تُقاس التساقطات بوحدة:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>الدرجة المئوية</span><span><span class="checkbox"></span>المليمتر</span><span><span class="checkbox"></span>الكيلومتر</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>3) في المبيان المناخي، تُمثَّل الحرارة بـ:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>أعمدة</span><span><span class="checkbox"></span>منحنى</span><span><span class="checkbox"></span>دوائر</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>4) في المبيان المناخي، تُمثَّل التساقطات بـ:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>أعمدة</span><span><span class="checkbox"></span>منحنى</span><span><span class="checkbox"></span>دوائر</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>5) يتميّز المناخ الصحراوي بـ:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>حرارة عالية وتساقطات قليلة</span><span><span class="checkbox"></span>برودة شديدة طوال السنة</span><span><span class="checkbox"></span>أمطار غزيرة</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">4</span>لاحظ معطيات مدينة ورزازات التالية، ثم أجب:</h4>
+      <table class="data-table">
+        <tr><th>الشهر</th><th>يناير</th><th>أبريل</th><th>يوليوز</th><th>أكتوبر</th></tr>
+        <tr><td>الحرارة (°م)</td><td>10</td><td>19</td><td>30</td><td>20</td></tr>
+        <tr><td>التساقطات (ملم)</td><td>15</td><td>12</td><td>2</td><td>10</td></tr>
+      </table>
+      <p>1) ما هو أحرّ شهر من بين الأشهر المذكورة؟ <span class="fill-line"></span></p>
+      <p>2) ما هو أبرد شهر من بين الأشهر المذكورة؟ <span class="fill-line"></span></p>
+      <p>3) احسب الفرق الحراري بين أحرّ شهر وأبرد شهر. <span class="fill-line"></span></p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">5</span>مسألة تطبيقية:</h4>
+      <div class="scenario-box">
+        أراد تلميذ أن يرسم مبياناً مناخياً لمدينة أكادير، فتوفّرت له معطيات حرارة وتساقطات الأشهر الاثني عشر لهذه المدينة.
+      </div>
+      <p>صف بترتيب صحيح الخطوات التي يجب أن يتّبعها هذا التلميذ لرسم المبيان المناخي.</p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== CORRIGE ===================== -->
+  <div class="corrige-wrapper">
+    <p class="corrige-flag">✂ يمكن طي هذه الصفحة أو إخفاؤها (اضغط على العنوان أدناه) قبل إنجاز التمارين ✂</p>
+    <details class="corrige">
+      <summary>التصحيح الكامل</summary>
+
+      <h4>تصحيح النشاط التطبيقي</h4>
+      <div class="corrige-item">يتحقق الأستاذ(ة) من رسم المبيان بمحاوره الثلاثة (الأشهر، التساقطات، الحرارة)، ومن رسم 12 عموداً للتساقطات و12 نقطة موصولة بمنحنى للحرارة، مطابقة للمعطيات المذكورة.</div>
+
+      <h4>تصحيح التمرين 1 (إكمال الجمل)</h4>
+      <div class="corrige-item">1) الحرارة / التساقطات &nbsp;|&nbsp; 2) أعمدة / منحنى &nbsp;|&nbsp; 3) الجبلي / الصحراوي &nbsp;|&nbsp; 4) أشهر</div>
+
+      <h4>تصحيح التمرين 2 (الربط)</h4>
+      <div class="corrige-item">أ - 4 (متوسطي ← السواحل الشمالية) &nbsp;|&nbsp; ب - 3 (جبلي ← جبال الأطلس) &nbsp;|&nbsp; ج - 2 (صحراوي ← جنوب شرق المغرب) &nbsp;|&nbsp; د - 1 (محيطي ← السواحل الأطلسية)</div>
+
+      <h4>تصحيح التمرين 3 (الاختيار من متعدد)</h4>
+      <div class="corrige-item">1) يُلاحَظ على مدى سنوات طويلة &nbsp;|&nbsp; 2) المليمتر &nbsp;|&nbsp; 3) منحنى &nbsp;|&nbsp; 4) أعمدة &nbsp;|&nbsp; 5) حرارة عالية وتساقطات قليلة</div>
+
+      <h4>تصحيح التمرين 4 (قراءة معطيات ورزازات)</h4>
+      <div class="corrige-item">1) أحرّ شهر: يوليوز (30°) &nbsp;|&nbsp; 2) أبرد شهر: يناير (10°) &nbsp;|&nbsp; 3) الفرق الحراري = 30 − 10 = <b>20°</b></div>
+
+      <h4>تصحيح التمرين 5 (خطوات الرسم)</h4>
+      <div class="corrige-item">1) رسم محور أفقي للأشهر &nbsp;→&nbsp; 2) رسم محور عمودي للتساقطات (يسار) &nbsp;→&nbsp; 3) رسم محور عمودي للحرارة (يمين) &nbsp;→&nbsp; 4) رسم عمود لكل شهر يمثّل تساقطاته &nbsp;→&nbsp; 5) وضع نقطة حرارة لكل شهر وربطها بمنحنى</div>
+    </details>
+  </div>
+
+  <p class="footer-note">فيشة تعلّم ذاتي — الاجتماعيات (الجغرافيا) — الخامسة ابتدائي — أتعرف مناخ المغرب وأرسم مبيان الحرارة والتساقطات</p>
+</div>
+</body>
+</html>
