@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>النكرة والمعرفة – المصدر الثلاثي</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#241f33; --ink-soft:#54506a;
+    --paper:#faf8f5; --panel:#ffffff; --line:#ddd4e6;
+    --indigo:#4b3f8f; --indigo-soft:#e9e5f7;
+    --rose:#b1553f; --rose-soft:#f7e3dc;
+    --gold:#af8a2e; --gold-soft:#f4ecd2;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#e8e3ee;font-family:'Noto Naskh Arabic','Amiri',serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .sheet{max-width:900px;margin:24px auto;background:var(--paper);padding:38px 44px 50px;border:1px solid var(--line);box-shadow:0 4px 24px rgba(0,0,0,.12);}
+
+  .masthead{display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:3px solid var(--ink);padding-bottom:16px;margin-bottom:22px;}
+  .masthead-text h1{font-family:'Amiri',serif;font-weight:700;font-size:24px;margin:0 0 6px;color:var(--indigo);line-height:1.4;}
+  .masthead-text .subtitle{font-size:15px;color:var(--ink-soft);margin:0;}
+  .link-icon{width:58px;height:58px;flex-shrink:0;}
+
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+  .meta-chip{border:1px solid var(--line);background:var(--panel);border-radius:3px;padding:6px 12px;font-size:13.5px;color:var(--ink-soft);}
+  .meta-chip b{color:var(--ink);font-weight:600;}
+
+  section{margin-bottom:26px;}
+  h2.section-title{font-family:'Amiri',serif;font-size:20px;font-weight:700;color:var(--indigo);border-bottom:2px solid var(--indigo);padding-bottom:6px;margin:0 0 14px;display:flex;align-items:baseline;gap:8px;}
+  h3.sub-title{font-size:16.5px;font-weight:700;color:var(--rose);margin:18px 0 8px;}
+  p{line-height:1.95;font-size:15px;margin:0 0 9px;}
+
+  .objectif-box{background:var(--gold-soft);border-right:4px solid var(--gold);padding:14px 18px;border-radius:2px;font-size:15px;line-height:1.9;}
+
+  .rule-box{background:var(--panel);border:1px solid var(--line);border-right:4px solid var(--indigo);padding:12px 16px;border-radius:2px;margin:8px 0 14px;}
+  .rule-box p:last-child{margin-bottom:0;}
+  .rule-box ul,.rule-box ol{margin:6px 0;padding-inline-start:22px;}
+  .rule-box li{margin-bottom:5px;line-height:1.8;}
+
+  .type-grid{display:flex;flex-wrap:wrap;gap:12px;margin:10px 0 14px;}
+  .type-card{flex:1 1 200px;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:10px;text-align:center;}
+  .type-card .name{font-weight:700;color:var(--indigo);font-size:14px;}
+  .type-card p{margin:4px 0 0;font-size:12.5px;color:var(--ink-soft);}
+
+  table.data-table{width:100%;border-collapse:collapse;margin:8px 0 16px;font-size:14.5px;}
+  table.data-table th{background:var(--indigo);color:#fff;padding:7px 9px;font-weight:600;font-size:13.5px;}
+  table.data-table td{border:1px solid var(--line);padding:7px 9px;background:var(--panel);text-align:center;}
+  table.data-table tr:nth-child(even) td{background:#f2effa;}
+
+  .activity-box{background:var(--panel);border:1.5px solid var(--gold);border-radius:3px;padding:14px 18px;}
+  .activity-box .task-label{display:inline-block;background:var(--gold);color:#fff;font-size:12px;padding:3px 10px;border-radius:2px;margin-bottom:8px;}
+
+  .exercise{border:1px solid var(--line);border-radius:3px;padding:14px 18px;margin-bottom:14px;background:var(--panel);}
+  .exercise-num{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;background:var(--ink);color:var(--paper);border-radius:50%;font-size:13px;font-weight:700;margin-inline-end:8px;}
+  .exercise h4{margin:0 0 9px;font-size:15.5px;display:flex;align-items:center;}
+  .fill-line{border-bottom:1px dotted var(--ink-soft);display:inline-block;min-width:100px;height:1.5em;}
+  .word-chip{display:inline-block;background:var(--paper);border:1px solid var(--line);border-radius:3px;padding:3px 11px;margin:2px 3px;font-size:15px;}
+  .qcm-item{margin-bottom:9px;}
+  .qcm-item p{margin-bottom:4px;font-weight:600;}
+  .qcm-options{display:flex;flex-wrap:wrap;gap:12px;font-size:13.5px;}
+  .qcm-options span{display:flex;align-items:center;gap:5px;}
+  .checkbox{width:12px;height:12px;border:1.4px solid var(--ink-soft);display:inline-block;border-radius:2px;}
+  .match-cols{display:flex;justify-content:space-between;gap:40px;margin-top:8px;}
+  .match-cols ul{list-style:none;padding:0;margin:0;}
+  .match-cols li{border:1px solid var(--line);background:var(--paper);padding:6px 14px;margin-bottom:10px;border-radius:3px;font-size:15px;}
+  .op-grid{display:flex;flex-wrap:wrap;gap:16px;}
+  .op-item{display:flex;align-items:center;gap:6px;font-size:15px;}
+
+  .corrige-wrapper{page-break-before:always;padding-top:6px;}
+  .corrige-flag{text-align:center;font-size:12.5px;color:var(--ink-soft);margin-bottom:10px;border-top:1px dashed var(--ink-soft);padding-top:14px;}
+  details.corrige{border:2px dashed var(--rose);border-radius:4px;background:#fdf7f5;padding:6px 20px 18px;}
+  details.corrige > summary{cursor:pointer;font-family:'Amiri',serif;font-weight:700;font-size:18px;color:var(--rose);padding:12px 0;list-style:none;}
+  details.corrige > summary::-webkit-details-marker{display:none;}
+  details.corrige > summary::before{content:"✂ ";}
+  details.corrige > summary::after{content:"— اضغط لإظهار الحل / إخفائه";font-family:'Noto Naskh Arabic',serif;font-weight:400;font-size:12.5px;color:var(--ink-soft);margin-inline-start:8px;}
+  .corrige h4{color:var(--rose);margin:14px 0 6px;font-size:15px;}
+  .corrige-item{margin-bottom:7px;font-size:14px;line-height:1.85;}
+  .corrige table.data-table th{background:var(--rose);}
+
+  .footer-note{margin-top:26px;text-align:center;font-size:11.5px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:10px;}
+
+  @media print{
+    body{background:#fff;}
+    .sheet{box-shadow:none;border:none;margin:0;max-width:100%;padding:14px 6px;}
+    details.corrige{border-color:#000;}
+  }
+  @page{size:A4;margin:13mm;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="masthead-text">
+      <h1>النكرةُ والمعرفةُ — المصدرُ الثلاثيُّ</h1>
+      <p class="subtitle">مادة اللغة العربية — القواعد والصرف</p>
+    </div>
+    <svg class="link-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="20" cy="32" r="13" fill="none" stroke="#b1553f" stroke-width="3" stroke-dasharray="4 3"/>
+      <circle cx="44" cy="32" r="13" fill="none" stroke="#4b3f8f" stroke-width="3"/>
+      <circle cx="44" cy="32" r="4" fill="#4b3f8f"/>
+    </svg>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta-chip">المستوى: <b>الخامسة ابتدائي (5AEP)</b></div>
+    <div class="meta-chip">المادة: <b>اللغة العربية — القواعد والصرف</b></div>
+    <div class="meta-chip">مدة الحصة: <b>ساعة إلى ساعة ونصف</b></div>
+    <div class="meta-chip">نوع الوثيقة: <b>فيشة تعلّم ذاتي</b></div>
+  </div>
+
+  <!-- ===================== OBJECTIF ===================== -->
+  <section>
+    <h2 class="section-title">🎯 الهدف من الدرس</h2>
+    <div class="objectif-box">
+      يتمكّن المتعلم(ة) في نهاية هذا الدرس من: التمييز بين الاسم النكرة والاسم المعرفة وتحديد أنواع المعرفة البسيطة، والتعرّف على مصدر الفعل الثلاثي واستخراجه من أفعال ثلاثية معطاة.
+    </div>
+  </section>
+
+  <!-- ===================== COURS ===================== -->
+  <section>
+    <h2 class="section-title">📘 القسم الأول: النكرة والمعرفة</h2>
+
+    <h3 class="sub-title">1) تعريف النكرة والمعرفة</h3>
+    <div class="rule-box">
+      <p><b>الاسم النكرة</b> اسم يدل على شيء <b>غير معين</b>. مثال: كتابٌ، ولدٌ، مدينةٌ.</p>
+      <p><b>الاسم المعرفة</b> اسم يدل على شيء <b>معين ومحدد</b>. مثال: الكتابُ، محمد، هذا.</p>
+    </div>
+
+    <h3 class="sub-title">2) أنواع بسيطة من المعرفة</h3>
+    <div class="type-grid">
+      <div class="type-card"><div class="name">العلم</div><p>محمد، فاطمة، الرباط</p></div>
+      <div class="type-card"><div class="name">المعرَّف بـ"أل"</div><p>الكتابُ، الشمسُ</p></div>
+      <div class="type-card"><div class="name">الضمير</div><p>أنا، أنتَ، هو</p></div>
+      <div class="type-card"><div class="name">اسم الإشارة</div><p>هذا، هذه</p></div>
+    </div>
+
+    <h2 class="section-title">📘 القسم الثاني: المصدر الثلاثي</h2>
+
+    <h3 class="sub-title">1) تعريف المصدر</h3>
+    <div class="rule-box">
+      <p><b>المصدر</b> اسم يدل على <b>الحدث</b> (وقوع الفعل) مجرداً من الزمن (بدون ماضٍ أو مضارع أو أمر). يُشتقّ المصدر من الفعل.</p>
+    </div>
+    <p style="font-size:14px;color:var(--ink-soft);">مثال: من الفعل "كتبَ" نشتقّ المصدر "كتابة" (وهو اسم يدل على حدث الكتابة دون تحديد زمن).</p>
+
+    <h3 class="sub-title">2) مصدر الفعل الثلاثي</h3>
+    <div class="rule-box">
+      <p>لمصدر الفعل الثلاثي أوزان متعددة وغير موحدة، لذلك يُحفظ غالباً عن طريق السماع والحفظ لا القاعدة الواحدة.</p>
+    </div>
+    <table class="data-table">
+      <tr><th>الفعل الثلاثي</th><th>مصدره</th></tr>
+      <tr><td>كَتَبَ</td><td>كِتابة</td></tr>
+      <tr><td>لَعِبَ</td><td>لَعِب</td></tr>
+      <tr><td>فَهِمَ</td><td>فَهْم</td></tr>
+      <tr><td>شَرِبَ</td><td>شُرْب</td></tr>
+      <tr><td>جَلَسَ</td><td>جُلوس</td></tr>
+      <tr><td>ذَهَبَ</td><td>ذَهاب</td></tr>
+      <tr><td>قَرَأَ</td><td>قِراءة</td></tr>
+    </table>
+  </section>
+
+  <!-- ===================== ACTIVITE ===================== -->
+  <section>
+    <h2 class="section-title">✏️ نشاط تطبيقي</h2>
+    <div class="activity-box">
+      <span class="task-label">نشاط مزدوج</span>
+      <p>1) صنّف الكلمات التالية إلى (نكرة/معرفة): طفلٌ، أحمد، الطفلُ، هذا</p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+      <p>2) أوجد مصدر كل فعل من الأفعال التالية: خرج، دخل، سمع</p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== EXERCICES ===================== -->
+  <section>
+    <h2 class="section-title">📝 تمارين للتدرّب</h2>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">1</span>صنّف الكلمات التالية إلى (نكرة / معرفة):</h4>
+      <p>
+        <span class="word-chip">كتابٌ</span>
+        <span class="word-chip">محمد</span>
+        <span class="word-chip">الكتابُ</span>
+        <span class="word-chip">هذا</span>
+        <span class="word-chip">ولدٌ</span>
+        <span class="word-chip">أنا</span>
+      </p>
+      <table class="data-table">
+        <tr><th>نكرة</th><th>معرفة</th></tr>
+        <tr><td style="height:60px;"></td><td></td></tr>
+      </table>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">2</span>أوجد مصدر كل فعل من الأفعال الثلاثية التالية:</h4>
+      <div class="op-grid">
+        <div class="op-item">كتبَ → <span class="fill-line"></span></div>
+        <div class="op-item">لعبَ → <span class="fill-line"></span></div>
+        <div class="op-item">فهمَ → <span class="fill-line"></span></div>
+        <div class="op-item">شربَ → <span class="fill-line"></span></div>
+        <div class="op-item">جلسَ → <span class="fill-line"></span></div>
+        <div class="op-item">ذهبَ → <span class="fill-line"></span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">3</span>اختر الإجابة الصحيحة:</h4>
+      <div class="qcm-item">
+        <p>1) الاسم النكرة هو:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>اسم معين</span><span><span class="checkbox"></span>اسم غير معين</span><span><span class="checkbox"></span>فعل</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>2) من أنواع المعرفة:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>العلم، المعرَّف بأل، الضمير</span><span><span class="checkbox"></span>الفعل الماضي فقط</span><span><span class="checkbox"></span>العدد فقط</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>3) المصدر اسم يدل على:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>الحدث دون زمن</span><span><span class="checkbox"></span>الزمن فقط</span><span><span class="checkbox"></span>الفاعل</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>4) مصدر الفعل "لعب" هو:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>لَعِب</span><span><span class="checkbox"></span>لاعب</span><span><span class="checkbox"></span>ملعوب</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>5) مصدر الفعل "جلس" هو:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>جُلوس</span><span><span class="checkbox"></span>جالس</span><span><span class="checkbox"></span>مجلس</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">4</span>أكمل الجمل التالية بالمعطى المناسب:</h4>
+      <p>1) "قرأ" فعل ثلاثي، ومصدره .......... </p>
+      <p>2) "ذهب" فعل ثلاثي، ومصدره .......... </p>
+      <p>3) كلمة "الشمس" اسم .......... لأنها معرَّفة بـ.......... </p>
+      <p>4) كلمة "قمرٌ" اسم .......... لأنها غير معينة.</p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">5</span>صل كل فعل بمصدره المناسب:</h4>
+      <div class="match-cols">
+        <ul>
+          <li>أ) كتبَ</li>
+          <li>ب) جلسَ</li>
+          <li>ج) ذهبَ</li>
+          <li>د) قرأَ</li>
+        </ul>
+        <ul>
+          <li>1) قراءة</li>
+          <li>2) ذهاب</li>
+          <li>3) كتابة</li>
+          <li>4) جلوس</li>
+        </ul>
+      </div>
+      <p style="margin-top:10px;">الإجابة: أ - .......... &nbsp; ب - .......... &nbsp; ج - .......... &nbsp; د - ..........</p>
+    </div>
+  </section>
+
+  <!-- ===================== CORRIGE ===================== -->
+  <div class="corrige-wrapper">
+    <p class="corrige-flag">✂ يمكن طي هذه الصفحة أو إخفاؤها (اضغط على العنوان أدناه) قبل إنجاز التمارين ✂</p>
+    <details class="corrige">
+      <summary>التصحيح الكامل</summary>
+
+      <h4>تصحيح النشاط التطبيقي</h4>
+      <div class="corrige-item">1) نكرة: طفلٌ &nbsp;|&nbsp; معرفة: أحمد، الطفلُ، هذا</div>
+      <div class="corrige-item">2) خرج → خروج &nbsp;|&nbsp; دخل → دخول &nbsp;|&nbsp; سمع → سَمْع</div>
+
+      <h4>تصحيح التمرين 1 (التصنيف)</h4>
+      <div class="corrige-item"><b>نكرة:</b> كتابٌ، ولدٌ</div>
+      <div class="corrige-item"><b>معرفة:</b> محمد، الكتابُ، هذا، أنا</div>
+
+      <h4>تصحيح التمرين 2 (المصادر)</h4>
+      <div class="corrige-item">كتبَ ← كتابة &nbsp;|&nbsp; لعبَ ← لَعِب &nbsp;|&nbsp; فهمَ ← فَهْم &nbsp;|&nbsp; شربَ ← شُرْب &nbsp;|&nbsp; جلسَ ← جُلوس &nbsp;|&nbsp; ذهبَ ← ذَهاب</div>
+
+      <h4>تصحيح التمرين 3 (الاختيار من متعدد)</h4>
+      <div class="corrige-item">1) اسم غير معين &nbsp;|&nbsp; 2) العلم، المعرَّف بأل، الضمير &nbsp;|&nbsp; 3) الحدث دون زمن &nbsp;|&nbsp; 4) لَعِب &nbsp;|&nbsp; 5) جُلوس</div>
+
+      <h4>تصحيح التمرين 4 (إكمال الجمل)</h4>
+      <div class="corrige-item">1) قِراءة &nbsp;|&nbsp; 2) ذَهاب &nbsp;|&nbsp; 3) معرفة / "أل" &nbsp;|&nbsp; 4) نكرة</div>
+
+      <h4>تصحيح التمرين 5 (الربط)</h4>
+      <div class="corrige-item">أ - 3 (كتبَ ← كتابة) &nbsp;|&nbsp; ب - 4 (جلسَ ← جلوس) &nbsp;|&nbsp; ج - 2 (ذهبَ ← ذهاب) &nbsp;|&nbsp; د - 1 (قرأَ ← قراءة)</div>
+    </details>
+  </div>
+
+  <p class="footer-note">فيشة تعلّم ذاتي — اللغة العربية — الخامسة ابتدائي — النكرة والمعرفة – المصدر الثلاثي</p>
+</div>
+</body>
+</html>
