@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>النكرة والمعرفة</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#241f33; --ink-soft:#54506a;
+    --paper:#faf8f5; --panel:#ffffff; --line:#ddd4e6;
+    --indigo:#4b3f8f; --indigo-soft:#e9e5f7;
+    --rose:#b1553f; --rose-soft:#f7e3dc;
+    --gold:#af8a2e; --gold-soft:#f4ecd2;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#e8e3ee;font-family:'Noto Naskh Arabic','Amiri',serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .sheet{max-width:900px;margin:24px auto;background:var(--paper);padding:38px 44px 50px;border:1px solid var(--line);box-shadow:0 4px 24px rgba(0,0,0,.12);}
+
+  .masthead{display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:3px solid var(--ink);padding-bottom:16px;margin-bottom:22px;}
+  .masthead-text h1{font-family:'Amiri',serif;font-weight:700;font-size:29px;margin:0 0 6px;color:var(--indigo);}
+  .masthead-text .subtitle{font-size:15px;color:var(--ink-soft);margin:0;}
+  .link-icon{width:58px;height:58px;flex-shrink:0;}
+
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+  .meta-chip{border:1px solid var(--line);background:var(--panel);border-radius:3px;padding:6px 12px;font-size:13.5px;color:var(--ink-soft);}
+  .meta-chip b{color:var(--ink);font-weight:600;}
+
+  section{margin-bottom:26px;}
+  h2.section-title{font-family:'Amiri',serif;font-size:21px;font-weight:700;color:var(--indigo);border-bottom:2px solid var(--indigo);padding-bottom:6px;margin:0 0 14px;display:flex;align-items:baseline;gap:8px;}
+  h3.sub-title{font-size:17px;font-weight:700;color:var(--rose);margin:18px 0 8px;}
+  p{line-height:1.95;font-size:15.5px;margin:0 0 9px;}
+
+  .objectif-box{background:var(--gold-soft);border-right:4px solid var(--gold);padding:14px 18px;border-radius:2px;font-size:15.5px;line-height:1.9;}
+
+  .rule-box{background:var(--panel);border:1px solid var(--line);border-right:4px solid var(--indigo);padding:12px 18px;border-radius:2px;margin:8px 0 14px;}
+  .rule-box p:last-child{margin-bottom:0;}
+  .rule-box ul,.rule-box ol{margin:6px 0;padding-inline-start:22px;}
+  .rule-box li{margin-bottom:5px;line-height:1.85;}
+
+  .type-grid{display:flex;flex-wrap:wrap;gap:14px;margin:10px 0 16px;}
+  .type-card{flex:1 1 260px;border-radius:8px;padding:12px 16px;}
+  .type-card.nakira{background:var(--rose-soft);border:1px solid var(--rose);}
+  .type-card.marifa{background:var(--indigo-soft);border:1px solid var(--indigo);}
+  .type-card .head{font-weight:700;font-size:16px;margin-bottom:6px;}
+  .type-card.nakira .head{color:var(--rose);}
+  .type-card.marifa .head{color:var(--indigo);}
+  .type-card p{margin:0;font-size:14px;line-height:1.85;}
+
+  .marifa-grid{display:flex;flex-wrap:wrap;gap:12px;margin:10px 0 16px;}
+  .marifa-card{flex:1 1 155px;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:10px;text-align:center;}
+  .marifa-card .name{font-weight:700;color:var(--indigo);font-size:14px;}
+  .marifa-card p{margin:4px 0 0;font-size:12.5px;color:var(--ink-soft);}
+
+  table.data-table{width:100%;border-collapse:collapse;margin:8px 0 16px;font-size:14.5px;}
+  table.data-table th{background:var(--indigo);color:#fff;padding:7px 9px;font-weight:600;font-size:13.5px;}
+  table.data-table td{border:1px solid var(--line);padding:7px 9px;background:var(--panel);text-align:center;}
+  table.data-table tr:nth-child(even) td{background:#f2effa;}
+
+  .activity-box{background:var(--panel);border:1.5px solid var(--gold);border-radius:3px;padding:16px 20px;}
+  .activity-box .task-label{display:inline-block;background:var(--gold);color:#fff;font-size:12.5px;padding:3px 10px;border-radius:2px;margin-bottom:8px;}
+
+  .exercise{border:1px solid var(--line);border-radius:3px;padding:14px 18px;margin-bottom:14px;background:var(--panel);}
+  .exercise-num{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;background:var(--ink);color:var(--paper);border-radius:50%;font-size:13px;font-weight:700;margin-inline-end:8px;}
+  .exercise h4{margin:0 0 9px;font-size:15.5px;display:flex;align-items:center;}
+  .fill-line{border-bottom:1px dotted var(--ink-soft);display:inline-block;min-width:100px;height:1.5em;}
+  .word-chip{display:inline-block;background:var(--paper);border:1px solid var(--line);border-radius:3px;padding:3px 11px;margin:2px 3px;font-size:15px;}
+  .qcm-item{margin-bottom:9px;}
+  .qcm-item p{margin-bottom:4px;font-weight:600;}
+  .qcm-options{display:flex;flex-wrap:wrap;gap:12px;font-size:13.5px;}
+  .qcm-options span{display:flex;align-items:center;gap:5px;}
+  .checkbox{width:12px;height:12px;border:1.4px solid var(--ink-soft);display:inline-block;border-radius:2px;}
+  .match-cols{display:flex;justify-content:space-between;gap:40px;margin-top:8px;}
+  .match-cols ul{list-style:none;padding:0;margin:0;}
+  .match-cols li{border:1px solid var(--line);background:var(--paper);padding:6px 14px;margin-bottom:10px;border-radius:3px;font-size:15px;}
+  .op-grid{display:flex;flex-wrap:wrap;gap:16px;}
+  .op-item{display:flex;align-items:center;gap:6px;font-size:15px;}
+  .scenario-box{background:#f2effa;border:1px solid var(--line);padding:10px 14px;font-size:14.5px;line-height:1.95;margin-bottom:8px;}
+
+  .corrige-wrapper{page-break-before:always;padding-top:6px;}
+  .corrige-flag{text-align:center;font-size:12.5px;color:var(--ink-soft);margin-bottom:10px;border-top:1px dashed var(--ink-soft);padding-top:14px;}
+  details.corrige{border:2px dashed var(--rose);border-radius:4px;background:#fdf7f5;padding:6px 20px 18px;}
+  details.corrige > summary{cursor:pointer;font-family:'Amiri',serif;font-weight:700;font-size:18px;color:var(--rose);padding:12px 0;list-style:none;}
+  details.corrige > summary::-webkit-details-marker{display:none;}
+  details.corrige > summary::before{content:"✂ ";}
+  details.corrige > summary::after{content:"— اضغط لإظهار الحل / إخفائه";font-family:'Noto Naskh Arabic',serif;font-weight:400;font-size:12.5px;color:var(--ink-soft);margin-inline-start:8px;}
+  .corrige h4{color:var(--rose);margin:14px 0 6px;font-size:15px;}
+  .corrige-item{margin-bottom:7px;font-size:14px;line-height:1.85;}
+  .corrige table.data-table th{background:var(--rose);}
+
+  .footer-note{margin-top:26px;text-align:center;font-size:11.5px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:10px;}
+
+  @media print{
+    body{background:#fff;}
+    .sheet{box-shadow:none;border:none;margin:0;max-width:100%;padding:14px 6px;}
+    details.corrige{border-color:#000;}
+  }
+  @page{size:A4;margin:13mm;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="masthead-text">
+      <h1>النكرةُ والمعرفةُ</h1>
+      <p class="subtitle">مادة اللغة العربية — القواعد (النحو)</p>
+    </div>
+    <svg class="link-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="20" cy="32" r="13" fill="none" stroke="#b1553f" stroke-width="3" stroke-dasharray="4 3"/>
+      <circle cx="44" cy="32" r="13" fill="none" stroke="#4b3f8f" stroke-width="3"/>
+      <circle cx="44" cy="32" r="4" fill="#4b3f8f"/>
+    </svg>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta-chip">المستوى: <b>الأولى إعدادي (1AC)</b></div>
+    <div class="meta-chip">المادة: <b>اللغة العربية — القواعد</b></div>
+    <div class="meta-chip">مدة الحصة: <b>ساعة إلى ساعة ونصف</b></div>
+    <div class="meta-chip">نوع الوثيقة: <b>فيشة تعلّم ذاتي</b></div>
+  </div>
+
+  <!-- ===================== OBJECTIF ===================== -->
+  <section>
+    <h2 class="section-title">🎯 الهدف من الدرس</h2>
+    <div class="objectif-box">
+      يتمكّن المتعلم(ة) في نهاية هذا الدرس من: التمييز بين الاسم النكرة والاسم المعرفة، وتحديد علامات النكرة، والتعرّف على أنواع المعرفة الستة (الضمير، العلم، اسم الإشارة، الاسم الموصول، المعرَّف بـ"أل"، والمضاف إلى معرفة) وتمييزها في جمل معطاة.
+    </div>
+  </section>
+
+  <!-- ===================== COURS ===================== -->
+  <section>
+    <h2 class="section-title">📘 الدرس</h2>
+
+    <h3 class="sub-title">1) تعريف النكرة والمعرفة</h3>
+    <div class="type-grid">
+      <div class="type-card nakira">
+        <div class="head">الاسم النكرة</div>
+        <p>اسم يدل على شيء <b>غير معين</b>، شائع في جنسه، لا يدل على شيء بعينه. مثال: كتابٌ، رجلٌ، مدينةٌ.</p>
+      </div>
+      <div class="type-card marifa">
+        <div class="head">الاسم المعرفة</div>
+        <p>اسم يدل على شيء <b>معين ومحدد</b> بذاته. مثال: الكتابُ، محمد، هذا.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-title">2) علامات النكرة</h3>
+    <div class="rule-box">
+      <ul>
+        <li>قبول دخول <b>"أل" التعريف</b> عليها (لأنها لو كانت معرفة أصلاً لما احتاجت إلى تعريفها). مثال: كتابٌ ⟵ الكتابُ.</li>
+        <li>قبول <b>التنوين</b> غالباً (نون ساكنة زائدة تُنطق في آخر الاسم، ولا تُكتب).</li>
+        <li>صلاحيتها لأن تكون جواباً لسؤال مبهم بـ"أيّ".</li>
+      </ul>
+    </div>
+
+    <h3 class="sub-title">3) أنواع المعرفة الستة</h3>
+    <div class="marifa-grid">
+      <div class="marifa-card"><div class="name">الضمير</div><p>أنا، أنتَ، هو...</p></div>
+      <div class="marifa-card"><div class="name">العلم</div><p>محمد، الرباط، مكة</p></div>
+      <div class="marifa-card"><div class="name">اسم الإشارة</div><p>هذا، هذه، هؤلاء</p></div>
+      <div class="marifa-card"><div class="name">الاسم الموصول</div><p>الذي، التي</p></div>
+      <div class="marifa-card"><div class="name">المعرَّف بـ"أل"</div><p>الكتابُ، الشمسُ</p></div>
+      <div class="marifa-card"><div class="name">المضاف إلى معرفة</div><p>كتابُ الطالبِ</p></div>
+    </div>
+
+    <h3 class="sub-title">4) جدول ملخّص مقارن</h3>
+    <table class="data-table">
+      <tr><th>النوع</th><th>مثال</th></tr>
+      <tr><td>نكرة</td><td>كتابٌ، رجلٌ، بيتٌ</td></tr>
+      <tr><td>معرفة (ضمير)</td><td>أنا، هو، نحن</td></tr>
+      <tr><td>معرفة (علم)</td><td>محمد، فاطمة، الرباط</td></tr>
+      <tr><td>معرفة (اسم إشارة)</td><td>هذا، تلك، هؤلاء</td></tr>
+      <tr><td>معرفة (اسم موصول)</td><td>الذي، التي، الذين</td></tr>
+      <tr><td>معرفة (معرَّف بأل)</td><td>الكتابُ، القلمُ</td></tr>
+      <tr><td>معرفة (مضاف إلى معرفة)</td><td>كتابُ الطالبِ، بيتُ محمدٍ</td></tr>
+    </table>
+  </section>
+
+  <!-- ===================== ACTIVITE ===================== -->
+  <section>
+    <h2 class="section-title">✏️ نشاط تطبيقي</h2>
+    <div class="activity-box">
+      <span class="task-label">تحديد النكرة والمعرفة ونوعها</span>
+      <p>لاحظ الجملة التالية: "<b>قرأ خالدٌ الذي يحبّ القراءةَ كتاباً مفيداً في مكتبةِ المدرسةِ</b>."، ثم أكمل الجدول:</p>
+      <table class="data-table">
+        <tr><th>الكلمة</th><th>نكرة أم معرفة؟</th><th>نوع المعرفة (إن وُجد)</th></tr>
+        <tr><td>خالدٌ</td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+        <tr><td>الذي</td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+        <tr><td>كتاباً</td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===================== EXERCICES ===================== -->
+  <section>
+    <h2 class="section-title">📝 تمارين للتدرّب</h2>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">1</span>صنّف الأسماء التالية إلى (نكرة / معرفة):</h4>
+      <p>
+        <span class="word-chip">كتابٌ</span>
+        <span class="word-chip">الكتابُ</span>
+        <span class="word-chip">محمد</span>
+        <span class="word-chip">هذا</span>
+        <span class="word-chip">أنا</span>
+        <span class="word-chip">رجلٌ</span>
+        <span class="word-chip">الذي</span>
+        <span class="word-chip">بيتُ أحمدَ</span>
+      </p>
+      <table class="data-table">
+        <tr><th>نكرة</th><th>معرفة</th></tr>
+        <tr><td style="height:60px;"></td><td></td></tr>
+      </table>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">2</span>حدّد نوع المعرفة لكل اسم من الأسماء المعرفة التالية:</h4>
+      <div class="op-grid">
+        <div class="op-item">محمد → <span class="fill-line"></span></div>
+        <div class="op-item">هذا → <span class="fill-line"></span></div>
+        <div class="op-item">أنا → <span class="fill-line"></span></div>
+        <div class="op-item">الذي → <span class="fill-line"></span></div>
+        <div class="op-item">الكتابُ → <span class="fill-line"></span></div>
+        <div class="op-item">بيتُ أحمدَ → <span class="fill-line"></span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">3</span>اختر الإجابة الصحيحة:</h4>
+      <div class="qcm-item">
+        <p>1) الاسم النكرة هو:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>اسم يدل على شيء معين</span><span><span class="checkbox"></span>اسم يدل على شيء غير معين</span><span><span class="checkbox"></span>اسم لا معنى له</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>2) من علامات النكرة:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>قبول التنوين ودخول "أل" عليها</span><span><span class="checkbox"></span>كونها ضميراً دائماً</span><span><span class="checkbox"></span>عدم قبول أي تغيير</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>3) الاسم العلم من أنواع:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>النكرة</span><span><span class="checkbox"></span>المعرفة</span><span><span class="checkbox"></span>لا هذا ولا ذاك</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>4) "الذي" يُعتبر من أنواع المعرفة، ويُسمّى:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>اسم إشارة</span><span><span class="checkbox"></span>اسم موصول</span><span><span class="checkbox"></span>ضمير</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>5) "بيتُ محمدٍ" اسم معرفة لأنه:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>علم</span><span><span class="checkbox"></span>مضاف إلى معرفة</span><span><span class="checkbox"></span>ضمير</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">4</span>حوّل الأسماء النكرة التالية إلى معرفة بإدخال "أل" عليها:</h4>
+      <div class="op-grid">
+        <div class="op-item">كتابٌ → <span class="fill-line"></span></div>
+        <div class="op-item">قلمٌ → <span class="fill-line"></span></div>
+        <div class="op-item">بيتٌ → <span class="fill-line"></span></div>
+        <div class="op-item">وردةٌ → <span class="fill-line"></span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">5</span>صل كل اسم معرفة بنوعه:</h4>
+      <div class="match-cols">
+        <ul>
+          <li>أ) أنتَ</li>
+          <li>ب) فاطمة</li>
+          <li>ج) هؤلاء</li>
+          <li>د) التي</li>
+        </ul>
+        <ul>
+          <li>1) اسم موصول</li>
+          <li>2) اسم إشارة</li>
+          <li>3) علم</li>
+          <li>4) ضمير</li>
+        </ul>
+      </div>
+      <p style="margin-top:10px;">الإجابة: أ - .......... &nbsp; ب - .......... &nbsp; ج - .......... &nbsp; د - ..........</p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">6</span>أكمل الجمل التالية بالمعطى المناسب:</h4>
+      <p>1) الاسم الذي يدل على شيء غير معين يُسمى .......... </p>
+      <p>2) الاسم الذي يدل على شيء معين محدد يُسمى .......... </p>
+      <p>3) من أنواع المعرفة: الضمير، العلم، اسم الإشارة، الاسم الموصول، المعرَّف بـ.......... ، والمضاف إلى .......... </p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">7</span>استخرج من الجملة التالية اسماً نكرة، واسماً معرَّفاً بـ"أل"، واسماً موصولاً، واسماً مضافاً إلى معرفة:</h4>
+      <div class="scenario-box">
+        قرأ الطالبُ الذي تفوّق كتاباً مفيداً في مكتبةِ المدرسةِ.
+      </div>
+      <p>نكرة: <span class="fill-line" style="min-width:60%;"></span></p>
+      <p>معرَّف بـ"أل": <span class="fill-line" style="min-width:60%;"></span></p>
+      <p>اسم موصول: <span class="fill-line" style="min-width:60%;"></span></p>
+      <p>مضاف إلى معرفة: <span class="fill-line" style="min-width:60%;"></span></p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">8</span>سؤال تحليلي: هل الجملة التالية صحيحة نحوياً؟ صحّحها إن كانت خاطئة:</h4>
+      <div class="scenario-box">
+        "جاء رجلٌ الكريمُ إلى المدرسة."
+      </div>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== CORRIGE ===================== -->
+  <div class="corrige-wrapper">
+    <p class="corrige-flag">✂ يمكن طي هذه الصفحة أو إخفاؤها (اضغط على العنوان أدناه) قبل إنجاز التمارين ✂</p>
+    <details class="corrige">
+      <summary>التصحيح الكامل</summary>
+
+      <h4>تصحيح النشاط التطبيقي</h4>
+      <table class="data-table">
+        <tr><th>الكلمة</th><th>نكرة/معرفة</th><th>نوع المعرفة</th></tr>
+        <tr><td>خالدٌ</td><td>معرفة</td><td>علم</td></tr>
+        <tr><td>الذي</td><td>معرفة</td><td>اسم موصول</td></tr>
+        <tr><td>كتاباً</td><td>نكرة</td><td>—</td></tr>
+      </table>
+
+      <h4>تصحيح التمرين 1 (التصنيف)</h4>
+      <div class="corrige-item"><b>نكرة:</b> كتابٌ، رجلٌ</div>
+      <div class="corrige-item"><b>معرفة:</b> الكتابُ، محمد، هذا، أنا، الذي، بيتُ أحمدَ</div>
+
+      <h4>تصحيح التمرين 2 (نوع المعرفة)</h4>
+      <div class="corrige-item">محمد: علم &nbsp;|&nbsp; هذا: اسم إشارة &nbsp;|&nbsp; أنا: ضمير &nbsp;|&nbsp; الذي: اسم موصول &nbsp;|&nbsp; الكتابُ: معرَّف بأل &nbsp;|&nbsp; بيتُ أحمدَ: مضاف إلى معرفة</div>
+
+      <h4>تصحيح التمرين 3 (الاختيار من متعدد)</h4>
+      <div class="corrige-item">1) اسم يدل على شيء غير معين &nbsp;|&nbsp; 2) قبول التنوين ودخول "أل" عليها &nbsp;|&nbsp; 3) المعرفة &nbsp;|&nbsp; 4) اسم موصول &nbsp;|&nbsp; 5) مضاف إلى معرفة</div>
+
+      <h4>تصحيح التمرين 4 (التحويل بأل)</h4>
+      <div class="corrige-item">كتابٌ ← الكتابُ &nbsp;|&nbsp; قلمٌ ← القلمُ &nbsp;|&nbsp; بيتٌ ← البيتُ &nbsp;|&nbsp; وردةٌ ← الوردةُ</div>
+
+      <h4>تصحيح التمرين 5 (الربط)</h4>
+      <div class="corrige-item">أ - 4 (أنتَ ← ضمير) &nbsp;|&nbsp; ب - 3 (فاطمة ← علم) &nbsp;|&nbsp; ج - 2 (هؤلاء ← اسم إشارة) &nbsp;|&nbsp; د - 1 (التي ← اسم موصول)</div>
+
+      <h4>تصحيح التمرين 6 (إكمال الجمل)</h4>
+      <div class="corrige-item">1) نكرة &nbsp;|&nbsp; 2) معرفة &nbsp;|&nbsp; 3) "أل" / معرفة</div>
+
+      <h4>تصحيح التمرين 7 (الاستخراج)</h4>
+      <div class="corrige-item">نكرة: كتاباً &nbsp;|&nbsp; معرَّف بأل: الطالبُ &nbsp;|&nbsp; اسم موصول: الذي &nbsp;|&nbsp; مضاف إلى معرفة: مكتبةِ المدرسةِ</div>
+
+      <h4>تصحيح التمرين 8 (السؤال التحليلي)</h4>
+      <div class="corrige-item">الجملة خاطئة، لأن النعت يجب أن يطابق المنعوت في التعريف والتنكير: "رجلٌ" نكرة و"الكريمُ" معرفة. الصواب: "جاء رجلٌ كريمٌ إلى المدرسة." (نكرة + نعت نكرة)، أو "جاء الرجلُ الكريمُ إلى المدرسة." (معرفة + نعت معرفة).</div>
+    </details>
+  </div>
+
+  <p class="footer-note">فيشة تعلّم ذاتي — اللغة العربية — الأولى إعدادي — النكرة والمعرفة</p>
+</div>
+</body>
+</html>
