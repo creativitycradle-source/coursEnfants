@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>الحروب الصليبية</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#2c2417; --ink-soft:#5c5140;
+    --paper:#f8f2e2; --panel:#fffcf5; --line:#ddccaa;
+    --clay:#b5652f; --clay-soft:#f3e0cc;
+    --bronze:#8a6a1e; --bronze-soft:#f0e6c4;
+    --lapis:#2c5c78; --lapis-soft:#dfeaf0;
+    --leaf:#3f7d3a; --leaf-soft:#e3f0df;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#e3d8bd;font-family:'Noto Naskh Arabic','Amiri',serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .sheet{max-width:880px;margin:24px auto;background:var(--paper);padding:38px 44px 50px;border:1px solid var(--line);box-shadow:0 4px 24px rgba(0,0,0,.12);}
+
+  .masthead{display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:3px solid var(--ink);padding-bottom:16px;margin-bottom:22px;}
+  .masthead-text h1{font-family:'Amiri',serif;font-weight:700;font-size:30px;margin:0 0 6px;color:var(--clay);}
+  .masthead-text .subtitle{font-size:15px;color:var(--ink-soft);margin:0;}
+  .shield-icon{width:52px;height:56px;flex-shrink:0;}
+
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+  .meta-chip{border:1px solid var(--line);background:var(--panel);border-radius:3px;padding:6px 12px;font-size:13.5px;color:var(--ink-soft);}
+  .meta-chip b{color:var(--ink);font-weight:600;}
+
+  section{margin-bottom:28px;}
+  h2.section-title{font-family:'Amiri',serif;font-size:21px;font-weight:700;color:var(--lapis);border-bottom:2px solid var(--lapis);padding-bottom:6px;margin:0 0 14px;display:flex;align-items:baseline;gap:8px;}
+  h3.sub-title{font-size:17px;font-weight:700;color:var(--clay);margin:20px 0 8px;}
+  p{line-height:2;font-size:15.5px;margin:0 0 10px;}
+
+  .objectif-box{background:var(--bronze-soft);border-right:4px solid var(--bronze);padding:14px 18px;border-radius:2px;font-size:15.5px;line-height:1.9;}
+
+  .rule-box{background:var(--panel);border:1px solid var(--line);border-right:4px solid var(--lapis);padding:14px 18px;border-radius:2px;margin:10px 0 16px;}
+  .rule-box p:last-child{margin-bottom:0;}
+  .rule-box ul,.rule-box ol{margin:6px 0;padding-inline-start:22px;}
+  .rule-box li{margin-bottom:6px;line-height:1.85;}
+
+  .cause-grid{display:flex;flex-wrap:wrap;gap:14px;margin:10px 0 16px;}
+  .cause-card{flex:1 1 260px;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:12px 16px;}
+  .cause-card .head{font-weight:700;color:var(--lapis);font-size:15.5px;margin-bottom:4px;}
+  .cause-card p{margin:0;font-size:14px;color:var(--ink-soft);line-height:1.85;}
+
+  .timeline-wrap{display:flex;justify-content:center;margin:16px 0;overflow-x:auto;}
+
+  table.data-table{width:100%;border-collapse:collapse;margin:8px 0 18px;font-size:15px;}
+  table.data-table th{background:var(--lapis);color:#fff;padding:8px 10px;font-weight:600;font-size:14px;}
+  table.data-table td{border:1px solid var(--line);padding:9px 10px;background:var(--panel);}
+  table.data-table tr:nth-child(even) td{background:#f2e9d3;}
+
+  .activity-box{background:var(--panel);border:1.5px solid var(--bronze);border-radius:3px;padding:16px 20px;}
+  .activity-box .task-label{display:inline-block;background:var(--bronze);color:#fff;font-size:12.5px;padding:3px 10px;border-radius:2px;margin-bottom:8px;}
+
+  .exercise{border:1px solid var(--line);border-radius:3px;padding:16px 20px;margin-bottom:16px;background:var(--panel);}
+  .exercise-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:var(--ink);color:var(--paper);border-radius:50%;font-size:14px;font-weight:700;margin-inline-end:8px;}
+  .exercise h4{margin:0 0 10px;font-size:16.5px;display:flex;align-items:center;}
+  .fill-line{border-bottom:1px dotted var(--ink-soft);display:inline-block;min-width:110px;height:1.6em;}
+  .qcm-item{margin-bottom:10px;}
+  .qcm-item p{margin-bottom:4px;font-weight:600;}
+  .qcm-options{display:flex;flex-wrap:wrap;gap:14px;font-size:14.5px;}
+  .qcm-options span{display:flex;align-items:center;gap:5px;}
+  .checkbox{width:13px;height:13px;border:1.4px solid var(--ink-soft);display:inline-block;border-radius:2px;}
+  .match-cols{display:flex;justify-content:space-between;gap:40px;margin-top:8px;}
+  .match-cols ul{list-style:none;padding:0;margin:0;}
+  .match-cols li{border:1px solid var(--line);background:var(--paper);padding:6px 14px;margin-bottom:10px;border-radius:3px;font-size:15px;}
+  .order-list{display:flex;flex-direction:column;gap:8px;}
+  .order-item{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:6px;padding:8px 12px;background:var(--paper);}
+  .order-item .num-box{width:32px;height:32px;border:2px dashed var(--ink-soft);border-radius:6px;flex-shrink:0;}
+
+  .corrige-wrapper{page-break-before:always;padding-top:6px;}
+  .corrige-flag{text-align:center;font-size:13px;color:var(--ink-soft);margin-bottom:10px;border-top:1px dashed var(--ink-soft);padding-top:14px;}
+  details.corrige{border:2px dashed var(--clay);border-radius:4px;background:#fdf6ef;padding:6px 20px 18px;}
+  details.corrige > summary{cursor:pointer;font-family:'Amiri',serif;font-weight:700;font-size:19px;color:var(--clay);padding:14px 0;list-style:none;}
+  details.corrige > summary::-webkit-details-marker{display:none;}
+  details.corrige > summary::before{content:"✂ ";}
+  details.corrige > summary::after{content:"— اضغط لإظهار الحل / إخفائه";font-family:'Noto Naskh Arabic',serif;font-weight:400;font-size:13px;color:var(--ink-soft);margin-inline-start:8px;}
+  .corrige h4{color:var(--clay);margin:16px 0 8px;font-size:16px;}
+  .corrige-item{margin-bottom:8px;font-size:15px;line-height:1.9;}
+  .corrige table.data-table th{background:var(--clay);}
+
+  .footer-note{margin-top:30px;text-align:center;font-size:12px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:10px;}
+
+  @media print{
+    body{background:#fff;}
+    .sheet{box-shadow:none;border:none;margin:0;max-width:100%;padding:14px 6px;}
+    details.corrige{border-color:#000;}
+  }
+  @page{size:A4;margin:14mm;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="masthead-text">
+      <h1>الحروبُ الصليبيةُ</h1>
+      <p class="subtitle">الاجتماعيات — التاريخ: العصر الوسيط</p>
+    </div>
+    <svg class="shield-icon" viewBox="0 0 48 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M24 4 L44 12 V28 C44 42 34 50 24 54 C14 50 4 42 4 28 V12 Z" fill="none" stroke="#8a6a1e" stroke-width="2.5"/>
+      <line x1="24" y1="16" x2="24" y2="40" stroke="#b5652f" stroke-width="3"/>
+      <line x1="14" y1="24" x2="34" y2="24" stroke="#b5652f" stroke-width="3"/>
+    </svg>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta-chip">المستوى: <b>الأولى إعدادي (1AC)</b></div>
+    <div class="meta-chip">المادة: <b>الاجتماعيات — التاريخ</b></div>
+    <div class="meta-chip">مدة الحصة: <b>ساعة إلى ساعة ونصف</b></div>
+    <div class="meta-chip">نوع الوثيقة: <b>فيشة تعلّم ذاتي</b></div>
+  </div>
+
+  <!-- ===================== OBJECTIF ===================== -->
+  <section>
+    <h2 class="section-title">🎯 الهدف من الدرس</h2>
+    <div class="objectif-box">
+      يتمكّن المتعلم(ة) في نهاية هذا الدرس من: تحديد الإطار الزمني والمكاني للحروب الصليبية وأسبابها، وتحديد أهم أحداثها ومراحلها، والتعرّف على دور صلاح الدين الأيوبي في تحرير بيت المقدس، وتحديد أهم نتائج هذه الحروب.
+    </div>
+  </section>
+
+  <!-- ===================== COURS ===================== -->
+  <section>
+    <h2 class="section-title">📘 الدرس</h2>
+
+    <h3 class="sub-title">1) تعريف الحروب الصليبية وإطارها</h3>
+    <div class="rule-box">
+      <p><b>الحروب الصليبية</b> سلسلة من الحملات العسكرية التي شنّتها أوروبا المسيحية على المشرق الإسلامي، امتدت من نهاية <b>القرن الحادي عشر</b> إلى نهاية <b>القرن الثالث عشر</b> الميلادي (تقريباً من 1096م إلى 1291م)، بهدف السيطرة على مدينة <b>بيت المقدس</b> والأراضي المقدسة.</p>
+    </div>
+
+    <h3 class="sub-title">2) أسباب الحروب الصليبية</h3>
+    <div class="cause-grid">
+      <div class="cause-card">
+        <div class="head">أسباب دينية</div>
+        <p>دعوة البابا أوربان الثاني سنة 1095م إلى ما سُمّي بـ"تحرير" الأراضي المقدسة (بيت المقدس) من المسلمين.</p>
+      </div>
+      <div class="cause-card">
+        <div class="head">أسباب سياسية واقتصادية</div>
+        <p>رغبة بعض ملوك وأمراء أوروبا في توسيع نفوذهم، والحصول على أراضٍ وثروات جديدة في المشرق.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-title">3) أهم الحملات الصليبية</h3>
+    <div class="rule-box">
+      <p>نجحت <b>الحملة الصليبية الأولى</b> (1096-1099م) في الاستيلاء على <b>بيت المقدس</b> سنة <b>1099م</b>. وتعاقبت بعد ذلك عدة حملات صليبية أخرى على مدى قرنين تقريباً، بينما تصدّى لها المسلمون في عدة معارك ومراحل.</p>
+    </div>
+
+    <h3 class="sub-title">4) صلاح الدين الأيوبي وتحرير بيت المقدس</h3>
+    <div class="rule-box">
+      <p>برز عدة قادة مسلمين تصدّوا للحملات الصليبية، أبرزهم القائد <b>صلاح الدين الأيوبي</b>، الذي تمكّن من تحرير <b>بيت المقدس</b> سنة <b>1187م</b>، بعد انتصاره في <b>معركة حطين</b> على الصليبيين.</p>
+    </div>
+
+    <h3 class="sub-title">5) نتائج الحروب الصليبية</h3>
+    <div class="rule-box">
+      <ul>
+        <li>عسكرياً: فشلت الحملات الصليبية في النهاية في تحقيق أهدافها، واستعاد المسلمون معظم الأراضي التي كانت قد سقطت.</li>
+        <li>ثقافياً واقتصادياً: أدّت هذه الحروب، رغم طابعها الحربي، إلى تبادل تجاري وثقافي بين الشرق والغرب (نقل بعض المعارف والتقنيات والمنتجات).</li>
+        <li>أثّرت هذه الحروب على العلاقات بين العالمين الإسلامي والمسيحي لقرون لاحقة.</li>
+      </ul>
+    </div>
+
+    <h3 class="sub-title">6) خط زمني لأهم الأحداث</h3>
+    <div class="timeline-wrap">
+      <svg width="500" height="110" viewBox="0 0 500 110">
+        <line x1="30" y1="55" x2="470" y2="55" stroke="#2e2013" stroke-width="3" marker-end="url(#arh2)"/>
+        <circle cx="420" cy="55" r="7" fill="#b5652f"/>
+        <text x="420" y="78" text-anchor="middle" font-family="Noto Naskh Arabic, serif" font-size="12" font-weight="700" fill="#b5652f">دعوة البابا (1095م)</text>
+        <circle cx="250" cy="55" r="7" fill="#8a6a1e"/>
+        <text x="250" y="78" text-anchor="middle" font-family="Noto Naskh Arabic, serif" font-size="12" font-weight="700" fill="#8a6a1e">سقوط بيت المقدس (1099م)</text>
+        <circle cx="80" cy="55" r="7" fill="#2c5c78"/>
+        <text x="80" y="78" text-anchor="middle" font-family="Noto Naskh Arabic, serif" font-size="12" font-weight="700" fill="#2c5c78">تحرير بيت المقدس (1187م)</text>
+        <defs><marker id="arh2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2e2013"/></marker></defs>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ===================== ACTIVITE ===================== -->
+  <section>
+    <h2 class="section-title">✏️ نشاط تطبيقي</h2>
+    <div class="activity-box">
+      <span class="task-label">بناء خط زمني</span>
+      <p>ارسم في دفترك خطاً زمنياً بسيطاً، ورتّب عليه الأحداث التالية حسب تسلسلها الزمني الصحيح، مع كتابة السنة أمام كل حدث:</p>
+      <p>دعوة البابا أوربان الثاني — سقوط بيت المقدس بيد الصليبيين — معركة حطين وتحرير بيت المقدس</p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== EXERCICES ===================== -->
+  <section>
+    <h2 class="section-title">📝 تمارين للتدرّب</h2>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">1</span>أكمل الجمل التالية بالمعطى المناسب:</h4>
+      <p>1) امتدت الحروب الصليبية من نهاية القرن .......... إلى نهاية القرن .......... الميلادي.</p>
+      <p>2) كان الهدف المعلن للحملات الصليبية هو السيطرة على .......... </p>
+      <p>3) استولى الصليبيون على بيت المقدس سنة .......... </p>
+      <p>4) تمكّن القائد .......... من تحرير بيت المقدس سنة 1187م بعد معركة .......... </p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">2</span>رتّب الأحداث التالية حسب تسلسلها الزمني (من 1 إلى 3):</h4>
+      <div class="order-list">
+        <div class="order-item"><div class="num-box"></div><span>سقوط بيت المقدس بيد الصليبيين (1099م)</span></div>
+        <div class="order-item"><div class="num-box"></div><span>دعوة البابا أوربان الثاني (1095م)</span></div>
+        <div class="order-item"><div class="num-box"></div><span>معركة حطين وتحرير بيت المقدس (1187م)</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">3</span>اختر الإجابة الصحيحة:</h4>
+      <div class="qcm-item">
+        <p>1) الحروب الصليبية سلسلة حملات عسكرية شنّتها:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>أوروبا المسيحية على المشرق الإسلامي</span><span><span class="checkbox"></span>المشرق الإسلامي على أوروبا</span><span><span class="checkbox"></span>الفرس على الروم</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>2) كان الهدف المعلن للحملات الصليبية:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>السيطرة على بيت المقدس</span><span><span class="checkbox"></span>نشر التجارة فقط</span><span><span class="checkbox"></span>اكتشاف طرق بحرية جديدة</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>3) استولى الصليبيون على بيت المقدس سنة:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>1099م</span><span><span class="checkbox"></span>1187م</span><span><span class="checkbox"></span>1291م</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>4) القائد الذي تمكّن من تحرير بيت المقدس هو:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>عقبة بن نافع</span><span><span class="checkbox"></span>صلاح الدين الأيوبي</span><span><span class="checkbox"></span>طارق بن زياد</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>5) وقعت معركة حطين سنة:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>1096م</span><span><span class="checkbox"></span>1187م</span><span><span class="checkbox"></span>1291م</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">4</span>صل كل حدث بتاريخه المناسب:</h4>
+      <div class="match-cols">
+        <ul>
+          <li>أ) دعوة البابا أوربان الثاني</li>
+          <li>ب) سقوط بيت المقدس بيد الصليبيين</li>
+          <li>ج) معركة حطين وتحرير بيت المقدس</li>
+        </ul>
+        <ul>
+          <li>1) 1187م</li>
+          <li>2) 1095م</li>
+          <li>3) 1099م</li>
+        </ul>
+      </div>
+      <p style="margin-top:10px;">الإجابة: أ - .......... &nbsp; ب - .......... &nbsp; ج - ..........</p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">5</span>سؤال تحليلي:</h4>
+      <p>ما هي أهم نتائج الحروب الصليبية على العلاقات بين الشرق والغرب؟ اذكر نتيجتين اثنتين بالاعتماد على معطيات الدرس.</p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== CORRIGE ===================== -->
+  <div class="corrige-wrapper">
+    <p class="corrige-flag">✂ يمكن طي هذه الصفحة أو إخفاؤها (اضغط على العنوان أدناه) قبل إنجاز التمارين ✂</p>
+    <details class="corrige">
+      <summary>التصحيح الكامل</summary>
+
+      <h4>تصحيح النشاط التطبيقي</h4>
+      <div class="corrige-item">الترتيب الصحيح: دعوة البابا أوربان الثاني (1095م) &nbsp;→&nbsp; سقوط بيت المقدس بيد الصليبيين (1099م) &nbsp;→&nbsp; معركة حطين وتحرير بيت المقدس (1187م).</div>
+
+      <h4>تصحيح التمرين 1 (إكمال الجمل)</h4>
+      <div class="corrige-item">1) الحادي عشر / الثالث عشر &nbsp;|&nbsp; 2) بيت المقدس &nbsp;|&nbsp; 3) 1099م &nbsp;|&nbsp; 4) صلاح الدين الأيوبي / حطين</div>
+
+      <h4>تصحيح التمرين 2 (الترتيب الزمني)</h4>
+      <div class="corrige-item">1) دعوة البابا أوربان الثاني (1095م) &nbsp;→&nbsp; 2) سقوط بيت المقدس (1099م) &nbsp;→&nbsp; 3) معركة حطين وتحرير بيت المقدس (1187م)</div>
+
+      <h4>تصحيح التمرين 3 (الاختيار من متعدد)</h4>
+      <div class="corrige-item">1) أوروبا المسيحية على المشرق الإسلامي &nbsp;|&nbsp; 2) السيطرة على بيت المقدس &nbsp;|&nbsp; 3) 1099م &nbsp;|&nbsp; 4) صلاح الدين الأيوبي &nbsp;|&nbsp; 5) 1187م</div>
+
+      <h4>تصحيح التمرين 4 (الربط)</h4>
+      <div class="corrige-item">أ - 2 (دعوة البابا ← 1095م) &nbsp;|&nbsp; ب - 3 (سقوط بيت المقدس ← 1099م) &nbsp;|&nbsp; ج - 1 (معركة حطين ← 1187م)</div>
+
+      <h4>تصحيح التمرين 5 (السؤال التحليلي)</h4>
+      <div class="corrige-item">1) أدّت هذه الحروب، رغم طابعها الحربي، إلى تبادل تجاري وثقافي بين الشرق والغرب، ونقل بعض المعارف والتقنيات والمنتجات.</div>
+      <div class="corrige-item">2) أثّرت هذه الحروب على العلاقات بين العالمين الإسلامي والمسيحي لقرون لاحقة.</div>
+    </details>
+  </div>
+
+  <p class="footer-note">فيشة تعلّم ذاتي — الاجتماعيات (التاريخ) — الأولى إعدادي — الحروب الصليبية</p>
+</div>
+</body>
+</html>
