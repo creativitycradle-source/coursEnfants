@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>المتصرف من الأفعال – الجامد من الأفعال</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#20261f; --ink-soft:#4a4238;
+    --paper:#faf8f1; --panel:#ffffff; --line:#d8d0bd;
+    --gold:#a1731f; --gold-soft:#f1e6c9;
+    --teal:#2f6a5d; --teal-soft:#e5efe9;
+    --root:#a83a2c; --root-soft:#fbe7e2;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#e9e4d6;font-family:'Noto Naskh Arabic','Amiri',serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .sheet{max-width:900px;margin:24px auto;background:var(--paper);padding:38px 44px 50px;border:1px solid var(--line);box-shadow:0 4px 24px rgba(0,0,0,.12);}
+
+  .masthead{display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:3px solid var(--ink);padding-bottom:16px;margin-bottom:22px;}
+  .masthead-text h1{font-family:'Amiri',serif;font-weight:700;font-size:24px;margin:0 0 6px;line-height:1.4;color:var(--teal);}
+  .masthead-text .subtitle{font-size:15px;color:var(--ink-soft);margin:0;}
+  .balance-icon{width:58px;height:58px;flex-shrink:0;}
+
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+  .meta-chip{border:1px solid var(--line);background:var(--panel);border-radius:3px;padding:6px 12px;font-size:13.5px;color:var(--ink-soft);}
+  .meta-chip b{color:var(--ink);font-weight:600;}
+
+  .note-box{font-size:13.5px;color:var(--ink-soft);background:#f2effa;border-radius:4px;padding:8px 14px;margin-bottom:16px;border:1px solid var(--line);}
+
+  section{margin-bottom:26px;}
+  h2.section-title{font-family:'Amiri',serif;font-size:21px;font-weight:700;color:var(--teal);border-bottom:2px solid var(--teal);padding-bottom:6px;margin:0 0 14px;display:flex;align-items:baseline;gap:8px;}
+  h3.sub-title{font-size:17px;font-weight:700;color:var(--gold);margin:20px 0 8px;}
+  p{line-height:1.95;font-size:15.5px;margin:0 0 9px;}
+
+  .objectif-box{background:var(--gold-soft);border-right:4px solid var(--gold);padding:14px 18px;border-radius:2px;font-size:15.5px;line-height:1.9;}
+
+  .rule-box{background:var(--panel);border:1px solid var(--line);border-right:4px solid var(--teal);padding:12px 18px;border-radius:2px;margin:8px 0 14px;}
+  .rule-box p:last-child{margin-bottom:0;}
+  .rule-box ul,.rule-box ol{margin:6px 0;padding-inline-start:22px;}
+  .rule-box li{margin-bottom:5px;line-height:1.85;}
+
+  .type-grid{display:flex;flex-wrap:wrap;gap:14px;margin:10px 0 16px;}
+  .type-card{flex:1 1 240px;border-radius:8px;padding:12px 16px;}
+  .type-card.mutasarrif{background:var(--teal-soft);border:1px solid var(--teal);}
+  .type-card.jamid{background:var(--root-soft);border:1px solid var(--root);}
+  .type-card .head{font-weight:700;font-size:16px;margin-bottom:6px;}
+  .type-card.mutasarrif .head{color:var(--teal);}
+  .type-card.jamid .head{color:var(--root);}
+  .type-card p{margin:0;font-size:14px;line-height:1.85;}
+
+  .jamid-grid{display:flex;flex-wrap:wrap;gap:10px;margin:10px 0 16px;justify-content:center;}
+  .jamid-chip{background:var(--root-soft);border:1px solid var(--root);border-radius:6px;padding:6px 16px;font-weight:700;color:var(--root);font-size:16px;}
+
+  table.data-table{width:100%;border-collapse:collapse;margin:8px 0 16px;font-size:14.5px;}
+  table.data-table th{background:var(--teal);color:#fff;padding:7px 9px;font-weight:600;font-size:13.5px;}
+  table.data-table td{border:1px solid var(--line);padding:7px 9px;background:var(--panel);text-align:center;}
+  table.data-table tr:nth-child(even) td{background:#f4f1e7;}
+
+  .activity-box{background:var(--panel);border:1.5px solid var(--gold);border-radius:3px;padding:16px 20px;}
+  .activity-box .task-label{display:inline-block;background:var(--gold);color:#fff;font-size:12.5px;padding:3px 10px;border-radius:2px;margin-bottom:8px;}
+
+  .exercise{border:1px solid var(--line);border-radius:3px;padding:14px 18px;margin-bottom:14px;background:var(--panel);}
+  .exercise-num{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;background:var(--ink);color:var(--paper);border-radius:50%;font-size:13px;font-weight:700;margin-inline-end:8px;}
+  .exercise h4{margin:0 0 9px;font-size:15.5px;display:flex;align-items:center;}
+  .fill-line{border-bottom:1px dotted var(--ink-soft);display:inline-block;min-width:100px;height:1.5em;}
+  .word-chip{display:inline-block;background:var(--paper);border:1px solid var(--line);border-radius:3px;padding:3px 11px;margin:2px 3px;font-size:15px;}
+  .qcm-item{margin-bottom:9px;}
+  .qcm-item p{margin-bottom:4px;font-weight:600;}
+  .qcm-options{display:flex;flex-wrap:wrap;gap:12px;font-size:13.5px;}
+  .qcm-options span{display:flex;align-items:center;gap:5px;}
+  .checkbox{width:12px;height:12px;border:1.4px solid var(--ink-soft);display:inline-block;border-radius:2px;}
+  .op-grid{display:flex;flex-wrap:wrap;gap:16px;}
+  .op-item{display:flex;align-items:center;gap:6px;font-size:15px;}
+  .scenario-box{background:#f4f1e7;border:1px solid var(--line);padding:10px 14px;font-size:14.5px;line-height:1.95;margin-bottom:8px;}
+
+  .corrige-wrapper{page-break-before:always;padding-top:6px;}
+  .corrige-flag{text-align:center;font-size:12.5px;color:var(--ink-soft);margin-bottom:10px;border-top:1px dashed var(--ink-soft);padding-top:14px;}
+  details.corrige{border:2px dashed var(--root);border-radius:4px;background:#fffaf8;padding:6px 20px 18px;}
+  details.corrige > summary{cursor:pointer;font-family:'Amiri',serif;font-weight:700;font-size:18px;color:var(--root);padding:12px 0;list-style:none;}
+  details.corrige > summary::-webkit-details-marker{display:none;}
+  details.corrige > summary::before{content:"✂ ";}
+  details.corrige > summary::after{content:"— اضغط لإظهار الحل / إخفائه";font-family:'Noto Naskh Arabic',serif;font-weight:400;font-size:12.5px;color:var(--ink-soft);margin-inline-start:8px;}
+  .corrige h4{color:var(--root);margin:14px 0 6px;font-size:15px;}
+  .corrige-item{margin-bottom:7px;font-size:14px;line-height:1.85;}
+  .corrige table.data-table th{background:var(--root);}
+
+  .footer-note{margin-top:26px;text-align:center;font-size:11.5px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:10px;}
+
+  @media print{
+    body{background:#fff;}
+    .sheet{box-shadow:none;border:none;margin:0;max-width:100%;padding:14px 6px;}
+    details.corrige{border-color:#000;}
+  }
+  @page{size:A4;margin:13mm;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="masthead-text">
+      <h1>المتصرّفُ من الأفعالِ — الجامدُ من الأفعالِ</h1>
+      <p class="subtitle">مادة اللغة العربية — الصرف</p>
+    </div>
+    <svg class="balance-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="32" y1="6" x2="32" y2="46" stroke="#a1731f" stroke-width="2.5"/>
+      <line x1="10" y1="16" x2="54" y2="16" stroke="#20261f" stroke-width="2.5"/>
+      <path d="M10 16 L4 30 A9 9 0 0 0 16 30 Z" stroke="#2f6a5d" stroke-width="2" fill="none"/>
+      <path d="M54 16 L48 30 A9 9 0 0 0 60 30 Z" stroke="#2f6a5d" stroke-width="2" fill="none"/>
+      <line x1="20" y1="52" x2="44" y2="52" stroke="#20261f" stroke-width="3" stroke-linecap="round"/>
+    </svg>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta-chip">المستوى: <b>الأولى إعدادي (1AC)</b></div>
+    <div class="meta-chip">المادة: <b>اللغة العربية — الصرف والتحويل</b></div>
+    <div class="meta-chip">مدة الحصة: <b>ساعة إلى ساعة ونصف</b></div>
+    <div class="meta-chip">نوع الوثيقة: <b>فيشة تعلّم ذاتي</b></div>
+  </div>
+
+  <div class="note-box">💡 هذا الدرس يُواصل سلسلة الصرف (بعد تصريف الفعل اللفيف)، ويُبنى على معطيات مستوى الأولى إعدادي.</div>
+
+  <!-- ===================== OBJECTIF ===================== -->
+  <section>
+    <h2 class="section-title">🎯 الهدف من الدرس</h2>
+    <div class="objectif-box">
+      يتمكّن المتعلم(ة) في نهاية هذا الدرس من: تعريف الفعل المتصرف والفعل الجامد، والتمييز بين الفعل تام التصرف وناقص التصرف، وتحديد أشهر الأفعال الجامدة وتوظيفها في التمييز بين الأفعال في جمل معطاة.
+    </div>
+  </section>
+
+  <!-- ===================== COURS ===================== -->
+  <section>
+    <h2 class="section-title">📘 الدرس</h2>
+
+    <h3 class="sub-title">1) الفعل المتصرف</h3>
+    <div class="type-grid">
+      <div class="type-card mutasarrif">
+        <div class="head">الفعل المتصرف</div>
+        <p>فعل <b>يتغيّر بتغيّر الزمن</b>، فيُشتقّ منه الماضي والمضارع والأمر. معظم الأفعال في اللغة العربية متصرفة.</p>
+        <p style="margin-top:6px;">مثال: كتبَ (ماضٍ) ← يكتبُ (مضارع) ← اكتبْ (أمر)</p>
+      </div>
+    </div>
+
+    <h3 class="sub-title">2) أقسام الفعل المتصرف</h3>
+    <div class="rule-box">
+      <ul>
+        <li><b>تام التصرف:</b> له الصيغ الثلاث (ماضٍ، مضارع، أمر). مثال: كتبَ - يكتبُ - اكتبْ.</li>
+        <li><b>ناقص التصرف:</b> له صيغتان فقط من الثلاث (غالباً ماضٍ ومضارع، دون أمر). مثال: كادَ - يكادُ (لا أمر منه)، ما زالَ - لا يزالُ.</li>
+      </ul>
+    </div>
+
+    <h3 class="sub-title">3) الفعل الجامد</h3>
+    <div class="type-grid">
+      <div class="type-card jamid">
+        <div class="head">الفعل الجامد</div>
+        <p>فعل <b>يلزم صورة واحدة</b> فقط، ولا يتغيّر بتغيّر الزمن، ولا يُشتقّ منه غير هذه الصورة.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-title">4) أشهر الأفعال الجامدة</h3>
+    <div class="rule-box">
+      <p>تلزم معظم الأفعال الجامدة صورة <b>الماضي</b> فقط، ومن أشهرها:</p>
+    </div>
+    <div class="jamid-grid">
+      <span class="jamid-chip">عسى</span>
+      <span class="jamid-chip">ليسَ</span>
+      <span class="jamid-chip">نِعْمَ</span>
+      <span class="jamid-chip">بِئْسَ</span>
+    </div>
+
+    <h3 class="sub-title">5) جدول مقارن</h3>
+    <table class="data-table">
+      <tr><th>النوع</th><th>التعريف</th><th>مثال</th></tr>
+      <tr><td>متصرف تام</td><td>له الصيغ الثلاث</td><td>كتبَ - يكتبُ - اكتبْ</td></tr>
+      <tr><td>متصرف ناقص</td><td>له صيغتان فقط</td><td>كادَ - يكادُ</td></tr>
+      <tr><td>جامد</td><td>يلزم صورة واحدة</td><td>عسى، ليسَ، نِعْمَ، بِئْسَ</td></tr>
+    </table>
+  </section>
+
+  <!-- ===================== ACTIVITE ===================== -->
+  <section>
+    <h2 class="section-title">✏️ نشاط تطبيقي</h2>
+    <div class="activity-box">
+      <span class="task-label">تصنيف الأفعال</span>
+      <p>أكمل الجدول التالي بتصنيف كل فعل إلى (متصرف/جامد)، وإذا كان متصرفاً حدّد هل هو تام أو ناقص التصرف:</p>
+      <table class="data-table">
+        <tr><th>الفعل</th><th>متصرف / جامد</th><th>تام / ناقص (إن وُجد)</th></tr>
+        <tr><td>فهمَ</td><td><span class="fill-line" style="min-width:100%;"></span></td><td><span class="fill-line" style="min-width:100%;"></span></td></tr>
+        <tr><td>عسى</td><td><span class="fill-line" style="min-width:100%;"></span></td><td><span class="fill-line" style="min-width:100%;"></span></td></tr>
+        <tr><td>كادَ</td><td><span class="fill-line" style="min-width:100%;"></span></td><td><span class="fill-line" style="min-width:100%;"></span></td></tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===================== EXERCICES ===================== -->
+  <section>
+    <h2 class="section-title">📝 تمارين للتدرّب</h2>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">1</span>صنّف الأفعال التالية إلى (متصرف / جامد):</h4>
+      <p>
+        <span class="word-chip">كتبَ</span>
+        <span class="word-chip">ليسَ</span>
+        <span class="word-chip">ذهبَ</span>
+        <span class="word-chip">عسى</span>
+        <span class="word-chip">لعبَ</span>
+        <span class="word-chip">نِعْمَ</span>
+      </p>
+      <table class="data-table">
+        <tr><th>متصرف</th><th>جامد</th></tr>
+        <tr><td style="height:60px;"></td><td></td></tr>
+      </table>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">2</span>صرّف الفعل "كتبَ" (فعل تام التصرف) في الصيغ الثلاث:</h4>
+      <div class="op-grid">
+        <div class="op-item">الماضي: <span class="fill-line"></span></div>
+        <div class="op-item">المضارع: <span class="fill-line"></span></div>
+        <div class="op-item">الأمر: <span class="fill-line"></span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">3</span>اختر الإجابة الصحيحة:</h4>
+      <div class="qcm-item">
+        <p>1) الفعل المتصرف هو فعل:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>يتغيّر بتغيّر الزمن</span><span><span class="checkbox"></span>يلزم صورة واحدة</span><span><span class="checkbox"></span>لا يوجد له مضارع</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>2) الفعل الذي له الصيغ الثلاث (ماضٍ، مضارع، أمر) يُسمّى:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>تام التصرف</span><span><span class="checkbox"></span>ناقص التصرف</span><span><span class="checkbox"></span>جامداً</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>3) الفعل الجامد فعل:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>يلزم صورة واحدة فقط</span><span><span class="checkbox"></span>يتغيّر دائماً</span><span><span class="checkbox"></span>له ثلاث صيغ</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>4) من الأفعال الجامدة الشائعة:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>كتبَ</span><span><span class="checkbox"></span>عسى</span><span><span class="checkbox"></span>ذهبَ</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>5) فعل "ليسَ" فعل:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>متصرف تام</span><span><span class="checkbox"></span>متصرف ناقص</span><span><span class="checkbox"></span>جامد</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">4</span>أكمل الجمل التالية بالمعطى المناسب:</h4>
+      <p>1) الفعل .......... يتغيّر بتغيّر الزمن، فيأتي منه الماضي والمضارع والأمر.</p>
+      <p>2) الفعل الذي له صيغتان فقط من الثلاث يُسمّى .......... التصرف.</p>
+      <p>3) الفعل .......... يلزم صورة واحدة، ولا يتغيّر بتغيّر الزمن.</p>
+      <p>4) من أمثلة الأفعال الجامدة: .......... و.......... </p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">5</span>استخرج من الجملة التالية فعلاً جامداً وفعلين متصرفين:</h4>
+      <div class="scenario-box">
+        عسى الطالبُ أن ينجحَ، فقد ذاكرَ دروسه جيداً.
+      </div>
+      <p>فعل جامد: <span class="fill-line" style="min-width:60%;"></span></p>
+      <p>فعلان متصرفان: <span class="fill-line" style="min-width:60%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== CORRIGE ===================== -->
+  <div class="corrige-wrapper">
+    <p class="corrige-flag">✂ يمكن طي هذه الصفحة أو إخفاؤها (اضغط على العنوان أدناه) قبل إنجاز التمارين ✂</p>
+    <details class="corrige">
+      <summary>التصحيح الكامل</summary>
+
+      <h4>تصحيح النشاط التطبيقي</h4>
+      <table class="data-table">
+        <tr><th>الفعل</th><th>متصرف/جامد</th><th>تام/ناقص</th></tr>
+        <tr><td>فهمَ</td><td>متصرف</td><td>تام التصرف</td></tr>
+        <tr><td>عسى</td><td>جامد</td><td>—</td></tr>
+        <tr><td>كادَ</td><td>متصرف</td><td>ناقص التصرف</td></tr>
+      </table>
+
+      <h4>تصحيح التمرين 1 (التصنيف)</h4>
+      <div class="corrige-item"><b>متصرف:</b> كتبَ، ذهبَ، لعبَ</div>
+      <div class="corrige-item"><b>جامد:</b> ليسَ، عسى، نِعْمَ</div>
+
+      <h4>تصحيح التمرين 2 (تصريف "كتبَ")</h4>
+      <div class="corrige-item">الماضي: كتبَ &nbsp;|&nbsp; المضارع: يكتبُ &nbsp;|&nbsp; الأمر: اكتبْ</div>
+
+      <h4>تصحيح التمرين 3 (الاختيار من متعدد)</h4>
+      <div class="corrige-item">1) يتغيّر بتغيّر الزمن &nbsp;|&nbsp; 2) تام التصرف &nbsp;|&nbsp; 3) يلزم صورة واحدة فقط &nbsp;|&nbsp; 4) عسى &nbsp;|&nbsp; 5) جامد</div>
+
+      <h4>تصحيح التمرين 4 (إكمال الجمل)</h4>
+      <div class="corrige-item">1) المتصرف &nbsp;|&nbsp; 2) ناقص &nbsp;|&nbsp; 3) الجامد &nbsp;|&nbsp; 4) عسى / ليسَ (أو نِعْمَ / بِئْسَ)</div>
+
+      <h4>تصحيح التمرين 5 (الاستخراج)</h4>
+      <div class="corrige-item">فعل جامد: عسى</div>
+      <div class="corrige-item">فعلان متصرفان: ينجحَ، ذاكرَ</div>
+    </details>
+  </div>
+
+  <p class="footer-note">فيشة تعلّم ذاتي — اللغة العربية — الأولى إعدادي — المتصرف من الأفعال – الجامد من الأفعال</p>
+</div>
+</body>
+</html>
