@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>الزمان 1 – المجموع والفرق</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1c2b3a; --ink-soft:#4d5f70;
+    --paper:#f7f9fb; --panel:#ffffff; --line:#c9d6e0;
+    --blue:#2f5f8a; --blue-soft:#e2ecf3;
+    --orange:#e07b39; --orange-soft:#fbe8d8;
+    --green:#3a8f6b; --green-soft:#e1f2ea;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#dde6ec;color:var(--ink);font-family:'Noto Naskh Arabic','Amiri',serif;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .sheet{
+    max-width:900px;margin:24px auto;background:
+      repeating-linear-gradient(0deg, transparent 0 27px, rgba(47,95,138,.06) 27px 28px),
+      repeating-linear-gradient(90deg, transparent 0 27px, rgba(47,95,138,.06) 27px 28px),
+      var(--paper);
+    padding:38px 44px 50px;border:1px solid var(--line);box-shadow:0 4px 24px rgba(0,0,0,.12);
+  }
+
+  .masthead{display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:3px solid var(--ink);padding-bottom:16px;margin-bottom:22px;}
+  .masthead-text h1{font-family:'Amiri',serif;font-weight:700;font-size:27px;margin:0 0 6px;color:var(--blue);}
+  .masthead-text .subtitle{font-size:15px;color:var(--ink-soft);margin:0;}
+  .clock-icon{width:56px;height:56px;flex-shrink:0;}
+
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+  .meta-chip{border:1px solid var(--line);background:var(--panel);border-radius:3px;padding:6px 12px;font-size:13.5px;color:var(--ink-soft);}
+  .meta-chip b{color:var(--ink);font-weight:600;}
+
+  section{margin-bottom:28px;}
+  h2.section-title{font-family:'Amiri',serif;font-size:21px;font-weight:700;color:var(--blue);border-bottom:2px solid var(--blue);padding-bottom:6px;margin:0 0 14px;display:flex;align-items:baseline;gap:8px;}
+  h3.sub-title{font-size:17px;font-weight:700;color:var(--orange);margin:20px 0 8px;}
+  p{line-height:2;font-size:15.5px;margin:0 0 10px;}
+
+  .objectif-box{background:var(--orange-soft);border-right:4px solid var(--orange);padding:14px 18px;border-radius:2px;font-size:15.5px;line-height:1.9;}
+
+  .rule-box{background:var(--panel);border:1px solid var(--line);border-right:4px solid var(--blue);padding:14px 18px;border-radius:2px;margin:10px 0 16px;}
+  .rule-box p:last-child{margin-bottom:0;}
+  .rule-box ul,.rule-box ol{margin:6px 0;padding-inline-start:22px;}
+  .rule-box li{margin-bottom:6px;line-height:1.85;}
+
+  .unit-grid{display:flex;flex-wrap:wrap;gap:12px;margin:10px 0 16px;}
+  .unit-card{flex:1 1 190px;text-align:center;border:1px solid var(--line);border-radius:8px;padding:10px;background:var(--panel);}
+  .unit-card .val{font-size:18px;font-weight:700;color:var(--blue);}
+  .unit-card p{margin:4px 0 0;font-size:13px;color:var(--ink-soft);}
+
+  .worked-example{background:var(--green-soft);border:1px solid var(--green);border-radius:6px;padding:12px 16px;margin:10px 0 16px;font-size:14.5px;line-height:1.9;}
+  .worked-example b{color:var(--green);}
+
+  table.data-table{width:100%;border-collapse:collapse;margin:8px 0 18px;font-size:15px;}
+  table.data-table th{background:var(--blue);color:#fff;padding:8px 10px;font-weight:600;font-size:14px;}
+  table.data-table td{border:1px solid var(--line);padding:9px 10px;background:var(--panel);text-align:center;}
+  table.data-table tr:nth-child(even) td{background:#eef3f7;}
+
+  .activity-box{background:var(--panel);border:1.5px solid var(--orange);border-radius:3px;padding:16px 20px;}
+  .activity-box .task-label{display:inline-block;background:var(--orange);color:#fff;font-size:12.5px;padding:3px 10px;border-radius:2px;margin-bottom:8px;}
+
+  .exercise{border:1px solid var(--line);border-radius:3px;padding:16px 20px;margin-bottom:16px;background:var(--panel);}
+  .exercise-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:var(--ink);color:var(--paper);border-radius:50%;font-size:14px;font-weight:700;margin-inline-end:8px;}
+  .exercise h4{margin:0 0 10px;font-size:16.5px;display:flex;align-items:center;}
+  .fill-line{border-bottom:1px dotted var(--ink-soft);display:inline-block;min-width:100px;height:1.6em;}
+  .op-grid{display:flex;flex-wrap:wrap;gap:16px;}
+  .op-item{display:flex;align-items:center;gap:6px;font-size:15.5px;}
+  .qcm-item{margin-bottom:10px;}
+  .qcm-item p{margin-bottom:4px;font-weight:600;}
+  .qcm-options{display:flex;flex-wrap:wrap;gap:14px;font-size:14.5px;}
+  .qcm-options span{display:flex;align-items:center;gap:5px;}
+  .checkbox{width:13px;height:13px;border:1.4px solid var(--ink-soft);display:inline-block;border-radius:2px;}
+  .tf-item{display:flex;justify-content:space-between;align-items:center;border:1px solid var(--line);border-radius:6px;padding:8px 12px;margin-bottom:8px;background:var(--paper);}
+  .tf-boxes{display:flex;gap:10px;}
+  .tf-box{width:24px;height:24px;border:1.5px solid var(--ink-soft);border-radius:3px;display:inline-flex;align-items:center;justify-content:center;font-size:11px;}
+  .scenario-box{background:#eef3f7;border:1px solid var(--line);padding:12px 16px;font-size:15.5px;line-height:2.1;margin-bottom:10px;}
+  .order-list{display:flex;flex-direction:column;gap:8px;}
+  .order-item{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:6px;padding:8px 12px;background:var(--paper);}
+  .order-item .num-box{width:32px;height:32px;border:2px dashed var(--ink-soft);border-radius:6px;flex-shrink:0;}
+
+  .corrige-wrapper{page-break-before:always;padding-top:6px;}
+  .corrige-flag{text-align:center;font-size:13px;color:var(--ink-soft);margin-bottom:10px;border-top:1px dashed var(--ink-soft);padding-top:14px;}
+  details.corrige{border:2px dashed var(--green);border-radius:4px;background:#f7fcfa;padding:6px 20px 18px;}
+  details.corrige > summary{cursor:pointer;font-family:'Amiri',serif;font-weight:700;font-size:19px;color:var(--green);padding:14px 0;list-style:none;}
+  details.corrige > summary::-webkit-details-marker{display:none;}
+  details.corrige > summary::before{content:"✂ ";}
+  details.corrige > summary::after{content:"— اضغط لإظهار الحل / إخفائه";font-family:'Noto Naskh Arabic',serif;font-weight:400;font-size:13px;color:var(--ink-soft);margin-inline-start:8px;}
+  .corrige h4{color:var(--green);margin:16px 0 8px;font-size:16px;}
+  .corrige-item{margin-bottom:8px;font-size:15px;line-height:1.9;}
+  .corrige table.data-table th{background:var(--green);}
+
+  .footer-note{margin-top:30px;text-align:center;font-size:12px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:10px;}
+
+  @media print{
+    body{background:#fff;}
+    .sheet{box-shadow:none;border:none;margin:0;max-width:100%;padding:14px 6px;background:var(--paper);}
+    details.corrige{border-color:#000;}
+  }
+  @page{size:A4;margin:14mm;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="masthead-text">
+      <h1>الزمانُ 1 — المجموعُ والفرقُ</h1>
+      <p class="subtitle">الرياضيات — قياس الزمن</p>
+    </div>
+    <svg class="clock-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="32" cy="32" r="24" fill="none" stroke="#2f5f8a" stroke-width="3"/>
+      <line x1="32" y1="32" x2="32" y2="16" stroke="#1c2b3a" stroke-width="3"/>
+      <line x1="32" y1="32" x2="44" y2="38" stroke="#e07b39" stroke-width="3"/>
+      <circle cx="32" cy="32" r="3" fill="#1c2b3a"/>
+    </svg>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta-chip">المستوى: <b>الخامسة ابتدائي (5AEP)</b></div>
+    <div class="meta-chip">المادة: <b>الرياضيات — قياس الزمن</b></div>
+    <div class="meta-chip">مدة الحصة: <b>ساعة إلى ساعة ونصف</b></div>
+    <div class="meta-chip">نوع الوثيقة: <b>فيشة تعلّم ذاتي</b></div>
+  </div>
+
+  <!-- ===================== OBJECTIF ===================== -->
+  <section>
+    <h2 class="section-title">🎯 الهدف من الدرس</h2>
+    <div class="objectif-box">
+      يتمكّن المتعلم(ة) في نهاية هذا الدرس من: تذكّر وحدات قياس الزمن (الساعة، الدقيقة، الثانية) والعلاقة بينها، وإجراء عملية جمع مدتين زمنيتين مع التحويل عند الحاجة، وإجراء عملية طرح مدتين زمنيتين مع الاستدانة عند الحاجة.
+    </div>
+  </section>
+
+  <!-- ===================== COURS ===================== -->
+  <section>
+    <h2 class="section-title">📘 الدرس</h2>
+
+    <h3 class="sub-title">1) تذكير: وحدات قياس الزمن</h3>
+    <div class="unit-grid">
+      <div class="unit-card"><div class="val">1 ساعة</div><p>= 60 دقيقة</p></div>
+      <div class="unit-card"><div class="val">1 دقيقة</div><p>= 60 ثانية</p></div>
+      <div class="unit-card"><div class="val">1 ساعة</div><p>= 3600 ثانية</p></div>
+    </div>
+
+    <h3 class="sub-title">2) جمع مدتين زمنيتين</h3>
+    <div class="rule-box">
+      <ol>
+        <li>نجمع <b>الساعات</b> مع الساعات.</li>
+        <li>نجمع <b>الدقائق</b> مع الدقائق.</li>
+        <li>إذا تجاوز مجموع الدقائق 60، نحوّل كل <b>60 دقيقة</b> إلى ساعة، ونضيفها إلى مجموع الساعات.</li>
+      </ol>
+    </div>
+    <div class="worked-example">
+      <b>مثال محلول:</b> 2سا 45د + 1سا 30د = ؟<br>
+      نجمع الساعات: 2 + 1 = 3سا<br>
+      نجمع الدقائق: 45 + 30 = 75د<br>
+      بما أن 75 &gt; 60، نحوّل: 75د = 1سا 15د<br>
+      الناتج النهائي: 3سا + 1سا 15د = <b>4سا 15د</b>
+    </div>
+
+    <h3 class="sub-title">3) طرح مدتين زمنيتين</h3>
+    <div class="rule-box">
+      <ol>
+        <li>نطرح <b>الساعات</b> من الساعات، و<b>الدقائق</b> من الدقائق.</li>
+        <li>إذا كانت دقائق المطروح منه <b>أصغر</b> من دقائق المطروح، نستدين <b>ساعة كاملة (60 دقيقة)</b> من الساعات ونضيفها إلى الدقائق.</li>
+      </ol>
+    </div>
+    <div class="worked-example">
+      <b>مثال محلول:</b> 5سا 20د − 2سا 45د = ؟<br>
+      بما أن 20 أصغر من 45، نستدين ساعة: 5سا 20د = 4سا 80د<br>
+      نطرح: 4سا 80د − 2سا 45د = (4−2)سا و(80−45)د<br>
+      الناتج النهائي: <b>2سا 35د</b>
+    </div>
+  </section>
+
+  <!-- ===================== ACTIVITE ===================== -->
+  <section>
+    <h2 class="section-title">✏️ نشاط تطبيقي</h2>
+    <div class="activity-box">
+      <span class="task-label">حساب مدة نشاط</span>
+      <p>بدأت حصة الرياضة الساعة 10سا 20د، وانتهت الساعة 11سا 50د.</p>
+      <p>1) احسب مدة حصة الرياضة. <span class="fill-line" style="min-width:60%;"></span></p>
+      <p>2) إذا استغرقت حصة الرسم بعدها 45 دقيقة، احسب مجموع مدتَي الحصتين معاً.</p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== EXERCICES ===================== -->
+  <section>
+    <h2 class="section-title">📝 تمارين للتدرّب</h2>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">1</span>أكمل التحويلات التالية:</h4>
+      <div class="op-grid">
+        <div class="op-item">3 ساعات = <span class="fill-line"></span> دقيقة</div>
+        <div class="op-item">5 دقائق = <span class="fill-line"></span> ثانية</div>
+        <div class="op-item">150 دقيقة = <span class="fill-line"></span> سا <span class="fill-line"></span> د</div>
+        <div class="op-item">2سا 15د = <span class="fill-line"></span> دقيقة</div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">2</span>اجمع المدتين الزمنيتين التاليتين:</h4>
+      <div class="op-grid">
+        <div class="op-item">1سا 20د + 2سا 15د = <span class="fill-line"></span></div>
+        <div class="op-item">2سا 45د + 1سا 30د = <span class="fill-line"></span></div>
+        <div class="op-item">3سا 50د + 2سا 40د = <span class="fill-line"></span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">3</span>اختر الإجابة الصحيحة:</h4>
+      <div class="qcm-item">
+        <p>1) عدد الدقائق في الساعة الواحدة:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>100</span><span><span class="checkbox"></span>60</span><span><span class="checkbox"></span>24</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>2) عدد الثواني في الدقيقة الواحدة:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>60</span><span><span class="checkbox"></span>100</span><span><span class="checkbox"></span>30</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>3) عند جمع مدتين وتجاوز مجموع الدقائق 60، نحوّل:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>كل 60 دقيقة إلى ساعة</span><span><span class="checkbox"></span>كل 100 دقيقة إلى ساعة</span><span><span class="checkbox"></span>لا نحوّل شيئاً</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>4) عند طرح مدتين وكانت دقائق المطروح منه أصغر، نستدين:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>ساعة كاملة (60 دقيقة)</span><span><span class="checkbox"></span>نصف ساعة</span><span><span class="checkbox"></span>لا نستدين</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>5) 1سا 30د + 1سا 40د = ؟</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>2سا 70د</span><span><span class="checkbox"></span>3سا 10د</span><span><span class="checkbox"></span>2سا 10د</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">4</span>اطرح المدتين الزمنيتين التاليتين:</h4>
+      <div class="op-grid">
+        <div class="op-item">5سا 20د − 2سا 45د = <span class="fill-line"></span></div>
+        <div class="op-item">4سا 10د − 1سا 30د = <span class="fill-line"></span></div>
+        <div class="op-item">6سا 15د − 3سا 50د = <span class="fill-line"></span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">5</span>احسب مدة النشاط التالي:</h4>
+      <p>بدأ درس الرياضيات الساعة 8سا 15د، وانتهى الساعة 9سا 45د.</p>
+      <p>مدة الدرس: <span class="fill-line" style="min-width:60%;"></span></p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">6</span>رتّب خطوات جمع مدتين زمنيتين التالية (من 1 إلى 3):</h4>
+      <div class="order-list">
+        <div class="order-item"><div class="num-box"></div><span>نحوّل كل 60 دقيقة إلى ساعة إذا تجاوز مجموع الدقائق 60</span></div>
+        <div class="order-item"><div class="num-box"></div><span>نجمع الساعات مع الساعات</span></div>
+        <div class="order-item"><div class="num-box"></div><span>نجمع الدقائق مع الدقائق</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">7</span>حدّد صحيح أو خطأ لكل عبارة:</h4>
+      <div class="tf-item"><span>1 ساعة تساوي 100 دقيقة.</span><div class="tf-boxes"><span class="tf-box">✓</span><span class="tf-box">✗</span></div></div>
+      <div class="tf-item"><span>1 دقيقة تساوي 60 ثانية.</span><div class="tf-boxes"><span class="tf-box">✓</span><span class="tf-box">✗</span></div></div>
+      <div class="tf-item"><span>عند جمع الدقائق، إذا تجاوز المجموع 60 نتركه كما هو دون تحويل.</span><div class="tf-boxes"><span class="tf-box">✓</span><span class="tf-box">✗</span></div></div>
+      <div class="tf-item"><span>عند الطرح، يمكن الاستدانة ساعة كاملة تساوي 60 دقيقة.</span><div class="tf-boxes"><span class="tf-box">✓</span><span class="tf-box">✗</span></div></div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">8</span>مسألة تطبيقية:</h4>
+      <div class="scenario-box">
+        سافر أحمد بالحافلة من مدينته إلى مدينة أخرى، فاستغرقت رحلة الذهاب 2سا 45د، ورحلة الإياب 3سا 15د.
+      </div>
+      <p>1) احسب مجموع مدتَي الرحلتين (الذهاب والإياب).</p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+      <p>2) احسب الفرق بين مدة الإياب ومدة الذهاب.</p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== CORRIGE ===================== -->
+  <div class="corrige-wrapper">
+    <p class="corrige-flag">✂ يمكن طي هذه الصفحة أو إخفاؤها (اضغط على العنوان أدناه) قبل إنجاز التمارين ✂</p>
+    <details class="corrige">
+      <summary>التصحيح الكامل</summary>
+
+      <h4>تصحيح النشاط التطبيقي</h4>
+      <div class="corrige-item">1) مدة حصة الرياضة: 11سا50د − 10سا20د = <b>1سا 30د</b></div>
+      <div class="corrige-item">2) مجموع المدتين: 1سا30د + 45د = 1سا75د = <b>2سا 15د</b></div>
+
+      <h4>تصحيح التمرين 1 (التحويلات)</h4>
+      <div class="corrige-item">3 ساعات = 180 دقيقة &nbsp;|&nbsp; 5 دقائق = 300 ثانية &nbsp;|&nbsp; 150 دقيقة = 2سا 30د &nbsp;|&nbsp; 2سا 15د = 135 دقيقة</div>
+
+      <h4>تصحيح التمرين 2 (الجمع)</h4>
+      <div class="corrige-item">1سا20د + 2سا15د = 3سا 35د</div>
+      <div class="corrige-item">2سا45د + 1سا30د = 4سا 15د</div>
+      <div class="corrige-item">3سا50د + 2سا40د = 6سا 30د</div>
+
+      <h4>تصحيح التمرين 3 (الاختيار من متعدد)</h4>
+      <div class="corrige-item">1) 60 &nbsp;|&nbsp; 2) 60 &nbsp;|&nbsp; 3) كل 60 دقيقة إلى ساعة &nbsp;|&nbsp; 4) ساعة كاملة (60 دقيقة) &nbsp;|&nbsp; 5) 3سا 10د</div>
+
+      <h4>تصحيح التمرين 4 (الطرح)</h4>
+      <div class="corrige-item">5سا20د − 2سا45د = 2سا 35د</div>
+      <div class="corrige-item">4سا10د − 1سا30د = 2سا 40د</div>
+      <div class="corrige-item">6سا15د − 3سا50د = 2سا 25د</div>
+
+      <h4>تصحيح التمرين 5 (مدة الدرس)</h4>
+      <div class="corrige-item">9سا45د − 8سا15د = <b>1سا 30د</b></div>
+
+      <h4>تصحيح التمرين 6 (ترتيب الخطوات)</h4>
+      <div class="corrige-item">1) نجمع الساعات مع الساعات &nbsp;→&nbsp; 2) نجمع الدقائق مع الدقائق &nbsp;→&nbsp; 3) نحوّل كل 60 دقيقة إلى ساعة إذا لزم</div>
+
+      <h4>تصحيح التمرين 7 (صحيح/خطأ)</h4>
+      <div class="corrige-item">1) خطأ &nbsp;|&nbsp; 2) صحيح &nbsp;|&nbsp; 3) خطأ &nbsp;|&nbsp; 4) صحيح</div>
+
+      <h4>تصحيح التمرين 8 (المسألة التطبيقية)</h4>
+      <div class="corrige-item">1) 2سا45د + 3سا15د = 5سا60د = <b>6سا</b></div>
+      <div class="corrige-item">2) 3سا15د − 2سا45د = <b>30 دقيقة</b></div>
+    </details>
+  </div>
+
+  <p class="footer-note">فيشة تعلّم ذاتي — الرياضيات — الخامسة ابتدائي — الزمان 1: المجموع والفرق</p>
+</div>
+</body>
+</html>
