@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>الضمير البارز والضمير المستتر</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#241f33; --ink-soft:#54506a;
+    --paper:#faf8f5; --panel:#ffffff; --line:#ddd4e6;
+    --indigo:#4b3f8f; --indigo-soft:#e9e5f7;
+    --rose:#b1553f; --rose-soft:#f7e3dc;
+    --gold:#af8a2e; --gold-soft:#f4ecd2;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#e8e3ee;font-family:'Noto Naskh Arabic','Amiri',serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .sheet{max-width:900px;margin:24px auto;background:var(--paper);padding:38px 44px 50px;border:1px solid var(--line);box-shadow:0 4px 24px rgba(0,0,0,.12);}
+
+  .masthead{display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:3px solid var(--ink);padding-bottom:16px;margin-bottom:22px;}
+  .masthead-text h1{font-family:'Amiri',serif;font-weight:700;font-size:24px;margin:0 0 6px;color:var(--indigo);line-height:1.4;}
+  .masthead-text .subtitle{font-size:15px;color:var(--ink-soft);margin:0;}
+  .link-icon{width:58px;height:58px;flex-shrink:0;}
+
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+  .meta-chip{border:1px solid var(--line);background:var(--panel);border-radius:3px;padding:6px 12px;font-size:13.5px;color:var(--ink-soft);}
+  .meta-chip b{color:var(--ink);font-weight:600;}
+
+  section{margin-bottom:26px;}
+  h2.section-title{font-family:'Amiri',serif;font-size:20px;font-weight:700;color:var(--indigo);border-bottom:2px solid var(--indigo);padding-bottom:6px;margin:0 0 14px;display:flex;align-items:baseline;gap:8px;}
+  h3.sub-title{font-size:16.5px;font-weight:700;color:var(--rose);margin:18px 0 8px;}
+  p{line-height:1.95;font-size:15px;margin:0 0 9px;}
+
+  .objectif-box{background:var(--gold-soft);border-right:4px solid var(--gold);padding:14px 18px;border-radius:2px;font-size:15px;line-height:1.9;}
+
+  .rule-box{background:var(--panel);border:1px solid var(--line);border-right:4px solid var(--indigo);padding:12px 16px;border-radius:2px;margin:8px 0 14px;}
+  .rule-box p:last-child{margin-bottom:0;}
+  .rule-box ul,.rule-box ol{margin:6px 0;padding-inline-start:22px;}
+  .rule-box li{margin-bottom:5px;line-height:1.8;}
+
+  .type-grid{display:flex;flex-wrap:wrap;gap:12px;margin:10px 0 14px;}
+  .type-card{flex:1 1 250px;border-radius:8px;padding:11px 14px;}
+  .type-card.barz{background:var(--indigo-soft);border:1px solid var(--indigo);}
+  .type-card.mustatir{background:var(--rose-soft);border:1px solid var(--rose);}
+  .type-card .head{font-weight:700;font-size:14.5px;margin-bottom:4px;}
+  .type-card.barz .head{color:var(--indigo);}
+  .type-card.mustatir .head{color:var(--rose);}
+  .type-card p{margin:0;font-size:13px;color:var(--ink-soft);line-height:1.75;}
+
+  table.data-table{width:100%;border-collapse:collapse;margin:8px 0 16px;font-size:14px;}
+  table.data-table th{background:var(--indigo);color:#fff;padding:7px 8px;font-weight:600;font-size:13px;}
+  table.data-table td{border:1px solid var(--line);padding:7px 8px;background:var(--panel);text-align:center;}
+  table.data-table tr:nth-child(even) td{background:#f2effa;}
+
+  .activity-box{background:var(--panel);border:1.5px solid var(--gold);border-radius:3px;padding:14px 18px;}
+  .activity-box .task-label{display:inline-block;background:var(--gold);color:#fff;font-size:12px;padding:3px 10px;border-radius:2px;margin-bottom:8px;}
+
+  .exercise{border:1px solid var(--line);border-radius:3px;padding:14px 18px;margin-bottom:14px;background:var(--panel);}
+  .exercise-num{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;background:var(--ink);color:var(--paper);border-radius:50%;font-size:13px;font-weight:700;margin-inline-end:8px;}
+  .exercise h4{margin:0 0 9px;font-size:15.5px;display:flex;align-items:center;}
+  .fill-line{border-bottom:1px dotted var(--ink-soft);display:inline-block;min-width:90px;height:1.5em;}
+  .word-chip{display:inline-block;background:var(--paper);border:1px solid var(--line);border-radius:3px;padding:3px 11px;margin:2px 3px;font-size:14.5px;}
+  .qcm-item{margin-bottom:9px;}
+  .qcm-item p{margin-bottom:4px;font-weight:600;}
+  .qcm-options{display:flex;flex-wrap:wrap;gap:12px;font-size:13.5px;}
+  .qcm-options span{display:flex;align-items:center;gap:5px;}
+  .checkbox{width:12px;height:12px;border:1.4px solid var(--ink-soft);display:inline-block;border-radius:2px;}
+  .match-cols{display:flex;justify-content:space-between;gap:40px;margin-top:8px;}
+  .match-cols ul{list-style:none;padding:0;margin:0;}
+  .match-cols li{border:1px solid var(--line);background:var(--paper);padding:6px 14px;margin-bottom:10px;border-radius:3px;font-size:15px;}
+  .op-grid{display:flex;flex-wrap:wrap;gap:14px;}
+  .op-item{display:flex;align-items:center;gap:6px;font-size:14.5px;}
+  .tf-item{display:flex;justify-content:space-between;align-items:center;border:1px solid var(--line);border-radius:6px;padding:8px 12px;margin-bottom:8px;background:var(--paper);}
+  .tf-boxes{display:flex;gap:10px;}
+  .tf-box{width:22px;height:22px;border:1.5px solid var(--ink-soft);border-radius:3px;display:inline-flex;align-items:center;justify-content:center;font-size:11px;}
+  .scenario-box{background:#f2effa;border:1px solid var(--line);padding:10px 14px;font-size:14.5px;line-height:1.95;margin-bottom:8px;}
+
+  .corrige-wrapper{page-break-before:always;padding-top:6px;}
+  .corrige-flag{text-align:center;font-size:12.5px;color:var(--ink-soft);margin-bottom:10px;border-top:1px dashed var(--ink-soft);padding-top:14px;}
+  details.corrige{border:2px dashed var(--rose);border-radius:4px;background:#fdf7f5;padding:6px 20px 18px;}
+  details.corrige > summary{cursor:pointer;font-family:'Amiri',serif;font-weight:700;font-size:18px;color:var(--rose);padding:12px 0;list-style:none;}
+  details.corrige > summary::-webkit-details-marker{display:none;}
+  details.corrige > summary::before{content:"✂ ";}
+  details.corrige > summary::after{content:"— اضغط لإظهار الحل / إخفائه";font-family:'Noto Naskh Arabic',serif;font-weight:400;font-size:12.5px;color:var(--ink-soft);margin-inline-start:8px;}
+  .corrige h4{color:var(--rose);margin:14px 0 6px;font-size:15px;}
+  .corrige-item{margin-bottom:7px;font-size:14px;line-height:1.85;}
+  .corrige table.data-table th{background:var(--rose);}
+
+  .footer-note{margin-top:26px;text-align:center;font-size:11.5px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:10px;}
+
+  @media print{
+    body{background:#fff;}
+    .sheet{box-shadow:none;border:none;margin:0;max-width:100%;padding:14px 6px;}
+    details.corrige{border-color:#000;}
+  }
+  @page{size:A4;margin:13mm;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="masthead-text">
+      <h1>الضميرُ البارزُ والضميرُ المستترُ</h1>
+      <p class="subtitle">مادة اللغة العربية — القواعد</p>
+    </div>
+    <svg class="link-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="20" cy="32" r="13" fill="none" stroke="#4b3f8f" stroke-width="3"/>
+      <circle cx="20" cy="32" r="4" fill="#4b3f8f"/>
+      <circle cx="44" cy="32" r="13" fill="none" stroke="#b1553f" stroke-width="3" stroke-dasharray="4 3"/>
+    </svg>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta-chip">المستوى: <b>الخامسة ابتدائي (5AEP)</b></div>
+    <div class="meta-chip">المادة: <b>اللغة العربية — القواعد</b></div>
+    <div class="meta-chip">مدة الحصة: <b>ساعة إلى ساعة ونصف</b></div>
+    <div class="meta-chip">نوع الوثيقة: <b>فيشة تعلّم ذاتي</b></div>
+  </div>
+
+  <!-- ===================== OBJECTIF ===================== -->
+  <section>
+    <h2 class="section-title">🎯 الهدف من الدرس</h2>
+    <div class="objectif-box">
+      يتمكّن المتعلم(ة) في نهاية هذا الدرس من: التمييز بين الضمير البارز (المنفصل والمتصل) والضمير المستتر (وجوباً وجوازاً)، وتحديد تقدير الضمير المستتر في جمل بسيطة.
+    </div>
+  </section>
+
+  <!-- ===================== COURS ===================== -->
+  <section>
+    <h2 class="section-title">📘 الدرس</h2>
+
+    <h3 class="sub-title">1) تذكير: الضمير</h3>
+    <div class="rule-box">
+      <p>الضمير كلمة تدل على متكلم، أو مخاطب، أو غائب، ونستعملها بدلاً من الاسم لكي لا نُكرّره.</p>
+    </div>
+
+    <h3 class="sub-title">2) الضمير البارز</h3>
+    <div class="type-grid">
+      <div class="type-card barz">
+        <div class="head">الضمير البارز</div>
+        <p>ضمير له <b>صورة ظاهرة</b> في الكلام، ننطقه ونكتبه. له نوعان:</p>
+      </div>
+    </div>
+    <div class="rule-box">
+      <p><b>أ) بارز منفصل:</b> يُكتب <b>وحده</b>، منفصلاً عمّا قبله. مثال: أنا، أنتَ، أنتِ، هو، هي، نحن.</p>
+      <p><b>ب) بارز متصل:</b> يلتصق <b>بآخر الكلمة</b> (فعل أو اسم أو حرف). مثال: لعبْـتُ، كتابُـكَ، لـه.</p>
+    </div>
+
+    <h3 class="sub-title">3) الضمير المستتر</h3>
+    <div class="type-grid">
+      <div class="type-card mustatir">
+        <div class="head">الضمير المستتر</div>
+        <p>ضمير <b>لا يظهر</b> في الكلام، لكننا نفهمه من معنى الفعل. له نوعان:</p>
+      </div>
+    </div>
+    <div class="rule-box">
+      <p><b>أ) مستتر وجوباً:</b> لا يمكن أن نضع مكانه اسماً. مثال: <b>أذهبُ</b> إلى المدرسة (تقديره "أنا")، <b>اذهبْ</b> إلى غرفتك (تقديره "أنتَ").</p>
+      <p><b>ب) مستتر جوازاً:</b> يمكن أن نضع مكانه اسماً ظاهراً. مثال: الولدُ <b>يلعبُ</b> (تقديره "هو"، ويمكن أن نقول: يلعبُ الولدُ).</p>
+    </div>
+
+    <h3 class="sub-title">4) جدول ملخّص</h3>
+    <table class="data-table">
+      <tr><th>النوع</th><th>مثال</th></tr>
+      <tr><td>بارز منفصل</td><td>أنا، هو، نحن</td></tr>
+      <tr><td>بارز متصل</td><td>لعبْتُ، كتابُكَ</td></tr>
+      <tr><td>مستتر وجوباً</td><td>أذهبُ (أنا)</td></tr>
+      <tr><td>مستتر جوازاً</td><td>الولدُ يلعبُ (هو)</td></tr>
+    </table>
+  </section>
+
+  <!-- ===================== ACTIVITE ===================== -->
+  <section>
+    <h2 class="section-title">✏️ نشاط تطبيقي</h2>
+    <div class="activity-box">
+      <span class="task-label">تحديد نوع الضمير</span>
+      <p>لاحظ الجملة: "<b>أنتَ ولدٌ مجتهدٌ، ذاكرْتَ دروسَك، واجتهدْ أكثر</b>."، ثم أكمل:</p>
+      <p>1) الضمير البارز المنفصل هو: <span class="fill-line" style="min-width:40%;"></span></p>
+      <p>2) الضمير البارز المتصل في "ذاكرْتَ" هو: <span class="fill-line" style="min-width:40%;"></span></p>
+      <p>3) الفاعل المستتر في "اجتهدْ" تقديره: <span class="fill-line" style="min-width:40%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== EXERCICES ===================== -->
+  <section>
+    <h2 class="section-title">📝 تمارين للتدرّب</h2>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">1</span>صنّف الضمائر التالية إلى (بارز منفصل / بارز متصل):</h4>
+      <p>
+        <span class="word-chip">أنا</span>
+        <span class="word-chip">ـتُ (لعبْتُ)</span>
+        <span class="word-chip">هو</span>
+        <span class="word-chip">ـه (رأيتُه)</span>
+        <span class="word-chip">أنتِ</span>
+        <span class="word-chip">ـكِ (كتابُكِ)</span>
+      </p>
+      <table class="data-table">
+        <tr><th>بارز منفصل</th><th>بارز متصل</th></tr>
+        <tr><td style="height:60px;"></td><td></td></tr>
+      </table>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">2</span>أكمل الجدول التالي بضمائر الرفع المنفصلة الناقصة:</h4>
+      <table class="data-table">
+        <tr><th>المتكلم</th><th>المخاطب (مذكر)</th><th>المخاطب (مؤنث)</th><th>الغائب</th><th>الغائبة</th></tr>
+        <tr><td>أنا</td><td><span class="fill-line"></span></td><td>أنتِ</td><td><span class="fill-line"></span></td><td>هي</td></tr>
+      </table>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">3</span>اختر الإجابة الصحيحة:</h4>
+      <div class="qcm-item">
+        <p>1) الضمير البارز:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>له صورة ظاهرة</span><span><span class="checkbox"></span>لا صورة له</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>2) "أنا" ضمير بارز:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>منفصل</span><span><span class="checkbox"></span>متصل</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>3) "ـتُ" في "لعبْتُ" ضمير بارز:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>منفصل</span><span><span class="checkbox"></span>متصل</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>4) الضمير المستتر في "أكتبُ" مستتر:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>وجوباً</span><span><span class="checkbox"></span>جوازاً</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>5) الضمير المستتر في "الولدُ يلعبُ" مستتر:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>وجوباً</span><span><span class="checkbox"></span>جوازاً</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">4</span>حدّد تقدير الضمير المستتر في الأفعال التالية:</h4>
+      <div class="op-grid">
+        <div class="op-item">أقرأُ → <span class="fill-line"></span></div>
+        <div class="op-item">نكتبُ → <span class="fill-line"></span></div>
+        <div class="op-item">اجلسْ → <span class="fill-line"></span></div>
+        <div class="op-item">اجلسي → <span class="fill-line"></span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">5</span>صل كل ضمير بنوعه:</h4>
+      <div class="match-cols">
+        <ul>
+          <li>أ) أنتَ</li>
+          <li>ب) ـها (كتابُها)</li>
+          <li>ج) الفاعل في "يلعبُ" (بدون اسم قبله)</li>
+        </ul>
+        <ul>
+          <li>1) بارز متصل</li>
+          <li>2) مستتر وجوباً</li>
+          <li>3) بارز منفصل</li>
+        </ul>
+      </div>
+      <p style="margin-top:10px;">الإجابة: أ - .......... &nbsp; ب - .......... &nbsp; ج - ..........</p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">6</span>أكمل الجمل بضمير بارز مناسب:</h4>
+      <p>1) .......... تلميذٌ مجتهدٌ. (بارز منفصل)</p>
+      <p>2) كتابُ.......... جميلٌ. (بارز متصل: كاف الخطاب)</p>
+      <p>3) رأيتُ.......... في الحديقة. (بارز متصل: هاء الغائب)</p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">7</span>حدّد صحيح أو خطأ لكل عبارة:</h4>
+      <div class="tf-item"><span>كل الضمائر لها صورة ظاهرة في الكلام.</span><div class="tf-boxes"><span class="tf-box">✓</span><span class="tf-box">✗</span></div></div>
+      <div class="tf-item"><span>الضمير المستتر لا يُكتب لكنه مفهوم من المعنى.</span><div class="tf-boxes"><span class="tf-box">✓</span><span class="tf-box">✗</span></div></div>
+      <div class="tf-item"><span>"نحن" ضمير بارز متصل.</span><div class="tf-boxes"><span class="tf-box">✓</span><span class="tf-box">✗</span></div></div>
+      <div class="tf-item"><span>الفاعل في فعل الأمر "اكتبْ" ضمير مستتر تقديره أنتَ.</span><div class="tf-boxes"><span class="tf-box">✓</span><span class="tf-box">✗</span></div></div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">8</span>اقرأ الجملة التالية، ثم استخرج منها ضميراً بارزاً منفصلاً، وضميرين بارزين متصلين، وضميراً مستتراً وجوباً:</h4>
+      <div class="scenario-box">
+        أنتِ تلميذةٌ مجتهدةٌ، ذاكرْتِ دروسَكِ، واجتهدي أكثر.
+      </div>
+      <p>بارز منفصل: <span class="fill-line" style="min-width:60%;"></span></p>
+      <p>بارز متصل: <span class="fill-line" style="min-width:60%;"></span></p>
+      <p>مستتر وجوباً: <span class="fill-line" style="min-width:60%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== CORRIGE ===================== -->
+  <div class="corrige-wrapper">
+    <p class="corrige-flag">✂ يمكن طي هذه الصفحة أو إخفاؤها (اضغط على العنوان أدناه) قبل إنجاز التمارين ✂</p>
+    <details class="corrige">
+      <summary>التصحيح الكامل</summary>
+
+      <h4>تصحيح النشاط التطبيقي</h4>
+      <div class="corrige-item">1) أنتَ &nbsp;|&nbsp; 2) ـتَ &nbsp;|&nbsp; 3) أنتَ</div>
+
+      <h4>تصحيح التمرين 1 (التصنيف)</h4>
+      <div class="corrige-item"><b>بارز منفصل:</b> أنا، هو، أنتِ</div>
+      <div class="corrige-item"><b>بارز متصل:</b> ـتُ (لعبْتُ)، ـه (رأيتُه)، ـكِ (كتابُكِ)</div>
+
+      <h4>تصحيح التمرين 2 (ضمائر الرفع المنفصلة)</h4>
+      <div class="corrige-item">أنا — أنتَ — أنتِ — هو — هي</div>
+
+      <h4>تصحيح التمرين 3 (الاختيار من متعدد)</h4>
+      <div class="corrige-item">1) له صورة ظاهرة &nbsp;|&nbsp; 2) منفصل &nbsp;|&nbsp; 3) متصل &nbsp;|&nbsp; 4) وجوباً &nbsp;|&nbsp; 5) جوازاً</div>
+
+      <h4>تصحيح التمرين 4 (تقدير الضمير المستتر)</h4>
+      <div class="corrige-item">أقرأُ: أنا &nbsp;|&nbsp; نكتبُ: نحن &nbsp;|&nbsp; اجلسْ: أنتَ &nbsp;|&nbsp; اجلسي: أنتِ</div>
+
+      <h4>تصحيح التمرين 5 (الربط)</h4>
+      <div class="corrige-item">أ - 3 (أنتَ ← بارز منفصل) &nbsp;|&nbsp; ب - 1 (ـها ← بارز متصل) &nbsp;|&nbsp; ج - 2 (الفاعل في يلعبُ ← مستتر وجوباً)</div>
+
+      <h4>تصحيح التمرين 6 (إكمال الجمل)</h4>
+      <div class="corrige-item">1) أنتَ (أو أنتِ) &nbsp;|&nbsp; 2) ـكَ &nbsp;|&nbsp; 3) ـه</div>
+
+      <h4>تصحيح التمرين 7 (صحيح/خطأ)</h4>
+      <div class="corrige-item">1) خطأ &nbsp;|&nbsp; 2) صحيح &nbsp;|&nbsp; 3) خطأ (منفصل) &nbsp;|&nbsp; 4) صحيح</div>
+
+      <h4>تصحيح التمرين 8 (الاستخراج)</h4>
+      <div class="corrige-item">بارز منفصل: أنتِ</div>
+      <div class="corrige-item">بارز متصل: ـتِ (ذاكرْتِ)، ـكِ (دروسَكِ)</div>
+      <div class="corrige-item">مستتر وجوباً: في "اجتهدي"، تقديره أنتِ</div>
+    </details>
+  </div>
+
+  <p class="footer-note">فيشة تعلّم ذاتي — اللغة العربية — الخامسة ابتدائي — الضمير البارز والضمير المستتر</p>
+</div>
+</body>
+</html>
