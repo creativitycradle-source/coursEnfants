@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>العلاقات الغذائية والتوازنات الطبيعية - الجزء الأول</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#20301f; --ink-soft:#4c5a48;
+    --paper:#f8faf4; --panel:#ffffff; --line:#d7e0cd;
+    --leaf:#3f7d3a; --leaf-soft:#e3f0df;
+    --sky:#2f7ea8; --sky-soft:#deeef6;
+    --amber:#c98a2e; --amber-soft:#f6e9d3;
+    --coral:#c1493a; --coral-soft:#fbe0d8;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#e4e9dc;font-family:'Noto Naskh Arabic','Amiri',serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .sheet{max-width:900px;margin:24px auto;background:var(--paper);padding:38px 44px 50px;border:1px solid var(--line);box-shadow:0 4px 24px rgba(0,0,0,.12);}
+
+  .masthead{display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:3px solid var(--ink);padding-bottom:16px;margin-bottom:22px;}
+  .masthead-text h1{font-family:'Amiri',serif;font-weight:700;font-size:23px;margin:0 0 6px;color:var(--leaf);line-height:1.4;}
+  .masthead-text .subtitle{font-size:15px;color:var(--ink-soft);margin:0;}
+  .leaf-icon{width:56px;height:56px;flex-shrink:0;}
+
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+  .meta-chip{border:1px solid var(--line);background:var(--panel);border-radius:3px;padding:6px 12px;font-size:13.5px;color:var(--ink-soft);}
+  .meta-chip b{color:var(--ink);font-weight:600;}
+
+  section{margin-bottom:26px;}
+  h2.section-title{font-family:'Amiri',serif;font-size:20px;font-weight:700;color:var(--sky);border-bottom:2px solid var(--sky);padding-bottom:6px;margin:0 0 14px;display:flex;align-items:baseline;gap:8px;}
+  h3.sub-title{font-size:16.5px;font-weight:700;color:var(--amber);margin:18px 0 8px;}
+  p{line-height:1.95;font-size:15px;margin:0 0 9px;}
+
+  .objectif-box{background:var(--sky-soft);border-right:4px solid var(--sky);padding:14px 18px;border-radius:2px;font-size:15px;line-height:1.9;}
+
+  .rule-box{background:var(--panel);border:1px solid var(--line);border-right:4px solid var(--leaf);padding:12px 16px;border-radius:2px;margin:8px 0 14px;}
+  .rule-box p:last-child{margin-bottom:0;}
+  .rule-box ul,.rule-box ol{margin:6px 0;padding-inline-start:22px;}
+  .rule-box li{margin-bottom:5px;line-height:1.8;font-size:14.5px;}
+
+  .chain-wrap{display:flex;justify-content:center;margin:14px 0;overflow-x:auto;}
+
+  .level-grid{display:flex;flex-wrap:wrap;gap:12px;margin:10px 0 14px;}
+  .level-card{flex:1 1 200px;border-radius:8px;padding:11px 14px;text-align:center;}
+  .level-card.producer{background:var(--leaf-soft);border:1px solid var(--leaf);}
+  .level-card.c1{background:var(--amber-soft);border:1px solid var(--amber);}
+  .level-card.c2{background:var(--coral-soft);border:1px solid var(--coral);}
+  .level-card.decomp{background:var(--sky-soft);border:1px solid var(--sky);}
+  .level-card .head{font-weight:700;font-size:14px;margin-bottom:3px;}
+  .level-card.producer .head{color:var(--leaf);}
+  .level-card.c1 .head{color:var(--amber);}
+  .level-card.c2 .head{color:var(--coral);}
+  .level-card.decomp .head{color:var(--sky);}
+  .level-card p{margin:0;font-size:12.5px;color:var(--ink-soft);}
+
+  table.data-table{width:100%;border-collapse:collapse;margin:8px 0 16px;font-size:14px;}
+  table.data-table th{background:var(--sky);color:#fff;padding:7px 8px;font-weight:600;font-size:13px;}
+  table.data-table td{border:1px solid var(--line);padding:7px 8px;background:var(--panel);text-align:center;}
+  table.data-table tr:nth-child(even) td{background:#eef3e8;}
+
+  .activity-box{background:var(--panel);border:1.5px solid var(--amber);border-radius:3px;padding:14px 18px;}
+  .activity-box .task-label{display:inline-block;background:var(--amber);color:#fff;font-size:12px;padding:3px 10px;border-radius:2px;margin-bottom:8px;}
+
+  .exercise{border:1px solid var(--line);border-radius:3px;padding:14px 18px;margin-bottom:14px;background:var(--panel);}
+  .exercise-num{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;background:var(--ink);color:var(--paper);border-radius:50%;font-size:13px;font-weight:700;margin-inline-end:8px;}
+  .exercise h4{margin:0 0 9px;font-size:15.5px;display:flex;align-items:center;}
+  .fill-line{border-bottom:1px dotted var(--ink-soft);display:inline-block;min-width:100px;height:1.5em;}
+  .word-chip{display:inline-block;background:var(--paper);border:1px solid var(--line);border-radius:3px;padding:3px 10px;margin:2px 3px;font-size:14.5px;}
+  .qcm-item{margin-bottom:9px;}
+  .qcm-item p{margin-bottom:4px;font-weight:600;}
+  .qcm-options{display:flex;flex-wrap:wrap;gap:12px;font-size:13.5px;}
+  .qcm-options span{display:flex;align-items:center;gap:5px;}
+  .checkbox{width:12px;height:12px;border:1.4px solid var(--ink-soft);display:inline-block;border-radius:2px;}
+  .match-cols{display:flex;justify-content:space-between;gap:40px;margin-top:8px;}
+  .match-cols ul{list-style:none;padding:0;margin:0;}
+  .match-cols li{border:1px solid var(--line);background:var(--paper);padding:6px 14px;margin-bottom:10px;border-radius:3px;font-size:15px;}
+  .scenario-box{background:#eef3e8;border:1px solid var(--line);padding:10px 14px;font-size:14.5px;line-height:1.95;margin-bottom:8px;}
+
+  .corrige-wrapper{page-break-before:always;padding-top:6px;}
+  .corrige-flag{text-align:center;font-size:12.5px;color:var(--ink-soft);margin-bottom:10px;border-top:1px dashed var(--ink-soft);padding-top:14px;}
+  details.corrige{border:2px dashed var(--amber);border-radius:4px;background:#fdf8ee;padding:6px 20px 18px;}
+  details.corrige > summary{cursor:pointer;font-family:'Amiri',serif;font-weight:700;font-size:18px;color:var(--amber);padding:12px 0;list-style:none;}
+  details.corrige > summary::-webkit-details-marker{display:none;}
+  details.corrige > summary::before{content:"✂ ";}
+  details.corrige > summary::after{content:"— اضغط لإظهار الحل / إخفائه";font-family:'Noto Naskh Arabic',serif;font-weight:400;font-size:12.5px;color:var(--ink-soft);margin-inline-start:8px;}
+  .corrige h4{color:var(--amber);margin:14px 0 6px;font-size:15px;}
+  .corrige-item{margin-bottom:7px;font-size:14px;line-height:1.85;}
+  .corrige table.data-table th{background:var(--amber);}
+
+  .footer-note{margin-top:26px;text-align:center;font-size:11.5px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:10px;}
+
+  @media print{
+    body{background:#fff;}
+    .sheet{box-shadow:none;border:none;margin:0;max-width:100%;padding:14px 6px;}
+    details.corrige{border-color:#000;}
+  }
+  @page{size:A4;margin:13mm;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="masthead-text">
+      <h1>العلاقاتُ الغذائيةُ والتوازناتُ الطبيعيةُ — الجزءُ الأولُ</h1>
+      <p class="subtitle">علوم الحياة والأرض — السلسلة الغذائية والشبكة الغذائية</p>
+    </div>
+    <svg class="leaf-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M32 8c16 4 22 20 14 34C38 56 20 54 14 40 8 26 16 12 32 8z" fill="#3f7d3a" opacity="0.85"/>
+      <path d="M32 12c0 16 0 28 0 40" stroke="#e4e9dc" stroke-width="2"/>
+    </svg>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta-chip">المستوى: <b>الأولى إعدادي (1AC)</b></div>
+    <div class="meta-chip">المادة: <b>علوم الحياة والأرض (SVT)</b></div>
+    <div class="meta-chip">الحصة: <b>13 (الجزء الأول)</b></div>
+    <div class="meta-chip">نوع الوثيقة: <b>فيشة تعلّم ذاتي</b></div>
+  </div>
+
+  <!-- ===================== OBJECTIF ===================== -->
+  <section>
+    <h2 class="section-title">🎯 الهدف من الدرس</h2>
+    <div class="objectif-box">
+      يتمكّن المتعلم(ة) في نهاية هذا الدرس من: تعريف السلسلة الغذائية وتمثيلها بالأسهم، وتحديد المستويات الغذائية (المنتجون، المستهلكون الأوليون والثانويون، المحللون)، والتمييز بين الكائنات ذاتية التغذية وغير ذاتية التغذية، وتعريف الشبكة الغذائية.
+    </div>
+  </section>
+
+  <!-- ===================== COURS ===================== -->
+  <section>
+    <h2 class="section-title">📘 الدرس</h2>
+
+    <h3 class="sub-title">1) مقدمة</h3>
+    <div class="rule-box">
+      <p>في أي وسط طبيعي، ترتبط الكائنات الحية فيما بينها بعلاقات غذائية: فهي تتغذى على حيوانات أو نباتات أخرى. من بين هذه العلاقات، نميّز <b>السلسلة الغذائية</b> و<b>الشبكة الغذائية</b>.</p>
+    </div>
+
+    <h3 class="sub-title">2) السلسلة الغذائية</h3>
+    <div class="rule-box">
+      <p><b>السلسلة الغذائية</b> هي أبسط علاقة غذائية، وهي عبارة عن تتابع من الكائنات الحية، حيث يُؤكل كل كائن من طرف الكائن الذي يليه. يُشكّل كل كائن حيّ <b>حلقة</b> من حلقات السلسلة.</p>
+    </div>
+    <p style="font-size:14px;color:var(--ink-soft);">مثال: يتغذّى المَنّ (حيوان نباتي) على نسغ الورد (نبات أخضر)، وتتغذّى الدعسوقة (حيوان آكل حيوانات) على المَنّ.</p>
+    <div class="chain-wrap">
+      <svg width="420" height="90" viewBox="0 0 420 90">
+        <text x="370" y="50" font-family="Noto Naskh Arabic, serif" font-size="15" font-weight="700" fill="#3f7d3a">الورد</text>
+        <line x1="280" y1="45" x2="340" y2="45" stroke="#20301f" stroke-width="2" marker-end="url(#ar1)"/>
+        <text x="220" y="50" font-family="Noto Naskh Arabic, serif" font-size="15" font-weight="700" fill="#c98a2e">المَنّ</text>
+        <line x1="130" y1="45" x2="190" y2="45" stroke="#20301f" stroke-width="2" marker-end="url(#ar1)"/>
+        <text x="40" y="50" font-family="Noto Naskh Arabic, serif" font-size="15" font-weight="700" fill="#c1493a">الدعسوقة</text>
+        <defs><marker id="ar1" markerWidth="8" markerHeight="8" refX="2" refY="3" orient="auto-start-reverse"><path d="M0,0 L6,3 L0,6 Z" fill="#20301f"/></marker></defs>
+        <text x="210" y="80" text-anchor="middle" font-family="Noto Naskh Arabic, serif" font-size="11" fill="#4c5a48">كل سهم يعني "يُؤكل من طرف"</text>
+      </svg>
+    </div>
+
+    <h3 class="sub-title">3) المستويات الغذائية (الحلقات)</h3>
+    <div class="rule-box">
+      <p><b>المستوى الغذائي</b> هو الرتبة التي يحتلّها كائن حيّ داخل السلسلة الغذائية.</p>
+    </div>
+    <div class="level-grid">
+      <div class="level-card producer"><div class="head">المنتجون</div><p>النباتات الخضراء، تُنتج المادة العضوية (أول حلقة دائماً)</p></div>
+      <div class="level-card c1"><div class="head">المستهلكون الأوليون</div><p>يتغذّون على النباتات</p></div>
+      <div class="level-card c2"><div class="head">المستهلكون الثانويون</div><p>يتغذّون على حيوانات أخرى</p></div>
+      <div class="level-card decomp"><div class="head">المحللون</div><p>يحوّلون المادة العضوية الميتة إلى مادة معدنية</p></div>
+    </div>
+    <p style="font-size:14px;color:var(--ink-soft);">تتكوّن السلسلة الغذائية عادة من 3 حلقات على الأقل، لكن عدد الحلقات قد يختلف من سلسلة إلى أخرى. مثال بسلسلة أطول:</p>
+    <div class="chain-wrap">
+      <svg width="440" height="60" viewBox="0 0 440 60">
+        <text x="400" y="35" font-family="Noto Naskh Arabic, serif" font-size="14" font-weight="700">حبة</text>
+        <line x1="340" y1="30" x2="380" y2="30" stroke="#20301f" stroke-width="2" marker-end="url(#ar2)"/>
+        <text x="300" y="35" font-family="Noto Naskh Arabic, serif" font-size="14" font-weight="700">فأر</text>
+        <line x1="240" y1="30" x2="280" y2="30" stroke="#20301f" stroke-width="2" marker-end="url(#ar2)"/>
+        <text x="190" y="35" font-family="Noto Naskh Arabic, serif" font-size="14" font-weight="700">حية</text>
+        <line x1="120" y1="30" x2="160" y2="30" stroke="#20301f" stroke-width="2" marker-end="url(#ar2)"/>
+        <text x="60" y="35" font-family="Noto Naskh Arabic, serif" font-size="14" font-weight="700">عقاب</text>
+        <defs><marker id="ar2" markerWidth="8" markerHeight="8" refX="2" refY="3" orient="auto-start-reverse"><path d="M0,0 L6,3 L0,6 Z" fill="#20301f"/></marker></defs>
+      </svg>
+    </div>
+
+    <h3 class="sub-title">4) التغذية الذاتية وغير الذاتية</h3>
+    <div class="rule-box">
+      <p>جميع الكائنات الحية تحتاج إلى مادة عضوية. تنقسم الكائنات إلى نوعين حسب طريقة حصولها عليها:</p>
+      <ul>
+        <li><b>ذاتية التغذية (Autotrophes):</b> تصنع موادها العضوية بنفسها (النباتات الخضراء).</li>
+        <li><b>غير ذاتية التغذية (Hétérotrophes):</b> تأخذ المادة العضوية من الوسط (معظم الحيوانات).</li>
+      </ul>
+      <p>توجد أيضاً كائنات تُسمى <b>آكلات الفتات (المحللات)</b>، تتغذّى على المادة العضوية الميتة وتحوّلها إلى مادة معدنية.</p>
+    </div>
+
+    <h3 class="sub-title">5) الشبكة الغذائية</h3>
+    <div class="rule-box">
+      <p><b>الشبكة الغذائية</b> هي مجموع السلاسل الغذائية المتشابكة في وسط طبيعي معين.</p>
+    </div>
+    <p style="font-size:14px;color:var(--ink-soft);">مثال: في الوسط البحري، نجد عدة سلاسل غذائية متشابكة: العوالق النباتية (منتجون) ← العوالق الحيوانية ← الأسماك الصغيرة ← الأسماك الكبيرة ← القرش. تتشابك هذه السلاسل مع بعضها لتُشكّل شبكة غذائية بحرية.</p>
+  </section>
+
+  <!-- ===================== ACTIVITE ===================== -->
+  <section>
+    <h2 class="section-title">🔬 نشاط تطبيقي</h2>
+    <div class="activity-box">
+      <span class="task-label">بناء سلسلة غذائية</span>
+      <p>اختر وسطاً طبيعياً تعرفه (حديقة، غابة، حقل...)، واقترح سلسلة غذائية مكوّنة من 3 حلقات على الأقل، ممثَّلة بالأسهم المناسبة، ثم حدّد المستوى الغذائي لكل حلقة:</p>
+      <table class="data-table">
+        <tr><th>الحلقة</th><th>المستوى الغذائي</th></tr>
+        <tr><td><span class="fill-line" style="min-width:100%;"></span></td><td><span class="fill-line" style="min-width:100%;"></span></td></tr>
+        <tr><td><span class="fill-line" style="min-width:100%;"></span></td><td><span class="fill-line" style="min-width:100%;"></span></td></tr>
+        <tr><td><span class="fill-line" style="min-width:100%;"></span></td><td><span class="fill-line" style="min-width:100%;"></span></td></tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===================== EXERCICES ===================== -->
+  <section>
+    <h2 class="section-title">📝 تمارين للتدرّب</h2>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">1</span>مثّل السلسلة الغذائية التالية بالأسهم المناسبة: الدعسوقة، الورد، المَنّ</h4>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">2</span>صنّف عناصر السلسلة الغذائية التالية (الورد، المَنّ، الدعسوقة) حسب مستواها الغذائي:</h4>
+      <table class="data-table">
+        <tr><th>منتج</th><th>مستهلك أولي</th><th>مستهلك ثانوي</th></tr>
+        <tr><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+      </table>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">3</span>اختر الإجابة الصحيحة:</h4>
+      <div class="qcm-item">
+        <p>1) السلسلة الغذائية هي:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>علاقة غذائية بسيطة بين تتابع كائنات حية</span><span><span class="checkbox"></span>علاقة عشوائية بين كائنات حية</span><span><span class="checkbox"></span>مجموعة من النباتات فقط</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>2) يُمثَّل انتقال المادة الغذائية في السلسلة الغذائية بسهم يعني:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>"يأكل"</span><span><span class="checkbox"></span>"يُؤكل من طرف"</span><span><span class="checkbox"></span>"يعيش مع"</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>3) النباتات الخضراء تُسمى:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>منتجات</span><span><span class="checkbox"></span>مستهلكات</span><span><span class="checkbox"></span>محللات</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>4) الكائنات التي تتغذّى على النباتات تُسمى:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>مستهلكات أولية</span><span><span class="checkbox"></span>مستهلكات ثانوية</span><span><span class="checkbox"></span>منتجات</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>5) الكائنات القادرة على صنع موادها العضوية بنفسها تُسمى:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>ذاتية التغذية</span><span><span class="checkbox"></span>غير ذاتية التغذية</span><span><span class="checkbox"></span>محلِّلة</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">4</span>صل كل كائن بنوع تغذيته:</h4>
+      <div class="match-cols">
+        <ul>
+          <li>أ) النبات الأخضر</li>
+          <li>ب) الحيوان</li>
+          <li>ج) آكل الفتات</li>
+        </ul>
+        <ul>
+          <li>1) غير ذاتي التغذية</li>
+          <li>2) ذاتي التغذية</li>
+          <li>3) يحلّل المادة العضوية الميتة</li>
+        </ul>
+      </div>
+      <p style="margin-top:10px;">الإجابة: أ - .......... &nbsp; ب - .......... &nbsp; ج - ..........</p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">5</span>أكمل السلسلة الغذائية الناقصة التالية:</h4>
+      <p>حبة قمح ← .......... ← حية ← عقاب</p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">6</span>أكمل التعريفين التاليين:</h4>
+      <p>السلسلة الغذائية: <span class="fill-line" style="min-width:100%;"></span></p>
+      <p>الشبكة الغذائية: <span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">7</span>سؤال تحليلي:</h4>
+      <p>ما هو الكائن الذي يوجد دائماً في بداية أي سلسلة غذائية؟ ولماذا؟</p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">8</span>مسألة تطبيقية:</h4>
+      <div class="scenario-box">
+        تتكوّن شبكة غذائية بحرية من العناصر التالية: العوالق النباتية، العوالق الحيوانية، الأسماك الصغيرة، الأسماك الكبيرة، القرش.
+      </div>
+      <p>استخرج من هذه الشبكة سلسلة غذائية واحدة مكوّنة من 3 حلقات على الأقل، ممثَّلة بالأسهم.</p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== CORRIGE ===================== -->
+  <div class="corrige-wrapper">
+    <p class="corrige-flag">✂ يمكن طي هذه الصفحة أو إخفاؤها (اضغط على العنوان أدناه) قبل إنجاز التمارين ✂</p>
+    <details class="corrige">
+      <summary>التصحيح الكامل</summary>
+
+      <h4>تصحيح النشاط التطبيقي</h4>
+      <div class="corrige-item">يتحقق الأستاذ(ة) من صحة السلسلة المقترحة (3 حلقات على الأقل، تبدأ بمنتج) ومطابقة المستوى الغذائي لكل حلقة.</div>
+
+      <h4>تصحيح التمرين 1 (تمثيل السلسلة)</h4>
+      <div class="corrige-item">الورد ← المَنّ ← الدعسوقة</div>
+
+      <h4>تصحيح التمرين 2 (التصنيف)</h4>
+      <div class="corrige-item">منتج: الورد &nbsp;|&nbsp; مستهلك أولي: المَنّ &nbsp;|&nbsp; مستهلك ثانوي: الدعسوقة</div>
+
+      <h4>تصحيح التمرين 3 (الاختيار من متعدد)</h4>
+      <div class="corrige-item">1) علاقة غذائية بسيطة بين تتابع كائنات حية &nbsp;|&nbsp; 2) "يُؤكل من طرف" &nbsp;|&nbsp; 3) منتجات &nbsp;|&nbsp; 4) مستهلكات أولية &nbsp;|&nbsp; 5) ذاتية التغذية</div>
+
+      <h4>تصحيح التمرين 4 (الربط)</h4>
+      <div class="corrige-item">أ - 2 (النبات الأخضر ← ذاتي التغذية) &nbsp;|&nbsp; ب - 1 (الحيوان ← غير ذاتي التغذية) &nbsp;|&nbsp; ج - 3 (آكل الفتات ← يحلّل المادة العضوية الميتة)</div>
+
+      <h4>تصحيح التمرين 5 (إكمال السلسلة)</h4>
+      <div class="corrige-item">حبة قمح ← <b>فأر</b> ← حية ← عقاب</div>
+
+      <h4>تصحيح التمرين 6 (التعريفان)</h4>
+      <div class="corrige-item">السلسلة الغذائية: تتابع من الكائنات الحية يُؤكل كل كائن منها من طرف الذي يليه.</div>
+      <div class="corrige-item">الشبكة الغذائية: مجموع السلاسل الغذائية المتشابكة في وسط طبيعي معين.</div>
+
+      <h4>تصحيح التمرين 7 (السؤال التحليلي)</h4>
+      <div class="corrige-item">يوجد دائماً نبات أخضر (منتج) في بداية السلسلة الغذائية، لأنه الكائن الوحيد القادر على صنع المادة العضوية بنفسه (ذاتي التغذية)، فتعتمد عليه باقي الحلقات بشكل مباشر أو غير مباشر.</div>
+
+      <h4>تصحيح التمرين 8 (المسألة التطبيقية)</h4>
+      <div class="corrige-item">مثال: العوالق النباتية ← العوالق الحيوانية ← الأسماك الصغيرة ← الأسماك الكبيرة ← القرش (يقبل الأستاذ(ة) أي سلسلة فرعية صحيحة من 3 حلقات على الأقل مستخرجة من هذه الشبكة).</div>
+    </details>
+  </div>
+
+  <p class="footer-note">فيشة تعلّم ذاتي — علوم الحياة والأرض — الأولى إعدادي — العلاقات الغذائية والتوازنات الطبيعية (الجزء الأول)</p>
+</div>
+</body>
+</html>
