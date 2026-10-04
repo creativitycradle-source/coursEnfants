@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>الضمير المتصل</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#241f33; --ink-soft:#54506a;
+    --paper:#faf8f5; --panel:#ffffff; --line:#ddd4e6;
+    --indigo:#4b3f8f; --indigo-soft:#e9e5f7;
+    --rose:#b1553f; --rose-soft:#f7e3dc;
+    --gold:#af8a2e; --gold-soft:#f4ecd2;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#e8e3ee;font-family:'Noto Naskh Arabic','Amiri',serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .sheet{max-width:900px;margin:24px auto;background:var(--paper);padding:38px 44px 50px;border:1px solid var(--line);box-shadow:0 4px 24px rgba(0,0,0,.12);}
+
+  .masthead{display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:3px solid var(--ink);padding-bottom:16px;margin-bottom:22px;}
+  .masthead-text h1{font-family:'Amiri',serif;font-weight:700;font-size:30px;margin:0 0 6px;color:var(--indigo);}
+  .masthead-text .subtitle{font-size:15px;color:var(--ink-soft);margin:0;}
+  .link-icon{width:58px;height:58px;flex-shrink:0;}
+
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+  .meta-chip{border:1px solid var(--line);background:var(--panel);border-radius:3px;padding:6px 12px;font-size:13.5px;color:var(--ink-soft);}
+  .meta-chip b{color:var(--ink);font-weight:600;}
+
+  section{margin-bottom:26px;}
+  h2.section-title{font-family:'Amiri',serif;font-size:21px;font-weight:700;color:var(--indigo);border-bottom:2px solid var(--indigo);padding-bottom:6px;margin:0 0 14px;display:flex;align-items:baseline;gap:8px;}
+  h3.sub-title{font-size:17px;font-weight:700;color:var(--rose);margin:18px 0 8px;}
+  p{line-height:1.95;font-size:15.5px;margin:0 0 9px;}
+
+  .objectif-box{background:var(--gold-soft);border-right:4px solid var(--gold);padding:14px 18px;border-radius:2px;font-size:15.5px;line-height:1.9;}
+
+  .rule-box{background:var(--panel);border:1px solid var(--line);border-right:4px solid var(--indigo);padding:12px 18px;border-radius:2px;margin:8px 0 14px;}
+  .rule-box p:last-child{margin-bottom:0;}
+  .rule-box ul,.rule-box ol{margin:6px 0;padding-inline-start:22px;}
+  .rule-box li{margin-bottom:5px;line-height:1.85;}
+
+  .type-grid{display:flex;flex-wrap:wrap;gap:14px;margin:10px 0 16px;}
+  .type-card{flex:1 1 250px;border-radius:8px;padding:12px 16px;}
+  .type-card.raf{background:var(--indigo-soft);border:1px solid var(--indigo);}
+  .type-card.nasb{background:var(--rose-soft);border:1px solid var(--rose);}
+  .type-card.shared{background:var(--gold-soft);border:1px solid var(--gold);}
+  .type-card .head{font-weight:700;font-size:15.5px;margin-bottom:6px;}
+  .type-card.raf .head{color:var(--indigo);}
+  .type-card.nasb .head{color:var(--rose);}
+  .type-card.shared .head{color:var(--gold);}
+  .type-card p{margin:0;font-size:14px;line-height:1.85;}
+
+  table.data-table{width:100%;border-collapse:collapse;margin:8px 0 16px;font-size:14.5px;}
+  table.data-table th{background:var(--indigo);color:#fff;padding:7px 9px;font-weight:600;font-size:13.5px;}
+  table.data-table td{border:1px solid var(--line);padding:7px 9px;background:var(--panel);text-align:center;}
+  table.data-table tr:nth-child(even) td{background:#f2effa;}
+
+  .activity-box{background:var(--panel);border:1.5px solid var(--gold);border-radius:3px;padding:16px 20px;}
+  .activity-box .task-label{display:inline-block;background:var(--gold);color:#fff;font-size:12.5px;padding:3px 10px;border-radius:2px;margin-bottom:8px;}
+
+  .exercise{border:1px solid var(--line);border-radius:3px;padding:14px 18px;margin-bottom:14px;background:var(--panel);}
+  .exercise-num{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;background:var(--ink);color:var(--paper);border-radius:50%;font-size:13px;font-weight:700;margin-inline-end:8px;}
+  .exercise h4{margin:0 0 9px;font-size:15.5px;display:flex;align-items:center;}
+  .fill-line{border-bottom:1px dotted var(--ink-soft);display:inline-block;min-width:100px;height:1.5em;}
+  .word-chip{display:inline-block;background:var(--paper);border:1px solid var(--line);border-radius:3px;padding:3px 11px;margin:2px 3px;font-size:15px;}
+  .qcm-item{margin-bottom:9px;}
+  .qcm-item p{margin-bottom:4px;font-weight:600;}
+  .qcm-options{display:flex;flex-wrap:wrap;gap:12px;font-size:13.5px;}
+  .qcm-options span{display:flex;align-items:center;gap:5px;}
+  .checkbox{width:12px;height:12px;border:1.4px solid var(--ink-soft);display:inline-block;border-radius:2px;}
+  .tf-item{display:flex;justify-content:space-between;align-items:center;border:1px solid var(--line);border-radius:6px;padding:8px 12px;margin-bottom:8px;background:var(--paper);}
+  .tf-boxes{display:flex;gap:10px;}
+  .tf-box{width:22px;height:22px;border:1.5px solid var(--ink-soft);border-radius:3px;display:inline-flex;align-items:center;justify-content:center;font-size:11px;}
+  .scenario-box{background:#f2effa;border:1px solid var(--line);padding:10px 14px;font-size:14.5px;line-height:1.95;margin-bottom:8px;}
+
+  .corrige-wrapper{page-break-before:always;padding-top:6px;}
+  .corrige-flag{text-align:center;font-size:12.5px;color:var(--ink-soft);margin-bottom:10px;border-top:1px dashed var(--ink-soft);padding-top:14px;}
+  details.corrige{border:2px dashed var(--rose);border-radius:4px;background:#fdf7f5;padding:6px 20px 18px;}
+  details.corrige > summary{cursor:pointer;font-family:'Amiri',serif;font-weight:700;font-size:18px;color:var(--rose);padding:12px 0;list-style:none;}
+  details.corrige > summary::-webkit-details-marker{display:none;}
+  details.corrige > summary::before{content:"✂ ";}
+  details.corrige > summary::after{content:"— اضغط لإظهار الحل / إخفائه";font-family:'Noto Naskh Arabic',serif;font-weight:400;font-size:12.5px;color:var(--ink-soft);margin-inline-start:8px;}
+  .corrige h4{color:var(--rose);margin:14px 0 6px;font-size:15px;}
+  .corrige-item{margin-bottom:7px;font-size:14px;line-height:1.85;}
+
+  .footer-note{margin-top:26px;text-align:center;font-size:11.5px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:10px;}
+
+  @media print{
+    body{background:#fff;}
+    .sheet{box-shadow:none;border:none;margin:0;max-width:100%;padding:14px 6px;}
+    details.corrige{border-color:#000;}
+  }
+  @page{size:A4;margin:13mm;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="masthead-text">
+      <h1>الضميرُ المتصلُ</h1>
+      <p class="subtitle">مادة اللغة العربية — القواعد (النحو)</p>
+    </div>
+    <svg class="link-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="6" y="24" width="30" height="16" rx="4" fill="none" stroke="#4b3f8f" stroke-width="3"/>
+      <rect x="34" y="24" width="24" height="16" rx="4" fill="#b1553f" opacity="0.85"/>
+      <line x1="30" y1="32" x2="40" y2="32" stroke="#faf8f5" stroke-width="3"/>
+    </svg>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta-chip">المستوى: <b>الأولى إعدادي (1AC)</b></div>
+    <div class="meta-chip">المادة: <b>اللغة العربية — القواعد</b></div>
+    <div class="meta-chip">الدرس اللغوي: <b>15</b></div>
+    <div class="meta-chip">نوع الوثيقة: <b>فيشة تعلّم ذاتي</b></div>
+  </div>
+
+  <!-- ===================== OBJECTIF ===================== -->
+  <section>
+    <h2 class="section-title">🎯 الهدف من الدرس</h2>
+    <div class="objectif-box">
+      يتمكّن المتعلم(ة) في نهاية هذا الدرس من: تعريف الضمير المتصل، وتحديد أنواعه الثلاثة (المختص بالرفع، والمشترك بين النصب والجر، والمشترك بين الرفع والنصب والجر)، وتحديد محله من الإعراب في جمل معطاة، وتوظيف نون الوقاية مع ياء المتكلم.
+    </div>
+  </section>
+
+  <!-- ===================== COURS ===================== -->
+  <section>
+    <h2 class="section-title">📘 الدرس</h2>
+
+    <h3 class="sub-title">1) تعريف الضمير المتصل</h3>
+    <div class="rule-box">
+      <p><b>الضمير المتصل</b> هو الذي <b>لا يقع في أول الكلام</b>، ولا يمكن النطق به <b>وحده</b>، ويتصل دائماً <b>بكلمة قبله</b> (فعل أو اسم أو حرف).</p>
+    </div>
+
+    <h3 class="sub-title">2) أنواع الضمير المتصل</h3>
+    <div class="type-grid">
+      <div class="type-card raf">
+        <div class="head">أ) ضمائر مختصة بالرفع (خمسة)</div>
+        <p>التاء المتحركة، ألف الاثنين، واو الجماعة، ياء المخاطبة، نون النسوة.</p>
+      </div>
+      <div class="type-card nasb">
+        <div class="head">ب) ضمائر مشتركة بين النصب والجر (ثلاثة)</div>
+        <p>ياء المتكلم، كاف الخطاب، هاء الغائب.</p>
+      </div>
+      <div class="type-card shared">
+        <div class="head">ج) ضمير مشترك بين الرفع والنصب والجر</div>
+        <p>هو ضمير واحد: <b>"نا"</b>.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-title">3) الضمائر المتصلة المختصة بالرفع</h3>
+    <table class="data-table">
+      <tr><th>الكلمة</th><th>الضمير</th><th>محله من الإعراب</th></tr>
+      <tr><td>كتبْتُ</td><td>التاء المتحركة</td><td>في محل رفع فاعل</td></tr>
+      <tr><td>اذهبا</td><td>ألف الاثنين</td><td>في محل رفع فاعل</td></tr>
+      <tr><td>يخرجونَ</td><td>واو الجماعة</td><td>في محل رفع فاعل</td></tr>
+      <tr><td>كوني</td><td>ياء المخاطبة</td><td>في محل رفع اسم "كان"</td></tr>
+      <tr><td>رأَيْنَ</td><td>نون النسوة</td><td>في محل رفع فاعل</td></tr>
+    </table>
+
+    <h3 class="sub-title">4) الضمائر المتصلة المشتركة بين النصب والجر</h3>
+    <table class="data-table">
+      <tr><th>الكلمة</th><th>الضمير</th><th>محله من الإعراب</th></tr>
+      <tr><td>آتيتَني</td><td>ياء المتكلم</td><td>في محل نصب مفعول به</td></tr>
+      <tr><td>يُعطيكَ</td><td>كاف الخطاب</td><td>في محل نصب مفعول به</td></tr>
+      <tr><td>وُسْعَها</td><td>هاء الغائب</td><td>في محل جر مضاف إليه</td></tr>
+      <tr><td>إنّها</td><td>هاء الغائب</td><td>في محل نصب اسم "إنّ"</td></tr>
+      <tr><td>عليكَ</td><td>كاف الخطاب</td><td>في محل جر مجرور بحرف الجر</td></tr>
+    </table>
+    <div class="rule-box">
+      <p>القاعدة العامة: إذا اتصل الضمير بالأفعال كان غالباً في محل <b>نصب</b>، وإذا اتصل بالأسماء أو بحروف الجر كان في محل <b>جر</b>.</p>
+    </div>
+
+    <h3 class="sub-title">5) الضمير المتصل المشترك: "نا"</h3>
+    <table class="data-table">
+      <tr><th>الكلمة</th><th>نوعها</th><th>محل "نا" من الإعراب</th></tr>
+      <tr><td>ربَّنا</td><td>اسم</td><td>في محل جر مضاف إليه</td></tr>
+      <tr><td>نسينا</td><td>فعل ماضٍ</td><td>في محل رفع فاعل</td></tr>
+      <tr><td>تُؤاخذنا</td><td>فعل مضارع</td><td>في محل نصب مفعول به</td></tr>
+      <tr><td>عنّا</td><td>حرف جر</td><td>في محل جر مجرور بحرف الجر</td></tr>
+    </table>
+
+    <h3 class="sub-title">6) نون الوقاية</h3>
+    <div class="rule-box">
+      <p>إذا اتصلت <b>ياء المتكلم</b> بالفعل أو بأحد حروف الجر، أُتي <b>بنون الوقاية</b> فاصلة بينهما. مثال: آتيتَ<b>ني</b>، عنّ<b>ي</b> (من + ني)، أكرمَ<b>ني</b>.</p>
+    </div>
+  </section>
+
+  <!-- ===================== ACTIVITE ===================== -->
+  <section>
+    <h2 class="section-title">✏️ نشاط تطبيقي</h2>
+    <div class="activity-box">
+      <span class="task-label">تحديد الضمير ومحله</span>
+      <p>أكمل الجدول التالي بتحديد الضمير المتصل ونوعه ومحله من الإعراب:</p>
+      <table class="data-table">
+        <tr><th>الكلمة</th><th>الضمير</th><th>محله من الإعراب</th></tr>
+        <tr><td>ذهبْتُ</td><td><span class="fill-line" style="min-width:100%;"></span></td><td><span class="fill-line" style="min-width:100%;"></span></td></tr>
+        <tr><td>كتابُكَ</td><td><span class="fill-line" style="min-width:100%;"></span></td><td><span class="fill-line" style="min-width:100%;"></span></td></tr>
+        <tr><td>أكرمَني</td><td><span class="fill-line" style="min-width:100%;"></span></td><td><span class="fill-line" style="min-width:100%;"></span></td></tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===================== EXERCICES ===================== -->
+  <section>
+    <h2 class="section-title">📝 تمارين للتدرّب</h2>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">1</span>صنّف الضمائر التالية إلى: (مختص بالرفع / مشترك بين النصب والجر / مشترك بين الرفع والنصب والجر):</h4>
+      <p>
+        <span class="word-chip">التاء المتحركة</span>
+        <span class="word-chip">كاف الخطاب</span>
+        <span class="word-chip">نا</span>
+        <span class="word-chip">واو الجماعة</span>
+        <span class="word-chip">ياء المتكلم</span>
+        <span class="word-chip">نون النسوة</span>
+      </p>
+      <table class="data-table">
+        <tr><th>مختص بالرفع</th><th>مشترك بين النصب والجر</th><th>مشترك بين الثلاثة</th></tr>
+        <tr><td style="height:60px;"></td><td></td><td></td></tr>
+      </table>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">2</span>حدّد الضمير المتصل في كل فعل ونوعه:</h4>
+      <table class="data-table">
+        <tr><th>الفعل</th><th>كتبْتُ</th><th>اذهبا</th><th>يخرجونَ</th><th>كوني</th><th>رأَيْنَ</th></tr>
+        <tr><td>الضمير</td><td><span class="fill-line" style="min-width:60px;"></span></td><td><span class="fill-line" style="min-width:60px;"></span></td><td><span class="fill-line" style="min-width:60px;"></span></td><td><span class="fill-line" style="min-width:60px;"></span></td><td><span class="fill-line" style="min-width:60px;"></span></td></tr>
+      </table>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">3</span>اختر الإجابة الصحيحة:</h4>
+      <div class="qcm-item">
+        <p>1) الضمير المتصل:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>يقع في أول الكلام</span><span><span class="checkbox"></span>لا يُنطق به وحده</span><span><span class="checkbox"></span>لا يتصل بشيء</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>2) عدد الضمائر المتصلة المختصة بالرفع:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>ثلاثة</span><span><span class="checkbox"></span>خمسة</span><span><span class="checkbox"></span>سبعة</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>3) الضمير المشترك بين الرفع والنصب والجر هو:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>نا</span><span><span class="checkbox"></span>الكاف</span><span><span class="checkbox"></span>الهاء</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>4) الكاف في "عليكَ" في محل:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>رفع</span><span><span class="checkbox"></span>نصب</span><span><span class="checkbox"></span>جر</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>5) تأتي نون الوقاية قبل:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>ياء المتكلم</span><span><span class="checkbox"></span>كاف الخطاب</span><span><span class="checkbox"></span>هاء الغائب</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">4</span>حدّد الضمير المتصل ومحله من الإعراب:</h4>
+      <table class="data-table">
+        <tr><th>الكلمة</th><th>الضمير</th><th>محله من الإعراب</th></tr>
+        <tr><td>يُعطيكَ</td><td><span class="fill-line" style="min-width:100%;"></span></td><td><span class="fill-line" style="min-width:100%;"></span></td></tr>
+        <tr><td>كتابُهُ</td><td><span class="fill-line" style="min-width:100%;"></span></td><td><span class="fill-line" style="min-width:100%;"></span></td></tr>
+        <tr><td>عليكَ</td><td><span class="fill-line" style="min-width:100%;"></span></td><td><span class="fill-line" style="min-width:100%;"></span></td></tr>
+        <tr><td>آتيتَني</td><td><span class="fill-line" style="min-width:100%;"></span></td><td><span class="fill-line" style="min-width:100%;"></span></td></tr>
+      </table>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">5</span>حدّد محل الضمير "نا" من الإعراب في كل كلمة:</h4>
+      <table class="data-table">
+        <tr><th>ربَّنا</th><th>نسينا</th><th>عنّا</th><th>تُؤاخذنا</th></tr>
+        <tr><td><span class="fill-line" style="min-width:90px;"></span></td><td><span class="fill-line" style="min-width:90px;"></span></td><td><span class="fill-line" style="min-width:90px;"></span></td><td><span class="fill-line" style="min-width:90px;"></span></td></tr>
+      </table>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">6</span>أكمل الجمل بالضمير المتصل المناسب:</h4>
+      <p>1) التلميذان ذهب.......... إلى المدرسة. (ألف الاثنين)</p>
+      <p>2) التلاميذ ذهب.......... إلى المدرسة. (واو الجماعة)</p>
+      <p>3) أنا كتب.......... الدرسَ. (التاء المتحركة)</p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">7</span>حدّد صحيح أو خطأ لكل عبارة:</h4>
+      <div class="tf-item"><span>الضمير المتصل يقع في أول الكلام.</span><div class="tf-boxes"><span class="tf-box">✓</span><span class="tf-box">✗</span></div></div>
+      <div class="tf-item"><span>يمكن النطق بالضمير المتصل وحده.</span><div class="tf-boxes"><span class="tf-box">✓</span><span class="tf-box">✗</span></div></div>
+      <div class="tf-item"><span>"نا" ضمير مشترك بين الرفع والنصب والجر.</span><div class="tf-boxes"><span class="tf-box">✓</span><span class="tf-box">✗</span></div></div>
+      <div class="tf-item"><span>ياء المتكلم من الضمائر المختصة بالرفع.</span><div class="tf-boxes"><span class="tf-box">✓</span><span class="tf-box">✗</span></div></div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">8</span>أعرب الضميرين المتصلين في الجملة التالية:</h4>
+      <div class="scenario-box">
+        أكرمتُكَ.
+      </div>
+      <p>التاء: <span class="fill-line" style="min-width:70%;"></span></p>
+      <p>الكاف: <span class="fill-line" style="min-width:70%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== CORRIGE ===================== -->
+  <div class="corrige-wrapper">
+    <p class="corrige-flag">✂ يمكن طي هذه الصفحة أو إخفاؤها (اضغط على العنوان أدناه) قبل إنجاز التمارين ✂</p>
+    <details class="corrige">
+      <summary>التصحيح الكامل</summary>
+
+      <h4>تصحيح النشاط التطبيقي</h4>
+      <div class="corrige-item">ذهبْتُ: التاء المتحركة — في محل رفع فاعل</div>
+      <div class="corrige-item">كتابُكَ: كاف الخطاب — في محل جر مضاف إليه</div>
+      <div class="corrige-item">أكرمَني: ياء المتكلم (والنون للوقاية) — في محل نصب مفعول به</div>
+
+      <h4>تصحيح التمرين 1 (التصنيف)</h4>
+      <div class="corrige-item"><b>مختص بالرفع:</b> التاء المتحركة، واو الجماعة، نون النسوة</div>
+      <div class="corrige-item"><b>مشترك بين النصب والجر:</b> كاف الخطاب، ياء المتكلم</div>
+      <div class="corrige-item"><b>مشترك بين الرفع والنصب والجر:</b> نا</div>
+
+      <h4>تصحيح التمرين 2 (تحديد الضمير)</h4>
+      <div class="corrige-item">كتبْتُ: التاء المتحركة &nbsp;|&nbsp; اذهبا: ألف الاثنين &nbsp;|&nbsp; يخرجونَ: واو الجماعة &nbsp;|&nbsp; كوني: ياء المخاطبة &nbsp;|&nbsp; رأَيْنَ: نون النسوة</div>
+
+      <h4>تصحيح التمرين 3 (الاختيار من متعدد)</h4>
+      <div class="corrige-item">1) لا يُنطق به وحده &nbsp;|&nbsp; 2) خمسة &nbsp;|&nbsp; 3) نا &nbsp;|&nbsp; 4) جر &nbsp;|&nbsp; 5) ياء المتكلم</div>
+
+      <h4>تصحيح التمرين 4</h4>
+      <div class="corrige-item">يُعطيكَ: كاف الخطاب — في محل نصب مفعول به</div>
+      <div class="corrige-item">كتابُهُ: هاء الغائب — في محل جر مضاف إليه</div>
+      <div class="corrige-item">عليكَ: كاف الخطاب — في محل جر مجرور بحرف الجر</div>
+      <div class="corrige-item">آتيتَني: ياء المتكلم (والنون للوقاية) — في محل نصب مفعول به</div>
+
+      <h4>تصحيح التمرين 5 (الضمير "نا")</h4>
+      <div class="corrige-item">ربَّنا: في محل جر مضاف إليه &nbsp;|&nbsp; نسينا: في محل رفع فاعل &nbsp;|&nbsp; عنّا: في محل جر مجرور بحرف الجر &nbsp;|&nbsp; تُؤاخذنا: في محل نصب مفعول به</div>
+
+      <h4>تصحيح التمرين 6 (إكمال الجمل)</h4>
+      <div class="corrige-item">1) ذهبا (ألف الاثنين) &nbsp;|&nbsp; 2) ذهبوا (واو الجماعة) &nbsp;|&nbsp; 3) كتبْتُ (التاء المتحركة)</div>
+
+      <h4>تصحيح التمرين 7 (صحيح/خطأ)</h4>
+      <div class="corrige-item">1) خطأ &nbsp;|&nbsp; 2) خطأ &nbsp;|&nbsp; 3) صحيح &nbsp;|&nbsp; 4) خطأ (ياء المتكلم مشتركة بين النصب والجر)</div>
+
+      <h4>تصحيح التمرين 8 (الإعراب)</h4>
+      <div class="corrige-item">التاء: ضمير متصل مبني في محل رفع فاعل.</div>
+      <div class="corrige-item">الكاف: ضمير متصل مبني في محل نصب مفعول به.</div>
+    </details>
+  </div>
+
+  <p class="footer-note">فيشة تعلّم ذاتي — اللغة العربية — الأولى إعدادي — الضمير المتصل</p>
+</div>
+</body>
+</html>
