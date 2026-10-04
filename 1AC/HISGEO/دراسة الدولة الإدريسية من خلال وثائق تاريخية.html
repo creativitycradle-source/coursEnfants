@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>دراسة الدولة الإدريسية من خلال وثائق تاريخية</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#2c2417; --ink-soft:#5c5140;
+    --paper:#f8f2e2; --panel:#fffcf5; --line:#ddccaa;
+    --clay:#b5652f; --clay-soft:#f3e0cc;
+    --bronze:#8a6a1e; --bronze-soft:#f0e6c4;
+    --lapis:#2c5c78; --lapis-soft:#dfeaf0;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#e3d8bd;font-family:'Noto Naskh Arabic','Amiri',serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .sheet{max-width:880px;margin:24px auto;background:var(--paper);padding:38px 44px 50px;border:1px solid var(--line);box-shadow:0 4px 24px rgba(0,0,0,.12);}
+
+  .masthead{display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:3px solid var(--ink);padding-bottom:16px;margin-bottom:22px;}
+  .masthead-text h1{font-family:'Amiri',serif;font-weight:700;font-size:24px;margin:0 0 6px;color:var(--clay);line-height:1.45;}
+  .masthead-text .subtitle{font-size:15px;color:var(--ink-soft);margin:0;}
+  .scroll-icon{width:56px;height:56px;flex-shrink:0;}
+
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+  .meta-chip{border:1px solid var(--line);background:var(--panel);border-radius:3px;padding:6px 12px;font-size:13.5px;color:var(--ink-soft);}
+  .meta-chip b{color:var(--ink);font-weight:600;}
+
+  section{margin-bottom:28px;}
+  h2.section-title{font-family:'Amiri',serif;font-size:21px;font-weight:700;color:var(--lapis);border-bottom:2px solid var(--lapis);padding-bottom:6px;margin:0 0 14px;display:flex;align-items:baseline;gap:8px;}
+  h3.sub-title{font-size:17px;font-weight:700;color:var(--clay);margin:20px 0 8px;}
+  p{line-height:2;font-size:15.5px;margin:0 0 10px;}
+
+  .objectif-box{background:var(--bronze-soft);border-right:4px solid var(--bronze);padding:14px 18px;border-radius:2px;font-size:15.5px;line-height:1.9;}
+
+  .rule-box{background:var(--panel);border:1px solid var(--line);border-right:4px solid var(--lapis);padding:14px 18px;border-radius:2px;margin:10px 0 16px;}
+  .rule-box p:last-child{margin-bottom:0;}
+  .rule-box ul,.rule-box ol{margin:6px 0;padding-inline-start:22px;}
+  .rule-box li{margin-bottom:6px;line-height:1.85;}
+
+  .doc-box{background:#fffaf0;border:1.5px dashed var(--bronze);border-radius:6px;padding:14px 18px;margin:10px 0 16px;}
+  .doc-box .doc-title{font-weight:700;color:var(--bronze);margin-bottom:6px;font-size:15px;}
+  .doc-box p{font-size:15px;line-height:2;margin:0 0 6px;}
+  .doc-note{font-size:12.5px;color:var(--ink-soft);}
+
+  .figure-grid{display:flex;flex-wrap:wrap;gap:14px;margin:10px 0 16px;}
+  .figure-card{flex:1 1 240px;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:12px 16px;}
+  .figure-card .head{font-weight:700;color:var(--lapis);font-size:15.5px;margin-bottom:4px;}
+  .figure-card p{margin:0;font-size:14px;color:var(--ink-soft);line-height:1.85;}
+
+  .timeline-wrap{display:flex;justify-content:center;margin:16px 0;overflow-x:auto;}
+
+  table.data-table{width:100%;border-collapse:collapse;margin:8px 0 18px;font-size:15px;}
+  table.data-table th{background:var(--lapis);color:#fff;padding:8px 10px;font-weight:600;font-size:14px;}
+  table.data-table td{border:1px solid var(--line);padding:9px 10px;background:var(--panel);}
+  table.data-table tr:nth-child(even) td{background:#f2e9d3;}
+
+  .activity-box{background:var(--panel);border:1.5px solid var(--bronze);border-radius:3px;padding:16px 20px;}
+  .activity-box .task-label{display:inline-block;background:var(--bronze);color:#fff;font-size:12.5px;padding:3px 10px;border-radius:2px;margin-bottom:8px;}
+
+  .exercise{border:1px solid var(--line);border-radius:3px;padding:16px 20px;margin-bottom:16px;background:var(--panel);}
+  .exercise-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:var(--ink);color:var(--paper);border-radius:50%;font-size:14px;font-weight:700;margin-inline-end:8px;}
+  .exercise h4{margin:0 0 10px;font-size:16.5px;display:flex;align-items:center;}
+  .fill-line{border-bottom:1px dotted var(--ink-soft);display:inline-block;min-width:110px;height:1.6em;}
+  .word-chip{display:inline-block;background:var(--paper);border:1px solid var(--line);border-radius:3px;padding:3px 12px;margin:3px 4px;font-size:15px;}
+  .qcm-item{margin-bottom:10px;}
+  .qcm-item p{margin-bottom:4px;font-weight:600;}
+  .qcm-options{display:flex;flex-wrap:wrap;gap:14px;font-size:14.5px;}
+  .qcm-options span{display:flex;align-items:center;gap:5px;}
+  .checkbox{width:13px;height:13px;border:1.4px solid var(--ink-soft);display:inline-block;border-radius:2px;}
+  .match-cols{display:flex;justify-content:space-between;gap:40px;margin-top:8px;}
+  .match-cols ul{list-style:none;padding:0;margin:0;}
+  .match-cols li{border:1px solid var(--line);background:var(--paper);padding:6px 14px;margin-bottom:10px;border-radius:3px;font-size:15px;}
+  .order-list{display:flex;flex-direction:column;gap:8px;}
+  .order-item{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:6px;padding:8px 12px;background:var(--paper);}
+  .order-item .num-box{width:32px;height:32px;border:2px dashed var(--ink-soft);border-radius:6px;flex-shrink:0;}
+  .tf-item{display:flex;justify-content:space-between;align-items:center;border:1px solid var(--line);border-radius:6px;padding:8px 12px;margin-bottom:8px;background:var(--paper);}
+  .tf-boxes{display:flex;gap:10px;}
+  .tf-box{width:24px;height:24px;border:1.5px solid var(--ink-soft);border-radius:3px;display:inline-flex;align-items:center;justify-content:center;font-size:11px;}
+
+  .corrige-wrapper{page-break-before:always;padding-top:6px;}
+  .corrige-flag{text-align:center;font-size:13px;color:var(--ink-soft);margin-bottom:10px;border-top:1px dashed var(--ink-soft);padding-top:14px;}
+  details.corrige{border:2px dashed var(--clay);border-radius:4px;background:#fdf6ef;padding:6px 20px 18px;}
+  details.corrige > summary{cursor:pointer;font-family:'Amiri',serif;font-weight:700;font-size:19px;color:var(--clay);padding:14px 0;list-style:none;}
+  details.corrige > summary::-webkit-details-marker{display:none;}
+  details.corrige > summary::before{content:"✂ ";}
+  details.corrige > summary::after{content:"— اضغط لإظهار الحل / إخفائه";font-family:'Noto Naskh Arabic',serif;font-weight:400;font-size:13px;color:var(--ink-soft);margin-inline-start:8px;}
+  .corrige h4{color:var(--clay);margin:16px 0 8px;font-size:16px;}
+  .corrige-item{margin-bottom:8px;font-size:15px;line-height:1.9;}
+
+  .footer-note{margin-top:30px;text-align:center;font-size:12px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:10px;}
+
+  @media print{
+    body{background:#fff;}
+    .sheet{box-shadow:none;border:none;margin:0;max-width:100%;padding:14px 6px;}
+    details.corrige{border-color:#000;}
+  }
+  @page{size:A4;margin:14mm;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="masthead-text">
+      <h1>دراسةُ الدولةِ الإدريسيةِ من خلالِ وثائقَ تاريخيةٍ</h1>
+      <p class="subtitle">الاجتماعيات — التاريخ: المغرب في العصر الوسيط</p>
+    </div>
+    <svg class="scroll-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="14" y="10" width="36" height="44" rx="4" fill="#f0e6c4" stroke="#8a6a1e" stroke-width="3"/>
+      <line x1="20" y1="22" x2="44" y2="22" stroke="#b5652f" stroke-width="2.5"/>
+      <line x1="20" y1="30" x2="44" y2="30" stroke="#b5652f" stroke-width="2.5"/>
+      <line x1="20" y1="38" x2="36" y2="38" stroke="#b5652f" stroke-width="2.5"/>
+    </svg>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta-chip">المستوى: <b>الثانية إعدادي (2AC)</b></div>
+    <div class="meta-chip">المادة: <b>الاجتماعيات — التاريخ</b></div>
+    <div class="meta-chip">مدة الحصة: <b>ساعة إلى ساعة ونصف</b></div>
+    <div class="meta-chip">نوع الوثيقة: <b>فيشة تعلّم ذاتي (منهجية الوثائق)</b></div>
+  </div>
+
+  <!-- ===================== OBJECTIF ===================== -->
+  <section>
+    <h2 class="section-title">🎯 الهدف من الدرس</h2>
+    <div class="objectif-box">
+      يتمكّن المتعلم(ة) في نهاية هذا الدرس من: استخراج معلومات من وثائق تاريخية (نصية وأثرية) حول نشأة الدولة الإدريسية، وتحديد ظروف تأسيسها وأبرز مراحلها وشخصياتها، وتفسير أهميتها في تاريخ المغرب (وحدة المغرب، تأسيس مدينة فاس، ترسيخ الإسلام).
+    </div>
+  </section>
+
+  <!-- ===================== COURS ===================== -->
+  <section>
+    <h2 class="section-title">📘 الدرس</h2>
+
+    <h3 class="sub-title">1) كيف ندرس وثيقة تاريخية؟</h3>
+    <div class="rule-box">
+      <ol>
+        <li><b>التعريف بالوثيقة:</b> نوعها (نصية أو أثرية)، مؤلفها، تاريخها.</li>
+        <li><b>استخراج المعلومات:</b> نحدد الأحداث والشخصيات والأماكن والتواريخ المذكورة.</li>
+        <li><b>التحليل والتفسير:</b> نربط معلومات الوثيقة بمعارفنا حول السياق التاريخي.</li>
+        <li><b>النقد:</b> نتساءل عن مدى موضوعية الوثيقة، وهل تعبّر عن رأي كاتبها.</li>
+      </ol>
+    </div>
+
+    <h3 class="sub-title">2) الوثيقة الأولى: نص (فقرة مبسّطة)</h3>
+    <div class="doc-box">
+      <div class="doc-title">📜 نص مبسّط حول وصول إدريس إلى المغرب</div>
+      <p>بعد هزيمة أنصار آل البيت في معركة فخّ قرب مكة سنة 169هـ، فرّ إدريس بن عبد الله إلى المغرب الأقصى، فوصل إلى مدينة وليلي سنة 172هـ. استقبله زعيم قبيلة أوربة الأمازيغية إسحاق بن محمد، وبايعه أهل القبيلة إماماً عليهم.</p>
+      <p class="doc-note">ملاحظة: هذه فقرة مبسّطة صيغت بأسلوبنا استناداً إلى ما ذكره مؤرخو المغرب القدامى (كصاحب "روض القرطاس")، وليست نصاً حرفياً.</p>
+    </div>
+
+    <h3 class="sub-title">3) الوثيقة الثانية: وثائق أثرية</h3>
+    <div class="rule-box">
+      <ul>
+        <li><b>النقود (الدراهم الإدريسية):</b> ضُربت بمدينتي وليلي وفاس، وتدل على وجود سلطة سياسية مستقلة عن الخلافة العباسية.</li>
+        <li><b>آثار مدينة وليلي (Volubilis):</b> دليل على أول مقر استقر به إدريس الأول.</li>
+        <li><b>مدينة فاس ومسجد القرويين:</b> شواهد معمارية على مركزية فاس بعد تأسيسها.</li>
+      </ul>
+    </div>
+
+    <h3 class="sub-title">4) أبرز مراحل وشخصيات الدولة الإدريسية</h3>
+    <div class="figure-grid">
+      <div class="figure-card">
+        <div class="head">إدريس الأول (إدريس بن عبد الله)</div>
+        <p>مؤسس الدولة الإدريسية بالمغرب بعد بيعة قبيلة أوربة بوليلي سنة 172هـ (788م). توفي سنة 177هـ (793م).</p>
+      </div>
+      <div class="figure-card">
+        <div class="head">إدريس الثاني</div>
+        <p>وُلد بعد وفاة أبيه، وبويع صغيراً سنة 188هـ (803م). أسّس مدينة فاس حوالي سنة 192هـ (808م) واتخذها عاصمة للدولة.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-title">5) أهمية الدولة الإدريسية</h3>
+    <div class="rule-box">
+      <ul>
+        <li>أول دولة إسلامية مستقلة بالمغرب، أسهمت في توحيد المغرب سياسياً.</li>
+        <li>امتزاج العنصر العربي بالعنصر الأمازيغي، وترسيخ الإسلام بالمغرب.</li>
+        <li>تأسيس مدينة فاس التي أصبحت مركزاً علمياً وحضارياً كبيراً.</li>
+        <li>بعد وفاة إدريس الثاني، انقسمت الدولة بين أبنائه وضعفت تدريجياً حتى زالت.</li>
+      </ul>
+    </div>
+
+    <h3 class="sub-title">6) خط زمني</h3>
+    <div class="timeline-wrap">
+      <svg width="540" height="120" viewBox="0 0 540 120">
+        <line x1="30" y1="60" x2="510" y2="60" stroke="#2e2013" stroke-width="3" marker-end="url(#arid)"/>
+        <circle cx="470" cy="60" r="7" fill="#b5652f"/>
+        <text x="470" y="85" text-anchor="middle" font-family="Noto Naskh Arabic, serif" font-size="11" font-weight="700" fill="#b5652f">788م: بيعة أوربة</text>
+        <circle cx="370" cy="60" r="7" fill="#8a6a1e"/>
+        <text x="370" y="85" text-anchor="middle" font-family="Noto Naskh Arabic, serif" font-size="11" font-weight="700" fill="#8a6a1e">793م: وفاة إدريس الأول</text>
+        <circle cx="260" cy="60" r="7" fill="#2c5c78"/>
+        <text x="260" y="85" text-anchor="middle" font-family="Noto Naskh Arabic, serif" font-size="11" font-weight="700" fill="#2c5c78">803م: بيعة إدريس الثاني</text>
+        <circle cx="140" cy="60" r="7" fill="#b5652f"/>
+        <text x="140" y="85" text-anchor="middle" font-family="Noto Naskh Arabic, serif" font-size="11" font-weight="700" fill="#b5652f">حوالي 808م: تأسيس فاس</text>
+        <defs><marker id="arid" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2e2013"/></marker></defs>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ===================== ACTIVITE ===================== -->
+  <section>
+    <h2 class="section-title">✏️ نشاط تطبيقي</h2>
+    <div class="activity-box">
+      <span class="task-label">بطاقة تحليل وثيقة</span>
+      <p>اعتماداً على النص المبسّط (الوثيقة الأولى)، أكمل البطاقة التالية:</p>
+      <table class="data-table">
+        <tr><td>نوع الوثيقة</td><td><span class="fill-line" style="min-width:100%;"></span></td></tr>
+        <tr><td>الشخصية الرئيسية</td><td><span class="fill-line" style="min-width:100%;"></span></td></tr>
+        <tr><td>المكان والتاريخ</td><td><span class="fill-line" style="min-width:100%;"></span></td></tr>
+        <tr><td>الحدث الأساسي</td><td><span class="fill-line" style="min-width:100%;"></span></td></tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===================== EXERCICES ===================== -->
+  <section>
+    <h2 class="section-title">📝 تمارين للتدرّب</h2>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">1</span>رتّب الأحداث التالية حسب تسلسلها الزمني (من 1 إلى 4):</h4>
+      <div class="order-list">
+        <div class="order-item"><div class="num-box"></div><span>تأسيس مدينة فاس على يد إدريس الثاني</span></div>
+        <div class="order-item"><div class="num-box"></div><span>بيعة قبيلة أوربة لإدريس الأول بوليلي</span></div>
+        <div class="order-item"><div class="num-box"></div><span>بيعة إدريس الثاني</span></div>
+        <div class="order-item"><div class="num-box"></div><span>وفاة إدريس الأول</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">2</span>صل كل حدث بتاريخه التقريبي (الميلادي):</h4>
+      <div class="match-cols">
+        <ul>
+          <li>أ) بيعة أوربة لإدريس الأول</li>
+          <li>ب) وفاة إدريس الأول</li>
+          <li>ج) بيعة إدريس الثاني</li>
+        </ul>
+        <ul>
+          <li>1) 803م</li>
+          <li>2) 788م</li>
+          <li>3) 793م</li>
+        </ul>
+      </div>
+      <p style="margin-top:10px;">الإجابة: أ - .......... &nbsp; ب - .......... &nbsp; ج - ..........</p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">3</span>اختر الإجابة الصحيحة:</h4>
+      <div class="qcm-item">
+        <p>1) مؤسس الدولة الإدريسية بالمغرب هو:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>إدريس الأول</span><span><span class="checkbox"></span>إدريس الثاني</span><span><span class="checkbox"></span>طارق بن زياد</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>2) القبيلة التي بايعت إدريس الأول هي:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>أوربة</span><span><span class="checkbox"></span>صنهاجة</span><span><span class="checkbox"></span>مصمودة</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>3) المدينة التي بايع فيها أهل أوربة إدريس الأول:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>فاس</span><span><span class="checkbox"></span>وليلي</span><span><span class="checkbox"></span>مراكش</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>4) مؤسس مدينة فاس هو:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>إدريس الأول</span><span><span class="checkbox"></span>إدريس الثاني</span><span><span class="checkbox"></span>عقبة بن نافع</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>5) تدل النقود الإدريسية على:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>وجود سلطة سياسية مستقلة</span><span><span class="checkbox"></span>غياب الدولة</span><span><span class="checkbox"></span>تبعية المغرب للعباسيين</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">4</span>اعتماداً على النص المبسّط في الدرس (الوثيقة الأولى)، أجب:</h4>
+      <p>1) من هو الشخص الذي فرّ إلى المغرب الأقصى؟ <span class="fill-line" style="min-width:40%;"></span></p>
+      <p>2) في أي مدينة وصل، وفي أي سنة هجرية؟ <span class="fill-line" style="min-width:40%;"></span></p>
+      <p>3) من استقبله؟ وماذا فعل أهل القبيلة؟ <span class="fill-line" style="min-width:50%;"></span></p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">5</span>أكمل الجمل التالية بالمعطى المناسب:</h4>
+      <p>1) تأسست الدولة الإدريسية بعد بيعة قبيلة .......... لإدريس الأول بمدينة .......... </p>
+      <p>2) أسّس إدريس .......... مدينة .......... واتخذها عاصمة.</p>
+      <p>3) تُعدّ الدولة الإدريسية أول دولة .......... مستقلة بالمغرب.</p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">6</span>حدّد صحيح أو خطأ لكل عبارة:</h4>
+      <div class="tf-item"><span>جميع الوثائق التاريخية نصوص مكتوبة فقط.</span><div class="tf-boxes"><span class="tf-box">✓</span><span class="tf-box">✗</span></div></div>
+      <div class="tf-item"><span>ضُربت الدراهم الإدريسية بمدينتي وليلي وفاس.</span><div class="tf-boxes"><span class="tf-box">✓</span><span class="tf-box">✗</span></div></div>
+      <div class="tf-item"><span>وُلد إدريس الثاني قبل وفاة أبيه بسنوات.</span><div class="tf-boxes"><span class="tf-box">✓</span><span class="tf-box">✗</span></div></div>
+      <div class="tf-item"><span>انقسمت الدولة الإدريسية بعد وفاة إدريس الثاني.</span><div class="tf-boxes"><span class="tf-box">✓</span><span class="tf-box">✗</span></div></div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">7</span>صنّف الوثائق التالية إلى (وثائق نصية / وثائق أثرية):</h4>
+      <p>
+        <span class="word-chip">كتاب "روض القرطاس"</span>
+        <span class="word-chip">درهم إدريسي</span>
+        <span class="word-chip">آثار وليلي</span>
+        <span class="word-chip">رسالة مكتوبة قديمة</span>
+        <span class="word-chip">مسجد القرويين</span>
+      </p>
+      <table class="data-table">
+        <tr><th>وثائق نصية</th><th>وثائق أثرية</th></tr>
+        <tr><td style="height:60px;"></td><td></td></tr>
+      </table>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">8</span>سؤال تحليلي:</h4>
+      <p>اعتماداً على الدرس، اذكر أهمّ ما أضافته الدولة الإدريسية إلى تاريخ المغرب (نتيجتان على الأقل).</p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== CORRIGE ===================== -->
+  <div class="corrige-wrapper">
+    <p class="corrige-flag">✂ يمكن طي هذه الصفحة أو إخفاؤها (اضغط على العنوان أدناه) قبل إنجاز التمارين ✂</p>
+    <details class="corrige">
+      <summary>التصحيح الكامل</summary>
+
+      <h4>تصحيح النشاط التطبيقي (بطاقة التحليل)</h4>
+      <div class="corrige-item">نوع الوثيقة: نص (فقرة مبسّطة من مؤرخي المغرب) &nbsp;|&nbsp; الشخصية: إدريس بن عبد الله (إدريس الأول) &nbsp;|&nbsp; المكان والتاريخ: وليلي، سنة 172هـ &nbsp;|&nbsp; الحدث: استقباله من طرف زعيم أوربة ومبايعته إماماً.</div>
+
+      <h4>تصحيح التمرين 1 (الترتيب الزمني)</h4>
+      <div class="corrige-item">1) بيعة أوربة لإدريس الأول &nbsp;→&nbsp; 2) وفاة إدريس الأول &nbsp;→&nbsp; 3) بيعة إدريس الثاني &nbsp;→&nbsp; 4) تأسيس مدينة فاس</div>
+
+      <h4>تصحيح التمرين 2 (الربط)</h4>
+      <div class="corrige-item">أ - 2 (788م) &nbsp;|&nbsp; ب - 3 (793م) &nbsp;|&nbsp; ج - 1 (803م)</div>
+
+      <h4>تصحيح التمرين 3 (الاختيار من متعدد)</h4>
+      <div class="corrige-item">1) إدريس الأول &nbsp;|&nbsp; 2) أوربة &nbsp;|&nbsp; 3) وليلي &nbsp;|&nbsp; 4) إدريس الثاني &nbsp;|&nbsp; 5) وجود سلطة سياسية مستقلة</div>
+
+      <h4>تصحيح التمرين 4 (أسئلة الوثيقة)</h4>
+      <div class="corrige-item">1) إدريس بن عبد الله &nbsp;|&nbsp; 2) وليلي، سنة 172هـ &nbsp;|&nbsp; 3) استقبله زعيم أوربة إسحاق بن محمد، وبايعه أهل القبيلة إماماً عليهم.</div>
+
+      <h4>تصحيح التمرين 5 (إكمال الجمل)</h4>
+      <div class="corrige-item">1) أوربة / وليلي &nbsp;|&nbsp; 2) الثاني / فاس &nbsp;|&nbsp; 3) إسلامية</div>
+
+      <h4>تصحيح التمرين 6 (صحيح/خطأ)</h4>
+      <div class="corrige-item">1) خطأ (هناك وثائق أثرية كالنقود والمباني) &nbsp;|&nbsp; 2) صحيح &nbsp;|&nbsp; 3) خطأ (وُلد بعد وفاة أبيه) &nbsp;|&nbsp; 4) صحيح</div>
+
+      <h4>تصحيح التمرين 7 (تصنيف الوثائق)</h4>
+      <div class="corrige-item"><b>نصية:</b> كتاب "روض القرطاس"، رسالة مكتوبة قديمة</div>
+      <div class="corrige-item"><b>أثرية:</b> درهم إدريسي، آثار وليلي، مسجد القرويين</div>
+
+      <h4>تصحيح التمرين 8 (السؤال التحليلي)</h4>
+      <div class="corrige-item">أمثلة: تأسيس أول دولة إسلامية مستقلة بالمغرب ووحدته السياسية؛ تأسيس مدينة فاس كمركز علمي وحضاري؛ امتزاج العنصرين العربي والأمازيغي وترسيخ الإسلام.</div>
+    </details>
+  </div>
+
+  <p class="footer-note">فيشة تعلّم ذاتي — الاجتماعيات (التاريخ) — الثانية إعدادي — دراسة الدولة الإدريسية من خلال وثائق تاريخية</p>
+</div>
+</body>
+</html>
