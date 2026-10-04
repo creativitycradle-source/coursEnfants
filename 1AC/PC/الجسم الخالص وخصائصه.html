@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>الجسم الخالص وخصائصه</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1c1f33; --ink-soft:#4b4f6a;
+    --paper:#f6f7fb; --panel:#ffffff; --line:#d6d9ea;
+    --indigo:#3f4d9e; --indigo-soft:#e6e9f7;
+    --teal:#1f7a7a; --teal-soft:#dcf0f0;
+    --amber:#c98a2e; --amber-soft:#f6e9d3;
+    --rose:#b1553f; --rose-soft:#f7e3dc;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#e3e5f0;font-family:'Noto Naskh Arabic','Amiri',serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .sheet{max-width:900px;margin:24px auto;background:var(--paper);padding:38px 44px 50px;border:1px solid var(--line);box-shadow:0 4px 24px rgba(0,0,0,.12);}
+
+  .masthead{display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:3px solid var(--ink);padding-bottom:16px;margin-bottom:22px;}
+  .masthead-text h1{font-family:'Amiri',serif;font-weight:700;font-size:28px;margin:0 0 6px;color:var(--indigo);}
+  .masthead-text .subtitle{font-size:15px;color:var(--ink-soft);margin:0;}
+  .flask-icon{width:56px;height:60px;flex-shrink:0;}
+
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+  .meta-chip{border:1px solid var(--line);background:var(--panel);border-radius:3px;padding:6px 12px;font-size:13.5px;color:var(--ink-soft);}
+  .meta-chip b{color:var(--ink);font-weight:600;}
+
+  section{margin-bottom:28px;}
+  h2.section-title{font-family:'Amiri',serif;font-size:21px;font-weight:700;color:var(--teal);border-bottom:2px solid var(--teal);padding-bottom:6px;margin:0 0 14px;display:flex;align-items:baseline;gap:8px;}
+  h3.sub-title{font-size:17px;font-weight:700;color:var(--amber);margin:20px 0 8px;}
+  p{line-height:2;font-size:15.5px;margin:0 0 10px;}
+
+  .objectif-box{background:var(--amber-soft);border-right:4px solid var(--amber);padding:14px 18px;border-radius:2px;font-size:15.5px;line-height:1.9;}
+
+  .rule-box{background:var(--panel);border:1px solid var(--line);border-right:4px solid var(--indigo);padding:14px 18px;border-radius:2px;margin:10px 0 16px;}
+  .rule-box p:last-child{margin-bottom:0;}
+  .rule-box ul,.rule-box ol{margin:6px 0;padding-inline-start:22px;}
+  .rule-box li{margin-bottom:6px;line-height:1.85;}
+
+  .compare-grid{display:flex;flex-wrap:wrap;gap:14px;margin:10px 0 16px;}
+  .compare-card{flex:1 1 260px;border-radius:8px;padding:12px 16px;}
+  .compare-card.pure{background:var(--teal-soft);border:1px solid var(--teal);}
+  .compare-card.mix{background:var(--rose-soft);border:1px solid var(--rose);}
+  .compare-card .head{font-weight:700;font-size:15.5px;margin-bottom:4px;}
+  .compare-card.pure .head{color:var(--teal);}
+  .compare-card.mix .head{color:var(--rose);}
+  .compare-card p{margin:0;font-size:14px;color:var(--ink-soft);line-height:1.85;}
+
+  .chart-wrap{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin:14px 0;}
+  .chart-item{text-align:center;}
+  .chart-item p{font-size:13px;color:var(--ink-soft);margin-top:4px;}
+
+  table.data-table{width:100%;border-collapse:collapse;margin:8px 0 18px;font-size:14.5px;}
+  table.data-table th{background:var(--indigo);color:#fff;padding:8px 10px;font-weight:600;font-size:13.5px;}
+  table.data-table td{border:1px solid var(--line);padding:8px 10px;background:var(--panel);text-align:center;}
+  table.data-table tr:nth-child(even) td{background:#eef0f8;}
+  .note-small{font-size:13px;color:var(--ink-soft);}
+
+  .activity-box{background:var(--panel);border:1.5px solid var(--amber);border-radius:3px;padding:16px 20px;}
+  .activity-box .task-label{display:inline-block;background:var(--amber);color:#fff;font-size:12.5px;padding:3px 10px;border-radius:2px;margin-bottom:8px;}
+
+  .exercise{border:1px solid var(--line);border-radius:3px;padding:16px 20px;margin-bottom:16px;background:var(--panel);}
+  .exercise-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:var(--ink);color:var(--paper);border-radius:50%;font-size:14px;font-weight:700;margin-inline-end:8px;}
+  .exercise h4{margin:0 0 10px;font-size:16.5px;display:flex;align-items:center;}
+  .fill-line{border-bottom:1px dotted var(--ink-soft);display:inline-block;min-width:100px;height:1.6em;}
+  .word-chip{display:inline-block;background:var(--paper);border:1px solid var(--line);border-radius:3px;padding:3px 12px;margin:3px 4px;font-size:15px;}
+  .qcm-item{margin-bottom:10px;}
+  .qcm-item p{margin-bottom:4px;font-weight:600;}
+  .qcm-options{display:flex;flex-wrap:wrap;gap:14px;font-size:14.5px;}
+  .qcm-options span{display:flex;align-items:center;gap:5px;}
+  .checkbox{width:13px;height:13px;border:1.4px solid var(--ink-soft);display:inline-block;border-radius:2px;}
+  .tf-item{display:flex;justify-content:space-between;align-items:center;border:1px solid var(--line);border-radius:6px;padding:8px 12px;margin-bottom:8px;background:var(--paper);}
+  .tf-boxes{display:flex;gap:10px;}
+  .tf-box{width:24px;height:24px;border:1.5px solid var(--ink-soft);border-radius:3px;display:inline-flex;align-items:center;justify-content:center;font-size:11px;}
+  .scenario-box{background:#eef0f8;border:1px solid var(--line);padding:12px 16px;font-size:15.5px;line-height:2.1;margin-bottom:10px;}
+  .ltr{direction:ltr;unicode-bidi:embed;display:inline-block;}
+
+  .corrige-wrapper{page-break-before:always;padding-top:6px;}
+  .corrige-flag{text-align:center;font-size:13px;color:var(--ink-soft);margin-bottom:10px;border-top:1px dashed var(--ink-soft);padding-top:14px;}
+  details.corrige{border:2px dashed var(--rose);border-radius:4px;background:#fdf7f5;padding:6px 20px 18px;}
+  details.corrige > summary{cursor:pointer;font-family:'Amiri',serif;font-weight:700;font-size:19px;color:var(--rose);padding:14px 0;list-style:none;}
+  details.corrige > summary::-webkit-details-marker{display:none;}
+  details.corrige > summary::before{content:"✂ ";}
+  details.corrige > summary::after{content:"— اضغط لإظهار الحل / إخفائه";font-family:'Noto Naskh Arabic',serif;font-weight:400;font-size:13px;color:var(--ink-soft);margin-inline-start:8px;}
+  .corrige h4{color:var(--rose);margin:16px 0 8px;font-size:16px;}
+  .corrige-item{margin-bottom:8px;font-size:15px;line-height:1.9;}
+
+  .footer-note{margin-top:30px;text-align:center;font-size:12px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:10px;}
+
+  @media print{
+    body{background:#fff;}
+    .sheet{box-shadow:none;border:none;margin:0;max-width:100%;padding:14px 6px;}
+    details.corrige{border-color:#000;}
+  }
+  @page{size:A4;margin:14mm;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="masthead-text">
+      <h1>الجسمُ الخالصُ وخصائصُه</h1>
+      <p class="subtitle">الفيزياء والكيمياء — الأجسام الخالصة والمخاليط</p>
+    </div>
+    <svg class="flask-icon" viewBox="0 0 56 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M20 6 H36 M24 6 V22 L8 52 Q6 56 11 56 H45 Q50 56 48 52 L32 22 V6" stroke="#3f4d9e" stroke-width="3" fill="none" stroke-linejoin="round"/>
+      <path d="M14 42 H42" stroke="#1f7a7a" stroke-width="3"/>
+    </svg>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta-chip">المستوى: <b>الأولى إعدادي (1AC)</b></div>
+    <div class="meta-chip">المادة: <b>الفيزياء والكيمياء</b></div>
+    <div class="meta-chip">الحصة: <b>12</b></div>
+    <div class="meta-chip">نوع الوثيقة: <b>فيشة تعلّم ذاتي</b></div>
+  </div>
+
+  <!-- ===================== OBJECTIF ===================== -->
+  <section>
+    <h2 class="section-title">🎯 الهدف من الدرس</h2>
+    <div class="objectif-box">
+      يتمكّن المتعلم(ة) في نهاية هذا الدرس من: تعريف الجسم الخالص، وتحديد خصائصه (ثبات درجة الحرارة أثناء تغيّر الحالة الفيزيائية)، والتمييز بين الجسم الخالص والمخلوط انطلاقاً من نتائج تجريبية ومنحنيات، واستعمال درجتي الانصهار والغليان لتعرّف جسم خالص.
+    </div>
+  </section>
+
+  <!-- ===================== COURS ===================== -->
+  <section>
+    <h2 class="section-title">📘 الدرس</h2>
+
+    <h3 class="sub-title">1) تعريف الجسم الخالص</h3>
+    <div class="rule-box">
+      <p><b>الجسم الخالص</b> هو جسم لا يحتوي إلا على <b>مادة واحدة</b> (نوع واحد من الدقائق). يمكن أن يكون <b>صلباً</b> أو <b>سائلاً</b> أو <b>غازاً</b>. أما <b>المخلوط</b> فيحتوي على مادتين أو أكثر.</p>
+    </div>
+
+    <h3 class="sub-title">2) تسخين المخلوط: الماء المملّح</h3>
+    <div class="rule-box">
+      <p>نسخّن كمية من الماء المملّح ونقيس درجة حرارته كل بضع دقائق. نلاحظ أن درجة الحرارة <b>تواصل الارتفاع ببطء</b> أثناء تغيّر الحالة (التبخّر)، فلا تبقى ثابتة.</p>
+      <p>وبالمثل عند تسخين <b>الجليد المملّح</b>: تستمر درجة الحرارة في الارتفاع ببطء أثناء الانصهار.</p>
+      <p><b>الخلاصة:</b> تتغيّر درجة حرارة المخلوط ببطء أثناء تغيّر الحالة الفيزيائية.</p>
+    </div>
+
+    <h3 class="sub-title">3) تسخين الجسم الخالص: الماء الخالص</h3>
+    <div class="rule-box">
+      <p><b>الغليان:</b> نسخّن ماءً خالصاً، فترتفع درجة حرارته بسرعة إلى <b>100°C</b>، ثم <b>تبقى ثابتة</b> طوال مدة التبخّر (ما دام الماء السائل والبخار متواجدين معاً).</p>
+      <p><b>الانصهار:</b> نسخّن جليد ماء مقطّر، فتصل درجة حرارته إلى <b>0°C</b> ثم <b>تبقى ثابتة</b> طوال الانصهار، إلى أن يتحوّل كل الجليد إلى ماء سائل.</p>
+      <p>نقول إن <b>درجة انصهار</b> الماء الخالص هي 0°C، و<b>درجة غليانه</b> هي 100°C. يحدث انصهار الجسم الخالص وتجمّده عند درجة حرارة ثابتة.</p>
+    </div>
+
+    <div class="chart-wrap">
+      <div class="chart-item">
+        <svg width="330" height="190" viewBox="0 0 330 190">
+          <line x1="40" y1="150" x2="320" y2="150" stroke="#1c1f33" stroke-width="1.5"/>
+          <line x1="40" y1="20" x2="40" y2="150" stroke="#1c1f33" stroke-width="1.5"/>
+          <text x="325" y="165" font-size="10" fill="#4b4f6a">الزمن (دقيقة)</text>
+          <text x="5" y="14" font-size="10" fill="#4b4f6a">T (°C)</text>
+          <line x1="40" y1="40" x2="320" y2="40" stroke="#c98a2e" stroke-width="1" stroke-dasharray="4 3"/>
+          <text x="46" y="35" font-size="10" fill="#c98a2e">100°C</text>
+          <polyline points="40,128 68,100.5 96,84 124,67.5 152,53.2 180,44.4 208,40 236,40 264,40 292,40 320,40" fill="none" stroke="#1f7a7a" stroke-width="2.5"/>
+          <text x="236" y="30" font-size="11" fill="#1f7a7a" font-weight="700">ثبات</text>
+        </svg>
+        <p>ماء خالص (غليان): الدرجة ثابتة عند 100°C</p>
+      </div>
+      <div class="chart-item">
+        <svg width="330" height="190" viewBox="0 0 330 190">
+          <line x1="40" y1="150" x2="320" y2="150" stroke="#1c1f33" stroke-width="1.5"/>
+          <line x1="40" y1="20" x2="40" y2="150" stroke="#1c1f33" stroke-width="1.5"/>
+          <text x="325" y="165" font-size="10" fill="#4b4f6a">الزمن (دقيقة)</text>
+          <text x="5" y="14" font-size="10" fill="#4b4f6a">T (°C)</text>
+          <polyline points="40,105 66.6,90.6 93.2,53.2 106.5,40 119.8,36.7 159.7,36.1 199.6,35.6 239.5,35 279.4,34.5 319.3,34" fill="none" stroke="#b1553f" stroke-width="2.5"/>
+          <text x="180" y="25" font-size="11" fill="#b1553f" font-weight="700">ارتفاع بطيء</text>
+        </svg>
+        <p>ماء مملّح (مخلوط): الدرجة تواصل الارتفاع ببطء</p>
+      </div>
+    </div>
+
+    <h3 class="sub-title">4) خصائص الجسم الخالص</h3>
+    <div class="compare-grid">
+      <div class="compare-card pure">
+        <div class="head">الجسم الخالص</div>
+        <p>مادة واحدة. درجة حرارته <b>ثابتة</b> أثناء تغيّر الحالة. له <b>درجة انصهار</b> و<b>درجة غليان</b> محدّدتان تميّزانه.</p>
+      </div>
+      <div class="compare-card mix">
+        <div class="head">المخلوط</div>
+        <p>مادتان أو أكثر. درجة حرارته <b>تتغيّر</b> (بشكل بطيء) أثناء تغيّر الحالة.</p>
+      </div>
+    </div>
+    <p>تُعتبر درجتا الانصهار (أو التجمّد) والغليان (أو التكاثف) من <b>الخصائص المميِّزة</b> للجسم الخالص:</p>
+    <table class="data-table">
+      <tr><th>الجسم الخالص</th><th>درجة الانصهار/التجمّد (°C)</th><th>درجة الغليان/التكاثف (°C)</th></tr>
+      <tr><td>الماء</td><td>0</td><td>100</td></tr>
+      <tr><td>الكحول</td><td>−110</td><td>79</td></tr>
+      <tr><td>الزئبق</td><td>−39</td><td>357</td></tr>
+      <tr><td>الحديد</td><td>1538</td><td>2861</td></tr>
+      <tr><td>النحاس</td><td>1083</td><td>2927</td></tr>
+      <tr><td>الألومنيوم</td><td>660</td><td>2467</td></tr>
+      <tr><td>ثنائي الأكسجين</td><td>−218</td><td>−183</td></tr>
+    </table>
+    <p class="note-small">القيم مأخوذة من معطيات الدرس (تقريبية).</p>
+  </section>
+
+  <!-- ===================== ACTIVITE ===================== -->
+  <section>
+    <h2 class="section-title">🔬 نشاط تطبيقي</h2>
+    <div class="activity-box">
+      <span class="task-label">تحليل تسخين سائلين</span>
+      <p>سُخّن سائلان A وB، وقيست درجة حرارة كل منهما كل دقيقة أثناء الغليان:</p>
+      <table class="data-table">
+        <tr><th>الزمن (دقيقة)</th><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th></tr>
+        <tr><td>السائل A (°C)</td><td>70</td><td>75</td><td>79</td><td>79</td><td>79</td></tr>
+        <tr><td>السائل B (°C)</td><td>70</td><td>74</td><td>77</td><td>79</td><td>80</td></tr>
+      </table>
+      <p>أيّ السائلين جسم خالص؟ علّل جوابك: <span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== EXERCICES ===================== -->
+  <section>
+    <h2 class="section-title">📝 تمارين للتدرّب</h2>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">1</span>ضع الكلمات التالية في مكانها المناسب: (صلباً، مادة، درجة الحرارة، سائلاً، غازاً)</h4>
+      <p>يُسمّى الجسم جسماً خالصاً عندما لا يحتوي إلا على .......... واحدة.</p>
+      <p>يمكن أن يكون الجسم الخالص .......... أو .......... أو .......... </p>
+      <p>بالنسبة للجسم الخالص، لا تتغيّر .......... أثناء تغيّر الحالة الفيزيائية.</p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">2</span>سُخّن سائلان A وB منفصلان، وقيست درجة حرارة كل منهما أثناء الغليان كل دقيقة:</h4>
+      <table class="data-table">
+        <tr><th>المدة (دقيقة)</th><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></tr>
+        <tr><td>السائل A (°C)</td><td>76</td><td>77</td><td>78</td><td>78</td><td>78</td><td>78</td></tr>
+        <tr><td>السائل B (°C)</td><td>74</td><td>76</td><td>78</td><td>80</td><td>81</td><td>82</td></tr>
+      </table>
+      <p>1) أيّ السائلين يمثّل جسماً خالصاً؟ علّل. <span class="fill-line" style="min-width:60%;"></span></p>
+      <p>2) أيّ السائلين يمثّل مخلوطاً؟ علّل. <span class="fill-line" style="min-width:60%;"></span></p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">3</span>حدّد صحيح أو خطأ لكل عبارة:</h4>
+      <div class="tf-item"><span>كل الأجسام الخالصة متجانسة.</span><div class="tf-boxes"><span class="tf-box">✓</span><span class="tf-box">✗</span></div></div>
+      <div class="tf-item"><span>المادة التي ليست مخلوطاً هي جسم خالص.</span><div class="tf-boxes"><span class="tf-box">✓</span><span class="tf-box">✗</span></div></div>
+      <div class="tf-item"><span>كل المواد المتجانسة أجسام خالصة.</span><div class="tf-boxes"><span class="tf-box">✓</span><span class="tf-box">✗</span></div></div>
+      <div class="tf-item"><span>الماء الصافي (الرائق) جسم خالص.</span><div class="tf-boxes"><span class="tf-box">✓</span><span class="tf-box">✗</span></div></div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">4</span>اختر الإجابة الصحيحة:</h4>
+      <div class="qcm-item">
+        <p>1) الجسم الخالص يحتوي على:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>مادة واحدة</span><span><span class="checkbox"></span>مادتين على الأقل</span><span><span class="checkbox"></span>ثلاث مواد</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>2) أثناء غليان جسم خالص، تكون درجة الحرارة:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>ثابتة</span><span><span class="checkbox"></span>متزايدة باستمرار</span><span><span class="checkbox"></span>متناقصة</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>3) درجة انصهار الماء الخالص:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>0°C</span><span><span class="checkbox"></span>100°C</span><span><span class="checkbox"></span>−10°C</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>4) أثناء تسخين مخلوط (ماء مملّح) خلال التبخّر، درجة الحرارة:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>ثابتة تماماً</span><span><span class="checkbox"></span>تواصل الارتفاع ببطء</span><span><span class="checkbox"></span>تنخفض</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>5) من الخصائص المميِّزة للجسم الخالص:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>درجة الغليان</span><span><span class="checkbox"></span>لونه فقط</span><span><span class="checkbox"></span>شكل إنائه</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">5</span>اعتماداً على جدول الدرس، حدّد الحالة الفيزيائية لكل جسم عند درجة الحرارة المذكورة:</h4>
+      <table class="data-table">
+        <tr><th>الجسم ودرجة الحرارة</th><th>الزئبق عند 25°C</th><th>الحديد عند 25°C</th><th>الكحول عند 90°C</th><th>الماء عند 50°C</th></tr>
+        <tr><td>الحالة</td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td><td><span class="fill-line"></span></td></tr>
+      </table>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">6</span>قراءة جدول: سُخّن ماء خالص فسُجّلت النتائج التالية:</h4>
+      <table class="data-table">
+        <tr><th>الزمن (دقيقة)</th><th>0</th><th>4</th><th>8</th><th>12</th><th>14</th><th>16</th><th>20</th></tr>
+        <tr><td>درجة الحرارة (°C)</td><td>20</td><td>60</td><td>88</td><td>100</td><td>100</td><td>100</td><td>100</td></tr>
+      </table>
+      <p>1) ما درجة غليان هذا الماء؟ <span class="fill-line"></span></p>
+      <p>2) خلال أي مدة ظلّت درجة الحرارة ثابتة (من دقيقة .... إلى دقيقة ....)؟ <span class="fill-line"></span></p>
+      <p>3) ماذا نستنتج بخصوص طبيعة هذا الماء؟ <span class="fill-line" style="min-width:60%;"></span></p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">7</span>تعرّف على الجسم الخالص انطلاقاً من جدول الدرس:</h4>
+      <div class="scenario-box">
+        سائل خالص يغلي عند درجة حرارة ثابتة قدرها 357°C. وسائل خالص آخر يغلي عند 79°C، وثالث يغلي عند 100°C.
+      </div>
+      <p>سمِّ كل سائل: <span class="fill-line" style="min-width:70%;"></span></p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">8</span>أسئلة الدرس:</h4>
+      <p>1) أعطِ تعريف الجسم الخالص. <span class="fill-line" style="min-width:100%;"></span></p>
+      <p>2) اذكر خصائصه. <span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== CORRIGE ===================== -->
+  <div class="corrige-wrapper">
+    <p class="corrige-flag">✂ يمكن طي هذه الصفحة أو إخفاؤها (اضغط على العنوان أدناه) قبل إنجاز التمارين ✂</p>
+    <details class="corrige">
+      <summary>التصحيح الكامل</summary>
+
+      <h4>تصحيح النشاط التطبيقي</h4>
+      <div class="corrige-item">السائل A جسم خالص، لأن درجة حرارته استقرت عند 79°C ابتداءً من الدقيقة 2 وبقيت ثابتة أثناء الغليان. أما السائل B فدرجة حرارته تواصل الارتفاع (من 77 إلى 80)، فهو مخلوط.</div>
+
+      <h4>تصحيح التمرين 1</h4>
+      <div class="corrige-item">مادة &nbsp;|&nbsp; صلباً / سائلاً / غازاً &nbsp;|&nbsp; درجة الحرارة</div>
+
+      <h4>تصحيح التمرين 2</h4>
+      <div class="corrige-item">1) السائل A جسم خالص، لأن درجة حرارته ثابتة عند 78°C منذ الدقيقة 2 أثناء الغليان.</div>
+      <div class="corrige-item">2) السائل B مخلوط، لأن درجة حرارته تواصل الارتفاع أثناء الغليان (من 74 إلى 82°C) دون أن تستقر.</div>
+
+      <h4>تصحيح التمرين 3</h4>
+      <div class="corrige-item">1) صحيح &nbsp;|&nbsp; 2) صحيح &nbsp;|&nbsp; 3) خطأ (الماء المملّح متجانس لكنه مخلوط) &nbsp;|&nbsp; 4) خطأ (الماء الرائق قد يحتوي على أملاح مذابة، فهو مخلوط)</div>
+
+      <h4>تصحيح التمرين 4 (الاختيار من متعدد)</h4>
+      <div class="corrige-item">1) مادة واحدة &nbsp;|&nbsp; 2) ثابتة &nbsp;|&nbsp; 3) 0°C &nbsp;|&nbsp; 4) تواصل الارتفاع ببطء &nbsp;|&nbsp; 5) درجة الغليان</div>
+
+      <h4>تصحيح التمرين 5 (الحالة الفيزيائية)</h4>
+      <div class="corrige-item">الزئبق عند 25°C: سائل (لأن −39 &lt; 25 &lt; 357) &nbsp;|&nbsp; الحديد عند 25°C: صلب (أقل من 1538) &nbsp;|&nbsp; الكحول عند 90°C: غاز (أكبر من 79) &nbsp;|&nbsp; الماء عند 50°C: سائل (بين 0 و100)</div>
+
+      <h4>تصحيح التمرين 6 (قراءة الجدول)</h4>
+      <div class="corrige-item">1) درجة الغليان 100°C.</div>
+      <div class="corrige-item">2) ظلّت ثابتة من الدقيقة 12 إلى الدقيقة 20 على الأقل (8 دقائق).</div>
+      <div class="corrige-item">3) ثبات درجة الحرارة أثناء الغليان يدلّ على أن الماء جسم خالص.</div>
+
+      <h4>تصحيح التمرين 7 (تعرّف الجسم)</h4>
+      <div class="corrige-item">الأول: الزئبق (357°C) &nbsp;|&nbsp; الثاني: الكحول (79°C) &nbsp;|&nbsp; الثالث: الماء (100°C)</div>
+
+      <h4>تصحيح التمرين 8 (أسئلة الدرس)</h4>
+      <div class="corrige-item">1) الجسم الخالص جسم لا يحتوي إلا على مادة واحدة، وقد يكون صلباً أو سائلاً أو غازاً.</div>
+      <div class="corrige-item">2) درجة حرارته تبقى ثابتة أثناء تغيّر الحالة الفيزيائية (الانصهار/التجمّد والغليان/التكاثف)، وله درجة انصهار ودرجة غليان محدّدتان تميّزانه.</div>
+    </details>
+  </div>
+
+  <p class="footer-note">فيشة تعلّم ذاتي — الفيزياء والكيمياء — الأولى إعدادي — الجسم الخالص وخصائصه</p>
+</div>
+</body>
+</html>
