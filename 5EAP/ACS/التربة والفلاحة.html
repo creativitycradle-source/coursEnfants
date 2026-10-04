@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>التربة والفلاحة</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#2e2318; --ink-soft:#5c4f3f;
+    --paper:#f9f4ea; --panel:#ffffff; --line:#e0d2b8;
+    --brown:#8a5a34; --brown-soft:#f0e0cc;
+    --leaf:#3f7d3a; --leaf-soft:#e3f0df;
+    --amber:#c98a2e; --amber-soft:#f6e9d3;
+    --clay:#b5652f; --clay-soft:#f3e0cc;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#e6dcc6;font-family:'Noto Naskh Arabic','Amiri',serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .sheet{max-width:900px;margin:24px auto;background:var(--paper);padding:38px 44px 50px;border:1px solid var(--line);box-shadow:0 4px 24px rgba(0,0,0,.12);}
+
+  .masthead{display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:3px solid var(--ink);padding-bottom:16px;margin-bottom:22px;}
+  .masthead-text h1{font-family:'Amiri',serif;font-weight:700;font-size:30px;margin:0 0 6px;color:var(--brown);}
+  .masthead-text .subtitle{font-size:15px;color:var(--ink-soft);margin:0;}
+  .field-icon{width:60px;height:52px;flex-shrink:0;}
+
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+  .meta-chip{border:1px solid var(--line);background:var(--panel);border-radius:3px;padding:6px 12px;font-size:13.5px;color:var(--ink-soft);}
+  .meta-chip b{color:var(--ink);font-weight:600;}
+
+  section{margin-bottom:26px;}
+  h2.section-title{font-family:'Amiri',serif;font-size:20px;font-weight:700;color:var(--leaf);border-bottom:2px solid var(--leaf);padding-bottom:6px;margin:0 0 14px;display:flex;align-items:baseline;gap:8px;}
+  h3.sub-title{font-size:16.5px;font-weight:700;color:var(--clay);margin:18px 0 8px;}
+  p{line-height:1.95;font-size:15px;margin:0 0 9px;}
+
+  .objectif-box{background:var(--amber-soft);border-right:4px solid var(--amber);padding:14px 18px;border-radius:2px;font-size:15px;line-height:1.9;}
+
+  .rule-box{background:var(--panel);border:1px solid var(--line);border-right:4px solid var(--brown);padding:12px 16px;border-radius:2px;margin:8px 0 14px;}
+  .rule-box p:last-child{margin-bottom:0;}
+  .rule-box ul,.rule-box ol{margin:6px 0;padding-inline-start:22px;}
+  .rule-box li{margin-bottom:5px;line-height:1.8;font-size:14.5px;}
+
+  .need-grid{display:flex;flex-wrap:wrap;gap:12px;margin:10px 0 14px;}
+  .need-card{flex:1 1 150px;text-align:center;border:1px solid var(--line);border-radius:8px;padding:10px;background:var(--panel);}
+  .need-card .lbl{font-size:13px;font-weight:700;margin-top:4px;color:var(--ink);}
+
+  table.data-table{width:100%;border-collapse:collapse;margin:8px 0 16px;font-size:14px;}
+  table.data-table th{background:var(--leaf);color:#fff;padding:7px 8px;font-weight:600;font-size:13px;}
+  table.data-table td{border:1px solid var(--line);padding:7px 8px;background:var(--panel);text-align:center;}
+  table.data-table tr:nth-child(even) td{background:#f2ead6;}
+
+  .activity-box{background:var(--panel);border:1.5px solid var(--amber);border-radius:3px;padding:14px 18px;}
+  .activity-box .task-label{display:inline-block;background:var(--amber);color:#fff;font-size:12px;padding:3px 10px;border-radius:2px;margin-bottom:8px;}
+
+  .exercise{border:1px solid var(--line);border-radius:3px;padding:14px 18px;margin-bottom:14px;background:var(--panel);}
+  .exercise-num{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;background:var(--ink);color:var(--paper);border-radius:50%;font-size:13px;font-weight:700;margin-inline-end:8px;}
+  .exercise h4{margin:0 0 9px;font-size:15.5px;display:flex;align-items:center;}
+  .fill-line{border-bottom:1px dotted var(--ink-soft);display:inline-block;min-width:100px;height:1.5em;}
+  .word-chip{display:inline-block;background:var(--paper);border:1px solid var(--line);border-radius:3px;padding:3px 10px;margin:2px 3px;font-size:14.5px;}
+  .qcm-item{margin-bottom:9px;}
+  .qcm-item p{margin-bottom:4px;font-weight:600;}
+  .qcm-options{display:flex;flex-wrap:wrap;gap:12px;font-size:13.5px;}
+  .qcm-options span{display:flex;align-items:center;gap:5px;}
+  .checkbox{width:12px;height:12px;border:1.4px solid var(--ink-soft);display:inline-block;border-radius:2px;}
+  .match-cols{display:flex;justify-content:space-between;gap:40px;margin-top:8px;}
+  .match-cols ul{list-style:none;padding:0;margin:0;}
+  .match-cols li{border:1px solid var(--line);background:var(--paper);padding:6px 14px;margin-bottom:10px;border-radius:3px;font-size:15px;}
+  .order-list{display:flex;flex-direction:column;gap:8px;}
+  .order-item{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:6px;padding:8px 12px;background:var(--paper);}
+  .order-item .num-box{width:32px;height:32px;border:2px dashed var(--ink-soft);border-radius:6px;flex-shrink:0;}
+  .tf-item{display:flex;justify-content:space-between;align-items:center;border:1px solid var(--line);border-radius:6px;padding:8px 12px;margin-bottom:8px;background:var(--paper);}
+  .tf-boxes{display:flex;gap:10px;}
+  .tf-box{width:22px;height:22px;border:1.5px solid var(--ink-soft);border-radius:3px;display:inline-flex;align-items:center;justify-content:center;font-size:11px;}
+  .scenario-box{background:#f2ead6;border:1px solid var(--line);padding:10px 14px;font-size:14.5px;line-height:1.95;margin-bottom:8px;}
+
+  .corrige-wrapper{page-break-before:always;padding-top:6px;}
+  .corrige-flag{text-align:center;font-size:12.5px;color:var(--ink-soft);margin-bottom:10px;border-top:1px dashed var(--ink-soft);padding-top:14px;}
+  details.corrige{border:2px dashed var(--clay);border-radius:4px;background:#fdf6ef;padding:6px 20px 18px;}
+  details.corrige > summary{cursor:pointer;font-family:'Amiri',serif;font-weight:700;font-size:18px;color:var(--clay);padding:12px 0;list-style:none;}
+  details.corrige > summary::-webkit-details-marker{display:none;}
+  details.corrige > summary::before{content:"✂ ";}
+  details.corrige > summary::after{content:"— اضغط لإظهار الحل / إخفائه";font-family:'Noto Naskh Arabic',serif;font-weight:400;font-size:12.5px;color:var(--ink-soft);margin-inline-start:8px;}
+  .corrige h4{color:var(--clay);margin:14px 0 6px;font-size:15px;}
+  .corrige-item{margin-bottom:7px;font-size:14px;line-height:1.85;}
+  .corrige table.data-table th{background:var(--clay);}
+
+  .footer-note{margin-top:26px;text-align:center;font-size:11.5px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:10px;}
+
+  @media print{
+    body{background:#fff;}
+    .sheet{box-shadow:none;border:none;margin:0;max-width:100%;padding:14px 6px;}
+    details.corrige{border-color:#000;}
+  }
+  @page{size:A4;margin:13mm;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="masthead-text">
+      <h1>التربةُ والفلاحةُ</h1>
+      <p class="subtitle">النشاط العلمي — التربة والزراعة</p>
+    </div>
+    <svg class="field-icon" viewBox="0 0 64 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="4" y="34" width="56" height="18" fill="#8a5a34"/>
+      <path d="M12 34 C12 26 14 22 16 18 M12 34 C8 28 6 26 4 24" stroke="#3f7d3a" stroke-width="2.5" fill="none"/>
+      <path d="M32 34 C32 24 34 20 36 14 M32 34 C28 26 26 24 22 22" stroke="#3f7d3a" stroke-width="2.5" fill="none"/>
+      <path d="M52 34 C52 26 54 22 56 18 M52 34 C48 28 46 26 44 24" stroke="#3f7d3a" stroke-width="2.5" fill="none"/>
+      <circle cx="48" cy="8" r="6" fill="#c98a2e"/>
+    </svg>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta-chip">المستوى: <b>الخامسة ابتدائي (5AEP)</b></div>
+    <div class="meta-chip">المادة: <b>النشاط العلمي</b></div>
+    <div class="meta-chip">مدة الحصة: <b>ساعة إلى ساعة ونصف</b></div>
+    <div class="meta-chip">نوع الوثيقة: <b>فيشة تعلّم ذاتي</b></div>
+  </div>
+
+  <!-- ===================== OBJECTIF ===================== -->
+  <section>
+    <h2 class="section-title">🎯 الهدف من الدرس</h2>
+    <div class="objectif-box">
+      يتمكّن المتعلم(ة) في نهاية هذا الدرس من: تحديد شروط نمو النباتات المزروعة، والتعرّف على التربة الصالحة للفلاحة، وتحديد أهم تقنيات الفلاح لتحسين خصوبة التربة (الحرث، التسميد، السقي، تناوب الزراعات)، وإدراك ضرورة الحفاظ على التربة من الإفراط في الأسمدة والمبيدات.
+    </div>
+  </section>
+
+  <!-- ===================== COURS ===================== -->
+  <section>
+    <h2 class="section-title">📘 الدرس</h2>
+
+    <h3 class="sub-title">1) مقدمة</h3>
+    <div class="rule-box">
+      <p>تعتمد <b>الفلاحة</b> (الزراعة) على <b>التربة</b>، فهي الوسط الذي تنمو فيه النباتات المزروعة وتحصل منه على الماء والأملاح المعدنية. وكلما كانت التربة خصبة، كان المحصول أوفر.</p>
+    </div>
+
+    <h3 class="sub-title">2) شروط نمو النباتات المزروعة</h3>
+    <div class="need-grid">
+      <div class="need-card">💧<div class="lbl">الماء</div></div>
+      <div class="need-card">☀️<div class="lbl">الضوء</div></div>
+      <div class="need-card">💨<div class="lbl">الهواء</div></div>
+      <div class="need-card">🌱<div class="lbl">تربة غنية بالأملاح المعدنية</div></div>
+    </div>
+
+    <h3 class="sub-title">3) التربة الصالحة للفلاحة</h3>
+    <div class="rule-box">
+      <p>تُعتبر <b>التربة الغرينية</b> (المتوازنة بين الرمل والطين والدبال) الأنسب للزراعة. تُقاس <b>خصوبة التربة</b> بغناها بـ<b>الدبال</b> والأملاح المعدنية، وبحسن تهويتها ونفاذيتها للماء.</p>
+    </div>
+
+    <h3 class="sub-title">4) تقنيات الفلاح لتحسين التربة</h3>
+    <table class="data-table">
+      <tr><th>التقنية</th><th>دورها</th></tr>
+      <tr><td>الحرث</td><td>تقليب التربة وتفكيكها لتهويتها وتسهيل نفاذ الماء وجذور النباتات</td></tr>
+      <tr><td>التسميد</td><td>إضافة مواد تغني التربة بالأملاح المعدنية (أسمدة طبيعية كالروث والبقايا النباتية المتحللة، أو أسمدة مصنّعة)</td></tr>
+      <tr><td>السقي</td><td>تزويد النباتات بالماء الذي تحتاجه</td></tr>
+      <tr><td>تناوب الزراعات</td><td>زراعة نباتات مختلفة بالتعاقب في نفس الحقل حتى لا تُستنزف أملاح التربة</td></tr>
+    </table>
+
+    <h3 class="sub-title">5) الحفاظ على التربة</h3>
+    <div class="rule-box">
+      <ul>
+        <li>تجنّب <b>الإفراط</b> في استعمال الأسمدة الكيميائية والمبيدات، لأنها قد تلوّث التربة وتقتل الكائنات الحية النافعة بها (كديدان الأرض).</li>
+        <li>حماية التربة من <b>التعرية</b> (انجراف التربة بفعل الماء أو الرياح) بغرس الأشجار والنباتات التي تثبّت التربة بجذورها.</li>
+        <li>تفضيل الأسمدة الطبيعية لأنها تُغني التربة بالدبال.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===================== ACTIVITE ===================== -->
+  <section>
+    <h2 class="section-title">🔬 نشاط تطبيقي</h2>
+    <div class="activity-box">
+      <span class="task-label">تجربة: أثر نوع التربة على نمو النبات</span>
+      <p>ازرع 3 حبات فول أو عدس في أصيص به تربة غنية بالدبال (مخلوطة بسماد طبيعي)، و3 حبات مماثلة في أصيص به تربة رملية فقيرة. اسقِ الأصيصين بنفس كمية الماء، وضعهما في نفس المكان، ولاحظ النمو خلال أسبوعين. سجّل ملاحظاتك:</p>
+      <table class="data-table">
+        <tr><th>الأصيص</th><th>ارتفاع النباتات بعد أسبوعين</th><th>الاستنتاج</th></tr>
+        <tr><td>تربة غنية بالدبال</td><td><span class="fill-line" style="min-width:100%;"></span></td><td><span class="fill-line" style="min-width:100%;"></span></td></tr>
+        <tr><td>تربة رملية فقيرة</td><td><span class="fill-line" style="min-width:100%;"></span></td><td><span class="fill-line" style="min-width:100%;"></span></td></tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===================== EXERCICES ===================== -->
+  <section>
+    <h2 class="section-title">📝 تمارين للتدرّب</h2>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">1</span>أكمل الجمل التالية بالمعطى المناسب:</h4>
+      <p>1) تحتاج النباتات المزروعة إلى الماء و.......... و.......... وتربة غنية بالأملاح المعدنية.</p>
+      <p>2) التربة .......... هي الأنسب للفلاحة لأنها متوازنة.</p>
+      <p>3) تُقاس خصوبة التربة بغناها بـ.......... والأملاح المعدنية.</p>
+      <p>4) ينجرف جزء من التربة بفعل الماء أو الرياح، وتُسمّى هذه الظاهرة .......... </p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">2</span>صل كل تقنية بدورها:</h4>
+      <div class="match-cols">
+        <ul>
+          <li>أ) الحرث</li>
+          <li>ب) التسميد</li>
+          <li>ج) السقي</li>
+          <li>د) تناوب الزراعات</li>
+        </ul>
+        <ul>
+          <li>1) تزويد النباتات بالماء</li>
+          <li>2) تفكيك التربة وتهويتها</li>
+          <li>3) عدم استنزاف أملاح التربة</li>
+          <li>4) إغناء التربة بالأملاح المعدنية</li>
+        </ul>
+      </div>
+      <p style="margin-top:10px;">الإجابة: أ - .......... &nbsp; ب - .......... &nbsp; ج - .......... &nbsp; د - ..........</p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">3</span>اختر الإجابة الصحيحة:</h4>
+      <div class="qcm-item">
+        <p>1) التربة الأنسب للفلاحة هي:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>الرملية</span><span><span class="checkbox"></span>الطينية</span><span><span class="checkbox"></span>الغرينية</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>2) الغرض من الحرث هو:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>تهوية التربة وتفكيكها</span><span><span class="checkbox"></span>تلويث التربة</span><span><span class="checkbox"></span>تجفيف التربة</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>3) من الأسمدة الطبيعية:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>روث الحيوانات</span><span><span class="checkbox"></span>البلاستيك</span><span><span class="checkbox"></span>الحصى</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>4) يُقصد بتناوب الزراعات:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>زراعة نفس النبات كل سنة</span><span><span class="checkbox"></span>زراعة نباتات مختلفة بالتعاقب في نفس الحقل</span><span><span class="checkbox"></span>ترك الحقل دون زراعة نهائياً</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>5) الإفراط في استعمال المبيدات يؤدي إلى:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>قتل الكائنات الحية النافعة في التربة</span><span><span class="checkbox"></span>زيادة خصوبة التربة</span><span><span class="checkbox"></span>لا تأثير له</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">4</span>صنّف المواد التالية إلى (سماد طبيعي / سماد مصنَّع):</h4>
+      <p>
+        <span class="word-chip">روث الأبقار</span>
+        <span class="word-chip">بقايا نباتية متحللة</span>
+        <span class="word-chip">سماد كيميائي معبّأ في أكياس</span>
+        <span class="word-chip">رماد الخشب</span>
+      </p>
+      <table class="data-table">
+        <tr><th>سماد طبيعي</th><th>سماد مصنَّع</th></tr>
+        <tr><td style="height:60px;"></td><td></td></tr>
+      </table>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">5</span>رتّب خطوات تجربة مقارنة نمو النبات في تربتين مختلفتين (من 1 إلى 4):</h4>
+      <div class="order-list">
+        <div class="order-item"><div class="num-box"></div><span>نلاحظ ونسجّل ارتفاع النباتات خلال أسبوعين</span></div>
+        <div class="order-item"><div class="num-box"></div><span>نزرع حبات متماثلة في أصيصين بهما تربتان مختلفتان</span></div>
+        <div class="order-item"><div class="num-box"></div><span>نسقي الأصيصين بنفس كمية الماء ونضعهما في نفس المكان</span></div>
+        <div class="order-item"><div class="num-box"></div><span>نقارن ونستنتج أثر نوع التربة على النمو</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">6</span>حدّد صحيح أو خطأ لكل عبارة:</h4>
+      <div class="tf-item"><span>تحتاج النباتات المزروعة إلى الماء والضوء والهواء.</span><div class="tf-boxes"><span class="tf-box">✓</span><span class="tf-box">✗</span></div></div>
+      <div class="tf-item"><span>الحرث يزيد من تعرّض التربة للتلوث.</span><div class="tf-boxes"><span class="tf-box">✓</span><span class="tf-box">✗</span></div></div>
+      <div class="tf-item"><span>تُغني الأسمدة الطبيعية التربة بالدبال.</span><div class="tf-boxes"><span class="tf-box">✓</span><span class="tf-box">✗</span></div></div>
+      <div class="tf-item"><span>غرس الأشجار يساعد على حماية التربة من التعرية.</span><div class="tf-boxes"><span class="tf-box">✓</span><span class="tf-box">✗</span></div></div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">7</span>وضعية-مشكلة:</h4>
+      <div class="scenario-box">
+        يزرع فلاح القمح في نفس الحقل كل سنة دون أن يغيّر الزراعة ودون إضافة أي سماد، فلاحظ أن المحصول يتناقص سنة بعد سنة.
+      </div>
+      <p>1) ما سبب تناقص المحصول في رأيك؟ <span class="fill-line" style="min-width:100%;"></span></p>
+      <p>2) اقترح حلّين لتحسين الوضع. <span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">8</span>سؤال تحليلي:</h4>
+      <p>لماذا يُنصح الفلاحون بعدم الإفراط في استعمال الأسمدة الكيميائية والمبيدات؟ اذكر سببين اثنين.</p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== CORRIGE ===================== -->
+  <div class="corrige-wrapper">
+    <p class="corrige-flag">✂ يمكن طي هذه الصفحة أو إخفاؤها (اضغط على العنوان أدناه) قبل إنجاز التمارين ✂</p>
+    <details class="corrige">
+      <summary>التصحيح الكامل</summary>
+
+      <h4>تصحيح النشاط التطبيقي</h4>
+      <div class="corrige-item">النتيجة المتوقعة: نمو النباتات في التربة الغنية بالدبال أفضل وأسرع (أطول وأكثر اخضراراً) من نمو النباتات في التربة الرملية الفقيرة. الاستنتاج: خصوبة التربة (الدبال والأملاح المعدنية) تؤثر إيجاباً على نمو النباتات.</div>
+
+      <h4>تصحيح التمرين 1 (إكمال الجمل)</h4>
+      <div class="corrige-item">1) الضوء / الهواء &nbsp;|&nbsp; 2) الغرينية &nbsp;|&nbsp; 3) الدبال &nbsp;|&nbsp; 4) التعرية (الانجراف)</div>
+
+      <h4>تصحيح التمرين 2 (الربط)</h4>
+      <div class="corrige-item">أ - 2 (الحرث ← تفكيك التربة وتهويتها) &nbsp;|&nbsp; ب - 4 (التسميد ← إغناء التربة بالأملاح) &nbsp;|&nbsp; ج - 1 (السقي ← تزويد النباتات بالماء) &nbsp;|&nbsp; د - 3 (تناوب الزراعات ← عدم استنزاف أملاح التربة)</div>
+
+      <h4>تصحيح التمرين 3 (الاختيار من متعدد)</h4>
+      <div class="corrige-item">1) الغرينية &nbsp;|&nbsp; 2) تهوية التربة وتفكيكها &nbsp;|&nbsp; 3) روث الحيوانات &nbsp;|&nbsp; 4) زراعة نباتات مختلفة بالتعاقب في نفس الحقل &nbsp;|&nbsp; 5) قتل الكائنات الحية النافعة في التربة</div>
+
+      <h4>تصحيح التمرين 4 (الأسمدة)</h4>
+      <div class="corrige-item"><b>سماد طبيعي:</b> روث الأبقار، بقايا نباتية متحللة، رماد الخشب</div>
+      <div class="corrige-item"><b>سماد مصنَّع:</b> سماد كيميائي معبّأ في أكياس</div>
+
+      <h4>تصحيح التمرين 5 (ترتيب التجربة)</h4>
+      <div class="corrige-item">1) نزرع حبات متماثلة في أصيصين بتربتين مختلفتين &nbsp;→&nbsp; 2) نسقي بنفس الكمية ونضعهما في نفس المكان &nbsp;→&nbsp; 3) نلاحظ ونسجّل ارتفاع النباتات &nbsp;→&nbsp; 4) نقارن ونستنتج</div>
+
+      <h4>تصحيح التمرين 6 (صحيح/خطأ)</h4>
+      <div class="corrige-item">1) صحيح &nbsp;|&nbsp; 2) خطأ (الحرث يهوّي التربة) &nbsp;|&nbsp; 3) صحيح &nbsp;|&nbsp; 4) صحيح</div>
+
+      <h4>تصحيح التمرين 7 (وضعية-مشكلة)</h4>
+      <div class="corrige-item">1) السبب: زراعة نفس النبات كل سنة دون تسميد تستنزف الأملاح المعدنية في التربة تدريجياً.</div>
+      <div class="corrige-item">2) الحلان: اعتماد تناوب الزراعات (تغيير النبات المزروع كل سنة)، وإضافة أسمدة طبيعية (روث أو بقايا نباتية متحللة) لإغناء التربة.</div>
+
+      <h4>تصحيح التمرين 8 (السؤال التحليلي)</h4>
+      <div class="corrige-item">1) لأنها قد تلوّث التربة والمياه الجوفية.</div>
+      <div class="corrige-item">2) لأنها قد تقتل الكائنات الحية النافعة في التربة (كديدان الأرض والبكتيريا المحلِّلة)، فتفقد التربة خصوبتها تدريجياً.</div>
+    </details>
+  </div>
+
+  <p class="footer-note">فيشة تعلّم ذاتي — النشاط العلمي — الخامسة ابتدائي — التربة والفلاحة</p>
+</div>
+</body>
+</html>
