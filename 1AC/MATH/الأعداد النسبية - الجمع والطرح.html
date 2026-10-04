@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>الأعداد النسبية: الجمع والطرح</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1c2b3a; --ink-soft:#4d5f70;
+    --paper:#f7f9fb; --panel:#ffffff; --line:#c9d6e0;
+    --blue:#2f5f8a; --blue-soft:#e2ecf3;
+    --orange:#e07b39; --orange-soft:#fbe8d8;
+    --green:#3a8f6b; --green-soft:#e1f2ea;
+    --red:#c1493a;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#dde6ec;color:var(--ink);font-family:'Noto Naskh Arabic','Amiri',serif;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .sheet{
+    max-width:900px;margin:24px auto;background:
+      repeating-linear-gradient(0deg, transparent 0 27px, rgba(47,95,138,.06) 27px 28px),
+      repeating-linear-gradient(90deg, transparent 0 27px, rgba(47,95,138,.06) 27px 28px),
+      var(--paper);
+    padding:38px 44px 50px;border:1px solid var(--line);box-shadow:0 4px 24px rgba(0,0,0,.12);
+  }
+
+  .masthead{display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:3px solid var(--ink);padding-bottom:16px;margin-bottom:22px;}
+  .masthead-text h1{font-family:'Amiri',serif;font-weight:700;font-size:26px;margin:0 0 6px;color:var(--blue);}
+  .masthead-text .subtitle{font-size:15px;color:var(--ink-soft);margin:0;}
+  .num-icon{width:60px;height:56px;flex-shrink:0;}
+
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+  .meta-chip{border:1px solid var(--line);background:var(--panel);border-radius:3px;padding:6px 12px;font-size:13.5px;color:var(--ink-soft);}
+  .meta-chip b{color:var(--ink);font-weight:600;}
+
+  section{margin-bottom:28px;}
+  h2.section-title{font-family:'Amiri',serif;font-size:21px;font-weight:700;color:var(--blue);border-bottom:2px solid var(--blue);padding-bottom:6px;margin:0 0 14px;display:flex;align-items:baseline;gap:8px;}
+  h3.sub-title{font-size:17px;font-weight:700;color:var(--orange);margin:20px 0 8px;}
+  p{line-height:2;font-size:15.5px;margin:0 0 10px;}
+
+  .objectif-box{background:var(--orange-soft);border-right:4px solid var(--orange);padding:14px 18px;border-radius:2px;font-size:15.5px;line-height:1.9;}
+
+  .rule-box{background:var(--panel);border:1px solid var(--line);border-right:4px solid var(--blue);padding:14px 18px;border-radius:2px;margin:10px 0 16px;}
+  .rule-box p:last-child{margin-bottom:0;}
+  .rule-box ul,.rule-box ol{margin:6px 0;padding-inline-start:22px;}
+  .rule-box li{margin-bottom:6px;line-height:1.85;}
+
+  .formula-box{background:var(--blue);color:#fff;text-align:center;padding:12px;border-radius:6px;font-size:16px;font-weight:700;margin:8px 0 16px;direction:rtl;}
+
+  .case-grid{display:flex;flex-wrap:wrap;gap:14px;margin:10px 0 16px;}
+  .case-card{flex:1 1 260px;border-radius:8px;padding:12px 16px;}
+  .case-card.same{background:var(--green-soft);border:1px solid var(--green);}
+  .case-card.diff{background:var(--orange-soft);border:1px solid var(--orange);}
+  .case-card .head{font-weight:700;font-size:15.5px;margin-bottom:4px;}
+  .case-card.same .head{color:var(--green);}
+  .case-card.diff .head{color:var(--orange);}
+  .case-card p{margin:0 0 4px;font-size:14px;line-height:1.85;}
+  .ltr{direction:ltr;unicode-bidi:embed;display:inline-block;}
+
+  .worked-example{background:var(--green-soft);border:1px solid var(--green);border-radius:6px;padding:12px 16px;margin:10px 0 16px;font-size:14.5px;line-height:2;}
+  .worked-example b{color:var(--green);}
+
+  table.data-table{width:100%;border-collapse:collapse;margin:8px 0 18px;font-size:15px;}
+  table.data-table th{background:var(--blue);color:#fff;padding:8px 10px;font-weight:600;font-size:14px;}
+  table.data-table td{border:1px solid var(--line);padding:9px 10px;background:var(--panel);text-align:center;}
+  table.data-table tr:nth-child(even) td{background:#eef3f7;}
+
+  .activity-box{background:var(--panel);border:1.5px solid var(--orange);border-radius:3px;padding:16px 20px;}
+  .activity-box .task-label{display:inline-block;background:var(--orange);color:#fff;font-size:12.5px;padding:3px 10px;border-radius:2px;margin-bottom:8px;}
+
+  .exercise{border:1px solid var(--line);border-radius:3px;padding:16px 20px;margin-bottom:16px;background:var(--panel);}
+  .exercise-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:var(--ink);color:var(--paper);border-radius:50%;font-size:14px;font-weight:700;margin-inline-end:8px;}
+  .exercise h4{margin:0 0 10px;font-size:16.5px;display:flex;align-items:center;}
+  .fill-line{border-bottom:1px dotted var(--ink-soft);display:inline-block;min-width:80px;height:1.6em;}
+  .op-grid{display:flex;flex-wrap:wrap;gap:16px;}
+  .op-item{display:flex;align-items:center;gap:6px;font-size:15.5px;direction:rtl;}
+  .qcm-item{margin-bottom:10px;}
+  .qcm-item p{margin-bottom:4px;font-weight:600;}
+  .qcm-options{display:flex;flex-wrap:wrap;gap:14px;font-size:14.5px;}
+  .qcm-options span{display:flex;align-items:center;gap:5px;}
+  .checkbox{width:13px;height:13px;border:1.4px solid var(--ink-soft);display:inline-block;border-radius:2px;}
+  .tf-item{display:flex;justify-content:space-between;align-items:center;border:1px solid var(--line);border-radius:6px;padding:8px 12px;margin-bottom:8px;background:var(--paper);}
+  .tf-boxes{display:flex;gap:10px;}
+  .tf-box{width:24px;height:24px;border:1.5px solid var(--ink-soft);border-radius:3px;display:inline-flex;align-items:center;justify-content:center;font-size:11px;}
+  .scenario-box{background:#eef3f7;border:1px solid var(--line);padding:12px 16px;font-size:15.5px;line-height:2.1;margin-bottom:10px;}
+
+  .corrige-wrapper{page-break-before:always;padding-top:6px;}
+  .corrige-flag{text-align:center;font-size:13px;color:var(--ink-soft);margin-bottom:10px;border-top:1px dashed var(--ink-soft);padding-top:14px;}
+  details.corrige{border:2px dashed var(--green);border-radius:4px;background:#f7fcfa;padding:6px 20px 18px;}
+  details.corrige > summary{cursor:pointer;font-family:'Amiri',serif;font-weight:700;font-size:19px;color:var(--green);padding:14px 0;list-style:none;}
+  details.corrige > summary::-webkit-details-marker{display:none;}
+  details.corrige > summary::before{content:"✂ ";}
+  details.corrige > summary::after{content:"— اضغط لإظهار الحل / إخفائه";font-family:'Noto Naskh Arabic',serif;font-weight:400;font-size:13px;color:var(--ink-soft);margin-inline-start:8px;}
+  .corrige h4{color:var(--green);margin:16px 0 8px;font-size:16px;}
+  .corrige-item{margin-bottom:8px;font-size:15px;line-height:1.9;}
+
+  .footer-note{margin-top:30px;text-align:center;font-size:12px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:10px;}
+
+  @media print{
+    body{background:#fff;}
+    .sheet{box-shadow:none;border:none;margin:0;max-width:100%;padding:14px 6px;background:var(--paper);}
+    details.corrige{border-color:#000;}
+  }
+  @page{size:A4;margin:14mm;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="masthead-text">
+      <h1>الأعدادُ النسبيةُ: الجمعُ والطرحُ</h1>
+      <p class="subtitle">الرياضيات — الأعداد والحساب</p>
+    </div>
+    <svg class="num-icon" viewBox="0 0 64 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="20" cy="28" r="16" fill="none" stroke="#3a8f6b" stroke-width="2.5"/>
+      <text x="20" y="35" text-anchor="middle" font-size="22" font-weight="700" fill="#3a8f6b">+</text>
+      <circle cx="44" cy="28" r="16" fill="none" stroke="#c1493a" stroke-width="2.5"/>
+      <text x="44" y="35" text-anchor="middle" font-size="22" font-weight="700" fill="#c1493a">−</text>
+    </svg>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta-chip">المستوى: <b>الأولى إعدادي (1AC)</b></div>
+    <div class="meta-chip">المادة: <b>الرياضيات — الأعداد والحساب</b></div>
+    <div class="meta-chip">مدة الحصة: <b>ساعة إلى ساعة ونصف</b></div>
+    <div class="meta-chip">نوع الوثيقة: <b>فيشة تعلّم ذاتي</b></div>
+  </div>
+
+  <!-- ===================== OBJECTIF ===================== -->
+  <section>
+    <h2 class="section-title">🎯 الهدف من الدرس</h2>
+    <div class="objectif-box">
+      يتمكّن المتعلم(ة) في نهاية هذا الدرس من: جمع عددين نسبيين لهما نفس الإشارة أو إشارتان مختلفتان، وتحويل الطرح إلى جمع المقابل، وحساب مجاميع وفروق أعداد نسبية، وتبسيط كتابة عبارة عددية دون أقواس، وتوظيف ذلك في وضعيات من الحياة اليومية.
+    </div>
+  </section>
+
+  <!-- ===================== COURS ===================== -->
+  <section>
+    <h2 class="section-title">📘 الدرس</h2>
+
+    <h3 class="sub-title">1) جمع عددين نسبيين</h3>
+    <div class="case-grid">
+      <div class="case-card same">
+        <div class="head">لهما نفس الإشارة</div>
+        <p>نجمع <b>القيمتين المطلقتين</b>، ونحتفظ <b>بالإشارة المشتركة</b>.</p>
+        <p>أمثلة: <span class="ltr">(+3) + (+5) = +8</span> &nbsp;|&nbsp; <span class="ltr">(−4) + (−6) = −10</span></p>
+      </div>
+      <div class="case-card diff">
+        <div class="head">إشارتاهما مختلفتان</div>
+        <p>نطرح <b>القيمة المطلقة الصغرى</b> من <b>الكبرى</b>، ونحتفظ <b>بإشارة العدد ذي القيمة المطلقة الكبرى</b>.</p>
+        <p>أمثلة: <span class="ltr">(+7) + (−2) = +5</span> &nbsp;|&nbsp; <span class="ltr">(−9) + (+4) = −5</span></p>
+      </div>
+    </div>
+    <div class="rule-box">
+      <p><b>حالات خاصة:</b> مجموع عددين متقابلين يساوي <b>0</b>، مثل <span class="ltr">(+6) + (−6) = 0</span>. وإضافة 0 إلى أي عدد لا تغيّره.</p>
+    </div>
+
+    <h3 class="sub-title">2) طرح عددين نسبيين</h3>
+    <div class="rule-box">
+      <p><b>طرح عدد نسبي</b> يعني <b>جمع مقابله</b>.</p>
+    </div>
+    <div class="formula-box"><span class="ltr">a − b = a + (−b)</span></div>
+    <div class="worked-example">
+      <b>أمثلة محلولة:</b><br>
+      <span class="ltr">(+5) − (+8) = (+5) + (−8) = −3</span><br>
+      <span class="ltr">(−3) − (−7) = (−3) + (+7) = +4</span><br>
+      <span class="ltr">(+2) − (−5) = (+2) + (+5) = +7</span><br>
+      <span class="ltr">(−6) − (+4) = (−6) + (−4) = −10</span>
+    </div>
+
+    <h3 class="sub-title">3) تبسيط الكتابة</h3>
+    <div class="rule-box">
+      <p>يمكن حذف الأقواس وإشارة الجمع الزائدة: نكتب <span class="ltr">(+7) + (−3)</span> على شكل <span class="ltr">7 − 3</span>، ونكتب <span class="ltr">(−4) − (−6)</span> على شكل <span class="ltr">−4 + 6</span>.</p>
+      <p>مثال: <span class="ltr">(−5) + (−2) − (−8) = −5 − 2 + 8 = 1</span></p>
+    </div>
+  </section>
+
+  <!-- ===================== ACTIVITE ===================== -->
+  <section>
+    <h2 class="section-title">✏️ نشاط تطبيقي</h2>
+    <div class="activity-box">
+      <span class="task-label">درجات الحرارة</span>
+      <p>في الصباح كانت درجة الحرارة في مدينة جبلية −3°. ارتفعت بمقدار 8° عند الظهيرة، ثم انخفضت بمقدار 9° في المساء.</p>
+      <p>1) احسب درجة الحرارة عند الظهيرة: <span class="ltr">(−3) + (+8) =</span> <span class="fill-line"></span></p>
+      <p>2) احسب درجة الحرارة في المساء: <span class="ltr">(الناتج السابق) + (−9) =</span> <span class="fill-line"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== EXERCICES ===================== -->
+  <section>
+    <h2 class="section-title">📝 تمارين للتدرّب</h2>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">1</span>احسب المجاميع التالية (عددان لهما نفس الإشارة):</h4>
+      <div class="op-grid">
+        <div class="op-item"><span class="ltr">(+4) + (+9) =</span> <span class="fill-line"></span></div>
+        <div class="op-item"><span class="ltr">(−5) + (−8) =</span> <span class="fill-line"></span></div>
+        <div class="op-item"><span class="ltr">(−2) + (−7) =</span> <span class="fill-line"></span></div>
+        <div class="op-item"><span class="ltr">(+6) + (+3) =</span> <span class="fill-line"></span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">2</span>احسب المجاميع التالية (إشارتان مختلفتان):</h4>
+      <div class="op-grid">
+        <div class="op-item"><span class="ltr">(+9) + (−4) =</span> <span class="fill-line"></span></div>
+        <div class="op-item"><span class="ltr">(−10) + (+6) =</span> <span class="fill-line"></span></div>
+        <div class="op-item"><span class="ltr">(+3) + (−8) =</span> <span class="fill-line"></span></div>
+        <div class="op-item"><span class="ltr">(−7) + (+7) =</span> <span class="fill-line"></span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">3</span>اختر الإجابة الصحيحة:</h4>
+      <div class="qcm-item">
+        <p>1) مجموع عددين سالبين يكون:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>موجباً</span><span><span class="checkbox"></span>سالباً</span><span><span class="checkbox"></span>معدوماً</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>2) <span class="ltr">(+5) + (−5) =</span></p>
+        <div class="qcm-options"><span><span class="checkbox"></span>10</span><span><span class="checkbox"></span>0</span><span><span class="checkbox"></span>−10</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>3) طرح عدد نسبي يعني جمع:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>العدد نفسه</span><span><span class="checkbox"></span>مقابل العدد</span><span><span class="checkbox"></span>مربع العدد</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>4) <span class="ltr">(−3) − (−7) =</span></p>
+        <div class="qcm-options"><span><span class="checkbox"></span>+4</span><span><span class="checkbox"></span>−4</span><span><span class="checkbox"></span>−10</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>5) <span class="ltr">(−6) + (+2) =</span></p>
+        <div class="qcm-options"><span><span class="checkbox"></span>+4</span><span><span class="checkbox"></span>−4</span><span><span class="checkbox"></span>−8</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">4</span>حوّل كل طرح إلى جمع المقابل، ثم احسب:</h4>
+      <div class="op-grid">
+        <div class="op-item"><span class="ltr">(+8) − (+3) =</span> <span class="fill-line"></span></div>
+        <div class="op-item"><span class="ltr">(+2) − (+9) =</span> <span class="fill-line"></span></div>
+        <div class="op-item"><span class="ltr">(−4) − (−6) =</span> <span class="fill-line"></span></div>
+        <div class="op-item"><span class="ltr">(−5) − (+2) =</span> <span class="fill-line"></span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">5</span>بسّط الكتابة (احذف الأقواس) ثم احسب:</h4>
+      <div class="op-grid">
+        <div class="op-item"><span class="ltr">(+7) + (−3) − (+2) =</span> <span class="fill-line"></span></div>
+        <div class="op-item"><span class="ltr">(−4) − (−6) + (+1) =</span> <span class="fill-line"></span></div>
+        <div class="op-item"><span class="ltr">(−5) + (−2) − (−8) =</span> <span class="fill-line"></span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">6</span>حدّد صحيح أو خطأ لكل عبارة:</h4>
+      <div class="tf-item"><span>مجموع عددين موجبين موجب دائماً.</span><div class="tf-boxes"><span class="tf-box">✓</span><span class="tf-box">✗</span></div></div>
+      <div class="tf-item"><span class="ltr">(−3) + (−4) = +7</span><div class="tf-boxes"><span class="tf-box">✓</span><span class="tf-box">✗</span></div></div>
+      <div class="tf-item"><span class="ltr">a − a = 0</span><div class="tf-boxes"><span class="tf-box">✓</span><span class="tf-box">✗</span></div></div>
+      <div class="tf-item"><span class="ltr">(+5) − (−2) = +3</span><div class="tf-boxes"><span class="tf-box">✓</span><span class="tf-box">✗</span></div></div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">7</span>مسألة تطبيقية:</h4>
+      <div class="scenario-box">
+        كان في حساب بنكي رصيد قدره +120 درهماً. سُحب منه مبلغ 200 درهم، ثم أُودع فيه مبلغ 150 درهماً.
+      </div>
+      <p>1) احسب الرصيد بعد السحب: <span class="ltr">(+120) + (−200) =</span> <span class="fill-line"></span></p>
+      <p>2) احسب الرصيد النهائي بعد الإيداع: <span class="fill-line"></span></p>
+      <p>3) هل الرصيد النهائي موجب أم سالب؟ <span class="fill-line"></span></p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">8</span>سؤال تحليلي:</h4>
+      <p>حسب علي النتيجة التالية: <span class="ltr">(−5) − (−3) = −8</span>. هل نتيجته صحيحة؟ صحّح الخطأ إن وُجد، وفسّر سببه.</p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+      <p><span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== CORRIGE ===================== -->
+  <div class="corrige-wrapper">
+    <p class="corrige-flag">✂ يمكن طي هذه الصفحة أو إخفاؤها (اضغط على العنوان أدناه) قبل إنجاز التمارين ✂</p>
+    <details class="corrige">
+      <summary>التصحيح الكامل</summary>
+
+      <h4>تصحيح النشاط التطبيقي</h4>
+      <div class="corrige-item">1) <span class="ltr">(−3) + (+8) = +5</span> (درجة الحرارة عند الظهيرة: +5°)</div>
+      <div class="corrige-item">2) <span class="ltr">(+5) + (−9) = −4</span> (درجة الحرارة في المساء: −4°)</div>
+
+      <h4>تصحيح التمرين 1</h4>
+      <div class="corrige-item"><span class="ltr">+13 &nbsp;|&nbsp; −13 &nbsp;|&nbsp; −9 &nbsp;|&nbsp; +9</span></div>
+
+      <h4>تصحيح التمرين 2</h4>
+      <div class="corrige-item"><span class="ltr">+5 &nbsp;|&nbsp; −4 &nbsp;|&nbsp; −5 &nbsp;|&nbsp; 0</span></div>
+
+      <h4>تصحيح التمرين 3 (الاختيار من متعدد)</h4>
+      <div class="corrige-item">1) سالباً &nbsp;|&nbsp; 2) 0 &nbsp;|&nbsp; 3) مقابل العدد &nbsp;|&nbsp; 4) +4 &nbsp;|&nbsp; 5) −4</div>
+
+      <h4>تصحيح التمرين 4 (تحويل الطرح إلى جمع)</h4>
+      <div class="corrige-item"><span class="ltr">(+8) − (+3) = (+8) + (−3) = +5</span></div>
+      <div class="corrige-item"><span class="ltr">(+2) − (+9) = (+2) + (−9) = −7</span></div>
+      <div class="corrige-item"><span class="ltr">(−4) − (−6) = (−4) + (+6) = +2</span></div>
+      <div class="corrige-item"><span class="ltr">(−5) − (+2) = (−5) + (−2) = −7</span></div>
+
+      <h4>تصحيح التمرين 5 (تبسيط الكتابة)</h4>
+      <div class="corrige-item"><span class="ltr">(+7) + (−3) − (+2) = 7 − 3 − 2 = 2</span></div>
+      <div class="corrige-item"><span class="ltr">(−4) − (−6) + (+1) = −4 + 6 + 1 = 3</span></div>
+      <div class="corrige-item"><span class="ltr">(−5) + (−2) − (−8) = −5 − 2 + 8 = 1</span></div>
+
+      <h4>تصحيح التمرين 6 (صحيح/خطأ)</h4>
+      <div class="corrige-item">1) صحيح &nbsp;|&nbsp; 2) خطأ (الناتج −7) &nbsp;|&nbsp; 3) صحيح &nbsp;|&nbsp; 4) خطأ (الناتج +7)</div>
+
+      <h4>تصحيح التمرين 7 (المسألة التطبيقية)</h4>
+      <div class="corrige-item">1) <span class="ltr">(+120) + (−200) = −80</span> (رصيد سالب بمقدار 80 درهماً)</div>
+      <div class="corrige-item">2) <span class="ltr">(−80) + (+150) = +70</span> درهماً</div>
+      <div class="corrige-item">3) الرصيد النهائي موجب.</div>
+
+      <h4>تصحيح التمرين 8 (السؤال التحليلي)</h4>
+      <div class="corrige-item">نتيجة علي خاطئة. الصواب: <span class="ltr">(−5) − (−3) = (−5) + (+3) = −2</span>. أخطأ علي لأنه لم يحوّل الطرح إلى جمع المقابل (مقابل −3 هو +3)، فجمع القيمتين المطلقتين بدل أن يطرحهما.</div>
+    </details>
+  </div>
+
+  <p class="footer-note">فيشة تعلّم ذاتي — الرياضيات — الأولى إعدادي — الأعداد النسبية: الجمع والطرح</p>
+</div>
+</body>
+</html>
