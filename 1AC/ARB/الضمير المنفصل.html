@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>الضمير المنفصل</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#241f33; --ink-soft:#54506a;
+    --paper:#faf8f5; --panel:#ffffff; --line:#ddd4e6;
+    --indigo:#4b3f8f; --indigo-soft:#e9e5f7;
+    --rose:#b1553f; --rose-soft:#f7e3dc;
+    --gold:#af8a2e; --gold-soft:#f4ecd2;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#e8e3ee;font-family:'Noto Naskh Arabic','Amiri',serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .sheet{max-width:900px;margin:24px auto;background:var(--paper);padding:38px 44px 50px;border:1px solid var(--line);box-shadow:0 4px 24px rgba(0,0,0,.12);}
+
+  .masthead{display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:3px solid var(--ink);padding-bottom:16px;margin-bottom:22px;}
+  .masthead-text h1{font-family:'Amiri',serif;font-weight:700;font-size:30px;margin:0 0 6px;color:var(--indigo);}
+  .masthead-text .subtitle{font-size:15px;color:var(--ink-soft);margin:0;}
+  .link-icon{width:58px;height:58px;flex-shrink:0;}
+
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+  .meta-chip{border:1px solid var(--line);background:var(--panel);border-radius:3px;padding:6px 12px;font-size:13.5px;color:var(--ink-soft);}
+  .meta-chip b{color:var(--ink);font-weight:600;}
+
+  section{margin-bottom:26px;}
+  h2.section-title{font-family:'Amiri',serif;font-size:21px;font-weight:700;color:var(--indigo);border-bottom:2px solid var(--indigo);padding-bottom:6px;margin:0 0 14px;display:flex;align-items:baseline;gap:8px;}
+  h3.sub-title{font-size:17px;font-weight:700;color:var(--rose);margin:18px 0 8px;}
+  p{line-height:1.95;font-size:15.5px;margin:0 0 9px;}
+
+  .objectif-box{background:var(--gold-soft);border-right:4px solid var(--gold);padding:14px 18px;border-radius:2px;font-size:15.5px;line-height:1.9;}
+
+  .rule-box{background:var(--panel);border:1px solid var(--line);border-right:4px solid var(--indigo);padding:12px 18px;border-radius:2px;margin:8px 0 14px;}
+  .rule-box p:last-child{margin-bottom:0;}
+  .rule-box ul,.rule-box ol{margin:6px 0;padding-inline-start:22px;}
+  .rule-box li{margin-bottom:5px;line-height:1.85;}
+
+  .type-grid{display:flex;flex-wrap:wrap;gap:14px;margin:10px 0 16px;}
+  .type-card{flex:1 1 260px;border-radius:8px;padding:12px 16px;}
+  .type-card.raf{background:var(--indigo-soft);border:1px solid var(--indigo);}
+  .type-card.nasb{background:var(--rose-soft);border:1px solid var(--rose);}
+  .type-card .head{font-weight:700;font-size:15.5px;margin-bottom:6px;}
+  .type-card.raf .head{color:var(--indigo);}
+  .type-card.nasb .head{color:var(--rose);}
+  .type-card p{margin:0;font-size:14px;line-height:1.85;}
+
+  table.data-table{width:100%;border-collapse:collapse;margin:8px 0 16px;font-size:14.5px;}
+  table.data-table th{background:var(--indigo);color:#fff;padding:7px 9px;font-weight:600;font-size:13.5px;}
+  table.data-table.nasb-table th{background:var(--rose);}
+  table.data-table td{border:1px solid var(--line);padding:7px 9px;background:var(--panel);text-align:center;}
+  table.data-table tr:nth-child(even) td{background:#f2effa;}
+  table.data-table td.rowhead{background:#ece8f4;font-weight:700;}
+
+  .activity-box{background:var(--panel);border:1.5px solid var(--gold);border-radius:3px;padding:16px 20px;}
+  .activity-box .task-label{display:inline-block;background:var(--gold);color:#fff;font-size:12.5px;padding:3px 10px;border-radius:2px;margin-bottom:8px;}
+
+  .exercise{border:1px solid var(--line);border-radius:3px;padding:14px 18px;margin-bottom:14px;background:var(--panel);}
+  .exercise-num{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;background:var(--ink);color:var(--paper);border-radius:50%;font-size:13px;font-weight:700;margin-inline-end:8px;}
+  .exercise h4{margin:0 0 9px;font-size:15.5px;display:flex;align-items:center;}
+  .fill-line{border-bottom:1px dotted var(--ink-soft);display:inline-block;min-width:100px;height:1.5em;}
+  .word-chip{display:inline-block;background:var(--paper);border:1px solid var(--line);border-radius:3px;padding:3px 11px;margin:2px 3px;font-size:15px;}
+  .qcm-item{margin-bottom:9px;}
+  .qcm-item p{margin-bottom:4px;font-weight:600;}
+  .qcm-options{display:flex;flex-wrap:wrap;gap:12px;font-size:13.5px;}
+  .qcm-options span{display:flex;align-items:center;gap:5px;}
+  .checkbox{width:12px;height:12px;border:1.4px solid var(--ink-soft);display:inline-block;border-radius:2px;}
+  .tf-item{display:flex;justify-content:space-between;align-items:center;border:1px solid var(--line);border-radius:6px;padding:8px 12px;margin-bottom:8px;background:var(--paper);}
+  .tf-boxes{display:flex;gap:10px;}
+  .tf-box{width:22px;height:22px;border:1.5px solid var(--ink-soft);border-radius:3px;display:inline-flex;align-items:center;justify-content:center;font-size:11px;}
+  .scenario-box{background:#f2effa;border:1px solid var(--line);padding:10px 14px;font-size:14.5px;line-height:1.95;margin-bottom:8px;}
+
+  .corrige-wrapper{page-break-before:always;padding-top:6px;}
+  .corrige-flag{text-align:center;font-size:12.5px;color:var(--ink-soft);margin-bottom:10px;border-top:1px dashed var(--ink-soft);padding-top:14px;}
+  details.corrige{border:2px dashed var(--rose);border-radius:4px;background:#fdf7f5;padding:6px 20px 18px;}
+  details.corrige > summary{cursor:pointer;font-family:'Amiri',serif;font-weight:700;font-size:18px;color:var(--rose);padding:12px 0;list-style:none;}
+  details.corrige > summary::-webkit-details-marker{display:none;}
+  details.corrige > summary::before{content:"✂ ";}
+  details.corrige > summary::after{content:"— اضغط لإظهار الحل / إخفائه";font-family:'Noto Naskh Arabic',serif;font-weight:400;font-size:12.5px;color:var(--ink-soft);margin-inline-start:8px;}
+  .corrige h4{color:var(--rose);margin:14px 0 6px;font-size:15px;}
+  .corrige-item{margin-bottom:7px;font-size:14px;line-height:1.85;}
+
+  .footer-note{margin-top:26px;text-align:center;font-size:11.5px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:10px;}
+
+  @media print{
+    body{background:#fff;}
+    .sheet{box-shadow:none;border:none;margin:0;max-width:100%;padding:14px 6px;}
+    details.corrige{border-color:#000;}
+  }
+  @page{size:A4;margin:13mm;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="masthead-text">
+      <h1>الضميرُ المنفصلُ</h1>
+      <p class="subtitle">مادة اللغة العربية — القواعد (النحو)</p>
+    </div>
+    <svg class="link-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="6" y="24" width="24" height="16" rx="4" fill="none" stroke="#4b3f8f" stroke-width="3"/>
+      <rect x="38" y="24" width="20" height="16" rx="4" fill="#b1553f" opacity="0.85"/>
+      <line x1="30" y1="32" x2="38" y2="32" stroke="#b1553f" stroke-width="2" stroke-dasharray="2 3"/>
+    </svg>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta-chip">المستوى: <b>الأولى إعدادي (1AC)</b></div>
+    <div class="meta-chip">المادة: <b>اللغة العربية — القواعد</b></div>
+    <div class="meta-chip">الدرس اللغوي: <b>16</b></div>
+    <div class="meta-chip">نوع الوثيقة: <b>فيشة تعلّم ذاتي</b></div>
+  </div>
+
+  <!-- ===================== OBJECTIF ===================== -->
+  <section>
+    <h2 class="section-title">🎯 الهدف من الدرس</h2>
+    <div class="objectif-box">
+      يتمكّن المتعلم(ة) في نهاية هذا الدرس من: تعريف الضمير المنفصل، وحفظ ضمائر الرفع المنفصلة (اثنا عشر) وضمائر النصب المنفصلة (اثنا عشر)، وتوظيفها حسب المتكلم والمخاطب والغائب والإفراد والتثنية والجمع والتذكير والتأنيث.
+    </div>
+  </section>
+
+  <!-- ===================== COURS ===================== -->
+  <section>
+    <h2 class="section-title">📘 الدرس</h2>
+
+    <h3 class="sub-title">1) تعريف الضمير المنفصل</h3>
+    <div class="rule-box">
+      <p><b>الضمير المنفصل</b> هو ما يمكن <b>كتابته والنطق به وحده</b>، من غير أن يتصل بكلمة أخرى.</p>
+    </div>
+
+    <h3 class="sub-title">2) أنواعه</h3>
+    <div class="type-grid">
+      <div class="type-card raf">
+        <div class="head">ضمائر منفصلة خاصة بالرفع (12)</div>
+        <p>أنا، نحن، أنتَ، أنتِ، أنتما، أنتم، أنتنّ، هو، هي، هما، هم، هنّ.</p>
+      </div>
+      <div class="type-card nasb">
+        <div class="head">ضمائر منفصلة خاصة بالنصب (12)</div>
+        <p>إيايَ، إيانا، إياكَ، إياكِ، إياكما، إياكم، إياكنّ، إياهُ، إياها، إياهما، إياهم، إياهنّ.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-title">3) جدول ضمائر الرفع المنفصلة</h3>
+    <table class="data-table">
+      <tr><th rowspan="2"></th><th>المتكلم</th><th colspan="2">المخاطب</th><th colspan="2">الغائب</th></tr>
+      <tr><th>(مذكر ومؤنث)</th><th>مذكر</th><th>مؤنث</th><th>مذكر</th><th>مؤنث</th></tr>
+      <tr><td class="rowhead">المفرد</td><td>أنا</td><td>أنتَ</td><td>أنتِ</td><td>هو</td><td>هي</td></tr>
+      <tr><td class="rowhead">المثنى</td><td>نحن</td><td>أنتما</td><td>أنتما</td><td>هما</td><td>هما</td></tr>
+      <tr><td class="rowhead">الجمع</td><td>نحن</td><td>أنتم</td><td>أنتنّ</td><td>هم</td><td>هنّ</td></tr>
+    </table>
+
+    <h3 class="sub-title">4) جدول ضمائر النصب المنفصلة</h3>
+    <table class="data-table nasb-table">
+      <tr><th rowspan="2"></th><th>المتكلم</th><th colspan="2">المخاطب</th><th colspan="2">الغائب</th></tr>
+      <tr><th>(مذكر ومؤنث)</th><th>مذكر</th><th>مؤنث</th><th>مذكر</th><th>مؤنث</th></tr>
+      <tr><td class="rowhead">المفرد</td><td>إيايَ</td><td>إياكَ</td><td>إياكِ</td><td>إياهُ</td><td>إياها</td></tr>
+      <tr><td class="rowhead">المثنى</td><td>إيانا</td><td>إياكما</td><td>إياكما</td><td>إياهما</td><td>إياهما</td></tr>
+      <tr><td class="rowhead">الجمع</td><td>إيانا</td><td>إياكم</td><td>إياكنّ</td><td>إياهم</td><td>إياهنّ</td></tr>
+    </table>
+
+    <h3 class="sub-title">5) أمثلة</h3>
+    <div class="rule-box">
+      <ul>
+        <li><b>أنتَ</b> تلميذٌ مجتهدٌ. (ضمير منفصل للمخاطب المذكر في محل رفع مبتدأ)</li>
+        <li><b>هم</b> مجتهدون. (ضمير منفصل للغائب الجمع المذكر)</li>
+        <li><b>إياكَ</b> نعبدُ. (ضمير منفصل للمخاطب المفرد المذكر في محل نصب مفعول به مقدَّم)</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===================== ACTIVITE ===================== -->
+  <section>
+    <h2 class="section-title">✏️ نشاط تطبيقي</h2>
+    <div class="activity-box">
+      <span class="task-label">استبدال الاسم بالضمير</span>
+      <p>أعد كتابة كل جملة بوضع ضمير منفصل مناسب مكان الاسم الذي تحته خط:</p>
+      <p>1) <u>علي</u> يستنجد بأخيه. ← <span class="fill-line" style="min-width:50%;"></span></p>
+      <p>2) <u>علي وأخوه</u> يستنجدان بصديقهما. ← <span class="fill-line" style="min-width:50%;"></span></p>
+      <p>3) <u>البنت</u> زارت حديقة الحيوانات. ← <span class="fill-line" style="min-width:50%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== EXERCICES ===================== -->
+  <section>
+    <h2 class="section-title">📝 تمارين للتدرّب</h2>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">1</span>صنّف الضمائر التالية إلى (ضمير رفع منفصل / ضمير نصب منفصل):</h4>
+      <p>
+        <span class="word-chip">أنتَ</span>
+        <span class="word-chip">إياكَ</span>
+        <span class="word-chip">هما</span>
+        <span class="word-chip">إيانا</span>
+        <span class="word-chip">نحن</span>
+        <span class="word-chip">إياهنّ</span>
+      </p>
+      <table class="data-table">
+        <tr><th>ضمير رفع منفصل</th><th>ضمير نصب منفصل</th></tr>
+        <tr><td style="height:60px;"></td><td></td></tr>
+      </table>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">2</span>أكمل جدول ضمائر الرفع المنفصلة الناقصة:</h4>
+      <table class="data-table">
+        <tr><th></th><th>المخاطب (مذكر)</th><th>المخاطب (مؤنث)</th><th>الغائب (مذكر)</th><th>الغائب (مؤنث)</th></tr>
+        <tr><td class="rowhead">المفرد</td><td>أنتَ</td><td><span class="fill-line" style="min-width:60px;"></span></td><td><span class="fill-line" style="min-width:60px;"></span></td><td>هي</td></tr>
+        <tr><td class="rowhead">الجمع</td><td><span class="fill-line" style="min-width:60px;"></span></td><td>أنتنّ</td><td>هم</td><td><span class="fill-line" style="min-width:60px;"></span></td></tr>
+      </table>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">3</span>اختر الإجابة الصحيحة:</h4>
+      <div class="qcm-item">
+        <p>1) الضمير المنفصل هو ما:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>يُنطق به وحده</span><span><span class="checkbox"></span>يتصل دائماً بكلمة قبله</span><span><span class="checkbox"></span>لا يُكتب</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>2) عدد ضمائر الرفع المنفصلة:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>خمسة</span><span><span class="checkbox"></span>اثنا عشر</span><span><span class="checkbox"></span>ثلاثة</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>3) ضمير الغائبة المفردة (رفع):</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>هو</span><span><span class="checkbox"></span>هي</span><span><span class="checkbox"></span>هنّ</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>4) "إياهما" ضمير منفصل خاص بـ:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>الرفع</span><span><span class="checkbox"></span>النصب</span><span><span class="checkbox"></span>الجر</span></div>
+      </div>
+      <div class="qcm-item">
+        <p>5) ضمير المتكلمين (للمثنى والجمع) في الرفع:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>أنا</span><span><span class="checkbox"></span>نحن</span><span><span class="checkbox"></span>أنتم</span></div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">4</span>اجعل كل اسم من الأسماء التالية خبراً لضمير منفصل مناسب (مع مراعاة المطابقة):</h4>
+      <div style="display:flex;flex-direction:column;gap:6px;">
+        <p>محترم ← <span class="fill-line" style="min-width:40%;"></span></p>
+        <p>فائزان ← <span class="fill-line" style="min-width:40%;"></span></p>
+        <p>مكتشفون ← <span class="fill-line" style="min-width:40%;"></span></p>
+        <p>عاقلات ← <span class="fill-line" style="min-width:40%;"></span></p>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">5</span>املأ الفراغ بضمير منفصل خاص بالنصب مناسب:</h4>
+      <p>1) .......... نعبدُ و.......... نستعينُ. (للمتكلمين مخاطِبين الله تعالى)</p>
+      <p>2) .......... أعني واسمعي يا جارة. (الخطاب لمؤنثة)</p>
+      <p>3) .......... كرّمَ المعلمُ. (يعود على تلميذ مذكر)</p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">6</span>حدّد صحيح أو خطأ لكل عبارة:</h4>
+      <div class="tf-item"><span>يمكن النطق بالضمير المنفصل وحده.</span><div class="tf-boxes"><span class="tf-box">✓</span><span class="tf-box">✗</span></div></div>
+      <div class="tf-item"><span>عدد ضمائر النصب المنفصلة اثنا عشر.</span><div class="tf-boxes"><span class="tf-box">✓</span><span class="tf-box">✗</span></div></div>
+      <div class="tf-item"><span>"إياه" ضمير رفع منفصل.</span><div class="tf-boxes"><span class="tf-box">✓</span><span class="tf-box">✗</span></div></div>
+      <div class="tf-item"><span>"هما" يصلح للمثنى المذكر والمثنى المؤنث الغائب.</span><div class="tf-boxes"><span class="tf-box">✓</span><span class="tf-box">✗</span></div></div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">7</span>حوّل الجملة "هو مجتهدٌ" إلى المفردة المؤنثة، والمثنى، والجمع بنوعيه:</h4>
+      <p>المفردة المؤنثة: <span class="fill-line" style="min-width:50%;"></span></p>
+      <p>المثنى: <span class="fill-line" style="min-width:50%;"></span></p>
+      <p>الجمع المذكر: <span class="fill-line" style="min-width:50%;"></span></p>
+      <p>الجمع المؤنث: <span class="fill-line" style="min-width:50%;"></span></p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">8</span>ميّز بين الضمير المنفصل والضمير المتصل في الجملة التالية:</h4>
+      <div class="scenario-box">
+        أنتَ كتبتَ كتابَكَ.
+      </div>
+      <p>ضمير منفصل: <span class="fill-line" style="min-width:50%;"></span></p>
+      <p>ضميران متصلان: <span class="fill-line" style="min-width:50%;"></span></p>
+    </div>
+  </section>
+
+  <!-- ===================== CORRIGE ===================== -->
+  <div class="corrige-wrapper">
+    <p class="corrige-flag">✂ يمكن طي هذه الصفحة أو إخفاؤها (اضغط على العنوان أدناه) قبل إنجاز التمارين ✂</p>
+    <details class="corrige">
+      <summary>التصحيح الكامل</summary>
+
+      <h4>تصحيح النشاط التطبيقي</h4>
+      <div class="corrige-item">1) هو يستنجد بأخيه. &nbsp;|&nbsp; 2) هما يستنجدان بصديقهما. &nbsp;|&nbsp; 3) هي زارت حديقة الحيوانات.</div>
+
+      <h4>تصحيح التمرين 1 (التصنيف)</h4>
+      <div class="corrige-item"><b>ضمير رفع منفصل:</b> أنتَ، هما، نحن</div>
+      <div class="corrige-item"><b>ضمير نصب منفصل:</b> إياكَ، إيانا، إياهنّ</div>
+
+      <h4>تصحيح التمرين 2 (إكمال الجدول)</h4>
+      <div class="corrige-item">المفرد: أنتِ (مخاطب مؤنث)، هو (غائب مذكر). الجمع: أنتم (مخاطب مذكر)، هنّ (غائب مؤنث).</div>
+
+      <h4>تصحيح التمرين 3 (الاختيار من متعدد)</h4>
+      <div class="corrige-item">1) يُنطق به وحده &nbsp;|&nbsp; 2) اثنا عشر &nbsp;|&nbsp; 3) هي &nbsp;|&nbsp; 4) النصب &nbsp;|&nbsp; 5) نحن</div>
+
+      <h4>تصحيح التمرين 4 (الاسم خبر لضمير)</h4>
+      <div class="corrige-item">أنتَ محترمٌ (أو: هو محترمٌ) &nbsp;|&nbsp; هما فائزان (أو: أنتما فائزان) &nbsp;|&nbsp; هم مكتشفون (أو: أنتم مكتشفون) &nbsp;|&nbsp; هنّ عاقلاتٌ (أو: أنتنّ عاقلاتٌ)</div>
+
+      <h4>تصحيح التمرين 5 (ضمير نصب منفصل)</h4>
+      <div class="corrige-item">1) إياكَ / إياكَ &nbsp;|&nbsp; 2) إياكِ &nbsp;|&nbsp; 3) إياهُ</div>
+
+      <h4>تصحيح التمرين 6 (صحيح/خطأ)</h4>
+      <div class="corrige-item">1) صحيح &nbsp;|&nbsp; 2) صحيح &nbsp;|&nbsp; 3) خطأ (ضمير نصب) &nbsp;|&nbsp; 4) صحيح</div>
+
+      <h4>تصحيح التمرين 7 (تحويل الجملة)</h4>
+      <div class="corrige-item">المفردة المؤنثة: هي مجتهدةٌ &nbsp;|&nbsp; المثنى: هما مجتهدان (للمذكر) / هما مجتهدتان (للمؤنث) &nbsp;|&nbsp; الجمع المذكر: هم مجتهدون &nbsp;|&nbsp; الجمع المؤنث: هنّ مجتهداتٌ</div>
+
+      <h4>تصحيح التمرين 8 (التمييز)</h4>
+      <div class="corrige-item">ضمير منفصل: أنتَ</div>
+      <div class="corrige-item">ضميران متصلان: تاء الفاعل في "كتبتَ"، وكاف الخطاب في "كتابَكَ"</div>
+    </details>
+  </div>
+
+  <p class="footer-note">فيشة تعلّم ذاتي — اللغة العربية — الأولى إعدادي — الضمير المنفصل</p>
+</div>
+</body>
+</html>
