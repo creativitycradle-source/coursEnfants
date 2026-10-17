@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>عوامل تدهور التربة وحمايتها – فيشة تعلّم ذاتي</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Naskh+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#2a2118;--ink-soft:#6a5846;--paper:#fbf8f3;--panel:#fff;--line:#e0d3c2;
+--brown:#8a5a34;--brown-soft:#f1e6da;--leaf:#3f7d3a;--leaf-soft:#e3f0de;--amber:#c98a2e;--amber-soft:#fbefd6;--clay:#b5502f;--clay-soft:#f8e3da;}
+*{box-sizing:border-box}
+body{margin:0;background:#ece5da;font-family:'Noto Naskh Arabic','Amiri',serif;color:var(--ink);line-height:1.9;font-size:17px}
+.sheet{max-width:900px;margin:18px auto;background:var(--paper);padding:26px 30px;border-radius:14px;box-shadow:0 4px 18px rgba(0,0,0,.1)}
+.masthead{display:flex;align-items:center;gap:18px;background:linear-gradient(135deg,var(--brown),#a9754a);color:#fff;border-radius:14px;padding:18px 22px}
+.masthead h1{font-family:'Amiri',serif;font-size:1.9rem;margin:0;line-height:1.35}
+.masthead p{margin:4px 0 0;opacity:.92}
+.meta-row{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.chip{background:var(--panel);border:1.5px solid var(--line);border-radius:20px;padding:2px 14px;font-size:.92rem}
+.chip b{color:var(--brown)}
+section{margin:20px 0}
+h2{font-family:'Amiri',serif;font-size:1.5rem;color:var(--brown);border-bottom:3px solid var(--amber);display:inline-block;margin:0 0 10px;padding-bottom:2px}
+h3{color:var(--leaf);margin:14px 0 4px;font-size:1.12rem}
+.box{background:var(--panel);border:1.5px solid var(--line);border-radius:12px;padding:12px 18px;margin:10px 0}
+.objectif-box{background:var(--leaf-soft);border-color:var(--leaf)}
+.rule-box{background:var(--amber-soft);border-right:6px solid var(--amber);border-radius:10px;padding:10px 16px;margin:10px 0}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:10px;margin:10px 0}
+.card{background:var(--panel);border:1.5px solid var(--line);border-top:5px solid var(--clay);border-radius:10px;padding:8px 14px}
+.card.good{border-top-color:var(--leaf)}
+.card h4{margin:0;color:var(--clay);font-size:1.03rem}
+.card.good h4{color:var(--leaf)}
+.card p{margin:2px 0 0;font-size:.95rem}
+table.data-table{width:100%;border-collapse:collapse;margin:10px 0;background:#fff}
+.data-table th,.data-table td{border:1.5px solid var(--line);padding:6px 10px;text-align:center}
+.data-table th{background:var(--brown);color:#fff}
+.activity-box{background:var(--brown-soft);border:2px dashed var(--brown);border-radius:12px;padding:12px 18px}
+.task-label{display:inline-block;background:var(--brown);color:#fff;border-radius:8px;padding:0 10px;margin-left:6px;font-size:.9rem}
+.exercise{background:var(--panel);border:1.5px solid var(--line);border-radius:12px;padding:10px 18px 12px;margin:12px 0;page-break-inside:avoid}
+.exercise-num{display:inline-flex;width:30px;height:30px;border-radius:50%;background:var(--amber);color:#fff;align-items:center;justify-content:center;font-weight:700;margin-left:8px}
+.exercise h4{margin:0 0 6px;font-size:1.05rem;color:var(--brown)}
+.fill-line{display:inline-block;min-width:110px;border-bottom:2px dotted var(--ink-soft)}
+.checkbox,.sq{display:inline-block;width:16px;height:16px;border:2px solid var(--leaf);border-radius:3px;vertical-align:middle;margin:0 6px}
+.opt{display:block;margin:2px 0}
+.lines{border-bottom:2px dotted var(--ink-soft);height:26px;margin:4px 0}
+.match-cols{display:flex;justify-content:space-between;gap:30px}.match-cols div{flex:1}
+.match-cols p{margin:4px 0;background:var(--brown-soft);border-radius:8px;padding:2px 12px}
+.word-chip{display:inline-block;background:var(--amber-soft);border:1.5px solid var(--amber);border-radius:16px;padding:0 12px;margin:3px}
+.doc-box{background:var(--clay-soft);border-right:6px solid var(--clay);border-radius:10px;padding:10px 16px;margin:8px 0}
+.corrige-wrapper{page-break-before:always;margin-top:26px}
+details.corrige{border:2px solid var(--brown);border-radius:12px;background:#fff;padding:8px 18px}
+details.corrige summary{cursor:pointer;font-family:'Amiri',serif;font-size:1.25rem;color:var(--brown);font-weight:700}
+.corrige h5{margin:12px 0 2px;color:var(--clay);font-size:1.02rem}
+.corrige p{margin:2px 0}
+.footer-note{text-align:center;color:var(--ink-soft);font-size:.88rem;margin-top:18px}
+svg text{font-family:'Noto Naskh Arabic',sans-serif}
+.fig{text-align:center;font-size:.88rem;color:var(--ink-soft)}
+@page{size:A4;margin:13mm}
+@media print{body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}.sheet{box-shadow:none;margin:0;max-width:none;padding:0;background:#fff}details.corrige:not([open]) > :not(summary){display:none}}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<header class="masthead">
+<svg width="72" height="62" viewBox="0 0 72 62" aria-hidden="true"><path d="M4 50 Q36 30 68 50 V60 H4Z" fill="#f3d9bb"/><path d="M20 38 q4 -14 8 0" fill="none" stroke="#fff" stroke-width="3"/><path d="M44 36 q4 -14 8 0" fill="none" stroke="#fff" stroke-width="3" opacity=".6"/><path d="M10 22 q10 -8 20 0 M40 14 q10 -8 20 0" fill="none" stroke="#fff" stroke-width="2.5" opacity=".7"/></svg>
+<div><h1>عوامل تدهور التربة وحمايتها</h1><p>النشاط العلمي – التربة بين الإنسان والطبيعة</p></div>
+</header>
+
+<div class="meta-row">
+<span class="chip"><b>المستوى:</b> الخامسة ابتدائي (5AEP)</span>
+<span class="chip"><b>المادة:</b> النشاط العلمي</span>
+<span class="chip"><b>مدة الحصة:</b> ساعة</span>
+<span class="chip"><b>نوع الوثيقة:</b> فيشة تعلّم ذاتي</span>
+</div>
+
+<section>
+<h2>🎯 الهدف</h2>
+<div class="box objectif-box">في نهاية هذه الفيشة سأكون قادرًا على:
+<ul>
+<li>أن أفسّر معنى تدهور التربة وأذكر آثاره على الإنسان والنبات والحيوان؛</li>
+<li>أن أميّز بين العوامل الطبيعية والعوامل البشرية لتدهور التربة؛</li>
+<li>أن أنجز تجربة بسيطة تُبيّن دور النباتات في حماية التربة من الانجراف؛</li>
+<li>أن أقترح طرقًا لحماية التربة وأتبنّى سلوكًا يحافظ عليها.</li>
+</ul></div>
+</section>
+
+<section>
+<h2>📘 الدرس</h2>
+
+<h3>1) ما معنى تدهور التربة؟</h3>
+<div class="rule-box"><b>تدهور التربة</b> هو فقدانها لخصوبتها أو لطبقتها السطحية الغنية بالدبال والكائنات الحية، فتصبح فقيرة ولا تصلح للزراعة. التربة تتكوّن ببطء شديد (قد يلزمها مئات السنين لتتكوّن طبقة رقيقة)، لكنها قد تضيع بسرعة إذا لم نحافظ عليها.</div>
+
+<h3>2) عوامل تدهور التربة</h3>
+<p><b>أ) العوامل الطبيعية</b></p>
+<div class="cards">
+<div class="card"><h4>💧 الانجراف المائي</h4><p>الأمطار الغزيرة تجرف التربة السطحية، خصوصًا على المنحدرات الخالية من النباتات، فتتكوّن أخاديد وتنتقل الأوحال إلى الأودية والسدود.</p></div>
+<div class="card"><h4>🌬️ الانجراف الهوائي</h4><p>الرياح القوية تحمل حبيبات التربة الجافة وتنقلها بعيدًا، خاصة في المناطق الجافة وشبه الجافة.</p></div>
+<div class="card"><h4>☀️ الجفاف</h4><p>قلة الأمطار تجفّف التربة وتموت نباتاتها فتتفكك وتتحوّل تدريجيًا إلى رمال (التصحّر).</p></div>
+</div>
+<p><b>ب) العوامل البشرية</b></p>
+<div class="cards">
+<div class="card"><h4>🪓 قطع الأشجار وحرق الغابات</h4><p>تُزال النباتات التي تثبّت التربة بجذورها فتصبح عارية معرّضة للانجراف.</p></div>
+<div class="card"><h4>🐐 الرعي الجائر</h4><p>كثرة القطعان في مساحة صغيرة تأكل الأعشاب وتدوس التربة فتتصلّب.</p></div>
+<div class="card"><h4>🚜 الحرث الخاطئ</h4><p>الحرث في اتجاه انحدار الأرض يسهّل جريان الماء وجرف التربة.</p></div>
+<div class="card"><h4>🧪 الإفراط في الأسمدة والمبيدات الكيميائية</h4><p>يقتل الكائنات الحية النافعة في التربة (كالديدان) ويلوّثها.</p></div>
+<div class="card"><h4>🌾 زراعة نفس المحصول سنويًا</h4><p>تستنزف نفس العناصر المعدنية فتفقر التربة.</p></div>
+<div class="card"><h4>🗑️ النفايات والتعمير</h4><p>رمي النفايات البلاستيكية والبناء على الأراضي الفلاحية الخصبة يُتلفان التربة.</p></div>
+</div>
+
+<h3>3) آثار تدهور التربة</h3>
+<table class="data-table">
+<tr><th>السبب</th><th>الأثر</th></tr>
+<tr><td>فقدان الطبقة السطحية الخصبة</td><td>انخفاض المحاصيل وغلاء الغذاء</td></tr>
+<tr><td>موت النباتات والكائنات الحية في التربة</td><td>تراجع التنوّع الحيوي</td></tr>
+<tr><td>انجراف التربة نحو الأودية</td><td>ترسّب الأوحال في السدود وقلّة مياهها، وخطر الفيضانات</td></tr>
+<tr><td>الجفاف والرياح</td><td>التصحّر وهجرة السكان</td></tr>
+</table>
+
+<h3>4) كيف نحمي التربة؟</h3>
+<div class="cards">
+<div class="card good"><h4>🌳 التشجير وغرس النباتات</h4><p>الجذور تمسك التربة والأوراق تخفّف من ضرب المطر.</p></div>
+<div class="card good"><h4>🪜 المدرّجات وحواجز الحجارة</h4><p>تُبطئ جريان الماء على المنحدرات.</p></div>
+<div class="card good"><h4>〰️ الحرث العرضي (خطوط الكنتور)</h4><p>نحرث بشكل عرضي على الانحدار لا من الأعلى إلى الأسفل، فتحبس الأخاديد الماء بدل أن يجرف التربة.</p></div>
+<div class="card good"><h4>🔄 تناوب المحاصيل</h4><p>نزرع محاصيل مختلفة بالتناوب كالقمح ثم الفول فتحافظ التربة على خصوبتها.</p></div>
+<div class="card good"><h4>♻️ السماد العضوي (الكومبوست)</h4><p>نعيد للتربة الدبال بدل الإفراط في الأسمدة الكيميائية.</p></div>
+<div class="card good"><h4>🌲 مصدّات الرياح وتنظيم الرعي</h4><p>صفوف من الأشجار تحدّ من الرياح، ونرعى القطعان بالتناوب لتتجدد الأعشاب.</p></div>
+</div>
+<div class="rule-box"><b>خلاصة:</b> تدهور التربة ينتج عن عوامل طبيعية (مطر، رياح، جفاف) تزيدها عوامل بشرية خطورة. حماية التربة مسؤولية الجميع: نغرس ونحافظ على الغطاء النباتي، ونزرع بطريقة سليمة، ولا نلوّث التربة.</div>
+
+<div class="fig"><svg width="480" viewBox="0 0 480 150" style="max-width:100%;height:auto" role="img" aria-label="مقارنة بين تربة عارية وتربة مغطاة بالنباتات">
+<rect width="480" height="150" fill="#eaf3f7" rx="10"/>
+<polygon points="10,70 230,130 10,130" fill="#b88a5c"/><text x="80" y="108" font-size="14" fill="#fff" font-weight="700">تربة عارية</text>
+<path d="M60 74 q-4 20 0 34 M95 84 q-4 14 0 26" stroke="#8a5a34" stroke-width="3" fill="none"/>
+<text x="120" y="60" font-size="12" fill="#2f6f9e">مطر ↓ جرف التربة</text>
+<polygon points="250,70 470,130 250,130" fill="#8a5a34"/>
+<g fill="#3f7d3a"><circle cx="290" cy="82" r="7"/><circle cx="330" cy="96" r="7"/><circle cx="370" cy="108" r="7"/><circle cx="410" cy="118" r="7"/></g>
+<text x="335" y="60" font-size="12" fill="#2f6f9e">مطر ↓ التربة ثابتة</text>
+<text x="340" y="142" font-size="14" fill="#fff" font-weight="700">تربة مغطاة</text>
+</svg><div>رسم توضيحي مبسّط.</div></div>
+</section>
+
+<section>
+<h2>🔬 نشاط تطبيقي: تجربة انجراف التربة</h2>
+<div class="activity-box">
+<p><b>الأدوات:</b> ثلاثة صناديق (أو قطع كرتون سميك مغلّفة بالبلاستيك)، تربة، عشب أو بذور شعير نابتة، حجارة صغيرة، مرشّ ماء أو إبريق، ثلاث أوعية لجمع الماء، كتب لإمالة الصناديق.</p>
+<p><b>طريقة العمل:</b> أضع في كل صندوق نفس كمية التربة وأميله بنفس الزاوية. الصندوق (أ): تربة عارية. الصندوق (ب): تربة مغطاة بالعشب. الصندوق (ج): تربة بها صفوف من الحجارة الصغيرة. أصبّ في كل صندوق نفس كمية الماء بنفس السرعة، وأجمع الماء السائل في وعاء تحته.</p>
+<p><span class="task-label">المهمة 1</span> فرضيتي: أتوقّع أن الصندوق الذي سيخرج منه أكثر ماء موحل هو: <span class="fill-line"></span></p>
+<p><span class="task-label">المهمة 2</span> أملأ جدول الملاحظة:</p>
+<table class="data-table"><tr><th>الصندوق</th><th>لون الماء المجمّع</th><th>كمية التربة المجروفة (قليلة / متوسطة / كثيرة)</th></tr>
+<tr><td>أ (تربة عارية)</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>ب (تربة بالعشب)</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>ج (تربة بالحجارة)</td><td>&nbsp;</td><td>&nbsp;</td></tr></table>
+<p><span class="task-label">المهمة 3</span> أستنتج: ما دور الغطاء النباتي في حماية التربة؟ <span class="fill-line" style="min-width:220px"></span></p>
+<div class="lines"></div>
+</div>
+</section>
+
+<section>
+<h2>📝 تمارين للتدرّب</h2>
+
+<div class="exercise"><h4><span class="exercise-num">1</span>أُكمل الفراغات</h4>
+يعني <span class="fill-line"></span> التربة فقدانها لـ <span class="fill-line"></span>. ومن أسبابه الطبيعية: <span class="fill-line"></span> و<span class="fill-line"></span>، ومن أسبابه البشرية: <span class="fill-line"></span> و<span class="fill-line"></span>.</div>
+
+<div class="exercise"><h4><span class="exercise-num">2</span>أختار الجواب الصحيح</h4>
+<b>أ) الانجراف الهوائي تسبّبه:</b>
+<span class="opt"><span class="checkbox"></span>الأمطار الغزيرة</span><span class="opt"><span class="checkbox"></span>الرياح القوية</span><span class="opt"><span class="checkbox"></span>السماد العضوي</span>
+<b>ب) من طرق حماية التربة على المنحدرات:</b>
+<span class="opt"><span class="checkbox"></span>قطع الأشجار</span><span class="opt"><span class="checkbox"></span>المدرّجات</span><span class="opt"><span class="checkbox"></span>الرعي الجائر</span>
+<b>ج) نزرع القمح ثم الفول ثم القمح... هذه تُسمّى:</b>
+<span class="opt"><span class="checkbox"></span>تناوب المحاصيل</span><span class="opt"><span class="checkbox"></span>الحرث العميق</span><span class="opt"><span class="checkbox"></span>الرعي الجائر</span></div>
+
+<div class="exercise"><h4><span class="exercise-num">3</span>صحيح أم خطأ؟ (أصحّح الخطأ)</h4>
+<p>1) الجذور تساعد على تثبيت التربة. <span class="sq"></span></p>
+<p>2) التربة العارية أكثر مقاومة للانجراف من التربة المغطاة. <span class="sq"></span> <span class="fill-line"></span></p>
+<p>3) يجب الحرث في اتجاه انحدار الأرض لحماية التربة. <span class="sq"></span> <span class="fill-line"></span></p>
+<p>4) الإفراط في المبيدات يضرّ الكائنات الحية في التربة. <span class="sq"></span></p>
+<p>5) تتكوّن التربة بسرعة، لذلك لا داعي لحمايتها. <span class="sq"></span> <span class="fill-line"></span></p></div>
+
+<div class="exercise"><h4><span class="exercise-num">4</span>أصل السبب بالأثر</h4>
+<div class="match-cols">
+<div><p>أ) قطع الغابات</p><p>ب) الأمطار الغزيرة على أرض عارية</p><p>ج) زراعة نفس المحصول سنويًا</p><p>د) الجفاف والرياح</p></div>
+<div><p>1) التصحّر</p><p>2) انجراف التربة</p><p>3) فقر التربة من العناصر المعدنية</p><p>4) عري التربة وتعرّضها للانجراف</p></div></div></div>
+
+<div class="exercise"><h4><span class="exercise-num">5</span>أصنّف العوامل</h4>
+أضع كل عامل في الخانة المناسبة:
+<span class="word-chip">الرياح القوية</span><span class="word-chip">الرعي الجائر</span><span class="word-chip">الأمطار الغزيرة</span><span class="word-chip">رمي النفايات</span><span class="word-chip">حرق الغابات</span><span class="word-chip">الجفاف</span>
+<table class="data-table"><tr><th>عوامل طبيعية</th><th>عوامل بشرية</th></tr><tr><td>&nbsp;<br>&nbsp;</td><td>&nbsp;<br>&nbsp;</td></tr></table></div>
+
+<div class="exercise"><h4><span class="exercise-num">6</span>أقترح الحل المناسب</h4>
+لكل مشكلة أكتب طريقة الحماية الأنسب:
+<p>أ) منحدر جبلي تجرفه الأمطار: <span class="fill-line"></span></p>
+<p>ب) حقل تهبّ عليه الرياح فتحمل ترابه: <span class="fill-line"></span></p>
+<p>ج) أرض تعبت من زراعة الذرة كل سنة: <span class="fill-line"></span></p>
+<p>د) مرعى أكلته القطعان: <span class="fill-line"></span></p></div>
+
+<div class="exercise"><h4><span class="exercise-num">7</span>وثيقة: قرية الأطلس</h4>
+<div class="doc-box">في قرية جبلية قطع السكان أشجار السفح المجاور ليزرعوه، وكانوا يحرثونه من الأعلى نحو الأسفل. بعد سنوات، بدأت الأمطار تجرف التربة وظهرت أخاديد عميقة، وقلّ المحصول، وامتلأ سدّ القرية بالأوحال.</div>
+<p>1) أستخرج من النص عاملين بشريين لتدهور التربة: <span class="fill-line"></span> ، <span class="fill-line"></span></p>
+<p>2) ما هي آثار ذلك على القرية؟</p><div class="lines"></div>
+<p>3) أقترح ثلاثة حلول لإنقاذ التربة:</p><div class="lines"></div></div>
+
+<div class="exercise"><h4><span class="exercise-num">8</span>أنا حامي التربة</h4>
+<p>أ) أصمّم شعارًا قصيرًا لملصق يدعو إلى حماية التربة: <span class="fill-line" style="min-width:260px"></span></p>
+<p>ب) أذكر سلوكين يمكنني القيام بهما في الحديقة أو الحقل لحماية التربة:</p><div class="lines"></div><div class="lines"></div></div>
+</section>
+
+<div class="corrige-wrapper">
+<details class="corrige">
+<summary>اضغط لإظهار الحل / إخفائه — التصحيح الكامل</summary>
+
+<h5>النشاط التطبيقي</h5>
+<p>المهمة 1: الصندوق (أ) تربة عارية. المهمة 2: (أ) ماء موحل بنّي غامق وتربة كثيرة مجروفة؛ (ب) ماء صافٍ تقريبًا وتربة قليلة؛ (ج) ماء قليل الوحل وتربة قليلة إلى متوسطة. المهمة 3: الغطاء النباتي يثبّت التربة بجذوره ويُبطئ جريان الماء ويخفّف من ضرب المطر فيحمي التربة من الانجراف.</p>
+
+<h5>التمرين 1</h5>
+<p>تدهور – خصوبتها (أو طبقتها السطحية الخصبة). طبيعية: الانجراف المائي، الانجراف الهوائي، الجفاف (يكفي اثنان). بشرية: قطع الأشجار، الرعي الجائر، الحرث الخاطئ، الإفراط في الأسمدة (يكفي اثنان).</p>
+
+<h5>التمرين 2</h5>
+<p>أ) الرياح القوية. ب) المدرّجات. ج) تناوب المحاصيل.</p>
+
+<h5>التمرين 3</h5>
+<p>1) صحيح. 2) خطأ — التربة المغطاة أكثر مقاومة. 3) خطأ — نحرث بشكل عرضي على خطوط الكنتور. 4) صحيح. 5) خطأ — تتكوّن ببطء شديد وتضيع بسرعة لذا يجب حمايتها.</p>
+
+<h5>التمرين 4</h5>
+<p>أ ← 4 &nbsp; ب ← 2 &nbsp; ج ← 3 &nbsp; د ← 1</p>
+
+<h5>التمرين 5</h5>
+<p>طبيعية: الرياح القوية، الأمطار الغزيرة، الجفاف. — بشرية: الرعي الجائر، رمي النفايات، حرق الغابات.</p>
+
+<h5>التمرين 6</h5>
+<p>أ) المدرّجات والتشجير وحواجز الحجارة. ب) مصدّات الرياح (صفوف الأشجار). ج) تناوب المحاصيل والسماد العضوي. د) تنظيم الرعي (الرعي بالتناوب) وإعادة غرس الأعشاب.</p>
+
+<h5>التمرين 7</h5>
+<p>1) قطع أشجار السفح، الحرث في اتجاه الانحدار.</p>
+<p>2) انجراف التربة وظهور الأخاديد، انخفاض المحصول، امتلاء السد بالأوحال.</p>
+<p>3) إعادة التشجير، بناء مدرّجات أو حواجز حجرية، الحرث العرضي (خطوط الكنتور)، تناوب المحاصيل (يكفي ثلاثة).</p>
+
+<h5>التمرين 8</h5>
+<p>إجابة حرّة. مثال: «التربة أمانة… احمها تحمِ غذاءك». سلوكان ممكنان: غرس شجرة أو نبتة، عدم رمي النفايات في التربة، استعمال سماد عضوي من بقايا الطعام، عدم الدوس على الأرض المزروعة.</p>
+</details>
+</div>
+
+<p class="footer-note">فيشة تعلّم ذاتي – النشاط العلمي – بالتوفيق 🌟</p>
+</div>
+</body>
+</html>
