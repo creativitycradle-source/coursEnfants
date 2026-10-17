@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>التوكيد – فيشة تعلّم ذاتي</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Naskh+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#251f3a;--ink-soft:#5d557a;--paper:#fbf9ff;--panel:#fff;--line:#d9d3ec;
+--indigo:#4b3f8f;--indigo-soft:#ebe8f7;--rose:#b1553f;--rose-soft:#f8e6df;--gold:#af8a2e;--gold-soft:#faf0d4;}
+*{box-sizing:border-box}
+body{margin:0;background:#ebe8f2;font-family:'Amiri','Noto Naskh Arabic',serif;color:var(--ink);line-height:2;font-size:19px}
+.sheet{max-width:900px;margin:18px auto;background:var(--paper);padding:26px 30px;border-radius:14px;box-shadow:0 4px 18px rgba(0,0,0,.1)}
+.masthead{display:flex;align-items:center;gap:18px;background:linear-gradient(135deg,var(--indigo),#6a5cb5);color:#fff;border-radius:14px;padding:18px 22px}
+.masthead h1{font-size:2.2rem;margin:0;line-height:1.3}
+.masthead p{margin:4px 0 0;opacity:.92}
+.meta-row{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.chip{background:var(--panel);border:1.5px solid var(--line);border-radius:20px;padding:2px 14px;font-size:.9rem;font-family:'Noto Naskh Arabic',serif}
+.chip b{color:var(--indigo)}
+section{margin:20px 0}
+h2{font-size:1.6rem;color:var(--indigo);border-bottom:3px solid var(--gold);display:inline-block;margin:0 0 10px;padding-bottom:2px}
+h3{color:var(--rose);margin:14px 0 4px;font-size:1.25rem}
+.box{background:var(--panel);border:1.5px solid var(--line);border-radius:12px;padding:12px 18px;margin:10px 0}
+.objectif-box{background:var(--indigo-soft);border-color:var(--indigo)}
+.rule-box{background:var(--gold-soft);border-right:6px solid var(--gold);border-radius:10px;padding:10px 16px;margin:10px 0}
+.example-box{background:var(--rose-soft);border-right:6px solid var(--rose);border-radius:10px;padding:8px 16px;margin:8px 0}
+.mu{color:var(--indigo);font-weight:700;border-bottom:3px solid var(--indigo)}
+.tw{color:var(--rose);font-weight:700;border-bottom:3px solid var(--rose)}
+table.data-table{width:100%;border-collapse:collapse;margin:10px 0;background:#fff}
+.data-table th,.data-table td{border:1.5px solid var(--line);padding:6px 10px;text-align:center}
+.data-table th{background:var(--indigo);color:#fff}
+.activity-box{background:var(--gold-soft);border:2px dashed var(--gold);border-radius:12px;padding:12px 18px}
+.task-label{display:inline-block;background:var(--gold);color:#fff;border-radius:8px;padding:0 10px;margin-left:6px;font-size:.9rem;font-family:'Noto Naskh Arabic',serif}
+.exercise{background:var(--panel);border:1.5px solid var(--line);border-radius:12px;padding:10px 18px 12px;margin:12px 0;page-break-inside:avoid}
+.exercise-num{display:inline-flex;width:32px;height:32px;border-radius:50%;background:var(--rose);color:#fff;align-items:center;justify-content:center;font-weight:700;margin-left:8px;font-family:'Noto Naskh Arabic',serif}
+.exercise h4{margin:0 0 6px;font-size:1.15rem;color:var(--indigo)}
+.fill-line{display:inline-block;min-width:110px;border-bottom:2px dotted var(--ink-soft)}
+.checkbox,.sq{display:inline-block;width:17px;height:17px;border:2px solid var(--indigo);border-radius:3px;vertical-align:middle;margin:0 6px}
+.opt{display:block;margin:0}
+.lines{border-bottom:2px dotted var(--ink-soft);height:28px;margin:4px 0}
+.match-cols{display:flex;justify-content:space-between;gap:30px}.match-cols div{flex:1}
+.match-cols p{margin:4px 0;background:var(--indigo-soft);border-radius:8px;padding:0 12px}
+.word-chip{display:inline-block;background:var(--gold-soft);border:1.5px solid var(--gold);border-radius:16px;padding:0 12px;margin:3px}
+.corrige-wrapper{page-break-before:always;margin-top:26px}
+details.corrige{border:2px solid var(--indigo);border-radius:12px;background:#fff;padding:8px 18px}
+details.corrige summary{cursor:pointer;font-size:1.3rem;color:var(--indigo);font-weight:700}
+.corrige h5{margin:12px 0 2px;color:var(--rose);font-size:1.1rem}
+.corrige p{margin:2px 0}
+.footer-note{text-align:center;color:var(--ink-soft);font-size:.9rem;margin-top:18px;font-family:'Noto Naskh Arabic',serif}
+@page{size:A4;margin:13mm}
+@media print{body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}.sheet{box-shadow:none;margin:0;max-width:none;padding:0;background:#fff}details.corrige:not([open]) > :not(summary){display:none}}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<header class="masthead">
+<svg width="66" height="62" viewBox="0 0 66 62" aria-hidden="true"><text x="33" y="38" font-size="34" fill="#fff" text-anchor="middle" font-weight="700" font-family="Amiri,serif">ك</text><path d="M8 50 Q33 58 58 50" fill="none" stroke="#e9c978" stroke-width="3"/><path d="M8 56 Q33 64 58 56" fill="none" stroke="#e9c978" stroke-width="3" opacity=".6"/></svg>
+<div><h1>التَّوْكِيدُ</h1><p>اللغة العربية – قواعد اللغة (التراكيب)</p></div>
+</header>
+
+<div class="meta-row">
+<span class="chip"><b>المستوى:</b> الخامسة ابتدائي (5AEP)</span>
+<span class="chip"><b>المادة:</b> اللغة العربية — التراكيب</span>
+<span class="chip"><b>مدة الحصة:</b> ساعة</span>
+<span class="chip"><b>نوع الوثيقة:</b> فيشة تعلّم ذاتي</span>
+</div>
+
+<section>
+<h2>🎯 الهدف</h2>
+<div class="box objectif-box">في نهاية هذه الحصة سأكون قادرًا على:
+<ul>
+<li>أن أعرّف التوكيد وأذكر فائدته؛</li>
+<li>أن أميّز بين التوكيد اللفظي والتوكيد المعنوي؛</li>
+<li>أن أستعمل ألفاظ التوكيد (نفس، عين، كل، جميع، كلا، كلتا) مع الضمير المناسب؛</li>
+<li>أن أحدّد المؤكَّد والمؤكِّد، وأضبط حركة التوكيد بحسب المؤكَّد.</li>
+</ul></div>
+</section>
+
+<section>
+<h2>📘 الدرس</h2>
+
+<h3>1) ما هو التوكيد؟</h3>
+<div class="example-box">
+قالَ سامي: جاءَ المديرُ. ← هل جاءَ المديرُ حقًّا أم جاءَ مندوبٌ عنه؟ <br>
+نؤكّد الكلام فنقول: جاءَ <span class="mu">المديرُ</span> <span class="tw">نفسُه</span>. ← صار المعنى مؤكّدًا لا شكَّ فيه.</div>
+<div class="rule-box"><b>التوكيد</b> تابعٌ يُذكَر بعد كلمة تُسمّى <b>المؤكَّد</b> لتقوية معناها وإزالة الشكّ أو النسيان أو المبالغة. وهو يتبع المؤكَّد في حركته الإعرابية (رفعًا ونصبًا وجرًّا).</div>
+
+<h3>2) أنواع التوكيد</h3>
+<table class="data-table">
+<tr><th>النوع</th><th>طريقته</th><th>مثال</th></tr>
+<tr><td><b>التوكيد اللفظي</b></td><td>تكرار اللفظ نفسه</td><td>جاءَ <span class="mu">جاءَ</span> الحقُّ — أنتَ <span class="tw">أنتَ</span> المجتهدُ</td></tr>
+<tr><td><b>التوكيد المعنوي</b></td><td>ألفاظ مخصوصة: نفس، عين، كل، جميع، كلا، كلتا</td><td>جاءَ المعلّمُ <span class="tw">نفسُه</span></td></tr>
+</table>
+
+<h3>3) التوكيد اللفظي</h3>
+<div class="rule-box">هو <b>تكرار الكلمة أو الجملة</b> بلفظها نفسه (اسمًا أو فعلًا أو حرفًا أو جملة) للتأكيد.</div>
+<div class="example-box">
+• <span class="mu">الأمُّ</span> <span class="tw">الأمُّ</span> مدرسةٌ نفتخرُ بها (تكرار اسم)<br>
+• اِنتَبِهْ <span class="tw">اِنتَبِهْ</span> يا ولدي (تكرار فعل)<br>
+• لا <span class="tw">لا</span> أُريدُ الكذبَ (تكرار حرف)</div>
+
+<h3>4) التوكيد المعنوي</h3>
+<table class="data-table">
+<tr><th>لفظ التوكيد</th><th>يؤكّد</th><th>مثال</th></tr>
+<tr><td>نَفْس – عَيْن</td><td>المفرد والمثنى والجمع (للتأكد من ذات الشيء)</td><td>رأيتُ الأستاذَ <span class="tw">نفسَه</span> — زارَني الضيفُ <span class="tw">عينُه</span></td></tr>
+<tr><td>كُلّ – جميع – عامّة</td><td>الجمع أو ما له أجزاء، لإفادة الشمول</td><td>قرأتُ الكتابَ <span class="tw">كلَّه</span> — نجحَ التلاميذُ <span class="tw">جميعُهم</span></td></tr>
+<tr><td>كِلا</td><td>المثنى المذكّر</td><td>حضرَ الوَلدانِ <span class="tw">كلاهما</span></td></tr>
+<tr><td>كِلْتا</td><td>المثنى المؤنّث</td><td>نجحتِ البنتانِ <span class="tw">كلتاهما</span></td></tr>
+</table>
+<div class="rule-box"><b>شرط مهم:</b> يجب أن يتّصل لفظ التوكيد <b>بضمير يعود على المؤكَّد ويطابقه</b> في العدد والنوع:<br>
+المؤكَّد مفرد مذكر ← (…ـه) &nbsp; مفرد مؤنث ← (…ـها) &nbsp; جمع مذكر ← (…ـهم) &nbsp; جمع مؤنث ← (…ـهنّ) &nbsp; مثنى ← (…ـهما)</div>
+
+<h3>5) حركة التوكيد (إعرابه مبسّطًا)</h3>
+<div class="example-box">
+• جاءَ <span class="mu">الأستاذُ</span> <span class="tw">نفسُه</span>: الأستاذُ فاعلٌ مرفوعٌ، <b>نفسُه</b> توكيدٌ مرفوعٌ مثلُه.<br>
+• رأيتُ <span class="mu">الطلابَ</span> <span class="tw">جميعَهم</span>: الطلابَ مفعولٌ به منصوبٌ، <b>جميعَهم</b> توكيدٌ منصوبٌ مثلُه.<br>
+• سلّمتُ على <span class="mu">المعلّمِ</span> <span class="tw">نفسِه</span>: المعلّمِ مجرورٌ بحرف الجرّ، <b>نفسِه</b> توكيدٌ مجرورٌ مثلُه.</div>
+<div class="rule-box"><b>القاعدة:</b> التوكيد يأخذ حركة المؤكَّد (الضمة في الرفع، الفتحة في النصب، الكسرة في الجر).</div>
+</section>
+
+<section>
+<h2>✏️ نشاط تطبيقي: مُحقِّقو التوكيد</h2>
+<div class="activity-box">
+<p>جاء صديقٌ يحكي لك أخبارًا غريبة فلم تصدّقها. استعمل التوكيد لتقوية كلام كل واحد منهم:</p>
+<p><span class="task-label">المهمة 1</span> قال سعيد: «زارَنا الوزيرُ في المدرسة.» أشكّ في ذلك، فأقول: زارَنا الوزيرُ <span class="fill-line"></span></p>
+<p><span class="task-label">المهمة 2</span> قالت ليلى: «أكلتُ الكعكةَ.» أتأكد أنها أكلتها كلّها: أكلتِ الكعكةَ <span class="fill-line"></span></p>
+<p><span class="task-label">المهمة 3</span> قال أحمد: «نجحَ الأصدقاءُ.» أريد أن أتأكد من نجاحهم جميعًا: نجحَ الأصدقاءُ <span class="fill-line"></span></p>
+<p><span class="task-label">المهمة 4</span> العبوا لعبة «كرّر لتؤكّد»: يقول اللاعب جملة، ويعيد الآخر كلمتها المهمة مرتين (توكيدًا لفظيًّا) مثل: «الصدقَ الصدقَ»، وتسجّلون الجمل.</p>
+</div>
+</section>
+
+<section>
+<h2>📝 تمارين للتدرّب</h2>
+
+<div class="exercise"><h4><span class="exercise-num">1</span>أُكمل الفراغات</h4>
+التوكيد <span class="fill-line"></span> يُذكر لتقوية معنى <span class="fill-line"></span>. ومن أنواعه: التوكيد <span class="fill-line sm" style="min-width:70px"></span> والتوكيد <span class="fill-line" style="min-width:70px"></span>. ومن ألفاظ التوكيد المعنوي: <span class="fill-line" style="min-width:70px"></span> ، <span class="fill-line" style="min-width:70px"></span> ، <span class="fill-line" style="min-width:70px"></span>.</div>
+
+<div class="exercise"><h4><span class="exercise-num">2</span>أختار الجواب الصحيح</h4>
+<b>أ) في «جاءَ الخليفةُ نفسُه» لفظ التوكيد هو:</b>
+<span class="opt"><span class="checkbox"></span>جاءَ</span><span class="opt"><span class="checkbox"></span>الخليفةُ</span><span class="opt"><span class="checkbox"></span>نفسُه</span>
+<b>ب) في «قرأتُ القصّةَ كلَّها» المؤكَّد هو:</b>
+<span class="opt"><span class="checkbox"></span>القصّةَ</span><span class="opt"><span class="checkbox"></span>قرأتُ</span><span class="opt"><span class="checkbox"></span>كلَّها</span>
+<b>ج) نؤكّد المثنى المؤنّث بـ:</b>
+<span class="opt"><span class="checkbox"></span>كلا</span><span class="opt"><span class="checkbox"></span>كلتا</span><span class="opt"><span class="checkbox"></span>جميع</span></div>
+
+<div class="exercise"><h4><span class="exercise-num">3</span>صحيح أم خطأ؟ (أصحّح الخطأ)</h4>
+<p>1) التوكيد تابعٌ يتبع المؤكَّد في الحركة. <span class="sq"></span></p>
+<p>2) نقول: حضرَ الولدانِ كلتاهما. <span class="sq"></span> <span class="fill-line"></span></p>
+<p>3) يتّصل لفظ التوكيد المعنوي بضمير يطابق المؤكَّد. <span class="sq"></span></p>
+<p>4) «جاءَ جاءَ المعلّمُ» توكيد معنوي. <span class="sq"></span> <span class="fill-line"></span></p>
+<p>5) نقول: رأيتُ التلاميذَ جميعُهم. <span class="sq"></span> <span class="fill-line"></span></p></div>
+
+<div class="exercise"><h4><span class="exercise-num">4</span>أصل بسهم</h4>
+<div class="match-cols">
+<div><p>أ) كِلا</p><p>ب) كِلْتا</p><p>ج) جميع</p><p>د) نَفْس</p></div>
+<div><p>1) رأيتُ الأميرَ ……</p><p>2) نجحَ الطلابُ ……</p><p>3) حضرتِ الأختانِ ……</p><p>4) جاءَ الأخوانِ ……</p></div></div></div>
+
+<div class="exercise"><h4><span class="exercise-num">5</span>أُكمل بلفظ توكيد مناسب مع الضمير</h4>
+<p>أ) جاءَ الطالبانِ <span class="fill-line"></span> &nbsp; ب) نجحتِ الطالبتانِ <span class="fill-line"></span></p>
+<p>ج) أكلتُ الرغيفَ <span class="fill-line"></span> &nbsp; د) حضرَ الضيوفُ <span class="fill-line"></span></p>
+<p>هـ) رأيتُ المديرَ <span class="fill-line"></span> &nbsp; و) مررتُ بالأميرِ <span class="fill-line"></span></p></div>
+
+<div class="exercise"><h4><span class="exercise-num">6</span>أصنّف: توكيد لفظي أم معنوي؟</h4>
+<table class="data-table"><tr><th>الجملة</th><th>لفظي</th><th>معنوي</th></tr>
+<tr><td>اِنتَبِهْ اِنتَبِهْ يا صغيري</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>حضرَ المديرُ نفسُه</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>نجحَ التلاميذُ كلُّهم</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>المجتهدُ المجتهدُ ينجحُ</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>فازَ الفريقانِ كلاهما</td><td>&nbsp;</td><td>&nbsp;</td></tr></table></div>
+
+<div class="exercise"><h4><span class="exercise-num">7</span>أكتب جملًا مؤكَّدة</h4>
+أحوّل كل جملة إلى جملة فيها توكيد، فأكتب الجملة بعد التوكيد:
+<p>أ) جاءَ الضيفُ. ← <span class="fill-line" style="min-width:230px"></span> (لفظي)</p>
+<p>ب) سافرَ المسافرونَ. ← <span class="fill-line" style="min-width:230px"></span> (معنوي بـ «جميع»)</p>
+<p>ج) قرأتُ المجلّةَ. ← <span class="fill-line" style="min-width:230px"></span> (معنوي بـ «كل»)</p></div>
+
+<div class="exercise"><h4><span class="exercise-num">8</span>أحدّد وأضبط</h4>
+أستخرج المؤكَّد ولفظ التوكيد، وأذكر حركة التوكيد ولماذا:
+<p>أ) حضرَ المديرُ نفسُه. ← المؤكَّد: <span class="fill-line" style="min-width:70px"></span> التوكيد: <span class="fill-line" style="min-width:70px"></span> الحركة: <span class="fill-line" style="min-width:70px"></span></p>
+<p>ب) رأيتُ الطلابَ جميعَهم. ← المؤكَّد: <span class="fill-line" style="min-width:70px"></span> التوكيد: <span class="fill-line" style="min-width:70px"></span> الحركة: <span class="fill-line" style="min-width:70px"></span></p>
+<p>ج) سلّمتُ على المعلّمِ نفسِه. ← المؤكَّد: <span class="fill-line" style="min-width:70px"></span> التوكيد: <span class="fill-line" style="min-width:70px"></span> الحركة: <span class="fill-line" style="min-width:70px"></span></p></div>
+</section>
+
+<div class="corrige-wrapper">
+<details class="corrige">
+<summary>اضغط لإظهار الحل / إخفائه — التصحيح الكامل</summary>
+
+<h5>النشاط التطبيقي</h5>
+<p>1) زارَنا الوزيرُ نفسُه (أو عينُه). 2) أكلتِ الكعكةَ كلَّها. 3) نجحَ الأصدقاءُ جميعُهم (أو كلُّهم). 4) جمل حرّة مثل: «الصدقَ الصدقَ» — «اِجتهدْ اِجتهدْ».</p>
+
+<h5>التمرين 1</h5>
+<p>تابعٌ – المؤكَّد (الكلمة المؤكَّدة). اللفظي والمعنوي. ألفاظ المعنوي: نفس، عين، كل، جميع، كلا، كلتا (يكفي ثلاثة).</p>
+
+<h5>التمرين 2</h5>
+<p>أ) نفسُه. &nbsp; ب) القصّةَ. &nbsp; ج) كلتا.</p>
+
+<h5>التمرين 3</h5>
+<p>1) صحيح. 2) خطأ — الصواب: كلاهما (للمثنى المذكر). 3) صحيح. 4) خطأ — توكيد لفظي لأنه تكرار اللفظ. 5) خطأ — الصواب: جميعَهم (منصوب لأن المؤكَّد «التلاميذَ» منصوب).</p>
+
+<h5>التمرين 4</h5>
+<p>أ ← 4 (جاءَ الأخوانِ كلاهما) &nbsp; ب ← 3 (حضرتِ الأختانِ كلتاهما) &nbsp; ج ← 2 (نجحَ الطلابُ جميعُهم) &nbsp; د ← 1 (رأيتُ الأميرَ نفسَه).</p>
+
+<h5>التمرين 5</h5>
+<p>أ) كلاهما &nbsp; ب) كلتاهما &nbsp; ج) كلَّه &nbsp; د) جميعُهم (أو كلُّهم) &nbsp; هـ) نفسَه (أو عينَه) &nbsp; و) نفسِه (أو عينِه).</p>
+
+<h5>التمرين 6</h5>
+<p>لفظي: «اِنتَبِهْ اِنتَبِهْ» و«المجتهدُ المجتهدُ ينجحُ». — معنوي: «حضرَ المديرُ نفسُه» و«نجحَ التلاميذُ كلُّهم» و«فازَ الفريقانِ كلاهما».</p>
+
+<h5>التمرين 7</h5>
+<p>أ) جاءَ جاءَ الضيفُ (أو: جاءَ الضيفُ الضيفُ). ب) سافرَ المسافرونَ جميعُهم. ج) قرأتُ المجلّةَ كلَّها.</p>
+
+<h5>التمرين 8</h5>
+<p>أ) المؤكَّد: المديرُ — التوكيد: نفسُه — مرفوع (ضمة) تبعًا للمؤكَّد المرفوع (فاعل).</p>
+<p>ب) المؤكَّد: الطلابَ — التوكيد: جميعَهم — منصوب (فتحة) تبعًا للمؤكَّد المنصوب (مفعول به).</p>
+<p>ج) المؤكَّد: المعلّمِ — التوكيد: نفسِه — مجرور (كسرة) تبعًا للمؤكَّد المجرور بحرف الجر.</p>
+</details>
+</div>
+
+<p class="footer-note">فيشة تعلّم ذاتي – اللغة العربية – بالتوفيق 🌟</p>
+</div>
+</body>
+</html>
