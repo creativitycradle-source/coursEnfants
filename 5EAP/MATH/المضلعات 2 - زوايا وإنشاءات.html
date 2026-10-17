@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>المضلعات 2 – فيشة تعلّم ذاتي</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Naskh+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1c2b3a;--ink-soft:#4d5f70;--paper:#f7f9fb;--panel:#fff;--line:#c9d6e0;
+--blue:#2f5f8a;--blue-soft:#e2ecf3;--orange:#e07b39;--orange-soft:#fbe8d8;--green:#3a8f6b;--green-soft:#e1f2ea;}
+*{box-sizing:border-box}
+body{margin:0;background:#e6ecf1;font-family:'Noto Naskh Arabic','Amiri',serif;color:var(--ink);line-height:1.9;font-size:17px}
+.sheet{max-width:900px;margin:18px auto;padding:26px 30px;border-radius:14px;box-shadow:0 4px 18px rgba(0,0,0,.1);
+background:repeating-linear-gradient(0deg,transparent 0 27px,rgba(47,95,138,.06) 27px 28px),repeating-linear-gradient(90deg,transparent 0 27px,rgba(47,95,138,.06) 27px 28px),var(--paper)}
+.masthead{display:flex;align-items:center;gap:18px;background:linear-gradient(135deg,var(--blue),#4a82b0);color:#fff;border-radius:14px;padding:18px 22px}
+.masthead h1{font-family:'Amiri',serif;font-size:1.9rem;margin:0;line-height:1.35}
+.masthead p{margin:4px 0 0;opacity:.92}
+.meta-row{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.chip{background:var(--panel);border:1.5px solid var(--line);border-radius:20px;padding:2px 14px;font-size:.92rem}
+.chip b{color:var(--blue)}
+section{margin:20px 0}
+h2{font-family:'Amiri',serif;font-size:1.5rem;color:var(--blue);border-bottom:3px solid var(--orange);display:inline-block;margin:0 0 10px;padding-bottom:2px}
+h3{color:var(--green);margin:14px 0 4px;font-size:1.12rem}
+.box{background:var(--panel);border:1.5px solid var(--line);border-radius:12px;padding:12px 18px;margin:10px 0}
+.objectif-box{background:var(--green-soft);border-color:var(--green)}
+.rule-box{background:var(--orange-soft);border-right:6px solid var(--orange);border-radius:10px;padding:10px 16px;margin:10px 0}
+.worked-example{background:var(--blue-soft);border:1.5px solid var(--blue);border-radius:12px;padding:10px 18px;margin:10px 0}
+.worked-example .tag{display:inline-block;background:var(--blue);color:#fff;border-radius:8px;padding:0 10px;font-size:.88rem;margin-bottom:4px}
+.num{direction:ltr;unicode-bidi:isolate;display:inline-block;font-weight:700;color:var(--blue)}
+table.data-table{width:100%;border-collapse:collapse;margin:10px 0;background:#fff}
+.data-table th,.data-table td{border:1.5px solid var(--line);padding:6px 8px;text-align:center}
+.data-table th{background:var(--blue);color:#fff;font-weight:600}
+.activity-box{background:var(--green-soft);border:2px dashed var(--green);border-radius:12px;padding:12px 18px}
+.task-label{display:inline-block;background:var(--green);color:#fff;border-radius:8px;padding:0 10px;margin-left:6px;font-size:.9rem}
+.exercise{background:var(--panel);border:1.5px solid var(--line);border-radius:12px;padding:10px 18px 12px;margin:12px 0;page-break-inside:avoid}
+.exercise-num{display:inline-flex;width:30px;height:30px;border-radius:50%;background:var(--orange);color:#fff;align-items:center;justify-content:center;font-weight:700;margin-left:8px}
+.exercise h4{margin:0 0 6px;font-size:1.05rem;color:var(--blue)}
+.fill-line{display:inline-block;min-width:90px;border-bottom:2px dotted var(--ink-soft)}
+.fill-line.sm{min-width:48px}
+.sq{display:inline-block;width:24px;height:24px;border:2px solid var(--blue);border-radius:5px;vertical-align:middle;margin:0 6px}
+.lines{border-bottom:2px dotted var(--ink-soft);height:26px;margin:4px 0}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:4px 18px}
+.match-cols{display:flex;justify-content:space-between;gap:30px}.match-cols div{flex:1}
+.match-cols p{margin:4px 0;background:var(--blue-soft);border-radius:8px;padding:2px 12px}
+.order-list p{margin:3px 0;background:var(--orange-soft);border-radius:8px;padding:2px 12px}
+.tf-item{margin:4px 0}
+.corrige-wrapper{page-break-before:always;margin-top:26px}
+details.corrige{border:2px solid var(--blue);border-radius:12px;background:#fff;padding:8px 18px}
+details.corrige summary{cursor:pointer;font-family:'Amiri',serif;font-size:1.25rem;color:var(--blue);font-weight:700}
+.corrige h5{margin:12px 0 2px;color:var(--orange);font-size:1.02rem}
+.corrige p{margin:2px 0}
+.footer-note{text-align:center;color:var(--ink-soft);font-size:.88rem;margin-top:18px}
+svg text{font-family:'Noto Naskh Arabic',sans-serif}
+.figs{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin:10px 0}
+.fig{text-align:center;font-size:.9rem;color:var(--ink-soft)}
+@page{size:A4;margin:13mm}
+@media print{body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}.sheet{box-shadow:none;margin:0;max-width:none;padding:0}details.corrige:not([open]) > :not(summary){display:none}}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<header class="masthead">
+<svg width="70" height="62" viewBox="0 0 70 62" aria-hidden="true"><polygon points="35,6 64,54 6,54" fill="none" stroke="#fff" stroke-width="3"/><path d="M20,54 A15,15 0 0 1 24,44" fill="none" stroke="#f6b27e" stroke-width="3"/><path d="M28,16 A16,16 0 0 0 42,16" fill="none" stroke="#f6b27e" stroke-width="3"/></svg>
+<div><h1>المضلعات 2</h1><p>زوايا وإنشاءات</p></div>
+</header>
+
+<div class="meta-row">
+<span class="chip"><b>المستوى:</b> الخامسة ابتدائي (5AEP)</span>
+<span class="chip"><b>المادة:</b> الرياضيات — الهندسة</span>
+<span class="chip"><b>مدة الحصة:</b> ساعة</span>
+<span class="chip"><b>نوع الوثيقة:</b> فيشة تعلّم ذاتي</span>
+</div>
+
+<section>
+<h2>🎯 الهدف</h2>
+<div class="box objectif-box">في نهاية هذه الفيشة سأكون قادرًا على:
+<ul>
+<li>أن أتعرّف على أنواع الزوايا (حادّة، قائمة، منفرجة، مستقيمة) وأقيسها بالمنقلة؛</li>
+<li>أن أعرف أن مجموع زوايا المثلث هو <span class="num">180°</span> وأن مجموع زوايا الرباعي هو <span class="num">360°</span>، وأستعمل ذلك لإيجاد زاوية مجهولة؛</li>
+<li>أن أنشئ مثلثًا بمعرفة أطوال أضلاعه وقياس زاويته؛</li>
+<li>أن أنشئ مضلعًا منتظمًا باستعمال الدائرة والمنقلة.</li>
+</ul></div>
+</section>
+
+<section>
+<h2>📘 الدرس</h2>
+
+<h3>1) تذكير: المضلع وأنواع الزوايا</h3>
+<div class="rule-box">المضلع شكل مغلق مكوّن من أضلاع مستقيمة. للمضلع أضلاع وأرؤس وزوايا بعدد متساوٍ:
+المثلث (3) – الرباعي (4) – الخماسي (5) – السداسي (6).</div>
+<table class="data-table">
+<tr><th>نوع الزاوية</th><th>قياسها</th><th>مثال</th></tr>
+<tr><td>حادّة</td><td>أصغر من 90°</td><td><span class="num">45°</span></td></tr>
+<tr><td>قائمة</td><td>تساوي 90° بالضبط</td><td><span class="num">90°</span></td></tr>
+<tr><td>منفرجة</td><td>بين 90° و180°</td><td><span class="num">130°</span></td></tr>
+<tr><td>مستقيمة</td><td>تساوي 180°</td><td><span class="num">180°</span></td></tr>
+</table>
+
+<h3>2) قياس زاوية بالمنقلة</h3>
+<div class="rule-box"><b>الخطوات:</b> (1) أضع مركز المنقلة على رأس الزاوية. (2) أطابق الصفر مع أحد ضلعي الزاوية. (3) أقرأ القياس عند الضلع الآخر على نفس التدريج الذي يبدأ من الصفر.</div>
+
+<h3>3) مجموع زوايا المثلث</h3>
+<div class="rule-box"><b>مجموع زوايا أي مثلث يساوي <span class="num">180°</span>.</b><br>تجربة: أقصّ زوايا مثلث ورقي الثلاث وأضعها جنبًا إلى جنب، فتكوّن زاوية مستقيمة (180°).</div>
+<div class="worked-example"><span class="tag">مثال محلول</span><br>
+مثلث ABC فيه <span class="num">A = 50°</span> و<span class="num">B = 70°</span>. أحسب C:<br>
+<span class="num">50 + 70 = 120</span> ثم <span class="num">180 − 120 = 60</span> ← <span class="num">C = 60°</span>.</div>
+<div class="worked-example"><span class="tag">حالات خاصة</span><br>
+• المثلث القائم الزاوية: زاوية قائمة (90°) والزاويتان الأخريان مجموعهما 90°.<br>
+• المثلث المتساوي الساقين: زاويتا القاعدة متساويتان.<br>
+• المثلث المتساوي الأضلاع: زواياه الثلاث متساوية، كل واحدة <span class="num">60°</span> (لأن 180 ÷ 3 = 60).</div>
+
+<h3>4) مجموع زوايا الرباعي</h3>
+<div class="rule-box"><b>مجموع زوايا أي رباعي يساوي <span class="num">360°</span>.</b><br>السبب: القطر يقسم الرباعي إلى مثلثين، ومجموع زوايا كل مثلث 180°، إذن <span class="num">180 × 2 = 360</span>.<br>في المربع والمستطيل: الزوايا الأربع قائمة <span class="num">4 × 90 = 360</span>.</div>
+<div class="worked-example"><span class="tag">مثال محلول</span><br>
+رباعي ABCD فيه <span class="num">A = 80°</span> و<span class="num">B = 100°</span> و<span class="num">C = 120°</span>.<br>
+<span class="num">80 + 100 + 120 = 300</span> ثم <span class="num">360 − 300 = 60</span> ← <span class="num">D = 60°</span>.</div>
+<div class="figs">
+<div class="fig"><svg width="170" height="120" viewBox="0 0 170 120"><polygon points="85,10 160,105 10,105" fill="#e2ecf3" stroke="#2f5f8a" stroke-width="2.5"/><text x="85" y="8" font-size="13" text-anchor="middle" fill="#1c2b3a" dy="-1">A</text><text x="4" y="115" font-size="13" fill="#1c2b3a">B</text><text x="160" y="115" font-size="13" fill="#1c2b3a">C</text></svg><br>مثلث: مجموع زواياه 180°</div>
+<div class="fig"><svg width="170" height="120" viewBox="0 0 170 120"><polygon points="20,20 150,20 160,100 10,100" fill="#fbe8d8" stroke="#e07b39" stroke-width="2.5"/><line x1="20" y1="20" x2="160" y2="100" stroke="#e07b39" stroke-dasharray="5 4"/></svg><br>رباعي: مثلثان، إذن 360°</div>
+</div>
+
+<h3>5) المضلع المنتظم</h3>
+<div class="rule-box">المضلع المنتظم له <b>أضلاع متساوية وزوايا متساوية</b>. نُنشئه داخل دائرة بتقسيم الزاوية الكاملة (<span class="num">360°</span>) إلى أجزاء متساوية عدد الأضلاع.<br>
+<b>الزاوية المركزية = 360° ÷ عدد الأضلاع.</b></div>
+<table class="data-table">
+<tr><th>المضلع المنتظم</th><th>عدد الأضلاع</th><th>الزاوية المركزية</th></tr>
+<tr><td>مثلث متساوي الأضلاع</td><td>3</td><td><span class="num">360 ÷ 3 = 120°</span></td></tr>
+<tr><td>مربع</td><td>4</td><td><span class="num">360 ÷ 4 = 90°</span></td></tr>
+<tr><td>خماسي منتظم</td><td>5</td><td><span class="num">360 ÷ 5 = 72°</span></td></tr>
+<tr><td>سداسي منتظم</td><td>6</td><td><span class="num">360 ÷ 6 = 60°</span></td></tr>
+</table>
+<div style="text-align:center"><svg width="190" height="190" viewBox="0 0 190 190" role="img" aria-label="خماسي منتظم داخل دائرة"><circle cx="95" cy="95" r="80" fill="none" stroke="#c9d6e0" stroke-width="2"/><polygon points="95,15 171,70 142,160 48,160 19,70" fill="#e1f2ea" stroke="#3a8f6b" stroke-width="2.5"/><g stroke="#2f5f8a" stroke-dasharray="4 3"><line x1="95" y1="95" x2="95" y2="15"/><line x1="95" y1="95" x2="171" y2="70"/><line x1="95" y1="95" x2="142" y2="160"/><line x1="95" y1="95" x2="48" y2="160"/><line x1="95" y1="95" x2="19" y2="70"/></g><circle cx="95" cy="95" r="3" fill="#e07b39"/><text x="95" y="82" font-size="13" fill="#e07b39" text-anchor="middle" font-weight="700">72°</text></svg><div class="fig">خماسي منتظم: 5 زوايا مركزية، كل منها 72°</div></div>
+
+<h3>6) إنشاءات هندسية</h3>
+<div class="worked-example"><span class="tag">إنشاء مثلث بمعرفة ضلعين والزاوية بينهما</span><br>
+مثلث ABC حيث <span class="num">AB = 6 cm</span>، <span class="num">AC = 5 cm</span>، <span class="num">A = 50°</span>:<br>
+1) أرسم القطعة [AB] طولها 6 سم.<br>
+2) أضع المنقلة في A وأعلّم نقطة عند 50° ثم أرسم نصف مستقيم [Ax).<br>
+3) على [Ax) أحدّد C بالمسطرة حيث AC = 5 سم.<br>
+4) أرسم [BC] فيكتمل المثلث.</div>
+<div class="worked-example"><span class="tag">إنشاء سداسي منتظم</span><br>
+1) أرسم دائرة مركزها O وشعاعها 3 سم.<br>
+2) أختار نقطة A على الدائرة.<br>
+3) من O أقيس زاوية 60° فأحصل على نقطة B على الدائرة، ثم أكرّر (60° كل مرة) لأحصل على C وD وE وF.<br>
+4) أصل النقط بالتتابع: ABCDEF.<br>
+<b>ملاحظة:</b> في السداسي المنتظم طول الضلع يساوي طول شعاع الدائرة (3 سم).</div>
+</section>
+
+<section>
+<h2>✏️ نشاط تطبيقي: ورقة النجمة والتقطيع</h2>
+<div class="activity-box">
+<p>أحتاج إلى ورقة، مقص، مسطرة، منقلة، فرجار.</p>
+<p><span class="task-label">المهمة 1</span> أرسم مثلثًا كيفيًا على ورقة، أقيس زواياه الثلاث بالمنقلة وأكتب: A = <span class="fill-line sm"></span> ، B = <span class="fill-line sm"></span> ، C = <span class="fill-line sm"></span> ، المجموع = <span class="fill-line sm"></span></p>
+<p><span class="task-label">المهمة 2</span> أقصّ المثلث وأقصّ زواياه الثلاث وأضعها جنبًا إلى جنب رؤوسها متلاصقة. ماذا ألاحظ؟ <span class="fill-line" style="min-width:200px"></span></p>
+<p><span class="task-label">المهمة 3</span> أرسم رباعيًا كيفيًا وأقيس زواياه الأربع وأحسب مجموعها: <span class="fill-line"></span></p>
+<p><span class="task-label">المهمة 4</span> أنشئ بالفرجار والمنقلة خماسيًا منتظمًا داخل دائرة شعاعها 4 سم (زاوية مركزية 72°)، ثم ألوّنه.</p>
+</div>
+</section>
+
+<section>
+<h2>📝 تمارين للتدرّب</h2>
+
+<div class="exercise"><h4><span class="exercise-num">1</span>أصنّف الزوايا</h4>
+أكتب نوع كل زاوية (حادة / قائمة / منفرجة / مستقيمة):
+<div class="grid2">
+<p><span class="num">35°</span> : <span class="fill-line"></span></p><p><span class="num">90°</span> : <span class="fill-line"></span></p>
+<p><span class="num">120°</span> : <span class="fill-line"></span></p><p><span class="num">180°</span> : <span class="fill-line"></span></p>
+<p><span class="num">75°</span> : <span class="fill-line"></span></p><p><span class="num">160°</span> : <span class="fill-line"></span></p></div></div>
+
+<div class="exercise"><h4><span class="exercise-num">2</span>أحسب الزاوية الثالثة في المثلث</h4>
+<div class="grid2">
+<p>A = 50° ، B = 70° ← C = <span class="fill-line sm"></span></p>
+<p>A = 90° ، B = 35° ← C = <span class="fill-line sm"></span></p>
+<p>A = 62° ، B = 48° ← C = <span class="fill-line sm"></span></p>
+<p>A = 100° ، B = 25° ← C = <span class="fill-line sm"></span></p></div></div>
+
+<div class="exercise"><h4><span class="exercise-num">3</span>أحسب الزاوية الرابعة في الرباعي</h4>
+<div class="grid2">
+<p>90° ، 90° ، 110° ← <span class="fill-line sm"></span></p>
+<p>80° ، 100° ، 120° ← <span class="fill-line sm"></span></p>
+<p>75° ، 105° ، 95° ← <span class="fill-line sm"></span></p>
+<p>90° ، 90° ، 90° ← <span class="fill-line sm"></span></p></div></div>
+
+<div class="exercise"><h4><span class="exercise-num">4</span>صحيح أم خطأ؟ (أصحّح الخطأ)</h4>
+<p class="tf-item">1) مجموع زوايا المثلث 360°. <span class="sq"></span> <span class="fill-line"></span></p>
+<p class="tf-item">2) يمكن لمثلث أن تكون فيه زاويتان قائمتان. <span class="sq"></span> <span class="fill-line"></span></p>
+<p class="tf-item">3) في المربع الزوايا الأربع قائمة. <span class="sq"></span></p>
+<p class="tf-item">4) الخماسي له أربعة أضلاع. <span class="sq"></span> <span class="fill-line"></span></p>
+<p class="tf-item">5) الزاوية المركزية للسداسي المنتظم 60°. <span class="sq"></span></p></div>
+
+<div class="exercise"><h4><span class="exercise-num">5</span>أصل بسهم (مضلع منتظم ← زاويته المركزية)</h4>
+<div class="match-cols">
+<div><p>أ) مثلث متساوي الأضلاع</p><p>ب) مربع</p><p>ج) خماسي منتظم</p><p>د) سداسي منتظم</p></div>
+<div><p>1) 90°</p><p>2) 60°</p><p>3) 120°</p><p>4) 72°</p></div></div>
+أحسب الزاوية المركزية لمثمّن منتظم (8 أضلاع): <span class="fill-line"></span></div>
+
+<div class="exercise"><h4><span class="exercise-num">6</span>إنشاء مثلث</h4>
+أنشئ في دفتري المثلث DEF حيث <span class="num">DE = 7 cm</span> و<span class="num">DF = 4 cm</span> و<span class="num">D = 60°</span>.
+<p>أ) أكتب خطوات الإنشاء: <span class="fill-line" style="min-width:260px"></span></p><div class="lines"></div>
+<p>ب) أقيس الزاويتين E وF: E ≈ <span class="fill-line sm"></span> ، F ≈ <span class="fill-line sm"></span></p>
+<p>ج) أتحقق: مجموع الزوايا الثلاث = <span class="fill-line sm"></span></p></div>
+
+<div class="exercise"><h4><span class="exercise-num">7</span>أرتّب خطوات إنشاء سداسي منتظم</h4>
+أرقّم الخطوات من 1 إلى 5:
+<div class="order-list">
+<p><span class="sq"></span> أصل النقط بالتتابع لأحصل على السداسي.</p>
+<p><span class="sq"></span> أرسم دائرة مركزها O وشعاعها 3 سم.</p>
+<p><span class="sq"></span> أقيس من O زاوية 60° وأعلّم النقطة التالية على الدائرة، وأكرّر ذلك.</p>
+<p><span class="sq"></span> أقيس الزاوية المركزية: 360 ÷ 6.</p>
+<p><span class="sq"></span> أحدّد نقطة A على الدائرة.</p></div></div>
+
+<div class="exercise"><h4><span class="exercise-num">8</span>مسائل</h4>
+<p>أ) حديقة على شكل رباعي ABCD زواياها: <span class="num">A = 85°</span> و<span class="num">B = 95°</span> و<span class="num">C = 100°</span>. أحسب الزاوية D: <span class="fill-line"></span></p>
+<p>ب) مثلث متساوي الساقين رأسه A وقياس زاويته عند الرأس <span class="num">40°</span>. أحسب كل زاوية من زاويتي القاعدة: <span class="fill-line"></span></p>
+<p>ج) أرضية قاعة على شكل سداسي منتظم. ما قياس الزاوية المركزية لهذا السداسي؟ <span class="fill-line"></span></p></div>
+</section>
+
+<div class="corrige-wrapper">
+<details class="corrige">
+<summary>اضغط لإظهار الحل / إخفائه — التصحيح الكامل</summary>
+
+<h5>النشاط التطبيقي</h5>
+<p>المهمة 1: مجموع الزوايا ≈ 180° (قد يختلف بدرجة أو درجتين بسبب دقة القياس). المهمة 2: تكوّن الزوايا الثلاث معًا زاوية مستقيمة. المهمة 3: المجموع ≈ 360°. المهمة 4: الزاوية المركزية = 72°.</p>
+
+<h5>التمرين 1</h5>
+<p>35° حادة – 90° قائمة – 120° منفرجة – 180° مستقيمة – 75° حادة – 160° منفرجة.</p>
+
+<h5>التمرين 2</h5>
+<p><span class="num">180 − (50+70) = 60°</span> &nbsp;|&nbsp; <span class="num">180 − (90+35) = 55°</span> &nbsp;|&nbsp; <span class="num">180 − (62+48) = 70°</span> &nbsp;|&nbsp; <span class="num">180 − (100+25) = 55°</span></p>
+
+<h5>التمرين 3</h5>
+<p><span class="num">360 − (90+90+110) = 70°</span> &nbsp;|&nbsp; <span class="num">360 − 300 = 60°</span> &nbsp;|&nbsp; <span class="num">360 − (75+105+95) = 85°</span> &nbsp;|&nbsp; <span class="num">360 − 270 = 90°</span></p>
+
+<h5>التمرين 4</h5>
+<p>1) خطأ — المجموع 180°. 2) خطأ — مجموع زوايا المثلث 180° ولا يمكن أن يكون فيه 90° + 90° وزاوية ثالثة. 3) صحيح. 4) خطأ — الخماسي له 5 أضلاع. 5) صحيح.</p>
+
+<h5>التمرين 5</h5>
+<p>أ ← 3 (120°) &nbsp; ب ← 1 (90°) &nbsp; ج ← 4 (72°) &nbsp; د ← 2 (60°).<br>المثمّن المنتظم: <span class="num">360 ÷ 8 = 45°</span>.</p>
+
+<h5>التمرين 6</h5>
+<p>أ) أرسم [DE] = 7 سم، أضع المنقلة في D وأعلّم 60°، أرسم نصف المستقيم [Dx)، أحدّد F عليه حيث DF = 4 سم، ثم أرسم [EF].</p>
+<p>ب) تقريبًا: E ≈ 35° و F ≈ 85° (قد يختلف القياس قليلًا). ج) المجموع ≈ 180°.</p>
+
+<h5>التمرين 7</h5>
+<p>الترتيب: 1) أرسم دائرة مركزها O وشعاعها 3 سم. 2) أحسب الزاوية المركزية 360 ÷ 6 = 60°. 3) أحدّد نقطة A على الدائرة. 4) أقيس من O زاوية 60° وأكرّر. 5) أصل النقط بالتتابع.</p>
+<p>أي بحسب ترتيب الجمل في التمرين: الثانية = 1، الرابعة = 2، الخامسة = 3، الثالثة = 4، الأولى = 5.</p>
+
+<h5>التمرين 8</h5>
+<p>أ) <span class="num">85 + 95 + 100 = 280</span> ثم <span class="num">360 − 280 = 80°</span> ← D = 80°.</p>
+<p>ب) <span class="num">180 − 40 = 140</span> ثم <span class="num">140 ÷ 2 = 70°</span> ← كل زاوية من القاعدة 70°.</p>
+<p>ج) <span class="num">360 ÷ 6 = 60°</span>.</p>
+</details>
+</div>
+
+<p class="footer-note">فيشة تعلّم ذاتي – الرياضيات – بالتوفيق 🌟</p>
+</div>
+</body>
+</html>
