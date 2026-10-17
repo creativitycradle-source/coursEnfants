@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>الأعداد العشرية 1 – فيشة تعلّم ذاتي</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Naskh+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1c2b3a;--ink-soft:#4d5f70;--paper:#f7f9fb;--panel:#fff;--line:#c9d6e0;
+--blue:#2f5f8a;--blue-soft:#e2ecf3;--orange:#e07b39;--orange-soft:#fbe8d8;--green:#3a8f6b;--green-soft:#e1f2ea;}
+*{box-sizing:border-box}
+body{margin:0;background:#e6ecf1;font-family:'Noto Naskh Arabic','Amiri',serif;color:var(--ink);line-height:1.9;font-size:17px}
+.sheet{max-width:900px;margin:18px auto;padding:26px 30px;border-radius:14px;box-shadow:0 4px 18px rgba(0,0,0,.1);
+background:repeating-linear-gradient(0deg,transparent 0 27px,rgba(47,95,138,.06) 27px 28px),repeating-linear-gradient(90deg,transparent 0 27px,rgba(47,95,138,.06) 27px 28px),var(--paper)}
+.masthead{display:flex;align-items:center;gap:18px;background:linear-gradient(135deg,var(--blue),#4a82b0);color:#fff;border-radius:14px;padding:18px 22px}
+.masthead h1{font-family:'Amiri',serif;font-size:1.9rem;margin:0;line-height:1.35}
+.masthead p{margin:4px 0 0;opacity:.92}
+.meta-row{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.chip{background:var(--panel);border:1.5px solid var(--line);border-radius:20px;padding:2px 14px;font-size:.92rem}
+.chip b{color:var(--blue)}
+section{margin:20px 0}
+h2{font-family:'Amiri',serif;font-size:1.5rem;color:var(--blue);border-bottom:3px solid var(--orange);display:inline-block;margin:0 0 10px;padding-bottom:2px}
+h3{color:var(--green);margin:14px 0 4px;font-size:1.12rem}
+.box{background:var(--panel);border:1.5px solid var(--line);border-radius:12px;padding:12px 18px;margin:10px 0}
+.objectif-box{background:var(--green-soft);border-color:var(--green)}
+.rule-box{background:var(--orange-soft);border-right:6px solid var(--orange);border-radius:10px;padding:10px 16px;margin:10px 0}
+.worked-example{background:var(--blue-soft);border:1.5px solid var(--blue);border-radius:12px;padding:10px 18px;margin:10px 0}
+.worked-example .tag{display:inline-block;background:var(--blue);color:#fff;border-radius:8px;padding:0 10px;font-size:.88rem;margin-bottom:4px}
+.num{direction:ltr;unicode-bidi:isolate;display:inline-block;font-family:'Noto Naskh Arabic',monospace;font-weight:700;color:var(--blue)}
+table.data-table{width:100%;border-collapse:collapse;margin:10px 0;background:#fff}
+.data-table th,.data-table td{border:1.5px solid var(--line);padding:6px 8px;text-align:center}
+.data-table th{background:var(--blue);color:#fff;font-weight:600}
+.data-table th.dec{background:var(--orange)}
+.data-table td.comma{background:var(--orange-soft);font-weight:700;width:28px}
+.activity-box{background:var(--green-soft);border:2px dashed var(--green);border-radius:12px;padding:12px 18px}
+.task-label{display:inline-block;background:var(--green);color:#fff;border-radius:8px;padding:0 10px;margin-left:6px;font-size:.9rem}
+.exercise{background:var(--panel);border:1.5px solid var(--line);border-radius:12px;padding:10px 18px 12px;margin:12px 0;page-break-inside:avoid}
+.exercise-num{display:inline-flex;width:30px;height:30px;border-radius:50%;background:var(--orange);color:#fff;align-items:center;justify-content:center;font-weight:700;margin-left:8px}
+.exercise h4{margin:0 0 6px;font-size:1.05rem;color:var(--blue)}
+.fill-line{display:inline-block;min-width:90px;border-bottom:2px dotted var(--ink-soft)}
+.fill-line.sm{min-width:48px}
+.sq{display:inline-block;min-width:34px;height:28px;border:2px solid var(--blue);border-radius:6px;vertical-align:middle;margin:0 6px}
+.lines{border-bottom:2px dotted var(--ink-soft);height:26px;margin:4px 0}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:4px 18px}
+.word-chip{display:inline-block;background:var(--orange-soft);border:1.5px solid var(--orange);border-radius:16px;padding:0 12px;margin:3px}
+.corrige-wrapper{page-break-before:always;margin-top:26px}
+details.corrige{border:2px solid var(--blue);border-radius:12px;background:#fff;padding:8px 18px}
+details.corrige summary{cursor:pointer;font-family:'Amiri',serif;font-size:1.25rem;color:var(--blue);font-weight:700}
+.corrige h5{margin:12px 0 2px;color:var(--orange);font-size:1.02rem}
+.corrige p{margin:2px 0}
+.footer-note{text-align:center;color:var(--ink-soft);font-size:.88rem;margin-top:18px}
+svg text{font-family:'Noto Naskh Arabic',sans-serif}
+@page{size:A4;margin:13mm}
+@media print{body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}.sheet{box-shadow:none;margin:0;max-width:none;padding:0}details.corrige:not([open]) > :not(summary){display:none}}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<header class="masthead">
+<svg width="72" height="62" viewBox="0 0 72 62" aria-hidden="true"><line x1="4" y1="40" x2="68" y2="40" stroke="#fff" stroke-width="3"/><g stroke="#fff" stroke-width="2"><line x1="8" y1="34" x2="8" y2="46"/><line x1="24" y1="36" x2="24" y2="44"/><line x1="40" y1="36" x2="40" y2="44"/><line x1="56" y1="36" x2="56" y2="44"/><line x1="64" y1="34" x2="64" y2="46"/></g><circle cx="40" cy="22" r="6" fill="#f6b27e"/><text x="40" y="26" font-size="10" fill="#7a3b10" text-anchor="middle" font-weight="700">,</text></svg>
+<div><h1>الأعداد العشرية 1</h1><p>قراءة وكتابة ومقارنة وترتيب وتأطير</p></div>
+</header>
+
+<div class="meta-row">
+<span class="chip"><b>المستوى:</b> الخامسة ابتدائي (5AEP)</span>
+<span class="chip"><b>المادة:</b> الرياضيات — الأعداد والحساب</span>
+<span class="chip"><b>مدة الحصة:</b> ساعة</span>
+<span class="chip"><b>نوع الوثيقة:</b> فيشة تعلّم ذاتي</span>
+</div>
+
+<section>
+<h2>🎯 الهدف</h2>
+<div class="box objectif-box">في نهاية هذه الفيشة سأكون قادرًا على:
+<ul>
+<li>أن أحدّد قيمة كل رقم في عدد عشري (أعشار، أجزاء من مئة، أجزاء من ألف)؛</li>
+<li>أن أقرأ عددًا عشريًا وأكتبه بالأرقام وبالكسور العشرية؛</li>
+<li>أن أقارن عددين عشريين أو أكثر وأرتّبها ترتيبًا تصاعديًا وتنازليًا؛</li>
+<li>أن أؤطّر عددًا عشريًا بين عددين صحيحين متتاليين، أو بين عددين عشريين متتاليين.</li>
+</ul></div>
+</section>
+
+<section>
+<h2>📘 الدرس</h2>
+
+<h3>1) ما هو العدد العشري؟</h3>
+<div class="rule-box">العدد العشري يتكوّن من <b>جزء صحيح</b> و<b>جزء عشري</b> يفصل بينهما <b>فاصلة</b>. مثال: <span class="num">12,375</span> ← الجزء الصحيح <span class="num">12</span> والجزء العشري <span class="num">375</span>.</div>
+
+<h3>2) جدول قيمة الأرقام</h3>
+<table class="data-table">
+<tr><th>مئات</th><th>عشرات</th><th>آحاد</th><th></th><th class="dec">أعشار<br>1/10</th><th class="dec">أجزاء من مئة<br>1/100</th><th class="dec">أجزاء من ألف<br>1/1000</th></tr>
+<tr><td>&nbsp;</td><td>1</td><td>2</td><td class="comma">,</td><td>3</td><td>7</td><td>5</td></tr>
+</table>
+<div class="worked-example"><span class="tag">مثال محلول</span><br>
+<span class="num">12,375</span> = 12 + <span class="num">3/10</span> + <span class="num">7/100</span> + <span class="num">5/1000</span><br>
+نقرؤه: «اثنا عشر وثلاثمائة وخمسة وسبعون جزءًا من ألف».<br>
+رقم 3 هو رقم الأعشار، رقم 7 هو رقم الأجزاء من مئة، رقم 5 هو رقم الأجزاء من ألف.</div>
+
+<h3>3) الكسر العشري والعدد العشري</h3>
+<div class="rule-box">الكسر العشري مقامه 10 أو 100 أو 1000... ويمكن كتابته على شكل عدد عشري:<br>
+<span class="num">47/10 = 4,7</span> &nbsp; <span class="num">347/100 = 3,47</span> &nbsp; <span class="num">5/1000 = 0,005</span> &nbsp; <span class="num">3/10 = 0,3</span></div>
+<div class="rule-box"><b>أصفار الجهة اليمنى:</b> لا تغيّر قيمة العدد العشري: <span class="num">3,5 = 3,50 = 3,500</span>.</div>
+
+<h3>4) مقارنة الأعداد العشرية</h3>
+<div class="rule-box"><b>الخطوة 1:</b> أقارن الجزأين الصحيحين، فالأكبر جزؤه الصحيح أكبر.<br>
+<b>الخطوة 2:</b> إذا تساوى الجزآن الصحيحان أقارن الأعشار، ثم الأجزاء من مئة، ثم الأجزاء من ألف... (يمكن إضافة أصفار لتساوي عدد الأرقام العشرية).</div>
+<div class="worked-example"><span class="tag">مثال محلول</span><br>
+<span class="num">4,5</span> و<span class="num">4,05</span>: الجزآن الصحيحان متساويان (4)، الأعشار: 5 أكبر من 0، إذن <span class="num">4,5 &gt; 4,05</span>.<br>
+<span class="num">2,7</span> و<span class="num">2,68</span>: نكتب <span class="num">2,70</span> و<span class="num">2,68</span> ← <span class="num">2,70 &gt; 2,68</span>.<br>
+<b>انتبه:</b> <span class="num">2,5 &gt; 2,15</span> رغم أن 15 أكبر من 5 !</div>
+
+<h3>5) الترتيب</h3>
+<div class="rule-box">الترتيب <b>التصاعدي</b>: من الأصغر إلى الأكبر (&lt;). الترتيب <b>التنازلي</b>: من الأكبر إلى الأصغر (&gt;).<br>
+مثال: <span class="num">0,9 &lt; 1,05 &lt; 1,5 &lt; 1,55</span></div>
+
+<h3>6) التأطير</h3>
+<div class="rule-box"><b>تأطير عدد عشري</b> هو كتابته بين عددين متتاليين.<br>
+• بين عددين صحيحين متتاليين: <span class="num">3 &lt; 3,47 &lt; 4</span><br>
+• بين عددين عشريين متتاليين بأعشار: <span class="num">3,4 &lt; 3,47 &lt; 3,5</span><br>
+• بأجزاء من مئة: <span class="num">3,47 &lt; 3,472 &lt; 3,48</span></div>
+<div style="text-align:center"><svg viewBox="0 0 560 90" width="560" style="max-width:100%;height:auto" role="img" aria-label="مستقيم مدرّج بين 3 و4">
+<line x1="30" y1="50" x2="530" y2="50" stroke="#2f5f8a" stroke-width="3"/>
+<g stroke="#2f5f8a" stroke-width="2">
+<line x1="40" y1="40" x2="40" y2="60"/><line x1="90" y1="44" x2="90" y2="56"/><line x1="140" y1="44" x2="140" y2="56"/><line x1="190" y1="44" x2="190" y2="56"/><line x1="240" y1="44" x2="240" y2="56"/><line x1="290" y1="44" x2="290" y2="56"/><line x1="340" y1="44" x2="340" y2="56"/><line x1="390" y1="44" x2="390" y2="56"/><line x1="440" y1="44" x2="440" y2="56"/><line x1="490" y1="44" x2="490" y2="56"/><line x1="540" y1="40" x2="540" y2="60"/></g>
+<text x="40" y="82" font-size="16" text-anchor="middle" fill="#1c2b3a">3</text>
+<text x="540" y="82" font-size="16" text-anchor="middle" fill="#1c2b3a">4</text>
+<text x="190" y="82" font-size="13" text-anchor="middle" fill="#4d5f70">3,3</text>
+<text x="240" y="82" font-size="13" text-anchor="middle" fill="#4d5f70">3,4</text>
+<text x="290" y="82" font-size="13" text-anchor="middle" fill="#4d5f70">3,5</text>
+<circle cx="263" cy="50" r="6" fill="#e07b39"/><text x="263" y="30" font-size="14" text-anchor="middle" fill="#e07b39" font-weight="700">3,47</text>
+</svg>
+<div style="font-size:.85rem;color:var(--ink-soft)">المستقيم مقسّم إلى 10 أجزاء متساوية، كل جزء = 0,1. الصورة للتوضيح فقط.</div></div>
+</section>
+
+<section>
+<h2>✏️ نشاط تطبيقي: أقيس وأرتّب</h2>
+<div class="activity-box">
+<p>أحتاج إلى مسطرة مدرّجة بالسنتيمتر والمليمتر وثلاثة أشياء (قلم، ممحاة، مفتاح...).</p>
+<p><span class="task-label">المهمة 1</span> أقيس طول كل شيء بالسنتيمتر، وأكتب القياس عددًا عشريًا (كل 1 مم = 0,1 سم). مثال: 13 سم و7 مم = <span class="num">13,7</span> سم.</p>
+<table class="data-table"><tr><th>الشيء</th><th>القياس بـ سم و مم</th><th>الكتابة العشرية</th></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr></table>
+<p><span class="task-label">المهمة 2</span> أرتّب الأشياء الثلاثة من الأقصر إلى الأطول: <span class="fill-line"></span> &lt; <span class="fill-line"></span> &lt; <span class="fill-line"></span></p>
+<p><span class="task-label">المهمة 3</span> أؤطّر طول أطول شيء بين عددين صحيحين متتاليين: <span class="fill-line sm"></span> &lt; <span class="fill-line sm"></span> &lt; <span class="fill-line sm"></span></p>
+</div>
+</section>
+
+<section>
+<h2>📝 تمارين للتدرّب</h2>
+
+<div class="exercise"><h4><span class="exercise-num">1</span>قيمة الرقم</h4>
+في العدد <span class="num">482,365</span> أكتب اسم رتبة كل رقم:
+<div class="grid2">
+<p>رقم 3 هو رقم: <span class="fill-line"></span></p>
+<p>رقم 6 هو رقم: <span class="fill-line"></span></p>
+<p>رقم 5 هو رقم: <span class="fill-line"></span></p>
+<p>رقم 2 هو رقم: <span class="fill-line"></span></p></div></div>
+
+<div class="exercise"><h4><span class="exercise-num">2</span>أكتب بالأرقام</h4>
+<div class="grid2">
+<p>7 + 3/10 + 5/100 = <span class="fill-line"></span></p>
+<p>4 آحاد و8 أجزاء من مئة = <span class="fill-line"></span></p>
+<p>ستة وخمسة أجزاء من عشرة = <span class="fill-line"></span></p>
+<p>25 + 4/1000 = <span class="fill-line"></span></p></div></div>
+
+<div class="exercise"><h4><span class="exercise-num">3</span>كسر عشري ↔ عدد عشري</h4>
+أحوّل: <span class="num">56/10</span> = <span class="fill-line sm"></span> &nbsp; <span class="num">207/100</span> = <span class="fill-line sm"></span> &nbsp; <span class="num">9/1000</span> = <span class="fill-line sm"></span><br>
+أكتب على شكل كسر عشري: <span class="num">0,3</span> = <span class="fill-line sm"></span> &nbsp; <span class="num">12,45</span> = <span class="fill-line sm"></span> &nbsp; <span class="num">0,071</span> = <span class="fill-line sm"></span></div>
+
+<div class="exercise"><h4><span class="exercise-num">4</span>أقارن بـ &gt; أو &lt; أو =</h4>
+<div class="grid2">
+<p><span class="num">4,5</span> <span class="sq"></span> <span class="num">4,05</span></p>
+<p><span class="num">12,30</span> <span class="sq"></span> <span class="num">12,3</span></p>
+<p><span class="num">0,9</span> <span class="sq"></span> <span class="num">0,89</span></p>
+<p><span class="num">7,01</span> <span class="sq"></span> <span class="num">7,1</span></p>
+<p><span class="num">3,456</span> <span class="sq"></span> <span class="num">3,465</span></p>
+<p><span class="num">15,2</span> <span class="sq"></span> <span class="num">15,20</span></p></div></div>
+
+<div class="exercise"><h4><span class="exercise-num">5</span>أرتّب</h4>
+أ) ترتيبًا تصاعديًا: <span class="word-chip num">2,5</span><span class="word-chip num">2,05</span><span class="word-chip num">2,55</span><span class="word-chip num">2,505</span><span class="word-chip num">2,15</span>
+<div class="lines"></div>
+ب) ترتيبًا تنازليًا: <span class="word-chip num">9,9</span><span class="word-chip num">9,09</span><span class="word-chip num">10,1</span><span class="word-chip num">9,19</span><span class="word-chip num">9,91</span>
+<div class="lines"></div></div>
+
+<div class="exercise"><h4><span class="exercise-num">6</span>أؤطّر</h4>
+<p>أ) بين عددين صحيحين متتاليين: <span class="fill-line sm"></span> &lt; <span class="num">7,86</span> &lt; <span class="fill-line sm"></span> &nbsp;&nbsp; <span class="fill-line sm"></span> &lt; <span class="num">129,4</span> &lt; <span class="fill-line sm"></span></p>
+<p>ب) بين عددين عشريين متتاليين بأعشار: <span class="fill-line sm"></span> &lt; <span class="num">3,47</span> &lt; <span class="fill-line sm"></span> &nbsp;&nbsp; <span class="fill-line sm"></span> &lt; <span class="num">5,99</span> &lt; <span class="fill-line sm"></span></p>
+<p>ج) بأجزاء من مئة: <span class="fill-line sm"></span> &lt; <span class="num">4,376</span> &lt; <span class="fill-line sm"></span></p></div>
+
+<div class="exercise"><h4><span class="exercise-num">7</span>على المستقيم المدرّج</h4>
+<div style="text-align:center"><svg viewBox="0 0 600 100" width="600" style="max-width:100%;height:auto" role="img" aria-label="مستقيم مدرّج بين 2 و3">
+<line x1="30" y1="60" x2="570" y2="60" stroke="#2f5f8a" stroke-width="3"/>
+<g stroke="#2f5f8a" stroke-width="2">
+<line x1="50" y1="50" x2="50" y2="70"/><line x1="100" y1="54" x2="100" y2="66"/><line x1="150" y1="54" x2="150" y2="66"/><line x1="200" y1="54" x2="200" y2="66"/><line x1="250" y1="54" x2="250" y2="66"/><line x1="300" y1="54" x2="300" y2="66"/><line x1="350" y1="54" x2="350" y2="66"/><line x1="400" y1="54" x2="400" y2="66"/><line x1="450" y1="54" x2="450" y2="66"/><line x1="500" y1="54" x2="500" y2="66"/><line x1="550" y1="50" x2="550" y2="70"/></g>
+<text x="50" y="92" font-size="16" text-anchor="middle">2</text><text x="550" y="92" font-size="16" text-anchor="middle">3</text>
+<circle cx="150" cy="60" r="6" fill="#e07b39"/><text x="150" y="38" font-size="16" text-anchor="middle" font-weight="700" fill="#e07b39">A</text>
+<circle cx="300" cy="60" r="6" fill="#e07b39"/><text x="300" y="38" font-size="16" text-anchor="middle" font-weight="700" fill="#e07b39">B</text>
+<circle cx="450" cy="60" r="6" fill="#e07b39"/><text x="450" y="38" font-size="16" text-anchor="middle" font-weight="700" fill="#e07b39">C</text>
+</svg></div>
+<p>1) كل جزء من المستقيم يساوي: <span class="fill-line sm"></span></p>
+<p>2) أقرأ فواصل النقط: A = <span class="fill-line sm"></span> &nbsp; B = <span class="fill-line sm"></span> &nbsp; C = <span class="fill-line sm"></span></p>
+<p>3) أضع على المستقيم النقطتين D(<span class="num">2,4</span>) وE(<span class="num">2,9</span>).</p></div>
+
+<div class="exercise"><h4><span class="exercise-num">8</span>مسألة: سباق 100 متر</h4>
+سجّل ثلاثة أصدقاء الأزمنة التالية: سارة <span class="num">12,35</span> ث، عمر <span class="num">12,5</span> ث، ياسين <span class="num">12,305</span> ث.
+<p>1) أرتّب الأزمنة تصاعديًا: <span class="fill-line"></span></p>
+<p>2) من فاز بالسباق (أقل زمن)؟ <span class="fill-line"></span></p>
+<p>3) أؤطّر زمن سارة بين عددين صحيحين متتاليين: <span class="fill-line sm"></span> &lt; <span class="num">12,35</span> &lt; <span class="fill-line sm"></span></p>
+<p>4) أشرح لماذا <span class="num">12,5</span> أكبر من <span class="num">12,35</span> رغم أن 35 أكبر من 5.</p><div class="lines"></div></div>
+</section>
+
+<div class="corrige-wrapper">
+<details class="corrige">
+<summary>اضغط لإظهار الحل / إخفائه — التصحيح الكامل</summary>
+
+<h5>النشاط التطبيقي</h5>
+<p>الإجابات تختلف حسب الأشياء المقاسة. مثال: قلم 14 سم و5 مم = <span class="num">14,5</span> سم. الترتيب من الأصغر قيمة إلى الأكبر. والتأطير مثل <span class="num">14 &lt; 14,5 &lt; 15</span>.</p>
+
+<h5>التمرين 1</h5>
+<p>3 ← الأعشار. &nbsp; 6 ← الأجزاء من مئة. &nbsp; 5 ← الأجزاء من ألف. &nbsp; 2 ← الآحاد (في الجزء الصحيح 482: 4 مئات و8 عشرات و2 آحاد).</p>
+
+<h5>التمرين 2</h5>
+<p><span class="num">7,35</span> &nbsp;|&nbsp; <span class="num">4,08</span> &nbsp;|&nbsp; <span class="num">6,5</span> &nbsp;|&nbsp; <span class="num">25,004</span></p>
+
+<h5>التمرين 3</h5>
+<p><span class="num">56/10 = 5,6</span> &nbsp; <span class="num">207/100 = 2,07</span> &nbsp; <span class="num">9/1000 = 0,009</span></p>
+<p><span class="num">0,3 = 3/10</span> &nbsp; <span class="num">12,45 = 1245/100</span> &nbsp; <span class="num">0,071 = 71/1000</span></p>
+
+<h5>التمرين 4</h5>
+<p><span class="num">4,5 &gt; 4,05</span> &nbsp; <span class="num">12,30 = 12,3</span> &nbsp; <span class="num">0,9 &gt; 0,89</span> &nbsp; <span class="num">7,01 &lt; 7,1</span> &nbsp; <span class="num">3,456 &lt; 3,465</span> &nbsp; <span class="num">15,2 = 15,20</span></p>
+
+<h5>التمرين 5</h5>
+<p>أ) <span class="num">2,05 &lt; 2,15 &lt; 2,5 &lt; 2,505 &lt; 2,55</span></p>
+<p>ب) <span class="num">10,1 &gt; 9,91 &gt; 9,9 &gt; 9,19 &gt; 9,09</span></p>
+
+<h5>التمرين 6</h5>
+<p>أ) <span class="num">7 &lt; 7,86 &lt; 8</span> &nbsp; <span class="num">129 &lt; 129,4 &lt; 130</span></p>
+<p>ب) <span class="num">3,4 &lt; 3,47 &lt; 3,5</span> &nbsp; <span class="num">5,9 &lt; 5,99 &lt; 6,0</span></p>
+<p>ج) <span class="num">4,37 &lt; 4,376 &lt; 4,38</span></p>
+
+<h5>التمرين 7</h5>
+<p>1) كل جزء = <span class="num">0,1</span> (من 2 إلى 3 عشرة أجزاء).</p>
+<p>2) A = <span class="num">2,2</span> &nbsp; B = <span class="num">2,5</span> &nbsp; C = <span class="num">2,8</span></p>
+<p>3) D عند الخط الرابع بعد 2، وE عند الخط التاسع بعد 2 (أي قبل 3 بخط واحد).</p>
+
+<h5>التمرين 8</h5>
+<p>1) <span class="num">12,305 &lt; 12,35 &lt; 12,5</span></p>
+<p>2) فاز ياسين لأن زمنه الأقل (<span class="num">12,305</span> ث).</p>
+<p>3) <span class="num">12 &lt; 12,35 &lt; 13</span></p>
+<p>4) <span class="num">12,5 = 12,50</span> وهو أكبر من <span class="num">12,35</span> لأن عدد الأعشار 5 أكبر من 3. نقارن الرتب من اليسار ولا نقارن عدد الأرقام.</p>
+</details>
+</div>
+
+<p class="footer-note">فيشة تعلّم ذاتي – الرياضيات – بالتوفيق 🌟</p>
+</div>
+</body>
+</html>
