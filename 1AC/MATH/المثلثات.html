@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>المثلثات – فيشة تعلّم ذاتي</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Naskh+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1c2b3a;--ink-soft:#4d5f70;--paper:#f7f9fb;--panel:#fff;--line:#c9d6e0;
+--blue:#2f5f8a;--blue-soft:#e2ecf3;--orange:#e07b39;--orange-soft:#fbe8d8;--green:#3a8f6b;--green-soft:#e1f2ea;}
+*{box-sizing:border-box}
+body{margin:0;background:#e6ecf1;font-family:'Noto Naskh Arabic','Amiri',serif;color:var(--ink);line-height:1.9;font-size:17px}
+.sheet{max-width:900px;margin:18px auto;padding:26px 30px;border-radius:14px;box-shadow:0 4px 18px rgba(0,0,0,.1);
+background:repeating-linear-gradient(0deg,transparent 0 27px,rgba(47,95,138,.06) 27px 28px),repeating-linear-gradient(90deg,transparent 0 27px,rgba(47,95,138,.06) 27px 28px),var(--paper)}
+.masthead{display:flex;align-items:center;gap:18px;background:linear-gradient(135deg,var(--blue),#4a82b0);color:#fff;border-radius:14px;padding:18px 22px}
+.masthead h1{font-family:'Amiri',serif;font-size:1.9rem;margin:0;line-height:1.35}
+.masthead p{margin:4px 0 0;opacity:.92}
+.meta-row{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.chip{background:var(--panel);border:1.5px solid var(--line);border-radius:20px;padding:2px 14px;font-size:.92rem}
+.chip b{color:var(--blue)}
+section{margin:20px 0}
+h2{font-family:'Amiri',serif;font-size:1.5rem;color:var(--blue);border-bottom:3px solid var(--orange);display:inline-block;margin:0 0 10px;padding-bottom:2px}
+h3{color:var(--green);margin:14px 0 4px;font-size:1.12rem}
+.box{background:var(--panel);border:1.5px solid var(--line);border-radius:12px;padding:12px 18px;margin:10px 0}
+.objectif-box{background:var(--green-soft);border-color:var(--green)}
+.rule-box{background:var(--orange-soft);border-right:6px solid var(--orange);border-radius:10px;padding:10px 16px;margin:10px 0}
+.worked-example{background:var(--blue-soft);border:1.5px solid var(--blue);border-radius:12px;padding:10px 18px;margin:10px 0}
+.worked-example .tag{display:inline-block;background:var(--blue);color:#fff;border-radius:8px;padding:0 10px;font-size:.88rem;margin-bottom:4px}
+.num{direction:ltr;unicode-bidi:isolate;display:inline-block;font-weight:700;color:var(--blue)}
+table.data-table{width:100%;border-collapse:collapse;margin:10px 0;background:#fff}
+.data-table th,.data-table td{border:1.5px solid var(--line);padding:6px 8px;text-align:center}
+.data-table th{background:var(--blue);color:#fff;font-weight:600}
+.activity-box{background:var(--green-soft);border:2px dashed var(--green);border-radius:12px;padding:12px 18px}
+.task-label{display:inline-block;background:var(--green);color:#fff;border-radius:8px;padding:0 10px;margin-left:6px;font-size:.9rem}
+.exercise{background:var(--panel);border:1.5px solid var(--line);border-radius:12px;padding:10px 18px 12px;margin:12px 0;page-break-inside:avoid}
+.exercise-num{display:inline-flex;width:30px;height:30px;border-radius:50%;background:var(--orange);color:#fff;align-items:center;justify-content:center;font-weight:700;margin-left:8px}
+.exercise h4{margin:0 0 6px;font-size:1.05rem;color:var(--blue)}
+.fill-line{display:inline-block;min-width:90px;border-bottom:2px dotted var(--ink-soft)}
+.fill-line.sm{min-width:48px}
+.sq{display:inline-block;width:24px;height:24px;border:2px solid var(--blue);border-radius:5px;vertical-align:middle;margin:0 6px}
+.lines{border-bottom:2px dotted var(--ink-soft);height:26px;margin:4px 0}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:4px 18px}
+.match-cols{display:flex;justify-content:space-between;gap:30px}.match-cols div{flex:1}
+.match-cols p{margin:4px 0;background:var(--blue-soft);border-radius:8px;padding:2px 12px}
+.order-list p{margin:3px 0;background:var(--orange-soft);border-radius:8px;padding:2px 12px}
+.tf-item{margin:4px 0}
+.corrige-wrapper{page-break-before:always;margin-top:26px}
+details.corrige{border:2px solid var(--blue);border-radius:12px;background:#fff;padding:8px 18px}
+details.corrige summary{cursor:pointer;font-family:'Amiri',serif;font-size:1.25rem;color:var(--blue);font-weight:700}
+.corrige h5{margin:12px 0 2px;color:var(--orange);font-size:1.02rem}
+.corrige p{margin:2px 0}
+.footer-note{text-align:center;color:var(--ink-soft);font-size:.88rem;margin-top:18px}
+svg text{font-family:'Noto Naskh Arabic',sans-serif}
+.figs{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin:10px 0}
+.fig{text-align:center;font-size:.9rem;color:var(--ink-soft)}
+@page{size:A4;margin:13mm}
+@media print{body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}.sheet{box-shadow:none;margin:0;max-width:none;padding:0}details.corrige:not([open]) > :not(summary){display:none}}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<header class="masthead">
+<svg width="72" height="62" viewBox="0 0 72 62" aria-hidden="true"><polygon points="36,6 66,54 6,54" fill="none" stroke="#fff" stroke-width="3"/><line x1="36" y1="6" x2="36" y2="54" stroke="#f6b27e" stroke-width="2.5" stroke-dasharray="4 3"/></svg>
+<div><h1>المثلثات (Triangles)</h1><p>الرياضيات – الهندسة: خصائص وإنشاءات</p></div>
+</header>
+
+<div class="meta-row">
+<span class="chip"><b>المستوى:</b> الأولى إعدادي (1AC)</span>
+<span class="chip"><b>المادة:</b> الرياضيات — الهندسة</span>
+<span class="chip"><b>مدة الحصة:</b> ساعة ونصف</span>
+<span class="chip"><b>نوع الوثيقة:</b> فيشة تعلّم ذاتي</span>
+</div>
+
+<section>
+<h2>🎯 الهدف</h2>
+<div class="box objectif-box">في نهاية هذه الفيشة سأكون قادرًا على:
+<ul>
+<li>أن أتعرّف على عناصر المثلث وأصنّفه بحسب أضلاعه وزواياه؛</li>
+<li>أن أستعمل خاصية مجموع زوايا مثلث (<span class="num">180°</span>) لحساب زاوية مجهولة؛</li>
+<li>أن أستعمل خاصيتي المثلث المتساوي الساقين والمثلث القائم الزاوية؛</li>
+<li>أن أتحقق من إمكانية إنشاء مثلث بالمتفاوتة المثلثية وأنشئه بالفرجار؛</li>
+<li>أن أتعرّف على المتوسط والارتفاع في مثلث.</li>
+</ul></div>
+</section>
+
+<section>
+<h2>📘 الدرس</h2>
+
+<h3>1) تعريف وعناصر المثلث</h3>
+<div class="rule-box">المثلث <span class="num">ABC</span> شكل هندسي مكوّن من <b>ثلاثة رؤوس</b> (A وB وC)، و<b>ثلاثة أضلاع</b> ([AB] و[BC] و[AC])، و<b>ثلاث زوايا</b> (<span class="num">∠A</span> و<span class="num">∠B</span> و<span class="num">∠C</span>). <b>محيط المثلث</b> هو مجموع أطوال أضلاعه: <span class="num">P = AB + BC + AC</span>.</div>
+<div style="text-align:center"><svg width="200" height="130" viewBox="0 0 200 130" role="img" aria-label="مثلث ABC"><polygon points="100,12 185,118 15,118" fill="#e2ecf3" stroke="#2f5f8a" stroke-width="2.5"/><text x="100" y="9" font-size="14" text-anchor="middle" font-weight="700" fill="#e07b39">A</text><text x="6" y="126" font-size="14" font-weight="700" fill="#e07b39">B</text><text x="188" y="126" font-size="14" font-weight="700" fill="#e07b39">C</text></svg></div>
+
+<h3>2) تصنيف المثلثات</h3>
+<table class="data-table">
+<tr><th>بحسب الأضلاع</th><th>التعريف</th></tr>
+<tr><td><b>مثلث متساوي الساقين</b></td><td>له ضلعان متقايسان (الساقان). مثال: <span class="num">AB = AC</span>. الرأس A هو الرأس الرئيسي والضلع [BC] هو القاعدة.</td></tr>
+<tr><td><b>مثلث متساوي الأضلاع</b></td><td>أضلاعه الثلاثة متقايسة: <span class="num">AB = BC = AC</span>.</td></tr>
+<tr><td><b>مثلث عادي</b></td><td>أضلاعه الثلاثة مختلفة.</td></tr>
+</table>
+<table class="data-table">
+<tr><th>بحسب الزوايا</th><th>التعريف</th></tr>
+<tr><td><b>حاد الزوايا</b></td><td>زواياه الثلاث حادّة (أصغر من 90°).</td></tr>
+<tr><td><b>قائم الزاوية</b></td><td>له زاوية قائمة (90°). الضلع المقابل للزاوية القائمة يسمّى <b>الوتر</b> وهو أطول الأضلاع.</td></tr>
+<tr><td><b>منفرج الزاوية</b></td><td>له زاوية منفرجة (بين 90° و180°).</td></tr>
+</table>
+<div class="worked-example"><span class="tag">ملاحظة</span><br>يمكن الجمع بين الصنفين: «مثلث قائم الزاوية ومتساوي الساقين» (زاويتاه الأخريان 45° و45°).</div>
+
+<h3>3) مجموع زوايا مثلث</h3>
+<div class="rule-box"><b>خاصية:</b> مجموع قياسات زوايا أي مثلث يساوي <span class="num">180°</span>: <span class="num">∠A + ∠B + ∠C = 180°</span>.</div>
+<div class="worked-example"><span class="tag">مثال محلول</span><br>
+في المثلث ABC: <span class="num">∠A = 55°</span> و<span class="num">∠B = 80°</span>. إذن <span class="num">∠C = 180° − (55° + 80°) = 45°</span>.</div>
+<div class="rule-box"><b>نتائج مباشرة:</b><br>
+• في المثلث المتساوي الأضلاع كل زاوية <span class="num">60°</span> (180 ÷ 3).<br>
+• في المثلث القائم الزاوية: الزاويتان الحادّتان مجموعهما <span class="num">90°</span>.</div>
+
+<h3>4) خاصيتا المثلث المتساوي الساقين</h3>
+<div class="rule-box"><b>خاصية:</b> إذا كان المثلث متساوي الساقين فإن زاويتي القاعدة متقايستان.<br>
+<b>عكسها:</b> إذا تقايست زاويتان في مثلث فهو متساوي الساقين.</div>
+<div class="worked-example"><span class="tag">مثال محلول</span><br>
+المثلث ABC متساوي الساقين رأسه A و<span class="num">∠A = 40°</span>. زاويتا القاعدة متقايستان: <span class="num">∠B = ∠C = (180° − 40°) ÷ 2 = 70°</span>.</div>
+
+<h3>5) المتفاوتة المثلثية</h3>
+<div class="rule-box"><b>في كل مثلث، طول أي ضلع أصغر من مجموع طولي الضلعين الآخرين.</b><br>
+يمكن إنشاء مثلث أطوال أضلاعه a وb وc إذا وفقط إذا كان <b>أكبر طول أصغر تمامًا من مجموع الطولين الآخرين</b>.</div>
+<div class="worked-example"><span class="tag">مثال محلول</span><br>
+• <span class="num">3 , 4 , 5</span>: الأكبر 5 و<span class="num">3 + 4 = 7 &gt; 5</span> ← المثلث ممكن.<br>
+• <span class="num">2 , 3 , 6</span>: الأكبر 6 و<span class="num">2 + 3 = 5 &lt; 6</span> ← المثلث مستحيل.<br>
+• <span class="num">4 , 4 , 8</span>: <span class="num">4 + 4 = 8</span> (تساوٍ) ← النقط على استقامة واحدة، لا يوجد مثلث.</div>
+
+<h3>6) إنشاء مثلث معلومة أطوال أضلاعه</h3>
+<div class="worked-example"><span class="tag">إنشاء ABC حيث AB = 6 , AC = 4 , BC = 5 (سم)</span><br>
+1) أنشئ القطعة <span class="num">[AB]</span> طولها 6 سم.<br>
+2) أضع سنّ الفرجار على A بفتحة 4 سم وأرسم قوسًا.<br>
+3) أضع سنّ الفرجار على B بفتحة 5 سم وأرسم قوسًا يقطع القوس الأول في C.<br>
+4) أصل C بـ A وبـ B فيكتمل المثلث.</div>
+
+<h3>7) المتوسط والارتفاع</h3>
+<div class="cards3" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px">
+<div class="box"><b>المتوسط</b> المتعلّق بضلع: القطعة التي تصل بين الرأس المقابل ومنتصف هذا الضلع.</div>
+<div class="box"><b>الارتفاع</b> المتعلّق بضلع: القطعة المنطلقة من الرأس المقابل والعمودية على حامل هذا الضلع.</div>
+</div>
+</section>
+
+<section>
+<h2>✏️ نشاط تطبيقي: عيدان وأشرطة</h2>
+<div class="activity-box">
+<p>أحتاج إلى أشرطة من الورق المقوى أو عيدان بالأطوال: 3 سم، 4 سم، 5 سم، 2 سم، 6 سم، 8 سم، ودبابيس تثبيت أو شريط لاصق.</p>
+<p><span class="task-label">المهمة 1</span> أجرّب تكوين مثلث بكل ثلاثية أطوال وأسجّل النتيجة:</p>
+<table class="data-table"><tr><th>الأطوال</th><th>مجموع الأصغرين</th><th>الأكبر</th><th>هل يتكوّن مثلث؟</th></tr>
+<tr><td>3 – 4 – 5</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>2 – 3 – 6</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>2 – 2 – 4</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>4 – 6 – 8</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr></table>
+<p><span class="task-label">المهمة 2</span> أستنتج: متى يمكن تكوين مثلث؟ <span class="fill-line" style="min-width:240px"></span></p>
+<p><span class="task-label">المهمة 3</span> أنشئ على ورقة مثلثًا بأضلاع 6 و4 و5 سم، أقيس زواياه الثلاث وأحسب مجموعها: <span class="fill-line"></span></p>
+</div>
+</section>
+
+<section>
+<h2>📝 تمارين للتدرّب</h2>
+
+<div class="exercise"><h4><span class="exercise-num">1</span>أصنّف المثلث بحسب أضلاعه</h4>
+<table class="data-table"><tr><th>أطوال الأضلاع (سم)</th><th>نوع المثلث</th></tr>
+<tr><td>5 – 5 – 5</td><td>&nbsp;</td></tr><tr><td>6 – 6 – 4</td><td>&nbsp;</td></tr><tr><td>3 – 4 – 5</td><td>&nbsp;</td></tr><tr><td>7 – 7 – 7</td><td>&nbsp;</td></tr></table></div>
+
+<div class="exercise"><h4><span class="exercise-num">2</span>أحسب الزاوية الثالثة</h4>
+<p>أ) <span class="num">∠A = 62°</span> ، <span class="num">∠B = 48°</span> ← <span class="num">∠C</span> = <span class="fill-line" style="min-width:60px"></span></p>
+<p>ب) <span class="num">∠A = 90°</span> ، <span class="num">∠B = 37°</span> ← <span class="num">∠C</span> = <span class="fill-line" style="min-width:60px"></span></p>
+<p>ج) <span class="num">∠A = 105°</span> ، <span class="num">∠C = 25°</span> ← <span class="num">∠B</span> = <span class="fill-line" style="min-width:60px"></span></p></div>
+
+<div class="exercise"><h4><span class="exercise-num">3</span>مثلث متساوي الساقين</h4>
+<p>أ) ABC متساوي الساقين رأسه A و<span class="num">∠A = 50°</span>. أحسب <span class="num">∠B</span> و<span class="num">∠C</span>: <span class="fill-line"></span></p>
+<p>ب) DEF متساوي الساقين رأسه D و<span class="num">∠E = 65°</span>. أحسب <span class="num">∠F</span> ثم <span class="num">∠D</span>: <span class="fill-line"></span></p></div>
+
+<div class="exercise"><h4><span class="exercise-num">4</span>المتفاوتة المثلثية: هل يمكن إنشاء مثلث بهذه الأطوال؟</h4>
+<table class="data-table"><tr><th>الأطوال (سم)</th><th>التبرير</th><th>ممكن / مستحيل</th></tr>
+<tr><td>3 – 4 – 5</td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td>2 – 3 – 6</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>5 – 5 – 9</td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td>4 – 4 – 8</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>7 – 10 – 12</td><td>&nbsp;</td><td>&nbsp;</td></tr></table></div>
+
+<div class="exercise"><h4><span class="exercise-num">5</span>صحيح أم خطأ؟ (أصحّح الخطأ)</h4>
+<p>1) مجموع زوايا أي مثلث 360°. <span class="sq"></span> <span class="fill-line"></span></p>
+<p>2) في مثلث قائم الزاوية، الوتر هو أطول ضلع. <span class="sq"></span></p>
+<p>3) المثلث المتساوي الأضلاع كل زاوية فيه 60°. <span class="sq"></span></p>
+<p>4) يمكن أن يحتوي مثلث على زاويتين منفرجتين. <span class="sq"></span> <span class="fill-line"></span></p>
+<p>5) إذا تقايست زاويتان في مثلث فهو متساوي الساقين. <span class="sq"></span></p></div>
+
+<div class="exercise"><h4><span class="exercise-num">6</span>إنشاء</h4>
+أنشئ في دفتري المثلث EFG حيث <span class="num">EF = 7 cm</span> و<span class="num">EG = 5 cm</span> و<span class="num">FG = 4 cm</span>.
+<p>أ) أتحقّق أولًا من المتفاوتة المثلثية: <span class="fill-line" style="min-width:240px"></span></p>
+<p>ب) أكتب خطوات الإنشاء: </p><div class="lines"></div><div class="lines"></div>
+<p>ج) أقيس زواياه: <span class="num">∠E</span> ≈ <span class="fill-line sm" style="min-width:50px"></span> ، <span class="num">∠F</span> ≈ <span class="fill-line sm" style="min-width:50px"></span> ، <span class="num">∠G</span> ≈ <span class="fill-line sm" style="min-width:50px"></span>، والمجموع ≈ <span class="fill-line sm" style="min-width:50px"></span></p></div>
+
+<div class="exercise"><h4><span class="exercise-num">7</span>مسائل المحيط</h4>
+<p>أ) مثلث متساوي الأضلاع طول ضلعه 8 سم. محيطه = <span class="fill-line"></span></p>
+<p>ب) مثلث متساوي الساقين رأسه A فيه <span class="num">BC = 8 cm</span> ومحيطه <span class="num">22 cm</span>. أحسب طول <span class="num">AB</span>: <span class="fill-line"></span></p></div>
+
+<div class="exercise"><h4><span class="exercise-num">8</span>مسألة للتفكير</h4>
+<p>أ) مثلث قائم الزاوية في A و<span class="num">∠B = 35°</span>. أحسب <span class="num">∠C</span> وأحدّد الوتر: <span class="fill-line"></span></p>
+<p>ب) في مثلث ABC: <span class="num">∠C = 60°</span> و<span class="num">∠A = 2 × ∠B</span>. أحسب <span class="num">∠A</span> و<span class="num">∠B</span> ثم أحدّد نوع المثلث بحسب زواياه: <span class="fill-line"></span></p></div>
+</section>
+
+<div class="corrige-wrapper">
+<details class="corrige">
+<summary>اضغط لإظهار الحل / إخفائه — التصحيح الكامل</summary>
+
+<h5>النشاط التطبيقي</h5>
+<p>المهمة 1: (3،4،5): <span class="num">7 &gt; 5</span> ← نعم. (2،3،6): <span class="num">5 &lt; 6</span> ← لا. (2،2،4): <span class="num">4 = 4</span> ← لا (تنطبق الأعواد على استقامة). (4،6،8): <span class="num">10 &gt; 8</span> ← نعم. المهمة 2: يتكوّن مثلث عندما يكون أكبر طول أصغر تمامًا من مجموع الآخرين. المهمة 3: المجموع ≈ 180°.</p>
+
+<h5>التمرين 1</h5>
+<p>5–5–5: متساوي الأضلاع. 6–6–4: متساوي الساقين. 3–4–5: عادي (وهو أيضًا قائم الزاوية). 7–7–7: متساوي الأضلاع.</p>
+
+<h5>التمرين 2</h5>
+<p>أ) <span class="num">180 − (62+48) = 70°</span> &nbsp; ب) <span class="num">180 − (90+37) = 53°</span> &nbsp; ج) <span class="num">180 − (105+25) = 50°</span></p>
+
+<h5>التمرين 3</h5>
+<p>أ) <span class="num">(180 − 50) ÷ 2 = 65°</span> ← <span class="num">∠B = ∠C = 65°</span>.</p>
+<p>ب) القاعدة EF فزاويتا القاعدة هما E وF: <span class="num">∠F = ∠E = 65°</span>، ثم <span class="num">∠D = 180 − 130 = 50°</span>.</p>
+
+<h5>التمرين 4</h5>
+<p>3–4–5: <span class="num">3+4=7&gt;5</span> ممكن. 2–3–6: <span class="num">2+3=5&lt;6</span> مستحيل. 5–5–9: <span class="num">5+5=10&gt;9</span> ممكن. 4–4–8: <span class="num">4+4=8</span> مستحيل. 7–10–12: <span class="num">7+10=17&gt;12</span> ممكن.</p>
+
+<h5>التمرين 5</h5>
+<p>1) خطأ — المجموع 180°. 2) صحيح. 3) صحيح. 4) خطأ — مجموعهما سيتجاوز 180°. 5) صحيح (عكس خاصية المتساوي الساقين).</p>
+
+<h5>التمرين 6</h5>
+<p>أ) الأكبر 7، و<span class="num">5 + 4 = 9 &gt; 7</span> فالإنشاء ممكن.</p>
+<p>ب) أنشئ [EF] = 7 سم، قوس مركزه E شعاعه 5 سم، قوس مركزه F شعاعه 4 سم، يتقاطعان في G، ثم أصل G بـ E وبـ F.</p>
+<p>ج) تقريبًا: ∠E ≈ 34° ، ∠F ≈ 44° ، ∠G ≈ 102° والمجموع ≈ 180° (يختلف القياس قليلًا).</p>
+
+<h5>التمرين 7</h5>
+<p>أ) <span class="num">3 × 8 = 24 cm</span>. &nbsp; ب) <span class="num">AB + AC = 22 − 8 = 14</span> و<span class="num">AB = AC</span> إذن <span class="num">AB = 14 ÷ 2 = 7 cm</span>.</p>
+
+<h5>التمرين 8</h5>
+<p>أ) <span class="num">∠C = 90° − 35° = 55°</span> والوتر هو [BC].</p>
+<p>ب) <span class="num">∠A + ∠B = 180° − 60° = 120°</span> وبما أن <span class="num">∠A = 2∠B</span> فإن <span class="num">3∠B = 120°</span> إذن <span class="num">∠B = 40°</span> و<span class="num">∠A = 80°</span>. الزوايا 80° و40° و60° كلها حادّة ← المثلث حاد الزوايا.</p>
+</details>
+</div>
+
+<p class="footer-note">فيشة تعلّم ذاتي – الرياضيات – بالتوفيق 🌟</p>
+</div>
+</body>
+</html>
