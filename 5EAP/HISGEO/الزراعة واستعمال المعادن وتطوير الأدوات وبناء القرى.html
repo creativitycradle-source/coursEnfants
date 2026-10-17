@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>الزراعة واستعمال المعادن وبناء القرى – فيشة تعلّم ذاتي</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Naskh+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1d2d2b;--ink-soft:#506360;--paper:#f6faf8;--panel:#fff;--line:#cfe0da;
+--teal:#b5652f;--teal-soft:#f6e8dc;--gold:#8a6a1e;--gold-soft:#f5ecd3;--sky:#2c5c78;--sky-soft:#e0ecf2;--red:#b8483a;}
+*{box-sizing:border-box}
+body{margin:0;background:#e9efed;font-family:'Noto Naskh Arabic','Amiri',serif;color:var(--ink);line-height:1.9;font-size:17px}
+.sheet{max-width:900px;margin:18px auto;background:var(--paper);padding:26px 30px;border-radius:14px;box-shadow:0 4px 18px rgba(0,0,0,.1)}
+.masthead{display:flex;align-items:center;gap:18px;background:linear-gradient(135deg,var(--teal),#cf8247);color:#fff;border-radius:14px;padding:18px 22px}
+.masthead h1{font-family:'Amiri',serif;font-size:2rem;margin:0;line-height:1.3}
+.masthead p{margin:4px 0 0;opacity:.92}
+.meta-row{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.chip{background:var(--panel);border:1.5px solid var(--line);border-radius:20px;padding:2px 14px;font-size:.92rem}
+.chip b{color:var(--teal)}
+section{margin:20px 0}
+h2{font-family:'Amiri',serif;font-size:1.5rem;color:var(--teal);border-bottom:3px solid var(--gold);display:inline-block;margin:0 0 10px;padding-bottom:2px}
+.box{background:var(--panel);border:1.5px solid var(--line);border-radius:12px;padding:12px 18px;margin:10px 0}
+.objectif-box{background:var(--teal-soft);border-color:var(--teal)}
+.rule-box{background:var(--gold-soft);border-right:6px solid var(--gold);border-radius:10px;padding:10px 16px;margin:10px 0}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px;margin:10px 0}
+.card{background:var(--panel);border:1.5px solid var(--line);border-top:5px solid var(--sky);border-radius:10px;padding:8px 14px}
+.card h3{margin:0;color:var(--sky);font-size:1.05rem}
+.card p{margin:2px 0 0;font-size:.95rem}
+.map-box{background:var(--sky-soft);border:1.5px solid var(--sky);border-radius:12px;padding:10px;text-align:center}
+.map-box svg{max-width:100%;height:auto}
+table.data-table{width:100%;border-collapse:collapse;margin:10px 0;background:#fff}
+.data-table th,.data-table td{border:1.5px solid var(--line);padding:6px 10px;text-align:center}
+.data-table th{background:var(--teal);color:#fff}
+.activity-box{background:var(--sky-soft);border:2px dashed var(--sky);border-radius:12px;padding:12px 18px}
+.task-label{display:inline-block;background:var(--sky);color:#fff;border-radius:8px;padding:0 10px;margin-left:6px;font-size:.9rem}
+.exercise{background:var(--panel);border:1.5px solid var(--line);border-radius:12px;padding:10px 18px 12px;margin:12px 0;page-break-inside:avoid}
+.exercise-num{display:inline-flex;width:30px;height:30px;border-radius:50%;background:var(--gold);color:#fff;align-items:center;justify-content:center;font-weight:700;margin-left:8px}
+.exercise h4{margin:0 0 6px;font-size:1.05rem;color:var(--teal)}
+.fill-line{display:inline-block;min-width:120px;border-bottom:2px dotted var(--ink-soft)}
+.checkbox{display:inline-block;width:15px;height:15px;border:2px solid var(--teal);border-radius:3px;vertical-align:middle;margin-left:6px}
+.opt{display:block;margin:2px 0}
+.match-cols{display:flex;justify-content:space-between;gap:30px}
+.match-cols div{flex:1}
+.match-cols p{margin:4px 0;background:var(--teal-soft);border-radius:8px;padding:2px 12px}
+.word-chip{display:inline-block;background:var(--gold-soft);border:1.5px solid var(--gold);border-radius:16px;padding:0 12px;margin:3px}
+.lines{border-bottom:2px dotted var(--ink-soft);height:26px;margin:4px 0}
+.corrige-wrapper{page-break-before:always;margin-top:26px}
+details.corrige{border:2px solid var(--teal);border-radius:12px;background:#fff;padding:8px 18px}
+details.corrige summary{cursor:pointer;font-family:'Amiri',serif;font-size:1.25rem;color:var(--teal);font-weight:700}
+.corrige h5{margin:12px 0 2px;color:var(--red);font-size:1.02rem}
+.corrige p{margin:2px 0}
+.footer-note{text-align:center;color:var(--ink-soft);font-size:.88rem;margin-top:18px}
+@page{size:A4;margin:13mm}
+@media print{body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}.sheet{box-shadow:none;margin:0;max-width:none;padding:0;background:#fff}details.corrige:not([open]) *{display:none}details.corrige:not([open]) summary{display:block}}
+.sq{display:inline-block;width:18px;height:18px;border:2px solid var(--teal);border-radius:4px;vertical-align:middle;margin:0 6px}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<header class="masthead">
+<svg width="66" height="62" viewBox="0 0 66 62" aria-hidden="true"><path d="M33 56V22" stroke="#fff" stroke-width="3"/><path d="M33 22q-9-2-11-11 9 1 11 11zM33 22q9-2 11-11-9 1-11 11zM33 34q-9-2-11-11 9 1 11 11zM33 34q9-2 11-11-9 1-11 11z" fill="#f3d38a"/><path d="M6 56H60" stroke="#fff" stroke-width="3"/></svg>
+<div><h1>الزراعة واستعمال المعادن، وتطوير الأدوات وبناء القرى</h1><p>التاريخ – الإنسان ينتقل من التنقّل إلى الاستقرار</p></div>
+</header>
+
+<div class="meta-row">
+<span class="chip"><b>المستوى:</b> السادسة ابتدائي (6AEP)</span>
+<span class="chip"><b>المادة:</b> الاجتماعيات — التاريخ</span>
+<span class="chip"><b>مدة الحصة:</b> ساعة</span>
+<span class="chip"><b>نوع الوثيقة:</b> فيشة تعلّم ذاتي</span>
+</div>
+
+<section>
+<h2>🎯 الهدف</h2>
+<div class="box objectif-box">في نهاية هذه الحصة سأكون قادرًا على:
+<ul>
+<li>أن أشرح كيف انتقل الإنسان من الصيد وجمع الثمار إلى الزراعة وتربية الحيوانات؛</li>
+<li>أن أبيّن كيف تطوّرت الأدوات من الحجر إلى المعادن (النحاس والبرونز والحديد)؛</li>
+<li>أن أصف القرى الأولى وأسباب نشأتها وطريقة العيش فيها؛</li>
+<li>أن أقارن بين حياة الإنسان المتنقّل وحياة الإنسان المستقرّ.</li>
+</ul></div>
+</section>
+
+<section>
+<h2>📘 الدرس</h2>
+
+<h3>1) قبل الزراعة: إنسان متنقّل</h3>
+<div class="box">عاش الإنسان القديم آلاف السنين <b>يصطاد الحيوانات ويلتقط الثمار والجذور</b>، وكان يتنقّل من مكان إلى آخر بحثًا عن الطعام، ويسكن الكهوف أو الخيام. أدواته من الحجر المقطوع (خشنة) والعظام والخشب.</div>
+
+<h3>2) اكتشاف الزراعة وتربية الحيوانات</h3>
+<div class="box">منذ حوالي <b>10 آلاف سنة</b> لاحظ الإنسان أن البذور التي تسقط على الأرض تنبت، فبدأ <b>يزرع</b> القمح والشعير وغيرهما، وبدأ <b>يروّض الحيوانات</b> كالأغنام والماعز والأبقار والكلاب. وهذه المرحلة تُسمّى <b>العصر الحجري الحديث (النيوليتي)</b>، وتُعرف بـ«الثورة الزراعية». وقد وُجدت آثارها في المغرب أيضًا، كما في كهف <b>كاف تحت الغار</b> قرب تطوان.</div>
+<div class="rule-box"><b>النتيجة:</b> لم يعد الإنسان يعتمد على الصدفة، بل صار <b>ينتج غذاءه بنفسه</b>، فاستقرّ قرب الحقول والماء.</div>
+
+<h3>3) تطوير الأدوات</h3>
+<table class="data-table">
+<tr><th>المرحلة</th><th>مادة الأدوات</th><th>أمثلة</th><th>مميزاتها</th></tr>
+<tr><td>العصر الحجري القديم</td><td>حجر مقطوع</td><td>فأس حجرية، رمح</td><td>خشنة للصيد</td></tr>
+<tr><td>العصر الحجري الحديث</td><td>حجر مصقول، فخار</td><td>منجل، رحى، جرّة</td><td>أدق وأنسب للزراعة وتخزين الحبوب</td></tr>
+<tr><td>عصر النحاس</td><td>النحاس</td><td>أدوات وحلي</td><td>أول معدن استعمله الإنسان (لين)</td></tr>
+<tr><td>عصر البرونز</td><td>البرونز (نحاس + قصدير)</td><td>خناجر، فؤوس، سيوف</td><td>أصلب من النحاس</td></tr>
+<tr><td>عصر الحديد</td><td>الحديد</td><td>محراث، سيف، فأس</td><td>أصلب وأوفر، فتحسّنت الزراعة والحرب</td></tr>
+</table>
+<div class="rule-box"><b>الفخار:</b> اخترع الإنسان الأواني الفخارية (من الطين المشوي) لحفظ الحبوب والماء والطبخ. <b>النسيج:</b> بدأ ينسج الصوف والكتان للّباس.</div>
+
+<h3>4) بناء القرى</h3>
+<div class="box">لمّا استقرّ الإنسان بنى بيوتًا من <b>الطين والحجارة والخشب</b> وجمعها في <b>قرى</b> قرب الحقول ومصادر الماء. وبنى <b>مخازن</b> لحفظ الحبوب، وحظائر للحيوانات. وتوزّع الناس العمل: فلاحون، رعاة، صنّاع فخّار، حدّادون، تجّار.</div>
+
+<h3>5) نتائج هذا التحوّل</h3>
+<div class="cards">
+<div class="card"><h3>🌾 فائض الإنتاج</h3><p>صار الغذاء أوفر فيُخزَّن ويُباع ويُبادَل.</p></div>
+<div class="card"><h3>👥 تزايد السكان</h3><p>زاد عدد الناس وكبرت القرى وتحوّل بعضها إلى مدن.</p></div>
+<div class="card"><h3>🛠️ تنوّع الحِرف</h3><p>ظهرت الحدادة والفخار والنسيج والتجارة.</p></div>
+<div class="card"><h3>🤝 تنظيم المجتمع</h3><p>ظهرت قواعد وحدود للأرض والمِلكية وزعماء للقرية.</p></div>
+</div>
+
+<h3>6) مقارنة بين نمطي العيش</h3>
+<table class="data-table">
+<tr><th></th><th>الإنسان المتنقّل</th><th>الإنسان المستقرّ</th></tr>
+<tr><td>الغذاء</td><td>صيد وجمع الثمار</td><td>زراعة وتربية الحيوانات</td></tr>
+<tr><td>السكن</td><td>كهوف وخيام</td><td>بيوت وقرى</td></tr>
+<tr><td>الأدوات</td><td>حجر مقطوع</td><td>حجر مصقول، فخار، معادن</td></tr>
+<tr><td>التنقّل</td><td>دائم</td><td>قليل أو معدوم</td></tr>
+</table>
+</section>
+
+<section>
+<h2>✏️ نشاط تطبيقي: أبني قريتي الأولى</h2>
+<div class="activity-box">
+<p><span class="task-label">المهمة 1</span> أرسم في دفتري مخطط قرية قديمة قرب نهر: أرسم البيوت والحقول والمخزن والحظيرة وورشة الفخّار والنهر، وأضع عنوانًا لكل عنصر.</p>
+<p><span class="task-label">المهمة 2</span> أختار لكل حرفة أداتها المناسبة:
+فلاح ← <span class="fill-line"></span> &nbsp; حدّاد ← <span class="fill-line"></span> &nbsp; صانع فخّار ← <span class="fill-line"></span> &nbsp; (محراث / نار وأدوات معدنية / طين)</p>
+<p><span class="task-label">المهمة 3</span> أمثّل بالصلصال جرّة تخزين أو منجلًا، وأشرح لزملائي فائدته.</p>
+<p><span class="task-label">المهمة 4</span> أكتب ثلاث جمل عن يوم عادي في قريتي: <span class="fill-line" style="min-width:240px"></span></p><div class="lines"></div>
+</div>
+</section>
+
+<section>
+<h2>📝 تمارين للتدرّب</h2>
+
+<div class="exercise"><h4><span class="exercise-num">1</span>أُكمل الفراغات</h4>
+كان الإنسان القديم <span class="fill-line"></span> الحيوانات ويلتقط <span class="fill-line"></span>. ثم اكتشف <span class="fill-line"></span> وروّض <span class="fill-line"></span>، فاستقرّ وبنى <span class="fill-line"></span>.</div>
+
+<div class="exercise"><h4><span class="exercise-num">2</span>أختار الجواب الصحيح</h4>
+<b>أ) أول معدن استعمله الإنسان:</b>
+<span class="opt"><span class="checkbox"></span>الحديد</span><span class="opt"><span class="checkbox"></span>النحاس</span><span class="opt"><span class="checkbox"></span>الفضة</span>
+<b>ب) البرونز مزيج من:</b>
+<span class="opt"><span class="checkbox"></span>النحاس والقصدير</span><span class="opt"><span class="checkbox"></span>الحديد والذهب</span><span class="opt"><span class="checkbox"></span>الحجر والطين</span>
+<b>ج) استعمل الإنسان الفخار من أجل:</b>
+<span class="opt"><span class="checkbox"></span>الصيد</span><span class="opt"><span class="checkbox"></span>تخزين الحبوب والماء</span><span class="opt"><span class="checkbox"></span>القتال</span></div>
+
+<div class="exercise"><h4><span class="exercise-num">3</span>صحيح أم خطأ؟ (أصحّح الخطأ)</h4>
+<p>1) الإنسان المتنقّل كان يزرع القمح. <span class="sq"></span> <span class="fill-line"></span></p>
+<p>2) بدأت الزراعة في العصر الحجري الحديث. <span class="sq"></span></p>
+<p>3) الحديد أصلب من النحاس. <span class="sq"></span></p>
+<p>4) لم يبنِ الإنسان المستقرّ مخازن للحبوب. <span class="sq"></span> <span class="fill-line"></span></p>
+<p>5) الزراعة أدّت إلى ظهور الحِرف والتجارة. <span class="sq"></span></p></div>
+
+<div class="exercise"><h4><span class="exercise-num">4</span>أصل الأداة بوظيفتها</h4>
+<div class="match-cols">
+<div><p>أ) المنجل</p><p>ب) الرحى</p><p>ج) الجرّة الفخارية</p><p>د) المحراث الحديدي</p></div>
+<div><p>1) طحن الحبوب</p><p>2) حرث الأرض</p><p>3) حفظ الحبوب والماء</p><p>4) حصاد السنابل</p></div></div></div>
+
+<div class="exercise"><h4><span class="exercise-num">5</span>أرتّب المراحل من الأقدم إلى الأحدث (1 إلى 5)</h4>
+<p><span class="sq"></span> استعمال الحديد.</p>
+<p><span class="sq"></span> الصيد وجمع الثمار.</p>
+<p><span class="sq"></span> استعمال البرونز.</p>
+<p><span class="sq"></span> اكتشاف الزراعة وبناء القرى.</p>
+<p><span class="sq"></span> استعمال النحاس.</p></div>
+
+<div class="exercise"><h4><span class="exercise-num">6</span>أصنّف: متنقّل أم مستقرّ؟</h4>
+<span class="word-chip">كهف</span><span class="word-chip">قرية</span><span class="word-chip">زراعة</span><span class="word-chip">صيد</span><span class="word-chip">مخزن للحبوب</span><span class="word-chip">خيمة</span>
+<table class="data-table"><tr><th>الإنسان المتنقّل</th><th>الإنسان المستقرّ</th></tr><tr><td>&nbsp;<br>&nbsp;</td><td>&nbsp;<br>&nbsp;</td></tr></table></div>
+
+<div class="exercise"><h4><span class="exercise-num">7</span>وثيقة: قرية قرب الوادي</h4>
+<div class="box">«كانت العائلة تتنقّل بين الكهوف تتبع قطعان الغزلان. ذات سنة، استقرّت قرب وادٍ خصب، فزرعت الشعير وربّت الماعز. بنت بيوتًا من الطين والحجارة ومخزنًا للحبوب، وصنع الرجال فؤوسًا مصقولة، وصنعت النساء جرارًا فخارية.» (نص مبسّط من إنشاء المدرّس)</div>
+<p>1) لماذا اختارت العائلة مكان الوادي؟ <span class="fill-line"></span></p>
+<p>2) أستخرج نشاطين اقتصاديين جديدين: <span class="fill-line"></span></p>
+<p>3) ما فائدة المخزن؟ <span class="fill-line"></span></p>
+<p>4) أذكر أداتين جديدتين ظهرتا: <span class="fill-line"></span></p></div>
+
+<div class="exercise"><h4><span class="exercise-num">8</span>أفسّر وأكتب</h4>
+<p>أ) كيف غيّرت الزراعة حياة الإنسان؟</p><div class="lines"></div><div class="lines"></div>
+<p>ب) لماذا كانت أدوات الحديد أفضل من أدوات الحجر؟</p><div class="lines"></div></div>
+</section>
+
+<div class="corrige-wrapper">
+<details class="corrige">
+<summary>اضغط لإظهار الحل / إخفائه — التصحيح الكامل</summary>
+
+<h5>النشاط التطبيقي</h5>
+<p>المهمة 1: رسم حرّ يتضمّن البيوت والحقول والمخزن والحظيرة وورشة الفخار والنهر. المهمة 2: فلاح ← المحراث، حدّاد ← نار وأدوات معدنية، صانع فخّار ← الطين. المهمتان 3 و4: إنتاج حرّ.</p>
+
+<h5>التمرين 1</h5>
+<p>يصطاد – الثمار. الزراعة – الحيوانات. قرى (بيوتًا).</p>
+
+<h5>التمرين 2</h5>
+<p>أ) النحاس. &nbsp; ب) النحاس والقصدير. &nbsp; ج) تخزين الحبوب والماء.</p>
+
+<h5>التمرين 3</h5>
+<p>1) خطأ — كان يصطاد ويلتقط الثمار ولم يعرف الزراعة. 2) صحيح. 3) صحيح. 4) خطأ — بنى مخازن لحفظ الحبوب. 5) صحيح.</p>
+
+<h5>التمرين 4</h5>
+<p>أ ← 4 &nbsp; ب ← 1 &nbsp; ج ← 3 &nbsp; د ← 2</p>
+
+<h5>التمرين 5</h5>
+<p>1) الصيد وجمع الثمار. 2) اكتشاف الزراعة وبناء القرى. 3) استعمال النحاس. 4) استعمال البرونز. 5) استعمال الحديد.</p>
+
+<h5>التمرين 6</h5>
+<p>المتنقّل: كهف، صيد، خيمة. — المستقرّ: قرية، زراعة، مخزن للحبوب.</p>
+
+<h5>التمرين 7</h5>
+<p>1) لأنه خصب وفيه الماء، مناسب للزراعة وتربية الماعز. 2) الزراعة (الشعير) وتربية الماعز. 3) حفظ الحبوب لأوقات النقص وللمبادلة. 4) الفؤوس المصقولة والجرار الفخارية.</p>
+
+<h5>التمرين 8</h5>
+<p>أ) جعلته يستقرّ ويبني قرى وينتج غذاءه بنفسه، فزاد الفائض والسكان، وظهرت الحِرف والتجارة وتنظيم المجتمع.</p>
+<p>ب) لأن الحديد أصلب وأقوى وأوفر، فيصنع منه محاريث وفؤوس تحرث الأرض بسهولة وتزيد الإنتاج.</p>
+</details>
+</div>
+
+<p class="footer-note">فيشة تعلّم ذاتي – الاجتماعيات – بالتوفيق 🌟</p>
+</div>
+</body>
+</html>
