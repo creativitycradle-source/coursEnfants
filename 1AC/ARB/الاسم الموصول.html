@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>الاسم الموصول – فيشة تعلّم ذاتي</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Naskh+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#251f3a;--ink-soft:#5d557a;--paper:#fbf9ff;--panel:#fff;--line:#d9d3ec;
+--indigo:#4b3f8f;--indigo-soft:#ebe8f7;--rose:#b1553f;--rose-soft:#f8e6df;--gold:#af8a2e;--gold-soft:#faf0d4;}
+*{box-sizing:border-box}
+body{margin:0;background:#ebe8f2;font-family:'Amiri','Noto Naskh Arabic',serif;color:var(--ink);line-height:2;font-size:19px}
+.sheet{max-width:900px;margin:18px auto;background:var(--paper);padding:26px 30px;border-radius:14px;box-shadow:0 4px 18px rgba(0,0,0,.1)}
+.masthead{display:flex;align-items:center;gap:18px;background:linear-gradient(135deg,var(--indigo),#6a5cb5);color:#fff;border-radius:14px;padding:18px 22px}
+.masthead h1{font-size:2.2rem;margin:0;line-height:1.3}
+.masthead p{margin:4px 0 0;opacity:.92}
+.meta-row{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.chip{background:var(--panel);border:1.5px solid var(--line);border-radius:20px;padding:2px 14px;font-size:.9rem;font-family:'Noto Naskh Arabic',serif}
+.chip b{color:var(--indigo)}
+section{margin:20px 0}
+h2{font-size:1.6rem;color:var(--indigo);border-bottom:3px solid var(--gold);display:inline-block;margin:0 0 10px;padding-bottom:2px}
+h3{color:var(--rose);margin:14px 0 4px;font-size:1.25rem}
+.box{background:var(--panel);border:1.5px solid var(--line);border-radius:12px;padding:12px 18px;margin:10px 0}
+.objectif-box{background:var(--indigo-soft);border-color:var(--indigo)}
+.rule-box{background:var(--gold-soft);border-right:6px solid var(--gold);border-radius:10px;padding:10px 16px;margin:10px 0}
+.example-box{background:var(--rose-soft);border-right:6px solid var(--rose);border-radius:10px;padding:8px 16px;margin:8px 0}
+.mu{color:var(--indigo);font-weight:700;border-bottom:3px solid var(--indigo)}
+.tw{color:var(--rose);font-weight:700;border-bottom:3px solid var(--rose)}
+table.data-table{width:100%;border-collapse:collapse;margin:10px 0;background:#fff}
+.data-table th,.data-table td{border:1.5px solid var(--line);padding:6px 10px;text-align:center}
+.data-table th{background:var(--indigo);color:#fff}
+.activity-box{background:var(--gold-soft);border:2px dashed var(--gold);border-radius:12px;padding:12px 18px}
+.task-label{display:inline-block;background:var(--gold);color:#fff;border-radius:8px;padding:0 10px;margin-left:6px;font-size:.9rem;font-family:'Noto Naskh Arabic',serif}
+.exercise{background:var(--panel);border:1.5px solid var(--line);border-radius:12px;padding:10px 18px 12px;margin:12px 0;page-break-inside:avoid}
+.exercise-num{display:inline-flex;width:32px;height:32px;border-radius:50%;background:var(--rose);color:#fff;align-items:center;justify-content:center;font-weight:700;margin-left:8px;font-family:'Noto Naskh Arabic',serif}
+.exercise h4{margin:0 0 6px;font-size:1.15rem;color:var(--indigo)}
+.fill-line{display:inline-block;min-width:110px;border-bottom:2px dotted var(--ink-soft)}
+.checkbox,.sq{display:inline-block;width:17px;height:17px;border:2px solid var(--indigo);border-radius:3px;vertical-align:middle;margin:0 6px}
+.opt{display:block;margin:0}
+.lines{border-bottom:2px dotted var(--ink-soft);height:28px;margin:4px 0}
+.match-cols{display:flex;justify-content:space-between;gap:30px}.match-cols div{flex:1}
+.match-cols p{margin:4px 0;background:var(--indigo-soft);border-radius:8px;padding:0 12px}
+.word-chip{display:inline-block;background:var(--gold-soft);border:1.5px solid var(--gold);border-radius:16px;padding:0 12px;margin:3px}
+.corrige-wrapper{page-break-before:always;margin-top:26px}
+details.corrige{border:2px solid var(--indigo);border-radius:12px;background:#fff;padding:8px 18px}
+details.corrige summary{cursor:pointer;font-size:1.3rem;color:var(--indigo);font-weight:700}
+.corrige h5{margin:12px 0 2px;color:var(--rose);font-size:1.1rem}
+.corrige p{margin:2px 0}
+.footer-note{text-align:center;color:var(--ink-soft);font-size:.9rem;margin-top:18px;font-family:'Noto Naskh Arabic',serif}
+@page{size:A4;margin:13mm}
+@media print{body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}.sheet{box-shadow:none;margin:0;max-width:none;padding:0;background:#fff}details.corrige:not([open]) > :not(summary){display:none}}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<header class="masthead">
+<svg width="66" height="62" viewBox="0 0 66 62" aria-hidden="true"><circle cx="22" cy="31" r="12" fill="none" stroke="#fff" stroke-width="4"/><circle cx="46" cy="31" r="12" fill="none" stroke="#e9c978" stroke-width="4"/><path d="M34 22 q6 9 0 18" fill="none" stroke="#fff" stroke-width="3"/></svg>
+<div><h1>الاِسْمُ المَوْصُولُ</h1><p>اللغة العربية – الدرس اللغوي 18 · الأولى إعدادي</p></div>
+</header>
+
+<div class="meta-row">
+<span class="chip"><b>المستوى:</b> الأولى إعدادي (1AC)</span>
+<span class="chip"><b>المادة:</b> اللغة العربية — التراكيب</span>
+<span class="chip"><b>مدة الحصة:</b> ساعة</span>
+<span class="chip"><b>نوع الوثيقة:</b> فيشة تعلّم ذاتي</span>
+</div>
+
+<section>
+<h2>🎯 الهدف</h2>
+<div class="box objectif-box">في نهاية هذه الحصة سأكون قادرًا على:
+<ul>
+<li>أن أعرّف الاسم الموصول وأذكر أقسامه: الخاصة (الذي، التي، اللذان، اللتان، الذين، اللواتي، اللائي) والمشتركة (مَن، ما)؛</li>
+<li>أن أحدّد صلة الموصول والعائد (الضمير العائد على الموصول)؛</li>
+<li>أن أختار الاسم الموصول المناسب بحسب العدد والجنس والعاقل وغير العاقل؛</li>
+<li>أن أعرب الاسم الموصول (مبني إلا في المثنى فيُعرب إعراب المثنى) وأحدّد موقعه.</li>
+</ul></div>
+</section>
+
+<section>
+<h2>📘 الدرس</h2>
+
+<h3>1) ملاحظة (الظاهرة الإعرابية)</h3>
+<div class="example-box">
+• أُحبُّ <span class="tw">الذي</span> <span class="mu">يَصدُقُ في كلامِهِ</span>.<br>
+• قرأتُ الكتابَ <span class="tw">الذي</span> <span class="mu">اشتريتُهُ أمسِ</span>.<br>
+• نجحَتِ الطالبتانِ <span class="tw">اللتان</span> <span class="mu">اجتهدتا</span>.<br>
+• أحترمُ <span class="tw">مَن</span> <span class="mu">يُعلِّمُني</span>.</div>
+<p>الكلمات الملوّنة بالوردي أسماء موصولة، وبعد كل واحد منها جملة (بالأزرق) تُكمل معناه وتسمّى <b>صلة الموصول</b>.</p>
+
+<h3>2) تعريف الاسم الموصول</h3>
+<div class="rule-box"><b>الاسم الموصول</b> اسم معرفة يدلّ على معيَّن بواسطة <b>جملة</b> تأتي بعده، وتكتمل دلالته بها، وتسمى هذه الجملة <b>«صلة الموصول»</b>. ولا بدّ أن تشتمل الصلة على <b>ضمير يعود على الاسم الموصول</b> ويطابقه، ويسمى <b>العائد</b>.</div>
+<div class="worked-example" style="background:var(--indigo-soft);border:1.5px solid var(--indigo);border-radius:12px;padding:8px 16px;margin:10px 0">
+<b>مثال محلّل:</b> قرأتُ الكتابَ <span class="tw">الذي</span> <span class="mu">اشتريتُهُ</span>.<br>
+• الذي: اسم موصول &nbsp;• اشتريتُهُ: صلة الموصول &nbsp;• الهاء في «اشتريتُهُ»: <b>العائد</b> (يعود على «الكتابَ» الذي يدلّ عليه الموصول).</div>
+
+<h3>3) أقسام الاسم الموصول</h3>
+<h4 style="color:var(--indigo);margin:6px 0">أ) الأسماء الموصولة الخاصة (تتغيّر بحسب العدد والجنس)</h4>
+<table class="data-table">
+<tr><th>الاسم الموصول</th><th>يدلّ على</th><th>مثال</th></tr>
+<tr><td><b>الذي</b></td><td>المفرد المذكر</td><td>جاءَ الذي نجحَ.</td></tr>
+<tr><td><b>اللذان – اللذين</b></td><td>المثنى المذكر</td><td>جاءَ اللذانِ نجحا.</td></tr>
+<tr><td><b>الذين</b></td><td>جماعة الذكور</td><td>أحترمُ الذينَ يجتهدونَ.</td></tr>
+<tr><td><b>التي</b></td><td>المفردة المؤنثة</td><td>هي الطالبةُ التي نجحَتْ.</td></tr>
+<tr><td><b>اللتان – اللتين</b></td><td>المثنى المؤنث</td><td>هاتانِ اللتانِ تعملانِ بجدٍّ.</td></tr>
+<tr><td><b>اللواتي – اللائي – اللاتي</b></td><td>جماعة الإناث</td><td>أُكرمُ اللواتي يتعلّمنَ.</td></tr>
+</table>
+
+<h4 style="color:var(--indigo);margin:6px 0">ب) الأسماء الموصولة المشتركة (لفظ واحد لجميع الأعداد والأجناس)</h4>
+<table class="data-table">
+<tr><th>الاسم الموصول</th><th>يدلّ على</th><th>مثال</th></tr>
+<tr><td><b>مَن</b></td><td>العاقل (مفرد، مثنى، جمع، مذكر، مؤنث)</td><td>أحترمُ مَن يَصدُقُ.</td></tr>
+<tr><td><b>ما</b></td><td>غير العاقل (مفرد، مثنى، جمع، مذكر، مؤنث)</td><td>اقرأْ ما يفيدُكَ.</td></tr>
+</table>
+
+<h3>4) إعراب الاسم الموصول</h3>
+<div class="rule-box"><b>الأسماء الموصولة كلها مبنية، إلا المثنى</b> (اللذان، اللتان) فيُعرب إعراب المثنى:<br>
+• يُرفع بالألف: جاءَ <span class="mu">اللذانِ</span> نجحا.<br>
+• يُنصب ويُجرّ بالياء: رأيتُ <span class="mu">اللذينِ</span> نجحا – مررتُ بـ<span class="mu">اللذينِ</span> نجحا.<br>
+<b>الاسم الموصول المبني</b> يكون «في محل رفع / نصب / جر» بحسب موقعه في الجملة.<br>
+<b>جملة الصلة</b> لا محلّ لها من الإعراب.</div>
+<div class="example-box">
+• نجحَ <span class="mu">الذي</span> اجتهدَ: الذي: اسم موصول مبني في محل رفع فاعل. اجتهدَ: صلة الموصول لا محل لها.<br>
+• أكرمتُ <span class="mu">الذينَ</span> نجحوا: الذين: اسم موصول مبني في محل نصب مفعول به.<br>
+• مررتُ بـ<span class="mu">التي</span> ساعدَتْني: التي: اسم موصول مبني في محل جر بحرف الجر.</div>
+
+<h3>5) كيف أختار الاسم الموصول؟</h3>
+<div class="cards3" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px">
+<div class="box"><b>① عاقل أم غير عاقل؟</b> مَن للعاقل، ما لغير العاقل (للمشترك).</div>
+<div class="box"><b>② العدد؟</b> مفرد، مثنى، جمع (للخاص).</div>
+<div class="box"><b>③ الجنس؟</b> مذكر أم مؤنث؟ ثم أتأكّد من وجود العائد في الصلة.</div>
+</div>
+</section>
+
+<section>
+<h2>✏️ نشاط تطبيقي: «أصل الجملتين»</h2>
+<div class="activity-box">
+<p><span class="task-label">المهمة 1</span> أصل كل جملتين بجملة واحدة باستعمال اسم موصول مناسب:<br>
+أ) هذا هو الولدُ. نجحَ الولدُ في المسابقةِ. ← <span class="fill-line" style="min-width:240px"></span><br>
+ب) رأيتُ الطالبتَينِ. فازتا بالجائزةِ. ← <span class="fill-line" style="min-width:240px"></span></p>
+<p><span class="task-label">المهمة 2</span> أكتب جملتين فيهما «مَن» و«ما»: <span class="fill-line" style="min-width:240px"></span></p><div class="lines"></div>
+<p><span class="task-label">المهمة 3</span> أضع خطًّا تحت صلة الموصول ودائرة حول العائد في جملتي: <span class="fill-line" style="min-width:240px"></span></p>
+</div>
+</section>
+
+<section>
+<h2>📝 تمارين للتدرّب</h2>
+
+<div class="exercise"><h4><span class="exercise-num">1</span>أضع في كل مكان خالٍ اسم موصول وأعيّن صلته</h4>
+<p>أ) أحبّ أمّي <span class="fill-line"></span> أرضعتني صغيرًا.</p>
+<p>ب) العامل <span class="fill-line"></span> يجتهد في عمله يفلح.</p>
+<p>ج) أحترم أساتذتي <span class="fill-line"></span> علّموني.</p>
+<p>د) قدم أخواي <span class="fill-line"></span> كانا مسافرين.</p>
+<p>هـ) أبواي <span class="fill-line"></span> ربّياني.</p></div>
+
+<div class="exercise"><h4><span class="exercise-num">2</span>أجعل كل جملة صلة لاسم موصول وأركّب الجملة</h4>
+<p>أ) يتعلّمن الخياطة ← الفتيات <span class="fill-line" style="min-width:200px"></span></p>
+<p>ب) فازتا في الامتحان ← <span class="fill-line" style="min-width:260px"></span></p>
+<p>ج) يكرمان الضيف ← <span class="fill-line" style="min-width:260px"></span></p>
+<p>د) هداني للخير ← <span class="fill-line" style="min-width:260px"></span></p>
+<p>هـ) نالت الجائزة ← <span class="fill-line" style="min-width:260px"></span></p></div>
+
+<div class="exercise"><h4><span class="exercise-num">3</span>أحدّد في كل جملة الاسم الموصول وصلته والعائد</h4>
+<table class="data-table"><tr><th>الجملة</th><th>الاسم الموصول</th><th>الصلة</th><th>العائد</th></tr>
+<tr><td>الذي يحترم أساتذته ينجح</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>نمت الشجرة التي غرستُها</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>قرأتُ الكتابين اللذين اشتريتُهما</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr></table></div>
+
+<div class="exercise"><h4><span class="exercise-num">4</span>أبيّن موقع الاسم الموصول من الإعراب</h4>
+<p>أ) أفلحَ اللذان اجتهدا. ← <span class="fill-line" style="min-width:230px"></span></p>
+<p>ب) الفتيات اللواتي يجتهدن مكرَّمات. ← <span class="fill-line" style="min-width:230px"></span></p>
+<p>ج) وصلَ المهاجرون الذين انتظرناهم. ← <span class="fill-line" style="min-width:230px"></span></p>
+<p>د) شجّعت المديرةُ التلميذاتِ اللواتي نجحن. ← <span class="fill-line" style="min-width:230px"></span></p></div>
+
+<div class="exercise"><h4><span class="exercise-num">5</span>أختار الجواب الصحيح</h4>
+<b>أ) الاسم الموصول للمثنى المؤنث:</b>
+<span class="opt"><span class="checkbox"></span>اللذان</span><span class="opt"><span class="checkbox"></span>اللتان</span><span class="opt"><span class="checkbox"></span>الذين</span>
+<b>ب) الاسم الموصول المشترك لغير العاقل:</b>
+<span class="opt"><span class="checkbox"></span>مَن</span><span class="opt"><span class="checkbox"></span>ما</span><span class="opt"><span class="checkbox"></span>الذي</span>
+<b>ج) الضمير الذي يعود على الاسم الموصول في الصلة يسمى:</b>
+<span class="opt"><span class="checkbox"></span>العائد</span><span class="opt"><span class="checkbox"></span>الصلة</span><span class="opt"><span class="checkbox"></span>المضاف</span></div>
+
+<div class="exercise"><h4><span class="exercise-num">6</span>صحيح أم خطأ؟ (أصحّح الخطأ)</h4>
+<p>1) الأسماء الموصولة كلها معربة. <span class="sq"></span> <span class="fill-line"></span></p>
+<p>2) صلة الموصول جملة تشتمل على ضمير عائد. <span class="sq"></span></p>
+<p>3) «مَن» تُستعمل للعاقل. <span class="sq"></span></p>
+<p>4) «الذي» للمفردة المؤنثة. <span class="sq"></span> <span class="fill-line"></span></p>
+<p>5) «اللذان» تُعرب إعراب المثنى. <span class="sq"></span></p></div>
+
+<div class="exercise"><h4><span class="exercise-num">7</span>أصل الاسم الموصول بما يدلّ عليه</h4>
+<div class="match-cols">
+<div><p>أ) الذين</p><p>ب) اللواتي</p><p>ج) التي</p><p>د) اللذان</p><p>هـ) ما</p></div>
+<div><p>1) المفردة المؤنثة</p><p>2) المثنى المذكر</p><p>3) جماعة الإناث</p><p>4) غير العاقل</p><p>5) جماعة الذكور</p></div></div></div>
+
+<div class="exercise"><h4><span class="exercise-num">8</span>أمثّل لما يأتي في جمل مفيدة</h4>
+<p>أ) اسم موصول لجماعة الذكور يقع مبتدأ:</p><div class="lines"></div>
+<p>ب) اسم موصول لجماعة الإناث يقع فاعلًا:</p><div class="lines"></div>
+<p>ج) اسم موصول لمفرد مذكر يقع مفعولًا به:</p><div class="lines"></div>
+<p>د) اسم موصول لمفرد مؤنث يقع مبتدأ:</p><div class="lines"></div></div>
+</section>
+
+<div class="corrige-wrapper">
+<details class="corrige">
+<summary>اضغط لإظهار الحل / إخفائه — التصحيح الكامل</summary>
+
+<h5>النشاط التطبيقي</h5>
+<p>المهمة 1: أ) هذا هو الولدُ الذي نجحَ في المسابقةِ. ب) رأيتُ الطالبتَينِ اللتَينِ فازتا بالجائزةِ. المهمتان 2 و3: جمل حرّة صحيحة (مثل: أحترمُ مَن يُعلِّمُني. اقرأْ ما يفيدُكَ).</p>
+
+<h5>التمرين 1</h5>
+<p>أ) التي (الصلة: أرضعتني) &nbsp; ب) الذي (يجتهد في عمله) &nbsp; ج) الذين (علّموني) &nbsp; د) اللذان (كانا مسافرين) &nbsp; هـ) اللذان (ربّياني)</p>
+
+<h5>التمرين 2</h5>
+<p>أ) الفتياتُ اللواتي يتعلّمنَ الخياطةَ &nbsp; ب) الطالبتان اللتان فازتا في الامتحان &nbsp; ج) الرجلانِ اللذان يكرمانِ الضيفَ &nbsp; د) الرجلُ الذي هداني للخيرِ (أو: مَن هداني للخير) &nbsp; هـ) الطالبةُ التي نالتِ الجائزةَ</p>
+
+<h5>التمرين 3</h5>
+<table class="data-table"><tr><th>الجملة</th><th>الموصول</th><th>الصلة</th><th>العائد</th></tr>
+<tr><td>الذي يحترم أساتذته ينجح</td><td>الذي</td><td>يحترم أساتذته</td><td>الضمير المستتر (هو)</td></tr>
+<tr><td>نمت الشجرة التي غرستُها</td><td>التي</td><td>غرستُها</td><td>الهاء</td></tr>
+<tr><td>قرأتُ الكتابين اللذين اشتريتُهما</td><td>اللذين</td><td>اشتريتُهما</td><td>الهاء والميم والألف (ـهما)</td></tr></table>
+
+<h5>التمرين 4</h5>
+<p>أ) اللذان: اسم موصول مبني (يعرب إعراب المثنى) في محل رفع فاعل (مرفوع بالألف لأنه مثنى). &nbsp; ب) اللواتي: اسم موصول مبني في محل رفع نعت للفتيات (أو مبتدأ حسب التحليل). &nbsp; ج) الذين: اسم موصول مبني في محل نصب مفعول به. &nbsp; د) اللواتي: اسم موصول مبني في محل نصب نعت للتلميذات.</p>
+
+<h5>التمرين 5</h5>
+<p>أ) اللتان. &nbsp; ب) ما. &nbsp; ج) العائد.</p>
+
+<h5>التمرين 6</h5>
+<p>1) خطأ — مبنية إلا المثنى. 2) صحيح. 3) صحيح. 4) خطأ — «الذي» للمفرد المذكر و«التي» للمفردة المؤنثة. 5) صحيح.</p>
+
+<h5>التمرين 7</h5>
+<p>أ ← 5 &nbsp; ب ← 3 &nbsp; ج ← 1 &nbsp; د ← 2 &nbsp; هـ ← 4</p>
+
+<h5>التمرين 8</h5>
+<p>أمثلة: أ) الذين يجتهدون ينجحون. ب) نجحتِ اللواتي ثابرنَ. ج) أحببتُ الذي ساعدَني. د) التي تجتهدُ تفلحُ.</p>
+</details>
+</div>
+
+<p class="footer-note">فيشة تعلّم ذاتي – اللغة العربية – الأولى إعدادي – الاسم الموصول</p>
+</div>
+</body>
+</html>
