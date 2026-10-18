@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>العلاقات الغذائية والتوازنات الطبيعية - الجزء الثاني</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#20301f; --ink-soft:#4c5a48;
+    --paper:#f8faf4; --panel:#ffffff; --line:#d7e0cd;
+    --leaf:#3f7d3a; --leaf-soft:#e3f0df;
+    --sky:#2f7ea8; --sky-soft:#deeef6;
+    --amber:#c98a2e; --amber-soft:#f6e9d3;
+    --coral:#c1493a; --coral-soft:#fbe0d8;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#e4e9dc;font-family:'Noto Naskh Arabic','Amiri',serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .sheet{max-width:900px;margin:24px auto;background:var(--paper);padding:38px 44px 50px;border:1px solid var(--line);box-shadow:0 4px 24px rgba(0,0,0,.12);}
+
+  .masthead{display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:3px solid var(--ink);padding-bottom:16px;margin-bottom:22px;}
+  .masthead-text h1{font-family:'Amiri',serif;font-weight:700;font-size:23px;margin:0 0 6px;color:var(--leaf);line-height:1.4;}
+  .masthead-text .subtitle{font-size:15px;color:var(--ink-soft);margin:0;}
+  .leaf-icon{width:56px;height:56px;flex-shrink:0;}
+
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+  .meta-chip{border:1px solid var(--line);background:var(--panel);border-radius:3px;padding:6px 12px;font-size:13.5px;color:var(--ink-soft);}
+  .meta-chip b{color:var(--ink);font-weight:600;}
+
+  section{margin-bottom:26px;}
+  h2.section-title{font-family:'Amiri',serif;font-size:20px;font-weight:700;color:var(--sky);border-bottom:2px solid var(--sky);padding-bottom:6px;margin:0 0 14px;display:flex;align-items:baseline;gap:8px;}
+  h3.sub-title{font-size:16.5px;font-weight:700;color:var(--amber);margin:18px 0 8px;}
+  p{line-height:1.95;font-size:15px;margin:0 0 9px;}
+
+  .objectif-box{background:var(--sky-soft);border-right:4px solid var(--sky);padding:14px 18px;border-radius:2px;font-size:15px;line-height:1.9;}
+
+  .rule-box{background:var(--panel);border:1px solid var(--line);border-right:4px solid var(--leaf);padding:12px 16px;border-radius:2px;margin:8px 0 14px;}
+  .rule-box p:last-child{margin-bottom:0;}
+  .rule-box ul,.rule-box ol{margin:6px 0;padding-inline-start:22px;}
+  .rule-box li{margin-bottom:5px;line-height:1.8;font-size:14.5px;}
+
+  .chain-wrap{display:flex;justify-content:center;margin:14px 0;overflow-x:auto;}
+
+  .level-grid{display:flex;flex-wrap:wrap;gap:12px;margin:10px 0 14px;}
+  .level-card{flex:1 1 200px;border-radius:8px;padding:11px 14px;text-align:center;}
+  .level-card.producer{background:var(--leaf-soft);border:1px solid var(--leaf);}
+  .level-card.c1{background:var(--amber-soft);border:1px solid var(--amber);}
+  .level-card.c2{background:var(--coral-soft);border:1px solid var(--coral);}
+  .level-card.decomp{background:var(--sky-soft);border:1px solid var(--sky);}
+  .level-card .head{font-weight:700;font-size:14px;margin-bottom:3px;}
+  .level-card.producer .head{color:var(--leaf);}
+  .level-card.c1 .head{color:var(--amber);}
+  .level-card.c2 .head{color:var(--coral);}
+  .level-card.decomp .head{color:var(--sky);}
+  .level-card p{margin:0;font-size:12.5px;color:var(--ink-soft);}
+
+  table.data-table{width:100%;border-collapse:collapse;margin:8px 0 16px;font-size:14px;}
+  table.data-table th{background:var(--sky);color:#fff;padding:7px 8px;font-weight:600;font-size:13px;}
+  table.data-table td{border:1px solid var(--line);padding:7px 8px;background:var(--panel);text-align:center;}
+  table.data-table tr:nth-child(even) td{background:#eef3e8;}
+
+  .activity-box{background:var(--panel);border:1.5px solid var(--amber);border-radius:3px;padding:14px 18px;}
+  .activity-box .task-label{display:inline-block;background:var(--amber);color:#fff;font-size:12px;padding:3px 10px;border-radius:2px;margin-bottom:8px;}
+
+  .exercise{border:1px solid var(--line);border-radius:3px;padding:14px 18px;margin-bottom:14px;background:var(--panel);}
+  .exercise-num{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;background:var(--ink);color:var(--paper);border-radius:50%;font-size:13px;font-weight:700;margin-inline-end:8px;}
+  .exercise h4{margin:0 0 9px;font-size:15.5px;display:flex;align-items:center;}
+  .fill-line{border-bottom:1px dotted var(--ink-soft);display:inline-block;min-width:100px;height:1.5em;}
+  .word-chip{display:inline-block;background:var(--paper);border:1px solid var(--line);border-radius:3px;padding:3px 10px;margin:2px 3px;font-size:14.5px;}
+  .qcm-item{margin-bottom:9px;}
+  .qcm-item p{margin-bottom:4px;font-weight:600;}
+  .qcm-options{display:flex;flex-wrap:wrap;gap:12px;font-size:13.5px;}
+  .qcm-options span{display:flex;align-items:center;gap:5px;}
+  .checkbox{width:12px;height:12px;border:1.4px solid var(--ink-soft);display:inline-block;border-radius:2px;}
+  .match-cols{display:flex;justify-content:space-between;gap:40px;margin-top:8px;}
+  .match-cols ul{list-style:none;padding:0;margin:0;}
+  .match-cols li{border:1px solid var(--line);background:var(--paper);padding:6px 14px;margin-bottom:10px;border-radius:3px;font-size:15px;}
+  .scenario-box{background:#eef3e8;border:1px solid var(--line);padding:10px 14px;font-size:14.5px;line-height:1.95;margin-bottom:8px;}
+
+  .corrige-wrapper{page-break-before:always;padding-top:6px;}
+  .corrige-flag{text-align:center;font-size:12.5px;color:var(--ink-soft);margin-bottom:10px;border-top:1px dashed var(--ink-soft);padding-top:14px;}
+  details.corrige{border:2px dashed var(--amber);border-radius:4px;background:#fdf8ee;padding:6px 20px 18px;}
+  details.corrige > summary{cursor:pointer;font-family:'Amiri',serif;font-weight:700;font-size:18px;color:var(--amber);padding:12px 0;list-style:none;}
+  details.corrige > summary::-webkit-details-marker{display:none;}
+  details.corrige > summary::before{content:"✂ ";}
+  details.corrige > summary::after{content:"— اضغط لإظهار الحل / إخفائه";font-family:'Noto Naskh Arabic',serif;font-weight:400;font-size:12.5px;color:var(--ink-soft);margin-inline-start:8px;}
+  .corrige h4{color:var(--amber);margin:14px 0 6px;font-size:15px;}
+  .corrige-item{margin-bottom:7px;font-size:14px;line-height:1.85;}
+  .corrige table.data-table th{background:var(--amber);}
+
+  .footer-note{margin-top:26px;text-align:center;font-size:11.5px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:10px;}
+
+  @media print{
+    body{background:#fff;}
+    .sheet{box-shadow:none;border:none;margin:0;max-width:100%;padding:14px 6px;}
+    details.corrige{border-color:#000;}
+  }
+  @page{size:A4;margin:13mm;}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="masthead-text">
+      <h1>العلاقاتُ الغذائيةُ والتوازناتُ الطبيعيةُ — الجزءُ الثاني</h1>
+      <p class="subtitle">علوم الحياة والأرض — تدفّق المادة وتدفّق الطاقة في النظام البيئي</p>
+    </div>
+    <svg class="leaf-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M32 8c16 4 22 20 14 34C38 56 20 54 14 40 8 26 16 12 32 8z" fill="#3f7d3a" opacity="0.85"/>
+      <path d="M32 12c0 16 0 28 0 40" stroke="#e4e9dc" stroke-width="2"/>
+    </svg>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta-chip">المستوى: <b>الأولى إعدادي (1AC)</b></div>
+    <div class="meta-chip">المادة: <b>علوم الحياة والأرض (SVT)</b></div>
+    <div class="meta-chip">الحصة: <b>14 (الجزء الثاني)</b></div>
+    <div class="meta-chip">نوع الوثيقة: <b>فيشة تعلّم ذاتي</b></div>
+  </div>
+
+  <section>
+    <h2 class="section-title">🎯 الهدف من الدرس</h2>
+    <div class="objectif-box">
+      يتمكّن المتعلم(ة) في نهاية هذا الدرس من: توضيح أن كل كائن حي ينتج مادة عضوية (النمو إنتاج للمادة)، وقياس هذا الإنتاج عند النبات والحيوان، والتمييز بين المنتجين الأوليين والمنتجين الثانويين (ذاتيو التغذية وغيرذاتيي التغذية)، وتفسير تدفّق الطاقة في السلسلة الغذائية، وقراءة الأهرام البيئية (العددية، الكتلة الحيوية، الطاقة).
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">📘 الدرس</h2>
+
+    <h3 class="sub-title">III) تدفّق المادة في النظام البيئي (Flux de matière)</h3>
+
+    <h3 class="sub-title">3-1) الكائنات الحية منتجة للمادة العضوية</h3>
+    <div class="rule-box">
+      <p>كل الكائنات الحية، نباتات وحيوانات، تأخذ <b>مادة من وسطها</b>، وهذه المادة هي غذاؤها. وتستعمل هذا الغذاء لتصنع <b>مادتها الخاصة</b>.</p>
+      <p>المادة المأخوذة من الوسط أنتجها كائنات حية أخرى، والمادة التي ينتجها كل كائن حي تسمى <b>مادة عضوية</b>.</p>
+      <p><b>المادة العضوية</b> هي المادة التي تصنعها الكائنات الحية وتكوّن أعضاءها (عضلات، عظام، أوراق، جذور...).</p>
+    </div>
+    <p>ملاحظة: الحيوانات تكبر وتزداد كتلتها، فهي تنتج إذن مادة حيوانية جديدة، وتسمى أيضًا مادة عضوية.</p>
+    <div class="rule-box">
+      <p><b>المشكلة:</b> كيف يمكن قياس هذا الإنتاج؟</p>
+      <p><b>الفرضية:</b> يمكن قياس نمو الكائن الحي إما بقياس <b>طوله</b> أو بقياس <b>كتلته</b>.</p>
+    </div>
+
+    <h3 class="sub-title">3-2) النمو عند النباتات</h3>
+    <p>قيس طول ساق نبتة الفول في فترات مختلفة، فسُجّلت القيم في الجدول:</p>
+    <table class="data-table">
+      <tr><th>التاريخ (ماي)</th><th>5</th><th>10</th><th>12</th><th>15</th><th>20</th><th>25</th></tr>
+      <tr><td>الطول (سم)</td><td>0</td><td>0,5</td><td>1,2</td><td>2,0</td><td>3,0</td><td>4,5</td></tr>
+    </table>
+    <div class="chain-wrap">
+      <svg width="400" height="210" viewBox="0 0 400 210" role="img" aria-label="تطور طول ساق الفول">
+        <rect x="0" y="0" width="400" height="210" fill="#f8faf4"/>
+        <g stroke="#d7e0cd"><line x1="40" y1="150" x2="340" y2="150"/><line x1="40" y1="122" x2="340" y2="122"/><line x1="40" y1="94" x2="340" y2="94"/><line x1="40" y1="66" x2="340" y2="66"/><line x1="40" y1="38" x2="340" y2="38"/></g>
+        <line x1="40" y1="150" x2="340" y2="150" stroke="#20301f" stroke-width="2"/><line x1="40" y1="150" x2="40" y2="20" stroke="#20301f" stroke-width="2"/>
+        <polyline points="40,150 110,136 138,116.4 180,94 250,66 320,24" fill="none" stroke="#3f7d3a" stroke-width="3"/>
+        <g fill="#c1493a"><circle cx="40" cy="150" r="4"/><circle cx="110" cy="136" r="4"/><circle cx="138" cy="116.4" r="4"/><circle cx="180" cy="94" r="4"/><circle cx="250" cy="66" r="4"/><circle cx="320" cy="24" r="4"/></g>
+        <g font-family="Noto Naskh Arabic, serif" font-size="12" fill="#20301f" text-anchor="middle"><text x="40" y="168">5</text><text x="110" y="168">10</text><text x="180" y="168">15</text><text x="250" y="168">20</text><text x="320" y="168">25</text><text x="190" y="190">التاريخ (ماي)</text></g>
+        <g font-family="Noto Naskh Arabic, serif" font-size="12" fill="#20301f" text-anchor="end"><text x="34" y="154">0</text><text x="34" y="126">1</text><text x="34" y="98">2</text><text x="34" y="70">3</text><text x="34" y="42">4</text></g>
+        <text x="350" y="30" font-family="Noto Naskh Arabic, serif" font-size="12" fill="#3f7d3a">الطول (سم)</text>
+      </svg>
+    </div>
+    <p>تُبيّن معطيات الجدول أن النبات أنتج <b>مادة عضوية</b> بدلالة الزمن، ويُفسَّر ذلك بـ<b>ازدياد طوله</b>.</p>
+
+    <h3 class="sub-title">3-3) النمو عند الحيوانات</h3>
+    <p>يمثّل المبيان الآتي تطوّر <b>كتلة فرخ طائر</b> (عصفور) بدلالة الزمن (القيم تقريبية):</p>
+    <div class="chain-wrap">
+      <svg width="400" height="220" viewBox="0 0 400 220" role="img" aria-label="تطور كتلة فرخ">
+        <rect x="0" y="0" width="400" height="220" fill="#fbf6ea"/>
+        <g stroke="#e3d3a8"><line x1="40" y1="170" x2="340" y2="170"/><line x1="40" y1="130" x2="340" y2="130"/><line x1="40" y1="90" x2="340" y2="90"/><line x1="40" y1="50" x2="340" y2="50"/><line x1="40" y1="10" x2="340" y2="10"/></g>
+        <line x1="40" y1="170" x2="340" y2="170" stroke="#20301f" stroke-width="2"/><line x1="40" y1="170" x2="40" y2="5" stroke="#20301f" stroke-width="2"/>
+        <polyline points="40,164 90,148 140,118 190,94 240,60 290,50 340,42" fill="none" stroke="#2f7ea8" stroke-width="3"/>
+        <g fill="#c1493a"><circle cx="40" cy="164" r="4"/><circle cx="90" cy="148" r="4"/><circle cx="140" cy="118" r="4"/><circle cx="190" cy="94" r="4"/><circle cx="240" cy="60" r="4"/><circle cx="290" cy="50" r="4"/><circle cx="340" cy="42" r="4"/></g>
+        <g font-family="Noto Naskh Arabic, serif" font-size="12" fill="#20301f" text-anchor="middle"><text x="40" y="186">0</text><text x="140" y="186">10</text><text x="240" y="186">20</text><text x="340" y="186">30</text><text x="190" y="206">الزمن (بالأيام)</text></g>
+        <g font-family="Noto Naskh Arabic, serif" font-size="12" fill="#20301f" text-anchor="end"><text x="34" y="174">0</text><text x="34" y="134">100</text><text x="34" y="94">200</text><text x="34" y="54">300</text><text x="34" y="14">400</text></g>
+        <text x="352" y="30" font-family="Noto Naskh Arabic, serif" font-size="12" fill="#2f7ea8">الكتلة (غ)</text>
+      </svg>
+    </div>
+    <p>يُبيّن المبيان أن الحيوان أنتج <b>مادة عضوية</b>، ويُفسَّر ذلك بـ<b>ازدياد كتلته</b> بدلالة الزمن منذ ولادته.</p>
+
+    <h3 class="sub-title">3-4) خلاصة</h3>
+    <div class="rule-box">
+      <p>كل الكائنات الحية <b>منتجة للمادة العضوية</b>: النمو هو ببساطة إنتاج للمادة.</p>
+    </div>
+    <div class="level-grid">
+      <div class="level-card producer"><div class="head">المنتجون الأوليون (Producteurs primaires)</div><p>النباتات الخضراء (ذاتية التغذية Autotrophes): تصنع المادة العضوية دون استهلاك مادة عضوية لكائن آخر، وهي الحلقة الأولى في السلاسل الغذائية.</p></div>
+      <div class="level-card c1"><div class="head">المنتجون الثانويون (Producteurs secondaires)</div><p>باقي الكائنات في الشبكة الغذائية (غير ذاتية التغذية Hétérotrophes / المستهلكات): تستهلك المادة العضوية لكائن آخر لتصنع مادتها العضوية.</p></div>
+    </div>
+
+    <h3 class="sub-title">IV) تدفّق الطاقة في النظام البيئي (Flux d'énergie)</h3>
+
+    <h3 class="sub-title">4-1) مقدمة</h3>
+    <div class="rule-box">
+      <ul>
+        <li>يتمثّل تدفّق المادة والطاقة في انتقالهما عبر السلسلة الغذائية.</li>
+        <li>تستعمل الكائنات الحية الطاقة في أنشطتها اليومية (الحركة، النمو، التكاثر، التغذية...).</li>
+        <li>جزء من الطاقة لا يمكن استعماله، فيُطرح من الكائن على شكل <b>فضلات</b>.</li>
+        <li>نسبة ضعيفة فقط من الطاقة تبقى مخزّنة في كل كائن على شكل <b>مادة عضوية</b>.</li>
+      </ul>
+    </div>
+
+    <h3 class="sub-title">4-2) الهرم البيئي (Pyramide écologique)</h3>
+    <div class="rule-box">
+      <p>يمكن تمثيل انتقال الطاقة والمادة في نظام بيئي بتخطيط يسمى <b>الهرم البيئي</b>. وهو تمثيل كمّي للمستويات الغذائية في سلسلة غذائية.</p>
+      <p>يُمثَّل كل مستوى غذائي بمستطيل <b>مساحته متناسبة مع الكتلة الحيوية</b> المقابلة له.</p>
+      <p>المحلِّلات والمفتِّتات (Décomposeurs/Détritivores) لا تُمثَّل دائمًا في هذه الأهرام لكنها تؤدّي دورًا أساسيًا في دورة المادة.</p>
+    </div>
+    <div class="chain-wrap">
+      <svg width="420" height="220" viewBox="0 0 420 220" role="img" aria-label="هرم بيئي مبسط">
+        <rect x="0" y="0" width="420" height="220" fill="#f8faf4"/>
+        <rect x="130" y="15" width="70" height="40" fill="#f6e9d3" stroke="#c98a2e" stroke-width="2"/>
+        <rect x="100" y="60" width="130" height="40" fill="#fbe0d8" stroke="#c1493a" stroke-width="2"/>
+        <rect x="65" y="105" width="200" height="40" fill="#fff3d0" stroke="#c98a2e" stroke-width="2"/>
+        <rect x="30" y="150" width="270" height="45" fill="#e3f0df" stroke="#3f7d3a" stroke-width="2"/>
+        <g font-family="Noto Naskh Arabic, serif" font-size="13" fill="#20301f" text-anchor="middle" font-weight="700"><text x="165" y="40">مستهلكات ثالثية</text><text x="165" y="85">مستهلكات ثانوية</text><text x="165" y="130">مستهلكات أولية</text><text x="165" y="177">منتجات أولية</text></g>
+        <text x="350" y="110" font-family="Noto Naskh Arabic, serif" font-size="12" fill="#c1493a" text-anchor="middle">غيرذاتية التغذية</text>
+        <text x="350" y="175" font-family="Noto Naskh Arabic, serif" font-size="12" fill="#3f7d3a" text-anchor="middle">ذاتية التغذية</text>
+        <text x="210" y="212" font-family="Noto Naskh Arabic, serif" font-size="11" fill="#4c5a48" text-anchor="middle">رسم تخطيطي غير مقيّس</text>
+      </svg>
+    </div>
+
+    <p>نميّز ثلاثة أنواع من الأهرام البيئية:</p>
+    <table class="data-table">
+      <tr><th>المستوى الغذائي</th><th>هرم الأعداد (عدد الأفراد)</th><th>هرم الكتلة الحيوية (كلغ/هكتار)</th><th>هرم الطاقة (%)</th></tr>
+      <tr><td>منتجات أولية</td><td>1 500 000</td><td>300 000</td><td>100 % (الطاقة المتاحة)</td></tr>
+      <tr><td>مستهلكات أولية</td><td>30 000</td><td>15 000</td><td>10 %</td></tr>
+      <tr><td>مستهلكات ثانوية</td><td>100</td><td>500</td><td>1 %</td></tr>
+      <tr><td>مستهلكات ثالثية</td><td>1</td><td>25</td><td>0,1 %</td></tr>
+    </table>
+    <p style="font-size:13px;color:var(--ink-soft);">(قيم نموذجية مأخوذة من وثيقة الدرس.)</p>
+
+    <h3 class="sub-title">4-3) خلاصة</h3>
+    <div class="rule-box">
+      <p>عند الانتقال من مستوى غذائي إلى المستوى الذي يليه في سلسلة غذائية، يحدث <b>انتقال للمادة والطاقة</b> داخل النظام البيئي، وتتناقص الكمية بشدّة من مستوى إلى آخر (جزء كبير من الطاقة يضيع).</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">✏️ نشاط تطبيقي: أقيس النمو وأبني الهرم</h2>
+    <div class="activity-box">
+      <span class="task-label">المهمة 1</span>
+      <p>على ورق مليمتري، أنجز المبيان الخاص بنمو نبتة الفول من الجدول (المحور الأفقي: التاريخ، المحور العمودي: الطول بالسنتيمتر). ثم أكمل: بين 5 ماي و25 ماي ازداد طول النبتة بـ <span class="fill-line" style="min-width:60px"></span> سم.</p>
+      <span class="task-label">المهمة 2</span>
+      <p>أرسم هرم الكتلة الحيوية بمقياس مناسب (مثلاً 1 سم لكل 100 000 كلغ/هكتار للمنتجات الأولية، ومساحات متناسبة بقية المستويات)، وأكتب على كل مستطيل اسم المستوى والقيمة.</p>
+      <span class="task-label">المهمة 3</span>
+      <p>أستنتج: لماذا يضيق الهرم كلما صعدنا؟ <span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">📝 تمارين للتدرّب</h2>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">1</span>أكمل الفراغات بالكلمات: (المادة العضوية، ذاتية التغذية، النمو، الفضلات، الطاقة)</h4>
+      <p>الكائنات الحية تنتج <span class="fill-line"></span>، و<span class="fill-line"></span> هو إنتاج للمادة. النباتات الخضراء <span class="fill-line"></span>، وجزء من <span class="fill-line"></span> يُطرح على شكل <span class="fill-line"></span>.</p>
+      <p><span class="word-chip">المادة العضوية</span><span class="word-chip">ذاتية التغذية</span><span class="word-chip">النمو</span><span class="word-chip">الفضلات</span><span class="word-chip">الطاقة</span></p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">2</span>اختر الإجابة الصحيحة:</h4>
+      <div class="qcm-item"><p>1) المادة العضوية هي:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>مادة تصنعها الكائنات الحية وتكوّن أعضاءها</span><span><span class="checkbox"></span>مادة لا توجد إلا في المختبر</span><span><span class="checkbox"></span>الماء فقط</span></div></div>
+      <div class="qcm-item"><p>2) يمكن قياس نمو الحيوان بقياس:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>كتلته</span><span><span class="checkbox"></span>لونه</span><span><span class="checkbox"></span>صوته</span></div></div>
+      <div class="qcm-item"><p>3) النباتات الخضراء تسمى:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>منتجات أولية</span><span><span class="checkbox"></span>منتجات ثانوية</span><span><span class="checkbox"></span>محلِّلات فقط</span></div></div>
+      <div class="qcm-item"><p>4) في الهرم البيئي، مساحة كل مستطيل تتناسب مع:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>الكتلة الحيوية</span><span><span class="checkbox"></span>لون الكائن</span><span><span class="checkbox"></span>سرعة الكائن</span></div></div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">3</span>صحيح أم خطأ؟ (صحّح الخطأ):</h4>
+      <p>1) الحيوان لا ينتج مادة عضوية لأنه لا يقوم بالتركيب الضوئي. (&nbsp;&nbsp;&nbsp;) <span class="fill-line"></span></p>
+      <p>2) النبات الأخضر منتج أولي. (&nbsp;&nbsp;&nbsp;)</p>
+      <p>3) كل الطاقة تُخزَّن في المادة العضوية للكائن. (&nbsp;&nbsp;&nbsp;) <span class="fill-line"></span></p>
+      <p>4) الهرم البيئي تمثيل كمّي للمستويات الغذائية. (&nbsp;&nbsp;&nbsp;)</p>
+      <p>5) غيرذاتيات التغذية تصنع مادتها العضوية دون أكل كائن آخر. (&nbsp;&nbsp;&nbsp;) <span class="fill-line"></span></p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">4</span>صِل كل مصطلح بتعريفه:</h4>
+      <div class="match-cols">
+        <ul><li>أ) منتج أولي</li><li>ب) منتج ثانوي</li><li>ج) مادة عضوية</li><li>د) هرم بيئي</li></ul>
+        <ul><li>1) تمثيل كمّي للمستويات الغذائية</li><li>2) نبات أخضر يصنع مادته دون أكل كائن آخر</li><li>3) كائن يستهلك مادة كائن آخر ليصنع مادته</li><li>4) مادة يصنعها الكائن الحي وتكوّن أعضاءه</li></ul>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">5</span>نمو نبتة الفول (انظر الجدول والمبيان أعلاه)</h4>
+      <p>1) ما طول النبتة يوم 12 ماي؟ <span class="fill-line"></span></p>
+      <p>2) ما الزيادة في الطول بين 20 و25 ماي؟ <span class="fill-line"></span></p>
+      <p>3) ما الزيادة الكلية بين 5 و25 ماي؟ <span class="fill-line"></span></p>
+      <p>4) ماذا تستنتج بخصوص إنتاج المادة العضوية عند النبتة؟ <span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">6</span>نمو الفرخ (انظر المبيان أعلاه)</h4>
+      <p>1) ما كتلة الفرخ تقريبًا عند الولادة (اليوم 0)؟ وما كتلته تقريبًا بعد 30 يومًا؟ <span class="fill-line"></span></p>
+      <p>2) خلال أي فترة كانت الزيادة سريعة (يوم 5 إلى يوم 20 أم من 25 إلى 30)؟ <span class="fill-line"></span></p>
+      <p>3) فسّر لماذا نقول إن الفرخ «أنتج مادة عضوية». <span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">7</span>قراءة الأهرام (انظر الجدول في الدرس)</h4>
+      <p>1) في هرم الكتلة الحيوية ما قيمة الكتلة الحيوية للمستهلكات الأولية؟ <span class="fill-line"></span></p>
+      <p>2) ما النسبة المئوية للطاقة المتاحة للمستهلكات الثانوية؟ <span class="fill-line"></span></p>
+      <p>3) ماذا يحدث لكمية الطاقة عند الانتقال من مستوى إلى المستوى الذي يليه؟ <span class="fill-line" style="min-width:100%;"></span></p>
+      <p>4) لماذا لا تحتوي السلاسل الغذائية عادة على عدد كبير من الحلقات؟ <span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">8</span>مسألة تطبيقية: هرم في مرعى</h4>
+      <div class="scenario-box">في مرعى، تبلغ الكتلة الحيوية للأعشاب <b>5000 كلغ/هكتار</b>. نفترض (تبسيطًا للتمرين) أن <b>10 %</b> فقط من هذه الكتلة تنتقل إلى المستوى الغذائي الموالي في كل مرة.</div>
+      <p>1) أحسب الكتلة الحيوية للمستهلكات الأولية: <span class="fill-line"></span></p>
+      <p>2) أحسب الكتلة الحيوية للمستهلكات الثانوية: <span class="fill-line"></span></p>
+      <p>3) أحسب الكتلة الحيوية للمستهلكات الثالثية: <span class="fill-line"></span></p>
+      <p>4) أرسم الهرم المناسب مع ذكر المستويات والقيم.</p>
+    </div>
+  </section>
+
+  <div class="corrige-wrapper">
+    <p class="corrige-flag">✂ يمكن طي هذه الصفحة أو إخفاؤها (اضغط على العنوان أدناه) قبل إنجاز التمارين ✂</p>
+    <details class="corrige">
+      <summary>التصحيح الكامل</summary>
+
+      <h4>تصحيح النشاط التطبيقي</h4>
+      <div class="corrige-item">المهمة 1: الزيادة = 4,5 − 0 = 4,5 سم. المهمة 2: يتحقق الأستاذ(ة) من تناسب المساحات (300 000 ← 15 000 ← 500 ← 25). المهمة 3: يضيق الهرم لأن جزءًا كبيرًا من المادة والطاقة يضيع (فضلات، حركة، تنفس...) عند كل انتقال، فلا تنتقل إلى المستوى الموالي إلا نسبة ضعيفة.</div>
+
+      <h4>تصحيح التمرين 1</h4>
+      <div class="corrige-item">المادة العضوية – النمو – ذاتية التغذية – الطاقة – الفضلات.</div>
+
+      <h4>تصحيح التمرين 2</h4>
+      <div class="corrige-item">1) مادة تصنعها الكائنات الحية وتكوّن أعضاءها &nbsp;|&nbsp; 2) كتلته &nbsp;|&nbsp; 3) منتجات أولية &nbsp;|&nbsp; 4) الكتلة الحيوية</div>
+
+      <h4>تصحيح التمرين 3</h4>
+      <div class="corrige-item">1) خطأ — الحيوان ينتج أيضًا مادة عضوية (تزداد كتلته)، ولكنه يصنعها من مادة كائن آخر. &nbsp;|&nbsp; 2) صحيح. &nbsp;|&nbsp; 3) خطأ — جزء من الطاقة يُطرح فضلات، ونسبة ضعيفة فقط تُخزَّن. &nbsp;|&nbsp; 4) صحيح. &nbsp;|&nbsp; 5) خطأ — هذه خاصية ذاتيات التغذية (المنتجات الأولية)، أما غيرذاتيات التغذية فتستهلك مادة كائن آخر.</div>
+
+      <h4>تصحيح التمرين 4</h4>
+      <div class="corrige-item">أ ← 2 &nbsp;|&nbsp; ب ← 3 &nbsp;|&nbsp; ج ← 4 &nbsp;|&nbsp; د ← 1</div>
+
+      <h4>تصحيح التمرين 5</h4>
+      <div class="corrige-item">1) 1,2 سم. &nbsp;|&nbsp; 2) <span dir="ltr">4,5 − 3,0 = 1,5</span> سم. &nbsp;|&nbsp; 3) <span dir="ltr">4,5 − 0 = 4,5</span> سم. &nbsp;|&nbsp; 4) النبتة تنتج المادة العضوية باستمرار، ويظهر ذلك في ازدياد طولها بدلالة الزمن.</div>
+
+      <h4>تصحيح التمرين 6</h4>
+      <div class="corrige-item">1) حوالي 15 غ عند الولادة، وحوالي 320 غ بعد 30 يومًا (قيم تقريبية). &nbsp;|&nbsp; 2) من اليوم 5 إلى اليوم 20 (المنحنى أكثر ميلًا)، ثم يتباطأ النمو. &nbsp;|&nbsp; 3) لأن كتلته ازدادت بدلالة الزمن، فصنع مادة حيوانية جديدة انطلاقًا من الغذاء الذي أكله.</div>
+
+      <h4>تصحيح التمرين 7</h4>
+      <div class="corrige-item">1) 15 000 كلغ/هكتار. &nbsp;|&nbsp; 2) 1 %. &nbsp;|&nbsp; 3) تتناقص الطاقة بشدّة (100 % ← 10 % ← 1 % ← 0,1 %) لأن معظمها يضيع في الأنشطة وفي الفضلات. &nbsp;|&nbsp; 4) لأن الطاقة المتاحة تقلّ جدًا بعد بضعة مستويات، فلا تكفي لتغذية مستويات أخرى.</div>
+
+      <h4>تصحيح التمرين 8</h4>
+      <div class="corrige-item">1) <span dir="ltr">5000 × 10 ÷ 100 = 500</span> كلغ/هكتار. &nbsp;|&nbsp; 2) <span dir="ltr">500 × 10 ÷ 100 = 50</span> كلغ/هكتار. &nbsp;|&nbsp; 3) <span dir="ltr">50 × 10 ÷ 100 = 5</span> كلغ/هكتار. &nbsp;|&nbsp; 4) هرم من أربعة مستطيلات من الأسفل إلى الأعلى: أعشاب 5000 ← مستهلكات أولية 500 ← ثانوية 50 ← ثالثية 5.</div>
+    </details>
+  </div>
+
+  <p class="footer-note">فيشة تعلّم ذاتي — علوم الحياة والأرض — الأولى إعدادي — العلاقات الغذائية والتوازنات الطبيعية (الجزء الثاني)</p>
+</div>
+</body>
+</html>
