@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>معالجة المياه – كويز تفاعلي</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Naskh+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1d2a33;--ink-soft:#52646f;--paper:#f5fafb;--panel:#fff;--line:#cfe0e4;
+--indigo:#3f4d9e;--indigo-soft:#e6e9f7;--teal:#1f7a7a;--teal-soft:#dff1f0;--amber:#c98a2e;--amber-soft:#fbefd6;--rose:#b8483a;--rose-soft:#f8e3de;--ok:#2e8b57;--ok-soft:#dff3e6;}
+*{box-sizing:border-box}
+body{margin:0;background:#e5eef0;font-family:'Noto Naskh Arabic','Amiri',serif;color:var(--ink);line-height:1.9;font-size:17px}
+.sheet{max-width:920px;margin:18px auto;background:var(--paper);padding:26px 30px;border-radius:14px;box-shadow:0 4px 18px rgba(0,0,0,.1)}
+.masthead{display:flex;align-items:center;gap:18px;background:linear-gradient(135deg,var(--teal),var(--indigo));color:#fff;border-radius:14px;padding:18px 22px}
+.masthead h1{font-family:'Amiri',serif;font-size:2rem;margin:0;line-height:1.3}
+.masthead p{margin:4px 0 0;opacity:.92}
+.meta-row{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.chip{background:var(--panel);border:1.5px solid var(--line);border-radius:20px;padding:2px 14px;font-size:.92rem}
+.chip b{color:var(--indigo)}
+section{margin:22px 0}
+h2{font-family:'Amiri',serif;font-size:1.5rem;color:var(--indigo);border-bottom:3px solid var(--amber);display:inline-block;margin:0 0 10px;padding-bottom:2px}
+h3{color:var(--teal);margin:14px 0 4px;font-size:1.12rem}
+.box{background:var(--panel);border:1.5px solid var(--line);border-radius:12px;padding:12px 18px;margin:10px 0}
+.objectif-box{background:var(--teal-soft);border-color:var(--teal)}
+.rule-box{background:var(--amber-soft);border-right:6px solid var(--amber);border-radius:10px;padding:10px 16px;margin:10px 0}
+.warn-box{background:var(--rose-soft);border-right:6px solid var(--rose);border-radius:10px;padding:10px 16px;margin:10px 0}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:10px;margin:10px 0}
+.card{background:var(--panel);border:1.5px solid var(--line);border-top:5px solid var(--indigo);border-radius:10px;padding:8px 14px}
+.card h4{margin:0;color:var(--indigo);font-size:1.03rem}
+.card p{margin:2px 0 0;font-size:.95rem}
+table.data-table{width:100%;border-collapse:collapse;margin:10px 0;background:#fff}
+.data-table th,.data-table td{border:1.5px solid var(--line);padding:6px 10px;text-align:center}
+.data-table th{background:var(--indigo);color:#fff}
+.activity-box{background:var(--indigo-soft);border:2px dashed var(--indigo);border-radius:12px;padding:12px 18px}
+.task-label{display:inline-block;background:var(--indigo);color:#fff;border-radius:8px;padding:0 10px;margin-left:6px;font-size:.9rem}
+.fill-line{display:inline-block;min-width:110px;border-bottom:2px dotted var(--ink-soft)}
+.lines{border-bottom:2px dotted var(--ink-soft);height:26px;margin:4px 0}
+.fig{text-align:center;font-size:.88rem;color:var(--ink-soft)}
+svg text{font-family:'Noto Naskh Arabic',sans-serif}
+
+/* bar du score */
+.scorebar{position:sticky;top:0;z-index:5;background:#fff;border:2px solid var(--indigo);border-radius:12px;padding:8px 16px;margin:10px 0;display:flex;align-items:center;gap:14px;flex-wrap:wrap;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.scorebar .pts{font-weight:700;color:var(--indigo);font-size:1.1rem;white-space:nowrap}
+.progress{flex:1;min-width:140px;height:14px;background:#e3e8ee;border-radius:10px;overflow:hidden}
+.progress>i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--teal),var(--indigo));transition:width .4s}
+.scorebar small{color:var(--ink-soft)}
+
+/* exercices interactifs */
+.exercise{background:var(--panel);border:1.5px solid var(--line);border-radius:12px;padding:10px 18px 14px;margin:14px 0}
+.exercise-num{display:inline-flex;width:30px;height:30px;border-radius:50%;background:var(--amber);color:#fff;align-items:center;justify-content:center;font-weight:700;margin-left:8px}
+.exercise h4{margin:0 0 6px;font-size:1.08rem;color:var(--indigo)}
+.q{margin:8px 0}
+.mcq{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 8px}
+.mcq button{font:inherit;background:#fff;border:2px solid var(--line);border-radius:10px;padding:2px 14px;cursor:pointer}
+.mcq button:hover{border-color:var(--indigo)}
+.mcq button.sel{background:var(--indigo-soft);border-color:var(--indigo)}
+.mcq.ok button.sel{background:var(--ok-soft);border-color:var(--ok)}
+.mcq.bad button.sel{background:var(--rose-soft);border-color:var(--rose)}
+select,input.ans{font:inherit;border:2px solid var(--line);border-radius:8px;padding:1px 8px;background:#fff;max-width:100%}
+input.ans{width:150px}
+select.ok,input.ans.ok{border-color:var(--ok);background:var(--ok-soft)}
+select.bad,input.ans.bad{border-color:var(--rose);background:var(--rose-soft)}
+.fb{display:inline-block;margin-right:8px;font-size:.92rem}
+.fb.ok{color:var(--ok)}.fb.bad{color:var(--rose)}
+.actions{margin-top:8px;display:flex;gap:8px;flex-wrap:wrap}
+.btn{font:inherit;font-weight:700;border:none;border-radius:10px;padding:2px 18px;cursor:pointer;color:#fff;background:var(--indigo)}
+.btn.sec{background:#fff;color:var(--indigo);border:2px solid var(--indigo)}
+.btn:hover{opacity:.9}
+.ex-result{font-weight:700;color:var(--indigo);margin-right:4px}
+.final{display:none;background:var(--ok-soft);border:2px solid var(--ok);border-radius:12px;padding:10px 18px;margin:14px 0;font-weight:700}
+.doc-box{background:var(--indigo-soft);border-right:6px solid var(--indigo);border-radius:10px;padding:10px 16px;margin:8px 0}
+
+.corrige-wrapper{margin-top:26px}
+details.corrige{border:2px solid var(--indigo);border-radius:12px;background:#fff;padding:8px 18px}
+details.corrige summary{cursor:pointer;font-family:'Amiri',serif;font-size:1.25rem;color:var(--indigo);font-weight:700}
+.corrige h5{margin:12px 0 2px;color:var(--rose);font-size:1.02rem}
+.corrige p{margin:2px 0}
+.footer-note{text-align:center;color:var(--ink-soft);font-size:.88rem;margin-top:18px}
+@page{size:A4;margin:13mm}
+@media print{body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}.sheet{box-shadow:none;margin:0;max-width:none;padding:0;background:#fff}.scorebar,.actions,.final{display:none!important}.corrige-wrapper{page-break-before:always}details.corrige:not([open]) > :not(summary){display:none}.exercise{page-break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<header class="masthead">
+<svg width="70" height="64" viewBox="0 0 70 64" aria-hidden="true"><path d="M35 6 C35 6 12 32 12 44 a23 23 0 0 0 46 0 C58 32 35 6 35 6Z" fill="#cfeef0" stroke="#fff" stroke-width="3"/><path d="M24 46 q6 8 14 6" fill="none" stroke="#3f4d9e" stroke-width="3"/></svg>
+<div><h1>معالجة المياه</h1><p>الفيزياء والكيمياء – الماء وتنقيته (Le traitement des eaux) · كويز تفاعلي</p></div>
+</header>
+
+<div class="meta-row">
+<span class="chip"><b>المستوى:</b> الأولى إعدادي (1AC)</span>
+<span class="chip"><b>المادة:</b> الفيزياء والكيمياء</span>
+<span class="chip"><b>مدة الحصة:</b> ساعة</span>
+<span class="chip"><b>نوع الوثيقة:</b> كويز تفاعلي</span>
+</div>
+
+<section>
+<h2>🎯 الهدف</h2>
+<div class="box objectif-box">في نهاية هذه الحصة سأكون قادرًا على:
+<ul>
+<li>أن أميّز بين الماء الصافي والماء الصالح للشرب، وأذكر أسباب تلوّث الماء؛</li>
+<li>أن أرتّب مراحل معالجة الماء في محطة التنقية وأشرح هدف كل مرحلة؛</li>
+<li>أن أستعمل تقنيات الفصل (الترويق، الترشيح، التبخير والتكثيف) في وضعيات بسيطة؛</li>
+<li>أن أعرف مبدأ معالجة المياه العادمة، وأتبنّى سلوكًا يحافظ على الماء.</li>
+</ul></div>
+</section>
+
+<section>
+<h2>📘 الدرس</h2>
+
+<h3>1) الماء الصافي ≠ الماء الصالح للشرب</h3>
+<div class="box"><b>الماء الصالح للشرب</b> عديم اللون والرائحة، ولا يحتوي على جراثيم ولا مواد سامّة، ويحتوي أملاحًا معدنية بنسب مناسبة. أمّا <b>الماء الصافي</b> فقد يبدو رائقًا ولكنه يحمل جراثيم أو مواد ذائبة لا نراها.</div>
+<div class="warn-box"><b>انتبه:</b> لا نحكم على صلاحية الماء للشرب بمظهره فقط! قد يكون الماء رائقًا وهو ملوّث.</div>
+
+<h3>2) مصادر الماء وأسباب تلوّثه</h3>
+<div class="cards">
+<div class="card"><h4>💧 مصادر الماء</h4><p>الأمطار، الأنهار، السدود، العيون والآبار (المياه الجوفية).</p></div>
+<div class="card"><h4>🏭 أسباب التلوّث</h4><p>مياه المصانع غير المعالَجة، النفايات المنزلية، الزيوت، الأسمدة والمبيدات، مياه الصرف.</p></div>
+</div>
+
+<h3>3) مراحل معالجة ماء الشرب</h3>
+<div style="text-align:center"><svg viewBox="0 0 640 130" width="640" style="max-width:100%;height:auto" role="img" aria-label="مراحل محطة معالجة الماء">
+<rect width="640" height="130" rx="10" fill="#eef6f7"/>
+<defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#3f4d9e"/></marker></defs>
+<g stroke="#3f4d9e" stroke-width="2.5" fill="none" marker-end="url(#ar)"><line x1="530" y1="55" x2="512" y2="55"/><line x1="410" y1="55" x2="392" y2="55"/><line x1="290" y1="55" x2="272" y2="55"/><line x1="170" y1="55" x2="152" y2="55"/></g>
+<g fill="#fff" stroke="#1f7a7a" stroke-width="2.5"><rect x="535" y="28" width="95" height="54" rx="8"/><rect x="415" y="28" width="95" height="54" rx="8"/><rect x="295" y="28" width="95" height="54" rx="8"/><rect x="175" y="28" width="95" height="54" rx="8"/><rect x="55" y="28" width="95" height="54" rx="8"/></g>
+<g font-size="13" fill="#1d2a33" text-anchor="middle" font-weight="700"><text x="582" y="52">التصفية</text><text x="582" y="70">بالمصفاة</text><text x="462" y="52">الترويق</text><text x="462" y="70">(والتخثير)</text><text x="342" y="52">الترشيح</text><text x="342" y="70">بالرمل</text><text x="222" y="52">التعقيم</text><text x="222" y="70">بالكلور</text><text x="102" y="52">التخزين</text><text x="102" y="70">والتوزيع</text></g>
+<g font-size="12" fill="#c98a2e" text-anchor="middle" font-weight="700"><text x="582" y="104">① </text><text x="462" y="104">②</text><text x="342" y="104">③</text><text x="222" y="104">④</text><text x="102" y="104">⑤</text></g>
+</svg><div class="fig">رسم تخطيطي مبسّط لمحطة معالجة ماء الشرب.</div></div>
+
+<table class="data-table">
+<tr><th>المرحلة</th><th>ماذا نفعل؟</th><th>الهدف</th></tr>
+<tr><td>① التصفية بالمصفاة</td><td>يمرّ الماء عبر شبكة معدنية</td><td>حجز الأجسام الكبيرة (أغصان، أوراق، أكياس)</td></tr>
+<tr><td>② الترويق والتخثير</td><td>نترك الماء في حوض كبير ونضيف مادة تُجمّع الدقائق الصغيرة (مثل الشبّ)</td><td>ترسيب الرمل والطين في القاع</td></tr>
+<tr><td>③ الترشيح</td><td>يمرّ الماء عبر طبقات من الرمل والحصى</td><td>احتجاز الشوائب الدقيقة</td></tr>
+<tr><td>④ التعقيم</td><td>نضيف كمية محسوبة من الكلور (أو الأوزون أو الأشعة فوق البنفسجية)</td><td>القضاء على الجراثيم</td></tr>
+<tr><td>⑤ التخزين والتوزيع</td><td>خزانات وشبكة أنابيب إلى المنازل</td><td>إيصال الماء الصالح للشرب إلى المستهلك</td></tr>
+</table>
+
+<h3>4) تقنيات فصل مكوّنات الماء</h3>
+<div class="cards">
+<div class="card"><h4>الترويق</h4><p>ترك الخليط ساكنًا فتترسّب المواد الصلبة الثقيلة في القاع، ثم نصبّ الماء الرائق.</p></div>
+<div class="card"><h4>الترشيح</h4><p>تمرير الخليط عبر ورق الترشيح أو الرمل، فتبقى المواد الصلبة على المرشّح.</p></div>
+<div class="card"><h4>التبخير والتكثيف (التقطير)</h4><p>نسخّن الماء المالح فيتبخّر، ثم نبرّد البخار فنحصل على ماء مقطّر نقي ويبقى الملح.</p></div>
+</div>
+
+<h3>5) معالجة المياه العادمة (مبسّطة)</h3>
+<div class="box">المياه العادمة هي مياه المنازل والمصانع بعد الاستعمال. في <b>محطة التصفية</b> نمرّ بها عبر: إزالة الأجسام الكبيرة والرمل ← الترويق ← معالجة بيولوجية (بكتيريا نافعة تأكل المواد العضوية) ← تعقيم. وقد نستعمل الماء المعالَج لسقي المساحات الخضراء.</div>
+
+<h3>6) كيف نحافظ على الماء؟</h3>
+<div class="rule-box">• لا نرمي النفايات والزيوت في الأنهار والبالوعات. • نغلق الصنبور عند عدم الحاجة. • نصلح التسرّبات. • نجمع مياه الأمطار للسقي. • نستعمل الأسمدة والمبيدات باعتدال.</div>
+</section>
+
+<section>
+<h2>✏️ نشاط تطبيقي: مرشّح الماء في قنّينة</h2>
+<div class="activity-box">
+<p><b>الأدوات:</b> قنّينة بلاستيكية شفافة مقطوعة من الأسفل، قطعة قماش أو قطن، فحم نباتي مسحوق (اختياري)، رمل ناعم، رمل خشن، حصى صغير، ماء موحل (تراب + ماء)، كأسان.</p>
+<p><span class="task-label">المهمة 1</span> أقلب القنّينة وأضع في عنقها القطن، ثم أضيف طبقات: رمل ناعم، ثم رمل خشن، ثم حصى (من الأسفل إلى الأعلى).</p>
+<p><span class="task-label">المهمة 2</span> أصبّ الماء الموحل ببطء وأجمع الماء الخارج في كأس. ألاحظ لونه: قبل المرشّح <span class="fill-line"></span> وبعده <span class="fill-line"></span></p>
+<p><span class="task-label">المهمة 3</span> أستنتج أيّ مرحلة من محطة المعالجة تمثّلها هذه التجربة: <span class="fill-line"></span></p>
+<p><span class="task-label">المهمة 4</span> هل أشرب هذا الماء؟ أفسّر: <span class="fill-line" style="min-width:240px"></span></p>
+<div class="warn-box" style="margin-bottom:0"><b>تنبيه سلامة:</b> الماء الذي ينتج عن هذه التجربة غير صالح للشرب أبدًا، لأن الجراثيم لم تُقتل.</div>
+</div>
+</section>
+
+<section>
+<h2>📝 تمارين تفاعلية (كويز)</h2>
+<div class="scorebar" id="scorebar">
+<span class="pts">النتيجة: <span id="got">0</span> / <span id="total">0</span></span>
+<div class="progress"><i id="bar"></i></div>
+<small id="exdone">أنجزت 0 من 8 تمارين</small>
+<button class="btn sec" id="resetAll" type="button">🔄 إعادة الكل</button>
+</div>
+
+<!-- Ex 1 -->
+<div class="exercise" data-ex="1"><h4><span class="exercise-num">1</span>اختيار من متعدّد</h4>
+<div class="q">أ) الماء الصالح للشرب هو الماء:
+<div class="item mcq" data-ans="b"><button type="button" data-v="a">الرائق فقط</button><button type="button" data-v="b">الخالي من الجراثيم والمواد السامّة</button><button type="button" data-v="c">المالح</button></div></div>
+<div class="q">ب) أول مرحلة في محطة المعالجة:
+<div class="item mcq" data-ans="a"><button type="button" data-v="a">التصفية بالمصفاة</button><button type="button" data-v="b">التعقيم</button><button type="button" data-v="c">التخزين</button></div></div>
+<div class="q">ج) المادة التي تُستعمل غالبًا لقتل الجراثيم في الماء:
+<div class="item mcq" data-ans="c"><button type="button" data-v="a">الشبّ</button><button type="button" data-v="b">الرمل</button><button type="button" data-v="c">الكلور</button></div></div>
+<div class="actions"><button class="btn check" type="button">تحقّق</button><button class="btn sec reset" type="button">إعادة</button><span class="ex-result"></span></div></div>
+
+<!-- Ex 2 -->
+<div class="exercise" data-ex="2"><h4><span class="exercise-num">2</span>صحيح أم خطأ؟</h4>
+<div class="q">1) الماء الرائق دائمًا صالح للشرب. <select class="item" data-ans="f"><option value="">اختر…</option><option value="t">صحيح</option><option value="f">خطأ</option></select></div>
+<div class="q">2) الكلور يُستعمل لقتل الجراثيم. <select class="item" data-ans="t"><option value="">اختر…</option><option value="t">صحيح</option><option value="f">خطأ</option></select></div>
+<div class="q">3) الترشيح يفصل الملح الذائب عن الماء. <select class="item" data-ans="f"><option value="">اختر…</option><option value="t">صحيح</option><option value="f">خطأ</option></select></div>
+<div class="q">4) الماء المقطّر نحصل عليه بالتبخير ثم التكثيف. <select class="item" data-ans="t"><option value="">اختر…</option><option value="t">صحيح</option><option value="f">خطأ</option></select></div>
+<div class="q">5) رمي الزيوت في البالوعة لا يضرّ الماء. <select class="item" data-ans="f"><option value="">اختر…</option><option value="t">صحيح</option><option value="f">خطأ</option></select></div>
+<div class="actions"><button class="btn check" type="button">تحقّق</button><button class="btn sec reset" type="button">إعادة</button><span class="ex-result"></span></div></div>
+
+<!-- Ex 3 -->
+<div class="exercise" data-ex="3"><h4><span class="exercise-num">3</span>أكتب الكلمة المناسبة</h4>
+<div class="q">1) فصل الرمل عن الماء بتركه يستقرّ في القاع يُسمّى: <input class="item ans" type="text" data-ans="الترويق|الترسيب" placeholder="..."></div>
+<div class="q">2) تمرير الماء الموحل عبر ورق الترشيح أو الرمل يُسمّى: <input class="item ans" type="text" data-ans="الترشيح" placeholder="..."></div>
+<div class="q">3) نضيف الكلور إلى الماء من أجل القضاء على: <input class="item ans" type="text" data-ans="الجراثيم|الميكروبات|البكتيريا" placeholder="..."></div>
+<div class="q">4) للحصول على ماء نقي من ماء مالح نستعمل: <input class="item ans" type="text" data-ans="التقطير|التبخير والتكثيف|التبخير" placeholder="..."></div>
+<div class="actions"><button class="btn check" type="button">تحقّق</button><button class="btn sec reset" type="button">إعادة</button><span class="ex-result"></span></div></div>
+
+<!-- Ex 4 -->
+<div class="exercise" data-ex="4"><h4><span class="exercise-num">4</span>أصل المرحلة بهدفها</h4>
+<div class="q">التصفية بالمصفاة ← <select class="item" data-ans="1"><option value="">اختر…</option><option value="1">حجز الأجسام الكبيرة</option><option value="2">ترسيب الرمل والطين</option><option value="3">احتجاز الشوائب الدقيقة</option><option value="4">القضاء على الجراثيم</option></select></div>
+<div class="q">الترويق ← <select class="item" data-ans="2"><option value="">اختر…</option><option value="1">حجز الأجسام الكبيرة</option><option value="2">ترسيب الرمل والطين</option><option value="3">احتجاز الشوائب الدقيقة</option><option value="4">القضاء على الجراثيم</option></select></div>
+<div class="q">الترشيح بالرمل ← <select class="item" data-ans="3"><option value="">اختر…</option><option value="1">حجز الأجسام الكبيرة</option><option value="2">ترسيب الرمل والطين</option><option value="3">احتجاز الشوائب الدقيقة</option><option value="4">القضاء على الجراثيم</option></select></div>
+<div class="q">التعقيم بالكلور ← <select class="item" data-ans="4"><option value="">اختر…</option><option value="1">حجز الأجسام الكبيرة</option><option value="2">ترسيب الرمل والطين</option><option value="3">احتجاز الشوائب الدقيقة</option><option value="4">القضاء على الجراثيم</option></select></div>
+<div class="actions"><button class="btn check" type="button">تحقّق</button><button class="btn sec reset" type="button">إعادة</button><span class="ex-result"></span></div></div>
+
+<!-- Ex 5 -->
+<div class="exercise" data-ex="5"><h4><span class="exercise-num">5</span>أرتّب مراحل المعالجة (1 إلى 5)</h4>
+<div class="q">التخزين والتوزيع <select class="item" data-ans="5"><option value="">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div>
+<div class="q">التعقيم بالكلور <select class="item" data-ans="4"><option value="">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div>
+<div class="q">الترشيح بالرمل <select class="item" data-ans="3"><option value="">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div>
+<div class="q">الترويق والتخثير <select class="item" data-ans="2"><option value="">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div>
+<div class="q">التصفية بالمصفاة <select class="item" data-ans="1"><option value="">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div>
+<div class="actions"><button class="btn check" type="button">تحقّق</button><button class="btn sec reset" type="button">إعادة</button><span class="ex-result"></span></div></div>
+
+<!-- Ex 6 -->
+<div class="exercise" data-ex="6"><h4><span class="exercise-num">6</span>سلوك مضرّ أم سلوك سليم؟</h4>
+<div class="q">رمي النفايات في النهر <select class="item" data-ans="bad"><option value="">اختر…</option><option value="bad">يلوّث الماء</option><option value="good">يحافظ على الماء</option></select></div>
+<div class="q">إغلاق الصنبور أثناء تنظيف الأسنان <select class="item" data-ans="good"><option value="">اختر…</option><option value="bad">يلوّث الماء</option><option value="good">يحافظ على الماء</option></select></div>
+<div class="q">تصريف مياه مصنع دون معالجة <select class="item" data-ans="bad"><option value="">اختر…</option><option value="bad">يلوّث الماء</option><option value="good">يحافظ على الماء</option></select></div>
+<div class="q">جمع مياه الأمطار لسقي الحديقة <select class="item" data-ans="good"><option value="">اختر…</option><option value="bad">يلوّث الماء</option><option value="good">يحافظ على الماء</option></select></div>
+<div class="q">صبّ زيت القلي في البالوعة <select class="item" data-ans="bad"><option value="">اختر…</option><option value="bad">يلوّث الماء</option><option value="good">يحافظ على الماء</option></select></div>
+<div class="actions"><button class="btn check" type="button">تحقّق</button><button class="btn sec reset" type="button">إعادة</button><span class="ex-result"></span></div></div>
+
+<!-- Ex 7 -->
+<div class="exercise" data-ex="7"><h4><span class="exercise-num">7</span>أي تقنية أستعمل؟</h4>
+<div class="q">ماء به رمل وطين <select class="item" data-ans="a"><option value="">اختر…</option><option value="a">الترويق ثم الترشيح</option><option value="b">التقطير</option><option value="c">التصفية بالمصفاة</option></select></div>
+<div class="q">ماء البحر المالح أريد منه ماءً عذبًا <select class="item" data-ans="b"><option value="">اختر…</option><option value="a">الترويق ثم الترشيح</option><option value="b">التقطير</option><option value="c">التصفية بالمصفاة</option></select></div>
+<div class="q">ماء نهر فيه أغصان وأوراق كبيرة <select class="item" data-ans="c"><option value="">اختر…</option><option value="a">الترويق ثم الترشيح</option><option value="b">التقطير</option><option value="c">التصفية بالمصفاة</option></select></div>
+<div class="actions"><button class="btn check" type="button">تحقّق</button><button class="btn sec reset" type="button">إعادة</button><span class="ex-result"></span></div></div>
+
+<!-- Ex 8 -->
+<div class="exercise" data-ex="8"><h4><span class="exercise-num">8</span>مسألة حسابية</h4>
+<div class="doc-box">تعالج محطة تنقية <b>500 م³</b> من الماء في الساعة، وتشتغل <b>24 ساعة</b> في اليوم. (<b>1 م³ = 1000 لتر</b>)</div>
+<div class="q">أ) كم م³ تعالج المحطة في اليوم؟ <input class="item ans" type="text" inputmode="numeric" data-ans="12000" placeholder="؟"> م³</div>
+<div class="q">ب) كم لترًا تعالج في اليوم؟ <input class="item ans" type="text" inputmode="numeric" data-ans="12000000" placeholder="؟"> لتر</div>
+<div class="actions"><button class="btn check" type="button">تحقّق</button><button class="btn sec reset" type="button">إعادة</button><span class="ex-result"></span></div></div>
+
+<div class="final" id="final"></div>
+</section>
+
+<div class="corrige-wrapper">
+<details class="corrige">
+<summary>اضغط لإظهار الحل / إخفائه — التصحيح الكامل</summary>
+
+<h5>النشاط التطبيقي</h5>
+<p>المهمة 2: الماء قبل المرشّح عكر بنّي، وبعده أكثر صفاءً. المهمة 3: مرحلة الترشيح (وجزء من الترويق). المهمة 4: لا، لأن الماء قد يبقى فيه جراثيم لم تُقتل، فلا بدّ من التعقيم.</p>
+
+<h5>التمرين 1</h5>
+<p>أ) الخالي من الجراثيم والمواد السامّة. &nbsp; ب) التصفية بالمصفاة. &nbsp; ج) الكلور.</p>
+
+<h5>التمرين 2</h5>
+<p>1) خطأ — الماء الرائق قد يحمل جراثيم. 2) صحيح. 3) خطأ — الترشيح لا يفصل المواد الذائبة، والتقطير هو الذي يفصل الملح. 4) صحيح. 5) خطأ — الزيوت تلوّث الماء.</p>
+
+<h5>التمرين 3</h5>
+<p>1) الترويق (الترسيب). 2) الترشيح. 3) الجراثيم (الميكروبات). 4) التقطير (التبخير ثم التكثيف).</p>
+
+<h5>التمرين 4</h5>
+<p>التصفية بالمصفاة ← حجز الأجسام الكبيرة. الترويق ← ترسيب الرمل والطين. الترشيح بالرمل ← احتجاز الشوائب الدقيقة. التعقيم بالكلور ← القضاء على الجراثيم.</p>
+
+<h5>التمرين 5</h5>
+<p>1) التصفية بالمصفاة، 2) الترويق والتخثير، 3) الترشيح بالرمل، 4) التعقيم بالكلور، 5) التخزين والتوزيع.</p>
+
+<h5>التمرين 6</h5>
+<p>رمي النفايات: يلوّث. إغلاق الصنبور: يحافظ. تصريف مياه المصنع دون معالجة: يلوّث. جمع مياه الأمطار: يحافظ. صبّ الزيت في البالوعة: يلوّث.</p>
+
+<h5>التمرين 7</h5>
+<p>رمل وطين ← الترويق ثم الترشيح. ماء البحر ← التقطير. أغصان وأوراق ← التصفية بالمصفاة.</p>
+
+<h5>التمرين 8</h5>
+<p>أ) <span dir="ltr">500 × 24 = 12 000</span> م³. &nbsp; ب) <span dir="ltr">12 000 × 1000 = 12 000 000</span> لتر.</p>
+</details>
+</div>
+
+<p class="footer-note">كويز تفاعلي – الفيزياء والكيمياء – بالتوفيق 🌟</p>
+</div>
+
+<script>
+(function(){
+  function norm(s){
+    return (s||'').toString().normalize('NFC')
+      .replace(/[ً-ٰٟـ]/g,'')
+      .replace(/[إأآٱ]/g,'ا').replace(/ى/g,'ي').replace(/ة/g,'ه')
+      .replace(/[\s,،.]/g,'').toLowerCase();
+  }
+  var results = {};
+  var totalItems = document.querySelectorAll('.exercise .item').length;
+  document.getElementById('total').textContent = totalItems;
+
+  function clearFb(it){
+    it.classList.remove('ok','bad');
+    var nx = it.nextElementSibling;
+    if (nx && nx.classList.contains('fb')) nx.remove();
+    var inside = it.querySelector(':scope > .fb');
+    if (inside) inside.remove();
+  }
+  function addFb(it, ok, expected){
+    var span = document.createElement('span');
+    span.className = 'fb ' + (ok ? 'ok' : 'bad');
+    span.textContent = ok ? '✓ صحيح' : '✗ الجواب: ' + expected;
+    if (it.classList.contains('mcq')) it.appendChild(span);
+    else it.insertAdjacentElement('afterend', span);
+  }
+  function evalItem(it){
+    var ok = false, expected = '';
+    if (it.classList.contains('mcq')){
+      var sel = it.querySelector('button.sel');
+      var given = sel ? sel.dataset.v : '';
+      ok = given === it.dataset.ans;
+      expected = it.querySelector('button[data-v="'+it.dataset.ans+'"]').textContent;
+    } else if (it.tagName === 'SELECT'){
+      ok = it.value !== '' && it.value === it.dataset.ans;
+      var opt = it.querySelector('option[value="'+it.dataset.ans+'"]');
+      expected = opt ? opt.textContent : it.dataset.ans;
+    } else {
+      var g = norm(it.value);
+      var alts = it.dataset.ans.split('|');
+      ok = g !== '' && alts.some(function(a){ return norm(a) === g; });
+      expected = alts[0];
+    }
+    clearFb(it);
+    it.classList.add(ok ? 'ok' : 'bad');
+    addFb(it, ok, expected);
+    return ok;
+  }
+  function updateScore(){
+    var got = 0, done = 0;
+    Object.keys(results).forEach(function(k){ got += results[k]; done++; });
+    // total des items vérifiés
+    document.getElementById('got').textContent = got;
+    document.getElementById('bar').style.width = (totalItems ? Math.round(got/totalItems*100) : 0) + '%';
+    document.getElementById('exdone').textContent = 'أنجزت ' + done + ' من 8 تمارين';
+    var f = document.getElementById('final');
+    if (done === 8){
+      var pct = Math.round(got/totalItems*100), msg;
+      if (pct === 100) msg = '🏆 ممتاز! نتيجة كاملة، أنت خبير في معالجة المياه.';
+      else if (pct >= 75) msg = '👏 أحسنت! نتيجة جيدة، راجع الأخطاء الحمراء.';
+      else if (pct >= 50) msg = '🙂 نتيجة متوسطة، أعد قراءة الدرس ثم جرّب مجددًا.';
+      else msg = '💪 لا بأس، أعد قراءة الدرس وحاول من جديد.';
+      f.style.display = 'block';
+      f.textContent = 'النتيجة النهائية: ' + got + ' / ' + totalItems + ' (' + pct + '%) — ' + msg;
+    } else { f.style.display = 'none'; }
+  }
+
+  document.querySelectorAll('.mcq button').forEach(function(b){
+    b.addEventListener('click', function(){
+      var grp = b.parentElement;
+      grp.querySelectorAll('button').forEach(function(x){ x.classList.remove('sel'); });
+      b.classList.add('sel');
+      clearFb(grp);
+    });
+  });
+
+  document.querySelectorAll('.exercise').forEach(function(ex){
+    var id = ex.dataset.ex;
+    var res = ex.querySelector('.ex-result');
+    ex.querySelector('.check').addEventListener('click', function(){
+      var items = ex.querySelectorAll('.item'), pts = 0;
+      items.forEach(function(it){ if (evalItem(it)) pts++; });
+      results[id] = pts;
+      res.textContent = pts + ' / ' + items.length;
+      updateScore();
+    });
+    ex.querySelector('.reset').addEventListener('click', function(){ resetEx(ex); updateScore(); });
+  });
+
+  function resetEx(ex){
+    ex.querySelectorAll('.item').forEach(function(it){
+      clearFb(it);
+      if (it.classList.contains('mcq')) it.querySelectorAll('button').forEach(function(b){ b.classList.remove('sel'); });
+      else if (it.tagName === 'SELECT') it.selectedIndex = 0;
+      else it.value = '';
+    });
+    delete results[ex.dataset.ex];
+    ex.querySelector('.ex-result').textContent = '';
+  }
+  document.getElementById('resetAll').addEventListener('click', function(){
+    document.querySelectorAll('.exercise').forEach(resetEx);
+    updateScore();
+  });
+})();
+</script>
+</body>
+</html>
