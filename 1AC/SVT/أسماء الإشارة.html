@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>أسماء الإشارة – فيشة تعلّم ذاتي</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Naskh+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#251f3a;--ink-soft:#5d557a;--paper:#fbf9ff;--panel:#fff;--line:#d9d3ec;
+--indigo:#4b3f8f;--indigo-soft:#ebe8f7;--rose:#b1553f;--rose-soft:#f8e6df;--gold:#af8a2e;--gold-soft:#faf0d4;}
+*{box-sizing:border-box}
+body{margin:0;background:#ebe8f2;font-family:'Amiri','Noto Naskh Arabic',serif;color:var(--ink);line-height:2;font-size:19px}
+.sheet{max-width:900px;margin:18px auto;background:var(--paper);padding:26px 30px;border-radius:14px;box-shadow:0 4px 18px rgba(0,0,0,.1)}
+.masthead{display:flex;align-items:center;gap:18px;background:linear-gradient(135deg,var(--indigo),#6a5cb5);color:#fff;border-radius:14px;padding:18px 22px}
+.masthead h1{font-size:2.2rem;margin:0;line-height:1.3}
+.masthead p{margin:4px 0 0;opacity:.92}
+.meta-row{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.chip{background:var(--panel);border:1.5px solid var(--line);border-radius:20px;padding:2px 14px;font-size:.9rem;font-family:'Noto Naskh Arabic',serif}
+.chip b{color:var(--indigo)}
+section{margin:20px 0}
+h2{font-size:1.6rem;color:var(--indigo);border-bottom:3px solid var(--gold);display:inline-block;margin:0 0 10px;padding-bottom:2px}
+h3{color:var(--rose);margin:14px 0 4px;font-size:1.25rem}
+.box{background:var(--panel);border:1.5px solid var(--line);border-radius:12px;padding:12px 18px;margin:10px 0}
+.objectif-box{background:var(--indigo-soft);border-color:var(--indigo)}
+.rule-box{background:var(--gold-soft);border-right:6px solid var(--gold);border-radius:10px;padding:10px 16px;margin:10px 0}
+.example-box{background:var(--rose-soft);border-right:6px solid var(--rose);border-radius:10px;padding:8px 16px;margin:8px 0}
+.mu{color:var(--indigo);font-weight:700;border-bottom:3px solid var(--indigo)}
+.tw{color:var(--rose);font-weight:700;border-bottom:3px solid var(--rose)}
+table.data-table{width:100%;border-collapse:collapse;margin:10px 0;background:#fff}
+.data-table th,.data-table td{border:1.5px solid var(--line);padding:6px 10px;text-align:center}
+.data-table th{background:var(--indigo);color:#fff}
+.activity-box{background:var(--gold-soft);border:2px dashed var(--gold);border-radius:12px;padding:12px 18px}
+.task-label{display:inline-block;background:var(--gold);color:#fff;border-radius:8px;padding:0 10px;margin-left:6px;font-size:.9rem;font-family:'Noto Naskh Arabic',serif}
+.exercise{background:var(--panel);border:1.5px solid var(--line);border-radius:12px;padding:10px 18px 12px;margin:12px 0;page-break-inside:avoid}
+.exercise-num{display:inline-flex;width:32px;height:32px;border-radius:50%;background:var(--rose);color:#fff;align-items:center;justify-content:center;font-weight:700;margin-left:8px;font-family:'Noto Naskh Arabic',serif}
+.exercise h4{margin:0 0 6px;font-size:1.15rem;color:var(--indigo)}
+.fill-line{display:inline-block;min-width:110px;border-bottom:2px dotted var(--ink-soft)}
+.checkbox,.sq{display:inline-block;width:17px;height:17px;border:2px solid var(--indigo);border-radius:3px;vertical-align:middle;margin:0 6px}
+.opt{display:block;margin:0}
+.lines{border-bottom:2px dotted var(--ink-soft);height:28px;margin:4px 0}
+.match-cols{display:flex;justify-content:space-between;gap:30px}.match-cols div{flex:1}
+.match-cols p{margin:4px 0;background:var(--indigo-soft);border-radius:8px;padding:0 12px}
+.word-chip{display:inline-block;background:var(--gold-soft);border:1.5px solid var(--gold);border-radius:16px;padding:0 12px;margin:3px}
+.corrige-wrapper{page-break-before:always;margin-top:26px}
+details.corrige{border:2px solid var(--indigo);border-radius:12px;background:#fff;padding:8px 18px}
+details.corrige summary{cursor:pointer;font-size:1.3rem;color:var(--indigo);font-weight:700}
+.corrige h5{margin:12px 0 2px;color:var(--rose);font-size:1.1rem}
+.corrige p{margin:2px 0}
+.footer-note{text-align:center;color:var(--ink-soft);font-size:.9rem;margin-top:18px;font-family:'Noto Naskh Arabic',serif}
+@page{size:A4;margin:13mm}
+@media print{body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}.sheet{box-shadow:none;margin:0;max-width:none;padding:0;background:#fff}details.corrige:not([open]) > :not(summary){display:none}}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<header class="masthead">
+<svg width="66" height="62" viewBox="0 0 66 62" aria-hidden="true"><path d="M10 46 L44 20" stroke="#fff" stroke-width="4" stroke-linecap="round"/><path d="M34 18 L48 18 L48 32" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="48" r="5" fill="#e9c978"/></svg>
+<div><h1>أَسْمَاءُ الإِشَارَةِ</h1><p>اللغة العربية – الدرس اللغوي 17 · الأولى إعدادي</p></div>
+</header>
+
+<div class="meta-row">
+<span class="chip"><b>المستوى:</b> الأولى إعدادي (1AC)</span>
+<span class="chip"><b>المادة:</b> اللغة العربية — التراكيب</span>
+<span class="chip"><b>مدة الحصة:</b> ساعة</span>
+<span class="chip"><b>نوع الوثيقة:</b> فيشة تعلّم ذاتي</span>
+</div>
+
+<section>
+<h2>🎯 الهدف</h2>
+<div class="box objectif-box">في نهاية هذه الحصة سأكون قادرًا على:
+<ul>
+<li>أن أتعرّف على أسماء الإشارة وأميّز بين المفرد والمثنى والجمع، والمذكر والمؤنث؛</li>
+<li>أن أختار اسم الإشارة المناسب بحسب المشار إليه وبحسب القرب والتوسّط والبعد؛</li>
+<li>أن أستعمل أسماء الإشارة الخاصة بالمكان (هنا، هناك، هنالك، ثَمَّ)؛</li>
+<li>أن أعرف أن أسماء الإشارة مبنية إلا في المثنى فتُعرَب إعراب المثنى.</li>
+</ul></div>
+</section>
+
+<section>
+<h2>📘 الدرس</h2>
+
+<h3>1) ملاحظة (الظاهرة الإعرابية)</h3>
+<div class="example-box">
+في ساحة المدرسةِ نظرتُ إلى <span class="tw">هذا</span> الوَلَدِ القريبِ مني فرأيتُهُ يقرأُ قصّةً، وأشرتُ إلى <span class="tw">ذاك</span> الوَلَدِ البعيدِ قليلًا فإذا هو يلعبُ. و<span class="tw">هناك</span> عند البابِ تقفُ <span class="tw">تلك</span> الفتاةُ مع <span class="tw">هاتَينِ</span> الصديقتَينِ، و<span class="tw">هنا</span> في الظلِّ يجلسُ <span class="tw">هؤلاءِ</span> التلاميذُ يراجعونَ دروسَهم، أمّا <span class="tw">أولئكَ</span> فيلعبونَ في آخِرِ الساحةِ. <br>
+<small>(نص من إنشاء المدرّس للتدريب)</small></div>
+<p>الكلمات الملوّنة تُستعمل <b>للإشارة</b> إلى شيء أو شخص أو مكان معيّن: تُسمّى <b>أسماء الإشارة</b>.</p>
+
+<h3>2) تعريف</h3>
+<div class="rule-box"><b>اسم الإشارة</b> اسم معرفة يدلّ على معيَّن حاضر أو سبق ذكره في الكلام، ويُستعمل لتعيين المشار إليه بالإشارة إليه.</div>
+
+<h3>3) أنواع أسماء الإشارة</h3>
+<h4 style="color:var(--indigo);margin:6px 0">أ) بحسب المشار إليه (الجنس والعدد)</h4>
+<table class="data-table">
+<tr><th>المشار إليه</th><th>اسم الإشارة</th></tr>
+<tr><td>مفرد مذكر</td><td><b>ذا</b> ← هذا، ذاك، ذلك</td></tr>
+<tr><td>مفرد مؤنث</td><td><b>ذي، تي، ذه، ته</b> ← هذه، هذي، هاته، تلك</td></tr>
+<tr><td>مثنى مذكر</td><td><b>ذان – ذين</b> ← هذان، هذين</td></tr>
+<tr><td>مثنى مؤنث</td><td><b>تان – تين</b> ← هاتان، هاتين</td></tr>
+<tr><td>جمع (مذكر ومؤنث)</td><td><b>أولاء – أولى</b> ← هؤلاء، أولئك</td></tr>
+<tr><td>المكان</td><td><b>هنا، هناك، هنالك، ثَمَّ</b></td></tr>
+</table>
+
+<h4 style="color:var(--indigo);margin:6px 0">ب) بحسب المسافة: القريب والمتوسط والبعيد</h4>
+<table class="data-table">
+<tr><th></th><th>قريب</th><th>متوسط</th><th>بعيد</th></tr>
+<tr><td>مفرد مذكر</td><td>هذا</td><td>ذاك</td><td>ذلك</td></tr>
+<tr><td>مفرد مؤنث</td><td>هذه، هذي، هاته</td><td>تيك، هاتيك</td><td>تلك</td></tr>
+<tr><td>مثنى مذكر</td><td>هذان / هذين</td><td colspan="2">ذانك / ذينك</td></tr>
+<tr><td>مثنى مؤنث</td><td>هاتان / هاتين</td><td colspan="2">تانك / تينك</td></tr>
+<tr><td>جمع</td><td>هؤلاء</td><td colspan="2">أولئك</td></tr>
+<tr><td>المكان</td><td>هنا (هاهنا)</td><td>هناك</td><td>هنالك، ثَمَّ</td></tr>
+</table>
+
+<h3>4) قواعد الاستعمال</h3>
+<div class="rule-box">
+• <b>للقريب:</b> يُجرَّد اسم الإشارة من الكاف واللام ← <span class="mu">هذا</span> كتابٌ، <span class="mu">هذه</span> مدرسةٌ.<br>
+• <b>للمتوسط:</b> تتصل به <b>كاف الخطاب</b> ← <span class="mu">ذاك</span> الرجلُ.<br>
+• <b>للبعيد:</b> تتصل به <b>لام البعد</b> وكاف الخطاب ← <span class="mu">ذلك</span> الجبلُ، <span class="mu">تلك</span> المدينةُ.<br>
+• يأتي بعد اسم الإشارة غالبًا اسم معرَّف بـ«ال» (المشار إليه): هذا <b>الولدُ</b>، تلك <b>الطالبةُ</b>.</div>
+
+<h3>5) إعراب أسماء الإشارة</h3>
+<div class="rule-box"><b>أسماء الإشارة مبنية</b> (لا تتغير حركتها بتغيّر موقعها) <b>إلا في حالة التثنية</b> فتُعرَب إعراب المثنى:<br>
+• ترفع بالألف: جاءَ <span class="mu">هذان</span> الولدانِ.<br>
+• تنصب وتجرّ بالياء: رأيتُ <span class="mu">هذين</span> الولدَينِ، مررتُ بـ<span class="mu">هذين</span> الولدَينِ.</div>
+
+<h3>6) كيف أختار اسم الإشارة؟ (3 أسئلة)</h3>
+<div class="cards3" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px">
+<div class="box"><b>① العدد؟</b> مفرد، مثنى، أم جمع؟</div>
+<div class="box"><b>② الجنس؟</b> مذكر أم مؤنث؟</div>
+<div class="box"><b>③ المسافة؟</b> قريب (هذا)، متوسط (ذاك)، بعيد (ذلك)؟</div>
+</div>
+</section>
+
+<section>
+<h2>✏️ نشاط تطبيقي: لعبة «أشير فأُصيب»</h2>
+<div class="activity-box">
+<p>أحتاج إلى أشياء من الغرفة (كتاب، دفتر، قلمان، كراسي...) وزملاء أو أفراد من الأسرة.</p>
+<p><span class="task-label">المهمة 1</span> أضع أشياءً قريبة (قلم، كتاب) وأخرى متوسطة البعد وأخرى بعيدة، وأقول جملة بالإشارة المناسبة: «<b>هذا</b> قلمٌ»، «<b>ذاك</b> كتابٌ»، «<b>تلك</b> نافذةٌ».</p>
+<p><span class="task-label">المهمة 2</span> أشير إلى شيئين (مثنى) ثم إلى مجموعة (جمع) وأقول: «<b>هذان</b> قلمانِ»، «<b>هؤلاء</b> تلاميذُ»، «<b>أولئك</b> طلّابٌ».</p>
+<p><span class="task-label">المهمة 3</span> أكتب ثلاث جمل من نطقي: <span class="fill-line" style="min-width:240px"></span></p><div class="lines"></div><div class="lines"></div>
+</div>
+</section>
+
+<section>
+<h2>📝 تمارين للتدرّب</h2>
+
+<div class="exercise"><h4><span class="exercise-num">1</span>أضع اسم إشارة مناسبًا في الفراغ</h4>
+<p>أ) تخرج <span class="fill-line"></span> الممرّضة إلى عملها. (قريب)</p>
+<p>ب) <span class="fill-line"></span> التلميذان مجتهدان. (قريب)</p>
+<p>ج) يجيد <span class="fill-line"></span> الطفل الرسم. (قريب)</p>
+<p>د) <span class="fill-line"></span> العاملون مجدّون. (قريب)</p></div>
+
+<div class="exercise"><h4><span class="exercise-num">2</span>أضع اسم إشارة مناسبًا بحسب المسافة المشار بها</h4>
+<p>أ) فازت <span class="fill-line"></span> القصيدتان في المسابقة. (القريب)</p>
+<p>ب) <span class="fill-line"></span> الكتابان مفيدان. (القريب)</p>
+<p>ج) <span class="fill-line"></span> الفلّاح نشيط. (المتوسط)</p>
+<p>د) <span class="fill-line"></span> العمّال مجدّون. (البعيد)</p>
+<p>هـ) <span class="fill-line"></span> بيتُ صديقي. (المتوسط)</p></div>
+
+<div class="exercise"><h4><span class="exercise-num">3</span>أختار الجواب الصحيح</h4>
+<b>أ) الإشارة إلى مفردة مؤنثة قريبة:</b>
+<span class="opt"><span class="checkbox"></span>هذا</span><span class="opt"><span class="checkbox"></span>هذه</span><span class="opt"><span class="checkbox"></span>ذلك</span>
+<b>ب) الإشارة إلى جمع بعيد (أو متوسط):</b>
+<span class="opt"><span class="checkbox"></span>هؤلاء</span><span class="opt"><span class="checkbox"></span>هذان</span><span class="opt"><span class="checkbox"></span>أولئك</span>
+<b>ج) اسم إشارة للمكان البعيد:</b>
+<span class="opt"><span class="checkbox"></span>هنا</span><span class="opt"><span class="checkbox"></span>هناك</span><span class="opt"><span class="checkbox"></span>هنالك</span></div>
+
+<div class="exercise"><h4><span class="exercise-num">4</span>صحيح أم خطأ؟ (أصحّح الخطأ)</h4>
+<p>1) «هذا» اسم إشارة للمفرد المذكر القريب. <span class="sq"></span></p>
+<p>2) أسماء الإشارة كلها مبنية دون استثناء. <span class="sq"></span> <span class="fill-line"></span></p>
+<p>3) «هؤلاء» للمثنى المؤنث. <span class="sq"></span> <span class="fill-line"></span></p>
+<p>4) تتصل لام البعد وكاف الخطاب باسم الإشارة للبعيد. <span class="sq"></span></p>
+<p>5) نقول: رأيتُ هذان الولدان. <span class="sq"></span> <span class="fill-line"></span></p></div>
+
+<div class="exercise"><h4><span class="exercise-num">5</span>أصل اسم الإشارة بما يناسبه</h4>
+<div class="match-cols">
+<div><p>أ) هذان</p><p>ب) هاتان</p><p>ج) أولئك</p><p>د) ذلك</p><p>هـ) هنا</p></div>
+<div><p>1) مفرد مذكر بعيد</p><p>2) مثنى مذكر</p><p>3) المكان القريب</p><p>4) جمع</p><p>5) مثنى مؤنث</p></div></div></div>
+
+<div class="exercise"><h4><span class="exercise-num">6</span>أحوّل الجملة إلى المثنى ثم الجمع</h4>
+<p>أ) هذا التاجر أمين. ← المثنى: <span class="fill-line"></span></p>
+<p>ب) هذه الطالبة مجتهدة. ← المثنى: <span class="fill-line"></span></p>
+<p>ج) هذا المعلّم كريم. ← الجمع: <span class="fill-line"></span></p></div>
+
+<div class="exercise"><h4><span class="exercise-num">7</span>أضع كل كلمة في جملة مفيدة مخبرًا بها عن اسم إشارة يناسبها</h4>
+<p>الكلمات: جنود – ممرضات – شارعان – مدرسة</p>
+<p>مثال: هذه <b>مدرسةٌ</b> كبيرةٌ.</p>
+<div class="lines"></div><div class="lines"></div><div class="lines"></div></div>
+
+<div class="exercise"><h4><span class="exercise-num">8</span>أكوّن ثلاث جمل فعلية</h4>
+<p>أ) فاعلها اسم إشارة للمفردة المؤنثة.</p><div class="lines"></div>
+<p>ب) فاعلها اسم إشارة للمثنى المذكر.</p><div class="lines"></div>
+<p>ج) فاعلها اسم إشارة لجمع الإناث.</p><div class="lines"></div></div>
+</section>
+
+<div class="corrige-wrapper">
+<details class="corrige">
+<summary>اضغط لإظهار الحل / إخفائه — التصحيح الكامل</summary>
+
+<h5>النشاط التطبيقي</h5>
+<p>أجوبة حرّة: المهمة 1 (هذا / ذاك / تلك)، المهمة 2 (هذان / هؤلاء / أولئك)، المهمة 3 جمل صحيحة من إنشاء المتعلّم.</p>
+
+<h5>التمرين 1</h5>
+<p>أ) هذه &nbsp; ب) هذان &nbsp; ج) هذا &nbsp; د) هؤلاء</p>
+
+<h5>التمرين 2</h5>
+<p>أ) هاتان (القصيدتان مثنى مؤنث قريب) &nbsp; ب) هذان &nbsp; ج) ذاك &nbsp; د) أولئك &nbsp; هـ) ذاك (للمتوسط: «ذاك بيتُ صديقي»)</p>
+
+<h5>التمرين 3</h5>
+<p>أ) هذه &nbsp; ب) أولئك &nbsp; ج) هنالك</p>
+
+<h5>التمرين 4</h5>
+<p>1) صحيح. 2) خطأ — مبنية إلا المثنى فتُعرَب إعراب المثنى. 3) خطأ — «هؤلاء» للجمع، والمثنى المؤنث «هاتان / هاتين». 4) صحيح. 5) خطأ — «رأيتُ هذين الولدين» (ينصب المثنى بالياء).</p>
+
+<h5>التمرين 5</h5>
+<p>أ ← 2 &nbsp; ب ← 5 &nbsp; ج ← 4 &nbsp; د ← 1 &nbsp; هـ ← 3</p>
+
+<h5>التمرين 6</h5>
+<p>أ) هذان التاجران أمينان. &nbsp; ب) هاتان الطالبتان مجتهدتان. &nbsp; ج) هؤلاء المعلّمون كرماء.</p>
+
+<h5>التمرين 7</h5>
+<p>أمثلة: هؤلاء جنودٌ شجعانٌ. – هؤلاء ممرّضاتٌ ماهراتٌ. – هذان شارعانِ واسعانِ. – هذه مدرسةٌ جميلةٌ.</p>
+
+<h5>التمرين 8</h5>
+<p>أمثلة: أ) تقرأ هذه الطالبةُ القصّةَ. ب) كتبَ هذانِ التلميذانِ الدرسَ. ج) حضرَ هؤلاءِ الطالباتُ الحصّةَ. (وتقبل أي جملة صحيحة تحترم الشروط).</p>
+</details>
+</div>
+
+<p class="footer-note">فيشة تعلّم ذاتي – اللغة العربية – الأولى إعدادي – أسماء الإشارة</p>
+</div>
+</body>
+</html>
