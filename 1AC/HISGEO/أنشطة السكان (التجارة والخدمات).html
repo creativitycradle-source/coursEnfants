@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>أنشطة السكان (التجارة والخدمات)</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Naskh+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1d2d2b;--ink-soft:#506360;--paper:#f6faf8;--panel:#fff;--line:#cfe0da;
+--teal:#1f7a63;--teal-soft:#e0f1ec;--gold:#c08a2e;--gold-soft:#fbf0d9;--sky:#2f6f9e;--sky-soft:#e0edf6;--red:#b8483a;}
+*{box-sizing:border-box}
+body{margin:0;background:#e9efed;font-family:'Noto Naskh Arabic','Amiri',serif;color:var(--ink);line-height:1.9;font-size:17px}
+.sheet{max-width:900px;margin:18px auto;background:var(--paper);padding:26px 30px;border-radius:14px;box-shadow:0 4px 18px rgba(0,0,0,.1)}
+.masthead{display:flex;align-items:center;gap:18px;background:linear-gradient(135deg,var(--teal),#2b9478);color:#fff;border-radius:14px;padding:18px 22px}
+.masthead h1{font-family:'Amiri',serif;font-size:2rem;margin:0;line-height:1.3}
+.masthead p{margin:4px 0 0;opacity:.92}
+.meta-row{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.chip{background:var(--panel);border:1.5px solid var(--line);border-radius:20px;padding:2px 14px;font-size:.92rem}
+.chip b{color:var(--teal)}
+section{margin:20px 0}
+h2{font-family:'Amiri',serif;font-size:1.5rem;color:var(--teal);border-bottom:3px solid var(--gold);display:inline-block;margin:0 0 10px;padding-bottom:2px}
+.box{background:var(--panel);border:1.5px solid var(--line);border-radius:12px;padding:12px 18px;margin:10px 0}
+.objectif-box{background:var(--teal-soft);border-color:var(--teal)}
+.rule-box{background:var(--gold-soft);border-right:6px solid var(--gold);border-radius:10px;padding:10px 16px;margin:10px 0}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px;margin:10px 0}
+.card{background:var(--panel);border:1.5px solid var(--line);border-top:5px solid var(--sky);border-radius:10px;padding:8px 14px}
+.card h3{margin:0;color:var(--sky);font-size:1.05rem}
+.card p{margin:2px 0 0;font-size:.95rem}
+.map-box{background:var(--sky-soft);border:1.5px solid var(--sky);border-radius:12px;padding:10px;text-align:center}
+.map-box svg{max-width:100%;height:auto}
+table.data-table{width:100%;border-collapse:collapse;margin:10px 0;background:#fff}
+.data-table th,.data-table td{border:1.5px solid var(--line);padding:6px 10px;text-align:center}
+.data-table th{background:var(--teal);color:#fff}
+.activity-box{background:var(--sky-soft);border:2px dashed var(--sky);border-radius:12px;padding:12px 18px}
+.task-label{display:inline-block;background:var(--sky);color:#fff;border-radius:8px;padding:0 10px;margin-left:6px;font-size:.9rem}
+.exercise{background:var(--panel);border:1.5px solid var(--line);border-radius:12px;padding:10px 18px 12px;margin:12px 0;page-break-inside:avoid}
+.exercise-num{display:inline-flex;width:30px;height:30px;border-radius:50%;background:var(--gold);color:#fff;align-items:center;justify-content:center;font-weight:700;margin-left:8px}
+.exercise h4{margin:0 0 6px;font-size:1.05rem;color:var(--teal)}
+.fill-line{display:inline-block;min-width:120px;border-bottom:2px dotted var(--ink-soft)}
+.checkbox{display:inline-block;width:15px;height:15px;border:2px solid var(--teal);border-radius:3px;vertical-align:middle;margin-left:6px}
+.opt{display:block;margin:2px 0}
+.match-cols{display:flex;justify-content:space-between;gap:30px}
+.match-cols div{flex:1}
+.match-cols p{margin:4px 0;background:var(--teal-soft);border-radius:8px;padding:2px 12px}
+.word-chip{display:inline-block;background:var(--gold-soft);border:1.5px solid var(--gold);border-radius:16px;padding:0 12px;margin:3px}
+.lines{border-bottom:2px dotted var(--ink-soft);height:26px;margin:4px 0}
+.corrige-wrapper{page-break-before:always;margin-top:26px}
+details.corrige{border:2px solid var(--teal);border-radius:12px;background:#fff;padding:8px 18px}
+details.corrige summary{cursor:pointer;font-family:'Amiri',serif;font-size:1.25rem;color:var(--teal);font-weight:700}
+.corrige h5{margin:12px 0 2px;color:var(--red);font-size:1.02rem}
+.corrige p{margin:2px 0}
+.footer-note{text-align:center;color:var(--ink-soft);font-size:.88rem;margin-top:18px}
+@page{size:A4;margin:13mm}
+@media print{body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}.sheet{box-shadow:none;margin:0;max-width:none;padding:0;background:#fff}details.corrige:not([open]) *{display:none}details.corrige:not([open]) summary{display:block}}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<header class="masthead">
+<svg width="64" height="64" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="29" fill="none" stroke="#fff" stroke-width="3"/><rect x="18" y="26" width="28" height="20" rx="3" fill="#f3d38a"/><path d="M24 26v-5a8 8 0 0 1 16 0v5" fill="none" stroke="#fff" stroke-width="3"/></svg>
+<div><h1>أنشطة السكان (التجارة والخدمات)</h1><p>الجغرافيا – الأنشطة الاقتصادية للسكان : القطاع الثالث</p></div>
+</header>
+
+<div class="meta-row">
+<span class="chip"><b>المستوى:</b> الأولى إعدادي</span>
+<span class="chip"><b>المادة:</b> الجغرافيا</span>
+<span class="chip"><b>مدة الحصة:</b> ساعة ونصف</span>
+<span class="chip"><b>نوع الوثيقة:</b> فيشة تعلّم ذاتي</span>
+</div>
+
+<section>
+<h2>🎯 الهدف</h2>
+<div class="box objectif-box">
+في نهاية هذا الدرس سأكون قادرًا على:
+<ul>
+<li>أن أعرّف النشاط التجاري والخدمات، وأميّز بين التجارة الداخلية والتجارة الخارجية؛</li>
+<li>أن أميّز بين الصادرات والواردات، وأقرأ الميزان التجاري (فائض، توازن، عجز)؛</li>
+<li>أن أصنّف الخدمات إلى مهيكلة وغير مهيكلة، وأعطي أمثلة عنها؛</li>
+<li>أن أحدّد مقوّمات النشاط التجاري والخدماتي (الإنتاج، النقل والتوزيع، الأسواق، الاستهلاك)؛</li>
+<li>أن أصف التوزيع الجغرافي للتجارة والخدمات عبر العالم (الفحم، السياحة).</li>
+</ul>
+</div>
+</section>
+
+<section>
+<h2>📘 الدرس</h2>
+
+<h3>1) ما هي التجارة وما هي الخدمات؟</h3>
+<div class="rule-box"><b>التجارة</b> نشاط اقتصادي يربط بين <b>المنتِج</b> و<b>المستهلِك</b> عبر وسطاء: تاجر الجملة، تاجر نصف الجملة، وتاجر التقسيط (التقسيط = البيع للمستهلك مباشرة). أما <b>الخدمات</b> فهي منافع غير ملموسة (لا نستطيع حملها) مثل الصحة والتعليم والبريد والنقل. وتدخل التجارة والخدمات ضمن <b>القطاع الاقتصادي الثالث</b>.</div>
+<div class="cards">
+<div class="card"><h3>🧑‍🌾 المنتِج</h3><p>الفلاح أو الصانع الذي ينتج السلعة.</p></div>
+<div class="card"><h3>🚚 الوسطاء</h3><p>تاجر الجملة ← تاجر نصف الجملة ← تاجر التقسيط.</p></div>
+<div class="card"><h3>🛒 المستهلِك</h3><p>الشخص الذي يشتري السلعة ليستعملها.</p></div>
+</div>
+
+<h3>2) أنواع التجارة</h3>
+<table class="data-table">
+<tr><th>النوع</th><th>التعريف</th><th>مثال</th></tr>
+<tr><td>التجارة الداخلية</td><td>تبادل السلع بين مناطق البلد الواحد.</td><td>نقل الحوامض من سوس إلى الدار البيضاء.</td></tr>
+<tr><td>التجارة الخارجية</td><td>المبادلات التجارية بين بلد وبلد آخر، وتشمل الصادرات والواردات.</td><td>تصدير الفوسفاط واستيراد القمح.</td></tr>
+</table>
+<div class="cards">
+<div class="card"><h3>📤 الصادرات</h3><p>سلع وخدمات ينتجها بلد ويبيعها لبلد آخر.</p></div>
+<div class="card"><h3>📥 الواردات</h3><p>سلع وخدمات يشتريها بلد من بلد آخر.</p></div>
+</div>
+<div class="rule-box"><b>الميزان التجاري</b> = مقارنة قيمة الصادرات بقيمة الواردات. له ثلاث حالات: <b>متوازن</b> (الصادرات = الواردات)، <b>فائض</b> (الصادرات &gt; الواردات)، <b>عجز</b> (الصادرات &lt; الواردات).</div>
+
+<h3>3) أنواع الخدمات</h3>
+<table class="data-table">
+<tr><th>الخدمات المهيكلة</th><th>الخدمات غير المهيكلة</th></tr>
+<tr><td>منظَّمة بقانون ومعترف بها رسميًا: التأمين، الأبناك، المحاماة، الطب...</td><td>غير منظَّمة قانونيًا: ماسح الأحذية، البائع المتجوّل...</td></tr>
+</table>
+<p>ويمكن تصنيفها أيضًا حسب الجهة التي تقدّمها: <b>خدمات مؤدّى عنها</b> (يدفع المستفيد ثمنها: المحاماة، الطب الخاص، السياحة، الاتصالات)، و<b>خدمات غير مؤدّى عنها</b> (تموّلها الدولة من الضرائب: التعليم العمومي، الأمن، الصحة العمومية، الإدارة).</p>
+<p>📊 <b>مكانة التجارة والخدمات في الناتج الإجمالي</b> (قيم تقريبية لأجل التدريب):</p>
+<table class="data-table">
+<tr><th>المنطقة</th><th>العالم</th><th>الدول الصناعية</th><th>الدول النامية</th><th>المغرب</th></tr>
+<tr><td>النسبة (%)</td><td>55</td><td>70</td><td>50</td><td>60</td></tr>
+</table>
+<p>كلما تطوّر اقتصاد بلد، ارتفعت مساهمة التجارة والخدمات في ناتجه الإجمالي.</p>
+
+<h3>4) مقوّمات النشاط التجاري والخدماتي</h3>
+<div class="cards">
+<div class="card"><h3>🏭 الإنتاج</h3><p>فلاحي، صناعي، خدماتي: بدونه لا توجد سلع للتبادل.</p></div>
+<div class="card"><h3>🚢 النقل والتوزيع</h3><p>برّي، بحري، جوّي: لإيصال السلع من المنتج إلى المستهلك.</p></div>
+<div class="card"><h3>🏬 الأسواق</h3><p>تقليدية (سوق أسبوعي، قيسارية) وعصرية (مراكز تجارية، تجارة إلكترونية).</p></div>
+<div class="card"><h3>👨‍👩‍👧 الاستهلاك</h3><p>يرتبط بعدد السكان ومستوى معيشتهم.</p></div>
+</div>
+<p>💻 <b>التجارة الإلكترونية</b>: بيع وشراء السلع والخدمات عبر الإنترنت، مع الأداء ببطاقات الائتمان أو وسائل أخرى. وفي اليابان تتحكم شركات كبرى تسمى <b>سوكوسوشا</b> في سلسلة التجارة: تبحث عن الأسواق، وتختار وسائل الإنتاج، وتموّل وتصرّف المنتجات.</p>
+
+<h3>5) التوزيع الجغرافي للتجارة والخدمات</h3>
+<ul>
+<li><b>الفحم:</b> تنتجه وتستهلكه أساسًا الصين والولايات المتحدة الأمريكية والهند وأستراليا وروسيا؛ وتتجه تيارات التصدير نحو الأقاليم الصناعية الكبرى (شرق آسيا، أوربا).</li>
+<li><b>السياحة:</b> أهم المناطق المرسِلة للسياح هي أوربا وأمريكا الشمالية واليابان، وأهم المناطق المستقبِلة أوربا (حوض المتوسط) وأمريكا الشمالية وجنوب شرق آسيا.</li>
+</ul>
+<div class="rule-box"><b>الخلاصة:</b> تعكس التجارة والخدمات قوة الاقتصاد: فهي تربط المنتج بالمستهلك، وتشغّل عددًا كبيرًا من السكان، وتساهم بنسبة مهمة في الناتج الداخلي الإجمالي.</div>
+
+<h3>6) مصطلحات ومفاهيم</h3>
+<div class="cards">
+<div class="card"><h3>النشاط التجاري</h3><p>الربط بين المنتج والمستهلك عبر وسطاء.</p></div>
+<div class="card"><h3>السياحة</h3><p>تنقّل الأفراد لمسافات معيّنة بغرض النزهة والترفيه.</p></div>
+<div class="card"><h3>الخدمات</h3><p>منافع غير مادية: صحة، تعليم، بريد، نقل...</p></div>
+<div class="card"><h3>القطاع الثالث</h3><p>قطاع التجارة والخدمات.</p></div>
+</div>
+</section>
+
+<section>
+<h2>✏️ نشاط تطبيقي: رحلة سلعة من الحقل إلى المائدة</h2>
+<div class="activity-box">
+<p>يبيع فلاح في سوس 10 أطنان من الطماطم لتاجر جملة، فيبيعها هذا لتاجر نصف الجملة، ثم يشتريها بائع الخضر الذي يبيعها لأسرة بالكيلوغرام.</p>
+<p><span class="task-label">المهمة 1</span> أرتّب الوسطاء من المنتِج إلى المستهلك: <span class="fill-line"></span> ← <span class="fill-line"></span> ← <span class="fill-line"></span> ← <span class="fill-line"></span></p>
+<p><span class="task-label">المهمة 2</span> أي وسيط يمارس تجارة التقسيط؟ <span class="fill-line"></span></p>
+<p><span class="task-label">المهمة 3</span> لو بيعت هذه الطماطم إلى فرنسا، فهل هي تجارة داخلية أم خارجية؟ ولماذا؟</p>
+<div class="lines"></div><div class="lines"></div>
+</div>
+</section>
+
+<section>
+<h2>📝 تمارين للتدرّب</h2>
+
+<div class="exercise"><h4><span class="exercise-num">1</span>أُكمل الفراغات بما يناسب</h4>
+التجارة تربط بين <span class="fill-line"></span> و<span class="fill-line"></span>. تتم المبادلات داخل البلد الواحد في التجارة <span class="fill-line"></span>، وبين البلدان في التجارة <span class="fill-line"></span>. وتنتمي التجارة والخدمات إلى القطاع <span class="fill-line" style="min-width:70px"></span>.</div>
+
+<div class="exercise"><h4><span class="exercise-num">2</span>اختر الجواب الصحيح</h4>
+<b>أ) السلع التي يشتريها بلد من بلد آخر تسمى:</b>
+<span class="opt"><span class="checkbox"></span>صادرات</span>
+<span class="opt"><span class="checkbox"></span>واردات</span>
+<span class="opt"><span class="checkbox"></span>خدمات</span>
+<b>ب) يكون الميزان التجاري في عجز عندما:</b>
+<span class="opt"><span class="checkbox"></span>الصادرات أكبر من الواردات</span>
+<span class="opt"><span class="checkbox"></span>الصادرات تساوي الواردات</span>
+<span class="opt"><span class="checkbox"></span>الصادرات أقل من الواردات</span></div>
+
+<div class="exercise"><h4><span class="exercise-num">3</span>صحيح أم خطأ؟ (أُصحّح الخطأ)</h4>
+1) الخدمات سلع ملموسة يمكن حملها. (<span class="fill-line" style="min-width:50px"></span>)<br>
+2) ماسح الأحذية يقدّم خدمة غير مهيكلة. (<span class="fill-line" style="min-width:50px"></span>)<br>
+3) التعليم العمومي خدمة مؤدّى عنها مباشرة من المستفيد. (<span class="fill-line" style="min-width:50px"></span>)<br>
+4) الأسواق الأسبوعية من الأسواق العصرية. (<span class="fill-line" style="min-width:50px"></span>)</div>
+
+<div class="exercise"><h4><span class="exercise-num">4</span>أصل بين المفهوم وتعريفه</h4>
+<div class="match-cols">
+<div><p>1. الصادرات</p><p>2. تاجر التقسيط</p><p>3. الخدمات المهيكلة</p><p>4. السياحة</p></div>
+<div><p>أ. منظَّمة بقانون كالتأمين والأبناك</p><p>ب. تنقّل الأفراد بغرض النزهة والترفيه</p><p>ج. سلع يبيعها بلد لبلد آخر</p><p>د. يبيع للمستهلك مباشرة</p></div>
+</div>
+<p>الأجوبة: 1-<span class="fill-line" style="min-width:40px"></span> 2-<span class="fill-line" style="min-width:40px"></span> 3-<span class="fill-line" style="min-width:40px"></span> 4-<span class="fill-line" style="min-width:40px"></span></p></div>
+
+<div class="exercise"><h4><span class="exercise-num">5</span>أصنّف الأمثلة في الجدول</h4>
+<span class="word-chip">طبيب في عيادة خاصة</span><span class="word-chip">بائع متجوّل</span><span class="word-chip">مدرسة عمومية</span><span class="word-chip">شركة تأمين</span><span class="word-chip">ماسح أحذية</span><span class="word-chip">مستشفى عمومي</span>
+<table class="data-table">
+<tr><th>خدمات مهيكلة</th><th>خدمات غير مهيكلة</th></tr>
+<tr><td><div class="lines"></div><div class="lines"></div></td><td><div class="lines"></div><div class="lines"></div></td></tr>
+</table></div>
+
+<div class="exercise"><h4><span class="exercise-num">6</span>أحسب وأستنتج الميزان التجاري</h4>
+بلد (س): الصادرات 120 مليار درهم، الواردات 180 مليار درهم. بلد (ع): الصادرات 90 مليار، الواردات 90 مليار. بلد (ص): الصادرات 200 مليار، الواردات 150 مليار.<br>
+أحدّد وضعية كل ميزان: س: <span class="fill-line"></span> ع: <span class="fill-line"></span> ص: <span class="fill-line"></span><br>
+أحسب الفرق في البلد (س): <span class="fill-line"></span></div>
+
+<div class="exercise"><h4><span class="exercise-num">7</span>أقرأ جدول مساهمة التجارة والخدمات</h4>
+العالم 55%، الدول الصناعية 70%، الدول النامية 50%، المغرب 60%.<br>
+1) أي منطقة تسجّل أعلى نسبة؟ <span class="fill-line"></span><br>
+2) هل المغرب فوق أم تحت متوسط العالم؟ <span class="fill-line"></span><br>
+3) أستنتج العلاقة بين تطوّر الاقتصاد ونسبة مساهمة الخدمات:
+<div class="lines"></div></div>
+
+<div class="exercise"><h4><span class="exercise-num">8</span>أكتب فقرة قصيرة</h4>
+أذكر المقوّمات الأربعة للنشاط التجاري والخدماتي، وأعطي مثالًا واحدًا لكل مقوّم (4 إلى 5 أسطر).
+<div class="lines"></div><div class="lines"></div><div class="lines"></div><div class="lines"></div></div>
+</section>
+
+<div class="corrige-wrapper">
+<details class="corrige">
+<summary>اضغط لإظهار الحل / إخفائه — التصحيح الكامل</summary>
+<h5>نشاط تطبيقي</h5>
+<p>1) الفلاح (المنتج) ← تاجر الجملة ← تاجر نصف الجملة ← بائع الخضر (تاجر التقسيط) ← المستهلك. 2) بائع الخضر. 3) تجارة خارجية، لأن البيع يتم بين بلدين (المغرب وفرنسا) وتدخل ضمن الصادرات.</p>
+<h5>تمرين 1</h5><p>المنتِج والمستهلِك؛ الداخلية؛ الخارجية؛ الثالث.</p>
+<h5>تمرين 2</h5><p>أ) واردات. ب) الصادرات أقل من الواردات.</p>
+<h5>تمرين 3</h5><p>1) خطأ: الخدمات منافع غير ملموسة. 2) صحيح. 3) خطأ: التعليم العمومي خدمة غير مؤدّى عنها مباشرة، تموّلها الدولة من الضرائب. 4) خطأ: الأسواق الأسبوعية أسواق تقليدية.</p>
+<h5>تمرين 4</h5><p>1-ج، 2-د، 3-أ، 4-ب.</p>
+<h5>تمرين 5</h5><p>مهيكلة: طبيب في عيادة خاصة، مدرسة عمومية، شركة تأمين، مستشفى عمومي. غير مهيكلة: بائع متجوّل، ماسح أحذية.</p>
+<h5>تمرين 6</h5><p>س: عجز (120 &lt; 180)؛ ع: متوازن؛ ص: فائض (200 &gt; 150). الفرق في س: 180 − 120 = 60 مليار درهم (عجز).</p>
+<h5>تمرين 7</h5><p>1) الدول الصناعية (70%). 2) فوق المتوسط (60% &gt; 55%). 3) كلما تطوّر اقتصاد بلد ارتفعت مساهمة التجارة والخدمات في ناتجه الإجمالي.</p>
+<h5>تمرين 8</h5><p>الإنتاج (فلاحي، صناعي، خدماتي) مثل إنتاج الحوامض؛ النقل والتوزيع (برّي، بحري، جوّي) مثل نقل السلع عبر ميناء طنجة المتوسط؛ الأسواق (تقليدية كالسوق الأسبوعي، وعصرية كالمراكز التجارية والتجارة الإلكترونية)؛ الاستهلاك المرتبط بعدد السكان ومستوى معيشتهم.</p>
+</details>
+</div>
+
+<p class="footer-note">فيشة تعلّم ذاتي – الجغرافيا – الأولى إعدادي</p>
+</div>
+</body>
+</html>
