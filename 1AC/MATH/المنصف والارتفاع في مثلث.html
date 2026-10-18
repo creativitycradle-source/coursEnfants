@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>منصّف زاوية وارتفاع مثلث – فيشة تعلّم ذاتي</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Naskh+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1c2b3a;--ink-soft:#4d5f70;--paper:#f7f9fb;--panel:#fff;--line:#c9d6e0;
+--blue:#2f5f8a;--blue-soft:#e2ecf3;--orange:#e07b39;--orange-soft:#fbe8d8;--green:#3a8f6b;--green-soft:#e1f2ea;}
+*{box-sizing:border-box}
+body{margin:0;background:#e6ecf1;font-family:'Noto Naskh Arabic','Amiri',serif;color:var(--ink);line-height:1.9;font-size:17px}
+.sheet{max-width:900px;margin:18px auto;padding:26px 30px;border-radius:14px;box-shadow:0 4px 18px rgba(0,0,0,.1);
+background:repeating-linear-gradient(0deg,transparent 0 27px,rgba(47,95,138,.06) 27px 28px),repeating-linear-gradient(90deg,transparent 0 27px,rgba(47,95,138,.06) 27px 28px),var(--paper)}
+.masthead{display:flex;align-items:center;gap:18px;background:linear-gradient(135deg,var(--blue),#4a82b0);color:#fff;border-radius:14px;padding:18px 22px}
+.masthead h1{font-family:'Amiri',serif;font-size:1.9rem;margin:0;line-height:1.35}
+.masthead p{margin:4px 0 0;opacity:.92}
+.meta-row{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.chip{background:var(--panel);border:1.5px solid var(--line);border-radius:20px;padding:2px 14px;font-size:.92rem}
+.chip b{color:var(--blue)}
+section{margin:20px 0}
+h2{font-family:'Amiri',serif;font-size:1.5rem;color:var(--blue);border-bottom:3px solid var(--orange);display:inline-block;margin:0 0 10px;padding-bottom:2px}
+h3{color:var(--green);margin:14px 0 4px;font-size:1.12rem}
+.box{background:var(--panel);border:1.5px solid var(--line);border-radius:12px;padding:12px 18px;margin:10px 0}
+.objectif-box{background:var(--green-soft);border-color:var(--green)}
+.rule-box{background:var(--orange-soft);border-right:6px solid var(--orange);border-radius:10px;padding:10px 16px;margin:10px 0}
+.worked-example{background:var(--blue-soft);border:1.5px solid var(--blue);border-radius:12px;padding:10px 18px;margin:10px 0}
+.worked-example .tag{display:inline-block;background:var(--blue);color:#fff;border-radius:8px;padding:0 10px;font-size:.88rem;margin-bottom:4px}
+.num{direction:ltr;unicode-bidi:isolate;display:inline-block;font-weight:700;color:var(--blue)}
+table.data-table{width:100%;border-collapse:collapse;margin:10px 0;background:#fff}
+.data-table th,.data-table td{border:1.5px solid var(--line);padding:6px 8px;text-align:center}
+.data-table th{background:var(--blue);color:#fff;font-weight:600}
+.activity-box{background:var(--green-soft);border:2px dashed var(--green);border-radius:12px;padding:12px 18px}
+.task-label{display:inline-block;background:var(--green);color:#fff;border-radius:8px;padding:0 10px;margin-left:6px;font-size:.9rem}
+.exercise{background:var(--panel);border:1.5px solid var(--line);border-radius:12px;padding:10px 18px 12px;margin:12px 0;page-break-inside:avoid}
+.exercise-num{display:inline-flex;width:30px;height:30px;border-radius:50%;background:var(--orange);color:#fff;align-items:center;justify-content:center;font-weight:700;margin-left:8px}
+.exercise h4{margin:0 0 6px;font-size:1.05rem;color:var(--blue)}
+.fill-line{display:inline-block;min-width:90px;border-bottom:2px dotted var(--ink-soft)}
+.fill-line.sm{min-width:48px}
+.sq{display:inline-block;width:24px;height:24px;border:2px solid var(--blue);border-radius:5px;vertical-align:middle;margin:0 6px}
+.lines{border-bottom:2px dotted var(--ink-soft);height:26px;margin:4px 0}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:4px 18px}
+.match-cols{display:flex;justify-content:space-between;gap:30px}.match-cols div{flex:1}
+.match-cols p{margin:4px 0;background:var(--blue-soft);border-radius:8px;padding:2px 12px}
+.order-list p{margin:3px 0;background:var(--orange-soft);border-radius:8px;padding:2px 12px}
+.tf-item{margin:4px 0}
+.corrige-wrapper{page-break-before:always;margin-top:26px}
+details.corrige{border:2px solid var(--blue);border-radius:12px;background:#fff;padding:8px 18px}
+details.corrige summary{cursor:pointer;font-family:'Amiri',serif;font-size:1.25rem;color:var(--blue);font-weight:700}
+.corrige h5{margin:12px 0 2px;color:var(--orange);font-size:1.02rem}
+.corrige p{margin:2px 0}
+.footer-note{text-align:center;color:var(--ink-soft);font-size:.88rem;margin-top:18px}
+svg text{font-family:'Noto Naskh Arabic',sans-serif}
+.figs{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin:10px 0}
+.fig{text-align:center;font-size:.9rem;color:var(--ink-soft)}
+@page{size:A4;margin:13mm}
+@media print{body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}.sheet{box-shadow:none;margin:0;max-width:none;padding:0}details.corrige:not([open]) > :not(summary){display:none}}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<header class="masthead">
+<svg width="72" height="62" viewBox="0 0 72 62" aria-hidden="true"><polygon points="36,6 66,54 6,54" fill="none" stroke="#fff" stroke-width="3"/><line x1="36" y1="6" x2="36" y2="54" stroke="#f6b27e" stroke-width="3"/><path d="M22 54 Q36 40 50 54" fill="none" stroke="#f6b27e" stroke-width="2" opacity=".8"/></svg>
+<div><h1>منصّف زاوية وارتفاع مثلث</h1><p>الرياضيات – الهندسة (Bissectrice et hauteur d'un triangle)</p></div>
+</header>
+
+<div class="meta-row">
+<span class="chip"><b>المستوى:</b> الأولى إعدادي (1AC)</span>
+<span class="chip"><b>المادة:</b> الرياضيات — الهندسة</span>
+<span class="chip"><b>مدة الحصة:</b> ساعة ونصف</span>
+<span class="chip"><b>نوع الوثيقة:</b> فيشة تعلّم ذاتي</span>
+</div>
+
+<section>
+<h2>🎯 الهدف</h2>
+<div class="box objectif-box">في نهاية هذه الفيشة سأكون قادرًا على:
+<ul>
+<li>أن أعرّف منصّف زاوية وأنشئه بالفرجار وبالمنقلة، وأحسب قياس نصف زاوية؛</li>
+<li>أن أنشئ منصّفات مثلث وأعرف أنها تتقاطع في نقطة واحدة هي مركز الدائرة المحاطة بالمثلث؛</li>
+<li>أن أعرّف الارتفاع في مثلث وأنشئه بالمدسّ (الكوس) في جميع الحالات؛</li>
+<li>أن أميّز بين المنصّف والارتفاع والمتوسط في مثلث، وأستعمل ذلك في حل مسائل بسيطة.</li>
+</ul></div>
+</section>
+
+<section>
+<h2>📘 الدرس</h2>
+
+<h3>1) منصّف زاوية (Bissectrice)</h3>
+<div class="rule-box"><b>منصّف زاوية</b> هو نصف المستقيم الذي ينطلق من رأس الزاوية ويقسمها إلى <b>زاويتين متقايستين</b>.<br>
+إذا كان <span class="num">[Oz)</span> منصّف الزاوية <span class="num">∠xOy</span> فإن <span class="num">∠xOz = ∠zOy = ∠xOy ÷ 2</span>.</div>
+<div style="text-align:center"><svg width="260" height="150" viewBox="0 0 260 150" role="img" aria-label="منصف زاوية"><line x1="30" y1="120" x2="240" y2="120" stroke="#2f5f8a" stroke-width="2.5"/><line x1="30" y1="120" x2="200" y2="30" stroke="#2f5f8a" stroke-width="2.5"/><line x1="30" y1="120" x2="235" y2="68" stroke="#e07b39" stroke-width="2.5" stroke-dasharray="6 4"/><path d="M80 120 A50 50 0 0 0 76 100" fill="none" stroke="#3a8f6b" stroke-width="2.5"/><path d="M76 100 A50 50 0 0 0 74 88" fill="none" stroke="#3a8f6b" stroke-width="2.5"/><text x="22" y="138" font-size="14" font-weight="700" fill="#1c2b3a">O</text><text x="244" y="124" font-size="14" font-weight="700" fill="#1c2b3a">x</text><text x="204" y="26" font-size="14" font-weight="700" fill="#1c2b3a">y</text><text x="238" y="66" font-size="14" font-weight="700" fill="#e07b39">z</text></svg>
+<div style="font-size:.85rem;color:var(--ink-soft)">رسم توضيحي: [Oz) منصّف الزاوية xOy.</div></div>
+<div class="worked-example"><span class="tag">مثال محلول</span><br>
+<span class="num">∠xOy = 70°</span> و<span class="num">[Oz)</span> منصّفها ← <span class="num">∠xOz = 70° ÷ 2 = 35°</span>.</div>
+
+<h3>2) إنشاء منصّف زاوية</h3>
+<div class="worked-example"><span class="tag">بالفرجار</span><br>
+1) أضع سنّ الفرجار على الرأس O وأرسم قوسًا يقطع ضلعي الزاوية في M وN.<br>
+2) أضع السنّ على M ثم على N بنفس الفتحة (أكبر من نصف MN) وأرسم قوسين يتقاطعان في P.<br>
+3) أرسم نصف المستقيم <span class="num">[OP)</span>، فهو منصّف الزاوية.</div>
+<div class="worked-example"><span class="tag">بالمنقلة</span><br>
+أقيس الزاوية فأجد مثلًا 70°، أقسمها على 2 فأحصل على 35°، ثم أنشئ زاوية 35° انطلاقًا من أحد الضلعين.</div>
+
+<h3>3) منصّفات مثلث</h3>
+<div class="rule-box">في كل مثلث <b>ثلاثة منصّفات</b> (منصّف لكل زاوية). وهي <b>تتقاطع في نقطة واحدة</b> داخل المثلث، تبعد المسافة نفسها عن أضلاعه الثلاثة، وهي <b>مركز الدائرة المحاطة بالمثلث</b> (التي تمسّ أضلاعه الثلاثة من الداخل).</div>
+<div style="text-align:center"><svg width="240" height="170" viewBox="0 0 240 170" role="img" aria-label="منصفات مثلث ودائرة محاطة"><polygon points="120,10 20,150 220,150" fill="#e2ecf3" stroke="#2f5f8a" stroke-width="2.5"/><circle cx="120" cy="115" r="35" fill="none" stroke="#3a8f6b" stroke-width="2"/><g stroke="#e07b39" stroke-width="2" stroke-dasharray="5 4"><line x1="120" y1="10" x2="120" y2="150"/><line x1="20" y1="150" x2="150" y2="92"/><line x1="220" y1="150" x2="90" y2="92"/></g><circle cx="120" cy="115" r="4" fill="#e07b39"/><text x="112" y="8" font-size="13" font-weight="700">A</text><text x="8" y="160" font-size="13" font-weight="700">B</text><text x="222" y="160" font-size="13" font-weight="700">C</text><text x="128" y="111" font-size="13" font-weight="700" fill="#e07b39">I</text></svg>
+<div style="font-size:.85rem;color:var(--ink-soft)">I: نقطة تقاطع المنصّفات، مركز الدائرة المحاطة (رسم توضيحي).</div></div>
+
+<h3>4) ارتفاع مثلث (Hauteur)</h3>
+<div class="rule-box"><b>الارتفاع</b> المتعلّق بضلع في مثلث هو <b>المستقيم المار من الرأس المقابل لهذا الضلع والعمودي على حامله</b>. (غالبًا نسمّي ارتفاعًا أيضًا القطعة بين الرأس وموقع العمود).<br>
+في كل مثلث <b>ثلاثة ارتفاعات</b> تتقاطع في نقطة واحدة تسمّى <b>ملتقى الارتفاعات</b> (غالبًا نرمز لها بـ H).</div>
+<div class="worked-example"><span class="tag">إنشاء ارتفاع بالمدسّ (الكوس)</span><br>
+1) أضع أحد ضلعي الزاوية القائمة للمدسّ على الضلع (أو على امتداده).<br>
+2) أحرّك المدسّ حتى يمرّ ضلعه الآخر بالرأس المقابل.<br>
+3) أرسم المستقيم المار من الرأس، وأضع علامة الزاوية القائمة.</div>
+
+<h3>5) موضع الارتفاعات بحسب نوع المثلث</h3>
+<table class="data-table">
+<tr><th>نوع المثلث</th><th>موضع ملتقى الارتفاعات H</th></tr>
+<tr><td>حاد الزوايا</td><td>داخل المثلث</td></tr>
+<tr><td>قائم الزاوية</td><td>عند رأس الزاوية القائمة (ضلعا الزاوية القائمة ارتفاعان)</td></tr>
+<tr><td>منفرج الزاوية</td><td>خارج المثلث (نمدّد الأضلاع لإنشاء الارتفاعات)</td></tr>
+</table>
+<div style="text-align:center"><svg width="480" height="170" viewBox="0 0 480 170" role="img" aria-label="ارتفاعات مثلث حاد وارتفاع في مثلث منفرج">
+<polygon points="100,15 20,120 190,120" fill="#e2ecf3" stroke="#2f5f8a" stroke-width="2.5"/>
+<g stroke="#e07b39" stroke-width="2" stroke-dasharray="5 4"><line x1="100" y1="15" x2="100" y2="120"/><line x1="20" y1="120" x2="118" y2="36"/><line x1="190" y1="120" x2="82" y2="38"/></g>
+<circle cx="100" cy="51" r="4" fill="#e07b39"/><text x="106" y="52" font-size="13" font-weight="700" fill="#e07b39">H</text>
+<text x="94" y="12" font-size="13" font-weight="700">A</text><text x="6" y="132" font-size="13" font-weight="700">B</text><text x="192" y="132" font-size="13" font-weight="700">C</text>
+<text x="100" y="152" font-size="12" text-anchor="middle" fill="#4d5f70">مثلث حاد الزوايا</text>
+<polygon points="260,120 360,120 410,45" fill="#fbe8d8" stroke="#2f5f8a" stroke-width="2.5"/>
+<line x1="360" y1="120" x2="410" y2="120" stroke="#2f5f8a" stroke-width="2" stroke-dasharray="3 4"/>
+<line x1="410" y1="45" x2="410" y2="120" stroke="#e07b39" stroke-width="2" stroke-dasharray="5 4"/>
+<rect x="400" y="110" width="10" height="10" fill="none" stroke="#e07b39" stroke-width="2"/>
+<text x="404" y="38" font-size="13" font-weight="700">A</text><text x="248" y="132" font-size="13" font-weight="700">B</text><text x="356" y="136" font-size="13" font-weight="700">C</text><text x="412" y="136" font-size="13" font-weight="700" fill="#e07b39">D</text>
+<text x="350" y="152" font-size="12" text-anchor="middle" fill="#4d5f70">منفرج: الارتفاع [AD] خارج [BC]</text>
+</svg></div>
+
+<h3>6) لا نخلط بين المنصّف والارتفاع والمتوسط</h3>
+<table class="data-table">
+<tr><th>المفهوم</th><th>تعريفه المختصر</th><th>ما يميّزه</th></tr>
+<tr><td>المنصّف</td><td>يقسم الزاوية إلى زاويتين متقايستين</td><td>يتعلّق بالزاوية</td></tr>
+<tr><td>الارتفاع</td><td>يمرّ بالرأس وعمودي على الضلع المقابل</td><td>زاوية قائمة</td></tr>
+<tr><td>المتوسط</td><td>يمرّ بالرأس ومنتصف الضلع المقابل</td><td>يتعلّق بمنتصف الضلع</td></tr>
+</table>
+<div class="rule-box"><b>ملاحظة (حالة خاصة):</b> في المثلث <b>المتساوي الساقين</b> منصّف زاوية الرأس الرئيسي هو أيضًا ارتفاع ومتوسط. سنتحقق من ذلك في التمرين 8.</div>
+</section>
+
+<section>
+<h2>✏️ نشاط تطبيقي: ثني الورق والمدسّ</h2>
+<div class="activity-box">
+<p>أحتاج إلى ورقة، مقص، مسطرة، منقلة، فرجار، مدسّ، وأقلام ملوّنة.</p>
+<p><span class="task-label">المهمة 1</span> أرسم زاوية <span class="num">∠xOy</span> على ورقة وأقصّها، ثم أطويها بحيث ينطبق ضلعاها. خطّ الطيّ هو ........ أتحقّق بالمنقلة أن الزاويتين متقايستان.</p>
+<p><span class="task-label">المهمة 2</span> أرسم مثلثًا حاد الزوايا وأقصّه، وأطوي زواياه الثلاث لأحصل على المنصّفات الثلاثة. أسجّل ملاحظتي: <span class="fill-line" style="min-width:240px"></span></p>
+<p><span class="task-label">المهمة 3</span> بالمدسّ أرسم الارتفاعات الثلاثة لمثلث حاد ثم لمثلث منفرج، وأعلّم ملتقاها H: داخل المثلث أم خارجه؟ <span class="fill-line"></span></p>
+<p><span class="task-label">المهمة 4</span> أرسم مثلثًا متساوي الساقين وأنشئ منصّف زاوية الرأس، ثم أقيس الزاوية التي يصنعها مع القاعدة: <span class="fill-line sm"></span></p>
+</div>
+</section>
+
+<section>
+<h2>📝 تمارين للتدرّب</h2>
+
+<div class="exercise"><h4><span class="exercise-num">1</span>أحسب قياسات</h4>
+<p>أ) <span class="num">[Oz)</span> منصّف <span class="num">∠xOy = 80°</span> ← <span class="num">∠xOz</span> = <span class="fill-line sm"></span></p>
+<p>ب) <span class="num">[Ot)</span> منصّف <span class="num">∠xOy</span> و<span class="num">∠xOt = 27°</span> ← <span class="num">∠xOy</span> = <span class="fill-line sm"></span></p>
+<p>ج) <span class="num">∠AOB = 130°</span> و[OM) منصّفها ← <span class="num">∠MOB</span> = <span class="fill-line sm"></span></p></div>
+
+<div class="exercise"><h4><span class="exercise-num">2</span>أرتّب خطوات إنشاء منصّف زاوية بالفرجار (1 إلى 4)</h4>
+<div class="order-list">
+<p><span class="sq"></span> أرسم نصف المستقيم من الرأس إلى نقطة التقاطع.</p>
+<p><span class="sq"></span> أضع السنّ على الرأس وأرسم قوسًا يقطع الضلعين.</p>
+<p><span class="sq"></span> أضع السنّ على كل نقطة تقاطع وأرسم قوسين متقاطعين بنفس الفتحة.</p>
+<p><span class="sq"></span> أسمّي النقطتين M وN ونقطة تقاطع القوسين P.</p></div></div>
+
+<div class="exercise"><h4><span class="exercise-num">3</span>صحيح أم خطأ؟ (أصحّح الخطأ)</h4>
+<p>1) المنصّف يقسم الزاوية إلى زاويتين مجموعهما 90° دائمًا. <span class="sq"></span> <span class="fill-line"></span></p>
+<p>2) منصّفات المثلث الثلاثة تتقاطع في نقطة واحدة. <span class="sq"></span></p>
+<p>3) الارتفاع في مثلث قد يكون خارج المثلث. <span class="sq"></span></p>
+<p>4) الارتفاع هو القطعة التي تصل الرأس بمنتصف الضلع المقابل. <span class="sq"></span> <span class="fill-line"></span></p>
+<p>5) في مثلث قائم الزاوية، ضلعا الزاوية القائمة ارتفاعان. <span class="sq"></span></p></div>
+
+<div class="exercise"><h4><span class="exercise-num">4</span>أصل المفهوم بتعريفه</h4>
+<div class="match-cols">
+<div><p>أ) المنصّف</p><p>ب) الارتفاع</p><p>ج) المتوسط</p><p>د) ملتقى الارتفاعات</p></div>
+<div><p>1) يمرّ بالرأس ومنتصف الضلع المقابل</p><p>2) نقطة تقاطع الارتفاعات الثلاثة</p><p>3) يقسم الزاوية إلى زاويتين متقايستين</p><p>4) يمرّ بالرأس وعمودي على الضلع المقابل</p></div></div></div>
+
+<div class="exercise"><h4><span class="exercise-num">5</span>مسألة حساب</h4>
+المثلث ABC فيه <span class="num">∠BAC = 64°</span> و<span class="num">∠B = 50°</span>، و<span class="num">[AD)</span> منصّف الزاوية <span class="num">∠BAC</span> (D على [BC]).
+<p>أ) أحسب <span class="num">∠BAD</span>: <span class="fill-line"></span></p>
+<p>ب) أحسب <span class="num">∠C</span>: <span class="fill-line"></span></p>
+<p>ج) أحسب <span class="num">∠ADB</span> في المثلث ABD: <span class="fill-line"></span></p></div>
+
+<div class="exercise"><h4><span class="exercise-num">6</span>إنشاء</h4>
+أنشئ المثلث <span class="num">ABC</span> حيث <span class="num">AB = 7 cm</span> و<span class="num">BC = 6 cm</span> و<span class="num">AC = 5 cm</span>.
+<p>أ) أنشئ ارتفاعه المتعلّق بالضلع [BC] (من الرأس A) بالمدسّ.</p>
+<p>ب) أنشئ منصّف الزاوية <span class="num">∠B</span> بالفرجار.</p>
+<p>ج) هل المثلث حاد أم منفرج أم قائم؟ ولماذا؟ <span class="fill-line" style="min-width:220px"></span></p><div class="lines"></div></div>
+
+<div class="exercise"><h4><span class="exercise-num">7</span>أين H؟</h4>
+أكمل الجدول بكتابة موضع ملتقى الارتفاعات (داخل / خارج / عند رأس):
+<table class="data-table"><tr><th>المثلث</th><th>موضع H</th></tr>
+<tr><td>مثلث بزوايا 60° و70° و50°</td><td>&nbsp;</td></tr>
+<tr><td>مثلث بزوايا 90° و40° و50°</td><td>&nbsp;</td></tr>
+<tr><td>مثلث بزوايا 120° و30° و30°</td><td>&nbsp;</td></tr></table></div>
+
+<div class="exercise"><h4><span class="exercise-num">8</span>مسألة للتفكير: المثلث المتساوي الساقين</h4>
+ABC مثلث متساوي الساقين رأسه A و<span class="num">∠A = 40°</span>، و<span class="num">[AH)</span> منصّف الزاوية <span class="num">∠A</span> (H على [BC]).
+<p>أ) أحسب <span class="num">∠B</span> و<span class="num">∠BAH</span>: <span class="fill-line"></span></p>
+<p>ب) أحسب <span class="num">∠AHB</span> في المثلث ABH: <span class="fill-line"></span></p>
+<p>ج) ماذا تستنتج عن المستقيم (AH) بالنسبة إلى [BC]؟ <span class="fill-line"></span></p></div>
+</section>
+
+<div class="corrige-wrapper">
+<details class="corrige">
+<summary>اضغط لإظهار الحل / إخفائه — التصحيح الكامل</summary>
+
+<h5>النشاط التطبيقي</h5>
+<p>المهمة 1: خط الطيّ هو منصّف الزاوية، والزاويتان متقايستان. المهمة 2: المنصّفات الثلاثة تتقاطع في نقطة واحدة داخل المثلث. المهمة 3: في المثلث الحاد H داخل المثلث، وفي المثلث المنفرج H خارجه. المهمة 4: منصّف زاوية الرأس يصنع زاوية قائمة (90°) مع القاعدة.</p>
+
+<h5>التمرين 1</h5>
+<p>أ) <span class="num">80 ÷ 2 = 40°</span> &nbsp; ب) <span class="num">27 × 2 = 54°</span> &nbsp; ج) <span class="num">130 ÷ 2 = 65°</span></p>
+
+<h5>التمرين 2</h5>
+<p>الترتيب الصحيح: 1) أضع السنّ على الرأس وأرسم قوسًا يقطع الضلعين. 2) أسمّي النقطتين M وN. 3) أرسم من M ومن N قوسين متقاطعين في P بنفس الفتحة. 4) أرسم نصف المستقيم من الرأس إلى P.</p>
+
+<h5>التمرين 3</h5>
+<p>1) خطأ — الزاويتان متقايستان ومجموعهما قياس الزاوية الأصلية (وليس 90° دائمًا). 2) صحيح. 3) صحيح. 4) خطأ — هذا تعريف المتوسط؛ الارتفاع عمودي على الضلع المقابل. 5) صحيح.</p>
+
+<h5>التمرين 4</h5>
+<p>أ ← 3 &nbsp; ب ← 4 &nbsp; ج ← 1 &nbsp; د ← 2</p>
+
+<h5>التمرين 5</h5>
+<p>أ) <span class="num">∠BAD = 64 ÷ 2 = 32°</span>. &nbsp; ب) <span class="num">∠C = 180 − (64 + 50) = 66°</span>. &nbsp; ج) <span class="num">∠ADB = 180 − (50 + 32) = 98°</span>.</p>
+
+<h5>التمرين 6</h5>
+<p>أ) أرسم [BC] = 6 سم، ثم قوسًا مركزه B وشعاعه 7 سم وقوسًا مركزه C وشعاعه 5 سم، يتقاطعان في A. أصل A بـ B وبـ C. ثم أضع المدسّ على (BC) وأحرّكه حتى يمرّ ضلعه الآخر بـ A وأرسم الارتفاع.</p>
+<p>ب) أنشئ منصّف ∠B بالفرجار حسب الخطوات المذكورة في الدرس.</p>
+<p>ج) بقياس الزوايا بالمنقلة: ∠A ≈ 57° و∠B ≈ 44° و∠C ≈ 79° (قد يختلف القياس قليلًا). كلها أصغر من 90° ← المثلث حاد الزوايا.</p>
+
+<h5>التمرين 7</h5>
+<p>60°، 70°، 50° ← حاد الزوايا ← H داخل. &nbsp; 90°، 40°، 50° ← قائم ← H عند رأس الزاوية القائمة. &nbsp; 120°، 30°، 30° ← منفرج ← H خارج المثلث.</p>
+
+<h5>التمرين 8</h5>
+<p>أ) <span class="num">∠B = (180 − 40) ÷ 2 = 70°</span>، و<span class="num">∠BAH = 40 ÷ 2 = 20°</span>.</p>
+<p>ب) <span class="num">∠AHB = 180 − (70 + 20) = 90°</span>.</p>
+<p>ج) (AH) عمودي على (BC)، إذن [AH) منصّف وارتفاع في الوقت نفسه (ومتوسط أيضًا).</p>
+</details>
+</div>
+
+<p class="footer-note">فيشة تعلّم ذاتي – الرياضيات – بالتوفيق 🌟</p>
+</div>
+</body>
+</html>
