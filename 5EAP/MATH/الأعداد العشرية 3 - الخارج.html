@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>الأعداد العشرية 3 – الخارج – فيشة تعلّم ذاتي</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Naskh+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1c2b3a;--ink-soft:#4d5f70;--paper:#f7f9fb;--panel:#fff;--line:#c9d6e0;
+--blue:#2f5f8a;--blue-soft:#e2ecf3;--orange:#e07b39;--orange-soft:#fbe8d8;--green:#3a8f6b;--green-soft:#e1f2ea;}
+*{box-sizing:border-box}
+body{margin:0;background:#e6ecf1;font-family:'Noto Naskh Arabic','Amiri',serif;color:var(--ink);line-height:1.9;font-size:17px}
+.sheet{max-width:900px;margin:18px auto;padding:26px 30px;border-radius:14px;box-shadow:0 4px 18px rgba(0,0,0,.1);
+background:repeating-linear-gradient(0deg,transparent 0 27px,rgba(47,95,138,.06) 27px 28px),repeating-linear-gradient(90deg,transparent 0 27px,rgba(47,95,138,.06) 27px 28px),var(--paper)}
+.masthead{display:flex;align-items:center;gap:18px;background:linear-gradient(135deg,var(--blue),#4a82b0);color:#fff;border-radius:14px;padding:18px 22px}
+.masthead h1{font-family:'Amiri',serif;font-size:1.9rem;margin:0;line-height:1.35}
+.masthead p{margin:4px 0 0;opacity:.92}
+.meta-row{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.chip{background:var(--panel);border:1.5px solid var(--line);border-radius:20px;padding:2px 14px;font-size:.92rem}
+.chip b{color:var(--blue)}
+section{margin:20px 0}
+h2{font-family:'Amiri',serif;font-size:1.5rem;color:var(--blue);border-bottom:3px solid var(--orange);display:inline-block;margin:0 0 10px;padding-bottom:2px}
+h3{color:var(--green);margin:14px 0 4px;font-size:1.12rem}
+.box{background:var(--panel);border:1.5px solid var(--line);border-radius:12px;padding:12px 18px;margin:10px 0}
+.objectif-box{background:var(--green-soft);border-color:var(--green)}
+.rule-box{background:var(--orange-soft);border-right:6px solid var(--orange);border-radius:10px;padding:10px 16px;margin:10px 0}
+.worked-example{background:var(--blue-soft);border:1.5px solid var(--blue);border-radius:12px;padding:10px 18px;margin:10px 0}
+.worked-example .tag{display:inline-block;background:var(--blue);color:#fff;border-radius:8px;padding:0 10px;font-size:.88rem;margin-bottom:4px}
+.num{direction:ltr;unicode-bidi:isolate;display:inline-block;font-family:'Noto Naskh Arabic',monospace;font-weight:700;color:var(--blue)}
+table.data-table{width:100%;border-collapse:collapse;margin:10px 0;background:#fff}
+.data-table th,.data-table td{border:1.5px solid var(--line);padding:6px 8px;text-align:center}
+.data-table th{background:var(--blue);color:#fff;font-weight:600}
+.data-table th.dec{background:var(--orange)}
+.data-table td.comma{background:var(--orange-soft);font-weight:700;width:28px}
+.activity-box{background:var(--green-soft);border:2px dashed var(--green);border-radius:12px;padding:12px 18px}
+.task-label{display:inline-block;background:var(--green);color:#fff;border-radius:8px;padding:0 10px;margin-left:6px;font-size:.9rem}
+.exercise{background:var(--panel);border:1.5px solid var(--line);border-radius:12px;padding:10px 18px 12px;margin:12px 0;page-break-inside:avoid}
+.exercise-num{display:inline-flex;width:30px;height:30px;border-radius:50%;background:var(--orange);color:#fff;align-items:center;justify-content:center;font-weight:700;margin-left:8px}
+.exercise h4{margin:0 0 6px;font-size:1.05rem;color:var(--blue)}
+.fill-line{display:inline-block;min-width:90px;border-bottom:2px dotted var(--ink-soft)}
+.fill-line.sm{min-width:48px}
+.sq{display:inline-block;min-width:34px;height:28px;border:2px solid var(--blue);border-radius:6px;vertical-align:middle;margin:0 6px}
+.lines{border-bottom:2px dotted var(--ink-soft);height:26px;margin:4px 0}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:4px 18px}
+.word-chip{display:inline-block;background:var(--orange-soft);border:1.5px solid var(--orange);border-radius:16px;padding:0 12px;margin:3px}
+.corrige-wrapper{page-break-before:always;margin-top:26px}
+details.corrige{border:2px solid var(--blue);border-radius:12px;background:#fff;padding:8px 18px}
+details.corrige summary{cursor:pointer;font-family:'Amiri',serif;font-size:1.25rem;color:var(--blue);font-weight:700}
+.corrige h5{margin:12px 0 2px;color:var(--orange);font-size:1.02rem}
+.corrige p{margin:2px 0}
+.footer-note{text-align:center;color:var(--ink-soft);font-size:.88rem;margin-top:18px}
+svg text{font-family:'Noto Naskh Arabic',sans-serif}
+@page{size:A4;margin:13mm}
+@media print{body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}.sheet{box-shadow:none;margin:0;max-width:none;padding:0}details.corrige:not([open]) > :not(summary){display:none}}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<header class="masthead">
+<svg width="72" height="62" viewBox="0 0 72 62" aria-hidden="true"><line x1="14" y1="31" x2="58" y2="31" stroke="#fff" stroke-width="4" stroke-linecap="round"/><circle cx="36" cy="16" r="5" fill="#f6b27e"/><circle cx="36" cy="46" r="5" fill="#f6b27e"/></svg>
+<div><h1>الأعداد العشرية 3</h1><p>الخارج: القسمة التي يكون خارجها عددًا عشريًا</p></div>
+</header>
+
+<div class="meta-row">
+<span class="chip"><b>المستوى:</b> الخامسة ابتدائي (5AEP)</span>
+<span class="chip"><b>المادة:</b> الرياضيات — الأعداد والحساب</span>
+<span class="chip"><b>مدة الحصة:</b> ساعة ونصف</span>
+<span class="chip"><b>نوع الوثيقة:</b> فيشة تعلّم ذاتي</span>
+</div>
+
+<section>
+<h2>🎯 الهدف</h2>
+<div class="box objectif-box">في نهاية هذه الفيشة سأكون قادرًا على:
+<ul>
+<li>أن أقسم عددًا صحيحًا على عدد صحيح وأتابع القسمة بعد الفاصلة للحصول على خارج عشري؛</li>
+<li>أن أقسم عددًا عشريًا على عدد صحيح؛</li>
+<li>أن أقسم عددًا على 10 أو 100 أو 1000؛</li>
+<li>أن أتحقّق من صحة الخارج بالضرب، وأعطي قيمة مقرّبة للخارج عند الحاجة؛</li>
+<li>أن أحلّ مسائل بسيطة تتطلب قسمة (اقتسام، تجزئة).</li>
+</ul></div>
+</section>
+
+<section>
+<h2>📘 الدرس</h2>
+
+<h3>1) تذكير: القسمة الإقليدية</h3>
+<div class="worked-example"><span class="tag">تذكير</span><br>
+<span class="num">47 ÷ 5</span> : الخارج الصحيح <span class="num">9</span> والباقي <span class="num">2</span> لأن <span class="num">47 = 5 × 9 + 2</span>.<br>
+عندما يكون الباقي غير منعدم نستطيع متابعة القسمة <b>بعد الفاصلة</b> للحصول على خارج عشري.</div>
+
+<h3>2) قسمة عدد صحيح على عدد صحيح (خارج عشري)</h3>
+<div class="rule-box"><b>الطريقة:</b><br>
+1) أنجز القسمة الإقليدية فأجد الخارج الصحيح والباقي؛<br>
+2) أضع <b>فاصلة</b> في الخارج وأضيف <b>صفرًا</b> إلى الباقي؛<br>
+3) أتابع القسمة، وأضيف أصفارًا عند الحاجة، إلى أن يصير الباقي <b>منعدمًا</b>.</div>
+<div class="worked-example"><span class="tag">مثال محلول 1</span><br>
+<span class="num">47 ÷ 5</span> : 47 ÷ 5 = 9 والباقي 2 ← أضع الفاصلة وأضيف صفرًا: 20 ÷ 5 = 4 والباقي 0.<br>
+إذن <span class="num">47 ÷ 5 = 9,4</span>. &nbsp; تحقّق: <span class="num">9,4 × 5 = 47</span> ✓</div>
+<div class="worked-example"><span class="tag">مثال محلول 2</span><br>
+<span class="num">7 ÷ 4</span> : 7 ÷ 4 = 1 والباقي 3 ← 30 ÷ 4 = 7 والباقي 2 ← 20 ÷ 4 = 5 والباقي 0.<br>
+إذن <span class="num">7 ÷ 4 = 1,75</span>. &nbsp; تحقّق: <span class="num">1,75 × 4 = 7</span> ✓</div>
+<div class="worked-example"><span class="tag">مثال محلول 3</span><br>
+<span class="num">3 ÷ 2</span> : الخارج الصحيح 1 والباقي 1 ← 10 ÷ 2 = 5. إذن <span class="num">3 ÷ 2 = 1,5</span>.</div>
+
+<h3>3) قسمة عدد عشري على عدد صحيح</h3>
+<div class="rule-box"><b>الطريقة:</b> أقسم الجزء الصحيح، وعندما أنزل <b>الفاصلة</b> أضع الفاصلة في الخارج، ثم أتابع القسمة على الأرقام العشرية.</div>
+<div class="worked-example"><span class="tag">مثال محلول</span><br>
+<span class="num">25,6 ÷ 4</span> : 25 ÷ 4 = 6 والباقي 1 ← أضع الفاصلة وأنزل الرقم 6: 16 ÷ 4 = 4.<br>
+إذن <span class="num">25,6 ÷ 4 = 6,4</span>. &nbsp; تحقّق: <span class="num">6,4 × 4 = 25,6</span> ✓<br>
+<span class="num">7,5 ÷ 3 = 2,5</span> &nbsp; و &nbsp; <span class="num">9,45 ÷ 3 = 3,15</span></div>
+
+<h3>4) القسمة على 10 و100 و1000</h3>
+<div class="rule-box">لقسمة عدد على <b>10</b> أو <b>100</b> أو <b>1000</b> أنقل الفاصلة نحو <b>اليسار</b> بمنزلة أو منزلتين أو ثلاث منازل (مع إضافة أصفار عند الحاجة).</div>
+<table class="data-table">
+<tr><th>العملية</th><th>الخارج</th><th>العملية</th><th>الخارج</th></tr>
+<tr><td><span class="num">45 ÷ 10</span></td><td><span class="num">4,5</span></td><td><span class="num">523 ÷ 100</span></td><td><span class="num">5,23</span></td></tr>
+<tr><td><span class="num">3,2 ÷ 10</span></td><td><span class="num">0,32</span></td><td><span class="num">7 ÷ 1000</span></td><td><span class="num">0,007</span></td></tr>
+</table>
+
+<h3>5) الخارج المقرّب</h3>
+<div class="rule-box">أحيانًا لا ينتهي الخارج ولا يصير الباقي منعدمًا (أرقام تتكرّر). عندها نوقف القسمة ونعطي <b>قيمة مقرّبة</b> إلى 0,1 أو 0,01: ننظر إلى الرقم الذي بعد الرقم المطلوب؛ إذا كان أقل من 5 نُبقي الرقم، وإذا كان 5 أو أكثر نزيد الرقم بواحد.</div>
+<div class="worked-example"><span class="tag">مثال محلول</span><br>
+<span class="num">10 ÷ 3 = 3,333…</span> ← إلى 0,1 : <span class="num">3,3</span> ← إلى 0,01 : <span class="num">3,33</span><br>
+<span class="num">2 ÷ 3 = 0,666…</span> ← إلى 0,1 : <span class="num">0,7</span> ← إلى 0,01 : <span class="num">0,67</span></div>
+
+<h3>6) أفكار للتذكّر</h3>
+<ul>
+<li>الخارج = الجزء الذي ينتج عن اقتسام الشيء بالتساوي؛</li>
+<li>للتحقق من القسمة: <b>الخارج × المقسوم عليه = المقسوم</b>؛</li>
+<li>القسمة على 10 أو 100 أو 1000 = نقل الفاصلة إلى اليسار.</li>
+</ul>
+</section>
+
+<section>
+<h2>✏️ نشاط تطبيقي: «نقتسم المصروف»</h2>
+<div class="activity-box">
+<p>اشترى أربعة أصدقاء كرة بمبلغ <span class="num">27 DH</span> واتفقوا على اقتسام الثمن بالتساوي.</p>
+<p><span class="task-label">المهمة 1</span> أكتب العملية التي تعطي ما يدفعه كل واحد: <span class="fill-line"></span></p>
+<p><span class="task-label">المهمة 2</span> أنجز القسمة بمتابعتها بعد الفاصلة: <span class="fill-line" style="min-width:160px"></span></p>
+<div class="lines"></div><div class="lines"></div>
+<p><span class="task-label">المهمة 3</span> أتحقّق بالضرب أن جوابي صحيح: <span class="fill-line" style="min-width:200px"></span></p>
+<p><span class="task-label">المهمة 4</span> أكتب جملة جواب: <span class="fill-line" style="min-width:240px"></span></p>
+</div>
+</section>
+
+<section>
+<h2>📝 تمارين للتدرّب</h2>
+
+<div class="exercise"><h4><span class="exercise-num">1</span>أُكمل</h4>
+<p><span class="num">9 ÷ 2</span> : الخارج الصحيح <span class="fill-line sm"></span> والباقي <span class="fill-line sm"></span>، ثم بعد الفاصلة أجد أن <span class="num">9 ÷ 2 =</span> <span class="fill-line sm"></span>.</p></div>
+
+<div class="exercise"><h4><span class="exercise-num">2</span>أحسب الخارج العشري</h4>
+<div class="grid2">
+<p><span class="num">9 ÷ 2</span> = <span class="fill-line"></span></p>
+<p><span class="num">21 ÷ 4</span> = <span class="fill-line"></span></p>
+<p><span class="num">3 ÷ 5</span> = <span class="fill-line"></span></p>
+<p><span class="num">15 ÷ 6</span> = <span class="fill-line"></span></p>
+</div></div>
+
+<div class="exercise"><h4><span class="exercise-num">3</span>أقسم عددًا عشريًا على عدد صحيح</h4>
+<div class="grid2">
+<p><span class="num">18,4 ÷ 4</span> = <span class="fill-line"></span></p>
+<p><span class="num">9,45 ÷ 3</span> = <span class="fill-line"></span></p>
+<p><span class="num">50,4 ÷ 8</span> = <span class="fill-line"></span></p>
+<p><span class="num">12,6 ÷ 9</span> = <span class="fill-line"></span></p>
+</div></div>
+
+<div class="exercise"><h4><span class="exercise-num">4</span>أقسم على 10 أو 100 أو 1000</h4>
+<div class="grid2">
+<p><span class="num">36 ÷ 10</span> = <span class="fill-line"></span></p>
+<p><span class="num">4,5 ÷ 100</span> = <span class="fill-line"></span></p>
+<p><span class="num">250 ÷ 1000</span> = <span class="fill-line"></span></p>
+<p><span class="num">0,8 ÷ 10</span> = <span class="fill-line"></span></p>
+</div></div>
+
+<div class="exercise"><h4><span class="exercise-num">5</span>أختار الجواب الصحيح</h4>
+<p><b>أ)</b> <span class="num">15 ÷ 4</span> = <span class="sq"></span> &nbsp; (<span class="num">3,5</span> &nbsp;/&nbsp; <span class="num">3,75</span> &nbsp;/&nbsp; <span class="num">4,25</span>)</p>
+<p><b>ب)</b> <span class="num">6,3 ÷ 3</span> = <span class="sq"></span> &nbsp; (<span class="num">2,1</span> &nbsp;/&nbsp; <span class="num">2,3</span> &nbsp;/&nbsp; <span class="num">21</span>)</p></div>
+
+<div class="exercise"><h4><span class="exercise-num">6</span>صحيح أم خطأ؟ (أصحّح الخطأ)</h4>
+<p>1) <span class="num">7 ÷ 2 = 3,5</span> (<span class="fill-line sm"></span>)</p>
+<p>2) <span class="num">5 ÷ 4 = 1,2</span> (<span class="fill-line sm"></span>) ← <span class="fill-line"></span></p>
+<p>3) <span class="num">4,5 ÷ 10 = 45</span> (<span class="fill-line sm"></span>) ← <span class="fill-line"></span></p>
+<p>4) <span class="num">10 ÷ 4 = 2,5</span> (<span class="fill-line sm"></span>)</p></div>
+
+<div class="exercise"><h4><span class="exercise-num">7</span>أعطي قيمة مقرّبة للخارج</h4>
+<p><span class="num">10 ÷ 3 = 3,333…</span> ← إلى 0,1 : <span class="fill-line sm"></span> ← إلى 0,01 : <span class="fill-line sm"></span></p>
+<p><span class="num">5 ÷ 6 = 0,8333…</span> ← إلى 0,1 : <span class="fill-line sm"></span> ← إلى 0,01 : <span class="fill-line sm"></span></p></div>
+
+<div class="exercise"><h4><span class="exercise-num">8</span>مسائل</h4>
+<p>1) ثمن 3 دفاتر متماثلة <span class="num">13,5 DH</span>. ما ثمن الدفتر الواحد؟ <span class="fill-line" style="min-width:200px"></span></p>
+<p>2) قُطع حبل طوله <span class="num">7 m</span> إلى 4 قطع متساوية. ما طول القطعة؟ <span class="fill-line" style="min-width:200px"></span></p>
+<p>3) وُزّعت <span class="num">18,5 kg</span> من الأرز على 5 أكياس بالتساوي. ما كتلة الكيس؟ <span class="fill-line" style="min-width:200px"></span></p></div>
+</section>
+
+<div class="corrige-wrapper">
+<details class="corrige">
+<summary>اضغط لإظهار الحل / إخفائه — التصحيح الكامل</summary>
+<h5>نشاط تطبيقي</h5>
+<p>1) <span class="num">27 ÷ 4</span>. 2) 27 ÷ 4 = 6 والباقي 3 ← 30 ÷ 4 = 7 والباقي 2 ← 20 ÷ 4 = 5: الخارج <span class="num">6,75</span>. 3) <span class="num">6,75 × 4 = 27</span> ✓. 4) يدفع كل صديق <span class="num">6,75 DH</span>.</p>
+<h5>تمرين 1</h5><p>الخارج الصحيح 4 والباقي 1، و<span class="num">9 ÷ 2 = 4,5</span>.</p>
+<h5>تمرين 2</h5><p><span class="num">4,5</span> ؛ <span class="num">5,25</span> ؛ <span class="num">0,6</span> ؛ <span class="num">2,5</span>.</p>
+<h5>تمرين 3</h5><p><span class="num">4,6</span> ؛ <span class="num">3,15</span> ؛ <span class="num">6,3</span> ؛ <span class="num">1,4</span>.</p>
+<h5>تمرين 4</h5><p><span class="num">3,6</span> ؛ <span class="num">0,045</span> ؛ <span class="num">0,25</span> ؛ <span class="num">0,08</span>.</p>
+<h5>تمرين 5</h5><p>أ) <span class="num">3,75</span> (لأن <span class="num">3,75 × 4 = 15</span>). ب) <span class="num">2,1</span>.</p>
+<h5>تمرين 6</h5><p>1) صحيح. 2) خطأ: <span class="num">5 ÷ 4 = 1,25</span>. 3) خطأ: <span class="num">4,5 ÷ 10 = 0,45</span>. 4) صحيح.</p>
+<h5>تمرين 7</h5><p><span class="num">10 ÷ 3</span> : <span class="num">3,3</span> ثم <span class="num">3,33</span>. &nbsp; <span class="num">5 ÷ 6</span> : <span class="num">0,8</span> ثم <span class="num">0,83</span>.</p>
+<h5>تمرين 8</h5><p>1) <span class="num">13,5 ÷ 3 = 4,5 DH</span>. 2) <span class="num">7 ÷ 4 = 1,75 m</span>. 3) <span class="num">18,5 ÷ 5 = 3,7 kg</span>.</p>
+</details>
+</div>
+
+<p class="footer-note">فيشة تعلّم ذاتي – الرياضيات – الخامسة ابتدائي</p>
+</div>
+</body>
+</html>
