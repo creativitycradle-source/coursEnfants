@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>الكتلة وتغيرات حالة المادة – فيشة تعلّم ذاتي</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Naskh+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#2a2118;--ink-soft:#6a5846;--paper:#fbf8f3;--panel:#fff;--line:#e0d3c2;
+--brown:#8a5a34;--brown-soft:#f1e6da;--leaf:#3f7d3a;--leaf-soft:#e3f0de;--amber:#c98a2e;--amber-soft:#fbefd6;--clay:#b5502f;--clay-soft:#f8e3da;}
+*{box-sizing:border-box}
+body{margin:0;background:#ece5da;font-family:'Noto Naskh Arabic','Amiri',serif;color:var(--ink);line-height:1.9;font-size:17px}
+.sheet{max-width:900px;margin:18px auto;background:var(--paper);padding:26px 30px;border-radius:14px;box-shadow:0 4px 18px rgba(0,0,0,.1)}
+.masthead{display:flex;align-items:center;gap:18px;background:linear-gradient(135deg,var(--brown),#a9754a);color:#fff;border-radius:14px;padding:18px 22px}
+.masthead h1{font-family:'Amiri',serif;font-size:1.9rem;margin:0;line-height:1.35}
+.masthead p{margin:4px 0 0;opacity:.92}
+.meta-row{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.chip{background:var(--panel);border:1.5px solid var(--line);border-radius:20px;padding:2px 14px;font-size:.92rem}
+.chip b{color:var(--brown)}
+section{margin:20px 0}
+h2{font-family:'Amiri',serif;font-size:1.5rem;color:var(--brown);border-bottom:3px solid var(--amber);display:inline-block;margin:0 0 10px;padding-bottom:2px}
+h3{color:var(--leaf);margin:14px 0 4px;font-size:1.12rem}
+.box{background:var(--panel);border:1.5px solid var(--line);border-radius:12px;padding:12px 18px;margin:10px 0}
+.objectif-box{background:var(--leaf-soft);border-color:var(--leaf)}
+.rule-box{background:var(--amber-soft);border-right:6px solid var(--amber);border-radius:10px;padding:10px 16px;margin:10px 0}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:10px;margin:10px 0}
+.card{background:var(--panel);border:1.5px solid var(--line);border-top:5px solid var(--clay);border-radius:10px;padding:8px 14px}
+.card.good{border-top-color:var(--leaf)}
+.card h4{margin:0;color:var(--clay);font-size:1.03rem}
+.card.good h4{color:var(--leaf)}
+.card p{margin:2px 0 0;font-size:.95rem}
+table.data-table{width:100%;border-collapse:collapse;margin:10px 0;background:#fff}
+.data-table th,.data-table td{border:1.5px solid var(--line);padding:6px 10px;text-align:center}
+.data-table th{background:var(--brown);color:#fff}
+.activity-box{background:var(--brown-soft);border:2px dashed var(--brown);border-radius:12px;padding:12px 18px}
+.task-label{display:inline-block;background:var(--brown);color:#fff;border-radius:8px;padding:0 10px;margin-left:6px;font-size:.9rem}
+.exercise{background:var(--panel);border:1.5px solid var(--line);border-radius:12px;padding:10px 18px 12px;margin:12px 0;page-break-inside:avoid}
+.exercise-num{display:inline-flex;width:30px;height:30px;border-radius:50%;background:var(--amber);color:#fff;align-items:center;justify-content:center;font-weight:700;margin-left:8px}
+.exercise h4{margin:0 0 6px;font-size:1.05rem;color:var(--brown)}
+.fill-line{display:inline-block;min-width:110px;border-bottom:2px dotted var(--ink-soft)}
+.checkbox,.sq{display:inline-block;width:16px;height:16px;border:2px solid var(--leaf);border-radius:3px;vertical-align:middle;margin:0 6px}
+.opt{display:block;margin:2px 0}
+.lines{border-bottom:2px dotted var(--ink-soft);height:26px;margin:4px 0}
+.match-cols{display:flex;justify-content:space-between;gap:30px}.match-cols div{flex:1}
+.match-cols p{margin:4px 0;background:var(--brown-soft);border-radius:8px;padding:2px 12px}
+.word-chip{display:inline-block;background:var(--amber-soft);border:1.5px solid var(--amber);border-radius:16px;padding:0 12px;margin:3px}
+.doc-box{background:var(--clay-soft);border-right:6px solid var(--clay);border-radius:10px;padding:10px 16px;margin:8px 0}
+.corrige-wrapper{page-break-before:always;margin-top:26px}
+details.corrige{border:2px solid var(--brown);border-radius:12px;background:#fff;padding:8px 18px}
+details.corrige summary{cursor:pointer;font-family:'Amiri',serif;font-size:1.25rem;color:var(--brown);font-weight:700}
+.corrige h5{margin:12px 0 2px;color:var(--clay);font-size:1.02rem}
+.corrige p{margin:2px 0}
+.footer-note{text-align:center;color:var(--ink-soft);font-size:.88rem;margin-top:18px}
+svg text{font-family:'Noto Naskh Arabic',sans-serif}
+.fig{text-align:center;font-size:.88rem;color:var(--ink-soft)}
+@page{size:A4;margin:13mm}
+@media print{body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}.sheet{box-shadow:none;margin:0;max-width:none;padding:0;background:#fff}details.corrige:not([open]) > :not(summary){display:none}}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<header class="masthead">
+<svg width="72" height="62" viewBox="0 0 72 62" aria-hidden="true"><path d="M36 8v10M12 22h48" stroke="#fff" stroke-width="4" stroke-linecap="round"/><path d="M12 22 4 40h16zM60 22l-8 18h16z" fill="none" stroke="#fff" stroke-width="3" stroke-linejoin="round"/><path d="M4 40a8 6 0 0 0 16 0M52 40a8 6 0 0 0 16 0" fill="#f3d9bb" stroke="#fff" stroke-width="3"/><path d="M26 54h20" stroke="#f3d9bb" stroke-width="5" stroke-linecap="round"/></svg>
+<div><h1>الكتلة وتغيرات حالة المادة</h1><p>النشاط العلمي – المادة وخصائصها</p></div>
+</header>
+
+<div class="meta-row">
+<span class="chip"><b>المستوى:</b> الخامسة ابتدائي (5AEP)</span>
+<span class="chip"><b>المادة:</b> النشاط العلمي</span>
+<span class="chip"><b>مدة الحصة:</b> ساعة</span>
+<span class="chip"><b>نوع الوثيقة:</b> فيشة تعلّم ذاتي</span>
+</div>
+
+<section>
+<h2>🎯 الهدف</h2>
+<div class="box objectif-box">في نهاية هذه الفيشة سأكون قادرًا على:
+<ul>
+<li>أن أعرّف الكتلة وأقيسها بالميزان، وأستعمل وحداتها (الكيلوغرام والغرام) وأحوّل بينها؛</li>
+<li>أن أذكر الحالات الفيزيائية الثلاث للمادة (صلبة، سائلة، غازية) وأعطي أمثلة عنها؛</li>
+<li>أن أسمّي تغيّرات الحالة (انصهار، تجمّد، تبخّر، تكاثف) وأحدّد ما يسبّبها؛</li>
+<li>أن أستنتج أن <b>الكتلة تبقى ثابتة</b> عند تغيّر الحالة الفيزيائية.</li>
+</ul></div>
+</section>
+
+<section>
+<h2>📘 الدرس</h2>
+
+<h3>1) ما هي الكتلة؟</h3>
+<div class="rule-box"><b>الكتلة</b> هي كمية المادة التي يحتويها جسم ما. نقيسها بـ<b>الميزان</b> (ميزان ذو كفّتين أو ميزان إلكتروني). وحدتها الأساسية هي <b>الكيلوغرام (kg)</b>، ونستعمل <b>الغرام (g)</b> للأجسام الخفيفة.</div>
+<table class="data-table">
+<tr><th>التحويل</th><th>المثال</th></tr>
+<tr><td>1 kg = 1000 g</td><td>2 kg = 2000 g</td></tr>
+<tr><td>500 g = 0.5 kg</td><td>250 g = 0.25 kg</td></tr>
+</table>
+<div class="box"><b>انتبه:</b> الكتلة ليست هي الحجم. الحجم هو المكان الذي يشغله الجسم (يُقاس باللتر أو المليلتر)، أما الكتلة فهي كمية المادة (تُقاس بالغرام أو الكيلوغرام). كيلوغرام من القطن وكيلوغرام من الحديد لهما نفس الكتلة، لكن القطن يشغل حجمًا أكبر!</div>
+
+<h3>2) الحالات الفيزيائية للمادة</h3>
+<div class="cards">
+<div class="card"><h3>🧊 الحالة الصلبة</h3><p>لها شكل ثابت وحجم ثابت: الجليد، الحجر، الخشب.</p></div>
+<div class="card"><h3>💧 الحالة السائلة</h3><p>لا شكل لها (تأخذ شكل الإناء) وحجمها ثابت: الماء، الزيت، الحليب.</p></div>
+<div class="card"><h3>☁️ الحالة الغازية</h3><p>لا شكل ولا حجم ثابتان، تملأ الإناء: بخار الماء، الهواء.</p></div>
+</div>
+
+<h3>3) تغيّرات حالة الماء</h3>
+<table class="data-table">
+<tr><th>التغيّر</th><th>من… إلى…</th><th>السبب</th><th>مثال</th></tr>
+<tr><td>الانصهار</td><td>صلب ← سائل</td><td>التسخين (حوالي 0°C للجليد)</td><td>ذوبان مكعّب جليد</td></tr>
+<tr><td>التجمّد</td><td>سائل ← صلب</td><td>التبريد (حوالي 0°C)</td><td>صنع الجليد في المجمّد</td></tr>
+<tr><td>التبخّر / الغليان</td><td>سائل ← غاز</td><td>التسخين (الغليان عند حوالي 100°C)</td><td>غليان الماء في إبريق</td></tr>
+<tr><td>التكاثف</td><td>غاز ← سائل</td><td>التبريد</td><td>قطرات الماء على غطاء إناء ساخن</td></tr>
+</table>
+<div class="fig">
+<svg viewBox="0 0 520 120" width="520" role="img" aria-label="تغيرات حالة الماء">
+<g font-size="15" text-anchor="middle" fill="#2a2118">
+<rect x="10" y="38" width="120" height="44" rx="10" fill="#e3f0de" stroke="#3f7d3a" stroke-width="2"/><text x="70" y="66">صلب (جليد)</text>
+<rect x="200" y="38" width="120" height="44" rx="10" fill="#fbefd6" stroke="#c98a2e" stroke-width="2"/><text x="260" y="66">سائل (ماء)</text>
+<rect x="390" y="38" width="120" height="44" rx="10" fill="#f8e3da" stroke="#b5502f" stroke-width="2"/><text x="450" y="66">غاز (بخار)</text>
+<path d="M132 52h66" stroke="#b5502f" stroke-width="3"/><text x="165" y="40" font-size="13" fill="#b5502f">انصهار</text>
+<path d="M198 70h-66" stroke="#3f7d3a" stroke-width="3"/><text x="165" y="96" font-size="13" fill="#3f7d3a">تجمّد</text>
+<path d="M322 52h66" stroke="#b5502f" stroke-width="3"/><text x="355" y="40" font-size="13" fill="#b5502f">تبخّر</text>
+<path d="M388 70h-66" stroke="#3f7d3a" stroke-width="3"/><text x="355" y="96" font-size="13" fill="#3f7d3a">تكاثف</text>
+</g></svg></div>
+<div class="fig">رسم مبسّط — الأحمر: تسخين، الأخضر: تبريد.</div>
+
+<h3>4) الكتلة تبقى ثابتة</h3>
+<div class="rule-box"><b>القاعدة:</b> عندما تتغيّر حالة المادة (انصهار، تجمّد، تبخّر، تكاثف) <b>لا تتغيّر كتلتها</b>، لأن كمية المادة لم تزد ولم تنقص، وإنما تغيّر شكل ترتيبها فقط. أمّا <b>الحجم</b> فقد يتغيّر: فالماء يزداد حجمه عندما يتجمّد، ولهذا قد تنفجر قارورة مملوءة تمامًا إذا وُضعت في المجمّد.</div>
+<div class="box"><b>مثال:</b> مكعّب جليد كتلته 40 g. عندما يذوب كلّه نحصل على ماء كتلته 40 g أيضًا.</div>
+
+<h3>5) مصطلحات ومفاهيم</h3>
+<div class="cards">
+<div class="card"><h3>الكتلة</h3><p>كمية المادة في الجسم، تُقاس بالميزان.</p></div>
+<div class="card"><h3>الحالة الفيزيائية</h3><p>صلبة أو سائلة أو غازية.</p></div>
+<div class="card"><h3>الانصهار</h3><p>انتقال المادة من الحالة الصلبة إلى السائلة.</p></div>
+<div class="card"><h3>التكاثف</h3><p>انتقال المادة من الحالة الغازية إلى السائلة.</p></div>
+</div>
+</section>
+
+<section>
+<h2>✏️ نشاط تطبيقي: «هل تتغيّر الكتلة حين يذوب الجليد؟»</h2>
+<div class="activity-box">
+<p>المعدّات: مكعّب جليد، كأس شفافة، ميزان (إلكتروني إن أمكن)، ساعة.</p>
+<p><span class="task-label">المهمة 1</span> أضع الكأس مع مكعّب الجليد على الميزان وأسجّل الكتلة: <span class="fill-line"></span> g</p>
+<p><span class="task-label">المهمة 2</span> أترك الجليد يذوب كلّيًا (بعد حوالي 30 دقيقة) ثم أقيس كتلة الكأس مع الماء: <span class="fill-line"></span> g</p>
+<p><span class="task-label">المهمة 3</span> أقارن القياسين وأستنتج: <span class="fill-line" style="min-width:260px"></span></p>
+<div class="lines"></div>
+<p><span class="task-label">المهمة 4</span> أسمّي تغيّر الحالة الذي حدث: <span class="fill-line"></span></p>
+</div>
+</section>
+
+<section>
+<h2>📝 تمارين للتدرّب</h2>
+
+<div class="exercise"><h4><span class="exercise-num">1</span>أُكمل الفراغات</h4>
+نقيس <span class="fill-line"></span> بالميزان، ووحدتها الأساسية <span class="fill-line"></span>. تتحوّل المادة من الصلبة إلى السائلة بـ<span class="fill-line"></span>، ومن السائلة إلى الغازية بـ<span class="fill-line"></span>، ومن الغازية إلى السائلة بـ<span class="fill-line"></span>.</div>
+
+<div class="exercise"><h4><span class="exercise-num">2</span>اختر الجواب الصحيح</h4>
+<b>أ) الأداة التي تقيس الكتلة هي:</b>
+<span class="opt"><span class="checkbox"></span>المسطرة</span><span class="opt"><span class="checkbox"></span>الميزان</span><span class="opt"><span class="checkbox"></span>الكأس المدرّجة</span>
+<b>ب) عندما يذوب الجليد فإن كتلته:</b>
+<span class="opt"><span class="checkbox"></span>تزداد</span><span class="opt"><span class="checkbox"></span>تنقص</span><span class="opt"><span class="checkbox"></span>تبقى ثابتة</span>
+<b>ج) تكوّن قطرات الماء على زجاج بارد مثال عن:</b>
+<span class="opt"><span class="checkbox"></span>التكاثف</span><span class="opt"><span class="checkbox"></span>الانصهار</span><span class="opt"><span class="checkbox"></span>التجمّد</span></div>
+
+<div class="exercise"><h4><span class="exercise-num">3</span>صحيح أم خطأ؟ (أصحّح الخطأ)</h4>
+1) الكتلة والحجم شيء واحد. (<span class="fill-line" style="min-width:50px"></span>)<br>
+2) يغلي الماء عند حوالي 100°C. (<span class="fill-line" style="min-width:50px"></span>)<br>
+3) عند التجمّد تزداد كتلة الماء. (<span class="fill-line" style="min-width:50px"></span>)<br>
+4) الهواء مادة في الحالة الغازية. (<span class="fill-line" style="min-width:50px"></span>)</div>
+
+<div class="exercise"><h4><span class="exercise-num">4</span>أصل كل تغيّر بتعريفه</h4>
+<div class="match-cols">
+<div><p>1. الانصهار</p><p>2. التجمّد</p><p>3. التبخّر</p><p>4. التكاثف</p></div>
+<div><p>أ. سائل ← صلب</p><p>ب. غاز ← سائل</p><p>ج. صلب ← سائل</p><p>د. سائل ← غاز</p></div>
+</div>
+<p>الأجوبة: 1-<span class="fill-line" style="min-width:40px"></span> 2-<span class="fill-line" style="min-width:40px"></span> 3-<span class="fill-line" style="min-width:40px"></span> 4-<span class="fill-line" style="min-width:40px"></span></p></div>
+
+<div class="exercise"><h4><span class="exercise-num">5</span>أصنّف الأمثلة حسب الحالة</h4>
+<span class="word-chip">الحليب</span><span class="word-chip">الحجر</span><span class="word-chip">بخار الماء</span><span class="word-chip">الجليد</span><span class="word-chip">الهواء</span><span class="word-chip">الزيت</span>
+<table class="data-table"><tr><th>صلبة</th><th>سائلة</th><th>غازية</th></tr>
+<tr><td><div class="lines"></div><div class="lines"></div></td><td><div class="lines"></div><div class="lines"></div></td><td><div class="lines"></div><div class="lines"></div></td></tr></table></div>
+
+<div class="exercise"><h4><span class="exercise-num">6</span>أحوّل الوحدات</h4>
+3 kg = <span class="fill-line"></span> g &nbsp;&nbsp; 4500 g = <span class="fill-line"></span> kg &nbsp;&nbsp; 0.5 kg = <span class="fill-line"></span> g &nbsp;&nbsp; 750 g = <span class="fill-line"></span> kg</div>
+
+<div class="exercise"><h4><span class="exercise-num">7</span>مسألة</h4>
+كتلة كأس فارغة 120 g. وضعت فيها قطع جليد فأصبحت كتلة المجموع 300 g. بعد ذوبان الجليد كلّه:<br>
+1) ما كتلة الجليد؟ <span class="fill-line"></span><br>
+2) ما كتلة المجموع (الكأس والماء) بعد الذوبان؟ <span class="fill-line"></span><br>
+3) أبرّر جوابي: <span class="fill-line" style="min-width:260px"></span></div>
+
+<div class="exercise"><h4><span class="exercise-num">8</span>أفسّر ظاهرة</h4>
+أ) لماذا تظهر قطرات ماء على الجدار الخارجي لكأس مملوءة بماء بارد في يوم حارّ؟
+<div class="lines"></div>
+ب) لماذا لا نملأ قارورة ماء كلّيًا قبل وضعها في المجمّد؟
+<div class="lines"></div><div class="lines"></div></div>
+</section>
+
+<div class="corrige-wrapper">
+<details class="corrige">
+<summary>اضغط لإظهار الحل / إخفائه — التصحيح الكامل</summary>
+<h5>نشاط تطبيقي</h5>
+<p>تتساوى الكتلتان قبل الذوبان وبعده (مع هامش بسيط في القياس). الاستنتاج: كتلة المادة لا تتغيّر عند تغيّر الحالة. التغيّر الحاصل هو الانصهار.</p>
+<h5>تمرين 1</h5><p>الكتلة؛ الكيلوغرام؛ الانصهار؛ التبخّر (الغليان)؛ التكاثف.</p>
+<h5>تمرين 2</h5><p>أ) الميزان. ب) تبقى ثابتة. ج) التكاثف.</p>
+<h5>تمرين 3</h5><p>1) خطأ: الكتلة كمية المادة، والحجم المكان الذي يشغله الجسم. 2) صحيح. 3) خطأ: الكتلة تبقى ثابتة، والذي يزداد هو الحجم. 4) صحيح.</p>
+<h5>تمرين 4</h5><p>1-ج، 2-أ، 3-د، 4-ب.</p>
+<h5>تمرين 5</h5><p>صلبة: الحجر، الجليد. سائلة: الحليب، الزيت. غازية: بخار الماء، الهواء.</p>
+<h5>تمرين 6</h5><p>3000 g؛ 4.5 kg؛ 500 g؛ 0.75 kg.</p>
+<h5>تمرين 7</h5><p>1) 300 − 120 = 180 g. 2) 300 g. 3) الكتلة تبقى ثابتة عند الانصهار، فالماء الناتج كتلته 180 g والكأس 120 g.</p>
+<h5>تمرين 8</h5><p>أ) بخار الماء الموجود في الهواء يلامس السطح البارد فيتكاثف إلى قطرات ماء. ب) لأن الماء يزداد حجمه عند التجمّد، فقد تنفجر القارورة أو تتشقق.</p>
+</details>
+</div>
+
+<p class="footer-note">فيشة تعلّم ذاتي – النشاط العلمي – الخامسة ابتدائي</p>
+</div>
+</body>
+</html>
