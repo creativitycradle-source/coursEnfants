@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>L'essor de l'État marocain - Almoravides et Almohades</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1d2d2b;--ink-soft:#506360;--paper:#f6faf8;--panel:#fff;--line:#cfe0da;
+--teal:#b5652f;--teal-soft:#f6e8dc;--gold:#8a6a1e;--gold-soft:#f5ecd3;--sky:#2c5c78;--sky-soft:#e0ecf2;--red:#b8483a;}
+*{box-sizing:border-box}
+body{margin:0;background:#e9efed;font-family:'Noto Naskh Arabic','Amiri',serif;color:var(--ink);line-height:1.9;font-size:17px}
+.sheet{max-width:900px;margin:18px auto;background:var(--paper);padding:26px 30px;border-radius:14px;box-shadow:0 4px 18px rgba(0,0,0,.1)}
+.masthead{display:flex;align-items:center;gap:18px;background:linear-gradient(135deg,var(--teal),#cf8247);color:#fff;border-radius:14px;padding:18px 22px}
+.masthead h1{font-family:'Amiri',serif;font-size:2rem;margin:0;line-height:1.3}
+.masthead p{margin:4px 0 0;opacity:.92}
+.meta-row{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.chip{background:var(--panel);border:1.5px solid var(--line);border-radius:20px;padding:2px 14px;font-size:.92rem}
+.chip b{color:var(--teal)}
+section{margin:20px 0}
+h2{font-family:'Amiri',serif;font-size:1.5rem;color:var(--teal);border-bottom:3px solid var(--gold);display:inline-block;margin:0 0 10px;padding-bottom:2px}
+.box{background:var(--panel);border:1.5px solid var(--line);border-radius:12px;padding:12px 18px;margin:10px 0}
+.objectif-box{background:var(--teal-soft);border-color:var(--teal)}
+.rule-box{background:var(--gold-soft);border-right:6px solid var(--gold);border-radius:10px;padding:10px 16px;margin:10px 0}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px;margin:10px 0}
+.card{background:var(--panel);border:1.5px solid var(--line);border-top:5px solid var(--sky);border-radius:10px;padding:8px 14px}
+.card h3{margin:0;color:var(--sky);font-size:1.05rem}
+.card p{margin:2px 0 0;font-size:.95rem}
+.map-box{background:var(--sky-soft);border:1.5px solid var(--sky);border-radius:12px;padding:10px;text-align:center}
+.map-box svg{max-width:100%;height:auto}
+table.data-table{width:100%;border-collapse:collapse;margin:10px 0;background:#fff}
+.data-table th,.data-table td{border:1.5px solid var(--line);padding:6px 10px;text-align:center}
+.data-table th{background:var(--teal);color:#fff}
+.activity-box{background:var(--sky-soft);border:2px dashed var(--sky);border-radius:12px;padding:12px 18px}
+.task-label{display:inline-block;background:var(--sky);color:#fff;border-radius:8px;padding:0 10px;margin-left:6px;font-size:.9rem}
+.exercise{background:var(--panel);border:1.5px solid var(--line);border-radius:12px;padding:10px 18px 12px;margin:12px 0;page-break-inside:avoid}
+.exercise-num{display:inline-flex;width:30px;height:30px;border-radius:50%;background:var(--gold);color:#fff;align-items:center;justify-content:center;font-weight:700;margin-left:8px}
+.exercise h4{margin:0 0 6px;font-size:1.05rem;color:var(--teal)}
+.fill-line{display:inline-block;min-width:120px;border-bottom:2px dotted var(--ink-soft)}
+.checkbox{display:inline-block;width:15px;height:15px;border:2px solid var(--teal);border-radius:3px;vertical-align:middle;margin-left:6px}
+.opt{display:block;margin:2px 0}
+.match-cols{display:flex;justify-content:space-between;gap:30px}
+.match-cols div{flex:1}
+.match-cols p{margin:4px 0;background:var(--teal-soft);border-radius:8px;padding:2px 12px}
+.word-chip{display:inline-block;background:var(--gold-soft);border:1.5px solid var(--gold);border-radius:16px;padding:0 12px;margin:3px}
+.lines{border-bottom:2px dotted var(--ink-soft);height:26px;margin:4px 0}
+.corrige-wrapper{page-break-before:always;margin-top:26px}
+details.corrige{border:2px solid var(--teal);border-radius:12px;background:#fff;padding:8px 18px}
+details.corrige summary{cursor:pointer;font-family:'Amiri',serif;font-size:1.25rem;color:var(--teal);font-weight:700}
+.corrige h5{margin:12px 0 2px;color:var(--red);font-size:1.02rem}
+.corrige p{margin:2px 0}
+.footer-note{text-align:center;color:var(--ink-soft);font-size:.88rem;margin-top:18px}
+@page{size:A4;margin:13mm}
+@media print{body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}.sheet{box-shadow:none;margin:0;max-width:none;padding:0;background:#fff}details.corrige:not([open]) *{display:none}details.corrige:not([open]) summary{display:block}}
+.sq{display:inline-block;width:18px;height:18px;border:2px solid var(--teal);border-radius:4px;vertical-align:middle;margin:0 6px}
+body,svg text{font-family:'Nunito','Segoe UI',Arial,sans-serif}.masthead h1,h2,details.corrige summary{font-family:'Nunito','Segoe UI',Arial,sans-serif}.masthead h1{font-size:1.6rem}
+.rule-box{border-right:none;border-left:6px solid var(--gold)}.task-label,.exercise-num{margin-left:0;margin-right:8px}.checkbox{margin-left:0;margin-right:6px}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<header class="masthead">
+<svg width="66" height="62" viewBox="0 0 66 62" aria-hidden="true"><path d="M8 54V24l12-10 12 10v30M34 54V16l12-10 12 10v38" fill="none" stroke="#fff" stroke-width="3" stroke-linejoin="round"/><path d="M4 54h58" stroke="#f3d38a" stroke-width="4"/></svg>
+<div><h1>L'essor de l'État marocain : Almoravides et Almohades</h1><p>Histoire – ازدهار الدولة المغربية (المرابطون والموحدون) · Moyen Âge</p></div>
+</header>
+
+<div class="meta-row">
+<span class="chip"><b>Niveau :</b> 2AC</span>
+<span class="chip"><b>Matière :</b> Histoire</span>
+<span class="chip"><b>Durée :</b> 1 h 30</span>
+<span class="chip"><b>Type :</b> fiche d'auto-apprentissage</span>
+</div>
+
+<section>
+<h2>🎯 Objectif</h2>
+<div class="box objectif-box">À la fin de la séance, je serai capable de :
+<ul>
+<li>situer dans le temps les dynasties almoravide (XIe–XIIe s.) et almohade (XIIe–XIIIe s.) ;</li>
+<li>présenter les fondateurs, les grandes figures et les capitales de ces deux États ;</li>
+<li>expliquer comment ils ont unifié le Maghreb et une partie d'Al-Andalus ;</li>
+<li>décrire les bases de leur prospérité : armée, commerce, vie intellectuelle et architecture ;</li>
+<li>exploiter une frise chronologique et un document historique.</li>
+</ul></div>
+</section>
+
+<section>
+<h2>📘 Le cours</h2>
+
+<h3>1) Les Almoravides (المرابطون), vers 1056 – 1147</h3>
+<div class="rule-box"><b>Origine :</b> tribus berbères <b>Sanhaja</b> du Sahara. Le prédicateur <b>Abdallah ibn Yassine</b> fonde un <i>ribat</i> (couvent-forteresse) pour former des combattants animés par un idéal religieux (<i>al-mourabitoun</i>, d'où le nom « Almoravides »).</div>
+<ul>
+<li><b>Conquête :</b> après la mort d'Abdallah ibn Yassine, les chefs <b>Yahya ibn Omar</b>, puis <b>Abou Bakr ibn Omar</b>, soumettent le Sous, puis le nord du Maroc.</li>
+<li><b>Marrakech</b> est fondée vers <b>1070</b> et devient la capitale.</li>
+<li><b>Youssef ibn Tachfine</b> unifie le Maroc, fonde un empire et, appelé à l'aide par les princes d'Al-Andalus, remporte la bataille de <b>Zallaqa (1086)</b> contre le roi Alphonse VI de Castille.</li>
+<li>L'empire s'étend du <b>Sénégal</b> (sud) à l'<b>Èbre</b> (Espagne, nord).</li>
+<li>Déclin : révoltes, difficultés économiques et pression des Almohades ; chute de Marrakech en <b>1147</b>.</li>
+</ul>
+
+<h3>2) Les Almohades (الموحدون), 1121 – 1269</h3>
+<div class="rule-box"><b>Origine :</b> mouvement lancé dans l'Atlas par <b>Ibn Toumert</b> (le « Mahdi ») chez les Masmouda. <b>Tinmel</b> devient son centre. Son successeur <b>Abdelmoumen ibn Ali</b> (1130–1163) prend Marrakech en 1147 et fonde l'empire.</div>
+<ul>
+<li><b>Abdelmoumen</b> unifie tout le Maghreb, jusqu'à <b>Tripoli</b>, et organise l'État (armée, impôts, cadastre).</li>
+<li><b>Yacoub al-Mansour</b> (1184–1199) remporte la victoire d'<b>Alarcos (1195)</b> contre Castille. C'est l'apogée de l'empire.</li>
+<li>Défaite des Almohades à <b>Las Navas de Tolosa (« Al-Oqab », 1212)</b> : début du déclin, puis fin de la dynastie en <b>1269</b>, remplacée par les <b>Mérinides</b>.</li>
+</ul>
+
+<div class="map-box">
+<svg viewBox="0 0 560 130" width="560" role="img" aria-label="Frise chronologique">
+<line x1="30" y1="70" x2="530" y2="70" stroke="#2c5c78" stroke-width="4"/>
+<g font-size="12" text-anchor="middle" fill="#1d2d2b">
+<circle cx="60" cy="70" r="6" fill="#b5652f"/><text x="60" y="52">1056</text><text x="60" y="98">Début des Almoravides</text>
+<circle cx="150" cy="70" r="6" fill="#b5652f"/><text x="150" y="52">1070</text><text x="150" y="98">Marrakech</text>
+<circle cx="215" cy="70" r="6" fill="#b5652f"/><text x="215" y="52">1086</text><text x="215" y="98">Zallaqa</text>
+<circle cx="285" cy="70" r="6" fill="#8a6a1e"/><text x="285" y="52">1147</text><text x="285" y="98">Les Almohades prennent Marrakech</text>
+<circle cx="385" cy="70" r="6" fill="#8a6a1e"/><text x="385" y="52">1195</text><text x="385" y="98">Alarcos</text>
+<circle cx="440" cy="70" r="6" fill="#8a6a1e"/><text x="440" y="52">1212</text><text x="440" y="118">Las Navas</text>
+<circle cx="505" cy="70" r="6" fill="#8a6a1e"/><text x="505" y="52">1269</text><text x="505" y="98">Fin almohade</text>
+</g></svg>
+<div style="font-size:.85rem">Frise simplifiée, échelle non respectée.</div></div>
+
+<h3>3) Les facteurs de l'essor</h3>
+<div class="cards">
+<div class="card"><h3>⚔️ Une armée forte</h3><p>Troupes berbères disciplinées, cavalerie, et flotte almohade qui contrôle le détroit.</p></div>
+<div class="card"><h3>🏛️ Un pouvoir unifié</h3><p>Un seul État du Sahara à Al-Andalus, avec une administration et une capitale : Marrakech.</p></div>
+<div class="card"><h3>💰 Le commerce</h3><p>Routes caravanières de l'or et du sel entre le Maghreb et l'Afrique de l'Ouest ; villes marchandes.</p></div>
+<div class="card"><h3>📚 La vie intellectuelle</h3><p>Savants et philosophes : <b>Ibn Rochd</b> (Averroès), <b>Ibn Tofayl</b>, <b>Ibn Zohr</b>, <b>Cadi Ayyad</b>.</p></div>
+</div>
+
+<h3>4) Une architecture brillante</h3>
+<table class="data-table">
+<tr><th>Réalisation</th><th>Dynastie</th><th>Ville</th></tr>
+<tr><td>Mosquée de la Koutoubia</td><td>Almohades</td><td>Marrakech</td></tr>
+<tr><td>Tour Hassan</td><td>Almohades</td><td>Rabat</td></tr>
+<tr><td>Giralda</td><td>Almohades</td><td>Séville</td></tr>
+<tr><td>Mosquée Qaraouiyine (agrandie)</td><td>Almoravides</td><td>Fès</td></tr>
+<tr><td>Murailles et remparts</td><td>Almoravides et Almohades</td><td>Marrakech</td></tr>
+</table>
+
+<h3>5) À retenir</h3>
+<div class="rule-box">Les Almoravides ont fondé un premier grand empire marocain autour de Marrakech et protégé Al-Andalus (Zallaqa, 1086). Les Almohades ont poursuivi l'unification du Maghreb et de l'Andalousie, atteint l'apogée avec al-Mansour (Alarcos, 1195), puis décliné après Las Navas de Tolosa (1212). Leur époque est marquée par le commerce, les sciences et de grands monuments.</div>
+
+<h3>6) Vocabulaire</h3>
+<div class="cards">
+<div class="card"><h3>Ribat</h3><p>Couvent-forteresse où l'on s'entraîne au combat et à la prière.</p></div>
+<div class="card"><h3>Dynastie</h3><p>Série de souverains d'une même famille ou lignée.</p></div>
+<div class="card"><h3>Empire</h3><p>Vaste territoire regroupant plusieurs régions sous un seul pouvoir.</p></div>
+<div class="card"><h3>Apogée</h3><p>Moment de plus grande puissance.</p></div>
+</div>
+</section>
+
+<section>
+<h2>✏️ Activité pratique : « Je construis ma frise »</h2>
+<div class="activity-box">
+<p><span class="task-label">Tâche 1</span> Je place chronologiquement les événements : 1086 – 1212 – 1070 – 1147 – 1195 – 1269. Je les écris dans l'ordre :</p>
+<p><span class="fill-line" style="min-width:80px"></span> → <span class="fill-line" style="min-width:80px"></span> → <span class="fill-line" style="min-width:80px"></span> → <span class="fill-line" style="min-width:80px"></span> → <span class="fill-line" style="min-width:80px"></span> → <span class="fill-line" style="min-width:80px"></span></p>
+<p><span class="task-label">Tâche 2</span> Je colorie en brun la période almoravide et en bleu la période almohade sur ma frise.</p>
+<p><span class="task-label">Tâche 3</span> Je rédige une phrase qui explique pourquoi Marrakech est devenue une capitale importante :</p>
+<div class="lines"></div><div class="lines"></div>
+</div>
+</section>
+
+<section>
+<h2>📝 Exercices</h2>
+
+<div class="exercise"><h4><span class="exercise-num">1</span>Je complète</h4>
+Les Almoravides sont des Berbères <span class="fill-line"></span> du Sahara. Leur capitale est <span class="fill-line"></span>, fondée vers <span class="fill-line" style="min-width:70px"></span>. Le mouvement almohade a été lancé par <span class="fill-line"></span>, dont le centre est <span class="fill-line"></span>.</div>
+
+<div class="exercise"><h4><span class="exercise-num">2</span>Je choisis la bonne réponse</h4>
+<b>a) La bataille de Zallaqa a lieu en :</b>
+<span class="opt"><span class="checkbox"></span>1086</span><span class="opt"><span class="checkbox"></span>1195</span><span class="opt"><span class="checkbox"></span>1212</span>
+<b>b) Le souverain almohade vainqueur à Alarcos est :</b>
+<span class="opt"><span class="checkbox"></span>Youssef ibn Tachfine</span><span class="opt"><span class="checkbox"></span>Yacoub al-Mansour</span><span class="opt"><span class="checkbox"></span>Abdelmoumen</span>
+<b>c) La Koutoubia est un monument :</b>
+<span class="opt"><span class="checkbox"></span>almoravide</span><span class="opt"><span class="checkbox"></span>almohade</span><span class="opt"><span class="checkbox"></span>mérinide</span></div>
+
+<div class="exercise"><h4><span class="exercise-num">3</span>Vrai ou faux ? (je corrige les erreurs)</h4>
+1) Les Almohades ont fondé Marrakech. (<span class="fill-line sm" style="min-width:50px"></span>)<br>
+2) Youssef ibn Tachfine a aidé les princes d'Al-Andalus. (<span class="fill-line sm" style="min-width:50px"></span>)<br>
+3) La défaite de Las Navas de Tolosa a marqué le début du déclin almohade. (<span class="fill-line sm" style="min-width:50px"></span>)<br>
+4) Les Mérinides ont précédé les Almoravides. (<span class="fill-line sm" style="min-width:50px"></span>)</div>
+
+<div class="exercise"><h4><span class="exercise-num">4</span>Je relie</h4>
+<div class="match-cols">
+<div><p>1. Abdallah ibn Yassine</p><p>2. Ibn Toumert</p><p>3. Abdelmoumen</p><p>4. Ibn Rochd</p></div>
+<div><p>a. Fonde l'empire almohade</p><p>b. Philosophe et médecin</p><p>c. Fonde un ribat almoravide</p><p>d. Le Mahdi de Tinmel</p></div>
+</div>
+<p>Réponses : 1-<span class="fill-line sm" style="min-width:40px"></span> 2-<span class="fill-line sm" style="min-width:40px"></span> 3-<span class="fill-line sm" style="min-width:40px"></span> 4-<span class="fill-line sm" style="min-width:40px"></span></p></div>
+
+<div class="exercise"><h4><span class="exercise-num">5</span>Je classe dans le tableau</h4>
+<span class="word-chip">Zallaqa</span><span class="word-chip">Alarcos</span><span class="word-chip">Youssef ibn Tachfine</span><span class="word-chip">Tinmel</span><span class="word-chip">Yacoub al-Mansour</span><span class="word-chip">Sanhaja</span>
+<table class="data-table"><tr><th>Almoravides</th><th>Almohades</th></tr>
+<tr><td><div class="lines"></div><div class="lines"></div><div class="lines"></div></td><td><div class="lines"></div><div class="lines"></div><div class="lines"></div></td></tr></table></div>
+
+<div class="exercise"><h4><span class="exercise-num">6</span>Je lis un document</h4>
+<div class="box"><i>Document (texte adapté) :</i> « Le prince Youssef traversa le détroit avec ses troupes. À Zallaqa, la cavalerie berbère brisa l'armée castillane et le prince des croyants repartit vers Marrakech. »</div>
+1) Quel souverain est cité ? <span class="fill-line"></span><br>
+2) Quelle victoire est évoquée ? <span class="fill-line"></span><br>
+3) Cite deux causes de cette victoire : <span class="fill-line" style="min-width:240px"></span></div>
+
+<div class="exercise"><h4><span class="exercise-num">7</span>Je calcule des durées</h4>
+1) Combien d'années entre Zallaqa (1086) et la prise de Marrakech par les Almohades (1147) ? <span class="fill-line"></span><br>
+2) Combien d'années entre Alarcos (1195) et Las Navas de Tolosa (1212) ? <span class="fill-line"></span><br>
+3) De quel siècle date la bataille d'Alarcos ? <span class="fill-line"></span></div>
+
+<div class="exercise"><h4><span class="exercise-num">8</span>Je rédige</h4>
+En 5 lignes, j'explique pourquoi l'empire almohade a connu son apogée sous Yacoub al-Mansour, puis pourquoi il a décliné.
+<div class="lines"></div><div class="lines"></div><div class="lines"></div><div class="lines"></div><div class="lines"></div></div>
+</section>
+
+<div class="corrige-wrapper">
+<details class="corrige">
+<summary>Cliquer pour afficher / masquer — Corrigé complet</summary>
+<h5>Activité pratique</h5>
+<p>1) 1070 → 1086 → 1147 → 1195 → 1212 → 1269. 2) Brun : 1056–1147 ; bleu : 1147–1269. 3) Exemple : Marrakech est au centre du royaume, entre le Sahara et l'Atlas, sur les routes du commerce de l'or et du sel, et protégée par de solides remparts.</p>
+<h5>Exercice 1</h5><p>Sanhaja ; Marrakech ; 1070 ; Ibn Toumert ; Tinmel.</p>
+<h5>Exercice 2</h5><p>a) 1086. b) Yacoub al-Mansour. c) almohade.</p>
+<h5>Exercice 3</h5><p>1) Faux : Marrakech est fondée par les Almoravides (vers 1070). 2) Vrai. 3) Vrai. 4) Faux : les Mérinides succèdent aux Almohades.</p>
+<h5>Exercice 4</h5><p>1-c, 2-d, 3-a, 4-b.</p>
+<h5>Exercice 5</h5><p>Almoravides : Zallaqa, Youssef ibn Tachfine, Sanhaja. Almohades : Alarcos, Tinmel, Yacoub al-Mansour.</p>
+<h5>Exercice 6</h5><p>1) Youssef ibn Tachfine. 2) La victoire de Zallaqa (1086). 3) La cavalerie berbère disciplinée et l'unité de l'armée sous un chef.</p>
+<h5>Exercice 7</h5><p>1) 1147 − 1086 = 61 ans. 2) 1212 − 1195 = 17 ans. 3) XIIe siècle.</p>
+<h5>Exercice 8</h5><p>Modèle : sous al-Mansour, l'empire est unifié, l'armée est puissante, le commerce prospère et la victoire d'Alarcos (1195) renforce son prestige. Après la défaite de Las Navas de Tolosa (1212), les révoltes et les rivalités affaiblissent le pouvoir, ce qui mène à la fin de la dynastie en 1269.</p>
+</details>
+</div>
+
+<p class="footer-note">Fiche d'auto-apprentissage – Histoire – 2AC</p>
+</div>
+</body>
+</html>
