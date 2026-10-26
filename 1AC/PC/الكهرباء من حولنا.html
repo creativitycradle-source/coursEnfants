@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>الكهرباء من حولنا</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Naskh+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1d2a33;--ink-soft:#52646f;--paper:#f5fafb;--panel:#fff;--line:#cfe0e4;
+--indigo:#3f4d9e;--indigo-soft:#e6e9f7;--teal:#1f7a7a;--teal-soft:#dff1f0;--amber:#c98a2e;--amber-soft:#fbefd6;--rose:#b8483a;--rose-soft:#f8e3de;--ok:#2e8b57;--ok-soft:#dff3e6;}
+*{box-sizing:border-box}
+body{margin:0;background:#e5eef0;font-family:'Noto Naskh Arabic','Amiri',serif;color:var(--ink);line-height:1.9;font-size:17px}
+.sheet{max-width:920px;margin:18px auto;background:var(--paper);padding:26px 30px;border-radius:14px;box-shadow:0 4px 18px rgba(0,0,0,.1)}
+.masthead{display:flex;align-items:center;gap:18px;background:linear-gradient(135deg,var(--teal),var(--indigo));color:#fff;border-radius:14px;padding:18px 22px}
+.masthead h1{font-family:'Amiri',serif;font-size:2rem;margin:0;line-height:1.3}
+.masthead p{margin:4px 0 0;opacity:.92}
+.meta-row{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.chip{background:var(--panel);border:1.5px solid var(--line);border-radius:20px;padding:2px 14px;font-size:.92rem}
+.chip b{color:var(--indigo)}
+section{margin:22px 0}
+h2{font-family:'Amiri',serif;font-size:1.5rem;color:var(--indigo);border-bottom:3px solid var(--amber);display:inline-block;margin:0 0 10px;padding-bottom:2px}
+h3{color:var(--teal);margin:14px 0 4px;font-size:1.12rem}
+.box{background:var(--panel);border:1.5px solid var(--line);border-radius:12px;padding:12px 18px;margin:10px 0}
+.objectif-box{background:var(--teal-soft);border-color:var(--teal)}
+.rule-box{background:var(--amber-soft);border-right:6px solid var(--amber);border-radius:10px;padding:10px 16px;margin:10px 0}
+.warn-box{background:var(--rose-soft);border-right:6px solid var(--rose);border-radius:10px;padding:10px 16px;margin:10px 0}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:10px;margin:10px 0}
+.card{background:var(--panel);border:1.5px solid var(--line);border-top:5px solid var(--indigo);border-radius:10px;padding:8px 14px}
+.card h4{margin:0;color:var(--indigo);font-size:1.03rem}
+.card p{margin:2px 0 0;font-size:.95rem}
+table.data-table{width:100%;border-collapse:collapse;margin:10px 0;background:#fff}
+.data-table th,.data-table td{border:1.5px solid var(--line);padding:6px 10px;text-align:center}
+.data-table th{background:var(--indigo);color:#fff}
+.activity-box{background:var(--indigo-soft);border:2px dashed var(--indigo);border-radius:12px;padding:12px 18px}
+.task-label{display:inline-block;background:var(--indigo);color:#fff;border-radius:8px;padding:0 10px;margin-left:6px;font-size:.9rem}
+.fill-line{display:inline-block;min-width:110px;border-bottom:2px dotted var(--ink-soft)}
+.lines{border-bottom:2px dotted var(--ink-soft);height:26px;margin:4px 0}
+.fig{text-align:center;font-size:.88rem;color:var(--ink-soft)}
+svg text{font-family:'Noto Naskh Arabic',sans-serif}
+
+/* bar du score */
+.scorebar{position:sticky;top:0;z-index:5;background:#fff;border:2px solid var(--indigo);border-radius:12px;padding:8px 16px;margin:10px 0;display:flex;align-items:center;gap:14px;flex-wrap:wrap;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.scorebar .pts{font-weight:700;color:var(--indigo);font-size:1.1rem;white-space:nowrap}
+.progress{flex:1;min-width:140px;height:14px;background:#e3e8ee;border-radius:10px;overflow:hidden}
+.progress>i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--teal),var(--indigo));transition:width .4s}
+.scorebar small{color:var(--ink-soft)}
+
+/* exercices interactifs */
+.exercise{background:var(--panel);border:1.5px solid var(--line);border-radius:12px;padding:10px 18px 14px;margin:14px 0}
+.exercise-num{display:inline-flex;width:30px;height:30px;border-radius:50%;background:var(--amber);color:#fff;align-items:center;justify-content:center;font-weight:700;margin-left:8px}
+.exercise h4{margin:0 0 6px;font-size:1.08rem;color:var(--indigo)}
+.q{margin:8px 0}
+.mcq{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 8px}
+.mcq button{font:inherit;background:#fff;border:2px solid var(--line);border-radius:10px;padding:2px 14px;cursor:pointer}
+.mcq button:hover{border-color:var(--indigo)}
+.mcq button.sel{background:var(--indigo-soft);border-color:var(--indigo)}
+.mcq.ok button.sel{background:var(--ok-soft);border-color:var(--ok)}
+.mcq.bad button.sel{background:var(--rose-soft);border-color:var(--rose)}
+select,input.ans{font:inherit;border:2px solid var(--line);border-radius:8px;padding:1px 8px;background:#fff;max-width:100%}
+input.ans{width:150px}
+select.ok,input.ans.ok{border-color:var(--ok);background:var(--ok-soft)}
+select.bad,input.ans.bad{border-color:var(--rose);background:var(--rose-soft)}
+.fb{display:inline-block;margin-right:8px;font-size:.92rem}
+.fb.ok{color:var(--ok)}.fb.bad{color:var(--rose)}
+.actions{margin-top:8px;display:flex;gap:8px;flex-wrap:wrap}
+.btn{font:inherit;font-weight:700;border:none;border-radius:10px;padding:2px 18px;cursor:pointer;color:#fff;background:var(--indigo)}
+.btn.sec{background:#fff;color:var(--indigo);border:2px solid var(--indigo)}
+.btn:hover{opacity:.9}
+.ex-result{font-weight:700;color:var(--indigo);margin-right:4px}
+.final{display:none;background:var(--ok-soft);border:2px solid var(--ok);border-radius:12px;padding:10px 18px;margin:14px 0;font-weight:700}
+.doc-box{background:var(--indigo-soft);border-right:6px solid var(--indigo);border-radius:10px;padding:10px 16px;margin:8px 0}
+
+.corrige-wrapper{margin-top:26px}
+details.corrige{border:2px solid var(--indigo);border-radius:12px;background:#fff;padding:8px 18px}
+details.corrige summary{cursor:pointer;font-family:'Amiri',serif;font-size:1.25rem;color:var(--indigo);font-weight:700}
+.corrige h5{margin:12px 0 2px;color:var(--rose);font-size:1.02rem}
+.corrige p{margin:2px 0}
+.footer-note{text-align:center;color:var(--ink-soft);font-size:.88rem;margin-top:18px}
+@page{size:A4;margin:13mm}
+@media print{body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}.sheet{box-shadow:none;margin:0;max-width:none;padding:0;background:#fff}.scorebar,.actions,.final{display:none!important}.corrige-wrapper{page-break-before:always}details.corrige:not([open]) > :not(summary){display:none}.exercise{page-break-inside:avoid}}
+.checkbox{display:inline-block;width:15px;height:15px;border:2px solid var(--indigo);border-radius:3px;vertical-align:middle;margin-left:6px}
+.opt{display:block;margin:2px 0}
+.match-cols{display:flex;justify-content:space-between;gap:30px}
+.match-cols div{flex:1}
+.match-cols p{margin:4px 0;background:var(--teal-soft);border-radius:8px;padding:2px 12px}
+.word-chip{display:inline-block;background:var(--amber-soft);border:1.5px solid var(--amber);border-radius:16px;padding:0 12px;margin:3px}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<header class="masthead">
+<svg width="70" height="64" viewBox="0 0 70 64" aria-hidden="true"><path d="M40 4 18 36h14l-4 24 24-34H38z" fill="#f3d38a" stroke="#fff" stroke-width="3" stroke-linejoin="round"/></svg>
+<div><h1>الكهرباء من حولنا</h1><p>الفيزياء والكيمياء – الكهرباء (L'électricité qui nous entoure)</p></div>
+</header>
+
+<div class="meta-row">
+<span class="chip"><b>المستوى:</b> الأولى إعدادي (1AC)</span>
+<span class="chip"><b>المادة:</b> الفيزياء والكيمياء</span>
+<span class="chip"><b>مدة الحصة:</b> ساعة ونصف</span>
+<span class="chip"><b>نوع الوثيقة:</b> فيشة تعلّم ذاتي</span>
+</div>
+
+<section>
+<h2>🎯 الهدف</h2>
+<div class="box objectif-box">في نهاية هذه الحصة سأكون قادرًا على:
+<ul>
+<li>أن أذكر أمثلة لاستعمالات الكهرباء في حياتي اليومية ومصادرها (عمود، مولّد، القطاع، لوحة شمسية)؛</li>
+<li>أن أحدّد مكوّنات دارة كهربائية بسيطة وأرسمها باستعمال الرموز الاصطلاحية؛</li>
+<li>أن أميّز بين الدارة المغلقة والدارة المفتوحة وأفسّر اشتغال المصباح؛</li>
+<li>أن أصنّف المواد إلى موصلات وعوازل للتيار الكهربائي؛</li>
+<li>أن أتعرّف أخطار الكهرباء وأتبنّى قواعد السلامة.</li>
+</ul></div>
+</section>
+
+<section>
+<h2>📘 الدرس</h2>
+
+<h3>1) الكهرباء في حياتنا اليومية</h3>
+<div class="box">نستعمل الكهرباء في الإنارة، وتشغيل التلفاز والثلاجة والغسالة، وشحن الهاتف، وتشغيل القطار والترامواي... وبدونها تتوقف أغلب الأنشطة الحديثة.</div>
+
+<h3>2) مصادر التيار الكهربائي (المولّدات)</h3>
+<div class="cards">
+<div class="card"><h4>🔋 العمود والبطارية</h4><p>مولّد صغير يعمل بتفاعل كيميائي: مصباح اليد، الساعة، التحكم عن بعد. توتّره ضعيف وآمن.</p></div>
+<div class="card"><h4>🚲 مولّد الدراجة (الدينامو)</h4><p>يحوّل حركة العجلة إلى كهرباء تُضيء مصباح الدراجة.</p></div>
+<div class="card"><h4>☀️ اللوحة الشمسية</h4><p>تحوّل ضوء الشمس إلى كهرباء (حاسبة، إنارة الطرق، محطة نور بورزازات).</p></div>
+<div class="card"><h4>🔌 القطاع الكهربائي</h4><p>توتّره حوالي 220 فولت، يصل إلى منازلنا عبر شبكة الكهرباء، وهو <b>خطير جدًا</b>.</p></div>
+</div>
+
+<h3>3) الدارة الكهربائية البسيطة</h3>
+<div class="rule-box"><b>الدارة الكهربائية البسيطة</b> تتكوّن من <b>مولّد</b> (عمود) و<b>مستقبِل</b> (مصباح مثلًا) و<b>قاطع التيار</b> (interrupteur) و<b>أسلاك التوصيل</b>، موصولة على شكل <b>حلقة مقفلة</b>.</div>
+<div class="fig">
+<svg viewBox="0 0 420 200" width="420" role="img" aria-label="دارة كهربائية بسيطة">
+<rect x="50" y="40" width="320" height="120" fill="none" stroke="#1d2a33" stroke-width="3"/>
+<rect x="150" y="30" width="120" height="20" fill="#f5fafb" stroke="none"/>
+<circle cx="210" cy="40" r="16" fill="#fbefd6" stroke="#c98a2e" stroke-width="3"/><path d="M200 30l20 20M220 30l-20 20" stroke="#c98a2e" stroke-width="2"/>
+<rect x="30" y="85" width="40" height="30" fill="#f5fafb" stroke="none"/>
+<path d="M38 92h24" stroke="#1d2a33" stroke-width="3"/><path d="M45 105h10" stroke="#1d2a33" stroke-width="3"/>
+<text x="80" y="92" font-size="13" fill="#b8483a">+</text><text x="80" y="115" font-size="13" fill="#3f4d9e">−</text>
+<rect x="150" y="150" width="120" height="20" fill="#f5fafb" stroke="none"/>
+<circle cx="170" cy="160" r="4" fill="#1d2a33"/><circle cx="250" cy="160" r="4" fill="#1d2a33"/><path d="M170 160 245 140" stroke="#1d2a33" stroke-width="3"/>
+<text x="210" y="22" font-size="14" fill="#c98a2e" text-anchor="middle">المصباح</text>
+<text x="40" y="145" font-size="14" fill="#3f4d9e">العمود</text>
+<text x="210" y="190" font-size="14" fill="#1d2a33" text-anchor="middle">قاطع التيار</text>
+</svg></div>
+<div class="fig">رسم مبسّط — الغرض منه التوضيح فقط.</div>
+
+<table class="data-table">
+<tr><th>العنصر</th><th>الدور</th><th>الرمز</th></tr>
+<tr><td>العمود (المولّد)</td><td>يزوّد الدارة بالتيار الكهربائي</td><td>⎓ خطّان: طويل (+) وقصير (−)</td></tr>
+<tr><td>المصباح</td><td>مستقبِل يضيء عند مرور التيار</td><td>دائرة بداخلها علامة ×</td></tr>
+<tr><td>قاطع التيار</td><td>يفتح الدارة أو يغلقها</td><td>سلك قابل للحركة بين نقطتين</td></tr>
+<tr><td>أسلاك التوصيل</td><td>تربط العناصر وتنقل التيار</td><td>خطوط مستقيمة</td></tr>
+</table>
+<div class="rule-box"><b>الدارة المغلقة:</b> القاطع مغلق والحلقة متصلة، فيمرّ التيار ويضيء المصباح. <b>الدارة المفتوحة:</b> انقطعت الحلقة في مكان ما (قاطع مفتوح أو سلك مقطوع)، فلا يمرّ التيار وينطفئ المصباح.</div>
+<div class="box"><b>اصطلاحًا:</b> يُعتبر اتجاه التيار خارج المولّد من القطب الموجب (+) إلى القطب السالب (−).</div>
+
+<h3>4) الموصلات والعوازل</h3>
+<table class="data-table">
+<tr><th>موصلات للتيار الكهربائي</th><th>عوازل للتيار الكهربائي</th></tr>
+<tr><td>المعادن: النحاس، الألومنيوم، الحديد، الفضة؛ الغرافيت؛ الماء المملّح؛ جسم الإنسان</td><td>البلاستيك، الخشب الجاف، الزجاج، المطاط، الورق، الهواء، الماء الخالص</td></tr>
+</table>
+<div class="box">لهذا تُصنع الأسلاك الكهربائية من <b>النحاس</b> (موصل) وتُغلَّف بـ<b>البلاستيك</b> (عازل) لحمايتنا، وتُصنع مقابض الأدوات الكهربائية من المطاط أو البلاستيك.</div>
+
+<h3>5) أخطار الكهرباء وقواعد السلامة</h3>
+<div class="warn-box"><b>⚠️ التيار الكهربائي للقطاع (220 V) قد يؤدي إلى الصعق الكهربائي أو الحريق.</b> أما الأعمدة الصغيرة فلا خطر منها عادةً.</div>
+<ul>
+<li>لا ألمس مقبسًا أو سلكًا عاريًا ولا أُدخل أشياء معدنية في المقبس؛</li>
+<li>لا أستعمل جهازًا كهربائيًا ويداي مبلّلتان أو وأنا واقف في الماء؛</li>
+<li>لا أحمّل مأخذًا كهربائيًا بعدة أجهزة في الوقت نفسه (خطر الحرارة والحريق)؛</li>
+<li>أفصل الجهاز عن القطاع قبل تنظيفه أو إصلاحه، وأطلب مساعدة راشد؛</li>
+<li>أبتعد عن أعمدة الضغط العالي والأسلاك المتدلّية، وأخبر الراشدين عنها.</li>
+</ul>
+<div class="warn-box"><b>الدارة القصيرة (court-circuit):</b> عندما يُوصل قطبا المولّد بسلك فقط دون مستقبِل يمرّ تيار قوي جدًا يسخّن الأسلاك وقد يسبب حريقًا. لذلك تُوضع <b>المنصهرات</b> لحماية التركيبات.</div>
+
+<h3>6) مصطلحات ومفاهيم</h3>
+<div class="cards">
+<div class="card"><h4>المولّد</h4><p>جهاز يزوّد الدارة بالتيار الكهربائي.</p></div>
+<div class="card"><h4>المستقبِل</h4><p>جهاز يستعمل الكهرباء: مصباح، محرّك، جرس.</p></div>
+<div class="card"><h4>الموصل</h4><p>مادة تسمح بمرور التيار الكهربائي.</p></div>
+<div class="card"><h4>العازل</h4><p>مادة لا تسمح بمرور التيار الكهربائي.</p></div>
+</div>
+</section>
+
+<section>
+<h2>✏️ نشاط تطبيقي: «أبني دارتي وأختبر المواد»</h2>
+<div class="activity-box">
+<p>المعدّات: عمود 4.5 V، مصباح، قاطع، أسلاك، وأشياء للاختبار (مشبك معدني، قلم رصاص، ممحاة، مسطرة بلاستيكية، قطعة خشب، ملعقة معدنية).</p>
+<p><span class="task-label">المهمة 1</span> أرسم مخطط الدارة (عمود + مصباح + قاطع) بالرموز:</p>
+<div class="lines"></div><div class="lines"></div><div class="lines"></div>
+<p><span class="task-label">المهمة 2</span> أضع الشيء المراد اختباره في الدارة بين طرفي سلكين، وأكمل الجدول:</p>
+<table class="data-table">
+<tr><th>الشيء</th><th>هل يضيء المصباح؟</th><th>موصل أم عازل؟</th></tr>
+<tr><td>مشبك معدني</td><td><span class="fill-line" style="min-width:60px"></span></td><td><span class="fill-line" style="min-width:60px"></span></td></tr>
+<tr><td>مسطرة بلاستيكية</td><td><span class="fill-line" style="min-width:60px"></span></td><td><span class="fill-line" style="min-width:60px"></span></td></tr>
+<tr><td>قطعة خشب</td><td><span class="fill-line" style="min-width:60px"></span></td><td><span class="fill-line" style="min-width:60px"></span></td></tr>
+<tr><td>قلم رصاص (الرصاص)</td><td><span class="fill-line" style="min-width:60px"></span></td><td><span class="fill-line" style="min-width:60px"></span></td></tr>
+</table>
+<p><span class="task-label">المهمة 3</span> أستنتج: ما الذي يجعل المصباح يضيء عند وضع شيء في الدارة؟ <span class="fill-line" style="min-width:240px"></span></p>
+</div>
+</section>
+
+<section>
+<h2>📝 تمارين للتدرّب</h2>
+
+<div class="exercise"><h4><span class="exercise-num">1</span>أُكمل الفراغات</h4>
+تتكوّن الدارة الكهربائية البسيطة من <span class="fill-line"></span> و<span class="fill-line"></span> و<span class="fill-line"></span> وأسلاك التوصيل. ويضيء المصباح عندما تكون الدارة <span class="fill-line"></span>، وينطفئ عندما تكون <span class="fill-line"></span>.</div>
+
+<div class="exercise"><h4><span class="exercise-num">2</span>اختر الجواب الصحيح</h4>
+<b>أ) المادة الموصلة للتيار الكهربائي هي:</b>
+<span class="opt"><span class="checkbox"></span>الخشب</span>
+<span class="opt"><span class="checkbox"></span>النحاس</span>
+<span class="opt"><span class="checkbox"></span>الزجاج</span>
+<b>ب) من مصادر التيار الكهربائي:</b>
+<span class="opt"><span class="checkbox"></span>المصباح</span>
+<span class="opt"><span class="checkbox"></span>الجرس</span>
+<span class="opt"><span class="checkbox"></span>العمود</span>
+<b>ج) توتّر القطاع الكهربائي في المنازل حوالي:</b>
+<span class="opt"><span class="checkbox"></span>4.5 فولت</span>
+<span class="opt"><span class="checkbox"></span>220 فولت</span>
+<span class="opt"><span class="checkbox"></span>1 فولت</span></div>
+
+<div class="exercise"><h4><span class="exercise-num">3</span>صحيح أم خطأ؟ (أصحّح الخطأ)</h4>
+1) قاطع التيار المفتوح يجعل الدارة مغلقة. (<span class="fill-line" style="min-width:50px"></span>)<br>
+2) البلاستيك مادة عازلة. (<span class="fill-line" style="min-width:50px"></span>)<br>
+3) يمكنني لمس المقبس الكهربائي إذا كانت يداي مبلّلتين. (<span class="fill-line" style="min-width:50px"></span>)<br>
+4) يتجه التيار خارج المولّد من القطب الموجب إلى القطب السالب. (<span class="fill-line" style="min-width:50px"></span>)</div>
+
+<div class="exercise"><h4><span class="exercise-num">4</span>أصل كل جهاز بالمصدر الذي يشغّله</h4>
+<div class="match-cols">
+<div><p>1. مصباح اليد</p><p>2. الحاسبة الشمسية</p><p>3. الثلاجة</p><p>4. مصباح الدراجة</p></div>
+<div><p>أ. اللوحة الشمسية</p><p>ب. العمود</p><p>ج. الدينامو</p><p>د. القطاع الكهربائي</p></div>
+</div>
+<p>الأجوبة: 1-<span class="fill-line" style="min-width:40px"></span> 2-<span class="fill-line" style="min-width:40px"></span> 3-<span class="fill-line" style="min-width:40px"></span> 4-<span class="fill-line" style="min-width:40px"></span></p></div>
+
+<div class="exercise"><h4><span class="exercise-num">5</span>أصنّف المواد في الجدول</h4>
+<span class="word-chip">النحاس</span><span class="word-chip">الخشب</span><span class="word-chip">الحديد</span><span class="word-chip">المطاط</span><span class="word-chip">الألومنيوم</span><span class="word-chip">الزجاج</span><span class="word-chip">الغرافيت</span><span class="word-chip">الورق</span>
+<table class="data-table">
+<tr><th>موصلات</th><th>عوازل</th></tr>
+<tr><td><div class="lines"></div><div class="lines"></div></td><td><div class="lines"></div><div class="lines"></div></td></tr>
+</table></div>
+
+<div class="exercise"><h4><span class="exercise-num">6</span>مصباح لا يضيء: أبحث عن السبب</h4>
+ركّب تلميذ دارة تضم عمودًا ومصباحًا وقاطعًا، لكن المصباح لا يضيء.<br>
+أذكر ثلاثة أسباب ممكنة:
+<div class="lines"></div><div class="lines"></div><div class="lines"></div></div>
+
+<div class="exercise"><h4><span class="exercise-num">7</span>أرسم مخطط دارة</h4>
+أرسم بالرموز مخطط دارة مغلقة تتكوّن من عمود ومصباح وقاطع، وأضع علامة (+) و(−) عند قطبي العمود، وأرسم سهمًا يبيّن اتجاه التيار.
+<div style="height:120px;border:2px dashed var(--line);border-radius:10px;margin:6px 0"></div></div>
+
+<div class="exercise"><h4><span class="exercise-num">8</span>أتصرّف بأمان</h4>
+أصحّح كل سلوك خطر فيما يلي بجملة قصيرة:<br>
+أ) طفل يدخل مفتاحًا معدنيًا في المقبس. <span class="fill-line" style="min-width:240px"></span><br>
+ب) شخص يصلح مصباحًا وهو لا يزال موصولًا بالقطاع. <span class="fill-line" style="min-width:240px"></span><br>
+ج) أسرة توصل خمسة أجهزة قوية بمأخذ واحد. <span class="fill-line" style="min-width:240px"></span></div>
+</section>
+
+<div class="corrige-wrapper">
+<details class="corrige">
+<summary>اضغط لإظهار الحل / إخفائه — التصحيح الكامل</summary>
+<h5>نشاط تطبيقي</h5>
+<p>1) مخطط: عمود + قاطع + مصباح على حلقة مقفلة. 2) المشبك المعدني: يضيء، موصل. المسطرة البلاستيكية: لا يضيء، عازل. الخشب: لا يضيء، عازل. قلم الرصاص (الغرافيت): يضيء، موصل. 3) مرور التيار الكهربائي لأن الشيء الموضوع مادة موصلة تغلق الحلقة.</p>
+<h5>تمرين 1</h5><p>مولّد (عمود)؛ مستقبِل (مصباح)؛ قاطع تيار؛ مغلقة؛ مفتوحة.</p>
+<h5>تمرين 2</h5><p>أ) النحاس. ب) العمود. ج) 220 فولت.</p>
+<h5>تمرين 3</h5><p>1) خطأ: القاطع المفتوح يجعل الدارة مفتوحة. 2) صحيح. 3) خطأ: الماء يوصل الكهرباء وقد يسبب صعقًا. 4) صحيح.</p>
+<h5>تمرين 4</h5><p>1-ب، 2-أ، 3-د، 4-ج.</p>
+<h5>تمرين 5</h5><p>موصلات: النحاس، الحديد، الألومنيوم، الغرافيت. عوازل: الخشب، المطاط، الزجاج، الورق.</p>
+<h5>تمرين 6</h5><p>القاطع مفتوح؛ العمود فارغ أو مستهلك؛ سلك مقطوع أو غير مثبّت جيدًا؛ المصباح محروق (خيط المصباح منقطع)؛ توصيل خاطئ.</p>
+<h5>تمرين 7</h5><p>رسم حلقة مقفلة: العمود (الخط الطويل هو +)، قاطع مغلق، مصباح؛ السهم خارج القطب (+) نحو المصباح ثم يعود إلى القطب (−).</p>
+<h5>تمرين 8</h5><p>أ) لا أُدخل أي شيء معدني في المقبس لأنه يسبب الصعق. ب) أفصل المصباح عن القطاع قبل إصلاحه. ج) لا أحمّل المأخذ بأجهزة كثيرة لتفادي ارتفاع الحرارة والحريق.</p>
+</details>
+</div>
+
+<p class="footer-note">فيشة تعلّم ذاتي – الفيزياء والكيمياء – الأولى إعدادي</p>
+</div>
+</body>
+</html>
