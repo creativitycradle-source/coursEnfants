@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Les nawâsikh - النواسخ الفعلية والحرفية</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Naskh+Arabic:wght@400;600;700&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#251f3a;--ink-soft:#5d557a;--paper:#fbf9ff;--panel:#fff;--line:#d9d3ec;
+--indigo:#4b3f8f;--indigo-soft:#ebe8f7;--rose:#b1553f;--rose-soft:#f8e6df;--gold:#af8a2e;--gold-soft:#faf0d4;}
+*{box-sizing:border-box}
+body{margin:0;background:#ebe8f2;font-family:'Amiri','Noto Naskh Arabic',serif;color:var(--ink);line-height:2;font-size:19px}
+.sheet{max-width:900px;margin:18px auto;background:var(--paper);padding:26px 30px;border-radius:14px;box-shadow:0 4px 18px rgba(0,0,0,.1)}
+.masthead{display:flex;align-items:center;gap:18px;background:linear-gradient(135deg,var(--indigo),#6a5cb5);color:#fff;border-radius:14px;padding:18px 22px}
+.masthead h1{font-size:2.2rem;margin:0;line-height:1.3}
+.masthead p{margin:4px 0 0;opacity:.92}
+.meta-row{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.chip{background:var(--panel);border:1.5px solid var(--line);border-radius:20px;padding:2px 14px;font-size:.9rem;font-family:'Noto Naskh Arabic',serif}
+.chip b{color:var(--indigo)}
+section{margin:20px 0}
+h2{font-size:1.6rem;color:var(--indigo);border-bottom:3px solid var(--gold);display:inline-block;margin:0 0 10px;padding-bottom:2px}
+h3{color:var(--rose);margin:14px 0 4px;font-size:1.25rem}
+.box{background:var(--panel);border:1.5px solid var(--line);border-radius:12px;padding:12px 18px;margin:10px 0}
+.objectif-box{background:var(--indigo-soft);border-color:var(--indigo)}
+.rule-box{background:var(--gold-soft);border-right:6px solid var(--gold);border-radius:10px;padding:10px 16px;margin:10px 0}
+.example-box{background:var(--rose-soft);border-right:6px solid var(--rose);border-radius:10px;padding:8px 16px;margin:8px 0}
+.mu{color:var(--indigo);font-weight:700;border-bottom:3px solid var(--indigo)}
+.tw{color:var(--rose);font-weight:700;border-bottom:3px solid var(--rose)}
+table.data-table{width:100%;border-collapse:collapse;margin:10px 0;background:#fff}
+.data-table th,.data-table td{border:1.5px solid var(--line);padding:6px 10px;text-align:center}
+.data-table th{background:var(--indigo);color:#fff}
+.activity-box{background:var(--gold-soft);border:2px dashed var(--gold);border-radius:12px;padding:12px 18px}
+.task-label{display:inline-block;background:var(--gold);color:#fff;border-radius:8px;padding:0 10px;margin-left:6px;font-size:.9rem;font-family:'Noto Naskh Arabic',serif}
+.exercise{background:var(--panel);border:1.5px solid var(--line);border-radius:12px;padding:10px 18px 12px;margin:12px 0;page-break-inside:avoid}
+.exercise-num{display:inline-flex;width:32px;height:32px;border-radius:50%;background:var(--rose);color:#fff;align-items:center;justify-content:center;font-weight:700;margin-left:8px;font-family:'Noto Naskh Arabic',serif}
+.exercise h4{margin:0 0 6px;font-size:1.15rem;color:var(--indigo)}
+.fill-line{display:inline-block;min-width:110px;border-bottom:2px dotted var(--ink-soft)}
+.checkbox,.sq{display:inline-block;width:17px;height:17px;border:2px solid var(--indigo);border-radius:3px;vertical-align:middle;margin:0 6px}
+.opt{display:block;margin:0}
+.lines{border-bottom:2px dotted var(--ink-soft);height:28px;margin:4px 0}
+.match-cols{display:flex;justify-content:space-between;gap:30px}.match-cols div{flex:1}
+.match-cols p{margin:4px 0;background:var(--indigo-soft);border-radius:8px;padding:0 12px}
+.word-chip{display:inline-block;background:var(--gold-soft);border:1.5px solid var(--gold);border-radius:16px;padding:0 12px;margin:3px}
+.corrige-wrapper{page-break-before:always;margin-top:26px}
+details.corrige{border:2px solid var(--indigo);border-radius:12px;background:#fff;padding:8px 18px}
+details.corrige summary{cursor:pointer;font-size:1.3rem;color:var(--indigo);font-weight:700}
+.corrige h5{margin:12px 0 2px;color:var(--rose);font-size:1.1rem}
+.corrige p{margin:2px 0}
+.footer-note{text-align:center;color:var(--ink-soft);font-size:.9rem;margin-top:18px;font-family:'Noto Naskh Arabic',serif}
+@page{size:A4;margin:13mm}
+@media print{body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}.sheet{box-shadow:none;margin:0;max-width:none;padding:0;background:#fff}details.corrige:not([open]) > :not(summary){display:none}}
+body{font-family:'Nunito','Segoe UI',Arial,sans-serif}.masthead h1,h2,h3,details.corrige summary,.footer-note{font-family:'Nunito','Segoe UI',Arial,sans-serif}.masthead h1{font-size:1.6rem}
+.ar{font-family:'Amiri','Noto Naskh Arabic',serif;font-size:1.18em;direction:rtl;unicode-bidi:isolate}
+.rule-box{border-right:none;border-left:6px solid var(--gold)}.task-label,.exercise-num{margin-left:0;margin-right:8px}.checkbox{margin-left:0;margin-right:6px}
+.match-cols p{text-align:left}
+.chip,.meta-row{font-family:'Nunito','Segoe UI',Arial,sans-serif}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<header class="masthead">
+<svg width="66" height="62" viewBox="0 0 66 62" aria-hidden="true"><circle cx="22" cy="31" r="12" fill="none" stroke="#fff" stroke-width="4"/><circle cx="46" cy="31" r="12" fill="none" stroke="#e9c978" stroke-width="4"/><path d="M34 22 q6 9 0 18" fill="none" stroke="#fff" stroke-width="3"/></svg>
+<div><h1>Les « nawâsikh » : <span class="ar">النواسخ الفعلية والحرفية</span></h1><p>Arabe – Grammaire (<span class="ar">الجملة الاسمية</span>) · 5e année primaire</p></div>
+</header>
+
+<div class="meta-row">
+<span class="chip"><b>Niveau :</b> 5EAP</span>
+<span class="chip"><b>Matière :</b> Arabe – grammaire</span>
+<span class="chip"><b>Durée :</b> 1 heure</span>
+<span class="chip"><b>Type :</b> fiche d'auto-apprentissage</span>
+</div>
+
+<section>
+<h2>🎯 Objectif</h2>
+<div class="box objectif-box">À la fin de la séance, je serai capable de :
+<ul>
+<li>rappeler ce qu'est une phrase nominale (<span class="ar">جملة اسمية</span>) : un sujet (<span class="ar">مبتدأ</span>) et un prédicat (<span class="ar">خبر</span>) ;</li>
+<li>reconnaître les <b>nawâsikh verbaux</b> (<span class="ar">كان وأخواتها</span>) et les <b>nawâsikh à particule</b> (<span class="ar">إنّ وأخواتها</span>) ;</li>
+<li>dire comment chacun modifie la fonction et la désinence du sujet et du prédicat ;</li>
+<li>transformer une phrase nominale simple avec un nâsikh et en analyser les mots.</li>
+</ul></div>
+</section>
+
+<section>
+<h2>📘 Le cours</h2>
+
+<h3>1) Rappel : la phrase nominale</h3>
+<div class="example-box">• <span class="tw"><span class="ar">الجوُّ</span></span> <span class="mu"><span class="ar">جميلٌ</span></span>.</div>
+<p>« <span class="ar">الجوُّ</span> » est le <b><span class="ar">مبتدأ</span></b> (sujet), au nominatif (marqué par la damma). « <span class="ar">جميلٌ</span> » est le <b><span class="ar">خبر</span></b> (prédicat), lui aussi au nominatif.</p>
+
+<h3>2) Qu'est-ce qu'un nâsikh (<span class="ar">ناسخ</span>) ?</h3>
+<div class="rule-box">Un <b>nâsikh</b> (littéralement « qui abroge ») est un mot qui entre sur une phrase nominale et <b>change la désinence</b> de ses deux éléments. Il en existe deux familles : les <b>nawâsikh verbaux</b> (<span class="ar">كان وأخواتها</span>) et les <b>nawâsikh à particule</b> (<span class="ar">إنّ وأخواتها</span>).</div>
+
+<h3>3) <span class="ar">كان وأخواتها</span> (« kâna » et ses sœurs)</h3>
+<div class="rule-box"><b>Règle :</b> elles <b>gardent le sujet au nominatif</b> et il devient leur <b><span class="ar">اسم</span></b> ; elles <b>mettent le prédicat à l'accusatif</b> et il devient leur <b><span class="ar">خبر</span></b>.</div>
+<div class="example-box">• <span class="ar">الجوُّ جميلٌ</span> ← <span class="tw"><span class="ar">كان</span></span> <span class="mu"><span class="ar">الجوُّ</span></span> <span class="tw"><span class="ar">جميلًا</span></span>.<br>
+(<span class="ar">كان</span> : verbe ; <span class="ar">الجوُّ</span> : <span class="ar">اسم كان</span>, nominatif ; <span class="ar">جميلًا</span> : <span class="ar">خبر كان</span>, accusatif)</div>
+<table class="data-table">
+<tr><th>Verbe</th><th>Sens</th><th>Exemple</th></tr>
+<tr><td><span class="ar">كان</span></td><td>passé (« était »)</td><td><span class="ar">كان الطقسُ باردًا</span>.</td></tr>
+<tr><td><span class="ar">أصبح</span></td><td>« devint » (le matin)</td><td><span class="ar">أصبحَ الولدُ نشيطًا</span>.</td></tr>
+<tr><td><span class="ar">أمسى</span></td><td>« devint » (le soir)</td><td><span class="ar">أمسى الجوُّ ممطرًا</span>.</td></tr>
+<tr><td><span class="ar">ظلّ</span></td><td>« resta »</td><td><span class="ar">ظلَّ البابُ مفتوحًا</span>.</td></tr>
+<tr><td><span class="ar">بات</span></td><td>« passa la nuit »</td><td><span class="ar">باتَ المسافرُ مرتاحًا</span>.</td></tr>
+<tr><td><span class="ar">صار</span></td><td>« devint »</td><td><span class="ar">صارَ الماءُ ساخنًا</span>.</td></tr>
+<tr><td><span class="ar">ليس</span></td><td>négation (« n'est pas »)</td><td><span class="ar">ليسَ الدرسُ صعبًا</span>.</td></tr>
+</table>
+
+<h3>4) <span class="ar">إنّ وأخواتها</span> (« inna » et ses sœurs)</h3>
+<div class="rule-box"><b>Règle :</b> elles <b>mettent le sujet à l'accusatif</b> et il devient leur <b><span class="ar">اسم</span></b> ; elles <b>gardent le prédicat au nominatif</b> et il devient leur <b><span class="ar">خبر</span></b>.</div>
+<div class="example-box">• <span class="ar">الجوُّ جميلٌ</span> ← <span class="tw"><span class="ar">إنَّ</span></span> <span class="mu"><span class="ar">الجوَّ</span></span> <span class="tw"><span class="ar">جميلٌ</span></span>.<br>
+(<span class="ar">إنَّ</span> : particule ; <span class="ar">الجوَّ</span> : <span class="ar">اسم إنّ</span>, accusatif ; <span class="ar">جميلٌ</span> : <span class="ar">خبر إنّ</span>, nominatif)</div>
+<table class="data-table">
+<tr><th>Particule</th><th>Sens</th><th>Exemple</th></tr>
+<tr><td><span class="ar">إنَّ</span> / <span class="ar">أنَّ</span></td><td>insistance (« certes, que »)</td><td><span class="ar">إنَّ العلمَ نورٌ</span>.</td></tr>
+<tr><td><span class="ar">كأنَّ</span></td><td>comparaison (« comme si »)</td><td><span class="ar">كأنَّ الغيمةَ قطنٌ</span>.</td></tr>
+<tr><td><span class="ar">لكنَّ</span></td><td>opposition (« mais »)</td><td><span class="ar">الجوُّ باردٌ لكنَّ الشمسَ ساطعةٌ</span>.</td></tr>
+<tr><td><span class="ar">ليتَ</span></td><td>souhait (« si seulement »)</td><td><span class="ar">ليتَ الصيفَ قريبٌ</span>.</td></tr>
+<tr><td><span class="ar">لعلَّ</span></td><td>espoir (« peut-être que »)</td><td><span class="ar">لعلَّ الغدَ أجملُ</span>.</td></tr>
+</table>
+
+<h3>5) Comparer pour retenir</h3>
+<table class="data-table">
+<tr><th></th><th><span class="ar">كان وأخواتها</span></th><th><span class="ar">إنّ وأخواتها</span></th></tr>
+<tr><td>Nature</td><td>verbes</td><td>particules</td></tr>
+<tr><td>Le sujet devient…</td><td><span class="ar">اسمها</span> (nominatif)</td><td><span class="ar">اسمها</span> (accusatif)</td></tr>
+<tr><td>Le prédicat devient…</td><td><span class="ar">خبرها</span> (accusatif)</td><td><span class="ar">خبرها</span> (nominatif)</td></tr>
+<tr><td>Exemple</td><td><span class="ar">كان الجوُّ جميلًا</span></td><td><span class="ar">إنَّ الجوَّ جميلٌ</span></td></tr>
+</table>
+
+<h3>6) Vocabulaire</h3>
+<div class="example-box"><b><span class="ar">مبتدأ</span></b> = sujet de la phrase nominale · <b><span class="ar">خبر</span></b> = prédicat · <b><span class="ar">اسم كان</span></b> = sujet après « kâna » · <b><span class="ar">خبر كان</span></b> = prédicat après « kâna » · <b><span class="ar">مرفوع</span></b> = au nominatif · <b><span class="ar">منصوب</span></b> = à l'accusatif.</div>
+</section>
+
+<section>
+<h2>✏️ Activité pratique : « Je transforme les phrases »</h2>
+<div class="activity-box">
+<p><span class="task-label">Tâche 1</span> Je transforme la phrase « <span class="ar">الطالبُ مجتهدٌ</span> » avec un nâsikh de chaque famille :</p>
+<p>avec <span class="ar">كان</span> : <span class="fill-line" style="min-width:240px"></span><br>avec <span class="ar">إنّ</span> : <span class="fill-line" style="min-width:240px"></span></p>
+<p><span class="task-label">Tâche 2</span> Je souligne en rouge le nâsikh, en bleu son <span class="ar">اسم</span> et en vert son <span class="ar">خبر</span> dans : « <span class="ar">ظلَّ البابُ مفتوحًا</span> ».</p>
+<p><span class="task-label">Tâche 3</span> J'écris une phrase de mon invention avec « <span class="ar">ليت</span> » : <span class="fill-line" style="min-width:240px"></span></p>
+</div>
+</section>
+
+<section>
+<h2>📝 Exercices</h2>
+
+<div class="exercise"><h4><span class="exercise-num">1</span>Je complète</h4>
+<p>Les nawâsikh sont de <span class="fill-line"></span> familles. Après « <span class="ar">كان</span> », le sujet reste <span class="fill-line"></span> et le prédicat devient <span class="fill-line"></span>. Après « <span class="ar">إنّ</span> », le sujet devient <span class="fill-line"></span> et le prédicat reste <span class="fill-line"></span>.</p></div>
+
+<div class="exercise"><h4><span class="exercise-num">2</span>Je choisis la bonne réponse</h4>
+<b>a) Dans « <span class="ar">كان الجوُّ جميلًا</span> », « <span class="ar">جميلًا</span> » est :</b>
+<span class="opt"><span class="checkbox"></span><span class="ar">خبر كان</span></span><span class="opt"><span class="checkbox"></span><span class="ar">اسم كان</span></span><span class="opt"><span class="checkbox"></span><span class="ar">مبتدأ</span></span>
+<b>b) Dans « <span class="ar">إنَّ العلمَ نورٌ</span> », « <span class="ar">العلمَ</span> » est :</b>
+<span class="opt"><span class="checkbox"></span><span class="ar">اسم إنّ</span></span><span class="opt"><span class="checkbox"></span><span class="ar">خبر إنّ</span></span><span class="opt"><span class="checkbox"></span><span class="ar">فاعل</span></span>
+<b>c) Quel mot exprime le souhait ?</b>
+<span class="opt"><span class="checkbox"></span><span class="ar">لكنّ</span></span><span class="opt"><span class="checkbox"></span><span class="ar">ليتَ</span></span><span class="opt"><span class="checkbox"></span><span class="ar">كأنّ</span></span></div>
+
+<div class="exercise"><h4><span class="exercise-num">3</span>Je classe dans le tableau</h4>
+<span class="word-chip"><span class="ar">كان</span></span><span class="word-chip"><span class="ar">إنَّ</span></span><span class="word-chip"><span class="ar">أصبح</span></span><span class="word-chip"><span class="ar">لعلَّ</span></span><span class="word-chip"><span class="ar">ليس</span></span><span class="word-chip"><span class="ar">كأنَّ</span></span><span class="word-chip"><span class="ar">ظلَّ</span></span><span class="word-chip"><span class="ar">لكنَّ</span></span>
+<table class="data-table"><tr><th><span class="ar">كان وأخواتها</span></th><th><span class="ar">إنّ وأخواتها</span></th></tr>
+<tr><td><div class="lines"></div><div class="lines"></div></td><td><div class="lines"></div><div class="lines"></div></td></tr></table></div>
+
+<div class="exercise"><h4><span class="exercise-num">4</span>Je relie le nâsikh à son sens</h4>
+<div class="match-cols">
+<div><p>1. <span class="ar">ليس</span></p><p>2. <span class="ar">لعلَّ</span></p><p>3. <span class="ar">كأنَّ</span></p><p>4. <span class="ar">لكنَّ</span></p></div>
+<div><p>a. comparaison (comme si)</p><p>b. négation</p><p>c. opposition (mais)</p><p>d. espoir</p></div>
+</div>
+<p>Réponses : 1-<span class="fill-line sm" style="min-width:40px"></span> 2-<span class="fill-line sm" style="min-width:40px"></span> 3-<span class="fill-line sm" style="min-width:40px"></span> 4-<span class="fill-line sm" style="min-width:40px"></span></p></div>
+
+<div class="exercise"><h4><span class="exercise-num">5</span>J'ajoute « <span class="ar">كان</span> » (je mets le prédicat à l'accusatif)</h4>
+<p><span class="ar">أ</span>) <span class="ar">الولدُ سعيدٌ</span> ← <span class="fill-line" style="min-width:240px"></span></p>
+<p><span class="ar">ب</span>) <span class="ar">الشارعُ واسعٌ</span> ← <span class="fill-line" style="min-width:240px"></span></p>
+<p><span class="ar">ج</span>) <span class="ar">الدرسُ سهلٌ</span> ← <span class="fill-line" style="min-width:240px"></span></p></div>
+
+<div class="exercise"><h4><span class="exercise-num">6</span>J'ajoute « <span class="ar">إنّ</span> » (je mets le sujet à l'accusatif)</h4>
+<p><span class="ar">أ</span>) <span class="ar">الصدقُ فضيلةٌ</span> ← <span class="fill-line" style="min-width:240px"></span></p>
+<p><span class="ar">ب</span>) <span class="ar">المعلمُ مجتهدٌ</span> ← <span class="fill-line" style="min-width:240px"></span></p>
+<p><span class="ar">ج</span>) <span class="ar">البحرُ هادئٌ</span> ← <span class="fill-line" style="min-width:240px"></span></p></div>
+
+<div class="exercise"><h4><span class="exercise-num">7</span>Je corrige l'erreur de désinence</h4>
+<p><span class="ar">أ</span>) <span class="ar">كان الجوُّ جميلٌ</span>. ← <span class="fill-line" style="min-width:200px"></span></p>
+<p><span class="ar">ب</span>) <span class="ar">إنَّ الطالبُ مجتهدٌ</span>. ← <span class="fill-line" style="min-width:200px"></span></p>
+<p><span class="ar">ج</span>) <span class="ar">ليس الواجبُ صعبٌ</span>. ← <span class="fill-line" style="min-width:200px"></span></p></div>
+
+<div class="exercise"><h4><span class="exercise-num">8</span>J'analyse (fonction de chaque mot)</h4>
+<p><span class="ar">أ</span>) <span class="ar">أصبحَ الطقسُ باردًا</span> : <span class="ar">أصبحَ</span> = <span class="fill-line"></span> ; <span class="ar">الطقسُ</span> = <span class="fill-line"></span> ; <span class="ar">باردًا</span> = <span class="fill-line"></span></p>
+<p><span class="ar">ب</span>) <span class="ar">إنَّ الصبرَ جميلٌ</span> : <span class="ar">إنَّ</span> = <span class="fill-line"></span> ; <span class="ar">الصبرَ</span> = <span class="fill-line"></span> ; <span class="ar">جميلٌ</span> = <span class="fill-line"></span></p></div>
+</section>
+
+<div class="corrige-wrapper">
+<details class="corrige">
+<summary>Cliquer pour afficher / masquer — Corrigé complet</summary>
+<h5>Activité pratique</h5>
+<p>1) avec <span class="ar">كان</span> : <span class="ar">كان الطالبُ مجتهدًا</span>. avec <span class="ar">إنّ</span> : <span class="ar">إنَّ الطالبَ مجتهدٌ</span>. 2) Nâsikh : <span class="ar">ظلَّ</span> ; <span class="ar">اسمها</span> : <span class="ar">البابُ</span> ; <span class="ar">خبرها</span> : <span class="ar">مفتوحًا</span>. 3) Exemple : <span class="ar">ليتَ الشتاءَ قصيرٌ</span>.</p>
+<h5>Exercice 1</h5><p>deux ; nominatif (<span class="ar">مرفوع</span>) ; accusatif (<span class="ar">منصوب</span>) ; accusatif (<span class="ar">منصوب</span>) ; nominatif (<span class="ar">مرفوع</span>).</p>
+<h5>Exercice 2</h5><p>a) <span class="ar">خبر كان</span>. b) <span class="ar">اسم إنّ</span>. c) <span class="ar">ليتَ</span>.</p>
+<h5>Exercice 3</h5><p><span class="ar">كان وأخواتها</span> : <span class="ar">كان، أصبح، ليس، ظلَّ</span>. <span class="ar">إنّ وأخواتها</span> : <span class="ar">إنَّ، لعلَّ، كأنَّ، لكنَّ</span>.</p>
+<h5>Exercice 4</h5><p>1-b, 2-d, 3-a, 4-c.</p>
+<h5>Exercice 5</h5><p><span class="ar">أ</span>) <span class="ar">كان الولدُ سعيدًا</span>. <span class="ar">ب</span>) <span class="ar">كان الشارعُ واسعًا</span>. <span class="ar">ج</span>) <span class="ar">كان الدرسُ سهلًا</span>.</p>
+<h5>Exercice 6</h5><p><span class="ar">أ</span>) <span class="ar">إنَّ الصدقَ فضيلةٌ</span>. <span class="ar">ب</span>) <span class="ar">إنَّ المعلمَ مجتهدٌ</span>. <span class="ar">ج</span>) <span class="ar">إنَّ البحرَ هادئٌ</span>.</p>
+<h5>Exercice 7</h5><p><span class="ar">أ</span>) <span class="ar">كان الجوُّ جميلًا</span> (<span class="ar">خبر كان منصوب</span>). <span class="ar">ب</span>) <span class="ar">إنَّ الطالبَ مجتهدٌ</span> (<span class="ar">اسم إنّ منصوب</span>). <span class="ar">ج</span>) <span class="ar">ليس الواجبُ صعبًا</span> (<span class="ar">خبر ليس منصوب</span>).</p>
+<h5>Exercice 8</h5><p><span class="ar">أ</span>) <span class="ar">أصبحَ</span> : <span class="ar">فعل ناقص</span> (nâsikh verbal) ; <span class="ar">الطقسُ</span> : <span class="ar">اسم أصبح مرفوع</span> ; <span class="ar">باردًا</span> : <span class="ar">خبر أصبح منصوب</span>. <span class="ar">ب</span>) <span class="ar">إنَّ</span> : <span class="ar">حرف ناسخ</span> ; <span class="ar">الصبرَ</span> : <span class="ar">اسم إنّ منصوب</span> ; <span class="ar">جميلٌ</span> : <span class="ar">خبر إنّ مرفوع</span>.</p>
+</details>
+</div>
+
+<p class="footer-note">Fiche d'auto-apprentissage – Arabe – 5EAP</p>
+</div>
+</body>
+</html>
