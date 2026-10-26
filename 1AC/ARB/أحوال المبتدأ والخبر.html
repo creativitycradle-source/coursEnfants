@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>أحوال المبتدأ والخبر</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Naskh+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#251f3a;--ink-soft:#5d557a;--paper:#fbf9ff;--panel:#fff;--line:#d9d3ec;
+--indigo:#4b3f8f;--indigo-soft:#ebe8f7;--rose:#b1553f;--rose-soft:#f8e6df;--gold:#af8a2e;--gold-soft:#faf0d4;}
+*{box-sizing:border-box}
+body{margin:0;background:#ebe8f2;font-family:'Amiri','Noto Naskh Arabic',serif;color:var(--ink);line-height:2;font-size:19px}
+.sheet{max-width:900px;margin:18px auto;background:var(--paper);padding:26px 30px;border-radius:14px;box-shadow:0 4px 18px rgba(0,0,0,.1)}
+.masthead{display:flex;align-items:center;gap:18px;background:linear-gradient(135deg,var(--indigo),#6a5cb5);color:#fff;border-radius:14px;padding:18px 22px}
+.masthead h1{font-size:2.2rem;margin:0;line-height:1.3}
+.masthead p{margin:4px 0 0;opacity:.92}
+.meta-row{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.chip{background:var(--panel);border:1.5px solid var(--line);border-radius:20px;padding:2px 14px;font-size:.9rem;font-family:'Noto Naskh Arabic',serif}
+.chip b{color:var(--indigo)}
+section{margin:20px 0}
+h2{font-size:1.6rem;color:var(--indigo);border-bottom:3px solid var(--gold);display:inline-block;margin:0 0 10px;padding-bottom:2px}
+h3{color:var(--rose);margin:14px 0 4px;font-size:1.25rem}
+.box{background:var(--panel);border:1.5px solid var(--line);border-radius:12px;padding:12px 18px;margin:10px 0}
+.objectif-box{background:var(--indigo-soft);border-color:var(--indigo)}
+.rule-box{background:var(--gold-soft);border-right:6px solid var(--gold);border-radius:10px;padding:10px 16px;margin:10px 0}
+.example-box{background:var(--rose-soft);border-right:6px solid var(--rose);border-radius:10px;padding:8px 16px;margin:8px 0}
+.mu{color:var(--indigo);font-weight:700;border-bottom:3px solid var(--indigo)}
+.tw{color:var(--rose);font-weight:700;border-bottom:3px solid var(--rose)}
+table.data-table{width:100%;border-collapse:collapse;margin:10px 0;background:#fff}
+.data-table th,.data-table td{border:1.5px solid var(--line);padding:6px 10px;text-align:center}
+.data-table th{background:var(--indigo);color:#fff}
+.activity-box{background:var(--gold-soft);border:2px dashed var(--gold);border-radius:12px;padding:12px 18px}
+.task-label{display:inline-block;background:var(--gold);color:#fff;border-radius:8px;padding:0 10px;margin-left:6px;font-size:.9rem;font-family:'Noto Naskh Arabic',serif}
+.exercise{background:var(--panel);border:1.5px solid var(--line);border-radius:12px;padding:10px 18px 12px;margin:12px 0;page-break-inside:avoid}
+.exercise-num{display:inline-flex;width:32px;height:32px;border-radius:50%;background:var(--rose);color:#fff;align-items:center;justify-content:center;font-weight:700;margin-left:8px;font-family:'Noto Naskh Arabic',serif}
+.exercise h4{margin:0 0 6px;font-size:1.15rem;color:var(--indigo)}
+.fill-line{display:inline-block;min-width:110px;border-bottom:2px dotted var(--ink-soft)}
+.checkbox,.sq{display:inline-block;width:17px;height:17px;border:2px solid var(--indigo);border-radius:3px;vertical-align:middle;margin:0 6px}
+.opt{display:block;margin:0}
+.lines{border-bottom:2px dotted var(--ink-soft);height:28px;margin:4px 0}
+.match-cols{display:flex;justify-content:space-between;gap:30px}.match-cols div{flex:1}
+.match-cols p{margin:4px 0;background:var(--indigo-soft);border-radius:8px;padding:0 12px}
+.word-chip{display:inline-block;background:var(--gold-soft);border:1.5px solid var(--gold);border-radius:16px;padding:0 12px;margin:3px}
+.corrige-wrapper{page-break-before:always;margin-top:26px}
+details.corrige{border:2px solid var(--indigo);border-radius:12px;background:#fff;padding:8px 18px}
+details.corrige summary{cursor:pointer;font-size:1.3rem;color:var(--indigo);font-weight:700}
+.corrige h5{margin:12px 0 2px;color:var(--rose);font-size:1.1rem}
+.corrige p{margin:2px 0}
+.footer-note{text-align:center;color:var(--ink-soft);font-size:.9rem;margin-top:18px;font-family:'Noto Naskh Arabic',serif}
+@page{size:A4;margin:13mm}
+@media print{body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}.sheet{box-shadow:none;margin:0;max-width:none;padding:0;background:#fff}details.corrige:not([open]) > :not(summary){display:none}}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<header class="masthead">
+<svg width="66" height="62" viewBox="0 0 66 62" aria-hidden="true"><rect x="6" y="18" width="24" height="26" rx="6" fill="none" stroke="#fff" stroke-width="4"/><rect x="36" y="18" width="24" height="26" rx="6" fill="none" stroke="#e9c978" stroke-width="4"/><path d="M30 31h6" stroke="#fff" stroke-width="3"/></svg>
+<div><h1>أَحْوَالُ المُبْتَدَإِ وَالخَبَرِ</h1><p>اللغة العربية – الدرس اللغوي 19 · الأولى إعدادي</p></div>
+</header>
+
+<div class="meta-row">
+<span class="chip"><b>المستوى:</b> الأولى إعدادي (1AC)</span>
+<span class="chip"><b>المادة:</b> اللغة العربية — التراكيب</span>
+<span class="chip"><b>مدة الحصة:</b> ساعة</span>
+<span class="chip"><b>نوع الوثيقة:</b> فيشة تعلّم ذاتي</span>
+</div>
+
+<section>
+<h2>🎯 الهدف</h2>
+<div class="box objectif-box">في نهاية هذه الحصة سأكون قادرًا على:
+<ul>
+<li>أن أعرّف المبتدأ وأذكر أنه يكون في الغالب معرفة، وأحدّد مسوّغات مجيئه نكرة مفيدة؛</li>
+<li>أن أعرّف الخبر وأميّز أنواعه الخمسة: مفرد، جملة فعلية، جملة اسمية، شبه جملة ظرفية، شبه جملة جارّة ومجرورة؛</li>
+<li>أن أحدّد الرابط (الضمير العائد على المبتدأ) في الخبر الجملة؛</li>
+<li>أن أعرب المبتدأ والخبر بأنواعه إعرابًا صحيحًا.</li>
+</ul></div>
+</section>
+
+<section>
+<h2>📘 الدرس</h2>
+
+<h3>1) ملاحظة (الظاهرة الإعرابية)</h3>
+<div class="example-box">
+• <span class="tw">الوردُ</span> <span class="mu">جميلٌ</span>.<br>
+• <span class="tw">الطالبُ</span> <span class="mu">يكتبُ الدرسَ</span>.<br>
+• <span class="tw">البيتُ</span> <span class="mu">بابُهُ مفتوحٌ</span>.<br>
+• <span class="tw">الكتابُ</span> <span class="mu">فوقَ الطاولةِ</span>.<br>
+• <span class="tw">الكتابُ</span> <span class="mu">في الحقيبةِ</span>.</div>
+<p>الكلمات الملوّنة بالوردي هي <b>المبتدأ</b>، وما يلونها بالأزرق هو <b>الخبر</b>؛ وانتبه إلى أن الخبر يتغيّر شكله من مفرد إلى جملة إلى شبه جملة.</p>
+
+<h3>2) المبتدأ</h3>
+<div class="rule-box"><b>المبتدأ</b> اسم <b>مرفوع</b> يقع في أول الجملة الاسمية غالبًا، وهو على قسمين: <b>اسم ظاهر</b> (الوردُ، الطالبُ) أو <b>ضمير منفصل</b> (هو، هي، نحن، أنتَ...).</div>
+<p><b>الأصل في المبتدأ أن يكون معرفة</b> (الأزهارُ زينةُ الحدائقِ). ولا يأتي نكرةً إلا إذا أفاد، أي إذا وُجد مسوّغ. من مسوّغات مجيئه نكرة:</p>
+<table class="data-table">
+<tr><th>المسوّغ</th><th>مثال</th></tr>
+<tr><td>إذا وُصف</td><td>طفلٌ ذكيٌّ رافقنا.</td></tr>
+<tr><td>إذا سبقه نفي</td><td>ما أحدٌ حاضرٌ.</td></tr>
+<tr><td>إذا سبقه استفهام</td><td>أرجلٌ زارنا؟</td></tr>
+<tr><td>إذا أُضيف</td><td>عواقبُ التدخينِ وخيمةٌ.</td></tr>
+<tr><td>إذا تقدّم الخبر وكان شبه جملة</td><td>في الكتابِ فوائدُ.</td></tr>
+</table>
+
+<h3>3) الخبر</h3>
+<div class="rule-box"><b>الخبر</b> اسم يُكمل الجملة مع المبتدأ ويتمّ معناها؛ وهو <b>مرفوع</b> إذا كان مفردًا، وله خمسة أنواع:</div>
+<table class="data-table">
+<tr><th>نوع الخبر</th><th>تعريفه</th><th>مثال</th></tr>
+<tr><td>1) مفرد</td><td>ما ليس جملة ولا شبه جملة.</td><td>الوردُ <b>جميلٌ</b>.</td></tr>
+<tr><td>2) جملة فعلية</td><td>جملة تبدأ بفعل، ويجب أن تشتمل على ضمير يربطها بالمبتدأ.</td><td>الطالبُ <b>يكتبُ الدرسَ</b>.</td></tr>
+<tr><td>3) جملة اسمية</td><td>جملة تبدأ باسم، ويجب أن تشتمل على ضمير يربطها بالمبتدأ.</td><td>البيتُ <b>بابُهُ مفتوحٌ</b>.</td></tr>
+<tr><td>4) شبه جملة ظرفية</td><td>ظرف (فوق، تحت، أمام، خلف، عند...).</td><td>الكتابُ <b>فوقَ الطاولةِ</b>.</td></tr>
+<tr><td>5) شبه جملة جارّة ومجرورة</td><td>حرف جر + اسم مجرور.</td><td>الكتابُ <b>في الحقيبةِ</b>.</td></tr>
+</table>
+<div class="worked-example" style="background:var(--indigo-soft);border:1.5px solid var(--indigo);border-radius:12px;padding:8px 16px;margin:10px 0">
+<b>الرابط:</b> في «الطالبُ يكتبُ الدرسَ» الرابط هو الضمير المستتر «هو» في «يكتبُ»، وفي «البيتُ بابُهُ مفتوحٌ» الرابط هو الهاء في «بابُهُ»؛ وكلاهما يعود على المبتدأ.</div>
+
+<h3>4) ملخص الدرس</h3>
+<div class="rule-box">المبتدأ اسم مرفوع في أول الجملة، أصله أن يكون <b>معرفة</b>، ويأتي نكرة مفيدة بمسوّغ (وصف، نفي، استفهام، إضافة، تقدّم الخبر شبه جملة). والخبر <b>مفرد</b> أو <b>جملة</b> (فعلية أو اسمية، ولا بد فيها من رابط) أو <b>شبه جملة</b> (ظرف أو جار ومجرور).</div>
+
+<h3>5) نماذج من الإعراب</h3>
+<div class="example-box">
+<b>الكتابُ مفيدٌ:</b> الكتابُ: مبتدأ مرفوع وعلامة رفعه الضمة الظاهرة على آخره. مفيدٌ: خبر مرفوع وعلامة رفعه الضمة الظاهرة على آخره.<br><br>
+<b>الطفلُ يقرأُ القصةَ:</b> الطفلُ: مبتدأ مرفوع... يقرأُ: فعل مضارع مرفوع وعلامة رفعه الضمة الظاهرة، والفاعل ضمير مستتر تقديره «هو». القصةَ: مفعول به منصوب وعلامة نصبه الفتحة الظاهرة، والجملة الفعلية «يقرأ القصةَ» في محل رفع خبر المبتدأ.<br><br>
+<b>الحديقةُ أزهارُها جميلةٌ:</b> الحديقةُ: مبتدأ أول مرفوع. أزهارُها: مبتدأ ثان مرفوع وهو مضاف، والهاء ضمير متصل مبني في محل جر مضاف إليه. جميلةٌ: خبر المبتدأ الثاني مرفوع، والجملة الاسمية «أزهارُها جميلةٌ» في محل رفع خبر المبتدأ الأول.<br><br>
+<b>الكتابُ في الحقيبةِ:</b> الكتابُ: مبتدأ مرفوع. في: حرف جر مبني على السكون لا محل له من الإعراب. الحقيبةِ: اسم مجرور بـ«في» وعلامة جره الكسرة الظاهرة، والجار والمجرور شبه جملة في محل رفع خبر.<br><br>
+<b>الطائرُ فوقَ الغصنِ:</b> الطائرُ: مبتدأ مرفوع. فوقَ: ظرف مكان منصوب وعلامة نصبه الفتحة الظاهرة وهو مضاف. الغصنِ: مضاف إليه مجرور، وشبه الجملة من الظرف والمضاف إليه في محل رفع خبر.</div>
+</section>
+
+<section>
+<h2>✏️ نشاط تطبيقي: «ورشة الجمل»</h2>
+<div class="activity-box">
+<p><span class="task-label">المهمة 1</span> أركّب ثلاث جمل اسمية بالمبتدأ «التلميذُ» بحيث يكون خبرها على الترتيب: مفردًا، ثم جملة فعلية، ثم شبه جملة:<br>
+أ) <span class="fill-line" style="min-width:260px"></span><br>ب) <span class="fill-line" style="min-width:260px"></span><br>ج) <span class="fill-line" style="min-width:260px"></span></p>
+<p><span class="task-label">المهمة 2</span> أصحّح الجملة بجعل المبتدأ مفيدًا (بوصفه): «رجلٌ حاضرٌ». ← <span class="fill-line" style="min-width:240px"></span></p>
+<p><span class="task-label">المهمة 3</span> في جملة «الغيمةُ تحملُ المطرَ» أضع خطًّا تحت الخبر، وأكتب نوعه والرابط: <span class="fill-line" style="min-width:240px"></span></p>
+</div>
+</section>
+
+<section>
+<h2>📝 تمارين للتدرّب</h2>
+
+<div class="exercise"><h4><span class="exercise-num">1</span>أُعيّن المبتدأ والخبر في كل جملة</h4>
+<p>أ) العلمُ نورٌ. &nbsp; المبتدأ: <span class="fill-line"></span> الخبر: <span class="fill-line"></span></p>
+<p>ب) الأطفالُ يلعبونَ في الساحةِ. &nbsp; المبتدأ: <span class="fill-line"></span> الخبر: <span class="fill-line" style="min-width:160px"></span></p>
+<p>ج) السماءُ نجومُها كثيرةٌ. &nbsp; المبتدأ: <span class="fill-line"></span> الخبر: <span class="fill-line" style="min-width:160px"></span></p></div>
+
+<div class="exercise"><h4><span class="exercise-num">2</span>أُحدّد نوع الخبر</h4>
+<p>أ) الشمسُ ساطعةٌ. <span class="fill-line"></span></p>
+<p>ب) الولدُ يحبُّ أمَّهُ. <span class="fill-line"></span></p>
+<p>ج) الكرةُ تحتَ الشجرةِ. <span class="fill-line"></span></p>
+<p>د) المعلّمُ صوتُهُ هادئٌ. <span class="fill-line"></span></p>
+<p>هـ) الماءُ في الكأسِ. <span class="fill-line"></span></p></div>
+
+<div class="exercise"><h4><span class="exercise-num">3</span>أحدّد الرابط في كل جملة</h4>
+<p>أ) الطالبُ يجتهدُ في دروسِهِ. <span class="fill-line"></span></p>
+<p>ب) الحديقةُ أزهارُها جميلةٌ. <span class="fill-line"></span></p>
+<p>ج) المريضُ شفاهُ اللهُ. <span class="fill-line"></span></p></div>
+
+<div class="exercise"><h4><span class="exercise-num">4</span>أختار الجواب الصحيح</h4>
+<b>أ) المبتدأ في «ما أحدٌ حاضرٌ» نكرة جاز مجيئه لأنه:</b>
+<span class="opt"><span class="checkbox"></span>وُصف</span>
+<span class="opt"><span class="checkbox"></span>سبقه نفي</span>
+<span class="opt"><span class="checkbox"></span>سبقه استفهام</span>
+<b>ب) «في الكتابِ فوائدُ»: الخبر هو:</b>
+<span class="opt"><span class="checkbox"></span>فوائدُ</span>
+<span class="opt"><span class="checkbox"></span>في الكتابِ</span>
+<span class="opt"><span class="checkbox"></span>الكتابِ</span></div>
+
+<div class="exercise"><h4><span class="exercise-num">5</span>أُبرّر مجيء المبتدأ نكرة</h4>
+<p>أ) هل أخٌ لك هنا؟ <span class="fill-line"></span></p>
+<p>ب) كتابٌ مفيدٌ بين يديّ. <span class="fill-line"></span></p>
+<p>ج) في المدرسةِ مكتبةٌ. <span class="fill-line"></span></p>
+<p>د) ما طالبٌ غائبٌ. <span class="fill-line"></span></p></div>
+
+<div class="exercise"><h4><span class="exercise-num">6</span>أُكمل بخبر من النوع المطلوب</h4>
+<p>أ) الأخلاقُ ... (مفرد) <span class="fill-line" style="min-width:180px"></span></p>
+<p>ب) النجاحُ ... (جملة فعلية) <span class="fill-line" style="min-width:180px"></span></p>
+<p>ج) الناسُ ... (جملة اسمية) <span class="fill-line" style="min-width:180px"></span></p>
+<p>د) المحطةُ ... (شبه جملة) <span class="fill-line" style="min-width:180px"></span></p></div>
+
+<div class="exercise"><h4><span class="exercise-num">7</span>أحوّل الخبر المفرد إلى خبر من نوع آخر</h4>
+<p>أ) البيتُ واسعٌ ← (خبر جملة اسمية) <span class="fill-line" style="min-width:220px"></span></p>
+<p>ب) الطائرُ جميلٌ ← (خبر جملة فعلية) <span class="fill-line" style="min-width:220px"></span></p>
+<p>ج) القلمُ مفيدٌ ← (خبر شبه جملة) <span class="fill-line" style="min-width:220px"></span></p></div>
+
+<div class="exercise"><h4><span class="exercise-num">8</span>أُعرب</h4>
+<p>أ) الصدقُ منجاةٌ. <span class="fill-line" style="min-width:300px"></span></p>
+<div class="lines"></div>
+<p>ب) الطفلُ يلعبُ بالكرةِ. <span class="fill-line" style="min-width:300px"></span></p>
+<div class="lines"></div><div class="lines"></div>
+<p>ج) الكتابُ على الرفِّ. <span class="fill-line" style="min-width:300px"></span></p>
+<div class="lines"></div><div class="lines"></div></div>
+</section>
+
+<div class="corrige-wrapper">
+<details class="corrige">
+<summary>اضغط لإظهار الحل / إخفائه — التصحيح الكامل</summary>
+<h5>نشاط تطبيقي</h5>
+<p>1) أمثلة: التلميذُ مجتهدٌ (مفرد)؛ التلميذُ يكتبُ الدرسَ (جملة فعلية)؛ التلميذُ في القسمِ (شبه جملة). 2) «رجلٌ كريمٌ حاضرٌ» (المسوّغ: الوصف) أو «أرجلٌ حاضرٌ؟» (استفهام). 3) الخبر: «تحملُ المطرَ»؛ نوعه جملة فعلية؛ الرابط: الضمير المستتر «هي» في «تحملُ».</p>
+<h5>تمرين 1</h5>
+<p>أ) المبتدأ: العلمُ، الخبر: نورٌ. ب) المبتدأ: الأطفالُ، الخبر: جملة «يلعبون في الساحةِ». ج) المبتدأ: السماءُ، الخبر: جملة «نجومُها كثيرةٌ».</p>
+<h5>تمرين 2</h5>
+<p>أ) مفرد. ب) جملة فعلية. ج) شبه جملة ظرفية. د) جملة اسمية. هـ) شبه جملة جارّة ومجرورة.</p>
+<h5>تمرين 3</h5>
+<p>أ) الضمير المستتر «هو» في «يجتهدُ» (والهاء في «دروسِهِ» تعود عليه أيضًا). ب) الهاء في «أزهارُها». ج) الهاء في «شفاهُ» (يعود على المريض).</p>
+<h5>تمرين 4</h5>
+<p>أ) سبقه نفي. ب) في الكتابِ.</p>
+<h5>تمرين 5</h5>
+<p>أ) سبقه استفهام. ب) وُصف بـ«مفيدٌ». ج) تقدّم الخبر وهو شبه جملة (في المدرسةِ). د) سبقه نفي.</p>
+<h5>تمرين 6</h5>
+<p>أمثلة: أ) الأخلاقُ حسنةٌ. ب) النجاحُ يحتاجُ إلى الاجتهادِ. ج) الناسُ أخلاقُهم مختلفةٌ. د) المحطةُ أمامَ المدرسةِ (أو: في المدينةِ).</p>
+<h5>تمرين 7</h5>
+<p>أمثلة: أ) البيتُ غرفُهُ واسعةٌ. ب) الطائرُ يغرّدُ في الصباحِ. ج) القلمُ في الحقيبةِ.</p>
+<h5>تمرين 8</h5>
+<p>أ) الصدقُ: مبتدأ مرفوع وعلامة رفعه الضمة الظاهرة على آخره. منجاةٌ: خبر مرفوع وعلامة رفعه الضمة الظاهرة على آخره.<br>
+ب) الطفلُ: مبتدأ مرفوع وعلامة رفعه الضمة الظاهرة. يلعبُ: فعل مضارع مرفوع وعلامة رفعه الضمة الظاهرة، والفاعل ضمير مستتر تقديره «هو». بالكرةِ: الباء حرف جر مبني لا محل له من الإعراب، الكرةِ: اسم مجرور وعلامة جره الكسرة الظاهرة، والجار والمجرور متعلق بـ«يلعبُ». والجملة الفعلية في محل رفع خبر المبتدأ.<br>
+ج) الكتابُ: مبتدأ مرفوع وعلامة رفعه الضمة الظاهرة. على: حرف جر مبني على السكون لا محل له. الرفِّ: اسم مجرور وعلامة جره الكسرة الظاهرة، والجار والمجرور في محل رفع خبر.</p>
+</details>
+</div>
+
+<p class="footer-note">فيشة تعلّم ذاتي – اللغة العربية – الأولى إعدادي</p>
+</div>
+</body>
+</html>
