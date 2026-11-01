@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>اسم الآلة – فيشة تعلّم ذاتي</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Naskh+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#251f3a;--ink-soft:#5d557a;--paper:#fbf9ff;--panel:#fff;--line:#d9d3ec;
+--indigo:#4b3f8f;--indigo-soft:#ebe8f7;--rose:#b1553f;--rose-soft:#f8e6df;--gold:#af8a2e;--gold-soft:#faf0d4;}
+*{box-sizing:border-box}
+body{margin:0;background:#ebe8f2;font-family:'Amiri','Noto Naskh Arabic',serif;color:var(--ink);line-height:2;font-size:19px}
+.sheet{max-width:900px;margin:18px auto;background:var(--paper);padding:26px 30px;border-radius:14px;box-shadow:0 4px 18px rgba(0,0,0,.1)}
+.masthead{display:flex;align-items:center;gap:18px;background:linear-gradient(135deg,var(--indigo),#6a5cb5);color:#fff;border-radius:14px;padding:18px 22px}
+.masthead h1{font-size:2.2rem;margin:0;line-height:1.3}
+.masthead p{margin:4px 0 0;opacity:.92}
+.meta-row{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.chip{background:var(--panel);border:1.5px solid var(--line);border-radius:20px;padding:2px 14px;font-size:.9rem;font-family:'Noto Naskh Arabic',serif}
+.chip b{color:var(--indigo)}
+section{margin:20px 0}
+h2{font-size:1.6rem;color:var(--indigo);border-bottom:3px solid var(--gold);display:inline-block;margin:0 0 10px;padding-bottom:2px}
+h3{color:var(--rose);margin:14px 0 4px;font-size:1.25rem}
+.box{background:var(--panel);border:1.5px solid var(--line);border-radius:12px;padding:12px 18px;margin:10px 0}
+.objectif-box{background:var(--indigo-soft);border-color:var(--indigo)}
+.rule-box{background:var(--gold-soft);border-right:6px solid var(--gold);border-radius:10px;padding:10px 16px;margin:10px 0}
+.example-box{background:var(--rose-soft);border-right:6px solid var(--rose);border-radius:10px;padding:8px 16px;margin:8px 0}
+.mu{color:var(--indigo);font-weight:700;border-bottom:3px solid var(--indigo)}
+.tw{color:var(--rose);font-weight:700;border-bottom:3px solid var(--rose)}
+table.data-table{width:100%;border-collapse:collapse;margin:10px 0;background:#fff}
+.data-table th,.data-table td{border:1.5px solid var(--line);padding:6px 10px;text-align:center}
+.data-table th{background:var(--indigo);color:#fff}
+.activity-box{background:var(--gold-soft);border:2px dashed var(--gold);border-radius:12px;padding:12px 18px}
+.task-label{display:inline-block;background:var(--gold);color:#fff;border-radius:8px;padding:0 10px;margin-left:6px;font-size:.9rem;font-family:'Noto Naskh Arabic',serif}
+.exercise{background:var(--panel);border:1.5px solid var(--line);border-radius:12px;padding:10px 18px 12px;margin:12px 0;page-break-inside:avoid}
+.exercise-num{display:inline-flex;width:32px;height:32px;border-radius:50%;background:var(--rose);color:#fff;align-items:center;justify-content:center;font-weight:700;margin-left:8px;font-family:'Noto Naskh Arabic',serif}
+.exercise h4{margin:0 0 6px;font-size:1.15rem;color:var(--indigo)}
+.fill-line{display:inline-block;min-width:110px;border-bottom:2px dotted var(--ink-soft)}
+.checkbox,.sq{display:inline-block;width:17px;height:17px;border:2px solid var(--indigo);border-radius:3px;vertical-align:middle;margin:0 6px}
+.opt{display:block;margin:0}
+.lines{border-bottom:2px dotted var(--ink-soft);height:28px;margin:4px 0}
+.match-cols{display:flex;justify-content:space-between;gap:30px}.match-cols div{flex:1}
+.match-cols p{margin:4px 0;background:var(--indigo-soft);border-radius:8px;padding:0 12px}
+.word-chip{display:inline-block;background:var(--gold-soft);border:1.5px solid var(--gold);border-radius:16px;padding:0 12px;margin:3px}
+.corrige-wrapper{page-break-before:always;margin-top:26px}
+details.corrige{border:2px solid var(--indigo);border-radius:12px;background:#fff;padding:8px 18px}
+details.corrige summary{cursor:pointer;font-size:1.3rem;color:var(--indigo);font-weight:700}
+.corrige h5{margin:12px 0 2px;color:var(--rose);font-size:1.1rem}
+.corrige p{margin:2px 0}
+.footer-note{text-align:center;color:var(--ink-soft);font-size:.9rem;margin-top:18px;font-family:'Noto Naskh Arabic',serif}
+@page{size:A4;margin:13mm}
+@media print{body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}.sheet{box-shadow:none;margin:0;max-width:none;padding:0;background:#fff}details.corrige:not([open]) > :not(summary){display:none}}
+@media print{body,body *{font-family:Tahoma,'Segoe UI',Arial,'DejaVu Sans',sans-serif !important}svg text{font-family:Tahoma,Arial,sans-serif !important}}
+.checkbox{display:inline-block;width:15px;height:15px;border:2px solid var(--indigo);border-radius:3px;vertical-align:middle;margin-left:6px}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<header class="masthead">
+<svg width="66" height="62" viewBox="0 0 66 62" aria-hidden="true"><path d="M14 50 40 24" stroke="#fff" stroke-width="6" stroke-linecap="round"/><circle cx="44" cy="20" r="11" fill="none" stroke="#e9c978" stroke-width="5"/><path d="M12 54l6-6" stroke="#e9c978" stroke-width="5" stroke-linecap="round"/></svg>
+<div><h1>اسْمُ الآلَةِ</h1><p>اللغة العربية – الصرف والاشتقاق</p></div>
+</header>
+
+<div class="meta-row">
+<span class="chip"><b>المستوى:</b> الخامسة ابتدائي (5AEP)</span>
+<span class="chip"><b>المادة:</b> اللغة العربية — الصرف</span>
+<span class="chip"><b>مدة الحصة:</b> ساعة</span>
+<span class="chip"><b>نوع الوثيقة:</b> فيشة تعلّم ذاتي</span>
+</div>
+
+<section>
+<h2>🎯 الهدف</h2>
+<div class="box objectif-box">في نهاية هذه الحصة سأكون قادرًا على:
+<ul>
+<li>أن أعرّف اسم الآلة وأذكر فائدته؛</li>
+<li>أن أستخرج أسماء الآلة من نص أو جمل؛</li>
+<li>أن أعرف أوزانه الشائعة: <b>مِفْعَل، مِفْعَال، مِفْعَلَة، فَعَّالَة</b>؛</li>
+<li>أن أشتقّ اسم الآلة من الفعل الثلاثي؛</li>
+<li>أن أميّز بين اسم الآلة واسم المكان.</li>
+</ul></div>
+</section>
+
+<section>
+<h2>📘 الدرس</h2>
+
+<h3>1) ملاحظة</h3>
+<div class="example-box">
+• نَفْتَحُ البابَ بِـ<span class="tw">المِفْتَاحِ</span>.<br>
+• نَزِنُ الفاكهةَ بِـ<span class="tw">المِيزَانِ</span>.<br>
+• تُنَظِّفُ الأُمُّ الأرضَ بِـ<span class="tw">المِكْنَسَةِ</span>.<br>
+• نَغْسِلُ الثيابَ في <span class="tw">الغَسَّالَةِ</span>.</div>
+<p>الكلمات الملوّنة تدلّ على <b>أداة</b> نستعملها للقيام بعمل ما: المفتاح للفتح، والميزان للوزن، والمكنسة للكنس، والغسّالة للغسل.</p>
+
+<h3>2) ما هو اسم الآلة؟</h3>
+<div class="rule-box"><b>اسم الآلة</b> اسم مشتقّ من الفعل (غالبًا الفعل الثلاثي) يدلّ على <b>الأداة</b> التي يقع بها الفعل.<br>
+مثال: فَتَحَ ← <b>مِفْتَاح</b> (أداة الفتح) &nbsp;·&nbsp; كَنَسَ ← <b>مِكْنَسَة</b> (أداة الكنس).</div>
+
+<h3>3) أوزان اسم الآلة الشائعة</h3>
+<table class="data-table">
+<tr><th>الوزن</th><th>الأمثلة</th><th>الفعل</th></tr>
+<tr><td><b>مِفْعَل</b></td><td>مِبْرَد ، مِنْجَل ، مِكْبَح</td><td>بَرَدَ ، نَجَلَ ، كَبَحَ</td></tr>
+<tr><td><b>مِفْعَال</b></td><td>مِفْتَاح ، مِيزَان ، مِنْشَار ، مِحْرَاث</td><td>فَتَحَ ، وَزَنَ ، نَشَرَ ، حَرَثَ</td></tr>
+<tr><td><b>مِفْعَلَة</b></td><td>مِكْنَسَة ، مِطْرَقَة ، مِلْعَقَة ، مِسْطَرَة</td><td>كَنَسَ ، طَرَقَ ، لَعِقَ ، سَطَرَ</td></tr>
+<tr><td><b>فَعَّالَة</b></td><td>غَسَّالَة ، ثَلَّاجَة ، سَيَّارَة ، حَصَّادَة</td><td>غَسَلَ ، ثَلَجَ ، سَارَ ، حَصَدَ</td></tr>
+</table>
+<div class="rule-box"><b>لاحظ:</b> في الأوزان الثلاثة الأولى تُكسر الميم دائمًا (<b>مِـ</b>) وتبدأ الكلمة بميم مكسورة. وفي وزن <b>فَعَّالَة</b> تتضعّف عين الفعل وتنتهي الكلمة بتاء مربوطة.</div>
+
+<h3>4) انتبه: اسم الآلة ≠ اسم المكان</h3>
+<table class="data-table">
+<tr><th>اسم الآلة (ميمه مكسورة)</th><th>اسم المكان (ميمه مفتوحة)</th></tr>
+<tr><td><b>مِسْطَرَة</b> ، <b>مِفْتَاح</b> ، <b>مِطْرَقَة</b></td><td><b>مَكْتَب</b> ، <b>مَلْعَب</b> ، <b>مَطْبَخ</b> ، <b>مَدْرَسَة</b></td></tr>
+<tr><td>الأداة التي نعمل بها</td><td>المكان الذي يقع فيه الفعل</td></tr>
+</table>
+
+<h3>5) ملاحظة</h3>
+<div class="box">بعض أسماء الأدوات <b>جامدة</b> غير مشتقة من فعل، فلا تُعدّ اسم آلة بالمعنى الصرفي، مثل: <b>سِكِّين، فَأْس، قَلَم، سَيْف</b>. أمّا اسم الآلة فهو <b>المشتق</b> على الأوزان السابقة.</div>
+
+<h3>6) أتذكّر</h3>
+<ul>
+<li>اسم الآلة يدلّ على أداة العمل؛</li>
+<li>أشهر أوزانه: مِفْعَل، مِفْعَال، مِفْعَلَة، فَعَّالَة؛</li>
+<li>الميم في أوله مكسورة، بينما هي مفتوحة في اسم المكان.</li>
+</ul>
+</section>
+
+<section>
+<h2>✏️ نشاط تطبيقي: «ورشة الأدوات»</h2>
+<div class="activity-box">
+<p><span class="task-label">المهمة 1</span> أبحث في مطبخ البيت أو حقيبتي أو ورشة أبي عن 4 أدوات تعرف أسماءها، وأكتب اسم الأداة وفعلها ووزنها:</p>
+<table class="data-table">
+<tr><th>الأداة</th><th>الفعل</th><th>الوزن</th></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+</table>
+<p><span class="task-label">المهمة 2</span> أكتب جملتين فيهما اسما آلة، وأضع خطًّا تحتهما:</p>
+<div class="lines"></div><div class="lines"></div>
+<p><span class="task-label">المهمة 3</span> أبتكر آلة خيالية، وأقترح لها اسمًا على وزن «مِفْعَال» أو «مِفْعَلَة» وأقول ما فعلها: <span class="fill-line" style="min-width:260px"></span></p>
+</div>
+</section>
+
+<section>
+<h2>📝 تمارين للتدرّب</h2>
+
+<div class="exercise"><h4><span class="exercise-num">1</span>أستخرج اسم الآلة من كل جملة</h4>
+<p>أ) قَطَعَ النَّجَّارُ الخَشَبَ بِالمِنْشَارِ. <span class="fill-line"></span></p>
+<p>ب) دَقَّ العَامِلُ الوَتِدَ بِالمِطْرَقَةِ. <span class="fill-line"></span></p>
+<p>ج) حَصَدَ الفَلَّاحُ القَمْحَ بِالحَصَّادَةِ. <span class="fill-line"></span></p>
+<p>د) كَتَبْتُ الخَطَّ بِالمِسْطَرَةِ. <span class="fill-line"></span></p></div>
+
+<div class="exercise"><h4><span class="exercise-num">2</span>أختار الجواب الصحيح</h4>
+<b>أ) اسم الآلة من الفعل «كَنَسَ» هو:</b>
+<span class="opt"><span class="checkbox"></span>مَكْنَس</span><span class="opt"><span class="checkbox"></span>مِكْنَسَة</span><span class="opt"><span class="checkbox"></span>كانِس</span>
+<b>ب) يُشتقّ اسم الآلة غالبًا من الفعل:</b>
+<span class="opt"><span class="checkbox"></span>الثلاثي</span><span class="opt"><span class="checkbox"></span>الخماسي</span><span class="opt"><span class="checkbox"></span>الجامد</span>
+<b>ج) اسم الآلة من بين الكلمات الآتية:</b>
+<span class="opt"><span class="checkbox"></span>مَلْعَب</span><span class="opt"><span class="checkbox"></span>مِطْرَقَة</span><span class="opt"><span class="checkbox"></span>لاعِب</span></div>
+
+<div class="exercise"><h4><span class="exercise-num">3</span>صحيح أم خطأ؟ (أصحّح الخطأ)</h4>
+<p>1) «مِيزَان» اسم آلة على وزن «مِفْعَال». (<span class="fill-line" style="min-width:50px"></span>)</p>
+<p>2) «مَكْتَب» اسم آلة. (<span class="fill-line" style="min-width:50px"></span>) ← <span class="fill-line"></span></p>
+<p>3) «غَسَّالَة» اسم آلة على وزن «فَعَّالَة». (<span class="fill-line" style="min-width:50px"></span>)</p>
+<p>4) «سِكِّين» اسم آلة مشتقّ من الفعل «سَكَنَ». (<span class="fill-line" style="min-width:50px"></span>) ← <span class="fill-line"></span></p></div>
+
+<div class="exercise"><h4><span class="exercise-num">4</span>أصل كل فعل باسم الآلة المشتقّ منه</h4>
+<div class="match-cols">
+<div><p>1. كَنَسَ</p><p>2. فَتَحَ</p><p>3. وَزَنَ</p><p>4. حَرَثَ</p></div>
+<div><p>أ. مِفْتَاح</p><p>ب. مِحْرَاث</p><p>ج. مِكْنَسَة</p><p>د. مِيزَان</p></div>
+</div>
+<p>الأجوبة: 1-<span class="fill-line" style="min-width:40px"></span> 2-<span class="fill-line" style="min-width:40px"></span> 3-<span class="fill-line" style="min-width:40px"></span> 4-<span class="fill-line" style="min-width:40px"></span></p></div>
+
+<div class="exercise"><h4><span class="exercise-num">5</span>أصنّف أسماء الآلة حسب أوزانها</h4>
+<span class="word-chip">مِبْرَد</span><span class="word-chip">مِنْشَار</span><span class="word-chip">مِطْرَقَة</span><span class="word-chip">ثَلَّاجَة</span><span class="word-chip">مِفْتَاح</span><span class="word-chip">مِلْعَقَة</span><span class="word-chip">غَسَّالَة</span><span class="word-chip">مِنْجَل</span>
+<table class="data-table"><tr><th>مِفْعَل</th><th>مِفْعَال</th><th>مِفْعَلَة</th><th>فَعَّالَة</th></tr>
+<tr><td><div class="lines"></div><div class="lines"></div></td><td><div class="lines"></div><div class="lines"></div></td><td><div class="lines"></div><div class="lines"></div></td><td><div class="lines"></div><div class="lines"></div></td></tr></table></div>
+
+<div class="exercise"><h4><span class="exercise-num">6</span>أشتقّ اسم الآلة من الفعل</h4>
+<p>بَرَدَ ← <span class="fill-line"></span> &nbsp;&nbsp; سَمَرَ ← <span class="fill-line"></span> &nbsp;&nbsp; لَعِقَ ← <span class="fill-line"></span></p>
+<p>ثَلَجَ ← <span class="fill-line"></span> &nbsp;&nbsp; حَصَدَ ← <span class="fill-line"></span> &nbsp;&nbsp; نَشَرَ ← <span class="fill-line"></span></p></div>
+
+<div class="exercise"><h4><span class="exercise-num">7</span>أكمل بما يناسب من الكلمات</h4>
+<span class="word-chip">مِكْنَسَة</span><span class="word-chip">مِيزَان</span><span class="word-chip">مِفْتَاح</span><span class="word-chip">مِنْشَار</span><span class="word-chip">مِطْرَقَة</span>
+<p>أ) أفتح باب البيت بـ <span class="fill-line"></span></p>
+<p>ب) أزن الفاكهة بـ <span class="fill-line"></span></p>
+<p>ج) أنظّف الأرض بـ <span class="fill-line"></span></p>
+<p>د) يقطع النجّار الخشب بـ <span class="fill-line"></span></p>
+<p>هـ) أدقّ المسمار بـ <span class="fill-line"></span></p></div>
+
+<div class="exercise"><h4><span class="exercise-num">8</span>أفرّق بين اسم الآلة واسم المكان</h4>
+<span class="word-chip">مَكْتَب</span><span class="word-chip">مِفْتَاح</span><span class="word-chip">مَلْعَب</span><span class="word-chip">مِطْرَقَة</span><span class="word-chip">مَطْبَخ</span><span class="word-chip">مِسْطَرَة</span>
+<table class="data-table"><tr><th>اسم آلة</th><th>اسم مكان</th></tr>
+<tr><td><div class="lines"></div><div class="lines"></div></td><td><div class="lines"></div><div class="lines"></div></td></tr></table>
+<p>أكتب جملة فيها اسم آلة وأخرى فيها اسم مكان:</p>
+<div class="lines"></div><div class="lines"></div></div>
+</section>
+
+<div class="corrige-wrapper">
+<details class="corrige">
+<summary>اضغط لإظهار الحل / إخفائه — التصحيح الكامل</summary>
+<h5>نشاط تطبيقي</h5>
+<p>1) أمثلة: مِلْعَقَة (لَعِقَ، مِفْعَلَة)؛ مِسْطَرَة (سَطَرَ، مِفْعَلَة)؛ مِفْتَاح (فَتَحَ، مِفْعَال)؛ مِكْنَسَة (كَنَسَ، مِفْعَلَة). 2) إجابة حرّة مثل: فتحتُ الصندوقَ بالمِفتاحِ. / رسمتُ الخطَّ بالمِسطرةِ. 3) إجابة حرّة تُراعى فيها صحة الوزن، مثل «مِجْمَعَة» (من جَمَعَ، أداة الجمع) أو «مِقْطَع» (من قَطَعَ، أداة القطع).</p>
+<h5>تمرين 1</h5><p>أ) المِنْشَار. ب) المِطْرَقَة. ج) الحَصَّادَة. د) المِسْطَرَة.</p>
+<h5>تمرين 2</h5><p>أ) مِكْنَسَة. ب) الثلاثي. ج) مِطْرَقَة.</p>
+<h5>تمرين 3</h5><p>1) صحيح. 2) خطأ: «مَكْتَب» اسم مكان لأن ميمه مفتوحة. 3) صحيح. 4) خطأ: «سِكِّين» اسم جامد غير مشتق.</p>
+<h5>تمرين 4</h5><p>1-ج، 2-أ، 3-د، 4-ب.</p>
+<h5>تمرين 5</h5><p>مِفْعَل: مِبْرَد، مِنْجَل. مِفْعَال: مِنْشَار، مِفْتَاح. مِفْعَلَة: مِطْرَقَة، مِلْعَقَة. فَعَّالَة: ثَلَّاجَة، غَسَّالَة.</p>
+<h5>تمرين 6</h5><p>مِبْرَد ؛ مِسْمَار ؛ مِلْعَقَة ؛ ثَلَّاجَة ؛ حَصَّادَة ؛ مِنْشَار.</p>
+<h5>تمرين 7</h5><p>أ) بِالمِفْتَاحِ. ب) بِالمِيزَانِ. ج) بِالمِكْنَسَةِ. د) بِالمِنْشَارِ. هـ) بِالمِطْرَقَةِ.</p>
+<h5>تمرين 8</h5><p>اسم آلة: مِفْتَاح، مِطْرَقَة، مِسْطَرَة. اسم مكان: مَكْتَب، مَلْعَب، مَطْبَخ. الجمل حرّة، مثل: أفتحُ البابَ بالمِفتاحِ. / نلعبُ في المَلعبِ.</p>
+</details>
+</div>
+
+<p class="footer-note">فيشة تعلّم ذاتي – اللغة العربية – الخامسة ابتدائي</p>
+</div>
+</body>
+</html>
