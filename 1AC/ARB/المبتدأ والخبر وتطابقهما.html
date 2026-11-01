@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>المبتدأ والخبر وتطابقهما – فيشة تعلّم ذاتي</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Naskh+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#251f3a;--ink-soft:#5d557a;--paper:#fbf9ff;--panel:#fff;--line:#d9d3ec;
+--indigo:#4b3f8f;--indigo-soft:#ebe8f7;--rose:#b1553f;--rose-soft:#f8e6df;--gold:#af8a2e;--gold-soft:#faf0d4;}
+*{box-sizing:border-box}
+body{margin:0;background:#ebe8f2;font-family:'Amiri','Noto Naskh Arabic',serif;color:var(--ink);line-height:2;font-size:19px}
+.sheet{max-width:900px;margin:18px auto;background:var(--paper);padding:26px 30px;border-radius:14px;box-shadow:0 4px 18px rgba(0,0,0,.1)}
+.masthead{display:flex;align-items:center;gap:18px;background:linear-gradient(135deg,var(--indigo),#6a5cb5);color:#fff;border-radius:14px;padding:18px 22px}
+.masthead h1{font-size:2.2rem;margin:0;line-height:1.3}
+.masthead p{margin:4px 0 0;opacity:.92}
+.meta-row{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.chip{background:var(--panel);border:1.5px solid var(--line);border-radius:20px;padding:2px 14px;font-size:.9rem;font-family:'Noto Naskh Arabic',serif}
+.chip b{color:var(--indigo)}
+section{margin:20px 0}
+h2{font-size:1.6rem;color:var(--indigo);border-bottom:3px solid var(--gold);display:inline-block;margin:0 0 10px;padding-bottom:2px}
+h3{color:var(--rose);margin:14px 0 4px;font-size:1.25rem}
+.box{background:var(--panel);border:1.5px solid var(--line);border-radius:12px;padding:12px 18px;margin:10px 0}
+.objectif-box{background:var(--indigo-soft);border-color:var(--indigo)}
+.rule-box{background:var(--gold-soft);border-right:6px solid var(--gold);border-radius:10px;padding:10px 16px;margin:10px 0}
+.example-box{background:var(--rose-soft);border-right:6px solid var(--rose);border-radius:10px;padding:8px 16px;margin:8px 0}
+.mu{color:var(--indigo);font-weight:700;border-bottom:3px solid var(--indigo)}
+.tw{color:var(--rose);font-weight:700;border-bottom:3px solid var(--rose)}
+table.data-table{width:100%;border-collapse:collapse;margin:10px 0;background:#fff}
+.data-table th,.data-table td{border:1.5px solid var(--line);padding:6px 10px;text-align:center}
+.data-table th{background:var(--indigo);color:#fff}
+.activity-box{background:var(--gold-soft);border:2px dashed var(--gold);border-radius:12px;padding:12px 18px}
+.task-label{display:inline-block;background:var(--gold);color:#fff;border-radius:8px;padding:0 10px;margin-left:6px;font-size:.9rem;font-family:'Noto Naskh Arabic',serif}
+.exercise{background:var(--panel);border:1.5px solid var(--line);border-radius:12px;padding:10px 18px 12px;margin:12px 0;page-break-inside:avoid}
+.exercise-num{display:inline-flex;width:32px;height:32px;border-radius:50%;background:var(--rose);color:#fff;align-items:center;justify-content:center;font-weight:700;margin-left:8px;font-family:'Noto Naskh Arabic',serif}
+.exercise h4{margin:0 0 6px;font-size:1.15rem;color:var(--indigo)}
+.fill-line{display:inline-block;min-width:110px;border-bottom:2px dotted var(--ink-soft)}
+.checkbox,.sq{display:inline-block;width:17px;height:17px;border:2px solid var(--indigo);border-radius:3px;vertical-align:middle;margin:0 6px}
+.opt{display:block;margin:0}
+.lines{border-bottom:2px dotted var(--ink-soft);height:28px;margin:4px 0}
+.match-cols{display:flex;justify-content:space-between;gap:30px}.match-cols div{flex:1}
+.match-cols p{margin:4px 0;background:var(--indigo-soft);border-radius:8px;padding:0 12px}
+.word-chip{display:inline-block;background:var(--gold-soft);border:1.5px solid var(--gold);border-radius:16px;padding:0 12px;margin:3px}
+.corrige-wrapper{page-break-before:always;margin-top:26px}
+details.corrige{border:2px solid var(--indigo);border-radius:12px;background:#fff;padding:8px 18px}
+details.corrige summary{cursor:pointer;font-size:1.3rem;color:var(--indigo);font-weight:700}
+.corrige h5{margin:12px 0 2px;color:var(--rose);font-size:1.1rem}
+.corrige p{margin:2px 0}
+.footer-note{text-align:center;color:var(--ink-soft);font-size:.9rem;margin-top:18px;font-family:'Noto Naskh Arabic',serif}
+@page{size:A4;margin:13mm}
+@media print{body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}.sheet{box-shadow:none;margin:0;max-width:none;padding:0;background:#fff}details.corrige:not([open]) > :not(summary){display:none}}
+@media print{body,body *{font-family:Tahoma,'Segoe UI',Arial,'DejaVu Sans',sans-serif !important}svg text{font-family:Tahoma,Arial,sans-serif !important}}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<header class="masthead">
+<svg width="66" height="62" viewBox="0 0 66 62" aria-hidden="true"><rect x="6" y="18" width="24" height="26" rx="6" fill="none" stroke="#fff" stroke-width="4"/><rect x="36" y="18" width="24" height="26" rx="6" fill="none" stroke="#e9c978" stroke-width="4"/><path d="M30 26h6M30 36h6" stroke="#fff" stroke-width="3"/></svg>
+<div><h1>المُبْتَدَأُ وَالخَبَرُ وَتَطَابُقُهُمَا</h1><p>اللغة العربية – الدرس اللغوي 20 · الأولى إعدادي</p></div>
+</header>
+
+<div class="meta-row">
+<span class="chip"><b>المستوى:</b> الأولى إعدادي (1AC)</span>
+<span class="chip"><b>المادة:</b> اللغة العربية — التراكيب</span>
+<span class="chip"><b>مدة الحصة:</b> ساعة</span>
+<span class="chip"><b>نوع الوثيقة:</b> فيشة تعلّم ذاتي</span>
+</div>
+
+<section>
+<h2>🎯 الهدف</h2>
+<div class="box objectif-box">في نهاية هذه الحصة سأكون قادرًا على:
+<ul>
+<li>أن أبيّن أن الخبر يطابق المبتدأ في العدد (إفراد، تثنية، جمع) وفي الجنس (تذكير، تأنيث)؛</li>
+<li>أن أطبّق قاعدة التطابق مع المبتدأ الجمع: جمع العاقل وجمع غير العاقل؛</li>
+<li>أن أضبط الخبر ضبطًا صحيحًا بحسب المبتدأ؛</li>
+<li>أن أصحّح أخطاء التطابق في جمل، وأُعرب جملًا اسمية بسيطة.</li>
+</ul></div>
+</section>
+
+<section>
+<h2>📘 الدرس</h2>
+
+<h3>1) ملاحظة (الظاهرة الإعرابية)</h3>
+<div class="example-box">
+• <span class="tw">الطالبُ</span> <span class="mu">مجتهدٌ</span>.<br>
+• <span class="tw">الطالبةُ</span> <span class="mu">مجتهدةٌ</span>.<br>
+• <span class="tw">الطالبانِ</span> <span class="mu">مجتهدانِ</span>.<br>
+• <span class="tw">الطالبتانِ</span> <span class="mu">مجتهدتانِ</span>.<br>
+• <span class="tw">الطلابُ</span> <span class="mu">مجتهدونَ</span>.<br>
+• <span class="tw">الطالباتُ</span> <span class="mu">مجتهداتٌ</span>.</div>
+<p>الكلمات الوردية مبتدآت، والزرقاء أخبار. نلاحظ أن الخبر يغيّر شكله بحسب المبتدأ: يكون مفردًا مع المفرد، ومثنى مع المثنى، وجمعًا مع الجمع، ومذكرًا مع المذكر، ومؤنثًا مع المؤنث.</p>
+
+<h3>2) قاعدة التطابق</h3>
+<div class="rule-box"><b>الخبر يطابق المبتدأ</b> في <b>العدد</b> (الإفراد والتثنية والجمع) وفي <b>الجنس</b> (التذكير والتأنيث).</div>
+<table class="data-table">
+<tr><th>الجملة</th><th>المبتدأ</th><th>الخبر</th><th>العدد</th><th>الجنس</th></tr>
+<tr><td>الليلةُ باردةٌ.</td><td>الليلةُ</td><td>باردةٌ</td><td>مفرد</td><td>مؤنث</td></tr>
+<tr><td>القردانِ ساكنانِ.</td><td>القردانِ</td><td>ساكنانِ</td><td>مثنى</td><td>مذكر</td></tr>
+<tr><td>البنتانِ مسرعتانِ.</td><td>البنتانِ</td><td>مسرعتانِ</td><td>مثنى</td><td>مؤنث</td></tr>
+<tr><td>المعلّمونَ مخلصونَ.</td><td>المعلّمونَ</td><td>مخلصونَ</td><td>جمع</td><td>مذكر</td></tr>
+</table>
+
+<h3>3) التطابق مع المبتدأ الجمع</h3>
+<div class="rule-box"><b>أ) جمع العاقل:</b> يجب أن يكون الخبر <b>جمعًا مثله</b>: جمع مذكر مع جمع المذكر، وجمع مؤنث مع جمع المؤنث.<br>
+• الرجالُ <b>مجتهدونَ</b> &nbsp;·&nbsp; المعلّماتُ <b>مخلصاتٌ</b> &nbsp;·&nbsp; الجداتُ <b>حنوناتٌ</b></div>
+<div class="rule-box"><b>ب) جمع غير العاقل:</b> يجوز أن يكون الخبر <b>مفردًا مؤنثًا</b> أو <b>جمعًا مؤنثًا</b>.<br>
+• الأشجارُ <b>عاليةٌ</b> = الأشجارُ <b>عالياتٌ</b> &nbsp;·&nbsp; الكتبُ <b>مفيدةٌ</b> = الكتبُ <b>مفيداتٌ</b></div>
+<div class="box"><b>غير العاقل</b> هو الحيوان والنبات والجماد: الأشجار، الكتب، الأنهار، الأقلام... أما <b>العاقل</b> فهو الإنسان.</div>
+
+<h3>4) نماذج من الإعراب</h3>
+<div class="example-box">
+<b>المعلّمونَ مخلصونَ:</b> المعلّمونَ: مبتدأ مرفوع وعلامة رفعه الواو لأنه جمع مذكر سالم. مخلصونَ: خبر مرفوع وعلامة رفعه الواو لأنه جمع مذكر سالم.<br><br>
+<b>الأشجارُ عاليةٌ:</b> الأشجارُ: مبتدأ مرفوع وعلامة رفعه الضمة الظاهرة على آخره. عاليةٌ: خبر مرفوع وعلامة رفعه الضمة الظاهرة على آخره.<br><br>
+<b>القردانِ ساكنانِ:</b> القردانِ: مبتدأ مرفوع وعلامة رفعه الألف لأنه مثنى. ساكنانِ: خبر مرفوع وعلامة رفعه الألف لأنه مثنى.</div>
+
+<h3>5) أتذكّر</h3>
+<ul>
+<li>الخبر يطابق المبتدأ في العدد والجنس؛</li>
+<li>المبتدأ جمع العاقل ← الخبر جمع مثله؛</li>
+<li>المبتدأ جمع غير العاقل ← الخبر مفرد مؤنث أو جمع مؤنث.</li>
+</ul>
+</section>
+
+<section>
+<h2>✏️ نشاط تطبيقي: «أصحّح الأخطاء»</h2>
+<div class="activity-box">
+<p>جمل فيها أخطاء في التطابق:</p>
+<p><span class="task-label">المهمة 1</span> أصحّح كل جملة وأضع خطًّا تحت التصحيح:<br>
+أ) الطالباتُ مجتهدونَ. ← <span class="fill-line" style="min-width:220px"></span><br>
+ب) الولدانِ مسرعٌ. ← <span class="fill-line" style="min-width:220px"></span><br>
+ج) الشمسُ ساطعٌ. ← <span class="fill-line" style="min-width:220px"></span></p>
+<p><span class="task-label">المهمة 2</span> أكتب جملة فيها مبتدأ جمع مذكر عاقل، وأخرى فيها مبتدأ جمع غير عاقل:</p>
+<div class="lines"></div><div class="lines"></div>
+<p><span class="task-label">المهمة 3</span> أقول في كل جملة سبب تصحيحي: <span class="fill-line" style="min-width:260px"></span></p>
+</div>
+</section>
+
+<section>
+<h2>📝 تمارين للتدرّب</h2>
+
+<div class="exercise"><h4><span class="exercise-num">1</span>أكمل كل جملة بخبر مناسب</h4>
+<p>أ) الطالبةُ <span class="fill-line"></span> &nbsp; ب) الطالبانِ <span class="fill-line"></span></p>
+<p>ج) المعلّمونَ <span class="fill-line"></span> &nbsp; د) البناتُ <span class="fill-line"></span></p>
+<p>هـ) الأنهارُ <span class="fill-line"></span></p>
+<p>الكلمات المقترحة: <span class="word-chip">نظيفةٌ</span><span class="word-chip">سعيدانِ</span><span class="word-chip">مجتهدونَ</span><span class="word-chip">مبروراتٌ</span><span class="word-chip">جاريةٌ</span></p></div>
+
+<div class="exercise"><h4><span class="exercise-num">2</span>أختار الخبر الصحيح</h4>
+<b>أ) الطالباتُ ......</b>
+<span class="opt"><span class="checkbox"></span>مجتهداتٌ</span><span class="opt"><span class="checkbox"></span>مجتهدونَ</span><span class="opt"><span class="checkbox"></span>مجتهدٌ</span>
+<b>ب) القلمانِ ......</b>
+<span class="opt"><span class="checkbox"></span>جديدٌ</span><span class="opt"><span class="checkbox"></span>جديدانِ</span><span class="opt"><span class="checkbox"></span>جديدةٌ</span>
+<b>ج) الأنهارُ ...... (جمع غير عاقل)</b>
+<span class="opt"><span class="checkbox"></span>جاريةٌ</span><span class="opt"><span class="checkbox"></span>جاريانِ</span><span class="opt"><span class="checkbox"></span>جاريونَ</span></div>
+
+<div class="exercise"><h4><span class="exercise-num">3</span>صحيح أم خطأ؟ (أصحّح الخطأ)</h4>
+<p>1) الخبر يطابق المبتدأ في العدد والجنس. (<span class="fill-line sm" style="min-width:50px"></span>)</p>
+<p>2) «المعلّمونَ مخلصٌ» جملة صحيحة. (<span class="fill-line sm" style="min-width:50px"></span>) ← <span class="fill-line"></span></p>
+<p>3) «الكتبُ مفيدةٌ» جملة صحيحة. (<span class="fill-line sm" style="min-width:50px"></span>)</p>
+<p>4) خبر مبتدأ جمع العاقل يكون مفردًا دائمًا. (<span class="fill-line sm" style="min-width:50px"></span>) ← <span class="fill-line"></span></p></div>
+
+<div class="exercise"><h4><span class="exercise-num">4</span>أصحّح أخطاء التطابق</h4>
+<p>أ) الطلابُ مجتهدٌ. ← <span class="fill-line" style="min-width:200px"></span></p>
+<p>ب) السيارتانِ سريعتينِ. ← <span class="fill-line" style="min-width:200px"></span></p>
+<p>ج) المعلّماتُ مخلصونَ. ← <span class="fill-line" style="min-width:200px"></span></p>
+<p>د) الشمسُ ساطعٌ. ← <span class="fill-line" style="min-width:200px"></span></p></div>
+
+<div class="exercise"><h4><span class="exercise-num">5</span>أملأ الجدول</h4>
+<table class="data-table">
+<tr><th>الجملة</th><th>المبتدأ</th><th>الخبر</th><th>العدد</th><th>الجنس</th></tr>
+<tr><td>التلميذانِ حاضرانِ.</td><td><span class="fill-line sm"></span></td><td><span class="fill-line sm"></span></td><td><span class="fill-line sm"></span></td><td><span class="fill-line sm"></span></td></tr>
+<tr><td>الأمهاتُ حنونات.</td><td><span class="fill-line sm"></span></td><td><span class="fill-line sm"></span></td><td><span class="fill-line sm"></span></td><td><span class="fill-line sm"></span></td></tr>
+<tr><td>الجبلُ شامخٌ.</td><td><span class="fill-line sm"></span></td><td><span class="fill-line sm"></span></td><td><span class="fill-line sm"></span></td><td><span class="fill-line sm"></span></td></tr>
+</table></div>
+
+<div class="exercise"><h4><span class="exercise-num">6</span>أحوّل الجملة مع الحفاظ على التطابق</h4>
+<p>«الطالبُ مجتهدٌ»<br>
+← المثنى: <span class="fill-line" style="min-width:220px"></span><br>
+← الجمع: <span class="fill-line" style="min-width:220px"></span><br>
+← المؤنث المفرد: <span class="fill-line" style="min-width:220px"></span></p></div>
+
+<div class="exercise"><h4><span class="exercise-num">7</span>أعيّن المبتدأ والخبر وأقول إن كان هناك تطابق</h4>
+<p>أ) العلمُ نورٌ. <span class="fill-line" style="min-width:200px"></span></p>
+<p>ب) البناتُ مجتهداتٌ. <span class="fill-line" style="min-width:200px"></span></p>
+<p>ج) الوالدانِ كريمانِ. <span class="fill-line" style="min-width:200px"></span></p>
+<p>د) الأشجارُ عالياتٌ. <span class="fill-line" style="min-width:200px"></span></p></div>
+
+<div class="exercise"><h4><span class="exercise-num">8</span>أُعرب</h4>
+<p>أ) المعلّمونَ مخلصونَ. <span class="fill-line" style="min-width:300px"></span></p>
+<div class="lines"></div><div class="lines"></div>
+<p>ب) الأشجارُ عاليةٌ. <span class="fill-line" style="min-width:300px"></span></p>
+<div class="lines"></div><div class="lines"></div></div>
+</section>
+
+<div class="corrige-wrapper">
+<details class="corrige">
+<summary>اضغط لإظهار الحل / إخفائه — التصحيح الكامل</summary>
+<h5>نشاط تطبيقي</h5>
+<p>1) أ) الطالباتُ مجتهداتٌ (جمع مؤنث عاقل ← خبر جمع مؤنث). ب) الولدانِ مسرعانِ (مثنى مذكر). ج) الشمسُ ساطعةٌ (مؤنث). 2) أمثلة: الرجالُ كرماءُ. / الأشجارُ عاليةٌ. 3) السبب: الخبر يطابق المبتدأ في العدد والجنس.</p>
+<h5>تمرين 1</h5><p>أ) نظيفةٌ. ب) سعيدانِ. ج) مجتهدونَ. د) مبروراتٌ. هـ) جاريةٌ.</p>
+<h5>تمرين 2</h5><p>أ) مجتهداتٌ. ب) جديدانِ. ج) جاريةٌ.</p>
+<h5>تمرين 3</h5><p>1) صحيح. 2) خطأ: المعلّمونَ مخلصونَ. 3) صحيح. 4) خطأ: خبر جمع العاقل يكون جمعًا مثله (لا يكون مفردًا).</p>
+<h5>تمرين 4</h5><p>أ) الطلابُ مجتهدونَ. ب) السيارتانِ سريعتانِ. ج) المعلّماتُ مخلصاتٌ. د) الشمسُ ساطعةٌ.</p>
+<h5>تمرين 5</h5><p>التلميذانِ: مبتدأ، حاضرانِ: خبر، مثنى، مذكر. الأمهاتُ: مبتدأ، حنوناتٌ: خبر، جمع، مؤنث. الجبلُ: مبتدأ، شامخٌ: خبر، مفرد، مذكر.</p>
+<h5>تمرين 6</h5><p>المثنى: الطالبانِ مجتهدانِ. الجمع: الطلابُ مجتهدونَ. المؤنث المفرد: الطالبةُ مجتهدةٌ.</p>
+<h5>تمرين 7</h5><p>أ) المبتدأ: العلمُ، الخبر: نورٌ، تطابق (مفرد مذكر). ب) البناتُ / مجتهداتٌ، تطابق (جمع مؤنث). ج) الوالدانِ / كريمانِ، تطابق (مثنى مذكر). د) الأشجارُ / عالياتٌ، تطابق (جمع غير عاقل ← جمع مؤنث جائز).</p>
+<h5>تمرين 8</h5><p>أ) المعلّمونَ: مبتدأ مرفوع وعلامة رفعه الواو لأنه جمع مذكر سالم. مخلصونَ: خبر مرفوع وعلامة رفعه الواو لأنه جمع مذكر سالم.<br>
+ب) الأشجارُ: مبتدأ مرفوع وعلامة رفعه الضمة الظاهرة على آخره. عاليةٌ: خبر مرفوع وعلامة رفعه الضمة الظاهرة على آخره.</p>
+</details>
+</div>
+
+<p class="footer-note">فيشة تعلّم ذاتي – اللغة العربية – الأولى إعدادي</p>
+</div>
+</body>
+</html>
