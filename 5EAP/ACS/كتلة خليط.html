@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>كتلة خليط – فيشة تعلّم ذاتي</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Naskh+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#2a2118;--ink-soft:#6a5846;--paper:#fbf8f3;--panel:#fff;--line:#e0d3c2;
+--brown:#8a5a34;--brown-soft:#f1e6da;--leaf:#3f7d3a;--leaf-soft:#e3f0de;--amber:#c98a2e;--amber-soft:#fbefd6;--clay:#b5502f;--clay-soft:#f8e3da;}
+*{box-sizing:border-box}
+body{margin:0;background:#ece5da;font-family:'Noto Naskh Arabic','Amiri',serif;color:var(--ink);line-height:1.9;font-size:17px}
+.sheet{max-width:900px;margin:18px auto;background:var(--paper);padding:26px 30px;border-radius:14px;box-shadow:0 4px 18px rgba(0,0,0,.1)}
+.masthead{display:flex;align-items:center;gap:18px;background:linear-gradient(135deg,var(--brown),#a9754a);color:#fff;border-radius:14px;padding:18px 22px}
+.masthead h1{font-family:'Amiri',serif;font-size:1.9rem;margin:0;line-height:1.35}
+.masthead p{margin:4px 0 0;opacity:.92}
+.meta-row{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.chip{background:var(--panel);border:1.5px solid var(--line);border-radius:20px;padding:2px 14px;font-size:.92rem}
+.chip b{color:var(--brown)}
+section{margin:20px 0}
+h2{font-family:'Amiri',serif;font-size:1.5rem;color:var(--brown);border-bottom:3px solid var(--amber);display:inline-block;margin:0 0 10px;padding-bottom:2px}
+h3{color:var(--leaf);margin:14px 0 4px;font-size:1.12rem}
+.box{background:var(--panel);border:1.5px solid var(--line);border-radius:12px;padding:12px 18px;margin:10px 0}
+.objectif-box{background:var(--leaf-soft);border-color:var(--leaf)}
+.rule-box{background:var(--amber-soft);border-right:6px solid var(--amber);border-radius:10px;padding:10px 16px;margin:10px 0}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:10px;margin:10px 0}
+.card{background:var(--panel);border:1.5px solid var(--line);border-top:5px solid var(--clay);border-radius:10px;padding:8px 14px}
+.card.good{border-top-color:var(--leaf)}
+.card h4{margin:0;color:var(--clay);font-size:1.03rem}
+.card.good h4{color:var(--leaf)}
+.card p{margin:2px 0 0;font-size:.95rem}
+table.data-table{width:100%;border-collapse:collapse;margin:10px 0;background:#fff}
+.data-table th,.data-table td{border:1.5px solid var(--line);padding:6px 10px;text-align:center}
+.data-table th{background:var(--brown);color:#fff}
+.activity-box{background:var(--brown-soft);border:2px dashed var(--brown);border-radius:12px;padding:12px 18px}
+.task-label{display:inline-block;background:var(--brown);color:#fff;border-radius:8px;padding:0 10px;margin-left:6px;font-size:.9rem}
+.exercise{background:var(--panel);border:1.5px solid var(--line);border-radius:12px;padding:10px 18px 12px;margin:12px 0;page-break-inside:avoid}
+.exercise-num{display:inline-flex;width:30px;height:30px;border-radius:50%;background:var(--amber);color:#fff;align-items:center;justify-content:center;font-weight:700;margin-left:8px}
+.exercise h4{margin:0 0 6px;font-size:1.05rem;color:var(--brown)}
+.fill-line{display:inline-block;min-width:110px;border-bottom:2px dotted var(--ink-soft)}
+.checkbox,.sq{display:inline-block;width:16px;height:16px;border:2px solid var(--leaf);border-radius:3px;vertical-align:middle;margin:0 6px}
+.opt{display:block;margin:2px 0}
+.lines{border-bottom:2px dotted var(--ink-soft);height:26px;margin:4px 0}
+.match-cols{display:flex;justify-content:space-between;gap:30px}.match-cols div{flex:1}
+.match-cols p{margin:4px 0;background:var(--brown-soft);border-radius:8px;padding:2px 12px}
+.word-chip{display:inline-block;background:var(--amber-soft);border:1.5px solid var(--amber);border-radius:16px;padding:0 12px;margin:3px}
+.doc-box{background:var(--clay-soft);border-right:6px solid var(--clay);border-radius:10px;padding:10px 16px;margin:8px 0}
+.corrige-wrapper{page-break-before:always;margin-top:26px}
+details.corrige{border:2px solid var(--brown);border-radius:12px;background:#fff;padding:8px 18px}
+details.corrige summary{cursor:pointer;font-family:'Amiri',serif;font-size:1.25rem;color:var(--brown);font-weight:700}
+.corrige h5{margin:12px 0 2px;color:var(--clay);font-size:1.02rem}
+.corrige p{margin:2px 0}
+.footer-note{text-align:center;color:var(--ink-soft);font-size:.88rem;margin-top:18px}
+svg text{font-family:'Noto Naskh Arabic',sans-serif}
+.fig{text-align:center;font-size:.88rem;color:var(--ink-soft)}
+@page{size:A4;margin:13mm}
+@media print{body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}.sheet{box-shadow:none;margin:0;max-width:none;padding:0;background:#fff}details.corrige:not([open]) > :not(summary){display:none}}
+@media print{body,body *{font-family:Tahoma,'Segoe UI',Arial,'DejaVu Sans',sans-serif !important}svg text{font-family:Tahoma,Arial,sans-serif !important}}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<header class="masthead">
+<svg width="72" height="62" viewBox="0 0 72 62" aria-hidden="true"><path d="M26 8h20l-3 14v22a8 8 0 0 1-14 0V22z" fill="none" stroke="#fff" stroke-width="3" stroke-linejoin="round"/><path d="M27 34h18v10a9 9 0 0 1-18 0z" fill="#f3d9bb"/><circle cx="33" cy="40" r="2" fill="#b5502f"/><circle cx="39" cy="44" r="2" fill="#3f7d3a"/><path d="M8 54h56" stroke="#f3d9bb" stroke-width="4" stroke-linecap="round"/></svg>
+<div><h1>كتلة خليط</h1><p>النشاط العلمي – المادة وخصائصها</p></div>
+</header>
+
+<div class="meta-row">
+<span class="chip"><b>المستوى:</b> الخامسة ابتدائي (5AEP)</span>
+<span class="chip"><b>المادة:</b> النشاط العلمي</span>
+<span class="chip"><b>مدة الحصة:</b> ساعة</span>
+<span class="chip"><b>نوع الوثيقة:</b> فيشة تعلّم ذاتي</span>
+</div>
+
+<section>
+<h2>🎯 الهدف</h2>
+<div class="box objectif-box">في نهاية هذه الفيشة سأكون قادرًا على:
+<ul>
+<li>أن أعرّف الخليط وأعطي أمثلة عن خلائط من حياتي اليومية؛</li>
+<li>أن أميّز بين الخليط المتجانس والخليط غير المتجانس؛</li>
+<li>أن أقيس كتلة خليط بالميزان وأتبع الاحتياطات الصحيحة للقياس؛</li>
+<li>أن أستنتج أن <b>كتلة الخليط = مجموع كتل مكوّناته</b>؛</li>
+<li>أن أحسب كتلة الخليط أو كتلة أحد مكوّناته في مسائل بسيطة.</li>
+</ul></div>
+</section>
+
+<section>
+<h2>📘 الدرس</h2>
+
+<h3>1) ما هو الخليط؟</h3>
+<div class="rule-box"><b>الخليط</b> هو مزج مادّتين أو أكثر معًا دون أن تتحوّل إلى مادّة جديدة. نستطيع غالبًا فصل مكوّناته من جديد.</div>
+<div class="cards">
+<div class="card"><h3>🧂 ماء + ملح</h3><p>خليط سائل تختفي فيه حبّات الملح.</p></div>
+<div class="card"><h3>🥛 ماء + سكر</h3><p>عصير أو شاي محلّى.</p></div>
+<div class="card"><h3>🏖️ رمل + حصى</h3><p>خليط صلب نرى مكوّناته.</p></div>
+<div class="card"><h3>🫒 ماء + زيت</h3><p>خليط سائل ينفصل فيه الزيت فوق الماء.</p></div>
+</div>
+
+<h3>2) خليط متجانس وخليط غير متجانس</h3>
+<table class="data-table">
+<tr><th>الخليط المتجانس</th><th>الخليط غير المتجانس</th></tr>
+<tr><td>لا نميّز مكوّناته بالعين المجرّدة، ويبدو مظهره واحدًا</td><td>نميّز مكوّناته بالعين المجرّدة</td></tr>
+<tr><td>ماء + ملح ، ماء + سكر ، شاي بالسكر</td><td>ماء + زيت ، ماء + رمل ، رمل + حصى</td></tr>
+</table>
+
+<h3>3) كيف نقيس كتلة خليط؟</h3>
+<div class="rule-box"><b>الخطوات:</b><br>
+1) أضع <b>إناءً فارغًا</b> على الميزان وأسجّل كتلته (أو أضبط الميزان على الصفر مع الإناء)؛<br>
+2) أضع مكوّنات الخليط في الإناء؛<br>
+3) أقرأ كتلة الإناء مع الخليط وأطرح منها كتلة الإناء الفارغ (إلا إذا ضبطت الميزان على الصفر).</div>
+<div class="box"><b>احتياطات:</b> أضع الميزان على سطح مستوٍ، وأنتظر استقرار القراءة، وأتأكد من أن الإناء جاف ونظيف، ولا أحرّك الميزان أثناء القياس.</div>
+
+<h3>4) كتلة الخليط = مجموع كتل مكوّناته</h3>
+<div class="rule-box"><b>القاعدة:</b> كتلة الخليط تساوي <b>مجموع كتل المواد التي مزجناها</b>، لأن المادة لا تضيع ولا تظهر من العدم، حتى لو اختفى الملح أو السكر عن أنظارنا في الماء.</div>
+<div class="worked-example" style="background:#fbefd6;border:1.5px solid #c98a2e;border-radius:12px;padding:10px 18px;margin:10px 0">
+<b>مثال 1:</b> نذيب <span dir="ltr">30 g</span> من السكر في <span dir="ltr">200 g</span> من الماء.<br>
+كتلة الخليط = 200 + 30 = <b dir="ltr">230 g</b><br>
+<b>مثال 2:</b> نمزج <span dir="ltr">150 g</span> من الرمل مع <span dir="ltr">50 g</span> من الملح الخشن: الكتلة = <b dir="ltr">200 g</b><br>
+<b>مثال 3 (عكسي):</b> كتلة خليط <span dir="ltr">500 g</span> منها <span dir="ltr">380 g</span> ماء ← كتلة المادة الأخرى = 500 − 380 = <b dir="ltr">120 g</b></div>
+<div class="box"><b>انتبه:</b> <b>الكتلة</b> تُجمع دائمًا، أما <b>الحجم</b> فقد لا يُجمع تمامًا (مثلًا عند إذابة السكر في الماء يزداد الحجم قليلًا فقط).</div>
+
+<h3>5) مصطلحات ومفاهيم</h3>
+<div class="cards">
+<div class="card"><h3>الخليط</h3><p>مزج مادّتين أو أكثر دون تكوين مادة جديدة.</p></div>
+<div class="card"><h3>المكوّن</h3><p>كل مادة تدخل في تركيب الخليط.</p></div>
+<div class="card"><h3>متجانس</h3><p>مظهره واحد ولا نميّز مكوّناته.</p></div>
+<div class="card"><h3>غير متجانس</h3><p>نميّز مكوّناته بالعين المجرّدة.</p></div>
+</div>
+</section>
+
+<section>
+<h2>✏️ نشاط تطبيقي: «هل تضيع المادة حين تذوب؟»</h2>
+<div class="activity-box">
+<p>المعدّات: ميزان، كأس، ماء، ملعقة ملح (أو سكر)، ملعقة تحريك.</p>
+<p><span class="task-label">المهمة 1</span> كتلة الكأس الفارغة: <span class="fill-line sm"></span> g</p>
+<p><span class="task-label">المهمة 2</span> كتلة الكأس مع الماء: <span class="fill-line sm"></span> g ← كتلة الماء: <span class="fill-line sm"></span> g</p>
+<p><span class="task-label">المهمة 3</span> أضع ملعقة ملح على ورقة صغيرة وأحدّد كتلتها: <span class="fill-line sm"></span> g (أكتب القيمة ثم أضعها في الماء وأحرّك حتى تذوب)</p>
+<p><span class="task-label">المهمة 4</span> كتلة الكأس مع الخليط بعد الذوبان: <span class="fill-line sm"></span> g</p>
+<p><span class="task-label">المهمة 5</span> أقارن: (كتلة الكأس مع الماء + كتلة الملح) و(كتلة الكأس مع الخليط). ماذا أستنتج؟</p>
+<div class="lines"></div><div class="lines"></div>
+</div>
+</section>
+
+<section>
+<h2>📝 تمارين للتدرّب</h2>
+
+<div class="exercise"><h4><span class="exercise-num">1</span>أُكمل الفراغات</h4>
+الخليط مزج <span class="fill-line"></span> أو أكثر. كتلة الخليط تساوي <span class="fill-line"></span> كتل مكوّناته. الخليط الذي لا نميّز مكوّناته بالعين المجرّدة خليط <span class="fill-line"></span>.</div>
+
+<div class="exercise"><h4><span class="exercise-num">2</span>أختار الجواب الصحيح</h4>
+<b>أ) كتلة خليط من <span dir="ltr">120 g</span> رمل و<span dir="ltr">80 g</span> ملح هي:</b>
+<span class="opt"><span class="checkbox"></span><span dir="ltr">40 g</span></span><span class="opt"><span class="checkbox"></span><span dir="ltr">200 g</span></span><span class="opt"><span class="checkbox"></span><span dir="ltr">9600 g</span></span>
+<b>ب) أيٌّ من الخلائط الآتية متجانس؟</b>
+<span class="opt"><span class="checkbox"></span>ماء وزيت</span><span class="opt"><span class="checkbox"></span>ماء وسكر</span><span class="opt"><span class="checkbox"></span>رمل وماء</span>
+<b>ج) قبل وضع الخليط في الميزان يجب:</b>
+<span class="opt"><span class="checkbox"></span>وزن الإناء فارغًا أو ضبط الميزان على الصفر</span><span class="opt"><span class="checkbox"></span>تحريك الميزان</span><span class="opt"><span class="checkbox"></span>وضع الميزان على سطح مائل</span></div>
+
+<div class="exercise"><h4><span class="exercise-num">3</span>صحيح أم خطأ؟ (أصحّح الخطأ)</h4>
+1) كتلة الخليط تساوي مجموع كتل مكوّناته. (<span class="fill-line sm" style="min-width:50px"></span>)<br>
+2) عندما يذوب السكر في الماء تختفي كتلته. (<span class="fill-line sm" style="min-width:50px"></span>)<br>
+3) كتلة الخليط أصغر دائمًا من كتلة أحد مكوّناته. (<span class="fill-line sm" style="min-width:50px"></span>)<br>
+4) ماء وزيت خليط غير متجانس. (<span class="fill-line sm" style="min-width:50px"></span>)</div>
+
+<div class="exercise"><h4><span class="exercise-num">4</span>أصل كل خليط بكتلته</h4>
+<div class="match-cols">
+<div><p>1. <span dir="ltr">120 g + 80 g</span></p><p>2. <span dir="ltr">250 g + 50 g</span></p><p>3. <span dir="ltr">0,5 kg + 300 g</span></p><p>4. <span dir="ltr">1 kg + 250 g</span></p></div>
+<div><p>أ. <span dir="ltr">800 g</span></p><p>ب. <span dir="ltr">200 g</span></p><p>ج. <span dir="ltr">1250 g</span></p><p>د. <span dir="ltr">300 g</span></p></div>
+</div>
+<p>الأجوبة: 1-<span class="fill-line sm" style="min-width:40px"></span> 2-<span class="fill-line sm" style="min-width:40px"></span> 3-<span class="fill-line sm" style="min-width:40px"></span> 4-<span class="fill-line sm" style="min-width:40px"></span></p></div>
+
+<div class="exercise"><h4><span class="exercise-num">5</span>أصنّف الخلائط</h4>
+<span class="word-chip">ماء وملح</span><span class="word-chip">ماء وزيت</span><span class="word-chip">ماء ورمل</span><span class="word-chip">ماء وسكر</span><span class="word-chip">حليب وقهوة</span><span class="word-chip">رمل وحصى</span>
+<table class="data-table"><tr><th>خليط متجانس</th><th>خليط غير متجانس</th></tr>
+<tr><td><div class="lines"></div><div class="lines"></div><div class="lines"></div></td><td><div class="lines"></div><div class="lines"></div><div class="lines"></div></td></tr></table></div>
+
+<div class="exercise"><h4><span class="exercise-num">6</span>أحسب كتلة الخليط</h4>
+<table class="data-table">
+<tr><th>المكوّنات</th><th>العملية</th><th>كتلة الخليط</th></tr>
+<tr><td>ماء <span dir="ltr">250 g</span> + سكر <span dir="ltr">40 g</span></td><td><span class="fill-line"></span></td><td><span class="fill-line sm"></span></td></tr>
+<tr><td>ماء <span dir="ltr">400 g</span> + ملح <span dir="ltr">25 g</span></td><td><span class="fill-line"></span></td><td><span class="fill-line sm"></span></td></tr>
+<tr><td>زيت <span dir="ltr">150 g</span> + ماء <span dir="ltr">300 g</span></td><td><span class="fill-line"></span></td><td><span class="fill-line sm"></span></td></tr>
+<tr><td>رمل <span dir="ltr">0,6 kg</span> + حصى <span dir="ltr">0,4 kg</span></td><td><span class="fill-line"></span></td><td><span class="fill-line sm"></span></td></tr>
+</table></div>
+
+<div class="exercise"><h4><span class="exercise-num">7</span>أبحث عن الكتلة المجهولة</h4>
+<p>أ) كتلة خليط <span dir="ltr">500 g</span> منها <span dir="ltr">380 g</span> ماء. كتلة الملح: <span class="fill-line"></span></p>
+<p>ب) كتلة محلول سكّري <span dir="ltr">75 g</span> منها <span dir="ltr">15 g</span> سكر. كتلة الماء: <span class="fill-line"></span></p>
+<p>ج) كتلة كأس فارغة <span dir="ltr">90 g</span>، وبعد وضع الخليط فيها أصبحت <span dir="ltr">340 g</span>. كتلة الخليط وحده: <span class="fill-line"></span></p></div>
+
+<div class="exercise"><h4><span class="exercise-num">8</span>مسألة: عصير ليمون</h4>
+حضّرت سلمى عصيرًا: <span dir="ltr">500 g</span> من الماء و<span dir="ltr">60 g</span> من السكر و<span dir="ltr">40 g</span> من عصير الليمون.<br>
+1) ما كتلة العصير؟ <span class="fill-line"></span><br>
+2) سكبته في كؤوس، كتلة العصير في كل كأس <span dir="ltr">200 g</span>. كم كأسًا ملأت؟ <span class="fill-line"></span><br>
+3) هل اختفت كتلة السكر عندما ذاب؟ أبرّر: <span class="fill-line" style="min-width:240px"></span></div>
+</section>
+
+<div class="corrige-wrapper">
+<details class="corrige">
+<summary>اضغط لإظهار الحل / إخفائه — التصحيح الكامل</summary>
+<h5>نشاط تطبيقي</h5>
+<p>تتساوى الكتلتان تقريبًا (مع هامش بسيط في القياس). الاستنتاج: كتلة الخليط = كتلة الماء مع الكأس + كتلة الملح، أي أن الملح لم تضع كتلته حين ذاب.</p>
+<h5>تمرين 1</h5><p>مادّتين؛ مجموع؛ متجانس.</p>
+<h5>تمرين 2</h5><p>أ) <span dir="ltr">200 g</span>. ب) ماء وسكر. ج) وزن الإناء فارغًا أو ضبط الميزان على الصفر.</p>
+<h5>تمرين 3</h5><p>1) صحيح. 2) خطأ: تبقى كتلة السكر موجودة في الخليط. 3) خطأ: كتلة الخليط تساوي المجموع فهي أكبر من كتلة كل مكوّن. 4) صحيح.</p>
+<h5>تمرين 4</h5><p>1-ب، 2-د، 3-أ، 4-ج.</p>
+<h5>تمرين 5</h5><p>متجانس: ماء وملح، ماء وسكر، حليب وقهوة. غير متجانس: ماء وزيت، ماء ورمل، رمل وحصى.</p>
+<h5>تمرين 6</h5><p>250 + 40 = <span dir="ltr">290 g</span> ؛ 400 + 25 = <span dir="ltr">425 g</span> ؛ 150 + 300 = <span dir="ltr">450 g</span> ؛ 0,6 + 0,4 = <span dir="ltr">1 kg</span>.</p>
+<h5>تمرين 7</h5><p>أ) 500 − 380 = <span dir="ltr">120 g</span>. ب) 75 − 15 = <span dir="ltr">60 g</span>. ج) 340 − 90 = <span dir="ltr">250 g</span>.</p>
+<h5>تمرين 8</h5><p>1) 500 + 60 + 40 = <span dir="ltr">600 g</span>. 2) 600 ÷ 200 = 3 كؤوس. 3) لا، فكتلة السكر ما زالت ضمن كتلة العصير؛ كتلة الخليط تساوي مجموع كتل مكوّناته.</p>
+</details>
+</div>
+
+<p class="footer-note">فيشة تعلّم ذاتي – النشاط العلمي – الخامسة ابتدائي</p>
+</div>
+</body>
+</html>
