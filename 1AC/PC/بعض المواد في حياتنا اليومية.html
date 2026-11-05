@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>بعض المواد المستعملة في حياتنا اليومية – فيشة تعلّم ذاتي</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Naskh+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1d2a33;--ink-soft:#52646f;--paper:#f5fafb;--panel:#fff;--line:#cfe0e4;
+--indigo:#3f4d9e;--indigo-soft:#e6e9f7;--teal:#1f7a7a;--teal-soft:#dff1f0;--amber:#c98a2e;--amber-soft:#fbefd6;--rose:#b8483a;--rose-soft:#f8e3de;--ok:#2e8b57;--ok-soft:#dff3e6;}
+*{box-sizing:border-box}
+body{margin:0;background:#e5eef0;font-family:'Noto Naskh Arabic','Amiri',serif;color:var(--ink);line-height:1.9;font-size:17px}
+.sheet{max-width:920px;margin:18px auto;background:var(--paper);padding:26px 30px;border-radius:14px;box-shadow:0 4px 18px rgba(0,0,0,.1)}
+.masthead{display:flex;align-items:center;gap:18px;background:linear-gradient(135deg,var(--teal),var(--indigo));color:#fff;border-radius:14px;padding:18px 22px}
+.masthead h1{font-family:'Amiri',serif;font-size:2rem;margin:0;line-height:1.3}
+.masthead p{margin:4px 0 0;opacity:.92}
+.meta-row{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.chip{background:var(--panel);border:1.5px solid var(--line);border-radius:20px;padding:2px 14px;font-size:.92rem}
+.chip b{color:var(--indigo)}
+section{margin:22px 0}
+h2{font-family:'Amiri',serif;font-size:1.5rem;color:var(--indigo);border-bottom:3px solid var(--amber);display:inline-block;margin:0 0 10px;padding-bottom:2px}
+h3{color:var(--teal);margin:14px 0 4px;font-size:1.12rem}
+.box{background:var(--panel);border:1.5px solid var(--line);border-radius:12px;padding:12px 18px;margin:10px 0}
+.objectif-box{background:var(--teal-soft);border-color:var(--teal)}
+.rule-box{background:var(--amber-soft);border-right:6px solid var(--amber);border-radius:10px;padding:10px 16px;margin:10px 0}
+.warn-box{background:var(--rose-soft);border-right:6px solid var(--rose);border-radius:10px;padding:10px 16px;margin:10px 0}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:10px;margin:10px 0}
+.card{background:var(--panel);border:1.5px solid var(--line);border-top:5px solid var(--indigo);border-radius:10px;padding:8px 14px}
+.card h4{margin:0;color:var(--indigo);font-size:1.03rem}
+.card p{margin:2px 0 0;font-size:.95rem}
+table.data-table{width:100%;border-collapse:collapse;margin:10px 0;background:#fff}
+.data-table th,.data-table td{border:1.5px solid var(--line);padding:6px 10px;text-align:center}
+.data-table th{background:var(--indigo);color:#fff}
+.activity-box{background:var(--indigo-soft);border:2px dashed var(--indigo);border-radius:12px;padding:12px 18px}
+.task-label{display:inline-block;background:var(--indigo);color:#fff;border-radius:8px;padding:0 10px;margin-left:6px;font-size:.9rem}
+.fill-line{display:inline-block;min-width:110px;border-bottom:2px dotted var(--ink-soft)}
+.lines{border-bottom:2px dotted var(--ink-soft);height:26px;margin:4px 0}
+.fig{text-align:center;font-size:.88rem;color:var(--ink-soft)}
+svg text{font-family:'Noto Naskh Arabic',sans-serif}
+
+/* bar du score */
+.scorebar{position:sticky;top:0;z-index:5;background:#fff;border:2px solid var(--indigo);border-radius:12px;padding:8px 16px;margin:10px 0;display:flex;align-items:center;gap:14px;flex-wrap:wrap;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.scorebar .pts{font-weight:700;color:var(--indigo);font-size:1.1rem;white-space:nowrap}
+.progress{flex:1;min-width:140px;height:14px;background:#e3e8ee;border-radius:10px;overflow:hidden}
+.progress>i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--teal),var(--indigo));transition:width .4s}
+.scorebar small{color:var(--ink-soft)}
+
+/* exercices interactifs */
+.exercise{background:var(--panel);border:1.5px solid var(--line);border-radius:12px;padding:10px 18px 14px;margin:14px 0}
+.exercise-num{display:inline-flex;width:30px;height:30px;border-radius:50%;background:var(--amber);color:#fff;align-items:center;justify-content:center;font-weight:700;margin-left:8px}
+.exercise h4{margin:0 0 6px;font-size:1.08rem;color:var(--indigo)}
+.q{margin:8px 0}
+.mcq{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 8px}
+.mcq button{font:inherit;background:#fff;border:2px solid var(--line);border-radius:10px;padding:2px 14px;cursor:pointer}
+.mcq button:hover{border-color:var(--indigo)}
+.mcq button.sel{background:var(--indigo-soft);border-color:var(--indigo)}
+.mcq.ok button.sel{background:var(--ok-soft);border-color:var(--ok)}
+.mcq.bad button.sel{background:var(--rose-soft);border-color:var(--rose)}
+select,input.ans{font:inherit;border:2px solid var(--line);border-radius:8px;padding:1px 8px;background:#fff;max-width:100%}
+input.ans{width:150px}
+select.ok,input.ans.ok{border-color:var(--ok);background:var(--ok-soft)}
+select.bad,input.ans.bad{border-color:var(--rose);background:var(--rose-soft)}
+.fb{display:inline-block;margin-right:8px;font-size:.92rem}
+.fb.ok{color:var(--ok)}.fb.bad{color:var(--rose)}
+.actions{margin-top:8px;display:flex;gap:8px;flex-wrap:wrap}
+.btn{font:inherit;font-weight:700;border:none;border-radius:10px;padding:2px 18px;cursor:pointer;color:#fff;background:var(--indigo)}
+.btn.sec{background:#fff;color:var(--indigo);border:2px solid var(--indigo)}
+.btn:hover{opacity:.9}
+.ex-result{font-weight:700;color:var(--indigo);margin-right:4px}
+.final{display:none;background:var(--ok-soft);border:2px solid var(--ok);border-radius:12px;padding:10px 18px;margin:14px 0;font-weight:700}
+.doc-box{background:var(--indigo-soft);border-right:6px solid var(--indigo);border-radius:10px;padding:10px 16px;margin:8px 0}
+
+.corrige-wrapper{margin-top:26px}
+details.corrige{border:2px solid var(--indigo);border-radius:12px;background:#fff;padding:8px 18px}
+details.corrige summary{cursor:pointer;font-family:'Amiri',serif;font-size:1.25rem;color:var(--indigo);font-weight:700}
+.corrige h5{margin:12px 0 2px;color:var(--rose);font-size:1.02rem}
+.corrige p{margin:2px 0}
+.footer-note{text-align:center;color:var(--ink-soft);font-size:.88rem;margin-top:18px}
+@page{size:A4;margin:13mm}
+@media print{body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}.sheet{box-shadow:none;margin:0;max-width:none;padding:0;background:#fff}.scorebar,.actions,.final{display:none!important}.corrige-wrapper{page-break-before:always}details.corrige:not([open]) > :not(summary){display:none}.exercise{page-break-inside:avoid}}
+.checkbox{display:inline-block;width:15px;height:15px;border:2px solid var(--indigo);border-radius:3px;vertical-align:middle;margin-left:6px}
+.opt{display:block;margin:2px 0}
+.match-cols{display:flex;justify-content:space-between;gap:30px}
+.match-cols div{flex:1}
+.match-cols p{margin:4px 0;background:var(--teal-soft);border-radius:8px;padding:2px 12px}
+.word-chip{display:inline-block;background:var(--amber-soft);border:1.5px solid var(--amber);border-radius:16px;padding:0 12px;margin:3px}
+@media print{body,body *{font-family:Tahoma,'Segoe UI',Arial,'DejaVu Sans',sans-serif !important}svg text{font-family:Tahoma,Arial,sans-serif !important}}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<header class="masthead">
+<svg width="70" height="64" viewBox="0 0 70 64" aria-hidden="true"><rect x="8" y="26" width="26" height="26" rx="3" fill="none" stroke="#fff" stroke-width="3"/><circle cx="50" cy="38" r="13" fill="none" stroke="#f3d38a" stroke-width="3"/><path d="M14 20l12-10 12 10z" fill="#fff" opacity=".8"/></svg>
+<div><h1>بعض المواد المستعملة في حياتنا اليومية</h1><p>الفيزياء والكيمياء – Quelques matériaux au quotidien</p></div>
+</header>
+
+<div class="meta-row">
+<span class="chip"><b>المستوى:</b> الثالثة إعدادي (3AC)</span>
+<span class="chip"><b>المادة:</b> الفيزياء والكيمياء</span>
+<span class="chip"><b>مدة الحصة:</b> ساعة ونصف</span>
+<span class="chip"><b>نوع الوثيقة:</b> فيشة تعلّم ذاتي</span>
+</div>
+
+<section>
+<h2>🎯 الهدف</h2>
+<div class="box objectif-box">في نهاية هذه الحصة سأكون قادرًا على:
+<ul>
+<li>أن أميّز بين <b>الجسم</b> (الشيء) و<b>المادة</b> التي صُنع منها؛</li>
+<li>أن أصنّف المواد إلى عضوية ومعادن وزجاج وبلاستيك، وأذكر خصائص كل صنف؛</li>
+<li>أن أنجز اختبارات التوصيل الكهربائي والحراري وأفسّر نتائجها؛</li>
+<li>أن أتعرّف بعض المعادن (حديد، نحاس، ألومنيوم، زنك) بالاختبارات البسيطة والكتلة الحجمية؛</li>
+<li>أن أتعرّف أنواع البلاستيك (PE، PS، PP، PVC) بالطفو واللهب والإذابة في الأسيتون.</li>
+</ul></div>
+</section>
+
+<section>
+<h2>📘 الدرس</h2>
+
+<h3>1) الجسم والمادة</h3>
+<div class="rule-box"><b>الجسم</b> (الشيء) له وظيفة محدّدة: كرسي، نافذة، قنينة... أما <b>المادة</b> (matériau) فهي ما يُستعمل في صنع الأجسام: خشب، زجاج، حديد، بلاستيك...<br>
+• جسم واحد قد يُصنع من <b>مادة أو عدة مواد</b> (الكرسي: خشب + حديد + بلاستيك)؛<br>
+• مادة واحدة تُصنع منها <b>أجسام مختلفة</b> (الخشب: كرسي، طاولة، باب).</div>
+<table class="data-table">
+<tr><th>الجسم</th><th>كرسي</th><th>نافذة</th><th>قنينة</th><th>سلك كهربائي</th></tr>
+<tr><td>المواد</td><td>خشب، حديد، بلاستيك</td><td>زجاج، ألومنيوم، خشب</td><td>زجاج أو بلاستيك</td><td>نحاس، بلاستيك</td></tr>
+</table>
+
+<h3>2) تصنيف المواد بحسب خصائصها</h3>
+<p>عائلة المواد: مجموعة من المواد تتشابه خصائصها.</p>
+<div class="cards">
+<div class="card"><h4>🌿 المواد العضوية</h4><p><b>نباتية</b>: الخشب، الورق، القطن، الفلين. <b>حيوانية</b>: الجلد، الصوف.</p></div>
+<div class="card"><h4>🔩 المعادن</h4><p>صلبة، موصلة جيدة للحرارة والكهرباء، قابلة للطرق، غير نفوذة للماء، معتمة.</p></div>
+<div class="card"><h4>🍷 الزجاج</h4><p>عازل كهربائي ورديء التوصيل للحرارة، هشّ، غير نفوذ.</p></div>
+<div class="card"><h4>🧴 البلاستيك</h4><p>متين، عازل كهربائي وحراري، غير نفوذ، لا يتفاعل مع الماء ولا مع الأحماض والقواعد.</p></div>
+</div>
+
+<h3>3) اختبار التوصيل الكهربائي</h3>
+<div class="rule-box"><b>الطريقة:</b> أُدخل المادة المراد اختبارها في دارة تحتوي على عمود ومصباح. إذا أضاء المصباح فالمادة <b>موصلة</b> للتيار الكهربائي، وإذا بقي مطفأً فالمادة <b>عازلة</b>.</div>
+<table class="data-table">
+<tr><th>المادة المختبَرة</th><th>النتيجة</th></tr>
+<tr><td>حديد، زنك، ألومنيوم، نحاس</td><td>موصلة</td></tr>
+<tr><td>ملح (مسحوق)، خشب، بلاستيك</td><td>عازلة</td></tr>
+</table>
+
+<h3>4) اختبار التوصيل الحراري</h3>
+<div class="box">نسخّن أحد طرفي ثلاث قضبان (حديد، خشب، زجاج) ونضع على طرفها الآخر قطعة شمع: ينصهر الشمع بسرعة على قضيب <b>الحديد</b> (موصل جيد للحرارة)، ولا ينصهر على قضيبَي الخشب والزجاج (رديئا التوصيل للحرارة).</div>
+
+<h3>5) كيف نتعرّف المعادن؟</h3>
+<table class="data-table">
+<tr><th>الاختبار</th><th>النتيجة</th></tr>
+<tr><td>اللون</td><td>أغلب المعادن رمادية، والنحاس أحمر قرميدي</td></tr>
+<tr><td>المغناطيس</td><td>الحديد وحده ينجذب إلى المغناطيس (من بين المعادن المذكورة)</td></tr>
+<tr><td>الكتلة الحجمية ρ = m / V</td><td>تخصّ كل معدن، وتساعد على تمييزه</td></tr>
+</table>
+<table class="data-table">
+<tr><th>المعدن</th><th>الحديد (Fe)</th><th>النحاس (Cu)</th><th>الزنك (Zn)</th><th>الألومنيوم (Al)</th></tr>
+<tr><td>اللون</td><td>رمادي</td><td>أحمر قرميدي</td><td>رمادي</td><td>رمادي</td></tr>
+<tr><td>المغناطيس</td><td>ينجذب</td><td>لا ينجذب</td><td>لا ينجذب</td><td>لا ينجذب</td></tr>
+<tr><td>ρ (<span dir="ltr">g/cm³</span>)</td><td><span dir="ltr">7,8</span></td><td><span dir="ltr">8,9</span></td><td><span dir="ltr">7,1</span></td><td><span dir="ltr">2,7</span></td></tr>
+</table>
+
+<h3>6) كيف نتعرّف أنواع البلاستيك؟</h3>
+<p>من أشهر أنواع البلاستيك: <b dir="ltr">PE</b> (بولي إيثيلين)، <b dir="ltr">PS</b> (بوليستيرين)، <b dir="ltr">PP</b> (بولي بروبيلين)، <b dir="ltr">PVC</b> (بولي كلورور الفينيل).</p>
+<table class="data-table">
+<tr><th>الاختبار</th><th>الملاحظة</th></tr>
+<tr><td>الطفو في الماء العذب</td><td><b dir="ltr">PE</b> و<b dir="ltr">PP</b> تطفوان، و<b dir="ltr">PS</b> و<b dir="ltr">PVC</b> تغوصان</td></tr>
+<tr><td>الطفو في ماء مملّح بكثرة</td><td><b dir="ltr">PS</b> يطفو و<b dir="ltr">PVC</b> يغوص</td></tr>
+<tr><td>لون اللهب</td><td><b dir="ltr">PVC</b> يعطي لهبًا أخضر، وغيره لهبًا أصفر عاديًا</td></tr>
+<tr><td>الإذابة في الأسيتون</td><td><b dir="ltr">PS</b> يذوب بسهولة في الأسيتون</td></tr>
+</table>
+<div class="warn-box"><b>تنبيه سلامة:</b> اختبار اللهب والأسيتون يُنجزان مع الأستاذ فقط، في مكان مهوّى، وبكميات صغيرة، دون استنشاق الأبخرة.</div>
+
+<h3>7) مصطلحات ومفاهيم</h3>
+<div class="cards">
+<div class="card"><h4>المادة (matériau)</h4><p>ما يُستعمل في صنع الأجسام.</p></div>
+<div class="card"><h4>موصل</h4><p>يسمح بمرور التيار أو الحرارة.</p></div>
+<div class="card"><h4>عازل</h4><p>لا يسمح بمرور التيار أو الحرارة.</p></div>
+<div class="card"><h4>الكتلة الحجمية</h4><p>ρ = m / V، خاصية مميزة للمادة.</p></div>
+</div>
+</section>
+
+<section>
+<h2>✏️ نشاط تطبيقي: «مختبر المواد في بيتي»</h2>
+<div class="activity-box">
+<p>المعدّات: دارة (عمود + مصباح + أسلاك)، مغناطيس، أجسام منزلية (ملعقة معدنية، مسطرة بلاستيكية، قطعة خشب، كأس زجاجية، مشبك ورق، قطعة نقود).</p>
+<p><span class="task-label">المهمة 1</span> أختبر كل جسم في الدارة وبالمغناطيس وأكمل الجدول:</p>
+<table class="data-table">
+<tr><th>الجسم</th><th>المادة</th><th>يُضيء المصباح؟</th><th>ينجذب للمغناطيس؟</th></tr>
+<tr><td>ملعقة معدنية</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>مسطرة بلاستيكية</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>قطعة خشب</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>مشبك ورق</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+</table>
+<p><span class="task-label">المهمة 2</span> أصنّف الأجسام إلى موصلة وعازلة: <span class="fill-line" style="min-width:260px"></span></p>
+<p><span class="task-label">المهمة 3</span> أستنتج: ما الصنف الذي ينتمي إليه كل جسم موصل؟ <span class="fill-line" style="min-width:200px"></span></p>
+</div>
+</section>
+
+<section>
+<h2>📝 تمارين للتدرّب</h2>
+
+<div class="exercise"><h4><span class="exercise-num">1</span>صحيح أم خطأ؟ (أصحّح الخطأ)</h4>
+<p>1) الكرسي مادة، والخشب جسم. (<span class="fill-line sm" style="min-width:50px"></span>)</p>
+<p>2) المعادن موصلة جيدة للتيار الكهربائي. (<span class="fill-line sm" style="min-width:50px"></span>)</p>
+<p>3) الزجاج مادة مرنة غير قابلة للكسر. (<span class="fill-line sm" style="min-width:50px"></span>)</p>
+<p>4) ينجذب الألومنيوم إلى المغناطيس. (<span class="fill-line sm" style="min-width:50px"></span>)</p>
+<p>5) يغوص <b dir="ltr">PVC</b> في الماء العذب. (<span class="fill-line sm" style="min-width:50px"></span>)</p>
+<p>6) <b dir="ltr">PS</b> يذوب في الأسيتون. (<span class="fill-line sm" style="min-width:50px"></span>)</p></div>
+
+<div class="exercise"><h4><span class="exercise-num">2</span>أُكمل بالكلمات المناسبة</h4>
+<span class="word-chip">جسم</span><span class="word-chip">مادة</span><span class="word-chip">موصل</span><span class="word-chip">عازل</span><span class="word-chip">النحاس</span>
+<p>1) القنينة <span class="fill-line sm"></span> صُنع من <span class="fill-line sm"></span> هي الزجاج أو البلاستيك.</p>
+<p>2) المعدن الأحمر القرميدي هو <span class="fill-line sm"></span>.</p>
+<p>3) البلاستيك <span class="fill-line sm"></span> للتيار الكهربائي، والحديد <span class="fill-line sm"></span> له.</p></div>
+
+<div class="exercise"><h4><span class="exercise-num">3</span>أميّز بين الأجسام والمواد</h4>
+<span class="word-chip">كأس</span><span class="word-chip">زجاج</span><span class="word-chip">مسطرة</span><span class="word-chip">صوف</span><span class="word-chip">سيارة</span><span class="word-chip">نحاس</span><span class="word-chip">نافذة</span><span class="word-chip">PVC</span>
+<table class="data-table"><tr><th>أجسام</th><th>مواد</th></tr>
+<tr><td><div class="lines"></div><div class="lines"></div></td><td><div class="lines"></div><div class="lines"></div></td></tr></table></div>
+
+<div class="exercise"><h4><span class="exercise-num">4</span>أصنّف المواد حسب عائلتها</h4>
+<span class="word-chip">خشب</span><span class="word-chip">جلد</span><span class="word-chip">حديد</span><span class="word-chip">زجاج</span><span class="word-chip">PVC</span><span class="word-chip">صوف</span><span class="word-chip">ألومنيوم</span><span class="word-chip">ورق</span>
+<table class="data-table"><tr><th>عضوية</th><th>معادن</th><th>زجاج</th><th>بلاستيك</th></tr>
+<tr><td><div class="lines"></div><div class="lines"></div></td><td><div class="lines"></div><div class="lines"></div></td><td><div class="lines"></div></td><td><div class="lines"></div></td></tr></table></div>
+
+<div class="exercise"><h4><span class="exercise-num">5</span>أصل كل اختبار بنتيجته</h4>
+<div class="match-cols">
+<div><p>1. ينجذب إلى المغناطيس</p><p>2. لون أحمر قرميدي</p><p>3. لهب أخضر عند الحرق</p><p>4. يذوب في الأسيتون</p></div>
+<div><p>أ. النحاس</p><p>ب. <span dir="ltr">PS</span></p><p>ج. الحديد</p><p>د. <span dir="ltr">PVC</span></p></div>
+</div>
+<p>الأجوبة: 1-<span class="fill-line sm" style="min-width:40px"></span> 2-<span class="fill-line sm" style="min-width:40px"></span> 3-<span class="fill-line sm" style="min-width:40px"></span> 4-<span class="fill-line sm" style="min-width:40px"></span></p></div>
+
+<div class="exercise"><h4><span class="exercise-num">6</span>أحسب الكتلة الحجمية وأتعرّف المعدن</h4>
+<p>ρ = m / V. أقيس كتلة ثلاث قطع معدنية حجم كل منها <span dir="ltr">10 cm³</span>:</p>
+<p>أ) <span dir="ltr">m = 78 g</span> ← ρ = <span class="fill-line sm"></span> ← المعدن: <span class="fill-line sm"></span></p>
+<p>ب) <span dir="ltr">m = 27 g</span> ← ρ = <span class="fill-line sm"></span> ← المعدن: <span class="fill-line sm"></span></p>
+<p>ج) <span dir="ltr">m = 89 g</span> ← ρ = <span class="fill-line sm"></span> ← المعدن: <span class="fill-line sm"></span></p></div>
+
+<div class="exercise"><h4><span class="exercise-num">7</span>أتعرّف نوع البلاستيك</h4>
+<p>ملاحظات على ثلاث عيّنات: العيّنة س تغوص في الماء العذب وتطفو في الماء شديد الملوحة وتذوب في الأسيتون. العيّنة ص تغوص في الماء العذب وفي الماء المملّح ويكون لهبها أخضر. العيّنة ع تطفو في الماء العذب.</p>
+<p>1) العيّنة س: <span class="fill-line sm"></span> &nbsp; 2) العيّنة ص: <span class="fill-line sm"></span></p>
+<p>3) العيّنة ع: <span class="fill-line"></span> أو <span class="fill-line"></span> (ما الاختبار الذي يمكن أن يميّز بينهما؟ <span class="fill-line" style="min-width:160px"></span>)</p></div>
+
+<div class="exercise"><h4><span class="exercise-num">8</span>أفسّر استعمالات المواد</h4>
+<p>أ) لماذا تُصنع الأسلاك الكهربائية من النحاس وتُغلَّف بالبلاستيك؟</p>
+<div class="lines"></div><div class="lines"></div>
+<p>ب) لماذا تُصنع مقابض المقالي من البلاستيك أو الخشب وقعرها من المعدن؟</p>
+<div class="lines"></div><div class="lines"></div></div>
+</section>
+
+<div class="corrige-wrapper">
+<details class="corrige">
+<summary>اضغط لإظهار الحل / إخفائه — التصحيح الكامل</summary>
+<h5>نشاط تطبيقي</h5>
+<p>1) الملعقة المعدنية (حديد غالبًا): يضيء، تنجذب إذا كانت من حديد. المسطرة البلاستيكية: لا يضيء، لا تنجذب. الخشب: لا يضيء، لا ينجذب. مشبك الورق (حديد): يضيء، ينجذب. 2) موصلة: الملعقة والمشبك؛ عازلة: المسطرة والخشب. 3) الأجسام الموصلة مصنوعة من معادن.</p>
+<h5>تمرين 1</h5><p>1) خطأ: الكرسي جسم والخشب مادة. 2) صحيح. 3) خطأ: الزجاج هشّ ويكسر بسهولة. 4) خطأ: الألومنيوم لا ينجذب إلى المغناطيس. 5) صحيح. 6) صحيح.</p>
+<h5>تمرين 2</h5><p>1) جسم؛ مادة. 2) النحاس. 3) عازل؛ موصل.</p>
+<h5>تمرين 3</h5><p>أجسام: كأس، مسطرة، سيارة، نافذة. مواد: زجاج، صوف، نحاس، <span dir="ltr">PVC</span>.</p>
+<h5>تمرين 4</h5><p>عضوية: خشب، جلد، صوف، ورق. معادن: حديد، ألومنيوم. زجاج: زجاج. بلاستيك: <span dir="ltr">PVC</span>.</p>
+<h5>تمرين 5</h5><p>1-ج، 2-أ، 3-د، 4-ب.</p>
+<h5>تمرين 6</h5><p>أ) ρ = 78 ÷ 10 = <span dir="ltr">7,8 g/cm³</span> ← الحديد. ب) 27 ÷ 10 = <span dir="ltr">2,7 g/cm³</span> ← الألومنيوم. ج) 89 ÷ 10 = <span dir="ltr">8,9 g/cm³</span> ← النحاس.</p>
+<h5>تمرين 7</h5><p>1) س = <span dir="ltr">PS</span>. 2) ص = <span dir="ltr">PVC</span>. 3) ع = <span dir="ltr">PE</span> أو <span dir="ltr">PP</span> (تطفوان معًا في الماء العذب)؛ يلزم اختبار آخر مناسب للتمييز بينهما، كالاحتراق أو ملاحظة خصائص أخرى.</p>
+<h5>تمرين 8</h5><p>أ) النحاس موصل جيد للتيار الكهربائي، والبلاستيك عازل يحمينا من الصعق ويمنع تماس الأسلاك. ب) المعدن موصل جيد للحرارة فيُسخّن الطعام، والبلاستيك أو الخشب رديئا التوصيل للحرارة فلا نحترق عند الإمساك بالمقبض.</p>
+</details>
+</div>
+
+<p class="footer-note">فيشة تعلّم ذاتي – الفيزياء والكيمياء – الثالثة إعدادي</p>
+</div>
+</body>
+</html>
