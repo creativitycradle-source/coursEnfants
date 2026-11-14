@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>همزتا الوصل والقطع – فيشة تعلّم ذاتي</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Naskh+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#251f3a;--ink-soft:#5d557a;--paper:#fbf9ff;--panel:#fff;--line:#d9d3ec;
+--indigo:#4b3f8f;--indigo-soft:#ebe8f7;--rose:#b1553f;--rose-soft:#f8e6df;--gold:#af8a2e;--gold-soft:#faf0d4;}
+*{box-sizing:border-box}
+body{margin:0;background:#ebe8f2;font-family:'Amiri','Noto Naskh Arabic',serif;color:var(--ink);line-height:2;font-size:19px}
+.sheet{max-width:900px;margin:18px auto;background:var(--paper);padding:26px 30px;border-radius:14px;box-shadow:0 4px 18px rgba(0,0,0,.1)}
+.masthead{display:flex;align-items:center;gap:18px;background:linear-gradient(135deg,var(--indigo),#6a5cb5);color:#fff;border-radius:14px;padding:18px 22px}
+.masthead h1{font-size:2.2rem;margin:0;line-height:1.3}
+.masthead p{margin:4px 0 0;opacity:.92}
+.meta-row{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.chip{background:var(--panel);border:1.5px solid var(--line);border-radius:20px;padding:2px 14px;font-size:.9rem;font-family:'Noto Naskh Arabic',serif}
+.chip b{color:var(--indigo)}
+section{margin:20px 0}
+h2{font-size:1.6rem;color:var(--indigo);border-bottom:3px solid var(--gold);display:inline-block;margin:0 0 10px;padding-bottom:2px}
+h3{color:var(--rose);margin:14px 0 4px;font-size:1.25rem}
+.box{background:var(--panel);border:1.5px solid var(--line);border-radius:12px;padding:12px 18px;margin:10px 0}
+.objectif-box{background:var(--indigo-soft);border-color:var(--indigo)}
+.rule-box{background:var(--gold-soft);border-right:6px solid var(--gold);border-radius:10px;padding:10px 16px;margin:10px 0}
+.example-box{background:var(--rose-soft);border-right:6px solid var(--rose);border-radius:10px;padding:8px 16px;margin:8px 0}
+.mu{color:var(--indigo);font-weight:700;border-bottom:3px solid var(--indigo)}
+.tw{color:var(--rose);font-weight:700;border-bottom:3px solid var(--rose)}
+table.data-table{width:100%;border-collapse:collapse;margin:10px 0;background:#fff}
+.data-table th,.data-table td{border:1.5px solid var(--line);padding:6px 10px;text-align:center}
+.data-table th{background:var(--indigo);color:#fff}
+.activity-box{background:var(--gold-soft);border:2px dashed var(--gold);border-radius:12px;padding:12px 18px}
+.task-label{display:inline-block;background:var(--gold);color:#fff;border-radius:8px;padding:0 10px;margin-left:6px;font-size:.9rem;font-family:'Noto Naskh Arabic',serif}
+.exercise{background:var(--panel);border:1.5px solid var(--line);border-radius:12px;padding:10px 18px 12px;margin:12px 0;page-break-inside:avoid}
+.exercise-num{display:inline-flex;width:32px;height:32px;border-radius:50%;background:var(--rose);color:#fff;align-items:center;justify-content:center;font-weight:700;margin-left:8px;font-family:'Noto Naskh Arabic',serif}
+.exercise h4{margin:0 0 6px;font-size:1.15rem;color:var(--indigo)}
+.fill-line{display:inline-block;min-width:110px;border-bottom:2px dotted var(--ink-soft)}
+.checkbox,.sq{display:inline-block;width:17px;height:17px;border:2px solid var(--indigo);border-radius:3px;vertical-align:middle;margin:0 6px}
+.opt{display:block;margin:0}
+.lines{border-bottom:2px dotted var(--ink-soft);height:28px;margin:4px 0}
+.match-cols{display:flex;justify-content:space-between;gap:30px}.match-cols div{flex:1}
+.match-cols p{margin:4px 0;background:var(--indigo-soft);border-radius:8px;padding:0 12px}
+.word-chip{display:inline-block;background:var(--gold-soft);border:1.5px solid var(--gold);border-radius:16px;padding:0 12px;margin:3px}
+.corrige-wrapper{page-break-before:always;margin-top:26px}
+details.corrige{border:2px solid var(--indigo);border-radius:12px;background:#fff;padding:8px 18px}
+details.corrige summary{cursor:pointer;font-size:1.3rem;color:var(--indigo);font-weight:700}
+.corrige h5{margin:12px 0 2px;color:var(--rose);font-size:1.1rem}
+.corrige p{margin:2px 0}
+.footer-note{text-align:center;color:var(--ink-soft);font-size:.9rem;margin-top:18px;font-family:'Noto Naskh Arabic',serif}
+@page{size:A4;margin:13mm}
+@media print{body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}.sheet{box-shadow:none;margin:0;max-width:none;padding:0;background:#fff}details.corrige:not([open]) > :not(summary){display:none}}
+@media print{body,body *{font-family:Tahoma,'Segoe UI',Arial,'DejaVu Sans',sans-serif !important}svg text{font-family:Tahoma,Arial,sans-serif !important}}
+.checkbox{display:inline-block;width:15px;height:15px;border:2px solid var(--indigo);border-radius:3px;vertical-align:middle;margin-left:6px}
+table.data-table{display:block;max-width:100%;overflow-x:auto}
+@media (max-width:600px){.data-table th,.data-table td{padding:5px 2px;font-size:12px}}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<header class="masthead">
+<div><h1>هَمْزَتَا الوَصْلِ وَالقَطْعِ</h1><p>اللغة العربية – الإملاء</p></div>
+</header>
+
+<div class="meta-row">
+<span class="chip"><b>المستوى:</b> السادسة ابتدائي (6AEP)</span>
+<span class="chip"><b>المادة:</b> اللغة العربية — الإملاء</span>
+<span class="chip"><b>مدة الحصة:</b> ساعة</span>
+<span class="chip"><b>نوع الوثيقة:</b> فيشة تعلّم ذاتي</span>
+</div>
+
+<section>
+<h2>🎯 الهدف</h2>
+<div class="box objectif-box">في نهاية هذه الحصة سأكون قادرًا على:
+<ul>
+<li>أن أفرّق بين <b>همزة الوصل</b> و<b>همزة القطع</b> في النطق والكتابة؛</li>
+<li>أن أحدّد مواضع همزة الوصل ومواضع همزة القطع؛</li>
+<li>أن أستعمل اختبار «الواو» أو «ثمّ» لأعرف نوع الهمزة؛</li>
+<li>أن أكتب الهمزة الكتابة الصحيحة في أول الكلمة؛</li>
+<li>أن أصوغ الأمر والمصدر من الفعل مع كتابة همزته كتابة سليمة.</li>
+</ul></div>
+</section>
+
+<section>
+<h2>📘 الدرس</h2>
+
+<h3>1) ملاحظة</h3>
+<div class="example-box">
+• <span class="tw">اِجْلِسْ</span> هنا. ← قُمْ <span class="tw">وَاجْلِسْ</span> هنا.<br>
+• <span class="tw">أَكَلَ</span> الولدُ التفاحةَ. ← جلسَ <span class="tw">وَأَكَلَ</span> التفاحةَ.<br>
+• <span class="tw">الكِتَابُ</span> مفيدٌ. ← قرأتُ <span class="tw">وَالكِتَابُ</span> مفيدٌ.<br>
+• <span class="tw">أَحْمَدُ</span> مجتهدٌ. ← قال <span class="tw">وَأَحْمَدُ</span> مجتهدٌ.</div>
+<p>عندما وضعنا «و» قبل الكلمة سقط نطق الهمزة في «اجلس» و«الكتاب» (نقرأ: وَجْلِسْ، وَلْكِتَابُ)، لكنها بقيت منطوقة في «أَكَلَ» و«أَحْمَدُ». فالهمزة نوعان.</p>
+
+<h3>2) همزة الوصل</h3>
+<div class="rule-box"><b>همزة الوصل</b> تُنطق في <b>بداية الكلام</b> فقط، وتسقط في نطق <b>وسط الكلام</b> (إذا سبقها كلام). وتُكتب <b>ألفًا من غير همزة</b> (ا).</div>
+<p><b>مواضعها:</b></p>
+<table class="data-table">
+<tr><th>الموضع</th><th>أمثلة</th></tr>
+<tr><td>أمر الفعل الثلاثي</td><td>اُكْتُبْ، اِجْلِسْ، اُدْرُسْ، اِفْتَحْ</td></tr>
+<tr><td>ماضي الفعل الخماسي والسداسي وأمرهما ومصدرهما</td><td>اِنْطَلَقَ، اِنْطَلِقْ، اِنْطِلَاق، اِسْتَخْرَجَ، اِسْتِخْرَاج، اِجْتَهَدَ، اِجْتِهَاد</td></tr>
+<tr><td>«أَلْ» التعريف</td><td>الكِتَابُ، القَمَرُ، الشَّمْسُ، المَدْرَسَةُ</td></tr>
+<tr><td>بعض الأسماء المعدودة</td><td>اِسْم، اِبْن، اِبْنَة، اِمْرُؤ، اِمْرَأَة، اِثْنَان، اِثْنَتَان</td></tr>
+</table>
+<div class="rule-box"><b>ضبط همزة الوصل في فعل الأمر الثلاثي:</b><br>
+• تُضمّ إذا كان الحرف الثالث من الفعل في المضارع <b>مضمومًا</b>: يَكْتُبُ ← <b>اُ</b>كْتُبْ، يَدْرُسُ ← <b>اُ</b>دْرُسْ.<br>
+• تُكسر في غير ذلك: يَجْلِسُ ← <b>اِ</b>جْلِسْ، يَفْتَحُ ← <b>اِ</b>فْتَحْ.</div>
+
+<h3>3) همزة القطع</h3>
+<div class="rule-box"><b>همزة القطع</b> تُنطق في <b>بداية الكلام ووسطه</b> معًا، وتُكتب <b>رأس عين</b> (ء) فوق الألف (أ) أو تحتها (إ).</div>
+<p><b>مواضعها:</b></p>
+<table class="data-table">
+<tr><th>الموضع</th><th>أمثلة</th></tr>
+<tr><td>الأسماء (ما عدا «أل» والأسماء المعدودة السابقة)</td><td>أَب، أُمّ، أَخ، أُخْت، أَحْمَد، أَرْض، أَسَد، إِنْسَان، إِبْرَاهِيم</td></tr>
+<tr><td>ماضي الفعل الثلاثي المبدوء بهمزة، ومضارع المتكلم (أنا)</td><td>أَكَلَ، أَخَذَ، أَمَرَ ؛ أَكْتُبُ، أَذْهَبُ، أَلْعَبُ</td></tr>
+<tr><td>ماضي الفعل الرباعي وأمره ومصدره</td><td>أَكْرَمَ، أَكْرِمْ، إِكْرَام ؛ أَنْجَزَ، أَنْجِزْ، إِنْجَاز</td></tr>
+<tr><td>الضمائر</td><td>أَنَا، أَنْتَ، أَنْتِ، أَنْتُمْ</td></tr>
+<tr><td>أكثر الحروف</td><td>أَنْ، أَوْ، أَمْ، إِنَّ، إِلَى</td></tr>
+</table>
+<div class="rule-box"><b>كتابة همزة القطع:</b> نكتبها <b>أ</b> إذا كانت مفتوحة أو مضمومة (أَكَلَ، أُخْت)، ونكتبها <b>إ</b> إذا كانت مكسورة (إِنْسَان، إِلَى).</div>
+
+<h3>4) كيف أعرف نوع الهمزة؟</h3>
+<div class="rule-box"><b>اختبار «الواو»:</b> أضع «وَ» أو «ثُمَّ» قبل الكلمة وأقرأ:<br>
+• إذا <b>سقط</b> نطق الهمزة فهي <b>همزة وصل</b> (وَاجْلِسْ، وَالكِتَابُ).<br>
+• إذا <b>بقي</b> نطقها فهي <b>همزة قطع</b> (وَأَكَلَ، وَأَحْمَدُ).</div>
+<p><b>وللتمييز بين الفعل الثلاثي والرباعي في الأمر:</b> أمر الثلاثي همزته وصل (اِفْتَحْ من فَتَحَ)، وأمر الرباعي همزته قطع (أَكْرِمْ من أَكْرَمَ). ويُعرف الرباعي بأن المضارع منه يكون مضمومًا حرف مضارعته: يُكْرِمُ، يُنْجِزُ.</p>
+
+<h3>5) ملخص</h3>
+<div class="rule-box"><ul style="margin:0;padding-inline-start:20px">
+<li>همزة الوصل: تُنطق في أول الكلام فقط وتُكتب (ا) بلا همزة.</li>
+<li>همزة القطع: تُنطق دائمًا وتُكتب (أ) أو (إ).</li>
+<li>الاختبار: أضع «و» قبل الكلمة: تسقط الهمزة = وصل، تثبت = قطع.</li>
+</ul></div>
+</section>
+
+<section>
+<h2>✍️ نشاط تطبيقي</h2>
+<div class="box activity-box">
+<span class="task-label">أطبّق اختبار «الواو»</span>
+<p>أضع «وَ» قبل كل كلمة وأقرأ، ثم أكمل الجدول:</p>
+<table class="data-table">
+<tr><th>الكلمة</th><th>الكلمة مع «وَ»</th><th>هل تُنطق الهمزة؟</th><th>نوع الهمزة</th></tr>
+<tr><td>اِقْرَأْ</td><td></td><td></td><td></td></tr>
+<tr><td>أَكَلَ</td><td></td><td></td><td></td></tr>
+<tr><td>الكِتَابُ</td><td></td><td></td><td></td></tr>
+<tr><td>أَحْمَدُ</td><td></td><td></td><td></td></tr>
+<tr><td>اِسْتَمِعْ</td><td></td><td></td><td></td></tr>
+</table>
+<p>ثم أكتب جملة فيها كلمة بهمزة وصل وكلمة بهمزة قطع: <span class="fill-line" style="min-width:300px"></span></p>
+<div class="lines"></div></div>
+</section>
+
+<section>
+<h2>📝 التمارين</h2>
+
+<div class="exercise"><h4><span class="exercise-num">1</span>أكمل الفراغات</h4>
+<p>همزة <span class="fill-line sm"></span> تُنطق في أول الكلام وتسقط في وسطه، وتُكتب <span class="fill-line sm"></span>. أما همزة <span class="fill-line sm"></span> فتُنطق دائمًا وتُكتب <span class="fill-line sm"></span> أو <span class="fill-line sm"></span>. همزة «أل» همزة <span class="fill-line sm"></span>، وهمزة «أَكْرَمَ» همزة <span class="fill-line sm"></span>.</p></div>
+
+<div class="exercise"><h4><span class="exercise-num">2</span>أصنّف الكلمات (وصل / قطع)</h4>
+<p>اِسْم ، أَخ ، اُكْتُبْ ، إِنْسَان ، الشَّمْسُ ، اِنْطِلَاق ، أَرْض ، اِبْن ، أَكْرِمْ ، اِسْتَمِعْ<br>
+همزة وصل: <span class="fill-line" style="min-width:260px"></span><br>
+همزة قطع: <span class="fill-line" style="min-width:260px"></span></p></div>
+
+<div class="exercise"><h4><span class="exercise-num">3</span>أكتب الهمزة المناسبة (ا أو أ أو إ)</h4>
+<p>( ) سْمٌ &nbsp; ( ) حْمَدُ &nbsp; ( ) بْرَاهِيمُ &nbsp; ( ) نْطَلَقَ<br>
+( ) نْسَانٌ &nbsp; ( ) سْتَخْرَجَ &nbsp; ( ) رْضٌ &nbsp; ( ) لْقَمَرُ<br>
+<span class="fill-line" style="min-width:300px"></span></p></div>
+
+<div class="exercise"><h4><span class="exercise-num">4</span>أحوّل المضارع إلى أمر (وأضبط الهمزة)</h4>
+<p>يَجْلِسُ ← <span class="fill-line sm"></span> &nbsp; يَفْتَحُ ← <span class="fill-line sm"></span> &nbsp; يَدْرُسُ ← <span class="fill-line sm"></span><br>
+يَكْتُبُ ← <span class="fill-line sm"></span> &nbsp; يَخْرُجُ ← <span class="fill-line sm"></span></p></div>
+
+<div class="exercise"><h4><span class="exercise-num">5</span>صحيح أم خطأ؟ أصحّح الخطأ</h4>
+<p>1) همزة «اِسْم» همزة قطع. <span class="fill-line sm"></span><br>
+2) همزة «أَلْ» التعريف همزة وصل. <span class="fill-line sm"></span><br>
+3) همزة «اِسْتِخْرَاج» همزة وصل. <span class="fill-line sm"></span><br>
+4) همزة «أَكْرَمَ» همزة قطع. <span class="fill-line sm"></span><br>
+5) همزة الوصل تُنطق في وسط الكلام. <span class="fill-line sm"></span></p></div>
+
+<div class="exercise"><h4><span class="exercise-num">6</span>أقرأ الجملة وأستخرج</h4>
+<p>ذَهَبَ ابْنُ أَخِي إِلَى المَدْرَسَةِ، وَاسْتَمَعَ إِلَى المُعَلِّمِ وَأَكْرَمَ زُمَلَاءَهُ.<br>
+كلمات فيها همزة وصل: <span class="fill-line" style="min-width:260px"></span><br>
+كلمات فيها همزة قطع: <span class="fill-line" style="min-width:260px"></span></p></div>
+
+<div class="exercise"><h4><span class="exercise-num">7</span>أكمل الجدول (الأمر والمصدر)</h4>
+<table class="data-table">
+<tr><th>الماضي</th><th>الأمر</th><th>المصدر</th></tr>
+<tr><td>اِجْتَهَدَ</td><td></td><td></td></tr>
+<tr><td>أَنْجَزَ</td><td></td><td></td></tr>
+<tr><td>اِسْتَمَعَ</td><td></td><td></td></tr>
+</table></div>
+
+<div class="exercise"><h4><span class="exercise-num">8</span>أكتب فقرة قصيرة</h4>
+<p>أكتب ثلاث جمل عن يومي في المدرسة، وأستعمل فيها ثلاث كلمات بهمزة وصل وثلاث كلمات بهمزة قطع، وأضع خطًّا تحت كل منها:<br>
+<span class="fill-line" style="min-width:300px"></span><br>
+<span class="fill-line" style="min-width:300px"></span><br>
+<span class="fill-line" style="min-width:300px"></span></p></div>
+</section>
+
+<div class="corrige-wrapper">
+<details class="corrige">
+<summary>اضغط لإظهار الحل / إخفائه — التصحيح الكامل</summary>
+<h5>نشاط تطبيقي</h5>
+<p>اِقْرَأْ ← وَاقْرَأْ: لا تُنطق (وصل). أَكَلَ ← وَأَكَلَ: تُنطق (قطع). الكِتَابُ ← وَالكِتَابُ: لا تُنطق (وصل). أَحْمَدُ ← وَأَحْمَدُ: تُنطق (قطع). اِسْتَمِعْ ← وَاسْتَمِعْ: لا تُنطق (وصل). والجملة حرّة، مثل: اِبْنُ جَارِنَا أَذْكَى تِلْمِيذٍ.</p>
+<h5>تمرين 1</h5><p>الوصل؛ ألفًا بلا همزة (ا)؛ القطع؛ أ؛ إ؛ وصل؛ قطع.</p>
+<h5>تمرين 2</h5><p>همزة وصل: اِسْم، اُكْتُبْ، الشَّمْسُ، اِنْطِلَاق، اِبْن، اِسْتَمِعْ. همزة قطع: أَخ، إِنْسَان، أَرْض، أَكْرِمْ.</p>
+<h5>تمرين 3</h5><p>اِسْمٌ ؛ أَحْمَدُ ؛ إِبْرَاهِيمُ ؛ اِنْطَلَقَ ؛ إِنْسَانٌ ؛ اِسْتَخْرَجَ ؛ أَرْضٌ ؛ الْقَمَرُ.</p>
+<h5>تمرين 4</h5><p>اِجْلِسْ، اِفْتَحْ، اُدْرُسْ، اُكْتُبْ، اُخْرُجْ.</p>
+<h5>تمرين 5</h5><p>1) خطأ: همزة «اِسْم» همزة وصل. 2) صحيح. 3) صحيح. 4) صحيح. 5) خطأ: تسقط في وسط الكلام.</p>
+<h5>تمرين 6</h5><p>همزة وصل: ابْنُ، المَدْرَسَةِ، اسْتَمَعَ، المُعَلِّمِ. همزة قطع: أَخِي، إِلَى (مرتان)، أَكْرَمَ.</p>
+<h5>تمرين 7</h5><p>اِجْتَهَدَ ← اِجْتَهِدْ ← اِجْتِهَاد. أَنْجَزَ ← أَنْجِزْ ← إِنْجَاز. اِسْتَمَعَ ← اِسْتَمِعْ ← اِسْتِمَاع.</p>
+<h5>تمرين 8</h5><p>الإجابات حرّة، والمهم أن تكون كلمات الوصل من نوع: أل، أمر الثلاثي، الخماسي والسداسي، والأسماء المعدودة، وكلمات القطع من نوع: الأسماء والضمائر والحروف والماضي الرباعي ونحوها. مثال: أَذْهَبُ إِلَى المَدْرَسَةِ، وَاجْتَهِدُ، وَأَسْتَمِعُ إِلَى المُعَلِّمِ.</p>
+</details>
+</div>
+
+<p class="footer-note">فيشة تعلّم ذاتي – اللغة العربية – السادسة ابتدائي</p>
+</div>
+</body>
+</html>
