@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>تصنيف الكائنات الحية والتوازنات الطبيعية</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#20301f; --ink-soft:#4c5a48;
+    --paper:#f8faf4; --panel:#ffffff; --line:#d7e0cd;
+    --leaf:#3f7d3a; --leaf-soft:#e3f0df;
+    --sky:#2f7ea8; --sky-soft:#deeef6;
+    --amber:#c98a2e; --amber-soft:#f6e9d3;
+    --coral:#c1493a; --coral-soft:#fbe0d8;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#e4e9dc;font-family:'Noto Naskh Arabic','Amiri',serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .sheet{max-width:900px;margin:24px auto;background:var(--paper);padding:38px 44px 50px;border:1px solid var(--line);box-shadow:0 4px 24px rgba(0,0,0,.12);}
+
+  .masthead{display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:3px solid var(--ink);padding-bottom:16px;margin-bottom:22px;}
+  .masthead-text h1{font-family:'Amiri',serif;font-weight:700;font-size:23px;margin:0 0 6px;color:var(--leaf);line-height:1.4;}
+  .masthead-text .subtitle{font-size:15px;color:var(--ink-soft);margin:0;}
+  .leaf-icon{width:56px;height:56px;flex-shrink:0;}
+
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;}
+  .meta-chip{border:1px solid var(--line);background:var(--panel);border-radius:3px;padding:6px 12px;font-size:13.5px;color:var(--ink-soft);}
+  .meta-chip b{color:var(--ink);font-weight:600;}
+
+  section{margin-bottom:26px;}
+  h2.section-title{font-family:'Amiri',serif;font-size:20px;font-weight:700;color:var(--sky);border-bottom:2px solid var(--sky);padding-bottom:6px;margin:0 0 14px;display:flex;align-items:baseline;gap:8px;}
+  h3.sub-title{font-size:16.5px;font-weight:700;color:var(--amber);margin:18px 0 8px;}
+  p{line-height:1.95;font-size:15px;margin:0 0 9px;}
+
+  .objectif-box{background:var(--sky-soft);border-right:4px solid var(--sky);padding:14px 18px;border-radius:2px;font-size:15px;line-height:1.9;}
+
+  .rule-box{background:var(--panel);border:1px solid var(--line);border-right:4px solid var(--leaf);padding:12px 16px;border-radius:2px;margin:8px 0 14px;}
+  .rule-box p:last-child{margin-bottom:0;}
+  .rule-box ul,.rule-box ol{margin:6px 0;padding-inline-start:22px;}
+  .rule-box li{margin-bottom:5px;line-height:1.8;font-size:14.5px;}
+
+  .chain-wrap{display:flex;justify-content:center;margin:14px 0;overflow-x:auto;}
+
+  .level-grid{display:flex;flex-wrap:wrap;gap:12px;margin:10px 0 14px;}
+  .level-card{flex:1 1 200px;border-radius:8px;padding:11px 14px;text-align:center;}
+  .level-card.producer{background:var(--leaf-soft);border:1px solid var(--leaf);}
+  .level-card.c1{background:var(--amber-soft);border:1px solid var(--amber);}
+  .level-card.c2{background:var(--coral-soft);border:1px solid var(--coral);}
+  .level-card.decomp{background:var(--sky-soft);border:1px solid var(--sky);}
+  .level-card .head{font-weight:700;font-size:14px;margin-bottom:3px;}
+  .level-card.producer .head{color:var(--leaf);}
+  .level-card.c1 .head{color:var(--amber);}
+  .level-card.c2 .head{color:var(--coral);}
+  .level-card.decomp .head{color:var(--sky);}
+  .level-card p{margin:0;font-size:12.5px;color:var(--ink-soft);}
+
+  table.data-table{width:100%;border-collapse:collapse;margin:8px 0 16px;font-size:14px;}
+  table.data-table th{background:var(--sky);color:#fff;padding:7px 8px;font-weight:600;font-size:13px;}
+  table.data-table td{border:1px solid var(--line);padding:7px 8px;background:var(--panel);text-align:center;}
+  table.data-table tr:nth-child(even) td{background:#eef3e8;}
+
+  .activity-box{background:var(--panel);border:1.5px solid var(--amber);border-radius:3px;padding:14px 18px;}
+  .activity-box .task-label{display:inline-block;background:var(--amber);color:#fff;font-size:12px;padding:3px 10px;border-radius:2px;margin-bottom:8px;}
+
+  .exercise{border:1px solid var(--line);border-radius:3px;padding:14px 18px;margin-bottom:14px;background:var(--panel);}
+  .exercise-num{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;background:var(--ink);color:var(--paper);border-radius:50%;font-size:13px;font-weight:700;margin-inline-end:8px;}
+  .exercise h4{margin:0 0 9px;font-size:15.5px;display:flex;align-items:center;}
+  .fill-line{border-bottom:1px dotted var(--ink-soft);display:inline-block;min-width:100px;height:1.5em;}
+  .word-chip{display:inline-block;background:var(--paper);border:1px solid var(--line);border-radius:3px;padding:3px 10px;margin:2px 3px;font-size:14.5px;}
+  .qcm-item{margin-bottom:9px;}
+  .qcm-item p{margin-bottom:4px;font-weight:600;}
+  .qcm-options{display:flex;flex-wrap:wrap;gap:12px;font-size:13.5px;}
+  .qcm-options span{display:flex;align-items:center;gap:5px;}
+  .checkbox{width:12px;height:12px;border:1.4px solid var(--ink-soft);display:inline-block;border-radius:2px;}
+  .match-cols{display:flex;justify-content:space-between;gap:40px;margin-top:8px;}
+  .match-cols ul{list-style:none;padding:0;margin:0;}
+  .match-cols li{border:1px solid var(--line);background:var(--paper);padding:6px 14px;margin-bottom:10px;border-radius:3px;font-size:15px;}
+  .scenario-box{background:#eef3e8;border:1px solid var(--line);padding:10px 14px;font-size:14.5px;line-height:1.95;margin-bottom:8px;}
+
+  .corrige-wrapper{page-break-before:always;padding-top:6px;}
+  .corrige-flag{text-align:center;font-size:12.5px;color:var(--ink-soft);margin-bottom:10px;border-top:1px dashed var(--ink-soft);padding-top:14px;}
+  details.corrige{border:2px dashed var(--amber);border-radius:4px;background:#fdf8ee;padding:6px 20px 18px;}
+  details.corrige > summary{cursor:pointer;font-family:'Amiri',serif;font-weight:700;font-size:18px;color:var(--amber);padding:12px 0;list-style:none;}
+  details.corrige > summary::-webkit-details-marker{display:none;}
+  details.corrige > summary::before{content:"✂ ";}
+  details.corrige > summary::after{content:"— اضغط لإظهار الحل / إخفائه";font-family:'Noto Naskh Arabic',serif;font-weight:400;font-size:12.5px;color:var(--ink-soft);margin-inline-start:8px;}
+  .corrige h4{color:var(--amber);margin:14px 0 6px;font-size:15px;}
+  .corrige-item{margin-bottom:7px;font-size:14px;line-height:1.85;}
+  .corrige table.data-table th{background:var(--amber);}
+
+  .footer-note{margin-top:26px;text-align:center;font-size:11.5px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:10px;}
+
+  @media print{
+    body{background:#fff;}
+    .sheet{box-shadow:none;border:none;margin:0;max-width:100%;padding:14px 6px;}
+    details.corrige{border-color:#000;}
+  }
+  @page{size:A4;margin:13mm;}
+@media print{body,body *{font-family:Tahoma,'Segoe UI',Arial,'DejaVu Sans',sans-serif !important}svg text{font-family:Tahoma,Arial,sans-serif !important}}
+table.data-table{display:block;max-width:100%;overflow-x:auto}
+@media (max-width:600px){.data-table th,.data-table td{padding:5px 2px;font-size:12px}}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="masthead-text">
+      <h1>تصنيفُ الكائناتِ الحيّةِ والتوازناتُ الطبيعيةُ</h1>
+      <p class="subtitle">علوم الحياة والأرض — معايير التصنيف وحماية التوازن الطبيعي</p>
+    </div>
+    <svg class="leaf-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M32 8c16 4 22 20 14 34C38 56 20 54 14 40 8 26 16 12 32 8z" fill="#3f7d3a" opacity="0.85"/>
+      <path d="M32 12c0 16 0 28 0 40" stroke="#e4e9dc" stroke-width="2"/>
+    </svg>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta-chip">المستوى: <b>الأولى إعدادي (1AC)</b></div>
+    <div class="meta-chip">المادة: <b>علوم الحياة والأرض (SVT)</b></div>
+    <div class="meta-chip">الحصة: <b>16</b></div>
+    <div class="meta-chip">نوع الوثيقة: <b>فيشة تعلّم ذاتي</b></div>
+  </div>
+
+  <section>
+    <h2 class="section-title">🎯 الهدف من الدرس</h2>
+    <div class="objectif-box">
+      يتمكّن المتعلم(ة) في نهاية هذا الدرس من: تعريف معيار التصنيف واستعماله لتصنيف الحيوانات (الفقاريات واللافقاريات) والنباتات باستعمال مفاتيح التحديد، وتعريف التوازن الطبيعي وتوضيحه بعلاقة المفترس بالفريسة، وذكر أسباب اختلال التوازن الطبيعي وبعض الحلول لحمايته.
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">📘 الدرس</h2>
+
+    <h3 class="sub-title">I) مدخل</h3>
+    <div class="rule-box">
+      <p>رغم تنوّع الكائنات الحية، فإن بعضها يشترك في صفات تسمح بـ<b>تصنيفها</b> إلى مجموعات، والتصنيف يسهّل <b>التعرّف عليها</b>.</p>
+      <p>كيف نصنّف الكائنات الحية؟ وما المعايير المستعملة؟</p>
+    </div>
+
+    <h3 class="sub-title">II) تصنيف الكائنات الحية</h3>
+    <h3 class="sub-title">2-1) معايير تصنيف الحيوانات</h3>
+    <div class="rule-box">
+      <p><b>معيار التصنيف</b> هو صفة يمتلكها الكائن الحي ويمكن استعمالها لتصنيفه (مثل: شكل الجسم، وجود العمود الفقري، عدد الأرجل...).</p>
+      <p>نميّز في عالم الحيوان مجموعتين كبيرتين: <b>الفقاريات</b> التي لها عمود فقري، و<b>اللافقاريات</b> التي ليس لها عمود فقري. وقد سمحت معايير مختلفة بتصنيف الفقاريات إلى <b>5 مجموعات</b> واللافقاريات إلى <b>8 مجموعات</b>.</p>
+    </div>
+
+    <h3 class="sub-title">مفتاح تحديد الفقاريات</h3>
+    <table class="data-table">
+      <tr><th>صفة الجلد (المعيار)</th><th>المجموعة</th><th>مثال</th></tr>
+      <tr><td>جلد يحمل شعرًا، وللأنثى غدد ثديية</td><td><b>الثدييات</b></td><td>القط، الأرنب</td></tr>
+      <tr><td>جلد يحمل ريشًا</td><td><b>الطيور</b></td><td>النورس، الحمام</td></tr>
+      <tr><td>جلد يحمل حراشف ملتحمة</td><td><b>الزواحف</b></td><td>الثعبان، السحلية</td></tr>
+      <tr><td>جلد عارٍ</td><td><b>البرمائيات</b></td><td>الضفدع</td></tr>
+      <tr><td>جلد يحمل حراشف غير ملتحمة</td><td><b>الأسماك</b></td><td>السردين، الكارب</td></tr>
+    </table>
+
+    <h3 class="sub-title">مفتاح تحديد اللافقاريات</h3>
+    <table class="data-table">
+      <tr><th>المجموعة الكبرى</th><th>المعيار</th><th>المجموعة</th><th>مثال</th></tr>
+      <tr><td rowspan="4"><b>المفصليات</b><br>(جسم مغلّف بدرع صلب وأرجل مفصلية)</td><td>زوجان من قرون الاستشعار و5 أزواج من الأرجل أو أكثر</td><td><b>القشريات</b></td><td>السرطان</td></tr>
+      <tr><td>زوج واحد من قرون الاستشعار و3 أزواج من الأرجل</td><td><b>الحشرات</b></td><td>الخنفساء</td></tr>
+      <tr><td>زوج واحد من قرون الاستشعار وأكثر من 3 أزواج من الأرجل</td><td><b>عديدات الأرجل</b></td><td>أم أربع وأربعين</td></tr>
+      <tr><td>بلا قرون استشعار و4 أزواج من الأرجل</td><td><b>العنكبيات</b></td><td>العنكبوت</td></tr>
+      <tr><td rowspan="3"><b>الرخويات</b><br>(جسم رخو، وله عادةً صدفة)</td><td>صدفة من مصراعين</td><td><b>ذوات المصراعين</b></td><td>بلح البحر</td></tr>
+      <tr><td>صدفة واحدة (غالبًا حلزونية)</td><td><b>بطنيات القدم</b></td><td>الحلزون</td></tr>
+      <tr><td>قدم مقسّمة إلى لوامس تحيط بالرأس</td><td><b>رأسيات القدم</b></td><td>الأخطبوط</td></tr>
+      <tr><td><b>الديدان</b></td><td>جسم رخو مستطيل وبلا صدفة</td><td><b>الديدان</b></td><td>دودة الأرض</td></tr>
+    </table>
+
+    <h3 class="sub-title">2-2) معايير تصنيف النباتات</h3>
+    <p>توجد أنواع كثيرة من النباتات في الأوساط الطبيعية، ولتصنيفها نستعمل <b>مفتاح تحديد النباتات</b>:</p>
+    <table class="data-table">
+      <tr><th>المعيار</th><th>المجموعة</th></tr>
+      <tr><td>كائن من خلية واحدة، بلا نواة</td><td><b>البكتيريا الزرقاء (السيانوبكتيريا)</b></td></tr>
+      <tr><td>متعدد الخلايا، بلا ساق ولا أوراق ولا أزهار، ومن غير يخضور</td><td><b>الفطريات</b></td></tr>
+      <tr><td>متعدد الخلايا، بلا ساق ولا أوراق ولا أزهار، فيه يخضور (قد تغطيه أصباغ حمراء أو بنية)</td><td><b>الطحالب</b></td></tr>
+      <tr><td>اتحاد بين طحلب وفطر</td><td><b>الأشنات</b></td></tr>
+      <tr><td>نبات بساق وأوراق، يخضوري، بلا أزهار، ومن غير جذور ولا سيقان تحت أرضية</td><td><b>الحزازيات</b></td></tr>
+      <tr><td>نبات بساق وأوراق، يخضوري، بلا أزهار، له جذور وسيقان</td><td><b>السراخس</b></td></tr>
+      <tr><td>نبات مزهر، بذوره غير مغلّفة بثمرة (على قشور مخروط)</td><td><b>عاريات البذور</b> (الصنوبر)</td></tr>
+      <tr><td>نبات مزهر، بذوره داخل ثمرة</td><td><b>كاسيات البذور</b> (البرتقال)</td></tr>
+    </table>
+
+    <h3 class="sub-title">III) التوازنات الطبيعية</h3>
+    <h3 class="sub-title">3-1) مفهوم التوازن الطبيعي</h3>
+    <p>لتعريف التوازن الطبيعي ندرس تغيّر عدد الأرانب والوشق (حيوان مفترس) عبر الزمن:</p>
+    <div style="text-align:center"><svg viewBox="0 0 360 160" style="max-width:100%;height:auto" width="420" role="img" aria-label="تغيّر عدد الأرانب والوشق"><path d="M30 10V130H340" stroke="#444" stroke-width="2" fill="none"/><polyline points="30,115.0 35,112.8 40,106.4 45,96.5 50,83.9 55,70.0 60,56.1 65,43.5 70,33.6 75,27.2 80,25.0 85,27.2 90,33.6 95,43.5 100,56.1 105,70.0 110,83.9 115,96.5 120,106.4 125,112.8 130,115.0 135,112.8 140,106.4 145,96.5 150,83.9 155,70.0 160,56.1 165,43.5 170,33.6 175,27.2 180,25.0 185,27.2 190,33.6 195,43.5 200,56.1 205,70.0 210,83.9 215,96.5 220,106.4 225,112.8 230,115.0 235,112.8 240,106.4 245,96.5 250,83.9 255,70.0 260,56.1 265,43.5 270,33.6 275,27.2 280,25.0 285,27.2 290,33.6 295,43.5 300,56.1 305,70.0 310,83.9 315,96.5 320,106.4 325,112.8 330,115.0" fill="none" stroke="#3f7d3a" stroke-width="3"/><polyline points="30,69.2 35,80.0 40,90.8 45,100.6 50,108.3 55,113.3 60,115.0 65,113.3 70,108.3 75,100.6 80,90.8 85,80.0 90,69.2 95,59.4 100,51.7 105,46.7 110,45.0 115,46.7 120,51.7 125,59.4 130,69.2 135,80.0 140,90.8 145,100.6 150,108.3 155,113.3 160,115.0 165,113.3 170,108.3 175,100.6 180,90.8 185,80.0 190,69.2 195,59.4 200,51.7 205,46.7 210,45.0 215,46.7 220,51.7 225,59.4 230,69.2 235,80.0 240,90.8 245,100.6 250,108.3 255,113.3 260,115.0 265,113.3 270,108.3 275,100.6 280,90.8 285,80.0 290,69.2 295,59.4 300,51.7 305,46.7 310,45.0 315,46.7 320,51.7 325,59.4 330,69.2" fill="none" stroke="#a05a2c" stroke-width="3"/><text x="36" y="12" font-size="11" fill="#444">العدد</text><text x="340" y="148" font-size="11" fill="#444" text-anchor="end">الزمن</text><text x="60" y="154" font-size="11" fill="#3f7d3a">— الأرانب</text><text x="140" y="154" font-size="11" fill="#a05a2c">— الوشق</text></svg></div>
+    <div class="rule-box">
+      <p>• ينقص عدد الوشق إذا نقص عدد الأرانب، ويزداد عندما يزداد عدد الأرانب.</p>
+      <p>• توجد <b>علاقة غذائية</b> بين الوشق والأرانب: بقاء الوشق (المفترس) يتوقّف على الأرانب (الفريسة).</p>
+      <p>• <b>التوازن الطبيعي</b> هو توازن يحصل بين الكائنات الحية (المنتجات والمستهلكات) ويحمي هذه الكائنات من الانقراض.</p>
+    </div>
+
+    <h3 class="sub-title">3-2) أسباب اختلال التوازن الطبيعي وحلوله</h3>
+    <table class="data-table">
+      <tr><th>سبب الاختلال</th><th>أثره</th></tr>
+      <tr><td>الرعي الجائر</td><td>يدمّر الغطاء النباتي</td></tr>
+      <tr><td>قطع الغابات</td><td>يقتل الغابة ويفقد الحيوانات مأواها</td></tr>
+      <tr><td>استعمال المبيدات بلا ضوابط</td><td>يقتل كائنات حية نافعة وضارة معًا</td></tr>
+      <tr><td>الصيد الجائر للأسماك</td><td>يستنزف الثروة السمكية في البحار والمحيطات</td></tr>
+      <tr><td>حرائق الغابات</td><td>تتلف النباتات وتهلك الحيوانات</td></tr>
+      <tr><td>القنص غير القانوني</td><td>يهدّد الحيوانات بالانقراض</td></tr>
+    </table>
+    <div class="rule-box">
+      <p>أنشطة الإنسان هي في الغالب سبب اختلال التوازن الطبيعي. ولإيقافه نقترح: <b>الاستعمال المعقلن للمبيدات</b>، وسنّ قوانين ضد القنص والصيد غير القانوني، و<b>غرس الأشجار</b>، و<b>المحافظة على التنوع البيولوجي</b>.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">✏️ نشاط تطبيقي: أصنّف بمفتاح التحديد</h2>
+    <div class="activity-box">
+      <span class="task-label">المهمة 1</span>
+      <p>أستعمل مفاتيح التحديد وأحدّد المجموعة التي ينتمي إليها كل حيوان:</p>
+      <table class="data-table">
+        <tr><th>الحيوان</th><th>صفاته</th><th>فقاري أم لافقاري؟</th><th>المجموعة</th></tr>
+        <tr><td>أ</td><td>جلد مغطى بالريش</td><td></td><td></td></tr>
+        <tr><td>ب</td><td>جسم رخو بصدفة واحدة حلزونية</td><td></td><td></td></tr>
+        <tr><td>ج</td><td>3 أزواج من الأرجل وزوج قرون استشعار</td><td></td><td></td></tr>
+        <tr><td>د</td><td>4 أزواج من الأرجل وبلا قرون استشعار</td><td></td><td></td></tr>
+        <tr><td>هـ</td><td>جلد عارٍ، يعيش في الماء وعلى اليابسة</td><td></td><td></td></tr>
+        <tr><td>و</td><td>جسم رخو مستطيل بلا صدفة</td><td></td><td></td></tr>
+      </table>
+      <span class="task-label">المهمة 2</span>
+      <p>أفكّر: لماذا يؤدي اختفاء الوشق من منطقة ما إلى اختلال التوازن؟ <span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">📝 تمارين للتدرّب</h2>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">1</span>أكمل الفراغات بالكلمات: (معيار، الفقاريات، 5، 8، التوازن الطبيعي، الانقراض)</h4>
+      <p>صفة يمتلكها الكائن الحي ونستعملها لتصنيفه تسمى <span class="fill-line"></span>. الحيوانات التي لها عمود فقري هي <span class="fill-line"></span>، وتنقسم إلى <span class="fill-line"></span> مجموعات، بينما تنقسم اللافقاريات إلى <span class="fill-line"></span> مجموعات. و<span class="fill-line"></span> يحمي الكائنات من <span class="fill-line"></span>.</p>
+      <p><span class="word-chip">معيار</span><span class="word-chip">الفقاريات</span><span class="word-chip">5</span><span class="word-chip">8</span><span class="word-chip">التوازن الطبيعي</span><span class="word-chip">الانقراض</span></p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">2</span>اختر الإجابة الصحيحة:</h4>
+      <div class="qcm-item"><p>1) جلد يحمل ريشًا، فالحيوان من:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>الثدييات</span><span><span class="checkbox"></span>الطيور</span><span><span class="checkbox"></span>الزواحف</span></div></div>
+      <div class="qcm-item"><p>2) للحشرات:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>3 أزواج من الأرجل</span><span><span class="checkbox"></span>4 أزواج من الأرجل</span><span><span class="checkbox"></span>بلا أرجل</span></div></div>
+      <div class="qcm-item"><p>3) نبات مزهر بذوره داخل ثمرة، هو من:</p>
+        <div class="qcm-options"><span><span class="checkbox"></span>عاريات البذور</span><span><span class="checkbox"></span>السراخس</span><span><span class="checkbox"></span>كاسيات البذور</span></div></div>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">3</span>أصنّف الحيوانات التالية: أحدّد هل هي فقاريات أم لافقاريات وأذكر المجموعة</h4>
+      <table class="data-table">
+        <tr><th>الحيوان</th><th>فقاري / لافقاري</th><th>المجموعة</th></tr>
+        <tr><td>القط</td><td></td><td></td></tr>
+        <tr><td>الثعبان</td><td></td><td></td></tr>
+        <tr><td>الضفدع</td><td></td><td></td></tr>
+        <tr><td>السردين</td><td></td><td></td></tr>
+        <tr><td>الفراشة</td><td></td><td></td></tr>
+        <tr><td>العنكبوت</td><td></td><td></td></tr>
+        <tr><td>الحلزون</td><td></td><td></td></tr>
+        <tr><td>دودة الأرض</td><td></td><td></td></tr>
+      </table>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">4</span>أستعمل مفتاح تحديد الفقاريات</h4>
+      <p>1) جلد عارٍ ← <span class="fill-line"></span><br>
+      2) جلد يحمل حراشف غير ملتحمة ← <span class="fill-line"></span><br>
+      3) جلد يحمل شعرًا وللأنثى غدد ثديية ← <span class="fill-line"></span><br>
+      4) جلد يحمل حراشف ملتحمة ← <span class="fill-line"></span></p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">5</span>أصنّف النباتات (أحدّد المجموعة)</h4>
+      <p>أ) نبات بلا ساق ولا أوراق ولا أزهار، ومن غير يخضور ← <span class="fill-line"></span><br>
+      ب) اتحاد بين طحلب وفطر ← <span class="fill-line"></span><br>
+      ج) نبات يخضوري بلا أزهار، له جذور وسيقان ← <span class="fill-line"></span><br>
+      د) نبات مزهر بذوره على قشور مخروط (الصنوبر) ← <span class="fill-line"></span><br>
+      هـ) كائن من خلية واحدة بلا نواة ← <span class="fill-line"></span></p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">6</span>أقرأ المنحنى (الأرانب والوشق)</h4>
+      <p>1) من المفترس ومن الفريسة؟ <span class="fill-line"></span><br>
+      2) ماذا يحدث لعدد الوشق عندما ينقص عدد الأرانب؟ <span class="fill-line" style="min-width:200px"></span><br>
+      3) ماذا نسمّي هذا الانتظام في تغيّر الأعداد؟ <span class="fill-line" style="min-width:200px"></span></p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">7</span>أصل كل سبب باختلال التوازن بحل مناسب</h4>
+      <div class="match-cols">
+        <ul><li>1) استعمال المبيدات بلا ضوابط</li><li>2) القنص غير القانوني</li><li>3) قطع الغابات وحرائقها</li><li>4) تراجع التنوع البيولوجي</li></ul>
+        <ul><li>أ) غرس الأشجار</li><li>ب) المحافظة على التنوع البيولوجي</li><li>ج) سنّ قوانين تمنع القنص</li><li>د) الاستعمال المعقلن للمبيدات</li></ul>
+      </div>
+      <p>1 ← <span class="fill-line sm"></span> &nbsp; 2 ← <span class="fill-line sm"></span> &nbsp; 3 ← <span class="fill-line sm"></span> &nbsp; 4 ← <span class="fill-line sm"></span></p>
+    </div>
+
+    <div class="exercise">
+      <h4><span class="exercise-num">8</span>أفسّر</h4>
+      <p>لو اختفى الوشق تمامًا من الغابة، ماذا يحدث لعدد الأرانب ثم للنباتات؟ ماذا نسمّي هذه الحالة؟<br>
+      <span class="fill-line" style="min-width:100%;"></span><br>
+      <span class="fill-line" style="min-width:100%;"></span></p>
+    </div>
+  </section>
+
+  <div class="corrige-wrapper">
+    <div class="corrige-flag">✂ ✂ ✂ — يُطوى أو يُقصّ هذا الجزء قبل حلّ التمارين — ✂ ✂ ✂</div>
+    <details class="corrige">
+      <summary>التصحيح الكامل</summary>
+      <h4>نشاط تطبيقي</h4>
+      <div class="corrige-item">المهمة 1: أ) فقاري — الطيور. ب) لافقاري — بطنيات القدم (الرخويات). ج) لافقاري — الحشرات (المفصليات). د) لافقاري — العنكبيات (المفصليات). هـ) فقاري — البرمائيات. و) لافقاري — الديدان.</div>
+      <div class="corrige-item">المهمة 2: الوشق مفترس يتحكّم في عدد الأرانب؛ فإذا اختفى تكاثرت الأرانب كثيرًا وأكلت النباتات، فيختل التوازن بين الكائنات.</div>
+      <h4>تمرين 1</h4>
+      <div class="corrige-item">معيار؛ الفقاريات؛ 5؛ 8؛ التوازن الطبيعي؛ الانقراض.</div>
+      <h4>تمرين 2</h4>
+      <div class="corrige-item">1) الطيور. 2) 3 أزواج من الأرجل. 3) كاسيات البذور.</div>
+      <h4>تمرين 3</h4>
+      <div class="corrige-item">القط: فقاري — ثدييات. الثعبان: فقاري — زواحف. الضفدع: فقاري — برمائيات. السردين: فقاري — أسماك. الفراشة: لافقاري — حشرات. العنكبوت: لافقاري — عنكبيات. الحلزون: لافقاري — بطنيات القدم. دودة الأرض: لافقاري — ديدان.</div>
+      <h4>تمرين 4</h4>
+      <div class="corrige-item">1) البرمائيات. 2) الأسماك. 3) الثدييات. 4) الزواحف.</div>
+      <h4>تمرين 5</h4>
+      <div class="corrige-item">أ) الفطريات. ب) الأشنات. ج) السراخس. د) عاريات البذور. هـ) البكتيريا الزرقاء (السيانوبكتيريا).</div>
+      <h4>تمرين 6</h4>
+      <div class="corrige-item">1) المفترس: الوشق، والفريسة: الأرانب. 2) ينقص عدد الوشق أيضًا (لقلة غذائه). 3) التوازن الطبيعي.</div>
+      <h4>تمرين 7</h4>
+      <div class="corrige-item">1 ← د. 2 ← ج. 3 ← أ. 4 ← ب.</div>
+      <h4>تمرين 8</h4>
+      <div class="corrige-item">يزداد عدد الأرانب بسرعة لغياب مفترسها، فتستهلك كمية كبيرة من النباتات وقد يتناقص الغطاء النباتي ثم يجوع الأرنب. وتسمّى هذه الحالة اختلال التوازن الطبيعي.</div>
+    </details>
+  </div>
+
+  <p class="footer-note">فيشة تعلّم ذاتي — علوم الحياة والأرض — الأولى إعدادي — تصنيف الكائنات الحية والتوازنات الطبيعية</p>
+</div>
+</body>
+</html>
