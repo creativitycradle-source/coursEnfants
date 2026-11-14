@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>أدرس نشاطا اقتصاديا - السياحة في المغرب – فيشة تعلّم ذاتي</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Naskh+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1d2d2b;--ink-soft:#506360;--paper:#f6faf8;--panel:#fff;--line:#cfe0da;
+--teal:#b5652f;--teal-soft:#f6e8dc;--gold:#8a6a1e;--gold-soft:#f5ecd3;--sky:#2c5c78;--sky-soft:#e0ecf2;--red:#b8483a;}
+*{box-sizing:border-box}
+body{margin:0;background:#e9efed;font-family:'Noto Naskh Arabic','Amiri',serif;color:var(--ink);line-height:1.9;font-size:17px}
+.sheet{max-width:900px;margin:18px auto;background:var(--paper);padding:26px 30px;border-radius:14px;box-shadow:0 4px 18px rgba(0,0,0,.1)}
+.masthead{display:flex;align-items:center;gap:18px;background:linear-gradient(135deg,var(--teal),#cf8247);color:#fff;border-radius:14px;padding:18px 22px}
+.masthead h1{font-family:'Amiri',serif;font-size:2rem;margin:0;line-height:1.3}
+.masthead p{margin:4px 0 0;opacity:.92}
+.meta-row{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.chip{background:var(--panel);border:1.5px solid var(--line);border-radius:20px;padding:2px 14px;font-size:.92rem}
+.chip b{color:var(--teal)}
+section{margin:20px 0}
+h2{font-family:'Amiri',serif;font-size:1.5rem;color:var(--teal);border-bottom:3px solid var(--gold);display:inline-block;margin:0 0 10px;padding-bottom:2px}
+.box{background:var(--panel);border:1.5px solid var(--line);border-radius:12px;padding:12px 18px;margin:10px 0}
+.objectif-box{background:var(--teal-soft);border-color:var(--teal)}
+.rule-box{background:var(--gold-soft);border-right:6px solid var(--gold);border-radius:10px;padding:10px 16px;margin:10px 0}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px;margin:10px 0}
+.card{background:var(--panel);border:1.5px solid var(--line);border-top:5px solid var(--sky);border-radius:10px;padding:8px 14px}
+.card h3{margin:0;color:var(--sky);font-size:1.05rem}
+.card p{margin:2px 0 0;font-size:.95rem}
+.map-box{background:var(--sky-soft);border:1.5px solid var(--sky);border-radius:12px;padding:10px;text-align:center}
+.map-box svg{max-width:100%;height:auto}
+table.data-table{width:100%;border-collapse:collapse;margin:10px 0;background:#fff}
+.data-table th,.data-table td{border:1.5px solid var(--line);padding:6px 10px;text-align:center}
+.data-table th{background:var(--teal);color:#fff}
+.activity-box{background:var(--sky-soft);border:2px dashed var(--sky);border-radius:12px;padding:12px 18px}
+.task-label{display:inline-block;background:var(--sky);color:#fff;border-radius:8px;padding:0 10px;margin-left:6px;font-size:.9rem}
+.exercise{background:var(--panel);border:1.5px solid var(--line);border-radius:12px;padding:10px 18px 12px;margin:12px 0;page-break-inside:avoid}
+.exercise-num{display:inline-flex;width:30px;height:30px;border-radius:50%;background:var(--gold);color:#fff;align-items:center;justify-content:center;font-weight:700;margin-left:8px}
+.exercise h4{margin:0 0 6px;font-size:1.05rem;color:var(--teal)}
+.fill-line{display:inline-block;min-width:120px;border-bottom:2px dotted var(--ink-soft)}
+.checkbox{display:inline-block;width:15px;height:15px;border:2px solid var(--teal);border-radius:3px;vertical-align:middle;margin-left:6px}
+.opt{display:block;margin:2px 0}
+.match-cols{display:flex;justify-content:space-between;gap:30px}
+.match-cols div{flex:1}
+.match-cols p{margin:4px 0;background:var(--teal-soft);border-radius:8px;padding:2px 12px}
+.word-chip{display:inline-block;background:var(--gold-soft);border:1.5px solid var(--gold);border-radius:16px;padding:0 12px;margin:3px}
+.lines{border-bottom:2px dotted var(--ink-soft);height:26px;margin:4px 0}
+.corrige-wrapper{page-break-before:always;margin-top:26px}
+details.corrige{border:2px solid var(--teal);border-radius:12px;background:#fff;padding:8px 18px}
+details.corrige summary{cursor:pointer;font-family:'Amiri',serif;font-size:1.25rem;color:var(--teal);font-weight:700}
+.corrige h5{margin:12px 0 2px;color:var(--red);font-size:1.02rem}
+.corrige p{margin:2px 0}
+.footer-note{text-align:center;color:var(--ink-soft);font-size:.88rem;margin-top:18px}
+@page{size:A4;margin:13mm}
+@media print{body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}.sheet{box-shadow:none;margin:0;max-width:none;padding:0;background:#fff}details.corrige:not([open]) *{display:none}details.corrige:not([open]) summary{display:block}}
+.sq{display:inline-block;width:18px;height:18px;border:2px solid var(--teal);border-radius:4px;vertical-align:middle;margin:0 6px}
+@media print{body,body *{font-family:Tahoma,'Segoe UI',Arial,'DejaVu Sans',sans-serif !important}svg text{font-family:Tahoma,Arial,sans-serif !important}}
+table.data-table{display:block;max-width:100%;overflow-x:auto}
+@media (max-width:600px){.data-table th,.data-table td{padding:5px 2px;font-size:12px}}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<header class="masthead">
+<svg width="76" height="62" viewBox="0 0 76 62" aria-hidden="true"><circle cx="54" cy="16" r="9" fill="#f3d38a"/><path d="M4 54 22 26l12 16 8-10 22 22z" fill="#f3d9bb" stroke="#fff" stroke-width="2.5" stroke-linejoin="round"/></svg>
+<div><h1>السياحة في المغرب</h1><p>الجغرافيا – أدرس نشاطًا اقتصاديًا</p></div>
+</header>
+
+<div class="meta-row">
+<span class="chip"><b>المستوى:</b> السادسة ابتدائي (6AEP)</span>
+<span class="chip"><b>المادة:</b> الاجتماعيات — الجغرافيا</span>
+<span class="chip"><b>مدة الحصة:</b> ساعة ونصف</span>
+<span class="chip"><b>نوع الوثيقة:</b> فيشة تعلّم ذاتي</span>
+</div>
+
+<section>
+<h2>🎯 الهدف</h2>
+<div class="box objectif-box">في نهاية هذه الحصة سأكون قادرًا على:
+<ul>
+<li>أن أعرّف <b>السياحة</b> وأبيّن أنها نشاط اقتصادي من قطاع الخدمات؛</li>
+<li>أن أذكر المؤهلات السياحية بالمغرب (الطبيعية والتاريخية والثقافية) وأعطي أمثلة عنها؛</li>
+<li>أن أحدّد أنواع السياحة والمنشآت التي تحتاجها؛</li>
+<li>أن أبيّن فوائد السياحة للاقتصاد وللسكان، وأذكر بعض الصعوبات؛</li>
+<li>أن أقترح سلوكات للحفاظ على البيئة والتراث السياحي.</li>
+</ul></div>
+</section>
+
+<section>
+<h2>📘 الدرس</h2>
+
+<h3>1) ملاحظة</h3>
+<div class="box">في العطلة، يسافر أجانب ومغاربة إلى مدن المغرب: يزورون المدن العتيقة، ويستمتعون بالشواطئ، ويتسلّقون الجبال، ويشترون منتوجات الصناعة التقليدية. وهم يبيتون في الفنادق ويأكلون في المطاعم ويتنقّلون بالحافلات والقطارات والطائرات. كل هذا ينشّط الاقتصاد ويشغّل أناسًا كثيرين.</div>
+
+<h3>2) ما هي السياحة؟</h3>
+<div class="rule-box"><b>السياحة</b> هي سفر الناس إلى أماكن بعيدة عن مقرّ سكناهم من أجل <b>الراحة والترفيه والاكتشاف</b>. ويُسمّى المسافر <b>سائحًا</b>. وتُعدّ السياحة <b>نشاطًا اقتصاديًا</b> من قطاع <b>الخدمات</b> لأنها تقدّم خدمات (إيواء، إطعام، نقل، إرشاد) مقابل المال.</div>
+
+<h3>3) المؤهلات السياحية بالمغرب</h3>
+<p>يتوفّر المغرب على مؤهلات سياحية كثيرة ومتنوّعة بفضل موقعه وتنوّع تضاريسه ومناخه وتاريخه العريق:</p>
+<div class="cards">
+<div class="card"><h4>🏖️ مؤهلات طبيعية</h4><p>شواطئ على المحيط الأطلسي والبحر الأبيض المتوسط (أكادير، الصويرة، السعيدية)، وجبال الأطلس وغاباتها، وكثبان الصحراء (مرزوكة).</p></div>
+<div class="card"><h4>🕌 مؤهلات تاريخية وحضارية</h4><p>المدن العتيقة (فاس، مراكش، مكناس، الرباط، تطوان)، والقصبات والأسوار والمساجد (مسجد الحسن الثاني، الكتبية، صومعة حسان).</p></div>
+<div class="card"><h4>🎨 مؤهلات ثقافية</h4><p>الصناعة التقليدية (الزرابي، الفخار، الجلد)، والموسيقى والمهرجانات، والمطبخ المغربي (الكسكس، الطاجين).</p></div>
+<div class="card"><h4>🌄 مؤهلات للترفيه</h4><p>التزلج في أوكايمدن وإيفران، والمشي في الجبال، والرياضات الشاطئية، والتخييم في الصحراء.</p></div>
+</div>
+<div class="rule-box">اعترفت منظمة اليونسكو بعدد من المدن والمواقع المغربية كتراث عالمي، منها: <b>فاس ومراكش ومكناس وتطوان والصويرة</b>.</div>
+
+<h3>4) أنواع السياحة</h3>
+<table class="data-table">
+<tr><th>نوع السياحة</th><th>ما يفعله السائح</th><th>مثال</th></tr>
+<tr><td>السياحة الشاطئية</td><td>السباحة والاستجمام على الشاطئ</td><td>أكادير، السعيدية</td></tr>
+<tr><td>السياحة الثقافية</td><td>زيارة المدن العتيقة والآثار والمتاحف</td><td>فاس، مراكش</td></tr>
+<tr><td>السياحة الجبلية</td><td>المشي والتسلق والتزلج</td><td>أوكايمدن، إيفران</td></tr>
+<tr><td>السياحة الصحراوية</td><td>ركوب الجمال والتخييم بين الكثبان</td><td>مرزوكة، زاكورة</td></tr>
+<tr><td>السياحة القروية</td><td>الإقامة في دور الضيافة والتعرّف على حياة القرية</td><td>قرى الأطلس</td></tr>
+</table>
+
+<h3>5) ما الذي تحتاجه السياحة؟</h3>
+<div class="rule-box">لكي تنجح السياحة تحتاج إلى <b>منشآت وخدمات</b>:<br>
+• <b>الإيواء:</b> فنادق، دور ضيافة، مخيمات.<br>
+• <b>الإطعام:</b> مطاعم ومقاهٍ.<br>
+• <b>النقل:</b> مطارات، موانئ، طرق سيّارة، قطارات (مثل القطار فائق السرعة «البراق» بين طنجة والدار البيضاء)، حافلات.<br>
+• <b>التنظيم والإرشاد:</b> وكالات الأسفار والمرشدون السياحيون.</div>
+
+<h3>6) فوائد السياحة وصعوباتها</h3>
+<table class="data-table">
+<tr><th>الفوائد</th><th>الصعوبات</th></tr>
+<tr><td>توفير فرص الشغل (فنادق، مطاعم، نقل، حِرَف)</td><td>الموسمية: يكثر السياح في الصيف وفي العطل ويقلّون في باقي السنة</td></tr>
+<tr><td>إدخال العملة الصعبة إلى البلاد</td><td>تلوث الشواطئ والمواقع بالنفايات</td></tr>
+<tr><td>تنشيط التجارة والصناعة التقليدية والنقل</td><td>تدهور بعض المواقع التراثية بسبب الإهمال</td></tr>
+<tr><td>التعريف بالمغرب وتراثه وثقافته</td><td>تأثّر السياحة بالأزمات (الأوبئة، الحروب)</td></tr>
+</table>
+
+<h3>7) كيف نحافظ على السياحة؟</h3>
+<div class="rule-box"><ul style="margin:0;padding-inline-start:20px">
+<li>أحافظ على نظافة الشواطئ والحدائق ولا أرمي النفايات.</li>
+<li>أحمي الآثار والمعالم ولا أكتب عليها ولا أتلفها.</li>
+<li>أرحّب بالسياح بلطف وأدلّهم على الطريق.</li>
+<li>أحافظ على الماء والطبيعة في الجبال والصحراء.</li>
+</ul></div>
+
+<h3>8) ملخص</h3>
+<div class="rule-box"><ul style="margin:0;padding-inline-start:20px">
+<li>السياحة نشاط اقتصادي من قطاع الخدمات يقوم على استقبال السياح.</li>
+<li>يتميّز المغرب بمؤهلات طبيعية وتاريخية وثقافية كثيرة.</li>
+<li>تنتج عنها فرص شغل وموارد مالية، لكنها تحتاج إلى حماية البيئة والتراث.</li>
+</ul></div>
+</section>
+
+<section>
+<h2>✍️ نشاط تطبيقي</h2>
+<div class="box activity-box">
+<span class="task-label">أنا مرشد سياحي</span>
+<p>أختار ثلاث مدن أو مناطق مغربية وأعدّ لها بطاقة تعريف سياحية:</p>
+<table class="data-table">
+<tr><th>المدينة أو المنطقة</th><th>نوع السياحة</th><th>أهم معلمة أو مؤهل</th><th>ماذا أنصح السائح؟</th></tr>
+<tr><td></td><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td></tr>
+</table>
+<p>أكتب جملة ترحيبية بالسائح بلغة سليمة: <span class="fill-line" style="min-width:300px"></span></p>
+<div class="lines"></div></div>
+</section>
+
+<section>
+<h2>📝 التمارين</h2>
+
+<div class="exercise"><h4><span class="exercise-num">1</span>أكمل الفراغات</h4>
+<p>السياحة نشاط <span class="fill-line"></span> من قطاع <span class="fill-line"></span>. يسمّى المسافر للترفيه <span class="fill-line"></span>. من مؤهلات المغرب الطبيعية <span class="fill-line"></span> و<span class="fill-line"></span>، ومن مؤهلاته التاريخية <span class="fill-line"></span>.</p></div>
+
+<div class="exercise"><h4><span class="exercise-num">2</span>صحيح أم خطأ؟ أصحّح الخطأ</h4>
+<p>1) السياحة نشاط اقتصادي. <span class="fill-line sm"></span><br>
+2) السياحة تحتاج إلى فنادق ومطاعم ووسائل نقل. <span class="fill-line sm"></span><br>
+3) لا تُوفّر السياحة أي فرص شغل. <span class="fill-line sm"></span><br>
+4) من صعوبات السياحة أنها موسمية. <span class="fill-line sm"></span><br>
+5) مرزوكة مشهورة بالسياحة الشاطئية. <span class="fill-line sm"></span></p></div>
+
+<div class="exercise"><h4><span class="exercise-num">3</span>أصنّف المؤهلات السياحية</h4>
+<p>الشواطئ ، المدينة العتيقة بفاس ، كثبان مرزوكة ، جامع الكتبية ، جبال الأطلس ، قصبة الأوداية<br>
+مؤهلات طبيعية: <span class="fill-line" style="min-width:240px"></span><br>
+مؤهلات تاريخية وحضارية: <span class="fill-line" style="min-width:240px"></span></p></div>
+
+<div class="exercise"><h4><span class="exercise-num">4</span>أربط كل مكان بما يشتهر به</h4>
+<p>(التزلج – الكثبان الرملية – ساحة جامع الفنا – المدينة العتيقة – الشاطئ)<br>
+مراكش ← <span class="fill-line"></span><br>
+أوكايمدن ← <span class="fill-line"></span><br>
+أكادير ← <span class="fill-line"></span><br>
+مرزوكة ← <span class="fill-line"></span><br>
+فاس ← <span class="fill-line"></span><br>
+ثم أذكر نوع السياحة لكل مكان (ثقافية، جبلية، شاطئية، صحراوية): <span class="fill-line" style="min-width:240px"></span></p></div>
+
+<div class="exercise"><h4><span class="exercise-num">5</span>أقرأ الوثيقة وأجيب</h4>
+<p>«يستقبل المغرب كل سنة ملايين السياح الأجانب، ويقصدون خاصة مراكش وأكادير وفاس. يبيتون في الفنادق ويأكلون في المطاعم ويشترون الزرابي والفخار. ويشتغل في هذا القطاع آلاف الأشخاص كالسائقين والمرشدين وعمال الفنادق والحرفيين.»<br>
+1) من يستقبل المغرب كل سنة؟ <span class="fill-line" style="min-width:200px"></span><br>
+2) اذكر ثلاث مدن مقصودة: <span class="fill-line" style="min-width:200px"></span><br>
+3) اذكر ثلاث فئات تشتغل في السياحة: <span class="fill-line" style="min-width:200px"></span><br>
+4) ما فائدة السياحة للحرفيين؟ <span class="fill-line" style="min-width:200px"></span></p></div>
+
+<div class="exercise"><h4><span class="exercise-num">6</span>فوائد أم صعوبات؟</h4>
+<p>أكتب (ف) للفائدة و(ص) للصعوبة:<br>
+أ) توفير فرص الشغل ( ) &nbsp; ب) تلوث الشواطئ بالنفايات ( ) &nbsp; ج) إدخال العملة الصعبة ( )<br>
+د) قلّة السياح في فصل الشتاء ( ) &nbsp; هـ) التعريف بتراث المغرب ( ) &nbsp; و) تدهور الآثار بسبب الإهمال ( )</p></div>
+
+<div class="exercise"><h4><span class="exercise-num">7</span>مسألة</h4>
+<p>1) فندق به 120 غرفة، منها <span class="num">3/4</span> مشغولة. كم غرفة مشغولة؟ <span class="fill-line"></span><br>
+2) تحمل كل حافلة 45 سائحًا. كم سائحًا في 4 حافلات؟ <span class="fill-line"></span><br>
+3) سعر الليلة في دار ضيافة <span class="num">300 DH</span>. كم يدفع سائح قضى 3 ليالٍ؟ <span class="fill-line"></span></p></div>
+
+<div class="exercise"><h4><span class="exercise-num">8</span>أكتب فقرة</h4>
+<p>أكتب فقرة من 4 إلى 5 جمل أدعو فيها سائحًا أجنبيًا لزيارة مدينة مغربية، وأذكر فيها ما يمكنه أن يزور ويفعل هناك:</p>
+<div class="lines"></div></div>
+</section>
+
+<div class="corrige-wrapper">
+<details class="corrige">
+<summary>اضغط لإظهار الحل / إخفائه — التصحيح الكامل</summary>
+<h5>نشاط تطبيقي</h5>
+<p>الإجابات حرّة. مثال: مراكش — سياحة ثقافية — ساحة جامع الفنا — أنصحه بزيارة الأسواق وتذوّق الطاجين. أكادير — سياحة شاطئية — الشاطئ والكورنيش — أنصحه بالسباحة وركوب الدراجات. مرزوكة — سياحة صحراوية — الكثبان الرملية — أنصحه بقضاء ليلة في الخيمة. وجملة الترحيب مثل: مرحبًا بكم في المغرب، بلد الضيافة والجمال.</p>
+<h5>تمرين 1</h5><p>اقتصادي؛ الخدمات؛ سائحًا؛ مثلًا: الشواطئ والجبال والصحراء؛ المدن العتيقة أو الآثار.</p>
+<h5>تمرين 2</h5><p>1) صحيح. 2) صحيح. 3) خطأ: توفّر السياحة فرص شغل كثيرة. 4) صحيح. 5) خطأ: مرزوكة مشهورة بالسياحة الصحراوية (الكثبان الرملية).</p>
+<h5>تمرين 3</h5><p>مؤهلات طبيعية: الشواطئ، كثبان مرزوكة، جبال الأطلس. مؤهلات تاريخية وحضارية: المدينة العتيقة بفاس، جامع الكتبية، قصبة الأوداية.</p>
+<h5>تمرين 4</h5><p>مراكش: ساحة جامع الفنا (سياحة ثقافية). أوكايمدن: التزلج (سياحة جبلية). أكادير: الشاطئ (سياحة شاطئية). مرزوكة: الكثبان الرملية (سياحة صحراوية). فاس: المدينة العتيقة (سياحة ثقافية).</p>
+<h5>تمرين 5</h5><p>1) ملايين السياح الأجانب. 2) مراكش، أكادير، فاس. 3) مثلًا: السائقون، المرشدون، عمال الفنادق، الحرفيون (تُقبل ثلاث منها). 4) يشتري السياح منتوجاتهم (الزرابي والفخار) فيربحون المال وتنشط حِرَفهم.</p>
+<h5>تمرين 6</h5><p>أ) ف. ب) ص. ج) ف. د) ص. هـ) ف. و) ص.</p>
+<h5>تمرين 7</h5><p>1) <span class="num">120 × 3 ÷ 4 = 90</span> غرفة. 2) <span class="num">45 × 4 = 180</span> سائحًا. 3) <span class="num">300 × 3 = 900 DH</span>.</p>
+<h5>تمرين 8</h5><p>الإجابة حرّة. نموذج: عزيزي السائح، أدعوك لزيارة مدينة فاس. ستشاهد فيها المدينة العتيقة وجامعة القرويين، وستتجول في الأسواق التقليدية وتشتري الفخار والجلد. كما يمكنك أن تتذوّق المطبخ المغربي الشهي. أهلًا بك في المغرب!</p>
+</details>
+</div>
+
+<p class="footer-note">فيشة تعلّم ذاتي – الاجتماعيات – السادسة ابتدائي</p>
+</div>
+</body>
+</html>
