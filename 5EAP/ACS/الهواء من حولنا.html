@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>الهواء من حولنا – فيشة تعلّم ذاتي</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Naskh+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#2a2118;--ink-soft:#6a5846;--paper:#fbf8f3;--panel:#fff;--line:#e0d3c2;
+--brown:#8a5a34;--brown-soft:#f1e6da;--leaf:#3f7d3a;--leaf-soft:#e3f0de;--amber:#c98a2e;--amber-soft:#fbefd6;--clay:#b5502f;--clay-soft:#f8e3da;}
+*{box-sizing:border-box}
+body{margin:0;background:#ece5da;font-family:'Noto Naskh Arabic','Amiri',serif;color:var(--ink);line-height:1.9;font-size:17px}
+.sheet{max-width:900px;margin:18px auto;background:var(--paper);padding:26px 30px;border-radius:14px;box-shadow:0 4px 18px rgba(0,0,0,.1)}
+.masthead{display:flex;align-items:center;gap:18px;background:linear-gradient(135deg,var(--brown),#a9754a);color:#fff;border-radius:14px;padding:18px 22px}
+.masthead h1{font-family:'Amiri',serif;font-size:1.9rem;margin:0;line-height:1.35}
+.masthead p{margin:4px 0 0;opacity:.92}
+.meta-row{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.chip{background:var(--panel);border:1.5px solid var(--line);border-radius:20px;padding:2px 14px;font-size:.92rem}
+.chip b{color:var(--brown)}
+section{margin:20px 0}
+h2{font-family:'Amiri',serif;font-size:1.5rem;color:var(--brown);border-bottom:3px solid var(--amber);display:inline-block;margin:0 0 10px;padding-bottom:2px}
+h3{color:var(--leaf);margin:14px 0 4px;font-size:1.12rem}
+.box{background:var(--panel);border:1.5px solid var(--line);border-radius:12px;padding:12px 18px;margin:10px 0}
+.objectif-box{background:var(--leaf-soft);border-color:var(--leaf)}
+.rule-box{background:var(--amber-soft);border-right:6px solid var(--amber);border-radius:10px;padding:10px 16px;margin:10px 0}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:10px;margin:10px 0}
+.card{background:var(--panel);border:1.5px solid var(--line);border-top:5px solid var(--clay);border-radius:10px;padding:8px 14px}
+.card.good{border-top-color:var(--leaf)}
+.card h4{margin:0;color:var(--clay);font-size:1.03rem}
+.card.good h4{color:var(--leaf)}
+.card p{margin:2px 0 0;font-size:.95rem}
+table.data-table{width:100%;border-collapse:collapse;margin:10px 0;background:#fff}
+.data-table th,.data-table td{border:1.5px solid var(--line);padding:6px 10px;text-align:center}
+.data-table th{background:var(--brown);color:#fff}
+.activity-box{background:var(--brown-soft);border:2px dashed var(--brown);border-radius:12px;padding:12px 18px}
+.task-label{display:inline-block;background:var(--brown);color:#fff;border-radius:8px;padding:0 10px;margin-left:6px;font-size:.9rem}
+.exercise{background:var(--panel);border:1.5px solid var(--line);border-radius:12px;padding:10px 18px 12px;margin:12px 0;page-break-inside:avoid}
+.exercise-num{display:inline-flex;width:30px;height:30px;border-radius:50%;background:var(--amber);color:#fff;align-items:center;justify-content:center;font-weight:700;margin-left:8px}
+.exercise h4{margin:0 0 6px;font-size:1.05rem;color:var(--brown)}
+.fill-line{display:inline-block;min-width:110px;border-bottom:2px dotted var(--ink-soft)}
+.checkbox,.sq{display:inline-block;width:16px;height:16px;border:2px solid var(--leaf);border-radius:3px;vertical-align:middle;margin:0 6px}
+.opt{display:block;margin:2px 0}
+.lines{border-bottom:2px dotted var(--ink-soft);height:26px;margin:4px 0}
+.match-cols{display:flex;justify-content:space-between;gap:30px}.match-cols div{flex:1}
+.match-cols p{margin:4px 0;background:var(--brown-soft);border-radius:8px;padding:2px 12px}
+.word-chip{display:inline-block;background:var(--amber-soft);border:1.5px solid var(--amber);border-radius:16px;padding:0 12px;margin:3px}
+.doc-box{background:var(--clay-soft);border-right:6px solid var(--clay);border-radius:10px;padding:10px 16px;margin:8px 0}
+.corrige-wrapper{page-break-before:always;margin-top:26px}
+details.corrige{border:2px solid var(--brown);border-radius:12px;background:#fff;padding:8px 18px}
+details.corrige summary{cursor:pointer;font-family:'Amiri',serif;font-size:1.25rem;color:var(--brown);font-weight:700}
+.corrige h5{margin:12px 0 2px;color:var(--clay);font-size:1.02rem}
+.corrige p{margin:2px 0}
+.footer-note{text-align:center;color:var(--ink-soft);font-size:.88rem;margin-top:18px}
+svg text{font-family:'Noto Naskh Arabic',sans-serif}
+.fig{text-align:center;font-size:.88rem;color:var(--ink-soft)}
+@page{size:A4;margin:13mm}
+@media print{body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}.sheet{box-shadow:none;margin:0;max-width:none;padding:0;background:#fff}details.corrige:not([open]) > :not(summary){display:none}}
+@media print{body,body *{font-family:Tahoma,'Segoe UI',Arial,'DejaVu Sans',sans-serif !important}svg text{font-family:Tahoma,Arial,sans-serif !important}}
+table.data-table{display:block;max-width:100%;overflow-x:auto}
+@media (max-width:600px){.data-table th,.data-table td{padding:5px 2px;font-size:12px}}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<header class="masthead">
+<svg width="80" height="62" viewBox="0 0 80 62" aria-hidden="true"><g fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"><path d="M8 20h38a8 8 0 1 0-8-8"/><path d="M8 32h52a9 9 0 1 1-9 9"/><path d="M8 44h26"/></g></svg>
+<div><h1>الهَوَاءُ مِنْ حَوْلِنَا</h1><p>النشاط العلمي – الهواء وخصائصه</p></div>
+</header>
+
+<div class="meta-row">
+<span class="chip"><b>المستوى:</b> السادسة ابتدائي (6AEP)</span>
+<span class="chip"><b>المادة:</b> النشاط العلمي</span>
+<span class="chip"><b>مدة الحصة:</b> ساعة ونصف</span>
+<span class="chip"><b>نوع الوثيقة:</b> فيشة تعلّم ذاتي</span>
+</div>
+
+<section>
+<h2>🎯 الهدف</h2>
+<div class="box objectif-box">في نهاية هذه الفيشة سأكون قادرًا على:
+<ul>
+<li>أن أبيّن بتجارب بسيطة أن الهواء موجود حولنا وأنه مادة؛</li>
+<li>أن أذكر تركيب الهواء (78% ثنائي الآزوت، 21% ثنائي الأوكسجين، 1% غازات أخرى)؛</li>
+<li>أن أذكر خصائص الهواء: ليس له شكل ولا حجم خاص، وهو قابل للانضغاط والتمدد، وله كتلة؛</li>
+<li>أن أصف ما يحدث لحجم الهواء وضغطه عند الانضغاط والتمدد؛</li>
+<li>أن أبيّن دور ثنائي الأوكسجين في التنفس.</li>
+</ul></div>
+</section>
+
+<section>
+<h2>📘 الدرس</h2>
+
+<h3>1) ملاحظة</h3>
+<div class="rule-box">الهواء لا نراه ولا نشمّ له رائحة، لكننا نحسّ به حين تهبّ الرياح، ونراه حين ننفخ بالونًا أو إطار دراجة، ونسمع صوته حين نفتح قارورة غازية. فهل الهواء مادة؟ وما خصائصه؟</div>
+
+<h3>2) تجارب لاكتشاف الهواء</h3>
+<div class="worked-example"><span class="tag">التجربة 1: الهواء يشغل حيّزًا</span><br>
+أُغمر قارورة فارغة مقلوبة في حوض ماء. <b>الملاحظة:</b> لا يملأ الماءُ القارورة، بل يبقى جزؤها العلوي فارغًا. <b>الاستنتاج:</b> يوجد في القارورة هواء يشغل حيّزًا ويمنع الماء من دخولها.</div>
+<div class="worked-example"><span class="tag">التجربة 2: للهواء كتلة</span><br>
+أعلّق بالونين متماثلين منفوخين طرفَي مسطرة معلّقة من وسطها فتتوازن. أثقب أحد البالونين. <b>الملاحظة:</b> تميل المسطرة نحو البالون المنفوخ. <b>الاستنتاج:</b> الهواء الموجود في البالون له كتلة.</div>
+<div class="worked-example"><span class="tag">التجربة 3: انضغاط الهواء وتمدّده</span><br>
+آخذ محقنة (سرنجة) بدون إبرة تحتوي على هواء، وأسدّ فوهتها بإصبعي، ثم أدفع المكبس. <b>الملاحظة:</b> يصغر حجم الهواء ونشعر بمقاومة (الضغط يزداد). وإذا حرّرتُ المكبس عاد إلى موضعه (يتمدّد الهواء). <b>الاستنتاج:</b> الهواء قابل للانضغاط والتمدّد.</div>
+
+<h3>3) تركيب الهواء</h3>
+<div class="rule-box">الهواء <b>مزيج</b> من عدة غازات، وليس غازًا واحدًا. يتكوّن تقريبًا من:<br>
+• <b>78%</b> من <b>ثنائي الآزوت</b> (N<sub>2</sub>)؛<br>
+• <b>21%</b> من <b>ثنائي الأوكسجين</b> (O<sub>2</sub>)؛<br>
+• <b>1%</b> من غازات أخرى (مثل ثنائي أكسيد الكربون وبخار الماء).</div>
+<div class="fig">
+<svg viewBox="0 0 42 42" width="180" role="img" aria-label="تركيب الهواء">
+<circle cx="21" cy="21" r="15.915" fill="none" stroke="#a9744f" stroke-width="7" stroke-dasharray="78 22" stroke-dashoffset="25"/>
+<circle cx="21" cy="21" r="15.915" fill="none" stroke="#5c8a46" stroke-width="7" stroke-dasharray="21 79" stroke-dashoffset="-53"/>
+<circle cx="21" cy="21" r="15.915" fill="none" stroke="#d99a2b" stroke-width="7" stroke-dasharray="1 99" stroke-dashoffset="-74"/>
+</svg>
+<p><b style="color:#a9744f">■</b> ثنائي الآزوت 78% &nbsp; <b style="color:#5c8a46">■</b> ثنائي الأوكسجين 21% &nbsp; <b style="color:#d99a2b">■</b> غازات أخرى 1%</p>
+</div>
+
+<h3>4) خصائص الهواء</h3>
+<div class="rule-box">
+<b>1) ليس للهواء شكل خاص ولا حجم خاص:</b> يأخذ شكل الإناء الذي يوجد فيه ويملأه كله (مثل بالون أو قارورة).<br>
+<b>2) الهواء قابل للانضغاط والتمدّد:</b><br>
+&nbsp;&nbsp;• عند <b>الانضغاط</b>: يتناقص حجمه ويزداد ضغطه.<br>
+&nbsp;&nbsp;• عند <b>التمدّد</b>: يزداد حجمه ويتناقص ضغطه.<br>
+<b>3) للهواء كتلة:</b> البالون المنفوخ أثقل من البالون الفارغ.</div>
+
+<h3>5) دور ثنائي الأوكسجين</h3>
+<p>ثنائي الأوكسجين هو الغاز الذي نحتاجه <b>للتنفّس</b>؛ فجميع الكائنات الحية تستعمله لإنتاج الطاقة اللازمة لحياتها. وهو ضروري أيضًا لحدوث الاحتراق (مثل اشتعال شمعة).</p>
+
+<h3>6) الهواء الساخن</h3>
+<p>عندما يسخن الهواء يتمدّد ويصبح أخفّ من الهواء البارد المحيط به، فيرتفع نحو الأعلى. لذلك يرتفع المنطاد الذي يمتلئ بالهواء الساخن في السماء.</p>
+
+<h3>7) ملخص</h3>
+<div class="rule-box"><ul style="margin:0;padding-inline-start:20px">
+<li>الهواء مزيج: 78% ثنائي الآزوت، 21% ثنائي الأوكسجين، 1% غازات أخرى.</li>
+<li>ليس له شكل ولا حجم خاص، وهو قابل للانضغاط والتمدد، وله كتلة.</li>
+<li>عند الانضغاط يقلّ الحجم ويزداد الضغط، وعند التمدد يحدث العكس.</li>
+<li>ثنائي الأوكسجين ضروري لتنفّس الكائنات الحية.</li>
+</ul></div>
+</section>
+
+<section>
+<h2>✍️ نشاط تطبيقي</h2>
+<div class="box activity-box">
+<span class="task-label">أنجز تجربة المحقنة</span>
+<p><b>الأدوات:</b> محقنة (سرنجة) بدون إبرة، وقارورة صغيرة فارغة، وحوض ماء.<br>
+<b>التجربة أ:</b> أسحب المكبس حتى العلامة 20 mL، وأسدّ الفوهة بإصبعي، ثم أدفع المكبس.<br>
+<b>التجربة ب:</b> أغمر القارورة الفارغة مقلوبة في حوض الماء وأراقب.</p>
+<table class="data-table">
+<tr><th>التجربة</th><th>ماذا لاحظتُ؟</th><th>ماذا استنتجتُ؟</th></tr>
+<tr><td>أ (دفع المكبس)</td><td></td><td></td></tr>
+<tr><td>أ (تحرير المكبس)</td><td></td><td></td></tr>
+<tr><td>ب (القارورة في الماء)</td><td></td><td></td></tr>
+</table>
+<div class="lines"></div></div>
+</section>
+
+<section>
+<h2>📝 التمارين</h2>
+
+<div class="exercise"><h4><span class="exercise-num">1</span>أكمل الفراغات</h4>
+<p>الهواء <span class="fill-line"></span> من عدة غازات، منها <span class="fill-line"></span> بنسبة 78%، و<span class="fill-line"></span> بنسبة 21%، و<span class="fill-line"></span> أخرى بنسبة 1%.</p></div>
+
+<div class="exercise"><h4><span class="exercise-num">2</span>صحيح أم خطأ؟ أصحّح الخطأ</h4>
+<p>1) للهواء كتلة. <span class="fill-line sm"></span><br>
+2) للهواء شكل خاص به. <span class="fill-line sm"></span><br>
+3) الهواء قابل للانضغاط. <span class="fill-line sm"></span><br>
+4) عند ضغط الهواء في محقنة مسدودة يزداد حجمه. <span class="fill-line sm"></span><br>
+5) ثنائي الأوكسجين ضروري للتنفس. <span class="fill-line sm"></span></p></div>
+
+<div class="exercise"><h4><span class="exercise-num">3</span>أختار الجواب الصحيح</h4>
+<p>الغاز الأكثر نسبة في الهواء هو:<br>
+☐ ثنائي الأوكسجين &nbsp;&nbsp; ☐ ثنائي الآزوت &nbsp;&nbsp; ☐ بخار الماء &nbsp;&nbsp; ☐ ثنائي أكسيد الكربون</p></div>
+
+<div class="exercise"><h4><span class="exercise-num">4</span>أربط كل ملاحظة بالخاصية المناسبة</h4>
+<p>(الكتلة – الانضغاط – التمدّد – لا شكل له)<br>
+أ) البالون المنفوخ أثقل من البالون الفارغ ← <span class="fill-line"></span><br>
+ب) نقصٌ في حجم الهواء عند دفع مكبس محقنة مسدودة ← <span class="fill-line"></span><br>
+ج) الهواء الذي ننفخه يملأ البالون كله ← <span class="fill-line"></span><br>
+د) الهواء في القارورة يأخذ شكلها ← <span class="fill-line"></span></p></div>
+
+<div class="exercise"><h4><span class="exercise-num">5</span>القارورة المقلوبة</h4>
+<p>أغمر قارورة فارغة مقلوبة في حوض ماء. هل تمتلئ كليًا بالماء؟ علّل جوابك.<br>
+<span class="fill-line" style="min-width:300px"></span></p></div>
+
+<div class="exercise"><h4><span class="exercise-num">6</span>المحقنة</h4>
+<p>في محقنة مسدودة الفوهة 20 mL من الهواء. ندفع المكبس حتى العلامة 10 mL.<br>
+1) ماذا حدث لحجم الهواء؟ ولضغطه؟ <span class="fill-line" style="min-width:200px"></span><br>
+2) ماذا يحدث إذا حرّرنا المكبس؟ <span class="fill-line" style="min-width:200px"></span></p></div>
+
+<div class="exercise"><h4><span class="exercise-num">7</span>أحسب</h4>
+<p>1) كم لترًا من ثنائي الأوكسجين في 100 لتر من الهواء؟ <span class="fill-line"></span><br>
+2) وكم لترًا من ثنائي الآزوت؟ <span class="fill-line"></span><br>
+3) وكم لترًا من ثنائي الأوكسجين في 200 لتر من الهواء؟ <span class="fill-line"></span></p></div>
+
+<div class="exercise"><h4><span class="exercise-num">8</span>أفسّر</h4>
+<p>1) لماذا يرتفع المنطاد المملوء بالهواء الساخن في السماء؟ <span class="fill-line" style="min-width:240px"></span><br>
+2) ما دور ثنائي الأوكسجين بالنسبة للكائنات الحية؟ <span class="fill-line" style="min-width:240px"></span></p></div>
+</section>
+
+<div class="corrige-wrapper">
+<details class="corrige">
+<summary>اضغط لإظهار الحل / إخفائه — التصحيح الكامل</summary>
+<h5>نشاط تطبيقي</h5>
+<p>أ) عند الدفع: ينقص حجم الهواء (من 20 mL إلى حجم أصغر) ونحسّ بمقاومة؛ الهواء قابل للانضغاط. عند التحرير: يعود المكبس ويزداد الحجم؛ الهواء قابل للتمدّد. ب) لا تمتلئ القارورة بالماء كليًا؛ الهواء بداخلها يشغل حيّزًا.</p>
+<h5>تمرين 1</h5><p>مزيج؛ ثنائي الآزوت؛ ثنائي الأوكسجين؛ غازات.</p>
+<h5>تمرين 2</h5><p>1) صحيح. 2) خطأ: ليس للهواء شكل خاص. 3) صحيح. 4) خطأ: يتناقص حجمه (وضغطه يزداد). 5) صحيح.</p>
+<h5>تمرين 3</h5><p>ثنائي الآزوت (78%).</p>
+<h5>تمرين 4</h5><p>أ) الكتلة. ب) الانضغاط. ج) التمدّد. د) لا شكل له.</p>
+<h5>تمرين 5</h5><p>لا، لا تمتلئ كليًا، لأن الهواء الموجود في القارورة يشغل حيّزًا ويمنع الماء من دخولها كلها.</p>
+<h5>تمرين 6</h5><p>1) تناقص حجم الهواء من 20 mL إلى 10 mL (انضغط)، وازداد ضغطه. 2) يعود المكبس نحو الخلف ويتمدّد الهواء فيزداد حجمه (يقترب من 20 mL) ويتناقص ضغطه.</p>
+<h5>تمرين 7</h5><p>1) 21 لترًا. 2) 78 لترًا. 3) <span class="num">200 × 21 ÷ 100 = 42</span> لترًا.</p>
+<h5>تمرين 8</h5><p>1) لأن الهواء الساخن يتمدّد فيصبح أخفّ من الهواء البارد المحيط به فيرتفع. 2) هو ضروري للتنفس: تستعمله الكائنات الحية لإنتاج الطاقة اللازمة لحياتها (وهو ضروري أيضًا للاحتراق).</p>
+</details>
+</div>
+
+<p class="footer-note">فيشة تعلّم ذاتي – النشاط العلمي – السادسة ابتدائي</p>
+</div>
+</body>
+</html>
