@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>الفعل اللازم والمتعدي – فيشة تعلّم ذاتي</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Naskh+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#251f3a;--ink-soft:#5d557a;--paper:#fbf9ff;--panel:#fff;--line:#d9d3ec;
+--indigo:#4b3f8f;--indigo-soft:#ebe8f7;--rose:#b1553f;--rose-soft:#f8e6df;--gold:#af8a2e;--gold-soft:#faf0d4;}
+*{box-sizing:border-box}
+body{margin:0;background:#ebe8f2;font-family:'Amiri','Noto Naskh Arabic',serif;color:var(--ink);line-height:2;font-size:19px}
+.sheet{max-width:900px;margin:18px auto;background:var(--paper);padding:26px 30px;border-radius:14px;box-shadow:0 4px 18px rgba(0,0,0,.1)}
+.masthead{display:flex;align-items:center;gap:18px;background:linear-gradient(135deg,var(--indigo),#6a5cb5);color:#fff;border-radius:14px;padding:18px 22px}
+.masthead h1{font-size:2.2rem;margin:0;line-height:1.3}
+.masthead p{margin:4px 0 0;opacity:.92}
+.meta-row{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.chip{background:var(--panel);border:1.5px solid var(--line);border-radius:20px;padding:2px 14px;font-size:.9rem;font-family:'Noto Naskh Arabic',serif}
+.chip b{color:var(--indigo)}
+section{margin:20px 0}
+h2{font-size:1.6rem;color:var(--indigo);border-bottom:3px solid var(--gold);display:inline-block;margin:0 0 10px;padding-bottom:2px}
+h3{color:var(--rose);margin:14px 0 4px;font-size:1.25rem}
+.box{background:var(--panel);border:1.5px solid var(--line);border-radius:12px;padding:12px 18px;margin:10px 0}
+.objectif-box{background:var(--indigo-soft);border-color:var(--indigo)}
+.rule-box{background:var(--gold-soft);border-right:6px solid var(--gold);border-radius:10px;padding:10px 16px;margin:10px 0}
+.example-box{background:var(--rose-soft);border-right:6px solid var(--rose);border-radius:10px;padding:8px 16px;margin:8px 0}
+.mu{color:var(--indigo);font-weight:700;border-bottom:3px solid var(--indigo)}
+.tw{color:var(--rose);font-weight:700;border-bottom:3px solid var(--rose)}
+table.data-table{width:100%;border-collapse:collapse;margin:10px 0;background:#fff}
+.data-table th,.data-table td{border:1.5px solid var(--line);padding:6px 10px;text-align:center}
+.data-table th{background:var(--indigo);color:#fff}
+.activity-box{background:var(--gold-soft);border:2px dashed var(--gold);border-radius:12px;padding:12px 18px}
+.task-label{display:inline-block;background:var(--gold);color:#fff;border-radius:8px;padding:0 10px;margin-left:6px;font-size:.9rem;font-family:'Noto Naskh Arabic',serif}
+.exercise{background:var(--panel);border:1.5px solid var(--line);border-radius:12px;padding:10px 18px 12px;margin:12px 0;page-break-inside:avoid}
+.exercise-num{display:inline-flex;width:32px;height:32px;border-radius:50%;background:var(--rose);color:#fff;align-items:center;justify-content:center;font-weight:700;margin-left:8px;font-family:'Noto Naskh Arabic',serif}
+.exercise h4{margin:0 0 6px;font-size:1.15rem;color:var(--indigo)}
+.fill-line{display:inline-block;min-width:110px;border-bottom:2px dotted var(--ink-soft)}
+.checkbox,.sq{display:inline-block;width:17px;height:17px;border:2px solid var(--indigo);border-radius:3px;vertical-align:middle;margin:0 6px}
+.opt{display:block;margin:0}
+.lines{border-bottom:2px dotted var(--ink-soft);height:28px;margin:4px 0}
+.match-cols{display:flex;justify-content:space-between;gap:30px}.match-cols div{flex:1}
+.match-cols p{margin:4px 0;background:var(--indigo-soft);border-radius:8px;padding:0 12px}
+.word-chip{display:inline-block;background:var(--gold-soft);border:1.5px solid var(--gold);border-radius:16px;padding:0 12px;margin:3px}
+.corrige-wrapper{page-break-before:always;margin-top:26px}
+details.corrige{border:2px solid var(--indigo);border-radius:12px;background:#fff;padding:8px 18px}
+details.corrige summary{cursor:pointer;font-size:1.3rem;color:var(--indigo);font-weight:700}
+.corrige h5{margin:12px 0 2px;color:var(--rose);font-size:1.1rem}
+.corrige p{margin:2px 0}
+.footer-note{text-align:center;color:var(--ink-soft);font-size:.9rem;margin-top:18px;font-family:'Noto Naskh Arabic',serif}
+@page{size:A4;margin:13mm}
+@media print{body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}.sheet{box-shadow:none;margin:0;max-width:none;padding:0;background:#fff}details.corrige:not([open]) > :not(summary){display:none}}
+@media print{body,body *{font-family:Tahoma,'Segoe UI',Arial,'DejaVu Sans',sans-serif !important}svg text{font-family:Tahoma,Arial,sans-serif !important}}
+table.data-table{display:block;max-width:100%;overflow-x:auto}
+@media (max-width:600px){.data-table th,.data-table td{padding:5px 2px;font-size:12px}}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<header class="masthead">
+<svg width="66" height="62" viewBox="0 0 66 62" aria-hidden="true"><circle cx="14" cy="31" r="7" fill="#fff"/><path d="M22 31h22" stroke="#e9c978" stroke-width="4" stroke-linecap="round"/><path d="M40 22l10 9-10 9" fill="none" stroke="#e9c978" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><rect x="52" y="22" width="10" height="18" rx="3" fill="none" stroke="#fff" stroke-width="3"/></svg>
+<div><h1>الفِعْلُ اللَّازِمُ وَالمُتَعَدِّي</h1><p>اللغة العربية – التراكيب · الأولى إعدادي</p></div>
+</header>
+
+<div class="meta-row">
+<span class="chip"><b>المستوى:</b> الأولى إعدادي (1AC)</span>
+<span class="chip"><b>المادة:</b> اللغة العربية — التراكيب</span>
+<span class="chip"><b>مدة الحصة:</b> ساعة ونصف</span>
+<span class="chip"><b>نوع الوثيقة:</b> فيشة تعلّم ذاتي</span>
+</div>
+
+<section>
+<h2>🎯 الهدف</h2>
+<div class="box objectif-box">في نهاية هذه الحصة سأكون قادرًا على:
+<ul>
+<li>أن أميّز بين <b>الفعل اللازم</b> و<b>الفعل المتعدّي</b> وأعطي أمثلة عن كل منهما؛</li>
+<li>أن أحدّد الأفعال المتعدّية إلى مفعولين <b>أصلهما مبتدأ وخبر</b> (أفعال اليقين والظن والتحويل)؛</li>
+<li>أن أحدّد الأفعال المتعدّية إلى مفعولين <b>ليس أصلهما مبتدأ وخبر</b> (أعطى، كسا، منح...)؛</li>
+<li>أن أتعرّف الأفعال المتعدّية إلى ثلاثة مفاعيل؛</li>
+<li>أن أستخرج المفعول الأول والثاني في الجملة وأضبطهما بالنصب.</li>
+</ul></div>
+</section>
+
+<section>
+<h2>📘 الدرس</h2>
+
+<h3>1) ملاحظة</h3>
+<div class="example-box">
+• نَامَ <span class="tw">الطِّفْلُ</span>.<br>
+• كَتَبَ التِّلْمِيذُ <span class="tw">الدَّرْسَ</span>.<br>
+• ظَنَّ خَالِدٌ <span class="tw">الامْتِحَانَ</span> <span class="tw">سَهْلًا</span>.<br>
+• أَعْطَى الأَبُ <span class="tw">الوَلَدَ</span> <span class="tw">هَدِيَّةً</span>.</div>
+<p>في الجملة الأولى اكتفى الفعل «نَامَ» بفاعله. وفي الجمل الأخرى لم يكتفِ الفعل بفاعله، بل احتاج إلى كلمة أو كلمتين منصوبتين تُتمّان المعنى.</p>
+
+<h3>2) أقسام الفعل: لازم ومتعدٍّ</h3>
+<table class="data-table">
+<tr><th>القسم</th><th>التعريف</th><th>أمثلة</th></tr>
+<tr><td><b>الفعل اللازم</b></td><td>هو الذي <b>يكتفي بفاعله</b> ولا يحتاج إلى مفعول به</td><td>جَلَسَ الطالبُ. &nbsp; نَامَ الطفلُ. &nbsp; حَضَرَ المعلمُ. &nbsp; سَافَرَ أبي.</td></tr>
+<tr><td><b>الفعل المتعدّي</b></td><td>هو الذي <b>لا يكتفي بفاعله</b> بل يحتاج إلى مفعول به <b>واحد أو أكثر</b></td><td>فَتَحَ الولدُ البابَ. &nbsp; قَرَأَتْ سلمى قصةً. &nbsp; شَرِبَ الطفلُ الحليبَ.</td></tr>
+</table>
+<div class="rule-box"><b>حيلة للتمييز:</b> إذا استطعتُ أن أصل بالفعل <b>هاء المفعول به</b> فهو متعدٍّ: «فَتَحْتُهُ، قَرَأْتُهَا، شَرِبَهُ»، وإذا لم أستطع فهو لازم: لا نقول «نَامَهُ» ولا «جَلَسَهُ».</div>
+
+<h3>3) المتعدّي إلى مفعولين</h3>
+<p>بعض الأفعال المتعدّية تنصب <b>مفعولين</b>، وهي نوعان:</p>
+
+<h4>أ) أفعال متعدّية إلى مفعولين أصلهما مبتدأ وخبر</h4>
+<div class="rule-box">هذه الأفعال تدخل على جملة اسمية (مبتدأ وخبر) فتنصب <b>المبتدأ</b> على أنه <b>مفعول به أول</b>، وتنصب <b>الخبر</b> على أنه <b>مفعول به ثانٍ</b>.</div>
+<table class="data-table">
+<tr><th>النوع</th><th>الأفعال</th><th>المعنى</th></tr>
+<tr><td>أفعال اليقين</td><td>رَأَى، وَجَدَ، عَلِمَ، أَلْفَى، دَرَى</td><td>تدلّ على التأكد والعلم</td></tr>
+<tr><td>أفعال الظن</td><td>ظَنَّ، حَسِبَ، خَالَ، زَعَمَ</td><td>تدلّ على الاحتمال</td></tr>
+<tr><td>أفعال التحويل</td><td>صَيَّرَ، جَعَلَ، اتَّخَذَ، تَرَكَ، رَدَّ</td><td>تدلّ على تحوّل شيء إلى شيء آخر</td></tr>
+</table>
+<div class="worked-example"><span class="tag">أمثلة</span><br>
+العلمُ نورٌ ← رَأَيْتُ <b>العلمَ</b> <b>نورًا</b>. (مفعول أول + مفعول ثانٍ)<br>
+الامتحانُ سهلٌ ← حَسِبْتُ <b>الامتحانَ</b> <b>سهلًا</b>.<br>
+الحديدُ سيفٌ ← صَيَّرَ الحدّادُ <b>الحديدَ</b> <b>سيفًا</b>.<br>
+النجمُ دليلٌ ← اتَّخَذَ المسافرُ <b>النجمَ</b> <b>دليلًا</b>.</div>
+
+<h4>ب) أفعال متعدّية إلى مفعولين ليس أصلهما مبتدأ وخبر</h4>
+<div class="rule-box">من هذه الأفعال: <b>أَعْطَى، مَنَحَ، كَسَا، أَلْبَسَ، سَأَلَ</b> وغيرها. المفعولان فيها <b>لا يصلحان</b> أن يكونا جملة اسمية؛ فلا نقول مثلًا «التلميذُ جائزةٌ». وتنصب هذه الأفعال المفعولين سواء أكانت ماضية أم مضارعة أم أمرًا.</div>
+<div class="worked-example"><span class="tag">أمثلة</span><br>
+أَعْطَى المديرُ <b>التلميذَ</b> <b>جائزةً</b>. (مفعول أول + مفعول ثانٍ)<br>
+كَسَا الأبُ <b>أولادَهُ</b> <b>ثيابًا</b>.<br>
+سَأَلْتُ <b>المعلّمَ</b> <b>سؤالًا</b>.</div>
+
+<h3>4) المتعدّي إلى ثلاثة مفاعيل</h3>
+<div class="rule-box">بعض الأفعال تنصب <b>ثلاثة مفاعيل</b>، وهي: <b>أَرَى، أَعْلَمَ، أَنْبَأَ، أَخْبَرَ، نَبَّأَ، حَدَّثَ، خَبَّرَ</b>.</div>
+<div class="worked-example"><span class="tag">مثال</span><br>
+أَرَى المعلّمُ <b>التلميذَ</b> <b>الأمرَ</b> <b>واضحًا</b>. (مفعول أول، ثانٍ، ثالث)<br>
+أَعْلَمْتُ <b>أخي</b> <b>الامتحانَ</b> <b>قريبًا</b>.</div>
+
+<h3>5) كيف أتصرّف في الجملة؟</h3>
+<table class="data-table">
+<tr><th>الخطوة</th><th>ماذا أسأل؟</th></tr>
+<tr><td>1</td><td>هل يكتفي الفعل بفاعله؟ إن كان نعم فهو <b>لازم</b>.</td></tr>
+<tr><td>2</td><td>إن لم يكتفِ، كم مفعولًا ينصب؟ واحدًا (متعدٍّ لمفعول واحد) أم اثنين أم ثلاثة؟</td></tr>
+<tr><td>3</td><td>إن نصب مفعولين: هل يمكن أن أكوّن منهما جملة اسمية؟ إن كان نعم فأصلهما مبتدأ وخبر، وإلا فلا.</td></tr>
+</table>
+
+<h3>6) ملخص</h3>
+<div class="rule-box"><ul style="margin:0;padding-inline-start:20px">
+<li>الفعل اللازم يكتفي بفاعله، والفعل المتعدّي يحتاج إلى مفعول به أو أكثر.</li>
+<li>من الأفعال المتعدّية ما ينصب مفعولين أصلهما مبتدأ وخبر (أفعال اليقين والظن والتحويل).</li>
+<li>ومنها ما ينصب مفعولين ليس أصلهما مبتدأ وخبر (أعطى، منح، كسا، ألبس، سأل).</li>
+<li>ومنها ما ينصب ثلاثة مفاعيل (أرى، أعلم، أنبأ، أخبر، حدّث...).</li>
+</ul></div>
+</section>
+
+<section>
+<h2>✍️ نشاط تطبيقي</h2>
+<div class="box activity-box">
+<span class="task-label">أحلّل النص</span>
+<p>جَلَسَ سَعِيدٌ في الحَدِيقَةِ. قَرَأَ كِتَابًا مُفِيدًا. ظَنَّ القِرَاءَةَ مُتْعَةً. ثُمَّ أَعْطَى أَخَاهُ الكِتَابَ.</p>
+<table class="data-table">
+<tr><th>الفعل</th><th>لازم أم متعدٍّ؟</th><th>عدد المفاعيل</th><th>المفعول (المفاعيل)</th></tr>
+<tr><td>جَلَسَ</td><td></td><td></td><td></td></tr>
+<tr><td>قَرَأَ</td><td></td><td></td><td></td></tr>
+<tr><td>ظَنَّ</td><td></td><td></td><td></td></tr>
+<tr><td>أَعْطَى</td><td></td><td></td><td></td></tr>
+</table>
+<p>أي فعل من هذه الأفعال أصل مفعوليه مبتدأ وخبر؟ <span class="fill-line" style="min-width:240px"></span></p>
+<div class="lines"></div></div>
+</section>
+
+<section>
+<h2>📝 تمارين للتدرّب</h2>
+
+<div class="exercise"><h4><span class="exercise-num">1</span>أصنّف الأفعال (لازم / متعدٍّ)</h4>
+<p>جَلَسَ ، فَتَحَ ، نَامَ ، كَتَبَ ، سَافَرَ ، قَرَأَ ، حَضَرَ ، شَرِبَ<br>
+اللازم: <span class="fill-line" style="min-width:260px"></span><br>
+المتعدّي: <span class="fill-line" style="min-width:260px"></span></p></div>
+
+<div class="exercise"><h4><span class="exercise-num">2</span>أكمل الجملة بمفعول به إن احتاج الفعل إليه</h4>
+<p>أ) كَتَبَ التلميذُ <span class="fill-line"></span><br>
+ب) نَامَ الطفلُ <span class="fill-line"></span><br>
+ج) فَتَحَتِ البنتُ <span class="fill-line"></span><br>
+د) حَضَرَ المعلمُ <span class="fill-line"></span></p></div>
+
+<div class="exercise"><h4><span class="exercise-num">3</span>أحدّد الفعل ونوع المفعولين (أصلهما مبتدأ وخبر / ليس أصلهما مبتدأ وخبر)</h4>
+<p>أ) ظَنَّ الطفلُ الظلامَ مخيفًا. <span class="fill-line" style="min-width:200px"></span><br>
+ب) أَعْطَى الأبُ ابنَهُ كتابًا. <span class="fill-line" style="min-width:200px"></span><br>
+ج) وَجَدَ الراعي الغابةَ خضراءَ. <span class="fill-line" style="min-width:200px"></span><br>
+د) كَسَا الغنيُّ الفقيرَ ثوبًا. <span class="fill-line" style="min-width:200px"></span><br>
+هـ) جَعَلَ الصانعُ الطينَ إناءً. <span class="fill-line" style="min-width:200px"></span></p></div>
+
+<div class="exercise"><h4><span class="exercise-num">4</span>أستخرج المفعول الأول والمفعول الثاني</h4>
+<table class="data-table">
+<tr><th>الجملة</th><th>المفعول الأول</th><th>المفعول الثاني</th></tr>
+<tr><td>رَأَيْتُ الصدقَ فضيلةً.</td><td></td><td></td></tr>
+<tr><td>أَلْبَسَتِ الأمُّ الطفلَ معطفًا.</td><td></td><td></td></tr>
+<tr><td>حَسِبْتُ الدرسَ سهلًا.</td><td></td><td></td></tr>
+<tr><td>مَنَحَ المعلمُ التلميذَ جائزةً.</td><td></td><td></td></tr>
+</table></div>
+
+<div class="exercise"><h4><span class="exercise-num">5</span>أُدخل الفعل بين القوسين على الجملة الاسمية وأغيّر ما يلزم</h4>
+<p>أ) الصبرُ مفتاحُ الفرجِ. (ظَنَنْتُ) ← <span class="fill-line" style="min-width:240px"></span><br>
+ب) الامتحانُ سهلٌ. (حَسِبْتُ) ← <span class="fill-line" style="min-width:240px"></span><br>
+ج) العلمُ نورٌ. (رَأَيْتُ) ← <span class="fill-line" style="min-width:240px"></span><br>
+د) الطريقُ طويلٌ. (وَجَدْتُ) ← <span class="fill-line" style="min-width:240px"></span></p></div>
+
+<div class="exercise"><h4><span class="exercise-num">6</span>صحيح أم خطأ؟ أصحّح الخطأ</h4>
+<p>1) الفعل اللازم يحتاج إلى مفعول به. <span class="fill-line sm"></span><br>
+2) «ظَنَّ» يتعدّى إلى مفعولين أصلهما مبتدأ وخبر. <span class="fill-line sm"></span><br>
+3) «أَعْطَى» أصل مفعوليه مبتدأ وخبر. <span class="fill-line sm"></span><br>
+4) «نَامَ» فعل متعدٍّ. <span class="fill-line sm"></span><br>
+5) الفعل المتعدّي قد يكون ماضيًا أو مضارعًا أو أمرًا. <span class="fill-line sm"></span></p></div>
+
+<div class="exercise"><h4><span class="exercise-num">7</span>أصنّف الأفعال في الجدول</h4>
+<p>جَلَسَ ، ظَنَّ ، مَنَحَ ، صَيَّرَ ، حَضَرَ ، أَلْبَسَ ، حَسِبَ</p>
+<table class="data-table">
+<tr><th>لازم</th><th>متعدٍّ إلى مفعولين أصلهما مبتدأ وخبر</th><th>متعدٍّ إلى مفعولين ليس أصلهما مبتدأ وخبر</th></tr>
+<tr><td><br><br></td><td></td><td></td></tr>
+</table></div>
+
+<div class="exercise"><h4><span class="exercise-num">8</span>أكوّن جملًا</h4>
+<p>أ) جملة بفعل لازم: <span class="fill-line" style="min-width:240px"></span><br>
+ب) جملة بفعل متعدٍّ إلى مفعول واحد: <span class="fill-line" style="min-width:240px"></span><br>
+ج) جملة بفعل من أفعال الظن أو اليقين: <span class="fill-line" style="min-width:240px"></span><br>
+د) جملة بالفعل «أَعْطَى» أو «مَنَحَ»: <span class="fill-line" style="min-width:240px"></span></p></div>
+</section>
+
+<div class="corrige-wrapper">
+<details class="corrige">
+<summary>اضغط لإظهار الحل / إخفائه — التصحيح الكامل</summary>
+<h5>نشاط تطبيقي</h5>
+<p>جَلَسَ: لازم، بلا مفاعيل. قَرَأَ: متعدٍّ، مفعول واحد (كتابًا). ظَنَّ: متعدٍّ، مفعولان (القراءةَ، متعةً). أَعْطَى: متعدٍّ، مفعولان (أخاه، الكتابَ). الفعل الذي أصل مفعوليه مبتدأ وخبر: «ظَنَّ» (القراءةُ متعةٌ).</p>
+<h5>تمرين 1</h5><p>اللازم: جَلَسَ، نَامَ، سَافَرَ، حَضَرَ. المتعدّي: فَتَحَ، كَتَبَ، قَرَأَ، شَرِبَ.</p>
+<h5>تمرين 2</h5><p>أ) مثلًا: الدرسَ. ب) لا يحتاج إلى مفعول (فعل لازم). ج) مثلًا: البابَ. د) لا يحتاج إلى مفعول (فعل لازم).</p>
+<h5>تمرين 3</h5><p>أ) ظَنَّ: مفعولان أصلهما مبتدأ وخبر (الظلامُ مخيفٌ). ب) أَعْطَى: ليس أصلهما مبتدأ وخبر. ج) وَجَدَ: أصلهما مبتدأ وخبر (الغابةُ خضراءُ). د) كَسَا: ليس أصلهما مبتدأ وخبر. هـ) جَعَلَ: أصلهما مبتدأ وخبر (الطينُ إناءٌ).</p>
+<h5>تمرين 4</h5><p>رَأَيْتُ: الصدقَ، فضيلةً. أَلْبَسَتْ: الطفلَ، معطفًا. حَسِبْتُ: الدرسَ، سهلًا. مَنَحَ: التلميذَ، جائزةً.</p>
+<h5>تمرين 5</h5><p>أ) ظَنَنْتُ الصبرَ مفتاحَ الفرجِ. ب) حَسِبْتُ الامتحانَ سهلًا. ج) رَأَيْتُ العلمَ نورًا. د) وَجَدْتُ الطريقَ طويلًا.</p>
+<h5>تمرين 6</h5><p>1) خطأ: الفعل اللازم يكتفي بفاعله. 2) صحيح. 3) خطأ: ليس أصلهما مبتدأ وخبر. 4) خطأ: «نَامَ» فعل لازم. 5) صحيح.</p>
+<h5>تمرين 7</h5><p>لازم: جَلَسَ، حَضَرَ. أصلهما مبتدأ وخبر: ظَنَّ، صَيَّرَ، حَسِبَ. ليس أصلهما مبتدأ وخبر: مَنَحَ، أَلْبَسَ.</p>
+<h5>تمرين 8</h5><p>الإجابات حرّة. أمثلة: أ) سَافَرَ أبي أمس. ب) فَتَحَ الولدُ النافذةَ. ج) ظَنَنْتُ الجوَّ لطيفًا. د) أَعْطَيْتُ صديقي كتابًا.</p>
+</details>
+</div>
+
+<p class="footer-note">فيشة تعلّم ذاتي – اللغة العربية – الأولى إعدادي</p>
+</div>
+</body>
+</html>
