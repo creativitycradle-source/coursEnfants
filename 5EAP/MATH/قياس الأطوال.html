@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>قياس الأطوال – فيشة تعلّم ذاتي</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Naskh+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1c2b3a;--ink-soft:#4d5f70;--paper:#f7f9fb;--panel:#fff;--line:#c9d6e0;
+--blue:#2f5f8a;--blue-soft:#e2ecf3;--orange:#e07b39;--orange-soft:#fbe8d8;--green:#3a8f6b;--green-soft:#e1f2ea;}
+*{box-sizing:border-box}
+body{margin:0;background:#e6ecf1;font-family:'Noto Naskh Arabic','Amiri',serif;color:var(--ink);line-height:1.9;font-size:17px}
+.sheet{max-width:900px;margin:18px auto;padding:26px 30px;border-radius:14px;box-shadow:0 4px 18px rgba(0,0,0,.1);
+background:repeating-linear-gradient(0deg,transparent 0 27px,rgba(47,95,138,.06) 27px 28px),repeating-linear-gradient(90deg,transparent 0 27px,rgba(47,95,138,.06) 27px 28px),var(--paper)}
+.masthead{display:flex;align-items:center;gap:18px;background:linear-gradient(135deg,var(--blue),#4a82b0);color:#fff;border-radius:14px;padding:18px 22px}
+.masthead h1{font-family:'Amiri',serif;font-size:1.9rem;margin:0;line-height:1.35}
+.masthead p{margin:4px 0 0;opacity:.92}
+.meta-row{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.chip{background:var(--panel);border:1.5px solid var(--line);border-radius:20px;padding:2px 14px;font-size:.92rem}
+.chip b{color:var(--blue)}
+section{margin:20px 0}
+h2{font-family:'Amiri',serif;font-size:1.5rem;color:var(--blue);border-bottom:3px solid var(--orange);display:inline-block;margin:0 0 10px;padding-bottom:2px}
+h3{color:var(--green);margin:14px 0 4px;font-size:1.12rem}
+.box{background:var(--panel);border:1.5px solid var(--line);border-radius:12px;padding:12px 18px;margin:10px 0}
+.objectif-box{background:var(--green-soft);border-color:var(--green)}
+.rule-box{background:var(--orange-soft);border-right:6px solid var(--orange);border-radius:10px;padding:10px 16px;margin:10px 0}
+.worked-example{background:var(--blue-soft);border:1.5px solid var(--blue);border-radius:12px;padding:10px 18px;margin:10px 0}
+.worked-example .tag{display:inline-block;background:var(--blue);color:#fff;border-radius:8px;padding:0 10px;font-size:.88rem;margin-bottom:4px}
+.num{direction:ltr;unicode-bidi:isolate;display:inline-block;font-family:'Noto Naskh Arabic',monospace;font-weight:700;color:var(--blue)}
+table.data-table{width:100%;border-collapse:collapse;margin:10px 0;background:#fff}
+.data-table th,.data-table td{border:1.5px solid var(--line);padding:6px 8px;text-align:center}
+.data-table th{background:var(--blue);color:#fff;font-weight:600}
+.data-table th.dec{background:var(--orange)}
+.data-table td.comma{background:var(--orange-soft);font-weight:700;width:28px}
+.activity-box{background:var(--green-soft);border:2px dashed var(--green);border-radius:12px;padding:12px 18px}
+.task-label{display:inline-block;background:var(--green);color:#fff;border-radius:8px;padding:0 10px;margin-left:6px;font-size:.9rem}
+.exercise{background:var(--panel);border:1.5px solid var(--line);border-radius:12px;padding:10px 18px 12px;margin:12px 0;page-break-inside:avoid}
+.exercise-num{display:inline-flex;width:30px;height:30px;border-radius:50%;background:var(--orange);color:#fff;align-items:center;justify-content:center;font-weight:700;margin-left:8px}
+.exercise h4{margin:0 0 6px;font-size:1.05rem;color:var(--blue)}
+.fill-line{display:inline-block;min-width:90px;border-bottom:2px dotted var(--ink-soft)}
+.fill-line.sm{min-width:48px}
+.sq{display:inline-block;min-width:34px;height:28px;border:2px solid var(--blue);border-radius:6px;vertical-align:middle;margin:0 6px}
+.lines{border-bottom:2px dotted var(--ink-soft);height:26px;margin:4px 0}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:4px 18px}
+.word-chip{display:inline-block;background:var(--orange-soft);border:1.5px solid var(--orange);border-radius:16px;padding:0 12px;margin:3px}
+.corrige-wrapper{page-break-before:always;margin-top:26px}
+details.corrige{border:2px solid var(--blue);border-radius:12px;background:#fff;padding:8px 18px}
+details.corrige summary{cursor:pointer;font-family:'Amiri',serif;font-size:1.25rem;color:var(--blue);font-weight:700}
+.corrige h5{margin:12px 0 2px;color:var(--orange);font-size:1.02rem}
+.corrige p{margin:2px 0}
+.footer-note{text-align:center;color:var(--ink-soft);font-size:.88rem;margin-top:18px}
+svg text{font-family:'Noto Naskh Arabic',sans-serif}
+@page{size:A4;margin:13mm}
+@media print{body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}.sheet{box-shadow:none;margin:0;max-width:none;padding:0}details.corrige:not([open]) > :not(summary){display:none}}
+@media print{body,body *{font-family:Tahoma,'Segoe UI',Arial,'DejaVu Sans',sans-serif !important}svg text{font-family:Tahoma,Arial,sans-serif !important}}
+table.data-table{display:block;max-width:100%;overflow-x:auto}
+@media (max-width:600px){.data-table th,.data-table td{padding:5px 2px;font-size:12px}}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<header class="masthead">
+<svg width="86" height="62" viewBox="0 0 86 62" aria-hidden="true"><rect x="6" y="18" width="74" height="26" rx="3" fill="#f6b27e" stroke="#fff" stroke-width="3"/><g stroke="#fff" stroke-width="3" stroke-linecap="round"><path d="M16 18v12M26 18v8M36 18v12M46 18v8M56 18v12M66 18v8"/></g></svg>
+<div><h1>قِيَاسُ الأَطْوَالِ</h1><p>الرياضيات – القياس</p></div>
+</header>
+
+<div class="meta-row">
+<span class="chip"><b>المستوى:</b> الخامسة ابتدائي (5AEP)</span>
+<span class="chip"><b>المادة:</b> الرياضيات — القياس</span>
+<span class="chip"><b>مدة الحصة:</b> ساعة ونصف</span>
+<span class="chip"><b>نوع الوثيقة:</b> فيشة تعلّم ذاتي</span>
+</div>
+
+<section>
+<h2>🎯 الهدف</h2>
+<div class="box objectif-box">في نهاية هذه الفيشة سأكون قادرًا على:
+<ul>
+<li>أن أختار أداة القياس والوحدة المناسبتين لقياس طول ما؛</li>
+<li>أن أعرف وحدات الطول: <b>km، hm، dam، m، dm، cm، mm</b> والعلاقة بينها؛</li>
+<li>أن أحوّل طولًا من وحدة إلى أخرى باستعمال جدول التحويل؛</li>
+<li>أن أقارن أطوالًا وأرتّبها، وأجمعها وأطرحها؛</li>
+<li>أن أحسب محيط مضلع، وأحلّ مسائل من الحياة اليومية.</li>
+</ul></div>
+</section>
+
+<section>
+<h2>📘 الدرس</h2>
+
+<h3>1) أدوات القياس والوحدة المناسبة</h3>
+<p>نقيس الطول بأدوات مختلفة حسب الشيء المراد قياسه: <b>المسطرة</b> لقياس الأشياء الصغيرة (قلم، كراسة)، و<b>شريط القياس</b> أو <b>المتر</b> لقياس الأطوال المتوسطة (طاولة، قاعة)، و<b>عدّاد المسافات</b> في السيارة لقياس المسافات الكبيرة بين المدن.</p>
+<div class="rule-box">نختار وحدة قريبة من حجم الشيء المقيس:<br>
+• <b>mm</b> للأشياء الدقيقة جدًا (سمك قطعة نقدية)؛ • <b>cm</b> للأشياء الصغيرة (قلم)؛<br>
+• <b>m</b> للأشياء المتوسطة (طول القسم)؛ • <b>km</b> للمسافات الكبيرة (بين مدينتين).</div>
+
+<h3>2) وحدات قياس الطول</h3>
+<p>الوحدة الأساسية لقياس الطول هي <b>المتر (m)</b>. وهذه وحداته المضاعفة والجزئية:</p>
+<table class="data-table">
+<tr><th>km</th><th>hm</th><th>dam</th><th>m</th><th>dm</th><th>cm</th><th>mm</th></tr>
+<tr><td>كيلومتر</td><td>هكتومتر</td><td>ديكامتر</td><td>متر</td><td>ديسيمتر</td><td>سنتيمتر</td><td>ميليمتر</td></tr>
+<tr><td>1000 m</td><td>100 m</td><td>10 m</td><td>1 m</td><td>0,1 m</td><td>0,01 m</td><td>0,001 m</td></tr>
+</table>
+<div class="rule-box">كل وحدة تساوي <b>10 أمثال</b> الوحدة التي على يمينها. لذلك:<br>
+<span class="num">1 km = 1000 m</span> &nbsp;·&nbsp; <span class="num">1 m = 10 dm = 100 cm = 1000 mm</span> &nbsp;·&nbsp; <span class="num">1 cm = 10 mm</span></div>
+
+<h3>3) التحويل باستعمال جدول التحويل</h3>
+<div class="rule-box"><b>الطريقة:</b><br>
+1) أضع رقم آحاد العدد في عمود الوحدة المعطاة وأكتب بقية الأرقام في الأعمدة المجاورة (الفاصلة تفصل الصحيح عن العشري)؛<br>
+2) أقرأ العدد حتى الوحدة المطلوبة، وأملأ الأعمدة الفارغة بأصفار.</div>
+<table class="data-table">
+<tr><th>km</th><th>hm</th><th>dam</th><th>m</th><th>dm</th><th>cm</th><th>mm</th></tr>
+<tr><td></td><td></td><td></td><td>3</td><td>2</td><td>5</td><td></td></tr>
+<tr><td>4</td><td>7</td><td>0</td><td>0</td><td></td><td></td><td></td></tr>
+</table>
+<div class="worked-example"><span class="tag">مثال محلول 1</span><br>
+<span class="num">3,25 m = 325 cm</span> (رقم 3 في خانة m، ثم 2 في dm و5 في cm فنقرأ 325 cm).<br>
+<span class="tag">مثال محلول 2</span><br>
+<span class="num">4,7 km = 4700 m</span> (4 في km و7 في hm و0 في dam و0 في m).</div>
+<div class="worked-example"><span class="tag">أمثلة أخرى</span><br>
+<span class="num">350 cm = 3,5 m</span> &nbsp;·&nbsp; <span class="num">0,8 m = 80 cm</span> &nbsp;·&nbsp; <span class="num">12 mm = 1,2 cm</span><br>
+<span class="num">7500 m = 7,5 km</span> &nbsp;·&nbsp; <span class="num">2,5 dm = 25 cm</span> &nbsp;·&nbsp; <span class="num">5 m 6 cm = 5,06 m = 506 cm</span></div>
+<div class="rule-box"><b>تذكير:</b> عند التحويل إلى وحدة <b>أصغر</b> يكبر العدد (نضرب)، وعند التحويل إلى وحدة <b>أكبر</b> يصغر العدد (نقسم).</div>
+
+<h3>4) مقارنة الأطوال وترتيبها</h3>
+<p>لمقارنة أطوال معطاة بوحدات مختلفة، <b>أحوّلها أولًا إلى وحدة واحدة</b> ثم أقارن الأعداد.</p>
+<div class="worked-example"><span class="tag">مثال</span><br>
+قارن: <span class="num">2,4 m</span> و <span class="num">230 cm</span>. أحوّل: <span class="num">2,4 m = 240 cm</span>. إذن <span class="num">240 cm &gt; 230 cm</span> أي <span class="num">2,4 m &gt; 230 cm</span>.</div>
+
+<h3>5) جمع الأطوال وطرحها</h3>
+<div class="rule-box">لا نجمع ولا نطرح إلا أطوالًا مقيسة <b>بالوحدة نفسها</b>؛ فإذا اختلفت الوحدات حوّلنا أولًا.</div>
+<div class="worked-example"><span class="tag">مثال محلول 1</span><br>
+<span class="num">3,5 m + 2,75 m = 6,25 m</span> &nbsp;·&nbsp; <span class="num">5 m − 2,35 m = 2,65 m</span><br>
+<span class="tag">مثال محلول 2</span><br>
+<span class="num">1 km 200 m + 850 m</span> : نحوّل: <span class="num">1200 m + 850 m = 2050 m = 2 km 50 m = 2,05 km</span>.</div>
+
+<h3>6) محيط مضلع</h3>
+<div class="rule-box"><b>محيط مضلع</b> هو طول حدّه، أي مجموع أطوال أضلاعه.<br>
+محيط المستطيل = <span class="num">(الطول + العرض) × 2</span> &nbsp;·&nbsp; محيط المربع = <span class="num">طول الضلع × 4</span></div>
+<div class="worked-example"><span class="tag">مثال</span><br>
+مستطيل طوله <span class="num">2,5 m</span> وعرضه <span class="num">1,2 m</span>: المحيط <span class="num">(2,5 + 1,2) × 2 = 7,4 m</span>.<br>
+مربع ضلعه <span class="num">35 cm</span>: المحيط <span class="num">35 × 4 = 140 cm = 1,4 m</span>.</div>
+
+<h3>7) ملخص</h3>
+<div class="rule-box"><ul style="margin:0;padding-inline-start:20px">
+<li>الوحدة الأساسية للطول: المتر؛ وكل وحدة = 10 أمثال التي على يمينها.</li>
+<li>للتحويل نستعمل جدول التحويل، وللمقارنة والجمع والطرح نوحّد الوحدة أولًا.</li>
+<li>المحيط = مجموع أطوال الأضلاع.</li>
+</ul></div>
+</section>
+
+<section>
+<h2>✍️ نشاط تطبيقي</h2>
+<div class="box activity-box">
+<span class="task-label">أنا أقيس بنفسي</span>
+<p>أحضر مسطرة وشريط قياس، وأقيس الأشياء الآتية، ثم أكتب طولها بالوحدات المطلوبة (مثال: كراسة طولها <span class="num">21 cm = 210 mm = 0,21 m</span>).</p>
+<table class="data-table">
+<tr><th>الشيء المقيس</th><th>أداة القياس</th><th>الطول بـ cm</th><th>الطول بـ mm</th><th>الطول بـ m</th></tr>
+<tr><td>طول قلمي</td><td></td><td></td><td></td><td></td></tr>
+<tr><td>عرض طاولتي</td><td></td><td></td><td></td><td></td></tr>
+<tr><td>عرض الباب</td><td></td><td></td><td></td><td></td></tr>
+<tr><td>طول خطوتي</td><td></td><td></td><td></td><td></td></tr>
+</table>
+<p>أسئلة: 1) ما أطول شيء قست طوله؟ <span class="fill-line"></span><br>
+2) أحسب محيط سطح طاولتي (الطول + العرض) × 2 = <span class="fill-line"></span><br>
+3) كم خطوة أحتاج لقطع <span class="num">6 m</span> تقريبًا؟ <span class="fill-line"></span></p>
+<div class="lines"></div></div>
+</section>
+
+<section>
+<h2>📝 التمارين</h2>
+
+<div class="exercise"><h4><span class="exercise-num">1</span>أختار الوحدة المناسبة (mm أو cm أو m أو km)</h4>
+<p>أ) سمك قطعة نقدية: <span class="num">2</span> <span class="fill-line sm"></span> &nbsp; ب) طول قاعة الدرس: <span class="num">8</span> <span class="fill-line sm"></span><br>
+ج) المسافة بين مدينتين: <span class="num">300</span> <span class="fill-line sm"></span> &nbsp; د) طول قلم: <span class="num">15</span> <span class="fill-line sm"></span></p></div>
+
+<div class="exercise"><h4><span class="exercise-num">2</span>أحوّل</h4>
+<p>أ) <span class="num">3 m</span> = <span class="fill-line sm"></span> cm &nbsp; ب) <span class="num">45 mm</span> = <span class="fill-line sm"></span> cm &nbsp; ج) <span class="num">2,5 km</span> = <span class="fill-line sm"></span> m<br>
+د) <span class="num">8 dm</span> = <span class="fill-line sm"></span> cm &nbsp; هـ) <span class="num">7 cm</span> = <span class="fill-line sm"></span> m &nbsp; و) <span class="num">0,6 m</span> = <span class="fill-line sm"></span> mm</p></div>
+
+<div class="exercise"><h4><span class="exercise-num">3</span>أكمل الجدول</h4>
+<table class="data-table">
+<tr><th>الطول</th><th>بالمتر (m)</th><th>بالسنتيمتر (cm)</th><th>بالميليمتر (mm)</th></tr>
+<tr><td><span class="num">4,2 m</span></td><td></td><td></td><td></td></tr>
+<tr><td><span class="num">350 cm</span></td><td></td><td></td><td></td></tr>
+<tr><td><span class="num">1,8 km</span></td><td></td><td></td><td></td></tr>
+</table></div>
+
+<div class="exercise"><h4><span class="exercise-num">4</span>أقارن بـ (&gt; أو &lt; أو =)</h4>
+<p>أ) <span class="num">2,5 m</span> <span class="fill-line sm"></span> <span class="num">250 cm</span> &nbsp; ب) <span class="num">3 km</span> <span class="fill-line sm"></span> <span class="num">3500 m</span> &nbsp; ج) <span class="num">45 cm</span> <span class="fill-line sm"></span> <span class="num">0,4 m</span><br>
+د) <span class="num">1,2 dm</span> <span class="fill-line sm"></span> <span class="num">12 mm</span> &nbsp; هـ) <span class="num">800 mm</span> <span class="fill-line sm"></span> <span class="num">0,8 m</span></p></div>
+
+<div class="exercise"><h4><span class="exercise-num">5</span>أرتّب تصاعديًا (من الأصغر إلى الأكبر)</h4>
+<p><span class="num">1,5 m</span> ؛ <span class="num">120 cm</span> ؛ <span class="num">1 m 8 dm</span> ؛ <span class="num">1400 mm</span> ؛ <span class="num">2 m</span><br>
+<span class="fill-line" style="min-width:200px;max-width:100%"></span></p></div>
+
+<div class="exercise"><h4><span class="exercise-num">6</span>أحسب</h4>
+<p>أ) <span class="num">3,5 m + 2,75 m</span> = <span class="fill-line"></span> &nbsp; ب) <span class="num">1 km 200 m + 850 m</span> = <span class="fill-line"></span><br>
+ج) <span class="num">5 m − 2,35 m</span> = <span class="fill-line"></span> &nbsp; د) <span class="num">2 m 40 cm − 85 cm</span> = <span class="fill-line"></span></p></div>
+
+<div class="exercise"><h4><span class="exercise-num">7</span>صحيح أم خطأ؟ أصحّح الخطأ</h4>
+<p>1) <span class="num">1 km = 1000 m</span>. <span class="fill-line sm"></span><br>
+2) <span class="num">1 m = 10 cm</span>. <span class="fill-line sm"></span><br>
+3) <span class="num">25 mm = 2,5 cm</span>. <span class="fill-line sm"></span><br>
+4) <span class="num">0,5 km = 50 m</span>. <span class="fill-line sm"></span></p></div>
+
+<div class="exercise"><h4><span class="exercise-num">8</span>مسائل</h4>
+<p>1) سلك طوله <span class="num">12 m</span>، قُطع منه <span class="num">4,75 m</span> ثم <span class="num">3,5 m</span>. ما طول ما بقي؟ <span class="fill-line" style="min-width:200px"></span></p>
+<p>2) حديقة على شكل مستطيل طولها <span class="num">18 m</span> وعرضها <span class="num">12,5 m</span>. ما محيطها؟ <span class="fill-line" style="min-width:200px"></span></p>
+<p>3) تبعد المدرسة عن بيت أحمد <span class="num">850 m</span>. كم يقطع بالكيلومتر في ذهابه وإيابه؟ <span class="fill-line" style="min-width:200px"></span></p></div>
+</section>
+
+<div class="corrige-wrapper">
+<details class="corrige">
+<summary>اضغط لإظهار الحل / إخفائه — التصحيح الكامل</summary>
+<h5>نشاط تطبيقي</h5>
+<p>الإجابات حسب القياسات الفعلية. يجب أن تكون القيم متوافقة: cm = 10 × ... mm، و m = cm ÷ 100. مثال: قلم 15 cm = 150 mm = 0,15 m. محيط الطاولة: مثلًا (60 cm + 40 cm) × 2 = 200 cm = 2 m. عدد الخطوات لقطع 6 m = 600 ÷ طول الخطوة (بـ cm)، مثلًا 600 ÷ 60 = 10 خطوات.</p>
+<h5>تمرين 1</h5><p>أ) mm. ب) m. ج) km. د) cm.</p>
+<h5>تمرين 2</h5><p>أ) <span class="num">300</span>. ب) <span class="num">4,5</span>. ج) <span class="num">2500</span>. د) <span class="num">80</span>. هـ) <span class="num">0,07</span>. و) <span class="num">600</span>.</p>
+<h5>تمرين 3</h5><p><span class="num">4,2 m</span> = <span class="num">4,2 m</span> = <span class="num">420 cm</span> = <span class="num">4200 mm</span>. &nbsp; <span class="num">350 cm</span> = <span class="num">3,5 m</span> = <span class="num">350 cm</span> = <span class="num">3500 mm</span>. &nbsp; <span class="num">1,8 km</span> = <span class="num">1800 m</span> = <span class="num">180 000 cm</span> = <span class="num">1 800 000 mm</span>.</p>
+<h5>تمرين 4</h5><p>أ) <span class="num">=</span> (250 cm). ب) <span class="num">&lt;</span> (3000 m &lt; 3500 m). ج) <span class="num">&gt;</span> (45 cm &gt; 40 cm). د) <span class="num">&gt;</span> (1,2 dm = 120 mm &gt; 12 mm). هـ) <span class="num">=</span> (0,8 m = 800 mm).</p>
+<h5>تمرين 5</h5><p>بالسنتيمتر: 120 ؛ 140 ؛ 150 ؛ 180 ؛ 200. الترتيب: <span class="num">120 cm &lt; 1400 mm &lt; 1,5 m &lt; 1 m 8 dm &lt; 2 m</span>.</p>
+<h5>تمرين 6</h5><p>أ) <span class="num">6,25 m</span>. ب) <span class="num">1200 + 850 = 2050 m = 2 km 50 m</span>. ج) <span class="num">2,65 m</span>. د) <span class="num">240 − 85 = 155 cm = 1,55 m</span> (أي 1 m 55 cm).</p>
+<h5>تمرين 7</h5><p>1) صحيح. 2) خطأ: <span class="num">1 m = 100 cm</span>. 3) صحيح. 4) خطأ: <span class="num">0,5 km = 500 m</span>.</p>
+<h5>تمرين 8</h5><p>1) المقطوع: <span class="num">4,75 + 3,5 = 8,25 m</span>، الباقي: <span class="num">12 − 8,25 = 3,75 m</span>. 2) <span class="num">(18 + 12,5) × 2 = 30,5 × 2 = 61 m</span>. 3) <span class="num">850 × 2 = 1700 m = 1,7 km</span>.</p>
+</details>
+</div>
+
+<p class="footer-note">فيشة تعلّم ذاتي – الرياضيات – الخامسة ابتدائي</p>
+</div>
+</body>
+</html>
