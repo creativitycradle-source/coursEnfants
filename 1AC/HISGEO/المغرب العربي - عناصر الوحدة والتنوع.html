@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>المغرب العربي: عناصر الوحدة والتنوع – فيشة تعلّم ذاتي</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Naskh+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1d2d2b;--ink-soft:#506360;--paper:#f6faf8;--panel:#fff;--line:#cfe0da;
+--teal:#1f7a63;--teal-soft:#e0f1ec;--gold:#c08a2e;--gold-soft:#fbf0d9;--sky:#2f6f9e;--sky-soft:#e0edf6;--red:#b8483a;}
+*{box-sizing:border-box}
+body{margin:0;background:#e9efed;font-family:'Noto Naskh Arabic','Amiri',serif;color:var(--ink);line-height:1.9;font-size:17px}
+.sheet{max-width:900px;margin:18px auto;background:var(--paper);padding:26px 30px;border-radius:14px;box-shadow:0 4px 18px rgba(0,0,0,.1)}
+.masthead{display:flex;align-items:center;gap:18px;background:linear-gradient(135deg,var(--teal),#2b9478);color:#fff;border-radius:14px;padding:18px 22px}
+.masthead h1{font-family:'Amiri',serif;font-size:2rem;margin:0;line-height:1.3}
+.masthead p{margin:4px 0 0;opacity:.92}
+.meta-row{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.chip{background:var(--panel);border:1.5px solid var(--line);border-radius:20px;padding:2px 14px;font-size:.92rem}
+.chip b{color:var(--teal)}
+section{margin:20px 0}
+h2{font-family:'Amiri',serif;font-size:1.5rem;color:var(--teal);border-bottom:3px solid var(--gold);display:inline-block;margin:0 0 10px;padding-bottom:2px}
+.box{background:var(--panel);border:1.5px solid var(--line);border-radius:12px;padding:12px 18px;margin:10px 0}
+.objectif-box{background:var(--teal-soft);border-color:var(--teal)}
+.rule-box{background:var(--gold-soft);border-right:6px solid var(--gold);border-radius:10px;padding:10px 16px;margin:10px 0}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px;margin:10px 0}
+.card{background:var(--panel);border:1.5px solid var(--line);border-top:5px solid var(--sky);border-radius:10px;padding:8px 14px}
+.card h3{margin:0;color:var(--sky);font-size:1.05rem}
+.card p{margin:2px 0 0;font-size:.95rem}
+.map-box{background:var(--sky-soft);border:1.5px solid var(--sky);border-radius:12px;padding:10px;text-align:center}
+.map-box svg{max-width:100%;height:auto}
+table.data-table{width:100%;border-collapse:collapse;margin:10px 0;background:#fff}
+.data-table th,.data-table td{border:1.5px solid var(--line);padding:6px 10px;text-align:center}
+.data-table th{background:var(--teal);color:#fff}
+.activity-box{background:var(--sky-soft);border:2px dashed var(--sky);border-radius:12px;padding:12px 18px}
+.task-label{display:inline-block;background:var(--sky);color:#fff;border-radius:8px;padding:0 10px;margin-left:6px;font-size:.9rem}
+.exercise{background:var(--panel);border:1.5px solid var(--line);border-radius:12px;padding:10px 18px 12px;margin:12px 0;page-break-inside:avoid}
+.exercise-num{display:inline-flex;width:30px;height:30px;border-radius:50%;background:var(--gold);color:#fff;align-items:center;justify-content:center;font-weight:700;margin-left:8px}
+.exercise h4{margin:0 0 6px;font-size:1.05rem;color:var(--teal)}
+.fill-line{display:inline-block;min-width:120px;border-bottom:2px dotted var(--ink-soft)}
+.checkbox{display:inline-block;width:15px;height:15px;border:2px solid var(--teal);border-radius:3px;vertical-align:middle;margin-left:6px}
+.opt{display:block;margin:2px 0}
+.match-cols{display:flex;justify-content:space-between;gap:30px}
+.match-cols div{flex:1}
+.match-cols p{margin:4px 0;background:var(--teal-soft);border-radius:8px;padding:2px 12px}
+.word-chip{display:inline-block;background:var(--gold-soft);border:1.5px solid var(--gold);border-radius:16px;padding:0 12px;margin:3px}
+.lines{border-bottom:2px dotted var(--ink-soft);height:26px;margin:4px 0}
+.corrige-wrapper{page-break-before:always;margin-top:26px}
+details.corrige{border:2px solid var(--teal);border-radius:12px;background:#fff;padding:8px 18px}
+details.corrige summary{cursor:pointer;font-family:'Amiri',serif;font-size:1.25rem;color:var(--teal);font-weight:700}
+.corrige h5{margin:12px 0 2px;color:var(--red);font-size:1.02rem}
+.corrige p{margin:2px 0}
+.footer-note{text-align:center;color:var(--ink-soft);font-size:.88rem;margin-top:18px}
+@page{size:A4;margin:13mm}
+@media print{body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}.sheet{box-shadow:none;margin:0;max-width:none;padding:0;background:#fff}details.corrige:not([open]) *{display:none}details.corrige:not([open]) summary{display:block}}
+@media print{body,body *{font-family:Tahoma,'Segoe UI',Arial,'DejaVu Sans',sans-serif !important}svg text{font-family:Tahoma,Arial,sans-serif !important}}
+table.data-table{display:block;max-width:100%;overflow-x:auto}
+@media (max-width:600px){.data-table th,.data-table td{padding:5px 2px;font-size:12px}}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<header class="masthead">
+<div><h1>المغرب العربي: عناصر الوحدة والتنوع</h1><p>الجغرافيا – الثالثة إعدادي</p></div>
+</header>
+
+<div class="meta-row">
+<span class="chip"><b>المستوى:</b> الثالثة إعدادي (3AC)</span>
+<span class="chip"><b>المادة:</b> الاجتماعيات — الجغرافيا</span>
+<span class="chip"><b>مدة الحصة:</b> ساعة ونصف</span>
+<span class="chip"><b>نوع الوثيقة:</b> فيشة تعلّم ذاتي</span>
+</div>
+
+<section>
+<h2>🎯 الهدف</h2>
+<div class="box objectif-box">في نهاية هذه الحصة سأكون قادرًا على:
+<ul>
+<li>أن أعرّف المغرب العربي وأحدّد موقعه ومساحته وبلدانه وعواصمها؛</li>
+<li>أن أستخرج عناصر <b>الوحدة</b> بين بلدان المغرب العربي (الجغرافية والبشرية والحضارية)؛</li>
+<li>أن أستخرج عناصر <b>التنوع</b> (التضاريس والمناخ والموارد الاقتصادية)؛</li>
+<li>أن أبيّن أهمية الموارد الاقتصادية وتكاملها بين البلدان؛</li>
+<li>أن أفسّر أهمية التكامل والتعاون، وأذكر اتحاد المغرب العربي؛</li>
+<li>أن أنجز خريطة مبسّطة وأقرأ وثيقة جغرافية.</li>
+</ul></div>
+</section>
+
+<section>
+<h2>📘 الدرس</h2>
+
+<h3>1) إشكالية الدرس</h3>
+<div class="box">تشترك بلدان المغرب العربي في أشياء كثيرة، لكنها تختلف أيضًا في أشياء أخرى. فما هي أهم <b>عناصر الوحدة</b> بين هذه البلدان؟ وما هي أبرز مظاهر <b>التنوع</b> فيها؟ وكيف يمكن أن يحقق التكامل بينها تنمية أفضل؟</div>
+
+<h3>2) تعريف المغرب العربي وموقعه</h3>
+<div class="rule-box"><b>المغرب العربي</b> مجال جغرافي في شمال غرب إفريقيا، يضم خمس بلدان: <b>المغرب، الجزائر، تونس، ليبيا، موريتانيا</b>. تبلغ مساحته حوالي <b>6 ملايين كلم²</b>.</div>
+<ul>
+<li><b>الموقع الفلكي:</b> يمتد بين خطي عرض 15° و37° شمالًا تقريبًا، وبين خطي طول 25° شرقًا و17° غربًا تقريبًا.</li>
+<li><b>الموقع بالنسبة للمسطحات المائية:</b> يطل شمالًا على <b>البحر الأبيض المتوسط</b> وغربًا على <b>المحيط الأطلسي</b>، ويحده جنوبًا الصحراء الكبرى ومجال الساحل الإفريقي، وشرقًا مصر.</li>
+<li><b>القرب من أوربا:</b> يفصله عن أوربا <b>مضيق جبل طارق</b> الذي لا يتعدى عرضه حوالي 14 كلم عند أضيق نقطة، مما يجعله ملتقى بين إفريقيا وأوربا والعالم العربي.</li>
+</ul>
+
+<table class="data-table">
+<tr><th>البلد</th><th>العاصمة</th><th>الواجهات البحرية</th><th>ملاحظة</th></tr>
+<tr><td>المغرب</td><td>الرباط</td><td>المتوسط + الأطلسي</td><td>واجهتان بحريتان وجبال الأطلس</td></tr>
+<tr><td>الجزائر</td><td>الجزائر</td><td>المتوسط</td><td>أكبر بلد مساحة في المنطقة (حوالي 2,4 مليون كلم²)</td></tr>
+<tr><td>تونس</td><td>تونس</td><td>المتوسط</td><td>أصغر بلد مساحة (حوالي 164 ألف كلم²)</td></tr>
+<tr><td>ليبيا</td><td>طرابلس</td><td>المتوسط</td><td>أطول سواحل متوسطية في المنطقة</td></tr>
+<tr><td>موريتانيا</td><td>نواكشوط</td><td>الأطلسي</td><td>بلد صحراوي وساحلي</td></tr>
+</table>
+
+<h3>3) عناصر الوحدة</h3>
+<table class="data-table">
+<tr><th>نوع الوحدة</th><th>مظاهرها</th></tr>
+<tr><td><b>الوحدة الجغرافية</b></td><td>مجال متصل غير مفصول بحواجز كبرى؛ واجهات بحرية على المتوسط والأطلسي؛ سلسلة جبال الأطلس تمتد في المغرب والجزائر وتونس؛ الصحراء الكبرى تغطي مساحة كبيرة من الجنوب؛ ظروف طبيعية متشابهة (سواحل ممطرة في الشمال وجفاف في الجنوب).</td></tr>
+<tr><td><b>الوحدة البشرية</b></td><td>أصول سكانية مشتركة (العرب والأمازيغ)؛ وتمركز أغلب السكان في الشمال والسواحل والسهول؛ وارتفاع نسبة سكان المدن.</td></tr>
+<tr><td><b>الوحدة الحضارية والثقافية</b></td><td>الدين الإسلامي؛ اللغة العربية (واللغة الأمازيغية عنصر أصيل مشترك)؛ تاريخ مشترك وحضارات متعاقبة؛ عادات وتقاليد وأطعمة وصناعات تقليدية متقاربة.</td></tr>
+</table>
+<div class="rule-box"><b>تذكّر:</b> المغرب العربي مجال متجانس نسبيًا، تجمع بين بلدانه عناصر <b>جغرافية وبشرية وحضارية</b> مشتركة.</div>
+
+<h3>4) عناصر التنوع</h3>
+
+<h4>أ) تنوع التضاريس</h4>
+<ul>
+<li><b>السهول الساحلية:</b> على طول المتوسط والأطلسي، وهي مناطق كثيفة السكان والأنشطة.</li>
+<li><b>السلاسل الجبلية:</b> الأطلس (الأطلس المتوسط والكبير في المغرب، والأطلس التلي والصحراوي في الجزائر)، والريف في شمال المغرب.</li>
+<li><b>الهضاب العليا:</b> بين الأطلسين في الجزائر وفي المغرب الشرقي.</li>
+<li><b>الصحراء:</b> هضاب وكثبان رملية (عرق) في الجنوب، وتغطي حوالي ثلاثة أرباع المساحة تقريبًا.</li>
+</ul>
+<p>أعلى قمة في المنطقة هي <b>جبل توبقال</b> (4167 م) في الأطلس الكبير بالمغرب.</p>
+
+<h4>ب) تنوع المناخ</h4>
+<table class="data-table">
+<tr><th>المناخ</th><th>موقعه</th><th>خصائصه</th></tr>
+<tr><td>متوسطي</td><td>الشمال والسواحل المتوسطية</td><td>شتاء ممطر معتدل وصيف حار جاف</td></tr>
+<tr><td>محيطي</td><td>الواجهة الأطلسية</td><td>معتدل بتأثير المحيط</td></tr>
+<tr><td>قاري / جبلي</td><td>المرتفعات الجبلية والهضاب</td><td>برودة شتاءً وثلوج وفوارق حرارية</td></tr>
+<tr><td>شبه جاف وصحراوي</td><td>الجنوب والداخل</td><td>قلة التساقطات وفارق حراري كبير بين الليل والنهار</td></tr>
+</table>
+
+<h4>ج) تنوع الموارد الاقتصادية</h4>
+<table class="data-table">
+<tr><th>المورد</th><th>البلدان الأبرز</th></tr>
+<tr><td>النفط والغاز الطبيعي</td><td>الجزائر وليبيا</td></tr>
+<tr><td>الفوسفاط</td><td>المغرب (أكبر احتياطي عالمي) وتونس</td></tr>
+<tr><td>الحديد</td><td>موريتانيا</td></tr>
+<tr><td>الزراعة (حبوب، خضر، حوامض، زيتون)</td><td>المغرب وتونس والجزائر</td></tr>
+<tr><td>الصيد البحري</td><td>المغرب وموريتانيا</td></tr>
+<tr><td>السياحة</td><td>المغرب وتونس</td></tr>
+</table>
+<p>بعض الدول تعتمد على مورد رئيسي واحد (النفط في ليبيا، والحديد في موريتانيا)، وبعضها يتميز باقتصاد أكثر تنوعًا (المغرب وتونس).</p>
+
+<h3>5) التكامل الاقتصادي واتحاد المغرب العربي</h3>
+<div class="rule-box"><b>التكامل الاقتصادي</b> هو أن تستفيد بلدان من موارد بعضها البعض، فتتبادل ما يلزمها وتتعاون في الإنتاج والتسويق. وبفضل التنوع في الموارد، يمكن أن يكمّل كل بلد حاجات البلد الآخر: بلد لديه الطاقة، وآخر لديه الفوسفاط والأسمدة، وآخر ذو سواحل غنية بالأسماك...</div>
+<p>أُنشئ <b>اتحاد المغرب العربي</b> سنة <b>1989</b> بمراكش، ويضم المغرب والجزائر وتونس وليبيا وموريتانيا، بهدف توحيد الجهود وتحقيق التكامل الاقتصادي والتعاون السياسي والثقافي. ويواجه مسار الاتحاد صعوبات سياسية تحدّ من فاعليته وتبقي المبادلات بين بلدانه ضعيفة.</p>
+
+<h3>6) ملخص</h3>
+<div class="rule-box"><ul style="margin:0;padding-inline-start:20px">
+<li>المغرب العربي: 5 بلدان (المغرب، الجزائر، تونس، ليبيا، موريتانيا)، مساحته حوالي 6 ملايين كلم².</li>
+<li>الوحدة: جغرافية (متوسط وأطلسي وأطلس وصحراء)، وبشرية (عرب وأمازيغ)، وحضارية (إسلام وعربية وتاريخ مشترك).</li>
+<li>التنوع: تضاريس (سهول، جبال، هضاب، صحراء)، ومناخ (متوسطي، محيطي، قاري، صحراوي)، وموارد (نفط، فوسفاط، حديد، زراعة، صيد، سياحة).</li>
+<li>التنوع في الموارد يسهّل التكامل الاقتصادي الذي يسعى إليه اتحاد المغرب العربي.</li>
+</ul></div>
+
+<h3>مصطلحات</h3>
+<table class="data-table">
+<tr><th>المصطلح</th><th>المعنى</th></tr>
+<tr><td>الوحدة</td><td>عناصر مشتركة تجمع بين البلدان</td></tr>
+<tr><td>التنوع</td><td>اختلاف في الظروف الطبيعية أو البشرية أو الاقتصادية</td></tr>
+<tr><td>التكامل الاقتصادي</td><td>تبادل وتعاون بين بلدان تكمل موارد بعضها</td></tr>
+<tr><td>الموارد الطبيعية</td><td>خيرات تستخرج من الطبيعة (معادن، طاقة، تربة، مياه، أسماك)</td></tr>
+</table>
+</section>
+
+<section>
+<h2>🗺️ نشاط تطبيقي</h2>
+<div class="box activity-box">
+<span class="task-label">أنجز خريطة المغرب العربي</span>
+<p>على خريطة صماء للمغرب العربي:<br>
+1) ألوّن البلدان الخمسة بألوان مختلفة وأكتب أسماءها وعواصمها.<br>
+2) أضع أسماء المسطحات المائية: البحر الأبيض المتوسط، المحيط الأطلسي، مضيق جبل طارق.<br>
+3) أرسم بالرمز المناسب سلسلة الأطلس والصحراء الكبرى.<br>
+4) أرمز بأيقونة لأهم مورد في كل بلد (نفط، فوسفاط، حديد، صيد...) وأكتب مفتاح الخريطة.</p>
+<p>ثم أجيب: أي البلدان تطل على الأطلسي فقط؟ <span class="fill-line"></span> وأيها على المتوسط فقط؟ <span class="fill-line"></span> وأيها على البحرين معًا؟ <span class="fill-line"></span></p>
+<div class="lines"></div></div>
+</section>
+
+<section>
+<h2>📝 التمارين</h2>
+
+<div class="exercise"><h4><span class="exercise-num">1</span>أكمل الفراغات</h4>
+<p>يضم المغرب العربي <span class="fill-line sm"></span> بلدان هي: <span class="fill-line"></span>. يطل شمالًا على البحر <span class="fill-line"></span> وغربًا على المحيط <span class="fill-line"></span>، ويفصله عن أوربا <span class="fill-line"></span> الذي يبلغ عرضه حوالي <span class="fill-line sm"></span> كلم. تبلغ مساحته حوالي <span class="fill-line sm"></span> ملايين كلم².</p></div>
+
+<div class="exercise"><h4><span class="exercise-num">2</span>صحيح أم خطأ؟ أصحّح الخطأ</h4>
+<p>1) تونس أكبر بلدان المغرب العربي مساحة. <span class="fill-line" style="min-width:120px"></span><br>
+2) تقع جبال الأطلس في المغرب والجزائر وتونس. <span class="fill-line" style="min-width:120px"></span><br>
+3) الدين الإسلامي من عناصر الوحدة. <span class="fill-line" style="min-width:120px"></span><br>
+4) المناخ واحد في كل المغرب العربي. <span class="fill-line" style="min-width:120px"></span><br>
+5) تطل موريتانيا على البحر الأبيض المتوسط. <span class="fill-line" style="min-width:120px"></span></p></div>
+
+<div class="exercise"><h4><span class="exercise-num">3</span>أصل بين كل بلد وعاصمته</h4>
+<table class="data-table">
+<tr><th>البلد</th><th>العاصمة</th></tr>
+<tr><td>تونس</td><td>طرابلس</td></tr>
+<tr><td>ليبيا</td><td>نواكشوط</td></tr>
+<tr><td>موريتانيا</td><td>الجزائر</td></tr>
+<tr><td>الجزائر</td><td>الرباط</td></tr>
+<tr><td>المغرب</td><td>تونس</td></tr>
+</table>
+<p>(أكتب في الأسفل الازدواجات الصحيحة): <span class="fill-line"></span></p></div>
+
+<div class="exercise"><h4><span class="exercise-num">4</span>أصنّف المظاهر (وحدة / تنوع)</h4>
+<p>الدين الإسلامي – وجود الصحراء والسهول والجبال – اللغة العربية – وجود النفط في ليبيا والجزائر – الفوسفاط في المغرب – التاريخ المشترك – المناخ المتوسطي والصحراوي – أصول عربية وأمازيغية.</p>
+<table class="data-table">
+<tr><th>عناصر الوحدة</th><th>عناصر التنوع</th></tr>
+<tr><td><br><br><br></td><td></td></tr>
+</table></div>
+
+<div class="exercise"><h4><span class="exercise-num">5</span>أربط المورد بالبلد الأبرز</h4>
+<p>أ) الحديد ← <span class="fill-line" style="min-width:140px"></span><br>
+ب) الفوسفاط (أكبر احتياطي عالمي) ← <span class="fill-line" style="min-width:140px"></span><br>
+ج) النفط والغاز ← <span class="fill-line" style="min-width:140px"></span><br>
+د) الصيد البحري بواجهة أطلسية ← <span class="fill-line" style="min-width:140px"></span></p></div>
+
+<div class="exercise"><h4><span class="exercise-num">6</span>المناخ والمظاهر الطبيعية</h4>
+<p>أذكر المناخ الذي يميّز كل منطقة، مع خاصيتين له:<br>
+أ) السواحل الشمالية المطلة على المتوسط: <span class="fill-line"></span><br>
+ب) الجنوب الصحراوي: <span class="fill-line"></span><br>
+ج) المرتفعات الجبلية: <span class="fill-line"></span></p></div>
+
+<div class="exercise"><h4><span class="exercise-num">7</span>أتأمل وأعلّل</h4>
+<p>1) أين يتركز معظم سكان المغرب العربي؟ <span class="fill-line"></span><br>
+2) فسّر هذا التركز (اذكر عاملين). <span class="fill-line"></span><br>
+3) لماذا يكون التكامل الاقتصادي بين البلدان ممكنًا؟ <span class="fill-line"></span><br>
+4) متى وأين أُنشئ اتحاد المغرب العربي؟ ولماذا؟ <span class="fill-line"></span></p></div>
+
+<div class="exercise"><h4><span class="exercise-num">8</span>فقرة قصيرة</h4>
+<p>أكتب فقرة من 5 إلى 6 أسطر أبيّن فيها أن المغرب العربي مجال تجمع بين بلدانه عناصر الوحدة وتفرّق بينها عناصر التنوع، مستعملًا المصطلحين: الوحدة، التنوع، التكامل الاقتصادي.</p>
+<div class="lines"></div></div>
+</section>
+
+<div class="corrige-wrapper">
+<details class="corrige">
+<summary>اضغط لإظهار الحل / إخفائه — التصحيح الكامل</summary>
+<h5>نشاط تطبيقي</h5>
+<p>على الأطلسي فقط: موريتانيا. على المتوسط فقط: الجزائر وتونس وليبيا. على البحرين معًا: المغرب. (أما الخريطة فتُقيَّم بتلوين البلدان وكتابة الأسماء والعواصم ووضع المفتاح.)</p>
+<h5>تمرين 1</h5><p>5؛ المغرب، الجزائر، تونس، ليبيا، موريتانيا؛ الأبيض المتوسط؛ الأطلسي؛ مضيق جبل طارق؛ 14؛ 6.</p>
+<h5>تمرين 2</h5><p>1) خطأ: أكبر بلد مساحة هو الجزائر، وتونس أصغرها. 2) صحيح. 3) صحيح. 4) خطأ: المناخ متنوع (متوسطي، محيطي، قاري، صحراوي). 5) خطأ: تطل موريتانيا على المحيط الأطلسي.</p>
+<h5>تمرين 3</h5><p>تونس ← تونس؛ ليبيا ← طرابلس؛ موريتانيا ← نواكشوط؛ الجزائر ← الجزائر؛ المغرب ← الرباط.</p>
+<h5>تمرين 4</h5><p>الوحدة: الدين الإسلامي، اللغة العربية، التاريخ المشترك، أصول عربية وأمازيغية. التنوع: الصحراء والسهول والجبال، النفط في ليبيا والجزائر، الفوسفاط في المغرب، المناخ المتوسطي والصحراوي.</p>
+<h5>تمرين 5</h5><p>أ) موريتانيا. ب) المغرب (وتونس كذلك). ج) الجزائر وليبيا. د) المغرب وموريتانيا.</p>
+<h5>تمرين 6</h5><p>أ) متوسطي: شتاء ممطر معتدل وصيف حار جاف. ب) صحراوي: قلة التساقطات وفارق حراري كبير بين الليل والنهار. ج) جبلي: برودة وثلوج شتاءً وتساقطات أوفر.</p>
+<h5>تمرين 7</h5><p>1) في الشمال، على السواحل والسهول. 2) وفرة المياه والأمطار وخصوبة التربة، وانتشار المدن والموانئ والأنشطة الاقتصادية، بينما الصحراء قليلة الماء. 3) لأن الموارد متنوعة ومتكاملة: بلد غني بالطاقة وآخر بالفوسفاط وآخر بالحديد أو الأسماك، فيمكن أن يستفيد كل بلد مما عند الآخر. 4) أُنشئ سنة 1989 بمراكش، لتحقيق التكامل والتعاون بين بلدانه.</p>
+<h5>تمرين 8</h5><p>الإجابة حرّة. نموذج: يجمع المغرب العربي بين بلدانه الخمسة عناصر وحدة جغرافية (المتوسط والأطلسي والأطلس والصحراء)، وبشرية وحضارية (العرب والأمازيغ والإسلام والعربية). لكنه متنوع في تضاريسه ومناخه وموارده، فالنفط في الجزائر وليبيا، والفوسفاط في المغرب، والحديد في موريتانيا. وهذا التنوع يسمح بتكامل اقتصادي بين البلدان لو تعززت المبادلات بينها.</p>
+</details>
+</div>
+
+<p class="footer-note">فيشة تعلّم ذاتي – الجغرافيا – الثالثة إعدادي</p>
+</div>
+</body>
+</html>
