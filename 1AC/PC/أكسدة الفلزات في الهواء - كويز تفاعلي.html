@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>أكسدة الفلزات في الهواء – كويز تفاعلي</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Naskh+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1d2a33;--ink-soft:#52646f;--paper:#f5fafb;--panel:#fff;--line:#cfe0e4;
+--indigo:#3f4d9e;--indigo-soft:#e6e9f7;--teal:#1f7a7a;--teal-soft:#dff1f0;--amber:#c98a2e;--amber-soft:#fbefd6;--rose:#b8483a;--rose-soft:#f8e3de;--ok:#2e8b57;--ok-soft:#dff3e6;}
+*{box-sizing:border-box}
+body{margin:0;background:#e5eef0;font-family:'Noto Naskh Arabic','Amiri',serif;color:var(--ink);line-height:1.9;font-size:17px}
+.sheet{max-width:920px;margin:18px auto;background:var(--paper);padding:26px 30px;border-radius:14px;box-shadow:0 4px 18px rgba(0,0,0,.1)}
+.masthead{display:flex;align-items:center;gap:18px;background:linear-gradient(135deg,var(--teal),var(--indigo));color:#fff;border-radius:14px;padding:18px 22px}
+.masthead h1{font-family:'Amiri',serif;font-size:2rem;margin:0;line-height:1.3}
+.masthead p{margin:4px 0 0;opacity:.92}
+.meta-row{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.chip{background:var(--panel);border:1.5px solid var(--line);border-radius:20px;padding:2px 14px;font-size:.92rem}
+.chip b{color:var(--indigo)}
+section{margin:22px 0}
+h2{font-family:'Amiri',serif;font-size:1.5rem;color:var(--indigo);border-bottom:3px solid var(--amber);display:inline-block;margin:0 0 10px;padding-bottom:2px}
+h3{color:var(--teal);margin:14px 0 4px;font-size:1.12rem}
+.box{background:var(--panel);border:1.5px solid var(--line);border-radius:12px;padding:12px 18px;margin:10px 0}
+.objectif-box{background:var(--teal-soft);border-color:var(--teal)}
+.rule-box{background:var(--amber-soft);border-right:6px solid var(--amber);border-radius:10px;padding:10px 16px;margin:10px 0}
+.warn-box{background:var(--rose-soft);border-right:6px solid var(--rose);border-radius:10px;padding:10px 16px;margin:10px 0}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:10px;margin:10px 0}
+.card{background:var(--panel);border:1.5px solid var(--line);border-top:5px solid var(--indigo);border-radius:10px;padding:8px 14px}
+.card h4{margin:0;color:var(--indigo);font-size:1.03rem}
+.card p{margin:2px 0 0;font-size:.95rem}
+table.data-table{width:100%;border-collapse:collapse;margin:10px 0;background:#fff}
+.data-table th,.data-table td{border:1.5px solid var(--line);padding:6px 10px;text-align:center}
+.data-table th{background:var(--indigo);color:#fff}
+.activity-box{background:var(--indigo-soft);border:2px dashed var(--indigo);border-radius:12px;padding:12px 18px}
+.task-label{display:inline-block;background:var(--indigo);color:#fff;border-radius:8px;padding:0 10px;margin-left:6px;font-size:.9rem}
+.fill-line{display:inline-block;min-width:110px;border-bottom:2px dotted var(--ink-soft)}
+.lines{border-bottom:2px dotted var(--ink-soft);height:26px;margin:4px 0}
+.fig{text-align:center;font-size:.88rem;color:var(--ink-soft)}
+svg text{font-family:'Noto Naskh Arabic',sans-serif}
+
+/* bar du score */
+.scorebar{position:sticky;top:0;z-index:5;background:#fff;border:2px solid var(--indigo);border-radius:12px;padding:8px 16px;margin:10px 0;display:flex;align-items:center;gap:14px;flex-wrap:wrap;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.scorebar .pts{font-weight:700;color:var(--indigo);font-size:1.1rem;white-space:nowrap}
+.progress{flex:1;min-width:140px;height:14px;background:#e3e8ee;border-radius:10px;overflow:hidden}
+.progress>i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--teal),var(--indigo));transition:width .4s}
+.scorebar small{color:var(--ink-soft)}
+
+/* exercices interactifs */
+.exercise{background:var(--panel);border:1.5px solid var(--line);border-radius:12px;padding:10px 18px 14px;margin:14px 0}
+.exercise-num{display:inline-flex;width:30px;height:30px;border-radius:50%;background:var(--amber);color:#fff;align-items:center;justify-content:center;font-weight:700;margin-left:8px}
+.exercise h4{margin:0 0 6px;font-size:1.08rem;color:var(--indigo)}
+.q{margin:8px 0}
+.mcq{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 8px}
+.mcq button{font:inherit;background:#fff;border:2px solid var(--line);border-radius:10px;padding:2px 14px;cursor:pointer}
+.mcq button:hover{border-color:var(--indigo)}
+.mcq button.sel{background:var(--indigo-soft);border-color:var(--indigo)}
+.mcq.ok button.sel{background:var(--ok-soft);border-color:var(--ok)}
+.mcq.bad button.sel{background:var(--rose-soft);border-color:var(--rose)}
+select,input.ans{font:inherit;border:2px solid var(--line);border-radius:8px;padding:1px 8px;background:#fff;max-width:100%}
+input.ans{width:150px}
+select.ok,input.ans.ok{border-color:var(--ok);background:var(--ok-soft)}
+select.bad,input.ans.bad{border-color:var(--rose);background:var(--rose-soft)}
+.fb{display:inline-block;margin-right:8px;font-size:.92rem}
+.fb.ok{color:var(--ok)}.fb.bad{color:var(--rose)}
+.actions{margin-top:8px;display:flex;gap:8px;flex-wrap:wrap}
+.btn{font:inherit;font-weight:700;border:none;border-radius:10px;padding:2px 18px;cursor:pointer;color:#fff;background:var(--indigo)}
+.btn.sec{background:#fff;color:var(--indigo);border:2px solid var(--indigo)}
+.btn:hover{opacity:.9}
+.ex-result{font-weight:700;color:var(--indigo);margin-right:4px}
+.final{display:none;background:var(--ok-soft);border:2px solid var(--ok);border-radius:12px;padding:10px 18px;margin:14px 0;font-weight:700}
+.doc-box{background:var(--indigo-soft);border-right:6px solid var(--indigo);border-radius:10px;padding:10px 16px;margin:8px 0}
+
+.corrige-wrapper{margin-top:26px}
+details.corrige{border:2px solid var(--indigo);border-radius:12px;background:#fff;padding:8px 18px}
+details.corrige summary{cursor:pointer;font-family:'Amiri',serif;font-size:1.25rem;color:var(--indigo);font-weight:700}
+.corrige h5{margin:12px 0 2px;color:var(--rose);font-size:1.02rem}
+.corrige p{margin:2px 0}
+.footer-note{text-align:center;color:var(--ink-soft);font-size:.88rem;margin-top:18px}
+@page{size:A4;margin:13mm}
+@media print{body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}.sheet{box-shadow:none;margin:0;max-width:none;padding:0;background:#fff}.scorebar,.actions,.final{display:none!important}.corrige-wrapper{page-break-before:always}details.corrige:not([open]) > :not(summary){display:none}.exercise{page-break-inside:avoid}}
+@media print{body,body *{font-family:Tahoma,'Segoe UI',Arial,'DejaVu Sans',sans-serif !important}svg text{font-family:Tahoma,Arial,sans-serif !important}}
+table.data-table{display:block;max-width:100%;overflow-x:auto}
+@media (max-width:600px){.data-table th,.data-table td{padding:5px 2px;font-size:12px}}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<header class="masthead">
+<div><h1>أكسدة الفلزات في الهواء</h1><p>الفيزياء والكيمياء – الثالثة إعدادي (Oxydation des métaux dans l'air) · كويز تفاعلي</p></div>
+</header>
+
+<div class="meta-row">
+<span class="chip"><b>المستوى:</b> الثالثة إعدادي (3AC)</span>
+<span class="chip"><b>المادة:</b> الفيزياء والكيمياء</span>
+<span class="chip"><b>مدة الحصة:</b> ساعة ونصف</span>
+<span class="chip"><b>نوع الوثيقة:</b> كويز تفاعلي</span>
+</div>
+
+<section>
+<h2>🎯 الهدف</h2>
+<div class="box objectif-box">في نهاية هذه الحصة سأكون قادرًا على:
+<ul>
+<li>أن أصف تجارب أكسدة الحديد في الهواء وأستنتج شروط تكوّن الصدأ؛</li>
+<li>أن أبيّن دور ثنائي الأوكسجين في الصدأ وأحدّد نسبته في الهواء؛</li>
+<li>أن أقترح طرقًا لحماية الحديد من التآكل؛</li>
+<li>أن أصف أكسدة الألومنيوم في الهواء وأفسّر لماذا لا يتآكل في العمق؛</li>
+<li>أن أكتب معادلتي أكسدة الحديد والألومنيوم موزونتين.</li>
+</ul></div>
+</section>
+
+<section>
+<h2>📘 الدرس</h2>
+
+<h3>1) مدخل: لماذا يصدأ الحديد؟</h3>
+<p>نلاحظ أن هياكل السيارات وأبواب الحديد تصدأ في المناطق الساحلية أكثر مما تصدأ في المناطق الصحراوية الجافة، وأن هياكل السفن في البحر تصدأ أكثر من هياكل السفن في المياه العذبة. نطرح إذن الأسئلة التالية:</p>
+<ul>
+<li>ماذا يحدث للحديد عند تركه في الهواء الرطب؟</li>
+<li>ما العوامل التي تساعد الهواء على مهاجمة الحديد؟</li>
+<li>كيف نحمي الحديد من التآكل؟</li>
+<li>وماذا يحدث لصفيحة من الألومنيوم تُترك في الهواء؟</li>
+</ul>
+
+<h3>2) أكسدة الحديد في الهواء</h3>
+
+<h4>أ) التجربة 1: دور الهواء والماء</h4>
+<p>نضع مسمارًا من الحديد في كل أنبوب من 4 أنابيب اختبار:</p>
+<table class="data-table">
+<tr><th>الأنبوب</th><th>الوسط</th><th>الملاحظة بعد أيام</th></tr>
+<tr><td>A</td><td>هواء + ماء مالح</td><td>صدأ كثير</td></tr>
+<tr><td>B</td><td>هواء + ماء مقطّر</td><td>صدأ قليل</td></tr>
+<tr><td>C</td><td>ماء مغلي (خالٍ من الهواء المذاب)</td><td>لا يصدأ</td></tr>
+<tr><td>D</td><td>كلورور الكالسيوم (مادة مجفّفة، هواء جاف)</td><td>لا يصدأ</td></tr>
+</table>
+<div class="rule-box"><b>الاستنتاج:</b> لا يصدأ الحديد إلا إذا كان في اتصال مع <b>الهواء</b> و<b>الماء</b> معًا (أي الهواء الرطب). وجود بعض المواد مثل <b>الملح</b> يسرّع تكوّن الصدأ، وهذا ما يفسّر كثرة الصدأ قرب البحر.</div>
+
+<h4>ب) التجربة 2: أي مكوّن من الهواء يتفاعل؟</h4>
+<p>ندخل صوفًا من الحديد (أو برادة الحديد) في مخبار مدرّج مبلّل ونقلبه على حوض به ماء. بعد حوالي 8 أيام نلاحظ ما يلي:</p>
+<ul>
+<li>الصوف الحديدي صدئ؛</li>
+<li>ارتفع الماء في المخبار وشغل حوالي <b>1/5</b> من حجمه (أي 20%)؛</li>
+<li>الغاز المتبقي في المخبار (حوالي 4/5) لا يساعد على الصدأ، وهو أساسًا ثنائي الأزوت.</li>
+</ul>
+<div class="rule-box"><b>الاستنتاج:</b> الذي تفاعل مع الحديد هو <b>ثنائي الأوكسجين O<sub>2</sub></b> الموجود في الهواء، ونسبته حوالي <b>1/5</b> من حجم الهواء. ارتفع الماء ليشغل الحجم الذي تركه ثنائي الأوكسجين بعد استهلاكه.</div>
+
+<h4>ج) خلاصة أكسدة الحديد</h4>
+<ul>
+<li>الصدأ ناتج عن <b>تآكل</b> الحديد، أي <b>أكسدة بطيئة (أكسدة على البارد)</b>.</li>
+<li>الصدأ يتكوّن أساسًا من <b>أكسيد الحديد الثلاثي</b> صيغته <bdi dir="ltr">Fe<sub>2</sub>O<sub>3</sub></bdi>.</li>
+<li>المتفاعلات: الحديد Fe وثنائي الأوكسجين O<sub>2</sub> (في وجود الرطوبة)، والناتج: <bdi dir="ltr">Fe<sub>2</sub>O<sub>3</sub></bdi>.</li>
+</ul>
+<div class="rule-box" style="text-align:center">حديد + ثنائي الأوكسجين ← أكسيد الحديد الثلاثي<br>
+<bdi dir="ltr"><b>4 Fe + 3 O<sub>2</sub> → 2 Fe<sub>2</sub>O<sub>3</sub></b></bdi></div>
+<p><b>تحقّق من الموازنة:</b> في الطرف الأيسر 4 ذرات Fe و6 ذرات O (3 × 2)، وفي الطرف الأيمن 4 ذرات Fe (2 × 2) و6 ذرات O (2 × 3). عدد الذرات محفوظ.</p>
+
+<h4>د) حماية الحديد من التآكل</h4>
+<p>طبقة الصدأ <b>مسامية</b>، فتسمح للماء والهواء بالمرور إلى داخل الحديد ليستمر التفاعل حتى يختفي الحديد كليًا. ولحماية الحديد نغطيه بطبقة <b>غير مسامية وعازلة</b>، مثل:</p>
+<table class="data-table">
+<tr><th>طريقة الحماية</th><th>مثال</th></tr>
+<tr><td>الطلاء</td><td>طلاء هياكل السيارات والأبواب</td></tr>
+<tr><td>التقصدير (طبقة القصدير)</td><td>علب المصبرات (الحديد الأبيض)</td></tr>
+<tr><td>التغطية بالزنك (التغليف)</td><td>الصفائح المجلفنة والأسطح</td></tr>
+<tr><td>الزيت أو الشحم</td><td>أجزاء الآلات والمحرّكات</td></tr>
+<tr><td>البلاستيك أو الورنيش</td><td>مقابض وأدوات</td></tr>
+<tr><td>فلزات أخرى (النيكل، الكروم...)</td><td>مقود الدراجة وأدوات الحمّام</td></tr>
+</table>
+
+<h3>3) أكسدة الألومنيوم في الهواء</h3>
+
+<h4>أ) أكسدة على البارد</h4>
+<p>نترك صفيحة من الألومنيوم في الهواء الرطب عدة أيام. نلاحظ ظهور <b>طبقة رقيقة رمادية بيضاء</b> على سطحها: هي ناتجة عن تفاعل الألومنيوم مع ثنائي الأوكسجين، وتسمّى <b>الألومين</b> أو <b>أكسيد الألومنيوم</b>.</p>
+
+<h4>ب) أكسدة على الساخن</h4>
+<p>نسخّن سلكًا من الألومنيوم في لهب. نلاحظ أن السلك <b>ينصهر ولا يسيل</b>؛ فالجزء المسخَّن يتغطى بغشاء أبيض من الألومين، يبقى فيه الألومنيوم السائل (درجة انصهاره 660°C) سجينًا، لأن الألومين لا ينصهر إلا عند حوالي <b>2100°C</b>، وهي أعلى بكثير من حرارة اللهب.</p>
+
+<div class="rule-box"><b>الاستنتاج:</b> يتفاعل الألومنيوم مع ثنائي الأوكسجين على البارد وعلى الساخن، وينتج <b>أكسيد الألومنيوم (الألومين)</b> صيغته <bdi dir="ltr">Al<sub>2</sub>O<sub>3</sub></bdi>. الألومين طبقة <b>غير مسامية ومانعة لنفاذ الهواء</b>، فتحمي الفلز في العمق وتحافظ على صلابته مدة طويلة.<br>
+<div style="text-align:center"><bdi dir="ltr"><b>4 Al + 3 O<sub>2</sub> → 2 Al<sub>2</sub>O<sub>3</sub></b></bdi></div></div>
+<p><b>تحقّق من الموازنة:</b> الطرف الأيسر: 4 Al و6 O؛ الطرف الأيمن: 4 Al (2 × 2) و6 O (2 × 3). ✓</p>
+
+<h3>4) مقارنة بين أكسدة الحديد وأكسدة الألومنيوم</h3>
+<table class="data-table">
+<tr><th></th><th>الحديد Fe</th><th>الألومنيوم Al</th></tr>
+<tr><td>المتفاعلات</td><td>Fe + O<sub>2</sub> (هواء رطب)</td><td>Al + O<sub>2</sub> (هواء)</td></tr>
+<tr><td>الناتج</td><td>الصدأ: <bdi dir="ltr">Fe<sub>2</sub>O<sub>3</sub></bdi></td><td>الألومين: <bdi dir="ltr">Al<sub>2</sub>O<sub>3</sub></bdi></td></tr>
+<tr><td>معادلة التفاعل</td><td><bdi dir="ltr">4 Fe + 3 O<sub>2</sub> → 2 Fe<sub>2</sub>O<sub>3</sub></bdi></td><td><bdi dir="ltr">4 Al + 3 O<sub>2</sub> → 2 Al<sub>2</sub>O<sub>3</sub></bdi></td></tr>
+<tr><td>طبيعة الطبقة الناتجة</td><td>مسامية، تسمح بمرور الهواء</td><td>غير مسامية، تمنع مرور الهواء</td></tr>
+<tr><td>النتيجة</td><td>يستمر التآكل حتى اختفاء الحديد</td><td>يتوقف التفاعل عند السطح والفلز محمي</td></tr>
+</table>
+
+<h3>5) ملخص</h3>
+<div class="rule-box"><ul style="margin:0;padding-inline-start:20px">
+<li>الأكسدة تفاعل بين فلز وثنائي الأوكسجين ينتج أكسيدًا للفلز.</li>
+<li>الحديد يصدأ في الهواء الرطب، والملح يسرّع ذلك، والصدأ <bdi dir="ltr">Fe<sub>2</sub>O<sub>3</sub></bdi> طبقة مسامية لا تحمي.</li>
+<li>الألومنيوم يتأكسد فيتكوّن الألومين <bdi dir="ltr">Al<sub>2</sub>O<sub>3</sub></bdi>، وهو طبقة غير مسامية تحمي الفلز.</li>
+<li>نسبة ثنائي الأوكسجين في الهواء حوالي 1/5 (20%) من الحجم.</li>
+</ul></div>
+</section>
+
+<section>
+<h2>🔬 نشاط تطبيقي</h2>
+<div class="box activity-box">
+<span class="task-label">أحلّل تجربة مخبار الصوف الحديدي</span>
+<p>ندخل صوفًا من الحديد في مخبار مدرّج مبلّل حجم الهواء فيه <b>250 mL</b>، ونقلبه على حوض به ماء. بعد أيام، يصير حجم الغاز المتبقي في المخبار <b>200 mL</b>، ويكون الصوف الحديدي قد صدئ جزئيًا.</p>
+<p>1) ما حجم الماء الذي صعد إلى المخبار؟ <span class="fill-line"></span><br>
+2) احسب النسبة <bdi dir="ltr">V<sub>الماء</sub> / V<sub>الهواء</sub></bdi> وعبّر عنها بنسبة مئوية: <span class="fill-line"></span><br>
+3) ما الغاز الذي استُهلك؟ ولماذا صعد الماء؟ <span class="fill-line"></span><br>
+4) نكرّر التجربة بثنائي الأوكسجين النقي فيملأ الماء المخبار كله. ماذا نستنتج؟ <span class="fill-line"></span></p>
+<div class="lines"></div></div>
+</section>
+
+<section>
+<h2>📝 تمارين تفاعلية (كويز)</h2>
+<div class="scorebar" id="scorebar">
+<span class="pts">النتيجة: <span id="got">0</span> / <span id="total">0</span></span>
+<div class="progress"><i id="bar"></i></div>
+<small id="exdone">أنجزت 0 من 5 تمارين</small>
+<button class="btn sec" id="resetAll" type="button">🔄 إعادة الكل</button>
+</div>
+
+<!-- Ex 1 -->
+<div class="exercise" data-ex="1"><h4><span class="exercise-num">1</span>اختيار من متعدّد</h4>
+<div class="q">أ) لكي يصدأ الحديد يجب أن يكون في اتصال مع:
+<div class="item mcq" data-ans="c"><button type="button" data-v="a">الماء فقط</button><button type="button" data-v="b">الهواء الجاف فقط</button><button type="button" data-v="c">الهواء والماء معًا</button></div></div>
+<div class="q">ب) نسبة ثنائي الأوكسجين في الهواء تقريبًا:
+<div class="item mcq" data-ans="b"><button type="button" data-v="a">4/5</button><button type="button" data-v="b">1/5</button><button type="button" data-v="c">1/2</button></div></div>
+<div class="q">ج) الطبقة التي تحمي الألومنيوم من الأكسدة في العمق هي:
+<div class="item mcq" data-ans="a"><button type="button" data-v="a">الألومين</button><button type="button" data-v="b">الصدأ</button><button type="button" data-v="c">الزنك</button></div></div>
+<div class="actions"><button class="btn check" type="button">تحقّق</button><button class="btn sec reset" type="button">إعادة</button><span class="ex-result"></span></div></div>
+
+<!-- Ex 2 -->
+<div class="exercise" data-ex="2"><h4><span class="exercise-num">2</span>صحيح أم خطأ؟</h4>
+<div class="q">1) يصدأ الحديد في ماء البحر أسرع منه في ماء النهر. <select class="item" data-ans="t"><option value="">اختر…</option><option value="t">صحيح</option><option value="f">خطأ</option></select></div>
+<div class="q">2) الصدأ طبقة غير مسامية تحمي الحديد. <select class="item" data-ans="f"><option value="">اختر…</option><option value="t">صحيح</option><option value="f">خطأ</option></select></div>
+<div class="q">3) الألومين ناتج أكسدة الألومنيوم. <select class="item" data-ans="t"><option value="">اختر…</option><option value="t">صحيح</option><option value="f">خطأ</option></select></div>
+<div class="q">4) يتكوّن الصدأ في الهواء الجاف. <select class="item" data-ans="f"><option value="">اختر…</option><option value="t">صحيح</option><option value="f">خطأ</option></select></div>
+<div class="q">5) الطلاء والتقصدير والتغطية بالزنك طرق لحماية الحديد. <select class="item" data-ans="t"><option value="">اختر…</option><option value="t">صحيح</option><option value="f">خطأ</option></select></div>
+<div class="actions"><button class="btn check" type="button">تحقّق</button><button class="btn sec reset" type="button">إعادة</button><span class="ex-result"></span></div></div>
+
+<!-- Ex 3 -->
+<div class="exercise" data-ex="3"><h4><span class="exercise-num">3</span>أكمل الفراغات</h4>
+<div class="q">1) تتم أكسدة الحديد في الهواء الرطب ببطء، وتسمّى هذه الأكسدة أكسدة على
+<select class="item" data-ans="cold"><option value="">اختر…</option><option value="cold">البارد</option><option value="hot">الساخن</option></select></div>
+<div class="q">2) صيغة أكسيد الحديد الثلاثي (الصدأ): <input class="item ans" data-ans="Fe2O3" dir="ltr" placeholder="مثال: H2O" autocomplete="off"></div>
+<div class="q">3) صيغة الألومين (أكسيد الألومنيوم): <input class="item ans" data-ans="Al2O3" dir="ltr" placeholder="مثال: H2O" autocomplete="off"></div>
+<div class="q">4) الغاز الذي يتفاعل مع الحديد في الهواء هو ثنائي
+<select class="item" data-ans="o"><option value="">اختر…</option><option value="o">الأوكسجين</option><option value="n">الأزوت</option><option value="c">ثنائي أكسيد الكربون</option></select></div>
+<div class="actions"><button class="btn check" type="button">تحقّق</button><button class="btn sec reset" type="button">إعادة</button><span class="ex-result"></span></div></div>
+
+<!-- Ex 4 -->
+<div class="exercise" data-ex="4"><h4><span class="exercise-num">4</span>أتوقع نتيجة التجربة</h4>
+<p>نضع مسمارًا من الحديد في كل وسط. هل يصدأ؟</p>
+<div class="q">1) هواء رطب: <select class="item" data-ans="r"><option value="">اختر…</option><option value="r">يصدأ</option><option value="n">لا يصدأ</option></select></div>
+<div class="q">2) ماء مغلي مغطى بطبقة من الزيت (لا هواء): <select class="item" data-ans="n"><option value="">اختر…</option><option value="r">يصدأ</option><option value="n">لا يصدأ</option></select></div>
+<div class="q">3) هواء جاف (بوجود كلورور الكالسيوم): <select class="item" data-ans="n"><option value="">اختر…</option><option value="r">يصدأ</option><option value="n">لا يصدأ</option></select></div>
+<div class="q">4) هواء + ماء مالح: <select class="item" data-ans="r"><option value="">اختر…</option><option value="r">يصدأ</option><option value="n">لا يصدأ</option></select> وبسرعة
+<select class="item" data-ans="m"><option value="">اختر…</option><option value="m">أكبر من الماء المقطّر</option><option value="l">أقل من الماء المقطّر</option></select></div>
+<div class="actions"><button class="btn check" type="button">تحقّق</button><button class="btn sec reset" type="button">إعادة</button><span class="ex-result"></span></div></div>
+
+<!-- Ex 5 -->
+<div class="exercise" data-ex="5"><h4><span class="exercise-num">5</span>أوازن المعادلتين</h4>
+<p>اكتب المعامل المناسب في كل خانة (الأرقام فقط):</p>
+<div class="q" dir="ltr" style="text-align:center">
+<input class="item ans" data-ans="4" style="width:52px;text-align:center" inputmode="numeric" autocomplete="off"> Fe +
+<input class="item ans" data-ans="3" style="width:52px;text-align:center" inputmode="numeric" autocomplete="off"> O<sub>2</sub> →
+<input class="item ans" data-ans="2" style="width:52px;text-align:center" inputmode="numeric" autocomplete="off"> Fe<sub>2</sub>O<sub>3</sub></div>
+<div class="q" dir="ltr" style="text-align:center">
+<input class="item ans" data-ans="4" style="width:52px;text-align:center" inputmode="numeric" autocomplete="off"> Al +
+<input class="item ans" data-ans="3" style="width:52px;text-align:center" inputmode="numeric" autocomplete="off"> O<sub>2</sub> →
+<input class="item ans" data-ans="2" style="width:52px;text-align:center" inputmode="numeric" autocomplete="off"> Al<sub>2</sub>O<sub>3</sub></div>
+<div class="actions"><button class="btn check" type="button">تحقّق</button><button class="btn sec reset" type="button">إعادة</button><span class="ex-result"></span></div></div>
+
+<div class="final" id="final"></div>
+</section>
+
+<div class="corrige-wrapper">
+<details class="corrige">
+<summary>اضغط لإظهار الحل / إخفائه — التصحيح الكامل</summary>
+<h5>النشاط التطبيقي</h5>
+<p>1) 250 − 200 = 50 mL. 2) <bdi dir="ltr">50 / 250 = 1/5 = 20%</bdi>. 3) استُهلك ثنائي الأوكسجين، وصعد الماء ليشغل الحجم الذي تركه. 4) في ثنائي الأوكسجين النقي يُستهلك كل الغاز، فهو المتفاعل مع الحديد.</p>
+<h5>التمرين 1</h5><p>أ) الهواء والماء معًا. ب) 1/5. ج) الألومين.</p>
+<h5>التمرين 2</h5><p>1) صحيح (الملح يسرّع الصدأ). 2) خطأ — الصدأ مسامي ولا يحمي. 3) صحيح. 4) خطأ — يلزم الهواء الرطب. 5) صحيح.</p>
+<h5>التمرين 3</h5><p>1) البارد. 2) <bdi dir="ltr">Fe<sub>2</sub>O<sub>3</sub></bdi>. 3) <bdi dir="ltr">Al<sub>2</sub>O<sub>3</sub></bdi>. 4) الأوكسجين.</p>
+<h5>التمرين 4</h5><p>1) يصدأ (هواء + ماء). 2) لا يصدأ (لا هواء). 3) لا يصدأ (لا رطوبة). 4) يصدأ، وبسرعة أكبر من الماء المقطّر لأن الملح يسرّع الصدأ.</p>
+<h5>التمرين 5</h5><p><bdi dir="ltr">4 Fe + 3 O<sub>2</sub> → 2 Fe<sub>2</sub>O<sub>3</sub></bdi> &nbsp;·&nbsp; <bdi dir="ltr">4 Al + 3 O<sub>2</sub> → 2 Al<sub>2</sub>O<sub>3</sub></bdi><br>تحقّق: 4 Fe و6 O في الطرفين؛ 4 Al و6 O في الطرفين.</p>
+</details>
+</div>
+
+<p class="footer-note">كويز تفاعلي – الفيزياء والكيمياء – بالتوفيق 🌟</p>
+</div>
+<script>
+(function(){
+  function norm(s){
+    return (s||'').toString().normalize('NFC')
+      .replace(/[ً-ٰٟـ]/g,'')
+      .replace(/[إأآٱ]/g,'ا').replace(/ى/g,'ي').replace(/ة/g,'ه')
+      .replace(/[\s,،.]/g,'').toLowerCase();
+  }
+  var results = {};
+  var totalItems = document.querySelectorAll('.exercise .item').length;
+  document.getElementById('total').textContent = totalItems;
+
+  function clearFb(it){
+    it.classList.remove('ok','bad');
+    var nx = it.nextElementSibling;
+    if (nx && nx.classList.contains('fb')) nx.remove();
+    var inside = it.querySelector(':scope > .fb');
+    if (inside) inside.remove();
+  }
+  function addFb(it, ok, expected){
+    var span = document.createElement('span');
+    span.className = 'fb ' + (ok ? 'ok' : 'bad');
+    span.textContent = ok ? '✓ صحيح' : '✗ الجواب: ' + expected;
+    if (it.classList.contains('mcq')) it.appendChild(span);
+    else it.insertAdjacentElement('afterend', span);
+  }
+  function evalItem(it){
+    var ok = false, expected = '';
+    if (it.classList.contains('mcq')){
+      var sel = it.querySelector('button.sel');
+      var given = sel ? sel.dataset.v : '';
+      ok = given === it.dataset.ans;
+      expected = it.querySelector('button[data-v="'+it.dataset.ans+'"]').textContent;
+    } else if (it.tagName === 'SELECT'){
+      ok = it.value !== '' && it.value === it.dataset.ans;
+      var opt = it.querySelector('option[value="'+it.dataset.ans+'"]');
+      expected = opt ? opt.textContent : it.dataset.ans;
+    } else {
+      var g = norm(it.value);
+      var alts = it.dataset.ans.split('|');
+      ok = g !== '' && alts.some(function(a){ return norm(a) === g; });
+      expected = alts[0];
+    }
+    clearFb(it);
+    it.classList.add(ok ? 'ok' : 'bad');
+    addFb(it, ok, expected);
+    return ok;
+  }
+  function updateScore(){
+    var got = 0, done = 0;
+    Object.keys(results).forEach(function(k){ got += results[k]; done++; });
+    // total des items vérifiés
+    document.getElementById('got').textContent = got;
+    document.getElementById('bar').style.width = (totalItems ? Math.round(got/totalItems*100) : 0) + '%';
+    document.getElementById('exdone').textContent = 'أنجزت ' + done + ' من 5 تمارين';
+    var f = document.getElementById('final');
+    if (done === 5){
+      var pct = Math.round(got/totalItems*100), msg;
+      if (pct === 100) msg = '🏆 ممتاز! نتيجة كاملة، أنت خبير في أكسدة الفلزات.';
+      else if (pct >= 75) msg = '👏 أحسنت! نتيجة جيدة، راجع الأخطاء الحمراء.';
+      else if (pct >= 50) msg = '🙂 نتيجة متوسطة، أعد قراءة الدرس ثم جرّب مجددًا.';
+      else msg = '💪 لا بأس، أعد قراءة الدرس وحاول من جديد.';
+      f.style.display = 'block';
+      f.textContent = 'النتيجة النهائية: ' + got + ' / ' + totalItems + ' (' + pct + '%) — ' + msg;
+    } else { f.style.display = 'none'; }
+  }
+
+  document.querySelectorAll('.mcq button').forEach(function(b){
+    b.addEventListener('click', function(){
+      var grp = b.parentElement;
+      grp.querySelectorAll('button').forEach(function(x){ x.classList.remove('sel'); });
+      b.classList.add('sel');
+      clearFb(grp);
+    });
+  });
+
+  document.querySelectorAll('.exercise').forEach(function(ex){
+    var id = ex.dataset.ex;
+    var res = ex.querySelector('.ex-result');
+    ex.querySelector('.check').addEventListener('click', function(){
+      var items = ex.querySelectorAll('.item'), pts = 0;
+      items.forEach(function(it){ if (evalItem(it)) pts++; });
+      results[id] = pts;
+      res.textContent = pts + ' / ' + items.length;
+      updateScore();
+    });
+    ex.querySelector('.reset').addEventListener('click', function(){ resetEx(ex); updateScore(); });
+  });
+
+  function resetEx(ex){
+    ex.querySelectorAll('.item').forEach(function(it){
+      clearFb(it);
+      if (it.classList.contains('mcq')) it.querySelectorAll('button').forEach(function(b){ b.classList.remove('sel'); });
+      else if (it.tagName === 'SELECT') it.selectedIndex = 0;
+      else it.value = '';
+    });
+    delete results[ex.dataset.ex];
+    ex.querySelector('.ex-result').textContent = '';
+  }
+  document.getElementById('resetAll').addEventListener('click', function(){
+    document.querySelectorAll('.exercise').forEach(resetEx);
+    updateScore();
+  });
+})();
+</script>
+</body>
+</html>
