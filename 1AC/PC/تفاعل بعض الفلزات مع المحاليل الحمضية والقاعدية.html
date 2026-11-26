@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>تفاعل بعض الفلزات مع المحاليل الحمضية والقاعدية – فيشة تعلّم ذاتي</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Naskh+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1d2a33;--ink-soft:#52646f;--paper:#f5fafb;--panel:#fff;--line:#cfe0e4;
+--indigo:#3f4d9e;--indigo-soft:#e6e9f7;--teal:#1f7a7a;--teal-soft:#dff1f0;--amber:#c98a2e;--amber-soft:#fbefd6;--rose:#b8483a;--rose-soft:#f8e3de;--ok:#2e8b57;--ok-soft:#dff3e6;}
+*{box-sizing:border-box}
+body{margin:0;background:#e5eef0;font-family:'Noto Naskh Arabic','Amiri',serif;color:var(--ink);line-height:1.9;font-size:17px}
+.sheet{max-width:920px;margin:18px auto;background:var(--paper);padding:26px 30px;border-radius:14px;box-shadow:0 4px 18px rgba(0,0,0,.1)}
+.masthead{display:flex;align-items:center;gap:18px;background:linear-gradient(135deg,var(--teal),var(--indigo));color:#fff;border-radius:14px;padding:18px 22px}
+.masthead h1{font-family:'Amiri',serif;font-size:2rem;margin:0;line-height:1.3}
+.masthead p{margin:4px 0 0;opacity:.92}
+.meta-row{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.chip{background:var(--panel);border:1.5px solid var(--line);border-radius:20px;padding:2px 14px;font-size:.92rem}
+.chip b{color:var(--indigo)}
+section{margin:22px 0}
+h2{font-family:'Amiri',serif;font-size:1.5rem;color:var(--indigo);border-bottom:3px solid var(--amber);display:inline-block;margin:0 0 10px;padding-bottom:2px}
+h3{color:var(--teal);margin:14px 0 4px;font-size:1.12rem}
+.box{background:var(--panel);border:1.5px solid var(--line);border-radius:12px;padding:12px 18px;margin:10px 0}
+.objectif-box{background:var(--teal-soft);border-color:var(--teal)}
+.rule-box{background:var(--amber-soft);border-right:6px solid var(--amber);border-radius:10px;padding:10px 16px;margin:10px 0}
+.warn-box{background:var(--rose-soft);border-right:6px solid var(--rose);border-radius:10px;padding:10px 16px;margin:10px 0}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:10px;margin:10px 0}
+.card{background:var(--panel);border:1.5px solid var(--line);border-top:5px solid var(--indigo);border-radius:10px;padding:8px 14px}
+.card h4{margin:0;color:var(--indigo);font-size:1.03rem}
+.card p{margin:2px 0 0;font-size:.95rem}
+table.data-table{width:100%;border-collapse:collapse;margin:10px 0;background:#fff}
+.data-table th,.data-table td{border:1.5px solid var(--line);padding:6px 10px;text-align:center}
+.data-table th{background:var(--indigo);color:#fff}
+.activity-box{background:var(--indigo-soft);border:2px dashed var(--indigo);border-radius:12px;padding:12px 18px}
+.task-label{display:inline-block;background:var(--indigo);color:#fff;border-radius:8px;padding:0 10px;margin-left:6px;font-size:.9rem}
+.fill-line{display:inline-block;min-width:110px;border-bottom:2px dotted var(--ink-soft)}
+.lines{border-bottom:2px dotted var(--ink-soft);height:26px;margin:4px 0}
+.fig{text-align:center;font-size:.88rem;color:var(--ink-soft)}
+svg text{font-family:'Noto Naskh Arabic',sans-serif}
+
+/* bar du score */
+.scorebar{position:sticky;top:0;z-index:5;background:#fff;border:2px solid var(--indigo);border-radius:12px;padding:8px 16px;margin:10px 0;display:flex;align-items:center;gap:14px;flex-wrap:wrap;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.scorebar .pts{font-weight:700;color:var(--indigo);font-size:1.1rem;white-space:nowrap}
+.progress{flex:1;min-width:140px;height:14px;background:#e3e8ee;border-radius:10px;overflow:hidden}
+.progress>i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--teal),var(--indigo));transition:width .4s}
+.scorebar small{color:var(--ink-soft)}
+
+/* exercices interactifs */
+.exercise{background:var(--panel);border:1.5px solid var(--line);border-radius:12px;padding:10px 18px 14px;margin:14px 0}
+.exercise-num{display:inline-flex;width:30px;height:30px;border-radius:50%;background:var(--amber);color:#fff;align-items:center;justify-content:center;font-weight:700;margin-left:8px}
+.exercise h4{margin:0 0 6px;font-size:1.08rem;color:var(--indigo)}
+.q{margin:8px 0}
+.mcq{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 8px}
+.mcq button{font:inherit;background:#fff;border:2px solid var(--line);border-radius:10px;padding:2px 14px;cursor:pointer}
+.mcq button:hover{border-color:var(--indigo)}
+.mcq button.sel{background:var(--indigo-soft);border-color:var(--indigo)}
+.mcq.ok button.sel{background:var(--ok-soft);border-color:var(--ok)}
+.mcq.bad button.sel{background:var(--rose-soft);border-color:var(--rose)}
+select,input.ans{font:inherit;border:2px solid var(--line);border-radius:8px;padding:1px 8px;background:#fff;max-width:100%}
+input.ans{width:150px}
+select.ok,input.ans.ok{border-color:var(--ok);background:var(--ok-soft)}
+select.bad,input.ans.bad{border-color:var(--rose);background:var(--rose-soft)}
+.fb{display:inline-block;margin-right:8px;font-size:.92rem}
+.fb.ok{color:var(--ok)}.fb.bad{color:var(--rose)}
+.actions{margin-top:8px;display:flex;gap:8px;flex-wrap:wrap}
+.btn{font:inherit;font-weight:700;border:none;border-radius:10px;padding:2px 18px;cursor:pointer;color:#fff;background:var(--indigo)}
+.btn.sec{background:#fff;color:var(--indigo);border:2px solid var(--indigo)}
+.btn:hover{opacity:.9}
+.ex-result{font-weight:700;color:var(--indigo);margin-right:4px}
+.final{display:none;background:var(--ok-soft);border:2px solid var(--ok);border-radius:12px;padding:10px 18px;margin:14px 0;font-weight:700}
+.doc-box{background:var(--indigo-soft);border-right:6px solid var(--indigo);border-radius:10px;padding:10px 16px;margin:8px 0}
+
+.corrige-wrapper{margin-top:26px}
+details.corrige{border:2px solid var(--indigo);border-radius:12px;background:#fff;padding:8px 18px}
+details.corrige summary{cursor:pointer;font-family:'Amiri',serif;font-size:1.25rem;color:var(--indigo);font-weight:700}
+.corrige h5{margin:12px 0 2px;color:var(--rose);font-size:1.02rem}
+.corrige p{margin:2px 0}
+.footer-note{text-align:center;color:var(--ink-soft);font-size:.88rem;margin-top:18px}
+@page{size:A4;margin:13mm}
+@media print{body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}.sheet{box-shadow:none;margin:0;max-width:none;padding:0;background:#fff}.scorebar,.actions,.final{display:none!important}.corrige-wrapper{page-break-before:always}details.corrige:not([open]) > :not(summary){display:none}.exercise{page-break-inside:avoid}}
+.checkbox{display:inline-block;width:15px;height:15px;border:2px solid var(--indigo);border-radius:3px;vertical-align:middle;margin-left:6px}
+.opt{display:block;margin:2px 0}
+.match-cols{display:flex;justify-content:space-between;gap:30px}
+.match-cols div{flex:1}
+.match-cols p{margin:4px 0;background:var(--teal-soft);border-radius:8px;padding:2px 12px}
+.word-chip{display:inline-block;background:var(--amber-soft);border:1.5px solid var(--amber);border-radius:16px;padding:0 12px;margin:3px}
+@media print{body,body *{font-family:Tahoma,'Segoe UI',Arial,'DejaVu Sans',sans-serif !important}svg text{font-family:Tahoma,Arial,sans-serif !important}}
+table.data-table{display:block;max-width:100%;overflow-x:auto}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<header class="masthead">
+<div><h1>تفاعل بعض الفلزات مع المحاليل الحمضية والقاعدية</h1><p>الفيزياء والكيمياء – الثالثة إعدادي (Réactions de quelques métaux avec les solutions acides et basiques)</p></div>
+</header>
+
+<div class="meta-row">
+<span class="chip"><b>المستوى:</b> الثالثة إعدادي (3AC)</span>
+<span class="chip"><b>المادة:</b> الفيزياء والكيمياء</span>
+<span class="chip"><b>مدة الحصة:</b> ساعة ونصف</span>
+<span class="chip"><b>نوع الوثيقة:</b> فيشة تعلّم ذاتي</span>
+</div>
+
+<section>
+<h2>🎯 الهدف</h2>
+<div class="box objectif-box">في نهاية هذه الحصة سأكون قادرًا على:
+<ul>
+<li>أن أميّز المحلول الحمضي (حمض الكلوريدريك) من المحلول القاعدي (الصودا)؛</li>
+<li>أن أصف تفاعل الحديد والزنك والألومنيوم مع محلول حمض الكلوريدريك وأكشف عن غاز ثنائي الهيدروجين؛</li>
+<li>أن أعرف أن النحاس لا يتفاعل مع حمض الكلوريدريك المخفف؛</li>
+<li>أن أحدّد الفلزات التي تتفاعل مع الصودا (الألومنيوم والزنك) وتلك التي لا تتفاعل (الحديد والنحاس)؛</li>
+<li>أن أكتب معادلات التفاعل موزونة وأتعرّف الأيونات الناتجة بكاشف الصودا؛</li>
+<li>أن أحترم قواعد السلامة عند التعامل مع الأحماض والقواعد.</li>
+</ul></div>
+</section>
+
+<section>
+<h2>📘 الدرس</h2>
+
+<h3>1) مدخل</h3>
+<div class="box">تُصنع أواني الطبخ من الألومنيوم، وتُصنع الأسطح والسقوف من الحديد المغلفن بالزنك، وتُصنع الأسلاك الكهربائية من النحاس. فماذا يحدث لهذه الفلزات إذا لامست محلولًا حمضيًا مثل مزيل الكلس، أو محلولًا قاعديًا مثل منظّف المجاري؟ وهل تتفاعل جميعها بالطريقة نفسها؟</div>
+
+<h3>2) تذكير: المحلول الحمضي والمحلول القاعدي</h3>
+<table class="data-table">
+<tr><th></th><th>المحلول الحمضي</th><th>المحلول القاعدي</th></tr>
+<tr><td><b>مثال</b></td><td>حمض الكلوريدريك (<bdi dir="ltr">H<sup>+</sup> + Cl<sup>−</sup></bdi>)</td><td>الصودا، هيدروكسيد الصوديوم (<bdi dir="ltr">Na<sup>+</sup> + HO<sup>−</sup></bdi>)</td></tr>
+<tr><td><b>الأيونات المميّزة</b></td><td>أيونات الهيدروجين <bdi dir="ltr">H<sup>+</sup></bdi></td><td>أيونات الهيدروكسيد <bdi dir="ltr">HO<sup>−</sup></bdi></td></tr>
+<tr><td><b>قيمة pH</b></td><td>أقل من 7</td><td>أكبر من 7</td></tr>
+<tr><td><b>أثر على ورق pH</b></td><td>أحمر / برتقالي</td><td>أزرق / بنفسجي</td></tr>
+</table>
+
+<h3>3) تفاعل الفلزات مع محلول حمض الكلوريدريك</h3>
+
+<h4>أ) التجربة</h4>
+<p>نضع في أنبوب اختبار قطعة من الفلز (حديد، زنك، ألومنيوم، نحاس) ثم نضيف محلول حمض الكلوريدريك المخفف.</p>
+<table class="data-table">
+<tr><th>الفلز</th><th>الملاحظة</th><th>الغاز المنطلق</th><th>المحلول الناتج</th></tr>
+<tr><td>الحديد Fe</td><td>فقاعات غاز، والتفاعل بطيء نسبيًا</td><td>ثنائي الهيدروجين</td><td>لون أخضر باهت</td></tr>
+<tr><td>الزنك Zn</td><td>فقاعات غاز كثيرة، والتفاعل نشيط</td><td>ثنائي الهيدروجين</td><td>عديم اللون</td></tr>
+<tr><td>الألومنيوم Al</td><td>فقاعات غاز، وقد يسخن الأنبوب</td><td>ثنائي الهيدروجين</td><td>عديم اللون</td></tr>
+<tr><td>النحاس Cu</td><td>لا يحدث شيء</td><td>لا غاز</td><td>لا يتغير</td></tr>
+</table>
+
+<h4>ب) الكشف عن ثنائي الهيدروجين</h4>
+<div class="rule-box">نقرّب لهب عود ثقاب من فوهة الأنبوب الذي ينطلق منه الغاز: إذا سمعنا <b>فرقعة خفيفة</b> (انفجار صغير) فالغاز هو <b>ثنائي الهيدروجين <bdi dir="ltr">H<sub>2</sub></bdi></b>. هذا الغاز <b>قابل للاشتعال</b>، وهو أخف الغازات.</div>
+
+<h4>ج) تفسير التفاعل</h4>
+<p>تهاجم أيونات الهيدروجين <bdi dir="ltr">H<sup>+</sup></bdi> الموجودة في المحلول الحمضي ذرات الفلز: يفقد الفلز إلكترونات فيتحوّل إلى <b>كاتيون فلزي</b> يذوب في المحلول، وتكتسب أيونات <bdi dir="ltr">H<sup>+</sup></bdi> هذه الإلكترونات فتنطلق على شكل <b>ثنائي الهيدروجين</b>. أما أيونات الكلورور <bdi dir="ltr">Cl<sup>−</sup></bdi> فلا تشارك في التفاعل (أيونات متفرّجة).</p>
+
+<table class="data-table">
+<tr><th>الفلز</th><th>معادلة التفاعل (الصيغة الجزيئية)</th><th>معادلة التفاعل (الصيغة الأيونية)</th></tr>
+<tr><td>الحديد</td><td dir="ltr">Fe + 2 HCl → FeCl<sub>2</sub> + H<sub>2</sub></td><td dir="ltr">Fe + 2 H<sup>+</sup> → Fe<sup>2+</sup> + H<sub>2</sub></td></tr>
+<tr><td>الزنك</td><td dir="ltr">Zn + 2 HCl → ZnCl<sub>2</sub> + H<sub>2</sub></td><td dir="ltr">Zn + 2 H<sup>+</sup> → Zn<sup>2+</sup> + H<sub>2</sub></td></tr>
+<tr><td>الألومنيوم</td><td dir="ltr">2 Al + 6 HCl → 2 AlCl<sub>3</sub> + 3 H<sub>2</sub></td><td dir="ltr">2 Al + 6 H<sup>+</sup> → 2 Al<sup>3+</sup> + 3 H<sub>2</sub></td></tr>
+<tr><td>النحاس</td><td colspan="2">لا يتفاعل مع حمض الكلوريدريك المخفف</td></tr>
+</table>
+<p><b>تحقّق (الألومنيوم):</b> الطرف الأيسر: 2 Al و6 H و6 Cl، الطرف الأيمن: 2 Al و6 Cl و6 H (3 × 2). ✓ والشحنة: <bdi dir="ltr">+6</bdi> في الطرفين (6 أيونات H<sup>+</sup> ← 2 Al<sup>3+</sup> أي +6). ✓</p>
+
+<h3>4) تفاعل الفلزات مع محلول الصودا</h3>
+<p>نكرّر التجربة بإضافة محلول <b>الصودا</b> (هيدروكسيد الصوديوم) المركّز نسبيًا فوق الفلز.</p>
+<table class="data-table">
+<tr><th>الفلز</th><th>هل يتفاعل مع الصودا؟</th><th>الملاحظة</th></tr>
+<tr><td>الألومنيوم Al</td><td>نعم</td><td>انطلاق ثنائي الهيدروجين</td></tr>
+<tr><td>الزنك Zn</td><td>نعم (ببطء ومع التسخين)</td><td>انطلاق ثنائي الهيدروجين</td></tr>
+<tr><td>الحديد Fe</td><td>لا</td><td>لا يحدث شيء</td></tr>
+<tr><td>النحاس Cu</td><td>لا</td><td>لا يحدث شيء</td></tr>
+</table>
+<div class="rule-box"><b>تذكّر:</b> الألومنيوم والزنك فلزّان يتفاعلان مع المحلول الحمضي ومع المحلول القاعدي معًا. أما الحديد فيتفاعل مع الحمض فقط، والنحاس لا يتفاعل مع أي منهما. بعد تفاعل الألومنيوم مع الصودا تنطلق فقاعات من ثنائي الهيدروجين ويتكوّن أيون ألومينات (لا يُطلب كتابة معادلته).</div>
+
+<h3>5) الكشف عن الأيونات الفلزية بالصودا</h3>
+<p>نضيف قطرات من محلول الصودا إلى المحلول الناتج عن التفاعل فيتكوّن راسب (هيدروكسيد الفلز):</p>
+<table class="data-table">
+<tr><th>الأيون</th><th>لون الراسب مع الصودا</th><th>ملاحظة</th></tr>
+<tr><td><bdi dir="ltr">Fe<sup>2+</sup></bdi></td><td>أخضر</td><td>—</td></tr>
+<tr><td><bdi dir="ltr">Fe<sup>3+</sup></bdi></td><td>بني محمر (لون الصدأ)</td><td>—</td></tr>
+<tr><td><bdi dir="ltr">Cu<sup>2+</sup></bdi></td><td>أزرق</td><td>—</td></tr>
+<tr><td><bdi dir="ltr">Zn<sup>2+</sup></bdi></td><td>أبيض</td><td>يذوب في زيادة الصودا</td></tr>
+<tr><td><bdi dir="ltr">Al<sup>3+</sup></bdi></td><td>أبيض هلامي</td><td>يذوب في زيادة الصودا</td></tr>
+</table>
+<p>ملاحظة: الراسب الأبيض لا يكفي للتمييز بين <bdi dir="ltr">Zn<sup>2+</sup></bdi> و<bdi dir="ltr">Al<sup>3+</sup></bdi> بهذا الكاشف وحده، ويتطلب كواشف أخرى.</p>
+
+<h3>6) قواعد السلامة</h3>
+<div class="rule-box">
+<ul style="margin:0;padding-inline-start:20px">
+<li>الأحماض والقواعد المركّزة <b>أكّالة</b>: نلبس <b>نظارات واقية وقفازات</b> ومئزرًا.</li>
+<li>نتجنّب استنشاق الغازات المنطلقة ونعمل في مكان مهوّى.</li>
+<li>ثنائي الهيدروجين <b>قابل للاشتعال</b>: نبعد اللهب عن التجربة إلا عند الكشف عن الغاز بكمية صغيرة.</li>
+<li>عند ملامسة الجلد: نغسل بالماء الجاري بوفرة ونخبر الأستاذ.</li>
+<li>لا ننظّف أواني الألومنيوم بمواد قاعدية قوية (منظّفات المجاري) ولا نحفظ المحاليل الحمضية في أوعية معدنية.</li>
+</ul></div>
+
+<h3>7) ملخص</h3>
+<table class="data-table">
+<tr><th>الفلز</th><th>مع الحمض (HCl)</th><th>مع القاعدة (NaOH)</th></tr>
+<tr><td>الحديد Fe</td><td>يتفاعل: <bdi dir="ltr">Fe<sup>2+</sup> + H<sub>2</sub></bdi></td><td>لا يتفاعل</td></tr>
+<tr><td>الزنك Zn</td><td>يتفاعل: <bdi dir="ltr">Zn<sup>2+</sup> + H<sub>2</sub></bdi></td><td>يتفاعل</td></tr>
+<tr><td>الألومنيوم Al</td><td>يتفاعل: <bdi dir="ltr">Al<sup>3+</sup> + H<sub>2</sub></bdi></td><td>يتفاعل</td></tr>
+<tr><td>النحاس Cu</td><td>لا يتفاعل</td><td>لا يتفاعل</td></tr>
+</table>
+<div class="rule-box">يكشف عن ثنائي الهيدروجين بفرقعة عند تقريب لهب. وتُكتب معادلة التفاعل مع الحمض: <bdi dir="ltr">M + n H<sup>+</sup> → M<sup>n+</sup> + (n/2) H<sub>2</sub></bdi>.</div>
+</section>
+
+<section>
+<h2>🔬 نشاط تطبيقي</h2>
+<div class="box activity-box">
+<span class="task-label">أحلّل تجربة وأستنتج</span>
+<p>نضع في ثلاثة أنابيب قطعًا من الحديد (1) والزنك (2) والنحاس (3)، ونضيف إلى كل أنبوب محلول حمض الكلوريدريك المخفف. نلاحظ انطلاق فقاعات في الأنبوبين 1 و2، ولا شيء في الأنبوب 3. نقرّب لهبًا من فوهة الأنبوب 2 فنسمع فرقعة. ثم نضيف الصودا إلى محلول الأنبوب 1 فيتكوّن راسب أخضر.</p>
+<p>1) ما الغاز المنطلق في الأنبوب 2؟ وما دليلك؟ <span class="fill-line"></span><br>
+2) ما الأيون الموجود في محلول الأنبوب 1؟ <span class="fill-line"></span><br>
+3) لماذا لا يحدث شيء في الأنبوب 3؟ <span class="fill-line"></span><br>
+4) اكتب معادلة التفاعل في الأنبوب 1 (جزيئية وأيونية): <span class="fill-line"></span><br>
+5) رتّب الفلزات الثلاثة من الأكثر تفاعلًا إلى الذي لا يتفاعل: <span class="fill-line"></span></p>
+<div class="lines"></div></div>
+</section>
+
+<section>
+<h2>📝 تمارين للتدرّب</h2>
+
+<div class="exercise"><span class="exercise-num">1</span><h4>أكمل الفراغات</h4>
+<p class="q">يتفاعل الحديد مع محلول حمض الكلوريدريك فينطلق غاز <span class="fill-line"></span> الذي يكشف عنه بـ <span class="fill-line"></span> عند تقريب لهب. تتفاعل أيونات <span class="fill-line sm"></span> الموجودة في المحلول الحمضي مع الفلز. أيونات <span class="fill-line sm"></span> لا تشارك في التفاعل. النحاس لا <span class="fill-line sm"></span> مع الحمض المخفف.</p></div>
+
+<div class="exercise"><span class="exercise-num">2</span><h4>صحيح أم خطأ؟ أصحّح الخطأ</h4>
+<p class="q">1) الحديد يتفاعل مع الصودا. <span class="fill-line" style="min-width:110px"></span><br>
+2) الألومنيوم يتفاعل مع الحمض ومع القاعدة. <span class="fill-line" style="min-width:110px"></span><br>
+3) غاز ثنائي الهيدروجين يُكشف عنه بتعكير ماء الجير. <span class="fill-line" style="min-width:110px"></span><br>
+4) راسب أزرق مع الصودا يدل على أيون النحاس II. <span class="fill-line" style="min-width:110px"></span><br>
+5) يتحول الزنك إلى كاتيون <bdi dir="ltr">Zn<sup>2+</sup></bdi> عند تفاعله مع الحمض. <span class="fill-line" style="min-width:110px"></span></p></div>
+
+<div class="exercise"><span class="exercise-num">3</span><h4>أصل بين الأيون ولون الراسب مع الصودا</h4>
+<table class="data-table">
+<tr><th>الأيون</th><th>لون الراسب</th></tr>
+<tr><td><bdi dir="ltr">Fe<sup>2+</sup></bdi></td><td>أزرق</td></tr>
+<tr><td><bdi dir="ltr">Fe<sup>3+</sup></bdi></td><td>أخضر</td></tr>
+<tr><td><bdi dir="ltr">Cu<sup>2+</sup></bdi></td><td>أبيض</td></tr>
+<tr><td><bdi dir="ltr">Zn<sup>2+</sup></bdi></td><td>بني محمر</td></tr>
+</table>
+<p>أكتب الأزواج الصحيحة: <span class="fill-line"></span></p></div>
+
+<div class="exercise"><span class="exercise-num">4</span><h4>أتوقع النتيجة (يتفاعل / لا يتفاعل)</h4>
+<table class="data-table">
+<tr><th>الفلز</th><th>مع حمض HCl</th><th>مع الصودا NaOH</th></tr>
+<tr><td>الحديد</td><td></td><td></td></tr>
+<tr><td>الزنك</td><td></td><td></td></tr>
+<tr><td>الألومنيوم</td><td></td><td></td></tr>
+<tr><td>النحاس</td><td></td><td></td></tr>
+</table></div>
+
+<div class="exercise"><span class="exercise-num">5</span><h4>أوازن المعادلات</h4>
+<p class="q">أ) <bdi dir="ltr">… Fe + … HCl → … FeCl<sub>2</sub> + … H<sub>2</sub></bdi><br>
+ب) <bdi dir="ltr">… Zn + … HCl → … ZnCl<sub>2</sub> + … H<sub>2</sub></bdi><br>
+ج) <bdi dir="ltr">… Al + … HCl → … AlCl<sub>3</sub> + … H<sub>2</sub></bdi><br>
+د) أكتب المعادلة الأيونية للتفاعل (أ): <span class="fill-line" style="min-width:220px"></span></p></div>
+
+<div class="exercise"><span class="exercise-num">6</span><h4>تجربة الكشف عن الغاز</h4>
+<p class="q">نضع قطعة من الزنك في أنبوب اختبار يحتوي على محلول حمض الكلوريدريك، فتنطلق فقاعات. نقرّب لهب عود ثقاب من فوهة الأنبوب فنسمع فرقعة خفيفة.<br>
+1) ما الغاز المنطلق؟ <span class="fill-line"></span><br>
+2) ما الأيون الذي أخذ إلكترونات الزنك في هذا التفاعل؟ <span class="fill-line"></span><br>
+3) ما الكاتيون الذي تكوّن في المحلول؟ <span class="fill-line"></span><br>
+4) اكتب معادلة التفاعل. <span class="fill-line"></span><br>
+5) لماذا نبتعد باللهب عن التجربة عند إجرائها بكميات كبيرة؟ <span class="fill-line"></span></p></div>
+
+<div class="exercise"><span class="exercise-num">7</span><h4>أتعرّف على الأيون</h4>
+<p class="q">أضفنا الصودا إلى أربعة محاليل (أ، ب، ج، د) فلاحظنا:<br>
+أ) راسب أخضر ← الأيون: <span class="fill-line" style="min-width:90px"></span><br>
+ب) راسب أزرق ← الأيون: <span class="fill-line" style="min-width:90px"></span><br>
+ج) راسب بني محمر ← الأيون: <span class="fill-line" style="min-width:90px"></span><br>
+د) راسب أبيض يذوب في زيادة الصودا ← الأيون (احتمالان): <span class="fill-line" style="min-width:140px"></span></p></div>
+
+<div class="exercise"><span class="exercise-num">8</span><h4>مسألة من الحياة اليومية</h4>
+<p class="q">1) تنظّف ربة بيت إناء من الألومنيوم بمنظّف قوي للمجاري (غني بالصودا)، فتنطلق فقاعات ويتآكل الإناء. فسّر ذلك. <span class="fill-line"></span><br>
+2) لماذا يُستحسن عدم حفظ محلول مزيل الكلس (حمضي) في وعاء من الحديد أو الزنك؟ <span class="fill-line"></span><br>
+3) لماذا يصلح النحاس لصنع أنابيب نقل ماء قد يحتوي على حموضة خفيفة؟ <span class="fill-line"></span><br>
+4) اذكر ثلاث احتياطات للسلامة عند إجراء هذه التجارب. <span class="fill-line"></span></p></div>
+</section>
+
+<div class="corrige-wrapper">
+<details class="corrige">
+<summary>اضغط لإظهار الحل / إخفائه — التصحيح الكامل</summary>
+<h5>نشاط تطبيقي</h5>
+<p>1) ثنائي الهيدروجين، والدليل الفرقعة عند تقريب اللهب. 2) أيون الحديد II <bdi dir="ltr">Fe<sup>2+</sup></bdi> (الراسب الأخضر). 3) النحاس لا يتفاعل مع حمض الكلوريدريك المخفف. 4) <bdi dir="ltr">Fe + 2 HCl → FeCl<sub>2</sub> + H<sub>2</sub></bdi> ، وأيونيًا: <bdi dir="ltr">Fe + 2 H<sup>+</sup> → Fe<sup>2+</sup> + H<sub>2</sub></bdi>. 5) الزنك (نشيط) ثم الحديد (أبطأ)، ثم النحاس (لا يتفاعل).</p>
+<h5>تمرين 1</h5><p>ثنائي الهيدروجين؛ فرقعة؛ <bdi dir="ltr">H<sup>+</sup></bdi>؛ <bdi dir="ltr">Cl<sup>−</sup></bdi>؛ يتفاعل.</p>
+<h5>تمرين 2</h5><p>1) خطأ: لا يتفاعل مع الصودا. 2) صحيح. 3) خطأ: يُكشف عنه بالفرقعة عند تقريب اللهب، وماء الجير للكشف عن ثنائي أكسيد الكربون. 4) صحيح. 5) صحيح.</p>
+<h5>تمرين 3</h5><p><bdi dir="ltr">Fe<sup>2+</sup></bdi> ← أخضر؛ <bdi dir="ltr">Fe<sup>3+</sup></bdi> ← بني محمر؛ <bdi dir="ltr">Cu<sup>2+</sup></bdi> ← أزرق؛ <bdi dir="ltr">Zn<sup>2+</sup></bdi> ← أبيض.</p>
+<h5>تمرين 4</h5><p>الحديد: يتفاعل مع HCl، لا يتفاعل مع NaOH. الزنك: يتفاعل مع الاثنين. الألومنيوم: يتفاعل مع الاثنين. النحاس: لا يتفاعل مع أي منهما.</p>
+<h5>تمرين 5</h5><p>أ) <bdi dir="ltr">1 Fe + 2 HCl → 1 FeCl<sub>2</sub> + 1 H<sub>2</sub></bdi><br>ب) <bdi dir="ltr">1 Zn + 2 HCl → 1 ZnCl<sub>2</sub> + 1 H<sub>2</sub></bdi><br>ج) <bdi dir="ltr">2 Al + 6 HCl → 2 AlCl<sub>3</sub> + 3 H<sub>2</sub></bdi><br>د) <bdi dir="ltr">Fe + 2 H<sup>+</sup> → Fe<sup>2+</sup> + H<sub>2</sub></bdi></p>
+<h5>تمرين 6</h5><p>1) ثنائي الهيدروجين. 2) أيون الهيدروجين <bdi dir="ltr">H<sup>+</sup></bdi>. 3) الكاتيون <bdi dir="ltr">Zn<sup>2+</sup></bdi>. 4) <bdi dir="ltr">Zn + 2 HCl → ZnCl<sub>2</sub> + H<sub>2</sub></bdi>. 5) لأن ثنائي الهيدروجين غاز قابل للاشتعال والانفجار، وقد يشتعل بكميات كبيرة.</p>
+<h5>تمرين 7</h5><p>أ) <bdi dir="ltr">Fe<sup>2+</sup></bdi>. ب) <bdi dir="ltr">Cu<sup>2+</sup></bdi>. ج) <bdi dir="ltr">Fe<sup>3+</sup></bdi>. د) <bdi dir="ltr">Zn<sup>2+</sup></bdi> أو <bdi dir="ltr">Al<sup>3+</sup></bdi>.</p>
+<h5>تمرين 8</h5><p>1) الألومنيوم يتفاعل مع الصودا (محلول قاعدي) فينطلق ثنائي الهيدروجين ويتآكل الفلز. 2) لأن الحديد والزنك يتفاعلان مع الأحماض فيتآكل الوعاء ويتلوّث المحلول. 3) لأن النحاس لا يتفاعل مع المحاليل الحمضية المخففة. 4) نظارات وقفازات، ومكان مهوّى، وإبعاد اللهب عن الغاز القابل للاشتعال، وغسل الجلد بالماء عند الملامسة.</p>
+</details>
+</div>
+
+<p class="footer-note">فيشة تعلّم ذاتي – الفيزياء والكيمياء – الثالثة إعدادي</p>
+</div>
+</body>
+</html>
