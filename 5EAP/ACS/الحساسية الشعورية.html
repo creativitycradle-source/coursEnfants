@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>الحساسية الشعورية – فيشة تعلّم ذاتي</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Naskh+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#2a2118;--ink-soft:#6a5846;--paper:#fbf8f3;--panel:#fff;--line:#e0d3c2;
+--brown:#8a5a34;--brown-soft:#f1e6da;--leaf:#3f7d3a;--leaf-soft:#e3f0de;--amber:#c98a2e;--amber-soft:#fbefd6;--clay:#b5502f;--clay-soft:#f8e3da;}
+*{box-sizing:border-box}
+body{margin:0;background:#ece5da;font-family:'Noto Naskh Arabic','Amiri',serif;color:var(--ink);line-height:1.9;font-size:17px}
+.sheet{max-width:900px;margin:18px auto;background:var(--paper);padding:26px 30px;border-radius:14px;box-shadow:0 4px 18px rgba(0,0,0,.1)}
+.masthead{display:flex;align-items:center;gap:18px;background:linear-gradient(135deg,var(--brown),#a9754a);color:#fff;border-radius:14px;padding:18px 22px}
+.masthead h1{font-family:'Amiri',serif;font-size:1.9rem;margin:0;line-height:1.35}
+.masthead p{margin:4px 0 0;opacity:.92}
+.meta-row{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.chip{background:var(--panel);border:1.5px solid var(--line);border-radius:20px;padding:2px 14px;font-size:.92rem}
+.chip b{color:var(--brown)}
+section{margin:20px 0}
+h2{font-family:'Amiri',serif;font-size:1.5rem;color:var(--brown);border-bottom:3px solid var(--amber);display:inline-block;margin:0 0 10px;padding-bottom:2px}
+h3{color:var(--leaf);margin:14px 0 4px;font-size:1.12rem}
+.box{background:var(--panel);border:1.5px solid var(--line);border-radius:12px;padding:12px 18px;margin:10px 0}
+.objectif-box{background:var(--leaf-soft);border-color:var(--leaf)}
+.rule-box{background:var(--amber-soft);border-right:6px solid var(--amber);border-radius:10px;padding:10px 16px;margin:10px 0}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:10px;margin:10px 0}
+.card{background:var(--panel);border:1.5px solid var(--line);border-top:5px solid var(--clay);border-radius:10px;padding:8px 14px}
+.card.good{border-top-color:var(--leaf)}
+.card h4{margin:0;color:var(--clay);font-size:1.03rem}
+.card.good h4{color:var(--leaf)}
+.card p{margin:2px 0 0;font-size:.95rem}
+table.data-table{width:100%;border-collapse:collapse;margin:10px 0;background:#fff}
+.data-table th,.data-table td{border:1.5px solid var(--line);padding:6px 10px;text-align:center}
+.data-table th{background:var(--brown);color:#fff}
+.activity-box{background:var(--brown-soft);border:2px dashed var(--brown);border-radius:12px;padding:12px 18px}
+.task-label{display:inline-block;background:var(--brown);color:#fff;border-radius:8px;padding:0 10px;margin-left:6px;font-size:.9rem}
+.exercise{background:var(--panel);border:1.5px solid var(--line);border-radius:12px;padding:10px 18px 12px;margin:12px 0;page-break-inside:avoid}
+.exercise-num{display:inline-flex;width:30px;height:30px;border-radius:50%;background:var(--amber);color:#fff;align-items:center;justify-content:center;font-weight:700;margin-left:8px}
+.exercise h4{margin:0 0 6px;font-size:1.05rem;color:var(--brown)}
+.fill-line{display:inline-block;min-width:110px;border-bottom:2px dotted var(--ink-soft)}
+.checkbox,.sq{display:inline-block;width:16px;height:16px;border:2px solid var(--leaf);border-radius:3px;vertical-align:middle;margin:0 6px}
+.opt{display:block;margin:2px 0}
+.lines{border-bottom:2px dotted var(--ink-soft);height:26px;margin:4px 0}
+.match-cols{display:flex;justify-content:space-between;gap:30px}.match-cols div{flex:1}
+.match-cols p{margin:4px 0;background:var(--brown-soft);border-radius:8px;padding:2px 12px}
+.word-chip{display:inline-block;background:var(--amber-soft);border:1.5px solid var(--amber);border-radius:16px;padding:0 12px;margin:3px}
+.doc-box{background:var(--clay-soft);border-right:6px solid var(--clay);border-radius:10px;padding:10px 16px;margin:8px 0}
+.corrige-wrapper{page-break-before:always;margin-top:26px}
+details.corrige{border:2px solid var(--brown);border-radius:12px;background:#fff;padding:8px 18px}
+details.corrige summary{cursor:pointer;font-family:'Amiri',serif;font-size:1.25rem;color:var(--brown);font-weight:700}
+.corrige h5{margin:12px 0 2px;color:var(--clay);font-size:1.02rem}
+.corrige p{margin:2px 0}
+.footer-note{text-align:center;color:var(--ink-soft);font-size:.88rem;margin-top:18px}
+svg text{font-family:'Noto Naskh Arabic',sans-serif}
+.fig{text-align:center;font-size:.88rem;color:var(--ink-soft)}
+@page{size:A4;margin:13mm}
+@media print{body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}.sheet{box-shadow:none;margin:0;max-width:none;padding:0;background:#fff}details.corrige:not([open]) > :not(summary){display:none}}
+@media print{body,body *{font-family:Tahoma,'Segoe UI',Arial,'DejaVu Sans',sans-serif !important}svg text{font-family:Tahoma,Arial,sans-serif !important}}
+table.data-table{display:block;max-width:100%;overflow-x:auto}
+@media (max-width:600px){.data-table th,.data-table td{padding:5px 2px;font-size:12px}}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<header class="masthead">
+<svg width="80" height="62" viewBox="0 0 80 62" aria-hidden="true"><ellipse cx="40" cy="31" rx="30" ry="18" fill="none" stroke="#fff" stroke-width="4"/><circle cx="40" cy="31" r="10" fill="#fff"/><circle cx="40" cy="31" r="4" fill="#2b7a78"/></svg>
+<div><h1>الحَسَّاسِيَّةُ الشُّعُورِيَّةُ</h1><p>النشاط العلمي – الحواس والإحساس بالمحيط</p></div>
+</header>
+
+<div class="meta-row">
+<span class="chip"><b>المستوى:</b> السادسة ابتدائي (6AEP)</span>
+<span class="chip"><b>المادة:</b> النشاط العلمي</span>
+<span class="chip"><b>مدة الحصة:</b> ساعة ونصف</span>
+<span class="chip"><b>نوع الوثيقة:</b> فيشة تعلّم ذاتي</span>
+</div>
+
+<section>
+<h2>🎯 الهدف</h2>
+<div class="box objectif-box">في نهاية هذه الفيشة سأكون قادرًا على:
+<ul>
+<li>أن أعرّف <b>المنبّه</b> و<b>الاستجابة</b> وأعطي أمثلة عنهما؛</li>
+<li>أن أذكر <b>أعضاء الحس</b> الخمسة والمنبّهات التي تلتقطها؛</li>
+<li>أن أرتّب مراحل مسار الإحساس: منبّه ← مستقبل حسي ← عصب حسي ← دماغ ← عصب حركي ← استجابة؛</li>
+<li>أن أميّز بين <b>الفعل المنعكس</b> و<b>الفعل الإرادي</b>؛</li>
+<li>أن أبيّن أن حساسية الجلد ليست متساوية في كل مناطقه؛</li>
+<li>أن أذكر سلوكات تحمي أعضاء الحس.</li>
+</ul></div>
+</section>
+
+<section>
+<h2>📘 الدرس</h2>
+
+<h3>1) ملاحظة</h3>
+<div class="rule-box">حين تلمس يدُك إناءً ساخنًا تسحبها بسرعة. وحين تسمع جرس المدرسة تتجه إلى القسم. وحين تشمّ رائحة الخبز تشعر بالجوع. في كل هذه الحالات <b>أحسّ</b> جسمك بشيء في محيطه، ثم <b>استجاب</b> له. هذه القدرة هي <b>الحساسية الشعورية</b>: قدرة الكائن الحي على الإحساس بما حوله والاستجابة له.</div>
+
+<h3>2) المنبّه والاستجابة</h3>
+<table class="data-table">
+<tr><th>المفهوم</th><th>التعريف</th><th>مثال</th></tr>
+<tr><td><b>المنبّه</b></td><td>كل ما يؤثر في أعضاء الحس من وسطنا الخارجي</td><td>الضوء، الصوت، الرائحة، الحرارة</td></tr>
+<tr><td><b>الإحساس</b></td><td>ما نشعر به في الدماغ بعد وصول الخبر إليه</td><td>الإحساس بالسخونة أو بالألم</td></tr>
+<tr><td><b>الاستجابة</b></td><td>رد فعل الجسم على المنبّه</td><td>سحب اليد، إغماض العين، الهرب</td></tr>
+</table>
+
+<h3>3) أعضاء الحس والمنبّهات</h3>
+<table class="data-table">
+<tr><th>الحاسة</th><th>عضو الحس</th><th>المنبّه الذي يلتقطه</th><th>ماذا نحسّ؟</th></tr>
+<tr><td>البصر</td><td>العين</td><td>الضوء</td><td>الأشكال والألوان والمسافات</td></tr>
+<tr><td>السمع</td><td>الأذن</td><td>الصوت</td><td>الأصوات (حادة أو غليظة، قوية أو ضعيفة)</td></tr>
+<tr><td>الشم</td><td>الأنف</td><td>مواد عطرية في الهواء</td><td>الروائح</td></tr>
+<tr><td>الذوق</td><td>اللسان</td><td>مواد ذائبة في اللعاب</td><td>الحلو والمالح والحامض والمر</td></tr>
+<tr><td>اللمس</td><td>الجلد</td><td>الحرارة والبرودة والضغط والألم</td><td>الساخن والبارد والخشن والأملس والألم</td></tr>
+</table>
+
+<h3>4) مسار الإحساس والاستجابة</h3>
+<p>يتم الإحساس والاستجابة عبر مراحل:</p>
+<div class="rule-box" style="text-align:center">
+<b>المنبّه</b> ← <b>المستقبلات الحسية</b> (في عضو الحس) ← <b>العصب الحسي</b> ← <b>الدماغ</b> (يفسّر الخبر ويقرّر) ← <b>العصب الحركي</b> ← <b>العضلات</b> ← <b>الاستجابة</b></div>
+<ul>
+<li><b>المستقبلات الحسية:</b> خلايا صغيرة في أعضاء الحس تلتقط المنبّه وتحوّله إلى رسالة عصبية.</li>
+<li><b>الأعصاب الحسية:</b> تنقل الرسالة من عضو الحس إلى الدماغ أو النخاع الشوكي.</li>
+<li><b>الدماغ:</b> مركز الإحساس والتفكير، يفسّر الرسالة ويقرّر الاستجابة.</li>
+<li><b>الأعصاب الحركية:</b> تنقل الأمر من الدماغ إلى العضلات.</li>
+<li><b>العضلات:</b> تنفّذ الاستجابة (حركة).</li>
+</ul>
+<div class="worked-example"><span class="tag">مثال</span><br>
+أرى كرة تقترب (منبّه: الضوء) ← تلتقطها شبكية العين ← ينقلها العصب البصري إلى الدماغ ← يفسّر الدماغ الخبر ويقرّر الابتعاد ← يرسل أمرًا عبر الأعصاب الحركية ← تتحرك عضلات الساقين ← أبتعد (الاستجابة).</div>
+
+<h3>5) الفعل المنعكس والفعل الإرادي</h3>
+<table class="data-table">
+<tr><th></th><th>الفعل المنعكس</th><th>الفعل الإرادي</th></tr>
+<tr><td><b>التعريف</b></td><td>استجابة سريعة جدًا <b>لا إرادية</b>، لا نقرّرها</td><td>استجابة <b>نقرّرها بوعي</b></td></tr>
+<tr><td><b>المركز</b></td><td>غالبًا <b>النخاع الشوكي</b></td><td>الدماغ</td></tr>
+<tr><td><b>أمثلة</b></td><td>سحب اليد عند لمس جسم ساخن، إغماض العين عند ضوء قوي، السعال</td><td>كتابة الدرس، كرة القدم، فتح الباب</td></tr>
+<tr><td><b>فائدته</b></td><td>حماية الجسم من الخطر بسرعة</td><td>تحقيق أهدافنا</td></tr>
+</table>
+
+<h3>6) حساسية الجلد غير متساوية</h3>
+<p>الجلد يغطي كل الجسم، لكن حساسيته تختلف من منطقة إلى أخرى: <b>أطراف الأصابع والشفتان</b> أكثر حساسية لأن فيها عددًا كبيرًا من المستقبلات الحسية، أما <b>الظهر</b> فأقل حساسية. ولهذا نستعمل أطراف أصابعنا لتمييز الأشياء الدقيقة، ويقرأ المكفوفون بطريقة <b>برايل</b> بأطراف أصابعهم.</p>
+
+<h3>7) أخطاء الحواس وحمايتها</h3>
+<ul>
+<li>قد تخدعنا حواسنا أحيانًا (الخدع البصرية)، ولهذا نتحقق بأكثر من حاسة وبالقياس.</li>
+<li><b>حماية العينين:</b> لا ننظر إلى الشمس مباشرة، ونقرأ في ضوء كاف، ولا نقترب كثيرًا من الشاشة.</li>
+<li><b>حماية الأذنين:</b> لا نرفع صوت السماعات، ولا ندخل أشياء صلبة في الأذن.</li>
+<li><b>حماية الأنف واللسان والجلد:</b> النظافة، وتجنّب شمّ أو ذوق المواد المجهولة، والوقاية من الحروق والشمس.</li>
+<li>نزور الطبيب عند ألم أو ضعف في إحدى الحواس.</li>
+</ul>
+
+<h3>8) ملخص</h3>
+<div class="rule-box"><ul style="margin:0;padding-inline-start:20px">
+<li>الحساسية الشعورية: إحساس الكائن الحي بالمنبّهات المحيطة به والاستجابة لها.</li>
+<li>لنا خمس حواس: البصر (العين)، السمع (الأذن)، الشم (الأنف)، الذوق (اللسان)، اللمس (الجلد).</li>
+<li>المسار: منبّه ← مستقبل حسي ← عصب حسي ← دماغ ← عصب حركي ← عضلة ← استجابة.</li>
+<li>الفعل المنعكس سريع ولا إرادي ويحمينا، والفعل الإرادي نقرّره بوعي.</li>
+<li>يجب حماية أعضاء الحس بالسلوكات الصحية.</li>
+</ul></div>
+</section>
+
+<section>
+<h2>🔬 نشاط تطبيقي</h2>
+<div class="box activity-box">
+<span class="task-label">أختبر حواسي</span>
+<p><b>التجربة 1 (اللمس):</b> أضع في كيس أشياء مختلفة (قلم، قطعة قماش، قطعة سكر، حجر). أغمض عينيّ وألمس شيئًا وأحاول معرفته. أسجّل: <span class="fill-line"></span></p>
+<p><b>التجربة 2 (الذوق والشم):</b> أغمض عينيّ وأسدّ أنفي ثم أذوق قطعة تفاح وقطعة بصل. هل أميّز بينهما؟ <span class="fill-line"></span> ثم أفتح أنفي وأعيد التجربة. ماذا ألاحظ؟ <span class="fill-line"></span></p>
+<p><b>التجربة 3 (حساسية الجلد):</b> يلمس زميلي ظهر يدي ثم أطراف أصابعي بنقطتين متقاربتين (رأسا قلمين). أحدد هل أحسّ بنقطة واحدة أم نقطتين.</p>
+<table class="data-table">
+<tr><th>المنطقة</th><th>أحسّ بنقطتين أم نقطة واحدة؟</th></tr>
+<tr><td>ظهر اليد</td><td></td></tr>
+<tr><td>أطراف الأصابع</td><td></td></tr>
+</table>
+<p>الاستنتاج: أي المنطقتين أكثر حساسية؟ <span class="fill-line"></span> لماذا؟ <span class="fill-line"></span></p>
+<div class="lines"></div></div>
+</section>
+
+<section>
+<h2>📝 تمارين للتدرّب</h2>
+
+<div class="exercise"><span class="exercise-num">1</span><h4>أكمل الفراغات</h4>
+<p>أحسّ بالضوء بواسطة <span class="fill-line sm"></span>، وبالصوت بواسطة <span class="fill-line sm"></span>، وبالروائح بواسطة <span class="fill-line sm"></span>، وبالمذاق بواسطة <span class="fill-line sm"></span>، وبالحرارة بواسطة <span class="fill-line sm"></span>. تنقل الأعصاب <span class="fill-line sm"></span> الرسالة إلى الدماغ.</p></div>
+
+<div class="exercise"><span class="exercise-num">2</span><h4>صحيح أم خطأ؟ أصحّح الخطأ</h4>
+<p>1) الجلد هو عضو حاسة اللمس. <span class="fill-line sm"></span><br>
+2) الدماغ هو الذي ينفّذ الحركة مباشرة. <span class="fill-line sm"></span><br>
+3) الفعل المنعكس نقرّره بوعي. <span class="fill-line sm"></span><br>
+4) أطراف الأصابع أكثر حساسية من الظهر. <span class="fill-line sm"></span><br>
+5) النظر المباشر إلى الشمس يضر العينين. <span class="fill-line sm"></span></p></div>
+
+<div class="exercise"><span class="exercise-num">3</span><h4>أصل بين عضو الحس والمنبّه</h4>
+<table class="data-table">
+<tr><th>عضو الحس</th><th>المنبّه</th></tr>
+<tr><td>العين</td><td>الصوت</td></tr>
+<tr><td>الأذن</td><td>الحرارة والضغط</td></tr>
+<tr><td>الأنف</td><td>الضوء</td></tr>
+<tr><td>الجلد</td><td>الروائح</td></tr>
+</table>
+<p>أكتب الأزواج الصحيحة: <span class="fill-line"></span></p></div>
+
+<div class="exercise"><span class="exercise-num">4</span><h4>أرتّب مراحل المسار (من 1 إلى 6)</h4>
+<p>( &nbsp;) الدماغ يفسّر الخبر ويقرّر &nbsp;&nbsp; ( &nbsp;) العصب الحسي ينقل الرسالة &nbsp;&nbsp; ( &nbsp;) المنبّه (مثل الضوء) &nbsp;&nbsp; ( &nbsp;) العضلات تنفّذ الاستجابة &nbsp;&nbsp; ( &nbsp;) المستقبلات الحسية تلتقط المنبّه &nbsp;&nbsp; ( &nbsp;) العصب الحركي ينقل الأمر</p></div>
+
+<div class="exercise"><span class="exercise-num">5</span><h4>أصنّف الأفعال (منعكس / إرادي)</h4>
+<p>سحب اليد من الماء الساخن – رمي الكرة – إغماض العين عند دخول غبار – كتابة الدرس – السعال عند استنشاق دخان – ركوب الدراجة</p>
+<table class="data-table">
+<tr><th>فعل منعكس</th><th>فعل إرادي</th></tr>
+<tr><td><br><br></td><td></td></tr>
+</table></div>
+
+<div class="exercise"><span class="exercise-num">6</span><h4>أقرأ جدولًا وأستنتج</h4>
+<p>قاس تلاميذ أصغر مسافة بين نقطتين يميّزهما الشخص كنقطتين (بالمليمتر) على مناطق من الجلد:</p>
+<table class="data-table">
+<tr><th>المنطقة</th><th>أطراف الأصابع</th><th>راحة اليد</th><th>الذراع</th><th>الظهر</th></tr>
+<tr><td>المسافة (mm)</td><td>3</td><td>10</td><td>35</td><td>45</td></tr>
+</table>
+<p>1) أي منطقة أكثر حساسية؟ <span class="fill-line"></span><br>
+2) أي منطقة أقل حساسية؟ <span class="fill-line"></span><br>
+3) ما العلاقة بين المسافة المقاسة والحساسية؟ <span class="fill-line"></span><br>
+4) فسّر لماذا يقرأ المكفوفون بأطراف أصابعهم. <span class="fill-line"></span></p></div>
+
+<div class="exercise"><span class="exercise-num">7</span><h4>مسألة من الحياة اليومية</h4>
+<p>لمست سلمى إناءً ساخنًا فسحبت يدها بسرعة وصاحت: «آه، ساخن!».<br>
+1) ما المنبّه؟ <span class="fill-line"></span><br>
+2) ما عضو الحس؟ <span class="fill-line"></span><br>
+3) هل سحب اليد فعل منعكس أم إرادي؟ ولماذا؟ <span class="fill-line"></span><br>
+4) ما فائدة هذه الاستجابة؟ <span class="fill-line"></span><br>
+5) متى شعرت سلمى بالإحساس بالسخونة؟ <span class="fill-line"></span></p></div>
+
+<div class="exercise"><span class="exercise-num">8</span><h4>أحمي حواسي</h4>
+<p>أقول لكل سلوك: «يحمي» أو «يضر»، مع ذكر الحاسة:<br>
+أ) رفع صوت السماعات عاليًا: <span class="fill-line" style="min-width:180px"></span><br>
+ب) ارتداء نظارات شمسية في الشمس القوية: <span class="fill-line" style="min-width:180px"></span><br>
+ج) إدخال قلم في الأذن: <span class="fill-line" style="min-width:180px"></span><br>
+د) القراءة في ضوء كاف: <span class="fill-line" style="min-width:180px"></span><br>
+هـ) شمّ مادة كيميائية مجهولة: <span class="fill-line" style="min-width:180px"></span></p></div>
+</section>
+
+<div class="corrige-wrapper">
+<details class="corrige">
+<summary>اضغط لإظهار الحل / إخفائه — التصحيح الكامل</summary>
+<h5>نشاط تطبيقي</h5>
+<p>النتائج تختلف حسب التلاميذ. التجربة 2: يصعب التمييز بين التفاح والبصل عند سدّ الأنف، ويسهل عند فتحه، لأن الشم يساهم في الإحساس بالنكهة. التجربة 3: أطراف الأصابع تميّز النقطتين أسهل من ظهر اليد، فهي أكثر حساسية لكثرة المستقبلات الحسية فيها.</p>
+<h5>تمرين 1</h5><p>العين؛ الأذن؛ الأنف؛ اللسان؛ الجلد؛ الحسية.</p>
+<h5>تمرين 2</h5><p>1) صحيح. 2) خطأ: الدماغ يقرّر، والعضلات هي التي تنفّذ الحركة. 3) خطأ: الفعل المنعكس لا إرادي. 4) صحيح. 5) صحيح.</p>
+<h5>تمرين 3</h5><p>العين ← الضوء؛ الأذن ← الصوت؛ الأنف ← الروائح؛ الجلد ← الحرارة والضغط.</p>
+<h5>تمرين 4</h5><p>1) المنبّه. 2) المستقبلات الحسية. 3) العصب الحسي. 4) الدماغ يفسّر ويقرّر. 5) العصب الحركي. 6) العضلات تنفّذ الاستجابة.</p>
+<h5>تمرين 5</h5><p>منعكس: سحب اليد من الماء الساخن، إغماض العين عند دخول غبار، السعال عند استنشاق دخان. إرادي: رمي الكرة، كتابة الدرس، ركوب الدراجة.</p>
+<h5>تمرين 6</h5><p>1) أطراف الأصابع. 2) الظهر. 3) كلما كانت المسافة أصغر كانت الحساسية أكبر. 4) لأن أطراف الأصابع غنية بالمستقبلات الحسية فتميّز الفروق الدقيقة بين نقاط برايل البارزة.</p>
+<h5>تمرين 7</h5><p>1) الحرارة (الإناء الساخن). 2) الجلد (اليد). 3) منعكس، لأنه سريع ولا إرادي. 4) حماية اليد من الحرق. 5) بعد وصول الرسالة إلى الدماغ، وهو الذي يفسّرها كإحساس بالسخونة.</p>
+<h5>تمرين 8</h5><p>أ) يضر (السمع). ب) يحمي (البصر). ج) يضر (السمع). د) يحمي (البصر). هـ) يضر (الشم، وقد يضر الجهاز التنفسي).</p>
+</details>
+</div>
+
+<p class="footer-note">فيشة تعلّم ذاتي – النشاط العلمي – السادسة ابتدائي</p>
+</div>
+</body>
+</html>
